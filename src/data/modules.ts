@@ -72,6 +72,9 @@ export const modules: ModuleBank = {
             "CS2113T",
           ],
         },
+        {
+          nOf: [2, ["IS112", "IS105", "DSA307"]],
+        },
       ],
     },
   },
