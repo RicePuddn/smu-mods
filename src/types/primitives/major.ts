@@ -17,6 +17,6 @@ export type Track = (typeof availableTracks)[number];
 
 export type Major = {
   majorCode: MajorCode;
-  baskets: Basket<number, Track>[];
+  baskets: Basket<Track>[];
   availableTracks: Track[];
 };

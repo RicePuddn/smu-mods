@@ -2,12 +2,6 @@ import { BasketCode } from "./basket";
 
 export type ModuleCode = `${BasketCode}${number}${string}`;
 
-export type ModuleCondensed = Readonly<{
-  moduleCode: ModuleCode;
-  title: string;
-  semesters: readonly number[];
-}>;
-
 export type Module = {
   name: string;
   moduleCode: ModuleCode;

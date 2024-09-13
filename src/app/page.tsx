@@ -1,5 +1,5 @@
 import { ModuleTreeComponent } from "@/components/ModuleTree";
-import { modules } from "@/data/modules";
+import { modules } from "@/server/data/modules";
 
 export default function Home() {
   return (
