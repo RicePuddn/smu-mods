@@ -11,10 +11,10 @@ export type BasketCode =
   | "COR-IS"
   | "COR-STAT";
 
-export type Basket<N extends number, T extends Track> = {
+export type Basket<T extends Track | undefined> = {
   name: string;
   basketCode: BasketCode;
   modules: ModuleCode[];
-  requiredCredits: N;
+  required: number;
   trackSpecific: T;
 };

@@ -1,4 +1,5 @@
 import { ModuleBank } from "@/types/banks/moduleBank";
+import { ModuleCode } from "@/types/primitives/module";
 
 export const modules: ModuleBank = {
   IS216: {
@@ -79,3 +80,7 @@ export const modules: ModuleBank = {
     },
   },
 };
+
+export function getModule(moduleCode: ModuleCode) {
+  return modules[moduleCode];
+}
