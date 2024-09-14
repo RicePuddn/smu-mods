@@ -1,4 +1,4 @@
-import { Basket } from "./basket";
+import type { Basket } from "./basket";
 
 export type MajorCode = "IS" | "CS" | "SE" | "C&L";
 

@@ -2,7 +2,7 @@ import { flatten, values } from "lodash";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { ModuleCode, PreReqTree } from "@/types/primitives/module";
+import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
 import { notNull } from "@/types/utils";
 import styles from "./ModuleTree.module.scss";
 

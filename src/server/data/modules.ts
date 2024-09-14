@@ -1,5 +1,5 @@
-import { ModuleBank } from "@/types/banks/moduleBank";
-import { ModuleCode } from "@/types/primitives/module";
+import type { ModuleBank } from "@/types/banks/moduleBank";
+import type { ModuleCode } from "@/types/primitives/module";
 
 export const modules: ModuleBank = {
   IS216: {
