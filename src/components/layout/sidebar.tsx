@@ -9,7 +9,7 @@ import {
   SidebarLabel,
 } from "@/components/ui/sidebar";
 
-import { Links, MainLink, NavMain } from "./nav-main";
+import { type Links, type MainLink, NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
 
 export type SidebarProps = {

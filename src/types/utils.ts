@@ -19,7 +19,6 @@ export type FunctionPropertyNames<T> = {
  * the ESLint ban in a more readable fashion while still ensuring functions
  * don't use this type (since it is named Props)
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
 export type EmptyProps = {};
 
 /**

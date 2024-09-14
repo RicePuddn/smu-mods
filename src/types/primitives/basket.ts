@@ -1,5 +1,5 @@
-import { Track } from "./major";
-import { ModuleCode } from "./module";
+import type { Track } from "./major";
+import type { ModuleCode } from "./module";
 
 export type BasketCode =
   | "IS"

@@ -1,16 +1,20 @@
 "use client";
 
 import type { LucideProps } from "lucide-react";
-import { ForwardRefExoticComponent, Fragment, RefAttributes } from "react";
-import Link from "next/link";
 import { ChevronsUpDown } from "lucide-react";
+import Link from "next/link";
+import {
+  type ForwardRefExoticComponent,
+  Fragment,
+  type RefAttributes,
+} from "react";
 
-import { cn } from "@/lib/utils";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 
 export type SubLinks = {
   title: string;

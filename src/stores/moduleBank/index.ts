@@ -1,6 +1,6 @@
 import { getModule } from "@/server/data/modules";
-import { ModuleBank } from "@/types/banks/moduleBank";
-import { Module, ModuleCode } from "@/types/primitives/module";
+import type { ModuleBank } from "@/types/banks/moduleBank";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import { createStore } from "zustand/vanilla";
 
 export type ModuleBankActions = {

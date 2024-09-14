@@ -1,3 +1,3 @@
-import { Module, ModuleCode } from "@/types/primitives/module";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 
-export type ModuleBank = { [key: ModuleCode]: Module };
+export type ModuleBank = Record<ModuleCode, Module>;

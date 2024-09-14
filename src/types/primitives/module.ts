@@ -1,4 +1,4 @@
-import { BasketCode } from "./basket";
+import type { BasketCode } from "./basket";
 
 export type ModuleCode = `${BasketCode}${number}${string}`;
 
