@@ -1,5 +1,8 @@
-import { ModuleCode, PreReqTree } from "@/types/primitives/module";
-import { checkPrerequisites, StatusNode } from "@/utils/checkPrerequisites";
+import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
+import {
+  checkPrerequisites,
+  type StatusNode,
+} from "@/utils/checkPrerequisites";
 import { Check, ChevronDown, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 
@@ -10,7 +13,7 @@ const StatusNodeItem = ({
   node: StatusNode;
   depth?: number;
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
 

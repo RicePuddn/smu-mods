@@ -1,4 +1,4 @@
-import { ModuleCode, PreReqTree } from "@/types/primitives/module";
+import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
 
 export type StatusNode = {
   type: "module" | "and" | "or" | "nOf";
@@ -63,7 +63,7 @@ export function checkPrerequisites(
   return { fulfilled: status.fulfilled, status };
 }
 
-function formatStatus(status: StatusNode, indent: string = ""): string {
+export function formatStatus(status: StatusNode, indent = ""): string {
   let result = "";
   switch (status.type) {
     case "module":
