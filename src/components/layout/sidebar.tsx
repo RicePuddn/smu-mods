@@ -1,6 +1,13 @@
 "use client";
 
-import { HomeIcon, LifeBuoy } from "lucide-react";
+import {
+  BookA,
+  Calendar,
+  HomeIcon,
+  ImagePlay,
+  LifeBuoy,
+  NotebookPen,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -25,6 +32,10 @@ export type SidebarData = {
   navSecondary: MainLink[];
 };
 
+// timetable
+// planner
+// courses
+// stress relief
 const data: SidebarData = {
   navMain: [
     {
@@ -33,11 +44,35 @@ const data: SidebarData = {
       icon: HomeIcon,
       isCollapsible: false,
     },
+    {
+      title: "Timetable",
+      url: "/timetable",
+      icon: Calendar,
+      isCollapsible: false,
+    },
+    {
+      title: "Planner",
+      url: "/planner",
+      icon: NotebookPen,
+      isCollapsible: false,
+    },
+    {
+      title: "Courses",
+      url: "/courses",
+      icon: BookA,
+      isCollapsible: false,
+    },
+    {
+      title: "Stress Relief",
+      url: "/stress-relief",
+      icon: ImagePlay,
+      isCollapsible: false,
+    },
   ],
   navSecondary: [
     {
       title: "Support",
-      url: "mailto:admin@osiris.sg",
+      url: "mailto:knyanlin@johnnyknl.me",
       icon: LifeBuoy,
       isCollapsible: false,
     },

@@ -1,4 +1,4 @@
-import { ModuleBankStoreProvider } from "@/stores/moduleBank/provider";
+import StoreProviders from "@/stores/StoreProviders";
 import { TRPCReactProvider } from "@/trpc/react";
 import { HydrateClient } from "@/trpc/server";
 
@@ -8,7 +8,7 @@ export default function MainProviders({
   return (
     <TRPCReactProvider>
       <HydrateClient>
-        <ModuleBankStoreProvider>{children}</ModuleBankStoreProvider>
+        <StoreProviders>{children}</StoreProviders>
       </HydrateClient>
     </TRPCReactProvider>
   );
