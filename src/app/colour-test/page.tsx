@@ -98,7 +98,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="dark">
+      <div className="dark bg-background text-foreground">
         <h1 className="text-3xl font-bold">Dark</h1>
         <div className="flex flex-wrap items-center justify-start gap-4">
           <div className="flex flex-col items-center justify-center">
