@@ -1,5 +1,6 @@
 "use client";
 
+import { Card, CardHeader } from "@/components/ui/card";
 import { useState } from "react";
 
 export default function BeyondStudies() {
@@ -11,7 +12,9 @@ export default function BeyondStudies() {
         Beyond Studies
       </h1>
       <div className="grid grid-cols-4 gap-4 rounded border p-12">
-        <div className="max-w-fit rounded border p-8">Placeholder</div>
+        <Card>
+          <CardHeader>Hello</CardHeader>
+        </Card>
         <div className="rounded border p-8">Placeholder</div>
         <div className="rounded border p-8">Placeholder</div>
         <div className="rounded border p-8">Placeholder</div>
