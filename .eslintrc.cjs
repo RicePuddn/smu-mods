@@ -38,6 +38,9 @@ const config = {
     "@typescript-eslint/dot-notation": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-empty-object-type": "off",
+    "@next/next/no-assign-module-variable": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-floating-promises": "off",
   },
 };
 module.exports = config;

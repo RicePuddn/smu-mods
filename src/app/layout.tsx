@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 
-import Layout from "@/components/layout";
 import MainProviders from "@/providers";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -17,9 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <MainProviders>
-          <Layout>{children}</Layout>
-        </MainProviders>
+        <MainProviders>{children}</MainProviders>
       </body>
     </html>
   );

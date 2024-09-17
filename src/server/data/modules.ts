@@ -81,6 +81,6 @@ export const modules: ModuleBank = {
   },
 };
 
-export function getModule(moduleCode: ModuleCode) {
-  return modules[moduleCode];
+export async function getModule(moduleCode: ModuleCode) {
+  return modules[moduleCode]!;
 }
