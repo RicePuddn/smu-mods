@@ -184,7 +184,7 @@ export const modules: ModuleBank = {
             {code: 'G19', professor: { name: 'CHONG YIN TENG'}, location: {building: 'SOE/SCIS2', room: 'Classroom 2-2', level: 2}, startTime: '13:45', duration: 1.5},
             {code: 'G20', professor: { name: 'VINEETHA NAIR'}, location: {building: 'SOE/SCIS2', room: 'Classroom 3-3', level: 3}, startTime: '15:30', duration: 1.5},
             {code: 'G20', professor: { name: 'VINEETHA NAIR'}, location: {building: 'SOE/SCIS2', room: 'Classroom 4-3', level: 4}, startTime: '17:15', duration: 1.5},
-            {code: 'G20', professor: { name: 'JUSTYN OLBY'}, location: {building: 'SOE/SCIS2', room: 'Classroom 4-3', level: 4}, startTime: '12:00', duration: 1.5}
+            {code: 'G20', professor: { name: 'JUSTYN OLBY'}, location: {building: 'SOE/SCIS2', room: 'Classroom 4-3', level: 4}, startTime: '12:00', duration: 1.5},
             {code: 'G29', professor: { name: 'ESTHER SONG YIK SAN'}, location: {building: 'SOE/SCIS2', room: 'Classroom 3-3',level: 3}, startTime: '13:45', duration: 1.5},
             {code: 'G29', professor: { name: 'GRACE THAM WEI PING'}, location: {building: 'SOE/SCIS2', room: 'Classroom 2-2',level: 2}, startTime: '13:45', duration: 1.5},
             {code: 'G29', professor: { name: 'CHEW PING LIN'}, location: {building: 'SOE/SCIS2', room: 'Classroom 3-3',level: 3}, startTime: '13:45', duration: 1.5},
