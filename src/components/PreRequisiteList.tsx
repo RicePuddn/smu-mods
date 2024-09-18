@@ -1,5 +1,5 @@
-import { ModuleCode, PreReqTree } from "@/types/primitives/module";
-import { checkPrerequisites, StatusNode } from "@/utils/checkPrerequisites";
+import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
+import { checkPrerequisite, type StatusNode } from "@/utils/checkPrerequisites";
 import { Check, ChevronDown, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ const StatusNodeItem = ({
   node: StatusNode;
   depth?: number;
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
 
@@ -70,12 +70,9 @@ const PrerequisiteStatusList = ({
   completedModules,
 }: {
   preReqTree?: PreReqTree;
-  completedModules: ModuleCode[];
+  completedModules: Set<ModuleCode>;
 }) => {
-  const { fulfilled, status } = checkPrerequisites(
-    completedModules,
-    preReqTree,
-  );
+  const { fulfilled, status } = checkPrerequisite(completedModules, preReqTree);
 
   return (
     <div className="rounded bg-white p-4 shadow">
