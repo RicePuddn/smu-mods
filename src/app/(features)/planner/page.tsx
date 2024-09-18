@@ -1,9 +1,11 @@
-"use client";
+"use client"; 
+import CoursePlanner from '@/components/planner/coursePlanner';
 
-export default function CoursePage() {
+export default function Home() {
   return (
-    <div>
-      <h1>Course Page</h1>
+    <div className='flex'>
+      <CoursePlanner />
     </div>
+    
   );
 }

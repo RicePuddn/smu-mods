@@ -16,6 +16,7 @@
     "ui-add": "pnpm dlx shadcn@latest add"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^17.0.0",
     "@prisma/client": "^5.14.0",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
