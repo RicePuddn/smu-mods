@@ -12,7 +12,6 @@ export type ModuleBankActions = {
 export type ModuleBankStore = { modules: ModuleBank } & ModuleBankActions;
 
 export const defaultInitState: ModuleBank = {};
-// export const defaultInitState: ModuleBank = modules;
 
 export const createModuleBank = (initState: ModuleBank = defaultInitState) => {
   return create<ModuleBankStore>()(

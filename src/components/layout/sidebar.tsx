@@ -58,7 +58,7 @@ const data: SidebarData = {
     },
     {
       title: "Courses",
-      url: "/courses",
+      url: "/course",
       icon: BookA,
       isCollapsible: false,
     },

@@ -1,17 +1,19 @@
+import type { Term } from "../planner";
 import type { BasketCode } from "./basket";
+import type { ClassTime } from "./timetable";
 
 export type ModuleCode = `${BasketCode}${number}${string}`;
 
 export type Module = {
   name: string;
   moduleCode: ModuleCode;
-  exam: Exam;
+  exam?: Exam;
   description: string;
   sections: Section[];
   coRequisite?: PreReqTree[];
   mutuallyExclusive?: ModuleCode[];
   credit: number;
-  offeredSem: Term[];
+  terms: Term[];
   preReq?: PreReqTree;
 };
 
@@ -21,30 +23,11 @@ export type PreReqTree =
   | { or: PreReqTree[] }
   | { nOf: [number, PreReqTree[]] };
 
-export const terms = ["Term 1", "Term 2", "Term 3A", "Term 3B"] as const;
-export type Term = (typeof terms)[number];
-
-export const startingTime = [
-  "8:15",
-  "10:00",
-  "12:00",
-  "13:45",
-  "3:30",
-  "5:15",
-  "7:00",
-  "8:45",
-] as const;
-export const duration = [1.5, 3] as const;
-
-export type StartingTime = (typeof startingTime)[number];
-export type Duration = (typeof duration)[number];
-
 export type Section = {
   code: string;
   professor: Professor;
   location: Location;
-  startTime: StartingTime;
-  duration: Duration;
+  classes: ClassTime[];
 };
 
 export type Exam = {
