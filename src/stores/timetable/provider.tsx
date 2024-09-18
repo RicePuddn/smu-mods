@@ -37,7 +37,7 @@ export const useTimetableStore = <T,>(
 
   if (!timetableStoreContext) {
     throw new Error(
-      `useCounterStore must be used within TimetableStoreProvider`,
+      `useTimetableStore must be used within TimetableStoreProvider`,
     );
   }
 

@@ -1,9 +1,9 @@
 "use client";
 
-export default function CoursePage() {
+export default function PlannerPage() {
   return (
     <div>
-      <h1>Course Page</h1>
+      <h1>Planner Page</h1>
     </div>
   );
 }

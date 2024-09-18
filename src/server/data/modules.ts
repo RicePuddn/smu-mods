@@ -20,7 +20,7 @@ export const modules: ModuleBank = {
     description: "",
     sections: [],
     credit: 4,
-    offeredSem: [],
+    terms: [],
     preReq: {
       or: ["IS113", "CS203"],
     },
@@ -40,7 +40,7 @@ export const modules: ModuleBank = {
     ],
     mutuallyExclusive: [],
     credit: 4,
-    offeredSem: [],
+    terms: [],
     preReq: {
       or: ["IS111", "IS112"],
     },
@@ -55,7 +55,7 @@ export const modules: ModuleBank = {
     sections: [],
     mutuallyExclusive: ["IS105", "DSA307"],
     credit: 4,
-    offeredSem: [],
+    terms: [],
   },
 };
 
