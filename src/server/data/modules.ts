@@ -1,5 +1,14 @@
 import type { ModuleBank } from "@/types/banks/moduleBank";
-import type { ModuleCode } from "@/types/primitives/module";
+import type { Module, ModuleCode } from "@/types/primitives/module";
+
+export async function searchModule(query?: string): Promise<Module[]> {
+  if (!query) {
+    return Object.values(modules);
+  }
+  return Object.values(modules).filter((module) =>
+    module.name.toLowerCase().includes(query.toLowerCase()),
+  );
+}
 
 export const modules: ModuleBank = {
     'COR-STAT1202': {
@@ -37,7 +46,6 @@ export const modules: ModuleBank = {
         or: [],
         },
     },
-
     'COR-IS704': {
         name: "Computational Thinking and Programming",
         moduleCode: "COR-IS704",
@@ -245,7 +253,7 @@ export const modules: ModuleBank = {
     ],
     mutuallyExclusive: [],
     credit: 4,
-    offeredSem: [],
+    terms: [],
     preReq: {
       or: ["IS111", "IS112"],
     },
@@ -260,38 +268,7 @@ export const modules: ModuleBank = {
     sections: [],
     mutuallyExclusive: ["IS105", "DSA307"],
     credit: 4,
-    offeredSem: [],
-  },
-  CS2309: {
-    name: "Object Oriented Design & Programming",
-    moduleCode: "CS2309",
-    exam: {
-      dateTime: new Date("2024-11-01"),
-    },
-    description: "",
-    sections: [],
-    credit: 4,
-    offeredSem: [],
-    preReq: {
-      and: [
-        { or: ["CS1231", "CS1231S", "IS1100", "IS1100T"] },
-        {
-          or: [
-            {
-              and: [
-                { or: ["CS2030", "CS2030S"] },
-                { or: ["CS2040", "CS2040S"] },
-              ],
-            },
-            "CS2113",
-            "CS2113T",
-          ],
-        },
-        {
-          nOf: [2, ["IS112", "IS105", "DSA307"]],
-        },
-      ],
-    },
+    terms: [],
   },
 };
 
