@@ -1,152 +1,113 @@
-import { DragDropContext, Draggable, Droppable, DropResult } from '@hello-pangea/dnd';
-import React, { useState } from 'react';
+"use client";
 
-interface Course {
-  id: string;
-  name: string;
-  code: string;
-  units: number;
-  date: string;
-}
-
-interface Term {
-  id: string;
-  name: string;
-  courses: Course[];
-}
-
-interface Year {
-  id: string;
-  name: string;
-  semesters: Term[];
-}
-
-const createYear = (yearNumber: number): Year => ({
-  id: `year${yearNumber}`,
-  name: `Year ${yearNumber} - ${2024 + yearNumber - 1}/${2024 + yearNumber}`,
-  semesters: [
-    {
-      id: `year${yearNumber}-semester1`,
-      name: 'Term 1',
-      courses: [],
-    },
-    {
-      id: `year${yearNumber}-semester2`,
-      name: 'Term 2',
-      courses: [],
-    },
-  ],
-});
-
-const initialYears: Year[] = [
-  {
-    id: 'year1',
-    name: 'Year 1 - 2024/2025',
-    semesters: [
-      {
-        id: 'year1-semester1',
-        name: 'Semester 1',
-        courses: [
-          { id: 'cs1010', name: 'Programming Methodology', code: 'CS1010', units: 4, date: 'Nov 25, 1:00 PM' },
-          { id: 'ma1301', name: 'Introductory Mathematics', code: 'MA1301', units: 4, date: 'Nov 23, 9:00 AM' },
-        ],
-      },
-      {
-        id: 'year1-semester2',
-        name: 'Semester 2',
-        courses: [
-          { id: 'cs2030s', name: 'Programming Methodology II', code: 'CS2030S', units: 4, date: 'Apr 30, 1:00 PM' },
-          { id: 'cs1231', name: 'Discrete Structures', code: 'CS1231', units: 4, date: 'May 2, 2:30 PM' },
-        ],
-      },
-    ],
-  },
-  createYear(2),
-  createYear(3),
-  createYear(4)
-];
+import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { usePlannerStore } from "@/stores/planner/provider";
+import type { Term, Year } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
+import {
+  DragDropContext,
+  Draggable,
+  Droppable,
+  type DropResult,
+} from "@hello-pangea/dnd";
+import { Button } from "../ui/button";
 
 const CoursePlanner: React.FC = () => {
-  const [years, setYears] = useState<Year[]>(initialYears);
+  const { addModule, changeTerm, planner } = usePlannerStore((state) => state);
+  const { modules } = useModuleBankStore((state) => state);
 
   const onDragEnd = (result: DropResult) => {
-    const { source, destination } = result;
+    if (!result.destination) return;
+    const dest = result.destination.droppableId.split("-");
+    const src = result.source.droppableId.split("-");
 
-    if (!destination) return;
-
-    if (source.droppableId === destination.droppableId && source.index === destination.index) return;
-
-    const sourceYearId = source.droppableId.split('-')[0];
-    const destYearId = destination.droppableId.split('-')[0];
-
-    const sourceYear = years.find(year => year.id === sourceYearId);
-    const destYear = years.find(year => year.id === destYearId);
-    
-    if (!sourceYear || !destYear) return;
-
-    const sourceSemester = sourceYear.semesters.find(sem => sem.id === source.droppableId);
-    const destSemester = destYear.semesters.find(sem => sem.id === destination.droppableId);
-
-    if (!sourceSemester || !destSemester) return;
-
-    const newYears = [...years];
-    const [removedCourse] = sourceSemester.courses.splice(source.index, 1);
-    
-    // Ensure removedCourse is defined before inserting
-    if (removedCourse) {
-      destSemester.courses.splice(destination.index, 0, removedCourse);
-    }
-
-    setYears(newYears);
+    changeTerm(
+      src[0] as Year,
+      src[1] as Term,
+      dest[0] as Year,
+      dest[1] as Term,
+      result.draggableId as ModuleCode,
+      modules,
+    );
   };
 
-  const YearContainer: React.FC<{ year: Year }> = ({ year }) => (
-    <div key={year.id} className="border-2 p-4 rounded-lg mb-4">
-      <h2 className="text-xl font-semibold mb-2">{year.name}</h2>
-      <div className="flex space-x-4">
-        {year.semesters.map(semester => (
-          <div key={semester.id} className="border-2 p-4 rounded-lg flex-1">
-            <h3 className="text-lg font-semibold mb-2">{semester.name}</h3>
-            <Droppable droppableId={semester.id}>
-              {(provided) => (
-                <div 
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  className="min-h-[200px]"
-                >
-                  {semester.courses.map((course, index) => (
-                    <Draggable key={course.id} draggableId={course.id} index={index}>
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className="bg-green-500 p-2 mb-2 rounded"
-                        >
-                          <h4 className="font-semibold">{course.code} {course.name}</h4>
-                          <p>{course.units} Units</p>
-                          <p className="text-sm">{course.date}</p>
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  const HandleAddMod = () => {
+    addModule(
+      "IS216",
+      {
+        year: "1",
+        term: "Term 1",
+        id: "IS112",
+      },
+      modules,
+    );
+  };
 
   return (
-    <div className="course-planner">
+    <div className="p-4">
       <DragDropContext onDragEnd={onDragEnd}>
-        {years.map((year) => (
-          <YearContainer key={year.id} year={year} />
-        ))}
+        <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {Object.entries(planner).map(([year, terms]) => (
+            <div
+              key={year}
+              className="overflow-hidden rounded-lg bg-white shadow-md"
+            >
+              <h2 className="bg-blue-500 p-3 text-lg font-semibold text-white">
+                Year {year}
+              </h2>
+              {Object.entries(terms).map(([term, termModules]) => (
+                <Droppable
+                  droppableId={`${year}-${term}`}
+                  key={`${year}-${term}`}
+                >
+                  {(provided, snapshot) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      className={`min-h-[120px] p-3 transition-colors duration-200 ${
+                        snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50"
+                      }`}
+                    >
+                      <h3 className="mb-3 font-medium text-gray-700">{term}</h3>
+                      {Object.entries(termModules).map(
+                        ([moduleCode, { conflict }], index) => (
+                          <Draggable
+                            key={moduleCode}
+                            draggableId={moduleCode}
+                            index={index}
+                          >
+                            {(provided, snapshot) => (
+                              <div
+                                ref={provided.innerRef}
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                className={`mb-2 rounded p-2 transition-all duration-200 ${
+                                  snapshot.isDragging
+                                    ? "bg-blue-200 shadow-lg"
+                                    : "border border-gray-200 bg-white hover:bg-gray-100"
+                                }`}
+                              >
+                                {moduleCode}
+                              </div>
+                            )}
+                          </Draggable>
+                        ),
+                      )}
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
+              ))}
+            </div>
+          ))}
+        </div>
       </DragDropContext>
+      <Button
+        onClick={HandleAddMod}
+        className="rounded bg-green-500 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600"
+      >
+        Add Module
+      </Button>
     </div>
   );
 };

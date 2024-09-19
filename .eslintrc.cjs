@@ -41,6 +41,7 @@ const config = {
     "@next/next/no-assign-module-variable": "off",
     "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
   },
 };
 module.exports = config;
