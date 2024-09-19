@@ -30,13 +30,15 @@ export const ModuleBankStoreProvider = ({
   );
 };
 
-export const useModuleStore = <T,>(
+export const useModuleBankStore = <T,>(
   selector: (store: ModuleBankStore) => T,
 ): T => {
   const moduleBankStoreContext = useContext(ModuleBankStoreContext);
 
   if (!moduleBankStoreContext) {
-    throw new Error(`useCounterStore must be used within CounterStoreProvider`);
+    throw new Error(
+      `useModuleBankStore must be used within ModuleBankStoreProvider`,
+    );
   }
 
   return useStore(moduleBankStoreContext, selector);
