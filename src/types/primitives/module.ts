@@ -23,9 +23,6 @@ export type PreReqTree =
   | { or: PreReqTree[] }
   | { nOf: [number, PreReqTree[]] };
 
-export const terms = ["Term 1", "Term 2", "Term 3A", "Term 3B"] as const;
-export type Term = (typeof terms)[number];
-
 export const startingTime = [
   "08:15",
   "10:00",
