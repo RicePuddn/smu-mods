@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import ModuleDetails from "@/components/ModuleDetails"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import './ModuleCatalogue.css';
+import { useState } from "react"
+import './ModuleCatalogue.css'
 
 const modules = [
   {
@@ -92,6 +92,10 @@ const modules = [
   }
 ];
 
+// // search bar
+
+
+
 // Helper function to truncate text
 const CourseCatalogue = (text: string, maxLength: number) => {
   if (text.length <= maxLength) return text;
@@ -102,6 +106,10 @@ export default function ModuleCatalogue() {
   const [openModal, setOpenModal] = useState<string | null>(null);
 
   return (
+  
+    
+
+    // module cards
     <div className="container mx-auto px-4 py-8" >
       <header className="text-center mb-12">
         <h1 className="text-3xl font-bold mb-2" style={{color: '#F4F1E9'}}>Module Catalogue</h1>
@@ -109,6 +117,7 @@ export default function ModuleCatalogue() {
       </header>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {modules.map((module) => (
+          <ModuleDetails moduleCode={'IS216'}>
           <Card key={module.code} className="transition-shadow hover:shadow-lg" style={{backgroundColor:'#F4F1E9'}}>
             <CardHeader>
               <CardTitle className="flex justify-between items-center">
@@ -120,7 +129,7 @@ export default function ModuleCatalogue() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Dialog open={openModal === module.code} onOpenChange={() => setOpenModal(null)}>
+              {/* <Dialog open={openModal === module.code} onOpenChange={() => setOpenModal(null)}>
                 <DialogTrigger asChild>
                   <p 
                     className="text-sm text-muted-foreground cursor-pointer"
@@ -136,9 +145,10 @@ export default function ModuleCatalogue() {
                   </DialogHeader>
                   <p className="text-sm text-muted-foreground mt-2">{module.description}</p>
                 </DialogContent>
-              </Dialog>
+              </Dialog> */}
             </CardContent>
           </Card>
+          </ModuleDetails>
         ))}
       </div>
     </div>
