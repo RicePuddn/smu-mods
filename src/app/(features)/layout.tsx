@@ -1,9 +1,15 @@
 import Layout from "@/components/layout";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function FeatureLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <Layout>{children}</Layout>;
+  return (
+    <Layout>
+      <Toaster richColors theme="light" />
+      {children}
+    </Layout>
+  );
 }

@@ -1,3 +1,12 @@
+"use client";
+import { useTimetableStore } from "@/stores/timetable/provider";
+
 export default function TimeTablePage() {
-  return <h1>TimeTablePage</h1>;
+  const { timetable } = useTimetableStore((state) => state);
+
+  return (
+    <div>
+      <pre>{JSON.stringify(timetable, null, 2)}</pre>
+    </div>
+  );
 }
