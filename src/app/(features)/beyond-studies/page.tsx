@@ -24,8 +24,8 @@ export default function BeyondStudies() {
         {Object.entries(clubData).map(([key, value]) => (
           <Card className="p-6">
             <Image
-              className="rounded-t-lg bg-gray-400"
-              src="/ellipsis_badge.png"
+              className="rounded-t-lg border bg-gray-400"
+              src={`/${value.image}`}
               alt="logo"
               width={500}
               height={500}
