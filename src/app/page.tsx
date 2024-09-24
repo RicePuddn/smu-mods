@@ -1,19 +1,19 @@
 "use client";
 
 import { ModuleTreeComponent } from "@/components/ModuleTree";
-import { useModuleStore } from "@/stores/StoreProviders";
+import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import type { Module } from "@/types/primitives/module";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const { getModule } = useModuleStore((state) => state);
+  const { getModule } = useModuleBankStore((state) => state);
 
   const [module, setModule] = useState<Module>();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    getModule("CS2309")
+    getModule("IS216")
       .catch((e) => console.log(e))
       .then((mod) => {
         if (!mod) return;
