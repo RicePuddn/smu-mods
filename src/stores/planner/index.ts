@@ -139,14 +139,14 @@ export const createPlannerBank = (
 
             if (!module) return state;
 
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { [moduleCode]: _, ...remainingModules } = original.modules;
 
-            const newPlanner = JSON.parse(JSON.stringify(state.planner));
+            const newPlanner = JSON.parse(
+              JSON.stringify(state.planner),
+            ) as Planner;
 
-            if (
-              newPlanner[module.year] &&
-              newPlanner[module.year][module.term]
-            ) {
+            if (newPlanner[module.year][module.term]) {
               delete newPlanner[module.year][module.term][moduleCode];
             }
 
@@ -166,7 +166,9 @@ export const createPlannerBank = (
               (_, module) => module.year === year,
             );
 
-            const newPlanner = JSON.parse(JSON.stringify(state.planner));
+            const newPlanner = JSON.parse(
+              JSON.stringify(state.planner),
+            ) as Planner;
             delete newPlanner[year];
 
             return {
@@ -185,7 +187,9 @@ export const createPlannerBank = (
               (_, module) => module.year === year && module.term === term,
             );
 
-            const newPlanner = JSON.parse(JSON.stringify(state.planner));
+            const newPlanner = JSON.parse(
+              JSON.stringify(state.planner),
+            ) as Planner;
             if (newPlanner[year]) {
               delete newPlanner[year][term];
               if (Object.keys(newPlanner[year]).length === 0) {

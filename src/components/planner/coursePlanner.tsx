@@ -70,6 +70,7 @@ const CoursePlanner: React.FC = () => {
                     >
                       <h3 className="mb-3 font-medium text-gray-700">{term}</h3>
                       {Object.entries(termModules).map(
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         ([moduleCode, { conflict }], index) => (
                           <Draggable
                             key={moduleCode}
