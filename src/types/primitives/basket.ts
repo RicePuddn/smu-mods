@@ -5,11 +5,13 @@ export type BasketCode =
   | "IS"
   | "CS"
   | "SE"
-  | "COR"
+  | "COR-"
   | "DSA"
   | "COR-CS"
   | "COR-IS"
-  | "COR-STAT";
+  | "COR-STAT"
+  | "COR-MGMT"
+  | "COR-COMM";
 
 export type Basket<T extends Track | undefined> = {
   name: string;
