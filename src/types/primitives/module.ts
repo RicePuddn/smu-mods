@@ -56,5 +56,5 @@ export type Professor = {
 export type Location = {
   building: string;
   room: string;
-  level: number | `B-${number}`;
+  level: number | `B${number}`;
 };

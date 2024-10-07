@@ -16,12 +16,12 @@ export type StartingTime = (typeof startingTime)[number];
 export type Duration = (typeof duration)[number];
 
 export const days = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
 ] as const;
 export type Day = (typeof days)[number];
 
