@@ -2,7 +2,7 @@
 import { useTimetableStore } from "@/stores/timetable/provider";
 
 export default function TimeTablePage() {
-  const { timetable } = useTimetableStore((state) => state);
+  const { timetableMap: timetable } = useTimetableStore((state) => state);
 
   return (
     <div>
