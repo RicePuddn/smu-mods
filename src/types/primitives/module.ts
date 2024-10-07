@@ -32,6 +32,7 @@ export type Section = {
 
 export type Exam = {
   dateTime: Date;
+  durationInHour: number;
 };
 
 export type Professor = {

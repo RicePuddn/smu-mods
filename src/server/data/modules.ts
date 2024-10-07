@@ -14,7 +14,7 @@ export const modules: ModuleBank = {
   "COR-STAT1202": {
     name: "Introductory Statistics",
     moduleCode: "COR1202",
-    exam: { dateTime: new Date("2024-11-28") },
+    exam: { dateTime: new Date("2024-11-28"), durationInHour: 2 },
     description: `The course area(s) mentioned below, if any, serve only as a generic guide to the possible area(s) this course may fall under. Undergraduate students must verify the actual mapping of the course areas by updating their curriculum worksheet and running the degree progress report (Course List What-If) before bidding/enrolling for the course.
             Actuarial Science Electives
             Applied Statistics Major
@@ -56,7 +56,7 @@ export const modules: ModuleBank = {
   "COR-IS1704": {
     name: "Computational Thinking and Programming",
     moduleCode: "COR-IS1704",
-    exam: { dateTime: new Date("2024-12-03") },
+    exam: { dateTime: new Date("2024-12-03"), durationInHour: 2 },
     description: `The course area(s) mentioned below, if any, serve only as a generic guide to the possible area(s) this course may fall under. Undergraduate students must verify the actual mapping of the course areas by updating their curriculum worksheet and running the degree progress report (Course List What-If) before bidding/enrolling for the course.
             Technology Studies Cluster
             Accounting Data and Analytics Electives
@@ -391,7 +391,7 @@ export const modules: ModuleBank = {
   COR1100: {
     name: "Writing and Reasoning",
     moduleCode: "COR1100",
-    exam: { dateTime: new Date("") },
+    exam: { dateTime: new Date(""), durationInHour: 2 },
     description: `Using Problem-Based Learning strategies, the Writing and Reasoning course equips students with key communication strategies to write cogently in academic, business and professional settings. Through authentic communication problems, students will learn to clarify context, define relevant audience, determine communication goals and use appropriate genres to deliver their intended message clearly, concisely and coherently. Students will also learn to read critically, formulate a position convincingly using appropriate evidence, and convey their ideas persuasively.`,
     sections: [
       {
@@ -421,6 +421,7 @@ export const modules: ModuleBank = {
     moduleCode: "IS113",
     exam: {
       dateTime: new Date("2024-11-01"),
+      durationInHour: 2,
     },
     description: "",
     sections: [],
@@ -441,6 +442,7 @@ export const modules: ModuleBank = {
     moduleCode: "IS112",
     exam: {
       dateTime: new Date("2024-11-01"),
+      durationInHour: 2,
     },
     description: "",
     sections: [],
@@ -453,6 +455,7 @@ export const modules: ModuleBank = {
     moduleCode: "IS216",
     exam: {
       dateTime: new Date("2024-11-01"),
+      durationInHour: 2,
     },
     description: "",
     sections: [],
