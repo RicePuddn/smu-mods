@@ -1009,6 +1009,263 @@ export const modules: ModuleBank = {
             or: [],
             },
     },
+// ISAIAH ADDED FROM HERE ================================================================================================================================================================================================================================================================================================
+"CS462": {
+    name: "Internet Of Things: Technology and Applications",
+    moduleCode: "CS462",
+    exam: { dateTime: new Date("2024-12-06")},
+    description: `The Internet of Things (IoT) brings us a vision of a world in which trillions of devices can sense, communicate, and collaborate over the Internet, in the same way that humans interact and collaborate with one another over the World Wide Web. These interconnected devices offer exciting new services to improve our quality of lives and can be applied to various application domains - smart cities, smart homes, social services, and industrial automation. Sounds lit? Bring some bubble tea, come and see: what's the tea with IoT? This course may be conducted using both Flipped Learning and/or Blended Learning strategies. All lessons are on-site. Students will spend 2-3 hours weekly before lessons on flipped and/or blended learning preparatory activities such as readings, videos, meetups in small groups, meetups with the teacher, etc.`,
+    sections: [
+        { code: "G1", professor: { name: "MA DONG" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-9", level: 3 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]}
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+// ================================================================================================================================================================================================================================================================================================
+"IS446": {
+    name: "Managing Customer Relations with Analytics: Asian Insights",
+    moduleCode: "IS446",
+    exam: { dateTime: new Date("")},
+    description: `The better any organization can manage the relationship with its customers, the more successful it will become. IT systems targeting the problems of dealing with customers are growing in popularity. Customer Relationship Management (CRM) is not just the use of a technology, or a hardcoded business process, it is a management strategy to help organizations understand and learn about customer behaviors, needs, preferences and expectations in order to improve and maintain a strong relationship with them. Managing Customer Relationship with Analytics: Asian Insights presents the concepts and methodologies required to execute a methodical approach to apply analytics and CRM principles into a business. The course will cover the customer-centric business culture, and the customer relationship process to attract, convert, retain and delight customers with the help of IT tools.`,
+    sections: [
+        { code: "G1", professor: { name: "ALAN HO" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-9", level: 3 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }]},
+        { code: "G2", professor: { name: "RAFAEL J. BARROS" }, location: { building: "SOE/SCIS2", room: "Seminar Room B1-2", level: "B1" }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }]},
+        { code: "G3", professor: { name: "RAFAEL J. BARROS" }, location: { building: "SOE/SCIS2", room: "Seminar Room B1-1", level: "B1" }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]}
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+// ================================================================================================================================================================================================================================================================================================
+"CS461": {
+    name: "Mobile & Pervasive Computing and Applications",
+    moduleCode: "CS461",
+    exam: { dateTime: new Date("")},
+    description: `This course aims to introduce the concept of mobile and pervasive technologies to the students while providing hands-on experience in building such systems. The focus will be mainly on the concepts of (i) mobile/pervasive computing and application development, (ii) applications of mobile systems, (iii) context-awareness, and (iv) improving usability and efficiency of mobile applications. The course examines the outline provided above, from both technical and real-world applications, hence involves the concepts of machine learning. Students of this class will be using development tools and techniques to build mobile Applications (using Android OS) and the main focus will be on making mobile applications faster (lower-latency), more energy-efficient, smarter (context-aware) and highly usable (multimodal UIs).`,
+    sections: [],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+
+// ================================================================================================================================================================================================================================================================================================
+"CS443": {
+    name: "Software & Systems Security",
+    moduleCode: "CS443",
+    exam: { dateTime: new Date("")},
+    description: `Software and systems security aims in equipping students with the fundamental concepts in software and systems security, as well as basic hands-on skills in understanding, analyzing, and protecting a software program and a computer system. Each lesson spends roughly 50% of the time on fundamental concepts (lecturing) and 50% of the time on hands-on exercises/assessments. Assessments focus on hands-on projects.`,
+    sections: [],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+// ================================================================================================================================================================================================================================================================================================
+"CS206": {
+    name: "Software Product Management",
+    moduleCode: "CS206",
+    exam: { dateTime: new Date("2024-11-28")},
+    description: `This course introduces students to the core concepts and skills underlying successful software product management. Students will learn about the distinct characteristics of software products vis-à-vis other industrial artefacts, and how these characteristics can be leveraged in managing the software product life cycle. With an emphasis on the elements of the software product management framework, students will acquire hands-on product management skills through classroom instruction, term projects, and presentations.`,
+    sections: [
+        { code: "G1", professor: { name: "KELVIN CHNG" }, location: { building: "SOE/SCIS2", room: "Seminar Room B1-2", level: "B1" }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] }
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+
+// TECH BASKET ================================================================================================================================================================================================================================================================================================
+"COR-2201": {
+    name: "Technology and World Change",
+    moduleCode: "COR-2201",
+    exam: { dateTime: new Date("2024-12-06")},
+    description: `In Technology and World Change, we show our students how technology has changed and continues to change the lives of people and society. We study the processes by which technology and modern society have co-evolved, especially how the past provides insights on potential changes in the future. We study specific examples of how technological innovations have been created, refined and implemented by entrepreneurs, larger corporations or industrial systems. This course trains students to think critically in a broad-based, interdisciplinary manner, and to analyse matters of potential uncertainty and ambiguity. After this course, students should be more perceptive to opportunities for innovations and technological change, regardless of the industry they will be in.`,
+    sections: [
+        { code: "G1", professor: { name: "NEO KOK BENG" }, location: { building: "LKCSB", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
+        { code: "G2", professor: { name: "NEO KOK BENG" }, location: { building: "LKCSB", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }] },
+        { code: "G3", professor: { name: "NEO KOK BENG" }, location: { building: "LKCSB", room: "Seminar Room 3-8", level: 3 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
+        { code: "G4", professor: { name: "SHIRISH RANGNEKAR" }, location: { building: "LKCSB", room: "Seminar Room 3-8", level: 3 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
+        { code: "G5", professor: { name: "SHIRISH RANGNEKAR" }, location: { building: "LKCSB", room: "Seminar Room 3-8", level: 3 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }] },
+        { code: "G6", professor: { name: "SHIRISH RANGNEKAR" }, location: { building: "SOA", room: "Seminar Room 1-3", level: 1 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
+        { code: "G7", professor: { name: "ASHWIN CHARI" }, location: { building: "LKCSB", room: "Seminar Room 3-10", level: 3 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }] }
+],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+
+// TECH BASKET ================================================================================================================================================================================================================================================================================================
+"COR-2221": {
+    name: "AI and Humanity",
+    moduleCode: "COR-2221",
+    exam: { dateTime: new Date("")},
+    description: `Technology (specifically AI) has evolved beyond a technical proposition to a shaping force of our future, interwoven into social, cultural and political elements of human society. We are at the genesis of how the relationship between humans and AI is evolving. More than ever, it is crucial to examine a fundamental question of what does it mean to be a human (and AI). Can AI perceive, communicate and sense as well as humans do, or perhaps even better? Such pertinent questions require a multidisciplinary lens, which this course equips you with to dexterously navigate an unfolding future as leaders of today. Venture beyond an academic discourse and gain hands-on experience as a psychologist and AI scientist to develop an AI powered chatbot.`,
+    sections: [
+        { code: "G1", professor: { name: "ANDREW KOH" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }] },
+        { code: "G2", professor: { name: "ANDREW KOH" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] },
+        { code: "G3", professor: { name: "ANDREW KOH" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }] },
+        { code: "G4", professor: { name: "ANDREW KOH" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Thu", startTime: "08:15", duration: 3.25 }] }
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+
+// TECH BASKET ================================================================================================================================================================================================================================================================================================
+"COR-2210": {
+    name: "Technological Innovations Enhancing Urban Sustainability",
+    moduleCode: "COR-2210",
+    exam: { dateTime: new Date("")},
+    description: `This course provides students with a set of interweaving and interdisciplinary concepts across the social sciences regarding the what, the how and the why regarding the implementation of technology on urban sustainability issues.\n
+                Topics to be covered include:\n
+                1. Sustainability in cities, particularly in the context of environmental and climate change.\n
+                2. The role of technology in enhancing and disrupting “normal” ways of life in the city, through the use of shared riding/food delivery apps, and social media.\n
+                3. How technology applied judiciously can enhance livability and livelihoods for a wide range of urban residents who are both technology-savvy and residents uncomfortable using technology.\n
+                
+                Students will gain an understanding of how selected industries consider and apply these technologies towards urban sustainability issues. While there will be some in-class meetings to discuss theoretical concepts, learning will be primarily experiential in nature through class discussion, group exercises, and a team project. Guest speakers with practical and industrial experience may be invited as well. The course project will work with one or two industry sponsors. Students are expected to conceive a solution to address a defined problem statement, related to an aspect of urban sustainability with societal impact, and in accordance to the real-world needs of the industry sponsor.`,
+    sections: [
+        { code: "G1", professor: { name: "WINSTON CHOW" }, location: { building: "SMUC", room: "Active Learning CR 3-1", level: 3 }, classes: [{ day: "Tue", startTime: "19:00", duration: 3.25 }] }
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+// CULTURES BASKET ================================================================================================================================================================================================================================================================================================
+"COR-2406": {
+    name: "French",
+    moduleCode: "COR-2406",
+    exam: { dateTime: new Date("2024-11-27")},
+    description: `This course introduces the fundamental elements of the French language within a cultural context. Emphasis is on the development of basic listening, speaking, reading, and writing skills. Upon completion, students should be able to comprehend and respond with grammatical accuracy to spoken and written French as well as demonstrate cultural awareness. Students will be involved in a variety of reading, writing, listening and speaking activities. The development of oral communication skills provides the foundation for students to read and write effectively. Students will have opportunities both to listen and to speak French. Speaking and listening ability is developed through oral exercises, individual reports, class discussions, songs and videos. This course will also explore the cultural hurdles to understanding the French and sketch the context that forms “Frenchness”. Through the introduction to traditions, customs and daily life of the French, students will be given the opportunity to understand French behaviour and culture. The lessons will be conducted both in French and in English.
+`,
+    sections: [
+        { code: "G1", professor: { name: "FRANCOIS BRETAULT" }, location: { building: "SOSS/CIS", room: "Classroom 3-2", level: 3 }, classes: [{ day: "Mon", startTime: "15:30", duration: 1.5 }, { day: "Wed", startTime: "15:30", duration: 1.5 }] },
+        { code: "G2", professor: { name: "FRANCOIS BRETAULT" }, location: { building: "SOSS/CIS", room: "Classroom 3-2", level: 3 }, classes: [{ day: "Mon", startTime: "17:15", duration: 1.5 }, { day: "Wed", startTime: "17:15", duration: 1.5 }] }
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+
+// CULTURES BASKET ================================================================================================================================================================================================================================================================================================
+"COR-2407": {
+    name: "Italian",
+    moduleCode: "COR-2407",
+    exam: { dateTime: new Date("2024-11-24")},
+    description: `Italian is an elementary language course designed for beginners that focuses on intensive oral communication practice, and aims at developing basic oral expression, listening, comprehension and elementary reading and writing skills. The course will also focus on important aspects of the Italian culture. Classes are based on oral-aural communicative activities: there will be an extensive use of role-plays, class debates, individual and group quizzes and songs listening and singing.
+        `,
+    sections: [
+        { code: "G1", professor: { name: "FRANCESCA BENVENUTI" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 1.5 }, { day: "Wed", startTime: "12:00", duration: 1.5 }] },
+        { code: "G2", professor: { name: "FRANCESCA BENVENUTI" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "13:45", duration: 1.5 }, { day: "Wed", startTime: "13:45", duration: 1.5 }] }
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+
+// CULTURES BASKET ================================================================================================================================================================================================================================================================================================
+"COR-2408": {
+    name: "Spanish",
+    moduleCode: "COR-2408",
+    exam: { dateTime: new Date("")},
+    description: `It is meant to introduce the students to the learning of the Spanish language and through this, to discover other culture and ways of communicating. The Spanish taught is that from Spain but students will also be familiarized with Spanish of Latin American countries. After taking this course, the students will be able to acquire a basic knowledge of the Spanish language that will equip them to continue learning the language at higher levels later on. Learning a new language like Spanish will be very useful in your academic life if you decide to go for an exchange program with a Spanish speaking country as well as in your professional life (as Spanish is the third most spoken language in the world after English and Chinese). It will also allow you to be familiar with other cultures. 
+                `,
+    sections: [
+        { code: "G1", professor: { name: "MARIJO ROMERO" }, location: { building: "SOSS/CIS", room: "Classroom 3-4", level: 3 }, classes: [{ day: "Mon", startTime: "17:15", duration: 1.5 }, { day: "Wed", startTime: "17:15", duration: 1.5 }] },
+        { code: "G2", professor: { name: "MARIJO ROMERO" }, location: { building: "SOSS/CIS", room: "Classroom 3-4", level: 3 }, classes: [{ day: "Mon", startTime: "15:30", duration: 1.5 }, { day: "Wed", startTime: "15:30", duration: 1.5 }] }
+    ],
+        coRequisite: [
+        {
+            or: [],
+        },
+        ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+        or: [],
+        },
+},
+
 // JOHNNY's code ================================================================================================================================================================================================================================================================================================
 
 
