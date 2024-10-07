@@ -807,7 +807,208 @@ export const modules: ModuleBank = {
             },
     },
 
+// ================================================================================================================================================================================================================================================================================================
+    "IS442": {
+        name: "Object Oriented Programming",
+        moduleCode: "IS442",
+        exam: { dateTime: new Date("2024-12-05")},
+        description: `This course focuses on fundamental concepts of developing programs using an object orientated approach. There will be an emphasis on writing clean and efficient code, and the ability to use an appropriate data structure or algorithm to solve problems. The Java programming language will be taught in depth. Students are expected to have a strong foundation in programming.
 
+            This is a compulsory course for IS (Software Development Track) for 2017 intake and onwards.
+
+            Upon completion of the course, students will be able to:
+            1. Practice problem solving skills
+            2. Read UML sequence and class diagrams
+            3. Apply basic concepts of Object Orientation to a given scenario/context
+            4. Apply good programming practices and design concepts to develop software
+            5. Appreciate the role of algorithms and in problem solving`,
+        sections: [
+                { code: "G1", professor: { name: "BIN ZHU" }, location: { building: "SCIS1", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]},
+                { code: "G2", professor: { name: "BIN ZHU" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }]},
+                { code: "G3", professor: { name: "ZHANG ZHIYUAN" }, location: { building: "SCIS1", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]},
+                { code: "G4", professor: { name: "ZHANG ZHIYUAN" }, location: { building: "SCIS1", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }]}
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1', 'Term 2'],
+            preReq: {
+            or: [],
+            },
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+    "CS102": {
+        name: "Programming Fundamentals II",
+        moduleCode: "CS102",
+        exam: { dateTime: new Date("2024-04-15")},
+        description: `This course focuses on fundamental concepts of developing programs using an object oriented approach. There will be an emphasis on writing clean and efficient code, and the ability to use an appropriate data structure or algorithm to solve problems. The Java programming language will be taught in depth.`,
+        sections: [
+                { code: "G1", professor: { name: "LEE YEOW LEONG" }, location: { building: "SCIS1", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
+                { code: "G2", professor: { name: "LEE YEOW LEONG" }, location: { building: "SCIS1", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }]},
+                { code: "G3", professor: { name: "ZHANG ZHIYUAN" }, location: { building: "SCIS1", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]},
+                { code: "G4", professor: { name: "ZHANG ZHIYUAN" }, location: { building: "SCIS1", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }]}
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1', 'Term 2'],
+            preReq: {
+            or: [],
+            },
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+    "SE301": {
+        name: "Advanced Programming and Design",
+        moduleCode: "SE301",
+        exam: { dateTime: new Date("2024-12-05")},
+        description: `This is an advanced programming course designed to prepare students to become efficient and proficient software developers. Students are expected to be already familiar with object-oriented concepts with a strong working knowledge of Java. SE301 will build upon this foundation and introduce students to important clean coding concepts, continuous refactoring, test-driven development, (OO and architectural) design patterns and SOLID principles - all coupled with lots of hands-on coding exercises. Students will learn Node.js from a selected online course. Design patterns within the Node.js framework will be discussed in class. The course focuses on two aspects of testing: unit testing using JUnit and Web black-box testing using Selenium IDE and Selenium Webdriver scripts. Advanced programming concepts such as multi-threaded programming and advanced programming features will be covered using Java.`,
+        sections: [
+                {code: "G1", professor: { name: "MOK HENG NGEE" }, location: { building: "SCIS1", room: "Seminar Room 2-3", level: 2 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]},
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1'],
+            preReq: {
+            or: [],
+            },
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+    "IS458": {
+        name: "Cloud Management and Engineering",
+        moduleCode: "IS458",
+        exam: { dateTime: new Date("2024-12-02")},
+        description: `Cloud computing gain fast development within the past 15 years and continue penetrating to many aspects of our daily lives. It provides strong and reliable support for all kinds of information systems in various industries. It also greatly reduces the go-to-market time for high-tech start-up companies. Although many people are using cloud in their daily work, but few of them have structural understanding on how cloud functions. With more and more fancy features incorporated in Cloud, it seems difficult for beginners to understand their relations and apply them to real world problems. This course provides an introduction to the fundamental concept and basic structure of cloud computing. The topics covered include basic cloud concept, typical business and technical requirements on cloud infrastructure, basic building blocks for an cloud solution, and how to manage reliability and incident using cloud tools. All topics are designed based on actual commercial usage pattern to support real business requirements. Computing theory and mathematical analysis are included at a minimally needed level. Exercising and integration of knowledge learnt will be covered through assignments, labs, and a demonstrative project for real world problems. After this course, students are expected to gain a structural concept of how cloud operates and how to manipulate cloud resources to support information system and business needs. The principles and techniques learnt in this course will help students understand the common core structure of various commercial cloud platforms and how to go deeper to a specific function. With this foundation, students can easily build up their knowledge of a chosen commercial cloud on a systematic way using online resources.`,
+        sections: [
+                { code: "G1", professor: { name: "SIM CHER BOON" }, location: { building: "SCIS1", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }] }, 
+                { code: "G2", professor: { name: "ZHOU YU XUAN, SOPHIA" }, location: { building: "SCIS1", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "19:00", duration: 3.25 }] }, 
+                { code: "G3", professor: { name: "MOK HENG NGEE" }, location: { building: "SCIS1", room: "Seminar Room 2-3", level: 2 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }] }
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1'],
+            preReq: {
+            or: [],
+            },
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+    "IS492": {
+        name: "Cloud Solution Development Work-Study Elective",
+        moduleCode: "IS492",
+        exam: { dateTime: new Date("")},
+        description: `The Cloud Solution Development Work-Study Elective is a six-month internship attachment program under the SMU-AWS-Accenture Cloud Solution Development Work-Study Program. During the vacation period, students work five days a week at Accenture. While undertaking the work-study elective, students may also enrol in 1-2 CUs of courses at SMU during the same term and are allowed to be back in campus up to one day each week. Students will be assigned to a SMU Faculty Advisor and an Internship Supervisor (from Accenture). This elective provides students with an opportunity to do an extended internship with Accenture and applies the solution development skillsets that they learnt to contribute to the industry sector in Singapore.`,
+        sections: [
+                { code: "G1", professor: { name: "OUH ENG LIEH" }, location: { building: "SCIS1", room: "To be confirmed", level: null }, classes: [{ day: "To be confirmed", startTime: "To be confirmed", duration: null }] }
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1'],
+            preReq: {
+            or: [],
+            },
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+    "IS412": {
+        name: "Enterprise Business Solutions",
+        moduleCode: "IS412",
+        exam: { dateTime: new Date("")},
+        description: `The Enterprise Business Solutions Course is a SMU-X course that will be delivered in collaboration with SAP APJ Innovation Office. This SMU-X course offers an experiential learning opportunity that allows students to translate classroom knowledge and theory into practical solutions for a real organization. Through this student consultancy project, students learn how to work with industry professionals and help come up with innovative solutions for real world problems. The student teams will work under the guidance from the faculty and project sponsor mentors, from problem definition to final client presentation. The course will focus on helping students gain a good understanding of the concepts related to building innovative solutions by leveraging SAP Business Technology Platform (BTP). Students will also gain hands-on experience in building solutions using BTP along with other related technologies. Learning Objectives • Experience real-world problem solving through student consultancy project • Apply classroom learning and research to real-world challenges in order to envision innovative IT solutions using the cloud platform • Understand the changing role of IT modes of delivering solutions • Apply Design Thinking methodology when building an innovative IT solution • Build innovative solutions using a cloud platform (e.g. SAP Cloud Platform) • Use some of the services within a cloud platform (e.g. IoT, analytics, machine learning) • Learning to learn skills as demanded by the project • Learn how to work with industry professionals and deliver an IT solution • Learn how to handle uncertainty in a project`,
+        sections:[
+                { code: "G1", professor: { name: "LUM ENG KIT" }, location: { building: "SCIS1", room: "Seminar Room B1-1", level: 1 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }] }
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1'],
+            preReq: {
+            or: [],
+            },
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+    "CS440": {
+        name: "Foundations of Cybersecurity",
+        moduleCode: "CS440",
+        exam: { dateTime: new Date("2024-12-03")},
+        description: `The Foundations of Cybersecurity course provides fundamental knowledge and technical skills for protecting computing and networking systems against various cyber-attacks. Topics covered include cryptographic algorithms, public key infrastructure, network security, authentication, access control, web security basics, and malware basics. Classroom instructions will be integrated with hands-on exercises and group projects.`,
+        sections: [
+                { code: "G1", professor: { name: "SHAR LWIN KHIN" }, location: { building: "SCIS1", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "XIE XIAOFEI" }, location: { building: "SCIS1", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }] },
+                { code: "G3", professor: { name: "YANG GUOMIN" }, location: { building: "SCIS1", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }] },
+                { code: "G4", professor: { name: "YANG GUOMIN" }, location: { building: "SCIS1", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] }
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1', 'Term 2'],
+            preReq: {
+            or: [],
+            },
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+    "CS301": {
+        name: "IT Solution Architecture",
+        moduleCode: "CS301",
+        exam: { dateTime: new Date("2024-12-27")},
+        description: `The IT Solution Architecture course integrates design concepts and methods to develop IT solutions from both the software and system-level perspectives. It focuses on the analysis, design and implementation of an IT solution through which business requirements, software qualities and solution elements are transformed into implementable artefacts. By combining critical analysis with hands-on design and development, the course prepares students to participate effectively in the architecture design and development stages of a software-intensive IT solution project. It is highly recommended that students are also proficient in IS442 Object Oriented Programming and Java programming language prior to reading this course.`,
+        sections: [
+                { code: "G1", professor: { name: "LEE YEOW LEONG" }, location: { building: "SCIS1", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "LEE YEOW LEONG" }, location: { building: "SCIS1", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] },
+                { code: "G3", professor: { name: "OUH ENG LIEH" }, location: { building: "SCIS1", room: "Seminar Room 2-4", level: 2 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] }
+            ],
+            coRequisite: [
+            {
+                or: [],
+            },
+            ],
+            mutuallyExclusive: [],
+            credit: 1,
+            terms: ['Term 1'],
+            preReq: {
+            or: [],
+            },
+    },
 // JOHNNY's code ================================================================================================================================================================================================================================================================================================
 
 
