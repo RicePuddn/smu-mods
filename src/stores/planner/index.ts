@@ -31,6 +31,7 @@ export type PlannerActions = {
     moduleBank: ModuleBank,
   ) => void;
   removeModule: (moduleCode: ModuleCode) => void;
+  removeYear: (yearToRemove: Year)=> void;
 };
 
 export type PlannerStore = {
@@ -139,6 +140,35 @@ export const createPlannerBank = (
               ...original,
               modules,
             },
+          });
+        },
+        removeYear: (yearToRemove) => {
+          set((state) => {
+            const newPlanner = { ...state.planner };
+            const newPlannerState = { ...state.plannerState };
+
+            if (yearToRemove in newPlanner) {
+              delete newPlanner[yearToRemove];
+
+              newPlannerState.modules = Object.fromEntries(
+                Object.entries(newPlannerState.modules).filter(
+                  ([_, module]) => module.year !== yearToRemove
+                )
+              );
+
+              // If all years removed (except exemption), reset to default
+              const remainingYears = Object.keys(newPlanner).filter(year => year !== '-1');
+              if (remainingYears.length === 0) {
+                return {
+                  planner: defaultPlanner,
+                  plannerState: defaultPlannerState
+                };
+              }
+            }
+            return {
+              planner: newPlanner,
+              plannerState: newPlannerState
+            };
           });
         },
       }),
