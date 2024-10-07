@@ -99,3 +99,11 @@ export function selectSection(
 
   return updatedTimetable;
 }
+
+export function getClassEndTime(startTime: string, duration: number) {
+  const [hours, minutes] = startTime.split(":").map(Number);
+  const totalMinutes = hours! * 60 + minutes! + duration;
+  const newHours = Math.floor(totalMinutes / 60);
+  const newMinutes = totalMinutes % 60;
+  return `${String(newHours).padStart(2, "0")}:${String(newMinutes).padStart(2, "0")}`;
+}
