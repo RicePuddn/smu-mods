@@ -418,7 +418,7 @@ export const modules: ModuleBank = {
                 { code: "G25", professor: { name: "CHRIS TAN" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] },
                 { code: "G26", professor: { name: "SONNY ROSENTHAL" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
                 { code: "G27", professor: { name: "SONNY ROSENTHAL" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] },
-                { code: "G28", professor: { name: "ADRIANA BANOZIC" }, location: { building: "SOSS/CIS", room: "Seminar Room B1-1", level: B1 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
+                { code: "G28", professor: { name: "ADRIANA BANOZIC" }, location: { building: "SOSS/CIS", room: "Seminar Room B1-1", level: "B1" }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
                 { code: "G29", professor: { name: "ADRIANA BANOZIC" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] },
                 { code: "G30", professor: { name: "SIAN EIRA JAY" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }] },
                 { code: "G31", professor: { name: "SIAN EIRA JAY" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
@@ -733,14 +733,14 @@ export const modules: ModuleBank = {
             ],
             coRequisite: [
             {
-                or: [],
+                or: ["IS112", "IS105"],
             },
             ],
             mutuallyExclusive: [],
             credit: 1,
             terms: ['Term 2'],
             preReq: {
-            or: [],
+            or: ["IS112", "IS105"],
             },
     },
 
@@ -772,7 +772,7 @@ export const modules: ModuleBank = {
             credit: 1,
             terms: ['Term 1'],
             preReq: {
-            or: [],
+            or: ["IS113", "CS203"],
             },
     },
 
@@ -921,7 +921,7 @@ export const modules: ModuleBank = {
         exam: { dateTime: new Date("")},
         description: `The Cloud Solution Development Work-Study Elective is a six-month internship attachment program under the SMU-AWS-Accenture Cloud Solution Development Work-Study Program. During the vacation period, students work five days a week at Accenture. While undertaking the work-study elective, students may also enrol in 1-2 CUs of courses at SMU during the same term and are allowed to be back in campus up to one day each week. Students will be assigned to a SMU Faculty Advisor and an Internship Supervisor (from Accenture). This elective provides students with an opportunity to do an extended internship with Accenture and applies the solution development skillsets that they learnt to contribute to the industry sector in Singapore.`,
         sections: [
-                { code: "G1", professor: { name: "OUH ENG LIEH" }, location: { building: "SCIS1", room: "To be confirmed", level: null }, classes: [{ day: "To be confirmed", startTime: "To be confirmed", duration: null }] }
+                // { code: "G1", professor: { name: "OUH ENG LIEH" }, location: { building: "SCIS1", room: "To be confirmed", level: null }, classes: [{ day: "To be confirmed", startTime: "To be confirmed", duration: null }] }
             ],
             coRequisite: [
             {
@@ -1265,56 +1265,6 @@ export const modules: ModuleBank = {
         or: [],
         },
 },
-
-// JOHNNY's code ================================================================================================================================================================================================================================================================================================
-
-
-  IS113: {
-    name: "Web Application Development I",
-    moduleCode: "IS113",
-    exam: {
-      dateTime: new Date("2024-11-01"),
-    },
-    description: "",
-    sections: [],
-    coRequisite: [
-      {
-        or: ["IS112", "IS105"],
-      },
-    ],
-    mutuallyExclusive: [],
-    credit: 1,
-    terms: [],
-    preReq: {
-      or: ["IS111", "IS112"],
-    },
-  },
-  IS112: {
-    name: "Data Management",
-    moduleCode: "IS112",
-    exam: {
-      dateTime: new Date("2024-11-01"),
-    },
-    description: "",
-    sections: [],
-    mutuallyExclusive: ["IS105", "DSA307"],
-    credit: 1,
-    terms: [],
-  },
-  IS216: {
-    name: "Web Application Development II",
-    moduleCode: "IS216",
-    exam: {
-      dateTime: new Date("2024-11-01"),
-    },
-    description: "",
-    sections: [],
-    credit: 1,
-    terms: [],
-    preReq: {
-      or: ["IS113", "CS203"],
-    },
-  },
 };
 
 
