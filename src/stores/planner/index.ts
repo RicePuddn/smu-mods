@@ -8,7 +8,7 @@ import {
   type Year,
 } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
-import { getPlannerModuleInfo } from "@/utils/planner";
+import { getPlanner } from "@/utils/planner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -30,9 +30,9 @@ export type PlannerActions = {
     moduleCode: ModuleCode,
     moduleBank: ModuleBank,
   ) => void;
-  removeModule: (moduleCode: ModuleCode) => void;
-  removeTerm: (year: Year, term: Term) => void;
-  removeYear: (year: Year) => void;
+  removeModule: (moduleCode: ModuleCode, moduleBank: ModuleBank) => void;
+  removeTerm: (year: Year, term: Term, moduleBank: ModuleBank) => void;
+  removeYear: (year: Year, moduleBank: ModuleBank) => void;
 };
 
 export type PlannerStore = {
@@ -52,37 +52,20 @@ export const createPlannerBank = (
         addModule: (moduleCode, attributes, moduleBank) => {
           const original = get();
           if (original.plannerState.modules[moduleCode]) return;
+          const newPlannerState: PlannerState = {
+            ...original.plannerState,
+            modules: {
+              ...original.plannerState.modules,
+              [moduleCode]: {
+                year: attributes.year,
+                term: attributes.term,
+                moduleCode,
+              },
+            },
+          };
           set({
-            plannerState: {
-              ...original.plannerState,
-              modules: {
-                ...original.plannerState.modules,
-                [moduleCode]: {
-                  id: attributes.id,
-                  year: attributes.year,
-                  term: attributes.term,
-                  moduleCode,
-                },
-              },
-            },
-            planner: {
-              ...original.planner,
-              [attributes.year]: {
-                ...original.planner[attributes.year],
-                [attributes.term]: {
-                  ...original.planner[attributes.year][attributes.term],
-                  [moduleCode]: getPlannerModuleInfo(
-                    {
-                      id: moduleCode,
-                      year: attributes.year,
-                      term: attributes.term,
-                      moduleCode,
-                    },
-                    moduleBank,
-                  ),
-                },
-              },
-            },
+            plannerState: newPlannerState,
+            planner: getPlanner(newPlannerState.modules, moduleBank),
           });
         },
         changeTerm: (
@@ -98,41 +81,27 @@ export const createPlannerBank = (
           if (!module) return;
 
           set((state) => {
-            const newPlanner = JSON.parse(
-              JSON.stringify(state.planner),
-            ) as Planner;
-
-            if (newPlanner[srcYear][srcTerm]) {
-              delete newPlanner[srcYear][srcTerm][moduleCode];
-            }
-
-            if (!newPlanner[destYear][destTerm]) {
-              newPlanner[destYear][destTerm] = {};
-            }
-            newPlanner[destYear][destTerm][moduleCode] = getPlannerModuleInfo(
-              module,
-              moduleBank,
-            );
-
             const updatedModule = {
               ...module,
               year: destYear,
               term: destTerm,
             };
 
-            return {
-              planner: newPlanner,
-              plannerState: {
-                ...state.plannerState,
-                modules: {
-                  ...state.plannerState.modules,
-                  [moduleCode]: updatedModule,
-                },
+            const newPlannerState: PlannerState = {
+              ...state.plannerState,
+              modules: {
+                ...state.plannerState.modules,
+                [moduleCode]: updatedModule,
               },
+            };
+
+            return {
+              planner: getPlanner(newPlannerState.modules, moduleBank),
+              plannerState: newPlannerState,
             };
           });
         },
-        removeModule: (moduleCode) => {
+        removeModule: (moduleCode, moduleBank) => {
           set((state) => {
             const original = state.plannerState;
             const module = original.modules[moduleCode];
@@ -142,45 +111,32 @@ export const createPlannerBank = (
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { [moduleCode]: _, ...remainingModules } = original.modules;
 
-            const newPlanner = JSON.parse(
-              JSON.stringify(state.planner),
-            ) as Planner;
-
-            if (newPlanner[module.year][module.term]) {
-              delete newPlanner[module.year][module.term][moduleCode];
-            }
-
             return {
               plannerState: {
                 ...original,
                 modules: remainingModules,
               },
-              planner: newPlanner,
+              planner: getPlanner(state.plannerState.modules, moduleBank),
             };
           });
         },
-        removeYear: (year: Year) => {
+        removeYear: (year: Year, moduleBank: ModuleBank) => {
           set((state: { plannerState: PlannerState; planner: Planner }) => {
             const newModules = removeModulesFromPlannerState(
               state.plannerState.modules,
               (_, module) => module.year === year,
             );
 
-            const newPlanner = JSON.parse(
-              JSON.stringify(state.planner),
-            ) as Planner;
-            delete newPlanner[year];
-
             return {
               plannerState: {
                 ...state.plannerState,
                 modules: newModules,
               },
-              planner: newPlanner,
+              planner: getPlanner(newModules, moduleBank),
             };
           });
         },
-        removeTerm: (year: Year, term: Term) => {
+        removeTerm: (year: Year, term: Term, moduleBank: ModuleBank) => {
           set((state: { plannerState: PlannerState; planner: Planner }) => {
             const newModules = removeModulesFromPlannerState(
               state.plannerState.modules,
@@ -202,7 +158,7 @@ export const createPlannerBank = (
                 ...state.plannerState,
                 modules: newModules,
               },
-              planner: newPlanner,
+              planner: getPlanner(newModules, moduleBank),
             };
           });
         },

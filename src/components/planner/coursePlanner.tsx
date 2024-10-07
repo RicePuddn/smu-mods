@@ -37,7 +37,7 @@ const CoursePlanner: React.FC = () => {
       {
         year: "1",
         term: "Term 1",
-        id: "IS112",
+        id: "IS216",
       },
       modules,
     );
@@ -71,7 +71,7 @@ const CoursePlanner: React.FC = () => {
                       <h3 className="mb-3 font-medium text-gray-700">{term}</h3>
                       {Object.entries(termModules).map(
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                        ([moduleCode, { conflict }], index) => (
+                        ([moduleCode, { conflicts }], index) => (
                           <Draggable
                             key={moduleCode}
                             draggableId={moduleCode}
