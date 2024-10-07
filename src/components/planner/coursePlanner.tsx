@@ -13,7 +13,7 @@ import {
 import { Button } from "../ui/button";
 
 const CoursePlanner: React.FC = () => {
-  const { addModule, changeTerm, planner } = usePlannerStore((state) => state);
+  const { addModule, changeTerm, removeYear, planner } = usePlannerStore((state) => state);
   const { modules } = useModuleBankStore((state) => state);
 
   const onDragEnd = (result: DropResult) => {
@@ -43,6 +43,10 @@ const CoursePlanner: React.FC = () => {
     );
   };
 
+  const handleRemoveYear = (year: Year) => {
+    removeYear(year);
+  };
+
   return (
     <div className="p-4">
       <DragDropContext onDragEnd={onDragEnd}>
@@ -52,9 +56,19 @@ const CoursePlanner: React.FC = () => {
               key={year}
               className="overflow-hidden rounded-lg bg-white shadow-md"
             >
-              <h2 className="bg-blue-500 p-3 text-lg font-semibold text-white">
-                Year {year}
-              </h2>
+              <div className="flex justify-between bg-blue-500 p-3">
+                <h2 className="text-lg font-semibold text-white">
+                  Year {year}
+                </h2>
+                {year !== "-1" && (
+                  <Button
+                    onClick={() => handleRemoveYear(year as Year)}
+                    className="bg-blue-400 px-2 py-1 text-sm font-bold text-white transition-colors duration-200 hover:bg-red-600"
+                  >
+                    Delete Year
+                  </Button>
+                )}
+              </div>
               {Object.entries(terms).map(([term, termModules]) => (
                 <Droppable
                   droppableId={`${year}-${term}`}
