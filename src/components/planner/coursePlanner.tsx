@@ -73,7 +73,7 @@ const CoursePlanner: React.FC = () => {
                     onClick={() => handleRemoveYear(year as Year)}
                     className="bg-blue-400 px-2 py-1 text-sm font-bold text-white transition-colors duration-200 hover:bg-red-600"
                   >
-                    Delete Year
+                    Clear
                   </Button>
                 )}
               </div>
@@ -117,7 +117,7 @@ const CoursePlanner: React.FC = () => {
                                     "destructive"
                                   }
                                   size={"icon"} className="rounded-full size-6"> 
-                                    <X className="size-6"/>
+                                    <X className="size-5"/>
                                   </Button>
                               </div>
                             )}
