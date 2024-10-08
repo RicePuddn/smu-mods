@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { Term, termSlug as termArray, TermSlug } from "@/types/planner";
-import { ModifiableClass, Timetable } from "@/types/primitives/timetable";
+import { Day, ModifiableClass, Timetable } from "@/types/primitives/timetable";
 import { getClassEndTime } from "@/utils/timetable";
 import { useRouter } from "next/navigation";
 
@@ -77,9 +77,9 @@ export default function TimeTablePage({
 
         updatedRow.push(fullClass);
 
-        let currentClassEndMinutes =
-          currentClassMinutes + currentClass.classTime.duration * 60;
-        previousClassEndMinutes = currentClassEndMinutes;
+        // let currentClassEndMinutes =
+        //   currentClassMinutes + currentClass.classTime.duration * 60;
+        // previousClassEndMinutes = currentClassEndMinutes;
       }
       fullRows[rowIndex] = updatedRow;
     }
@@ -116,7 +116,7 @@ export default function TimeTablePage({
     return hours * 60 + minutes;
   }
 
-  function getRowAssignment(day: ModifiableClass[]) {
+  function getRowAssignment(day: ModifiableClass[], totalSlots: number) {
     let rows: Row = {
       0: [],
     };
@@ -179,7 +179,10 @@ export default function TimeTablePage({
         if (canAddToRow) {
           currentRow.push({
             ...currentSlot,
-            width: calculateSlotWidth(currentSlot.classTime.duration, 14), // Function to calculate width
+            width: calculateSlotWidth(
+              currentSlot.classTime.duration,
+              totalSlots,
+            ), // Function to calculate width
           });
           addedToRow = true;
           break;
@@ -192,7 +195,10 @@ export default function TimeTablePage({
         rows[newRowIndex] = [
           {
             ...currentSlot,
-            width: calculateSlotWidth(currentSlot.classTime.duration, 14), // Function to calculate width
+            width: calculateSlotWidth(
+              currentSlot.classTime.duration,
+              totalSlots,
+            ), // Function to calculate width
           },
         ];
       }
@@ -200,7 +206,7 @@ export default function TimeTablePage({
     return rows;
   }
 
-  const mondaySample: Timetable = {
+  const sampleTimetable: Timetable = {
     Monday: [
       {
         moduleCode: "IS113",
@@ -220,7 +226,7 @@ export default function TimeTablePage({
           startTime: "08:15",
           duration: 3.25,
         },
-        colorIndex: 0,
+        colorIndex: 1,
       },
       {
         moduleCode: "COR-IS1704",
@@ -230,7 +236,7 @@ export default function TimeTablePage({
           startTime: "12:00",
           duration: 3.25,
         },
-        colorIndex: 0,
+        colorIndex: 2,
       },
       {
         moduleCode: "COR-IS1704",
@@ -240,20 +246,44 @@ export default function TimeTablePage({
           startTime: "10:00",
           duration: 3.25,
         },
+        colorIndex: 1,
+      },
+    ],
+    Tuesday: [
+      {
+        moduleCode: "IS114",
+        section: "G2",
+        classTime: {
+          day: "Monday",
+          startTime: "15:30",
+          duration: 1.5,
+        },
         colorIndex: 0,
       },
     ],
-    Tuesday: [],
     Wednesday: [],
     Thursday: [],
     Friday: [],
     Saturday: [],
   };
 
-  const rowsResult = getRowAssignment(mondaySample.Monday);
-  // console.log(rowsResult);
-  const rowsResultWithPadding = calculateSlotLeftPadding(rowsResult, 14);
-  console.log(rowsResultWithPadding);
+  const timeSlots = [
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+  ];
 
   if (!termArray.includes(params.termId as TermSlug)) {
     return (
@@ -296,8 +326,113 @@ export default function TimeTablePage({
         </Button>
       </div>
 
-      <div className="container mx-auto mt-10">
-        <div className="grid-cols grid"></div>
+      <div className="max-w-full overflow-x-scroll">
+        <div className="container mx-auto mt-10 min-w-[900px] overflow-hidden rounded-lg border border-gray-300">
+          {/* Time Labels */}
+          <div className="flex">
+            <div className="w-[10%] flex-shrink-0 md:w-[7.5%]"></div>
+            {timeSlots.map((time, index) => (
+              <div
+                key={index}
+                className={`flex-1 items-center py-1 text-center ${
+                  index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                }`}
+                style={{
+                  width: `${100 / 14}%`,
+                  borderLeft: index === 0 ? "none" : "1px solid #e0e0e0",
+                }}
+              >
+                <span className="text-sm text-gray-800">{time}</span>
+              </div>
+            ))}
+          </div>
+          {/* {days.map((day, dayIndex) => (
+          <div key={dayIndex} className="mb-4 flex h-24">
+            <div className="flex w-1/6 flex-shrink-0 items-center justify-center bg-gray-300 font-bold text-gray-700">
+              {day}
+            </div>
+          </div>
+        ))} */}
+          {/* red line across current time now */}
+          {Object.keys(sampleTimetable).map((day, dayIndex) => {
+            const rowResult = getRowAssignment(sampleTimetable[day as Day], 15);
+            const rowResultWithPadding = calculateSlotLeftPadding(
+              rowResult,
+              15,
+            );
+            return (
+              <div className="flex border-t border-gray-300" key={dayIndex}>
+                <div className="flex w-[10%] items-center justify-center text-center font-medium text-gray-800 md:w-[7.5%]">
+                  {day.slice(0, 3)}
+                </div>
+                <div
+                  className={`flex-grow space-y-1 py-1 ${
+                    dayIndex % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                  }`}
+                >
+                  {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
+                    const rowIndex = parseInt(rowIndexStr, 10); // Convert rowIndex to number
+                    let minHeight = 60;
+                    // if (!!document) {
+                    //   const element = document.getElementById(
+                    //     `Slot${rowIndex}`,
+                    //   );
+                    //   if (element) {
+                    //     for (
+                    //       let index = 0;
+                    //       index < element.children.length;
+                    //       index++
+                    //     ) {
+                    //       const child = element.children.item(index);
+                    //       if (!child) continue;
+                    //       const { height } = child.getBoundingClientRect();
+                    //       if (height > minHeight) {
+                    //         minHeight = height;
+                    //       }
+                    //     }
+                    //   }
+                    // }
+                    return (
+                      <div
+                        id={`Slot${rowIndex}`}
+                        key={rowIndex}
+                        className="relative flex flex-row"
+                        style={{
+                          position: "relative",
+                          height: `${minHeight}px`,
+                        }}
+                      >
+                        {rowResultWithPadding[rowIndex]!.map(
+                          (fullClass, classIndex) => {
+                            return (
+                              <div
+                                key={classIndex}
+                                className="absolute rounded bg-blue-300 p-2 text-white shadow-md"
+                                style={{
+                                  left: `${fullClass.paddingLeft}%`,
+                                  width: `${fullClass.width}%`,
+                                  height: "100%",
+                                }}
+                              >
+                                <span className="text-sm font-semibold">
+                                  {`${fullClass.moduleCode} - ${fullClass.section}`}
+                                </span>
+                                <br />
+                                <span className="text-xs">
+                                  {`${fullClass.classTime.startTime} (${fullClass.classTime.duration} hrs)`}
+                                </span>
+                              </div>
+                            );
+                          },
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
