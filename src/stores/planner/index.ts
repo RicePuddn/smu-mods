@@ -95,10 +95,14 @@ export const createPlannerBank = (
               },
             };
 
-            return {
+            const stateTemp = {
               planner: getPlanner(newPlannerState.modules, moduleBank),
               plannerState: newPlannerState,
             };
+
+            delete stateTemp.planner[srcYear][srcTerm][moduleCode];
+
+            return stateTemp;
           });
         },
         removeModule: (moduleCode, moduleBank) => {
