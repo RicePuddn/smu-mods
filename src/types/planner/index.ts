@@ -35,6 +35,15 @@ export type Year = (typeof years)[number];
 export const EXEMPTION_TERM = "Term 0";
 export const terms = ["Term 1", "Term 2", "Term 3A", "Term 3B"] as const;
 export type Term = (typeof terms)[number];
+export const termSlug = ["term-1", "term-2", "term-3a", "term-3b"] as const;
+export type TermSlug = (typeof termSlug)[number];
+
+export const termMap: Record<TermSlug, Term> = {
+  "term-1": "Term 1",
+  "term-2": "Term 2",
+  "term-3a": "Term 3A",
+  "term-3b": "Term 3B"
+} 
 
 export type PlannerModule = {
   year: Year;
