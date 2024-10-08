@@ -78,7 +78,7 @@ export const createTimetableStore = (
                   classTime.day
                 ].filter(
                   (c) =>
-                    c.module.moduleCode !== moduleCode ||
+                    c.moduleCode !== moduleCode ||
                     c.section !== sectionCode,
                 );
               });
