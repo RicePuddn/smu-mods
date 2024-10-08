@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import type { Term, Year } from "@/types/planner";
@@ -10,17 +11,20 @@ import {
   Droppable,
   type DropResult,
 } from "@hello-pangea/dnd";
+import { X } from "lucide-react";
 import { Button } from "../ui/button";
 
 const CoursePlanner: React.FC = () => {
-  const { addModule, changeTerm, removeYear, planner } = usePlannerStore((state) => state);
+  const { addModule, changeTerm, removeYear, planner, removeModule } = usePlannerStore((state) => state);
   const { modules } = useModuleBankStore((state) => state);
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     const dest = result.destination.droppableId.split("-");
     const src = result.source.droppableId.split("-");
-
+    if(src[0] == dest[0] && src[1]== dest[1]){
+      return
+    }
     changeTerm(
       src[0] as Year,
       src[1] as Term,
@@ -44,8 +48,12 @@ const CoursePlanner: React.FC = () => {
   };
 
   const handleRemoveYear = (year: Year) => {
-    removeYear(year);
+    removeYear(year, modules);
   };
+
+  const handleRemoveModuleFromPlanner = (moduleCode: ModuleCode, year: Year, term: Term)=>{
+    removeModule(moduleCode, year, term, modules)
+  }
 
   return (
     <div className="p-4">
@@ -65,7 +73,7 @@ const CoursePlanner: React.FC = () => {
                     onClick={() => handleRemoveYear(year as Year)}
                     className="bg-blue-400 px-2 py-1 text-sm font-bold text-white transition-colors duration-200 hover:bg-red-600"
                   >
-                    Delete Year
+                    Clear
                   </Button>
                 )}
               </div>
@@ -96,13 +104,21 @@ const CoursePlanner: React.FC = () => {
                                 ref={provided.innerRef}
                                 {...provided.draggableProps}
                                 {...provided.dragHandleProps}
-                                className={`mb-2 rounded p-2 transition-all duration-200 ${
+                                className={cn("flex mb-2 rounded p-2 transition-all duration-200 justify-between items-center",
                                   snapshot.isDragging
                                     ? "bg-blue-200 shadow-lg"
                                     : "border border-gray-200 bg-white hover:bg-gray-100"
-                                }`}
+                                )}
                               >
-                                {moduleCode}
+                                <div className="w-5/6">{moduleCode}</div>
+                                  <Button
+                                  onClick={() => handleRemoveModuleFromPlanner(moduleCode as ModuleCode, year as Year, term as Term)}
+                                  variant={
+                                    "destructive"
+                                  }
+                                  size={"icon"} className="rounded-full size-6"> 
+                                    <X className="size-5"/>
+                                  </Button>
                               </div>
                             )}
                           </Draggable>

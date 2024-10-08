@@ -30,7 +30,7 @@ export type PlannerActions = {
     moduleCode: ModuleCode,
     moduleBank: ModuleBank,
   ) => void;
-  removeModule: (moduleCode: ModuleCode, moduleBank: ModuleBank) => void;
+  removeModule: (moduleCode: ModuleCode, year: Year, term: Term, moduleBank: ModuleBank) => void;
   removeTerm: (year: Year, term: Term, moduleBank: ModuleBank) => void;
   removeYear: (year: Year, moduleBank: ModuleBank) => void;
 };
@@ -105,7 +105,7 @@ export const createPlannerBank = (
             return stateTemp;
           });
         },
-        removeModule: (moduleCode, moduleBank) => {
+        removeModule: (moduleCode, year, term, moduleBank) => {
           set((state) => {
             const original = state.plannerState;
             const module = original.modules[moduleCode];
@@ -115,13 +115,15 @@ export const createPlannerBank = (
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { [moduleCode]: _, ...remainingModules } = original.modules;
 
-            return {
+            const temp = {
               plannerState: {
                 ...original,
                 modules: remainingModules,
               },
               planner: getPlanner(state.plannerState.modules, moduleBank),
             };
+            delete temp.planner[year][term][moduleCode]
+            return temp 
           });
         },
         removeYear: (year: Year, moduleBank: ModuleBank) => {
@@ -175,7 +177,7 @@ export const createPlannerBank = (
   );
 };
 
-const removeModulesFromPlannerState = (
+export const removeModulesFromPlannerState = (
   modules: PlannerState["modules"],
   predicate: (moduleCode: string, module: any) => boolean,
 ) => {
