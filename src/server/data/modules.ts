@@ -562,7 +562,343 @@ export const modules: ModuleBank = {
         terms: ['Term 2'],
     },
 
+// ================================================================================================================================================================================================================================================================================================
 
+    "COR-MLAY2405": {
+        name: "Bahasa Melayu",
+        moduleCode: "COR-MLAY2405",
+        basket: "Cultures Of The Modern World",
+        exam: { dateTime: new Date("2024-12-06") },
+        description: `Malay is spoken by innumerable people in Singapore , Malaysia , and Brunei and shares many similarities with the Indonesian language. This course is to introduce Malay as a lingua franca of insular Southeast Asia . With the rapid development in the Asia Pacific rim, the language is seen as an important vehicle towards greater cooperation amongst people of the region. Understanding Malay will benefit participants for both personal and professional reasons. It will empower students to learn the structure and word formation of Malay to enable them to speak Malay in simple conversational situations. They will learn the system of address in Malay which will enable them to function as speakers of Malay in Malaysia and Indonesia . Students will learn a basic list of vocabulary. Students will also be able to learn to read a variety of simple passages in Malay and to answer simple comprehension questions. The primary aim is to enable them to be able to listen, speak, read and write in basic Malay and to be able to function in a Malay speaking context.`,
+        sections: [
+                { code: "G1", professor: { name: "SAHRI BIN MD SALLEH" }, location: { building: "SOSS", room: "CIS Classroom 1-2", level: 1 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }], exam: { day: "Fri", date: "06-Dec-2024", startTime: "08:30", endTime: "10:30" }},
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-LAW2610": {
+        name: "Constitutions, Cultures, and Context",
+        moduleCode: "COR-LAW2610",
+        basket: "Cultures Of The Modern World",
+        description: `A constitution is a country’s most important text: it creates State institutions, allocates powers and recognizes rights and responsibilities for those within its territory. More than that, constitutions express a state’s identity and provide the framework for all other laws and policies. This course will expose students to the challenges attendant on making constitutions work. At the same time, it will sensitise them to the extent to which the wider social, political and economic context and a country’s underlying culture affect the implementation of constitutional rules and values. Evergreens like the separation of powers, constitutional enforcement and dilemmas in ensuring equality and dignity will be explored through comparative study of experiences in a diverse range of jurisdictions. Instead of exploring models and constitutional solutions in the abstract, the course invites students to explore the practical impact and outcomes particular constitutional models and ideas produce in everyday life. To that end, we will amongst others compare the constitutional responses that different countries provide to contemporary challenges such as how to ensure effective public participation in governance without encouraging populism; the pervasiveness of migration for our understanding of citizenship and its entitlements; ensuring that everyone is treated equally while respecting individual autonomy and life choices; the role of technology in public life and the implications for privacy and free speech; and the role of a constitution in fostering economic development.`,
+        sections: [
+                { code: "G1", professor: { name: "MAARTJE DE VISSER" }, location: { building: "YPHSL", room: "Seminar Room 3-01", level: 3 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }]},
+                { code: "G2", professor: { name: "MAARTJE DE VISSER" }, location: { building: "YPHSL", room: "Seminar Room 3-01", level: 3 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }]},
+                { code: "G61", professor: { name: "MAARTJE DE VISSER" }, location: { building: "YPHSL", room: "Seminar Room 3-01", level: 3 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }]},
+                { code: "G62", professor: { name: "MAARTJE DE VISSER" }, location: { building: "YPHSL", room: "Seminar Room 3-01", level: 3 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }]},
+            ],
+        credit: 1,
+        terms: ['Term 2'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2627": {
+        name: "European Cultural History: From Antiquity to Brexit",
+        moduleCode: "COR-2627",
+        basket: "Cultures Of The Modern World",
+        description: `Cultural history brings to life past epochs and places. In this pursuit, it analyses beliefs and ideas, products of artistic nature, as well as the objects and experiences of everyday life, such as clothing or cuisine. Culture also encompasses attitudes, values, assumptions and prejudices, and the rituals and practices that express them. In this regard, our current thoughts and acts have an ancestry which cultural history can illuminate and critically examine. This course explores fundamental moments in the history of Europe: from the foundations in Greece and Rome, through the alliances, conflicts and revolutions that transformed it, and key periods such as the Enlightenment and Modernism, that significantly shaped it. They all help understand the complexities of today's Europe, from the challenges in cultural integration to Brexit. Through lectures, key readings, analyses of case studies and research projects, this course broadens understanding of Europe. By establishing linkages between history, socio-political and economic contexts, religion, and art forms, it reveals crucial intersections to comprehend the landmarks of the cultural history of Europe.`,
+        sections: [
+                { code: "G1", professor: { name: "DAVID OCON" }, location: { building: "SOSS", room: "CIS Seminar Room 2-1", level: 2 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }]},
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2628": {
+    name: "Fashioning a Nation",
+    moduleCode: "COR-2628",
+    basket: "Cultures Of The Modern World",
+    description: `Nations have long sought to evoke loyalty and personal attachment, while in turn providing those living within it with a collective experience and common destiny. The potent force of the nation as a cognitive idea is at the heart of this course, which conceives of the making of a nation as an ongoing work in progress in which everyone has a stake. The central question that we will investigate concerns the reciprocal influences between the nation, its institutional manifestations and ‘the people’. How do ‘the people’ shape institutions and fashion a nation on a daily basis and vice versa?
+
+                To explore these relationships, the course is structured around three themes: prerequisites, process and practice. The first theme provides the general conceptual framework through a series of brief discussions of what a nation is, how it relates to a state and to a ‘people’. The second theme is devoted to what is often seen as the quintessential nation-building moment: the formal drafting of a constitution. We will consider the choice of language in that text to harness the people’s fidelity to the budding nation as well as the respective roles played by the elites and ordinary citizens during the constitution-process. For the third theme, we will probe the lived reality of how the nation constitutes itself every day through its people, from the elites who claim to speak on behalf of the nation in formal rule-making to the personification of the nation in image, song and icon to the architectural design of state institutions and public spaces and the wearing of folk costumes or traditional outfits that seek to give expression to the identity of the nation.
+
+                Our explorations will feature the experiences of a diverse range of nations located within and outside Asia. These will provide the backdrop against which the Singapore story will be considered, thereby allowing students to interrogate the familiar domestic narrative of nation-building from a comparative angle. The approach taken will be practically grounded and interdisciplinary, drawing on insights from law, political theory, history, linguistics, architecture and the arts. To do so effectively, the course will be team-taught by two instructors with complementary disciplinary backgrounds.
+                `,
+    sections: [
+      { code: "G1", professor: { name: "ALEXANDRA HUGHES" }, location: { building: "SOSS", room: "Seminar Room 2-3", level: 2 }, classes: [{ day: "Mon", startTime: "10:00", duration: 3.25 }]},
+    ],
+    credit: 1,
+    terms: ['Term 1'],
+  },
+
+// ================================================================================================================================================================================================================================================================================================
+
+  "COR-2629": {
+    name: "Film in Southeast Asia",
+    moduleCode: "COR-2629",
+    basket: "Cultures Of The Modern World",
+    exam: { dateTime: new Date("2024-11-28")},
+    description: `Films are more than just entertainment products. As cultural materials, they provide insights to the historical narratives, politics, economy, and ideological complexities of societies. This course is designed to provide an interdisciplinary and visual approach to understanding Southeast Asia using films produced by Southeast Asians themselves. First, we will briefly explore the history of film in the region and discuss various methods of reading films as texts. Second, we will critically examine what Southeast Asian films reveal about colonialism, decolonization and nation building, Cold War, and globalization in the region. Next, we will explore contemporary topics and issues in Southeast Asia such as religion and violence, gender, race, class, development, and globalization. Finally, we will assess the contemporary role and significance of films against the rapid technological disruptions taking place within Southeast Asian and beyond.`,
+    sections: [
+      { code: "G1", professor: { name: "JAMES TAN" }, location: { building: "SOSS", room: "Seminar Room 1-4", level: 1 }, classes: [{ day: "Tue", startTime: "10:00", duration: 3.25 }]},
+    ],
+    credit: 1,
+    terms: ['Term 1'],
+  },
+// ================================================================================================================================================================================================================================================================================================
+
+  "COR-2630": {
+    name: "Finding Home in a Globalized World",
+    moduleCode: "COR-2630",
+    basket: "Cultures Of The Modern World",
+    exam: { dateTime: new Date("2024-11-29")},
+    description: `The contemporary world is usually described as ‘globalized.’ Although some claim that this ‘global village’ can be our home and that human life is improved by globalization, others complain that the local sense of groundedness that they argue is essential to human flourishing is becoming harder to attain. In this course, we explore the big question of whether these two concepts – the global and the local – are really opposites and whether it is possible to find a home in a world that is global. These explorations will transpire through analysis and discussion of readings drawn from business, scientific, legal, philosophical, and aesthetic sources illuminating the intersections of the global and local. By the end of the course, students will be expected to able to articulate their responses to whether they can find home in a globalized world by integrating the course material with their own personal experiences. This course should be of special interest to students embarking on endeavours that will take them far from home, as one objective will be for them to articulate what ‘home’ is.`,
+    sections: [
+      { code: "G1", professor: { name: "CATHERINE LEE" }, location: { building: "SOSS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Wed", startTime: "10:00", duration: 3.25 }]},
+    ],
+    credit: 1,
+    terms: ['Term 1'],
+  },
+// ================================================================================================================================================================================================================================================================================================
+
+  "COR-2631": {
+    name: "Food Cultures - Are We What, Where and How We Eat?",
+    moduleCode: "COR-2631",
+    basket: "Cultures Of The Modern World",
+    exam: { dateTime: new Date("2024-11-25")},
+    description: `This course conceptualizes food and food consumption as a deeply spatial, political, economic and socio-cultural phenomena. Through interdisciplinary perspectives from anthropology, geography, political economy, sociology and cultural studies, we will explore diverse case studies, problems, politics and perspectives about food. Students will interrogate the centrality, complexity, creativity and conflicts surrounding food over societies, time and space. The examination of food, with particular attention to Singapore, will encompass discussions on issues including the ethics of food production/consumption, patterns of diet and dieting, the politics of sustainable food production, and hybrid food cultures. Students will also examine contemporary global responses to the global food shortage and pay special attention to food cultures in Singapore as the metropolitan kitchen in which we are active participants. Through readings, focused questions, discussions and assignments, students are also invited to reflect on their own patterns of food consumption.`,
+    sections: [
+      { code: "G1", professor: { name: "SIMON WONG" }, location: { building: "SOSS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Thu", startTime: "10:00", duration: 3.25 }]},
+    ],
+    credit: 1,
+    terms: ['Term 1'],
+  },
+// ================================================================================================================================================================================================================================================================================================
+
+  "COR-2632": {
+    name: "French",
+    moduleCode: "COR-2632",
+    basket: "Cultures Of The Modern World",
+    exam: { dateTime: new Date("2024-11-29")},
+    description: `This course introduces the fundamental elements of the French language within a cultural context. Emphasis is on the development of basic listening, speaking, reading, and writing skills. Upon completion, students should be able to comprehend and respond with grammatical accuracy to spoken and written French as well as demonstrate cultural awareness.
+
+                    Students will be involved in a variety of reading, writing, listening and speaking activities. The development of oral communication skills provides the foundation for students to read and write effectively. Students will have opportunities both to listen and to speak French. Speaking and listening ability is developed through oral exercises, individual reports, class discussions, songs and videos.
+
+                    This course will also explore the cultural hurdles to understanding the French and sketch the context that forms “Frenchness”. Through the introduction to traditions, customs and daily life of the French, students will be given the opportunity to understand French behaviour and culture.
+
+                    The lessons will be conducted both in French and in English.`,
+    sections: [
+      { code: "G1", professor: { name: "MARIE DUBOIS" }, location: { building: "SOSS", room: "Seminar Room 2-5", level: 2 }, classes: [{ day: "Fri", startTime: "10:00", duration: 3.25 }]},
+    ],
+    credit: 1,
+    terms: ['Term 1'],
+  },
+// ================================================================================================================================================================================================================================================================================================
+
+  "COR-2633": {
+    name: "Global and Transnational Sociology",
+    moduleCode: "COR-2633",
+    basket: "Cultures Of The Modern World",
+    description: `Globalization is the increasing interconnectedness of social, economic, and political activities between countries around the world. In this course, we will examine the sociology of globalization from these and other various perspectives, paying attention to specific topics that have become prominent in global debates. We will cover major theoretical perspectives that social scientists of different disciplines have used to guide their study of globalization. Although globalization often seems like a set of chaotic events, these theoretical perspectives shed light on the systematic and institutionalized nature of global processes. We will discuss issues in global politics, society, and culture where we will examine the role of the nation-state, global human rights, social movements, and questions of national culture and identity. We will also explore issues in the global economy and questions of global economic governance, where will examine the consequences of global institutions and economic globalization. Throughout the course, we emphasize the core question of global governance.
+
+        This course prepares students for informed citizenship in a rapidly globalizing world. Many students will go on to find employment in organizations in which decisions made can have profound global consequences. As such, students will be equipped with the necessary conceptual and empirical knowledge to evaluate debates on globalization and to critique the roles that state and non-state actors play in global processes. Students will be trained to discern the positive and negative impacts of key actors that are involved in global governance. Students will also acquire familiarity with key sociology, political science, and economics approaches to globalization.`,
+    sections: [
+      { code: "G1", professor: { name: "RACHEL LIM" }, location: { building: "SOSS", room: "Seminar Room 1-3", level: 1 }, classes: [{ day: "Wed", startTime: "10:00", duration: 3.25 }]},
+    ],
+    credit: 1,
+    terms: ['Term 1'],
+  }
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2634": {
+      name: "Introduction to Chinese History, Culture, Economy, Politics and Law",
+      moduleCode: "COR-2634",
+      basket: "Cultures Of The Modern World",
+      description: `With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students’ understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.`,
+      sections: [
+        { code: "G1", professor: { name: "PROF LI WEI" }, location: { building: "SOSS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+
+    "COR-2635": {
+      name: "Italian",
+      moduleCode: "COR-2635",
+      basket: "Cultures Of The Modern World",
+      description: `Italian is an elementary language course designed for beginners that focuses on intensive oral communication practice, and aims at developing basic oral expression, listening, comprehension and elementary reading and writing skills. The course will also focus on important aspects of the Italian culture. Classes are based on oral-aural communicative activities: there will be an extensive use of role-plays, class debates, individual and group quizzes and songs listening and singing.`,
+      sections: [
+        { code: "G1", professor: { name: "GIULIA ROSSI" }, location: { building: "SOSS", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Tue", startTime: "10:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2636": {
+      name: "Japanese",
+      moduleCode: "COR-2636",
+      basket: "Cultures Of The Modern World",
+      description: `This course is designed for students with no previous background in Japanese. It provides a foundation for the practical knowledge and ability to communicate effectively in both spoken and written Japanese. Lessons will evolve along topics such as self-introduction, family and home, neighborhood, daily activities, shopping, holiday activities, and Japanese culture will be incorporated in each lesson. This course is the equivalent of CEFR A1 level. Japanese scripts (Hiragana and Katakana) is used throughout the course, and basic Kanji readings would also be introduced. `,
+      sections: [
+        { code: "G1", professor: { name: "YUKI TAKAHASHI" }, location: { building: "SOSS", room: "Seminar Room 2-4", level: 2 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+
+    "COR-2637": {
+      name: "Jurisprudence: Modern and Critical Theories of Law",
+      moduleCode: "COR-2637",
+      basket: "Cultures Of The Modern World",
+      exam: { dateTime: new Date("2024-12-01") },
+      description: `Law and legal systems are ubiquitous in modern societies. As Kant noted, law takes away man’s “savage (lawless) freedom” to return to him a more limited freedom under the law. But what exactly is law? How is law related to justice? Is law merely a power phenomenon? Is law merely politics? Is the monopolization of coercive force by the state justified?
+
+                This course provides students with the opportunity to think about law’s nature and its role in society. We will examine these questions through accounts of law offered by legal positivists and natural law theorists, and challenges posed by alternative critical accounts of American legal realism and critical legal studies. How do modern and critical accounts of law shape our thinking about the nature and purpose of law? Are the accounts rooted in particular historical contexts or cultures, or are they as relevant today or within our society? How does adopting a particular account of law impact the present practice of law? Do the accounts have something to say about how we, as lawyers or citizenry, can harness law’s potential as a tool for transforming society?
+
+                Through this course, students will have a unique opportunity to engage their hearts and minds in relation to the concepts of law and justice. Students will also be encouraged to relate the theories studied to current contexts. The course's focus is on critique of ideas and not mere description of doctrine. The methods of assessment will be intentionally geared towards facilitating critical thought. This course encourages students to formulate their own theses about law and justice, and meaningfully understand the role they can play – as lawyers and as citizens – in the legal process.`,
+      sections: [
+        { code: "G1", professor: { name: "ANNA SMITH" }, location: { building: "SOSS", room: "Seminar Room 1-3", level: 1 }, classes: [{ day: "Thu", startTime: "10:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+// ================================================================================================================================================================================================================================================================================================
+
+
+    "COR-2638": {
+      name: "Korean",
+      moduleCode: "COR-2638",
+      exam: { dateTime: new Date("2024-11-24") },
+      basket: "Cultures Of The Modern World",
+      description: `This course provides students with basic Korean speaking, listening, reading and writing skills necessary to communicate in a Korean-speaking environment. In particular students will be able to understand and carry out basic Korean conversation such as greetings, making and answering basic queries, exchanging information on everyday life and discussing topics of general interest. Students will also have the opportunity to experience Korean culture first hand. `,
+      sections: [
+        { code: "G1", professor: { name: "KIM SEO-JIN" }, location: { building: "SOSS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Fri", startTime: "10:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2639": {
+      name: "Making Peace in, and with, a World at War",
+      moduleCode: "COR-2639",
+      basket: "Cultures Of The Modern World",
+      description: `Humans have been making war and peace throughout their recorded history. We can be fairly certain this was the case well before civilization emerged. Conflicts always seem to erupt over scarce resources, contentious values and ideas, fissures in relationships, fault-lines in societies, the list goes on. And, intertwined with these conflicts are efforts to end violence, to heal wounds and reconcile, to share resources, to create or re-establish a semblance of harmony between peoples. Most of all will perceive these human activities as binary opposites, as mutually exclusive, leading us to invest particular meanings in each to distinguish them further from each other. Indeed, thanks to influences from culture, media, from our communities, families and leaders, we typically perceive war and peace as suffering versus happiness, action not stillness, a zone of masculine combat versus one of safety for women and children, and much more. These ingrained perceptions shape our decisions, actions and relationships in fundamental ways, determining our behavior and experiences in all spaces and times, whether we have construed them to be in the context of war, peace, and anything beyond or in-between. Since our views of war and peace are so fundamental to our life experience, this course asks us for a deeper engagement of our prior knowledge.
+                    Through critical engagement with a variety of disciplines and empirical contexts, we will consider the intertwined phenomena of war and peace in theory and praxis. The course explores the value systems we attach to each, why, and with what consequences for ourselves and others? We investigate how our notions of war and peace contribute directly to the construction of our identity as well as ideas about belonging, power, justice, progress, and more. In so doing, we look into the ways people, their customs, laws and culture respond to their perceptions and experiences of war and peace; reflect on how they debate the purposes of war-making and peace-making; and discuss how they compete and cooperate for the spoils of both war and peace. Also, we will study how our knowledge of war and peace may continually change over time. By the end of the course, students will have an expansive understanding of how these two phenomena come together in ways that structure and define their everyday lives.`,
+      sections: [
+        { code: "G1", professor: { name: "JOHN DOE" }, location: { building: "SOSS", room: "Seminar Room 3-2", level: 3 }, classes: [{ day: "Wed", startTime: "10:0-0", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2640": {
+      name: "Mandarin",
+      moduleCode: "COR-2640",
+      basket: "Cultures Of The Modern World",
+      description: `This course is an introduction to Mandarin, focusing on building basic conversational skills, grammar, and vocabulary.`,
+      sections: [
+        { code: "G1", professor: { name: "LI XIN" }, location: { building: "SOSS", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Mon", startTime: "10:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-2641": {
+      name: "Politics of South-East Asia",
+      moduleCode: "COR-2641",
+      basket: "Cultures Of The Modern World",
+      description: `This course examines the political systems, governance, and key political issues facing the countries of South-East Asia.`,
+      sections: [
+        { code: "G1", professor: { name: "MARCUS TAN" }, location: { building: "SOSS", room: "Seminar Room 2-3", level: 2 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-2642": {
+      name: "Publics and Privates on the Pacific Rim",
+      moduleCode: "COR-2642",
+      basket: "Cultures Of The Modern World",
+      description: `This course explores the dynamic between public and private sectors in the Pacific Rim, focusing on economic, political, and cultural interactions.`,
+      sections: [
+        { code: "G1", professor: { name: "PROF JASON LEE" }, location: { building: "SOSS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-2643": {
+      name: "Redefining the Third Age in Singapore",
+      moduleCode: "COR-2643",
+      basket: "Cultures Of The Modern World",
+      description: `This course addresses the concept of aging in Singapore, focusing on social policies, challenges, and opportunities for the elderly in the third age.`,
+      sections: [
+        { code: "G1", professor: { name: "LIM SOON" }, location: { building: "SOSS", room: "Seminar Room 2-4", level: 2 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-2644": {
+      name: "Refocusing Wealth and Poverty: Relations, Forms, Causes & Strategies",
+      moduleCode: "COR-2644",
+      basket: "Cultures Of The Modern World",
+      description: `This course examines the causes and consequences of wealth and poverty, and strategies to address inequality on a global scale.`,
+      sections: [
+        { code: "G1", professor: { name: " AVID WONG" }, location: { building: "SOSS", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Fri", startTime: "10:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-2645": {
+      name: "Scratches on their Minds: Images of Asia in Hollywood",
+      moduleCode: "COR-2645",
+      basket: "Cultures Of The Modern World",
+      description: `This course explores how Hollywood has portrayed Asia and its people, analyzing both historical and contemporary films.`,
+      sections: [
+        { code: "G1", professor: { name: "ELIZABETH TAN" }, location: { building: "SOSS", room: "Seminar Room 3-2", level: 3 }, classes: [{ day: "Mon", startTime: "19:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-2646": {
+      name: "Screening Asia: History, Society, and Politics in Films",
+      moduleCode: "COR-2646",
+      basket: "Cultures Of The Modern World",
+      description: `This course uses films to examine the history, society, and politics of Asia, focusing on key events and societal changes through cinematic portrayals.`,
+      sections: [
+        { code: "G1", professor: { name: "TAN WEI" }, location: { building: "SOSS", room: "Seminar Room 1-3", level: 1 }, classes: [{ day: "Tue", startTime: "19:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-XXXX20": {
+      name: "Singapore and the Question of Cosmopolitanism",
+      moduleCode: "COR-XXXX20",
+      basket: "Cultures Of The Modern World",
+      description: `This course discusses the challenges and opportunities of cosmopolitanism in Singapore, focusing on social cohesion and global identity.`,
+      sections: [
+        { code: "G1", professor: { name: "MICHAEL TAN" }, location: { building: "SOSS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    },
+    "COR-2647": {
+      name: "Singapore: Imagining the Next Fifty Years",
+      moduleCode: "COR-2647",
+      basket: "Cultures Of The Modern World",
+      description: `This course analyzes the social, political, and economic challenges that Singapore may face in the next fifty years, exploring possible strategies for future growth and development.`,
+      sections: [
+        { code: "G1", professor: { name: "SARAH LIM" }, location: { building: "SOSS", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Thu", startTime: "19:00", duration: 3.25 }]},
+      ],
+      credit: 1,
+      terms: ['Term 1'],
+    }
 
 
 // ================================================================================================================================================================================================================================================================================================
@@ -833,17 +1169,8 @@ export const modules: ModuleBank = {
                 { code: "G9", professor: { name: "TA NGUYEN BINH DUONG" }, location: { building: "SCIS1", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }] },
                 { code: "G10", professor: { name: "LUM ENG KIT" }, location: { building: "SOE/SCIS2", room: "Seminar Room 2-9", level: 2 }, classes: [{ day: "Thu", startTime: "08:15", duration: 3.25 }] },
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
             credit: 1,
             terms: ['Term 2'],
-            preReq: {
-            or: [],
-            },
     },
 
 
@@ -870,12 +1197,12 @@ export const modules: ModuleBank = {
                 or: [],
             },
             ],
-            mutuallyExclusive: [],
+            mutuallyExclusive: ['CS203', 'IS212', 'IS105'],
             credit: 1,
             terms: ['Term 1'],
             preReq: {
-            or: [],
-            },
+                and: ['IS113', 'IS112'],
+              },
     },
 
 
@@ -898,16 +1225,10 @@ export const modules: ModuleBank = {
                 { code: "G11", professor: { name: "CHRISTOPH TREUDE" }, location: { building: "SCIS1", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }]},
                 { code: "G12", professor: { name: "ARNE JONNI SUPPE" }, location: { building: "SCIS1", room: "Seminar Room 3-2", level: 3 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]}
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
             credit: 1,
             terms: ['Term 2'],
             preReq: {
-            or: [],
+            or: ['IS111', 'CS101'],
             },
     },
 
@@ -929,17 +1250,9 @@ export const modules: ModuleBank = {
                 { code: "G8", professor: { name: "MOK HENG NGEE" }, location: { building: "SOE/SCIS2", room: "Seminar Room B1-1", level: 'B1' }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]},
                 { code: "G9", professor: { name: "LIM EE-PENG" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-10", level: 3 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }]},
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
+            mutuallyExclusive: ['IS105'],
             credit: 1,
             terms: ['Term 2'],
-            preReq: {
-            or: [],
-            },
     },
 
 
@@ -966,17 +1279,8 @@ export const modules: ModuleBank = {
                 { code: "G14", professor: { name: "KOTARO HARA" }, location: { building: "SCIS1", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }]},
                 { code: "G15", professor: { name: "BENJAMIN GAN KOK SIEW" }, location: { building: "SCIS1", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }]},
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
             credit: 1,
             terms: ['Term 1'],
-            preReq: {
-            or: [],
-            },
     },
 
 
@@ -1008,7 +1312,7 @@ export const modules: ModuleBank = {
             credit: 1,
             terms: ['Term 2'],
             preReq: {
-            or: ["IS112", "IS105"],
+            or: ["CS101", ],
             },
     },
 
