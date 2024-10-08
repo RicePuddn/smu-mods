@@ -1,4 +1,4 @@
-import { getModule, searchModule } from "@/server/data/Untitled-1";
+import { getModule, searchModule } from "@/server/data/modules";
 import type { ModuleCode } from "@/types/primitives/module";
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
