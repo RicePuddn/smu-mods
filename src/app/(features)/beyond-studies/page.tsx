@@ -1,6 +1,6 @@
 "use client";
 
-import { ReadMore } from "@/components/acad-clubs/ReadMore";
+import { ReadMore } from "@/components/acad-clubs/readMore";
 import {
   Card,
   CardDescription,
