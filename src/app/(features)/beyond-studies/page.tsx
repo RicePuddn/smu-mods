@@ -1,5 +1,6 @@
 "use client";
 
+import { ReadMore } from "@/components/acad-clubs/ReadMore";
 import {
   Card,
   CardDescription,
@@ -13,6 +14,7 @@ import { useState } from "react";
 export default function BeyondStudies() {
   const [item, setItem] = useState("");
   const [clubData, setclubData] = useState(clubs);
+
   //   console.log(clubData);
 
   return (
@@ -20,7 +22,7 @@ export default function BeyondStudies() {
       <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
         Beyond Studies
       </h1>
-      <div className="grid grid-cols-3 gap-4 rounded p-12">
+      <div className="grid grid-cols-4 gap-4 rounded p-12">
         {Object.entries(clubData).map(([key, value]) => (
           <Card className="p-6">
             <Image
@@ -32,7 +34,7 @@ export default function BeyondStudies() {
             />
             <CardHeader>{value.name}</CardHeader>
             <CardDescription className="text-left">
-              {value.desc}
+              <ReadMore id={value.name} text={value.desc}></ReadMore>
             </CardDescription>
             <CardFooter className="pt-2 text-center">
               {value.contact}
