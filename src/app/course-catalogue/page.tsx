@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { modules } from "@/server/data/Untitled-1";
+import { modules } from "@/server/data/modules";
 import { Search } from "lucide-react";
 import { useState } from "react";
 
