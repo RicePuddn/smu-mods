@@ -327,7 +327,7 @@ export default function TimeTablePage({
       </div>
 
       <div className="max-w-full overflow-x-scroll">
-        <div className="container mx-auto mt-10 min-w-[900px] overflow-hidden rounded-lg border border-gray-300">
+        <div className="container mx-auto mt-10 min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
           {/* Time Labels */}
           <div className="flex">
             <div className="w-[10%] flex-shrink-0 md:w-[7.5%]"></div>

@@ -16,7 +16,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import { useModuleBankStore } from "../moduleBank/provider";
 
 export type TimetableActions = {
-  AddModuleToTimetable: (moduleCode: ModuleCode, term: Term) => Promise<void>;
+  AddModuleToTimetable: (moduleCode: ModuleCode, term: Term, colorIndex: ColorIndex) => Promise<void>;
   removeModuleFromTimetable: (
     moduleCode: ModuleCode,
     sectionCode: string,
@@ -48,11 +48,11 @@ export const createTimetableStore = (
       (set, get) => ({
         timetableMap: initTimetableMap,
         modules: [],
-        AddModuleToTimetable: async (moduleCode: ModuleCode, term: Term) => {
+        AddModuleToTimetable: async (moduleCode: ModuleCode, term: Term, colorIndex) => {
           const { getModule } = useModuleBankStore((state) => state);
           const module = await getModule(moduleCode);
           const timetable = get().timetableMap[term];
-          const newTimeTable = addModuleToTimetable(module, timetable, 0);
+          const newTimeTable = addModuleToTimetable(module, timetable, colorIndex);
           set((state) => ({
             ...state,
             timetableMap: { ...state.timetableMap, [term]: newTimeTable },
