@@ -7,6 +7,7 @@ export type ModuleCode = `${BasketCode}${number}${string}`;
 export type Module = {
   name: string;
   moduleCode: ModuleCode;
+  basket: BasketType;
   exam?: Exam;
   description: string;
   sections: Section[];
@@ -16,6 +17,29 @@ export type Module = {
   terms: Term[];
   preReq?: PreReqTree;
 };
+
+export const Basket = [
+  "Numeracy",
+  "Modes Of Thinking",
+  "Managing",
+  "Writing and Reasoning",
+  "Internship",
+  "Economics and Society",
+  "Technology, Science And Society",
+  "Cultures Of The Modern World",
+  "Community Service",
+  "Ethics And Social/ Corporate Responsibility",
+  "Big Questions",
+  "Global Exposure",
+  "Ethics And Social Responsibility",
+  "IS Core- Technology Solutioning",
+  "IS Core- Software Design And Development",
+  "IS Core- Project Experience",
+  "IS Elective"
+
+] as const;
+
+export type BasketType = typeof Basket[number];
 
 export type PreReqTree =
   | ModuleCode
