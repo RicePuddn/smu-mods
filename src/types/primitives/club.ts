@@ -7,7 +7,7 @@ export type Club = {
   };
 
 export type Clubs = {
-    [clubID: number] :Club;
+    [clubID: string] :Club;
 }
 
 
