@@ -20,15 +20,15 @@ export type ExamClashes = Record<string, Module[]>;
 
 export type Conflict = PrereqConflict | ExamConflict | TermConflict;
 
-export type PlannerModuleInfo = Record<
+export type ConflictMap = Record<
   ModuleCode,
   {
-    conflict?: Conflict;
+    conflicts?: Conflict[];
   }
 >;
 
 export const EXEMPTION_YEAR = "-1";
-export const years = ["1", "2", "3", "4", "5"] as const;
+export const years = ["1", "2", "3", "4"] as const;
 
 export type Year = (typeof years)[number];
 
@@ -37,8 +37,6 @@ export const terms = ["Term 1", "Term 2", "Term 3A", "Term 3B"] as const;
 export type Term = (typeof terms)[number];
 
 export type PlannerModule = {
-  id: string;
-
   year: Year;
   term: Term;
 
@@ -54,12 +52,14 @@ export type PlannerState = {
 
 export const defaultPlannerState: PlannerState = {
   minYear: "1",
-  maxYear: "5",
+  maxYear: "4",
   modules: {},
 };
 
-export type Planner = Record<Year, Record<Term, PlannerModuleInfo>> & {
-  "-1": Record<typeof EXEMPTION_TERM, PlannerModuleInfo>;
+export type Planner = Record<Year, Record<Term, ConflictMap>> & {
+  [EXEMPTION_YEAR]: {
+    [EXEMPTION_TERM]: ConflictMap;
+  };
 };
 
 export const defaultPlanner: Planner = {
@@ -82,12 +82,6 @@ export const defaultPlanner: Planner = {
     "Term 3B": {},
   },
   "4": {
-    "Term 1": {},
-    "Term 2": {},
-    "Term 3A": {},
-    "Term 3B": {},
-  },
-  "5": {
     "Term 1": {},
     "Term 2": {},
     "Term 3A": {},

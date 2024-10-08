@@ -1,12 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react";
-import { modules } from "@/server/data/modules";
 import ModuleDetails from "@/components/ModuleDetails";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { modules } from "@/server/data/Untitled-1";
 import { Search } from "lucide-react";
+import { useState } from "react";
 
 // Helper function to truncate text
 const CourseCatalogue = (text: string, maxLength: number) => {
@@ -16,29 +22,39 @@ const CourseCatalogue = (text: string, maxLength: number) => {
 
 export default function ModuleCatalogue() {
   const [searchQuery, setSearchQuery] = useState(""); // State for the search query
-  const [filteredModules, setFilteredModules] = useState(Object.values(modules)); // State for filtered modules
+  const [filteredModules, setFilteredModules] = useState(
+    Object.values(modules),
+  ); // State for filtered modules
 
   // Handle search logic
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
 
     // Filter the modules based on the search query
-    const results = Object.values(modules).filter((module) =>
-      module.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      module.moduleCode.toLowerCase().includes(searchQuery.toLowerCase())
+    const results = Object.values(modules).filter(
+      (module) =>
+        module.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        module.moduleCode.toLowerCase().includes(searchQuery.toLowerCase()),
     );
-    
+
     setFilteredModules(results); // Update the filteredModules state
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-[#2E4B70] min-h-screen">
-      <header className="text-center mb-12">
-        <h1 className="text-3xl font-bold mb-2" style={{ color: '#F4F1E9' }}>Module Catalogue</h1>
-        <p className="text-muted-foreground" style={{ color: '#F4F1E9' }}>Explore our diverse range of academic offerings</p>
-        
+    <div className="container mx-auto min-h-screen bg-[#2E4B70] px-4 py-8">
+      <header className="mb-12 text-center">
+        <h1 className="mb-2 text-3xl font-bold" style={{ color: "#F4F1E9" }}>
+          Module Catalogue
+        </h1>
+        <p className="text-muted-foreground" style={{ color: "#F4F1E9" }}>
+          Explore our diverse range of academic offerings
+        </p>
+
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="flex w-full max-w-sm items-center space-x-2 mx-auto my-4">
+        <form
+          onSubmit={handleSearch}
+          className="mx-auto my-4 flex w-full max-w-sm items-center space-x-2"
+        >
           <Input
             type="text"
             placeholder="Search..."
@@ -54,23 +70,33 @@ export default function ModuleCatalogue() {
       </header>
 
       {/* Module Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredModules.length > 0 ? (
           filteredModules.map((module) => (
-            <ModuleDetails key={module.moduleCode} moduleCode={module.moduleCode}>
-              <Card className="transition-shadow hover:shadow-lg hover:shadow-white/50 duration-300" style={{ backgroundColor: '#F4F1E9' }}>
+            <ModuleDetails
+              key={module.moduleCode}
+              moduleCode={module.moduleCode}
+            >
+              <Card
+                className="transition-shadow duration-300 hover:shadow-lg hover:shadow-white/50"
+                style={{ backgroundColor: "#F4F1E9" }}
+              >
                 <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
+                  <CardTitle className="flex items-center justify-between">
                     <span>{module.name}</span>
-                    <span className="text-sm font-normal text-muted-foreground">{module.moduleCode}</span>
+                    <span className="text-sm font-normal text-muted-foreground">
+                      {module.moduleCode}
+                    </span>
                   </CardTitle>
                   <CardDescription>
-                    {module.credit} credits | 
-                    {module.exam ? ` Exam Date: ${module.exam.dateTime.toLocaleDateString()}` : " No Exam"}
+                    {module.credit} credits |
+                    {module.exam
+                      ? ` Exam Date: ${module.exam.dateTime.toLocaleDateString()}`
+                      : " No Exam"}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground cursor-pointer ">
+                  <p className="cursor-pointer text-sm text-muted-foreground">
                     {CourseCatalogue(module.description, 100)} [...]
                     {/* <span className="text-primary font-semibold"> Read more</span> */}
                   </p>
@@ -79,7 +105,7 @@ export default function ModuleCatalogue() {
             </ModuleDetails>
           ))
         ) : (
-          <p className="text-white text-center col-span-3">No modules found.</p>
+          <p className="col-span-3 text-center text-white">No modules found.</p>
         )}
       </div>
     </div>
