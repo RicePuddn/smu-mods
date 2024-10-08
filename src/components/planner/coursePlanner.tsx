@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
-import type { Term, Year } from "@/types/planner";
+import { EXEMPTION_YEAR, type Term, type Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import {
   DragDropContext,
@@ -14,14 +14,17 @@ import {
 import { X } from "lucide-react";
 import { Button } from "../ui/button";
 
+const DELIMITER = "/$/"
+
 const CoursePlanner: React.FC = () => {
   const { addModule, changeTerm, removeYear, planner, removeModule } = usePlannerStore((state) => state);
   const { modules } = useModuleBankStore((state) => state);
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
-    const dest = result.destination.droppableId.split("-");
-    const src = result.source.droppableId.split("-");
+    const dest = result.destination.droppableId.split(DELIMITER);
+    const src = result.source.droppableId.split(DELIMITER);
+  
     if(src[0] == dest[0] && src[1]== dest[1]){
       return
     }
@@ -62,16 +65,23 @@ const CoursePlanner: React.FC = () => {
           {Object.entries(planner).map(([year, terms]) => (
             <div
               key={year}
-              className="overflow-hidden rounded-lg bg-white shadow-md"
+              className="overflow-hidden rounded-lg bg-white shadow-md flex flex-col"
             >
-              <div className="flex justify-between bg-blue-500 p-3">
+              <div className="flex justify-between bg-blue-500 p-3 items-center h-14">
+                {year !== "-1" && (
                 <h2 className="text-lg font-semibold text-white">
                   Year {year}
                 </h2>
-                {year !== "-1" && (
+                )}
+                {year == EXEMPTION_YEAR && (
+                  <h2 className="text-lg font-semibold text-white">
+                   Exemptions
+                  </h2>
+                )}
+                {year !== EXEMPTION_YEAR && (
                   <Button
                     onClick={() => handleRemoveYear(year as Year)}
-                    className="bg-blue-400 px-2 py-1 text-sm font-bold text-white transition-colors duration-200 hover:bg-red-600"
+                    className="bg-blue-400 px-2 py-1 text-sm font-semibold text-white transition-colors duration-200 hover:bg-red-600"
                   >
                     Clear
                   </Button>
@@ -79,18 +89,23 @@ const CoursePlanner: React.FC = () => {
               </div>
               {Object.entries(terms).map(([term, termModules]) => (
                 <Droppable
-                  droppableId={`${year}-${term}`}
-                  key={`${year}-${term}`}
+                  droppableId={`${year}${DELIMITER}${term}`}
+                  key={`${year}${DELIMITER}${term}`}
                 >
                   {(provided, snapshot) => (
-                    <div
+                    
+                      <div
                       ref={provided.innerRef}
                       {...provided.droppableProps}
-                      className={`min-h-[120px] p-3 transition-colors duration-200 ${
-                        snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50"
-                      }`}
-                    >
+                      className={cn("p-3 transition-colors duration-200", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", year !== EXEMPTION_YEAR ? "min-h-[120px]" : "flex-grow")}
+                      >
+                    
+                      {year != EXEMPTION_YEAR && (
                       <h3 className="mb-3 font-medium text-gray-700">{term}</h3>
+                      )}
+                      {year == EXEMPTION_YEAR && (
+                      <h3 className="mb-3 font-medium text-gray-700"></h3>
+                      )}
                       {Object.entries(termModules).map(
                         // eslint-disable-next-line @typescript-eslint/no-unused-vars
                         ([moduleCode, { conflicts }], index) => (

@@ -28,7 +28,7 @@ export type ConflictMap = Record<
 >;
 
 export const EXEMPTION_YEAR = "-1";
-export const years = ["1", "2", "3", "4", "5"] as const;
+export const years = ["1", "2", "3", "4"] as const;
 
 export type Year = (typeof years)[number];
 
@@ -52,7 +52,7 @@ export type PlannerState = {
 
 export const defaultPlannerState: PlannerState = {
   minYear: "1",
-  maxYear: "5",
+  maxYear: "4",
   modules: {},
 };
 
@@ -82,12 +82,6 @@ export const defaultPlanner: Planner = {
     "Term 3B": {},
   },
   "4": {
-    "Term 1": {},
-    "Term 2": {},
-    "Term 3A": {},
-    "Term 3B": {},
-  },
-  "5": {
     "Term 1": {},
     "Term 2": {},
     "Term 3A": {},
