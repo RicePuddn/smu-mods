@@ -12,6 +12,11 @@ export const basketCodes = [
   "COR-STAT",
   "COR-MGMT",
   "COR-COMM",
+  "	COR-OBHR",
+  "ECON-",
+  "CORE-",
+  "COR-LAW",
+
 ] as const
 export type BasketCode = (typeof basketCodes)[number]
 

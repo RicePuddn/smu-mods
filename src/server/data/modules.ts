@@ -15,6 +15,7 @@ export const modules: ModuleBank = {
   "COR-STAT1202": {
     name: "Introductory Statistics",
     moduleCode: "COR-STAT1202",
+    basket: 'Numeracy',
     exam: { dateTime: new Date("2024-11-28") },
     description: `The purpose of this course is to introduce the basic concepts of statistics through illustrative use of statistical methods for solving applied problems. Emphasis will be placed on statistical reasoning, rather than derivation of theoretical details. Students will learn to solve common statistical problems using statistical software. This course is designed for students who wish to pursue a non-quantitative major at SMU. Students who intend to pursue a quantitative major should take its companion course, COR-STAT1203 Introduction to Statistical Theory.`,
     sections: [
@@ -35,24 +36,59 @@ export const modules: ModuleBank = {
       { code: "G15", professor: { name: "DANIEL SOH" }, location: { building: "SOE/SCIS2", room: "Seminar Room 2-5", level: 2 }, classes: [{ day: "Thu", startTime: "08:15" ,duration: 3.25}]},
       { code: "G16", professor: { name: "GAN CHUI GOH" }, location: { building: "SOE/SCIS2", room: "Seminar Room 2-10", level: 2 }, classes: [{ day: "Tue", startTime: "08:15",duration: 3.25}]},
     ],
-    coRequisite: [
-        {
-          or: ["IS112", "IS105"],
-        },
-      ],
-      mutuallyExclusive: [],
+      mutuallyExclusive: ['COR-STAT1203'],
       credit: 1,
-      terms: [],
-      preReq: {
-        or: [],
-      },
+      terms: ['Term 1', 'Term 2'],
     },
-    // ================================================================================================================================================================================================================================================================================================
+// ================================================================================================================================================================================================================================================================================================
+
+  "COR-1202": {
+    name: "Calculus",
+    moduleCode: "COR-1202",
+    basket: "Numeracy",
+    exam: { dateTime: new Date("2024-11-29") },
+    description: `Calculus introduces to students a set of elementary functions, their properties, various forms of analysis, and fundamental concepts in Calculus. Also introduced are the modeling methods in business and management by applying Calculus knowledge. The objective of the course is to develop the students’ understanding and skills in analyzing managerial problems, creating mathematical models, and using them to solve these problems. Although the module is essentially mathematical in nature, a rigid mathematical treatment is avoided and the necessary mathematical concepts are derived from examples rather than through proofs.`,
+    sections: [
+            { code: "G1", professor: { name: "ZHAO YIBAO" }, location: { building: "LKCSB", room: "Seminar Room 2-6", level: 2 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
+            { code: "G2", professor: { name: "ZHAO YIBAO" }, location: { building: "LKCSB", room: "Seminar Room 2-6", level: 2 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }] },
+            { code: "G3", professor: { name: "ZHAO YIBAO" }, location: { building: "LKCSB", room: "Seminar Room 2-6", level: 2 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
+            { code: "G4", professor: { name: "ZHAO YIBAO" }, location: { building: "LKCSB", room: "Seminar Room 2-6", level: 2 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] },
+            { code: "G5", professor: { name: "LIU PENG" }, location: { building: "LKCSB", room: "Seminar Room 2-8", level: 2 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
+          ],
+        mutuallyExclusive: [],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+"COR-STAT1203": {
+    name: "Introduction to Statistical Theory",
+    moduleCode: "COR-STAT1203",
+    basket: "Numeracy",
+    exam: { dateTime: new Date("2024-11-26") },
+    description: `This course is designed for students who have a background in basic probability and statistics and who intend to pursue a quantitative major in SMU. The course gives a mathematical introduction to statistical and probability concepts. It is intended for students with interests in Actuarial Science, Economics and Econometrics, Operations Management, Finance, Marketing Research, and Statistics. Students are expected to be mathematically oriented or at the very least, be interested in mathematics. Students taking this course are expected to have some basic knowledge in calculus and statistics.`,
+    sections: [
+            { code: "G1", professor: { name: "YANG ZHENLIN" }, location: { building: "SOE/SCIS2", room: "Seminar Room 2-5", level: 2 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }] },
+            { code: "G2", professor: { name: "CHOW HWEE KWAN" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }] },
+            { code: "G3", professor: { name: "CHOW HWEE KWAN" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-2", level: 3 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }] },
+            { code: "G4", professor: { name: "ZHANG YAJIE" }, location: { building: "SOE/SCIS2", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] },
+            { code: "SG81", professor: { name: "ZHANG YAJIE" }, location: { building: "SOE/SCIS2", room: "", level: "" }, classes: [{ day: "", startTime: "", duration: 0 }] },
+          ],
+        mutuallyExclusive: ['COR-STAT1202'],
+        credit: 1,
+        terms: ['Term 1'],
+        preReq: {
+            and: ['COR-1202']
+        }
+    },
+// ================================================================================================================================================================================================================================================================================================
 
 
   "COR-IS1702": {
     name: "Computational Thinking",
     moduleCode: "COR-IS1702",
+    basket: "Modes Of Thinking",
     exam: { dateTime: new Date("2024-11-28") },
     description: `Computational Thinking equips students to tackle complex computational problems; it trains students to design solutions to solve those problems using a computer program. It draws upon concepts from mathematics and computer science – more precisely, discrete mathematics, data structures and algorithm design. This course will hone students’ analytical skills as they are challenged to think abstractly and computationally. Their minds will be open to the wonders of computing, as they go behind the scene to unravel the fundamental analytics that empower Google, consulting agencies and service companies. NOTE: To facilitate learning in this course, you are required to know and use programming. You are advised to pick up the Python programming language before the course, for instance by practising with online tutorials such as http://learnpython.org. By taking this course, students will: • discover the science of computing • model problems and learn practical problem-solving techniques to tackle complex computational problems (beyond what a spreadsheet is capable of solving) • apply problem-solving techniques to develop more elegant and efficient programs • learn to write programs to represent and manipulate with complex data objects • understand the challenge of scale, not only in dealing with large data sets, but also in appreciating the nature of computing and computability`,
     sections: [
@@ -63,14 +99,9 @@ export const modules: ModuleBank = {
             { code: "G5", professor: { name: "MA DAN" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-9", level: 3 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }]},
             { code: "G6", professor: { name: "MA DAN" }, location: { building: "SCIS1", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }]},
           ],
-        coRequisite: [
-        {
-            or: ["IS112", "IS105"],
-        },
-        ],
-        mutuallyExclusive: [],
+        mutuallyExclusive: ['COR-IS1704', 'IS115'],
         credit: 1,
-        terms: [],
+        terms: ['Term 1', 'Term 2'],
         preReq: {
         or: [],
         },
@@ -78,46 +109,97 @@ export const modules: ModuleBank = {
 
 // ================================================================================================================================================================================================================================================================================================
 
+
+"COR-1701": {
+    name: "Critical Thinking In The Real World",
+    moduleCode: "COR-1701",
+    basket: "Modes Of Thinking",
+    description: `You give reasons for what you do and think every day. You argue. You often argue about things that matter to you. For example you might argue that you are the best candidate for promotion, about whether your company should invest in China, about the best way to help a friend or about what the right thing to do is in an ethical dilemma. The list is up to you. Increasingly in the 21st job market, you will need to think straight about any issue, even those unfamiliar to you. Recent surveys indicate that the most important skills employers are looking for are critical thinking and problem solving skills. We will teach you how to get better at reasoning and arguing in a way that can be applied to any subject matter.
+                Topics covered include evaluating arguments, constructing arguments, reconstructing arguments, formalizing arguments, clarifying meaning and identifying common mistakes in argument (fallacies). At the end of the course you should be able to (1) identify the structures of real-life arguments in order to decide if they are good or bad, and (2) argue logically about things that matter to you. This course is specifically designed to improve writing, thinking and oral presentation skills that are applicable to all areas of academic study and relevant to working life. Careful application in this course will deepen your capacity to critically evaluate everyday practical scenarios and will help you ‘think outside the box’.`,
+    sections: [
+            { code: "G1", professor: { name: "MATTHEW HAMMERTON" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] },
+            { code: "G2", professor: { name: "MATTHEW HAMMERTON" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }] },
+            { code: "G3", professor: { name: "MATTHEW HAMMERTON" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }] },
+            { code: "G4", professor: { name: "MATTHEW HAMMERTON" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }] },
+            { code: "G5", professor: { name: "BRANDON YIP" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-3", level: 1 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
+            { code: "G6", professor: { name: "SOVAN PATRA" }, location: { building: "SOSS/CIS", room: "Seminar Room B1-1", level: "B1" }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
+            { code: "G7", professor: { name: "SOVAN PATRA" }, location: { building: "SOSS/CIS", room: "Seminar Room B1-1", level: "B1" }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }] },
+            { code: "G8", professor: { name: "JOSHUA THONG" }, location: { building: "SOSS/CIS", room: "Classroom 1-2", level: 1 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] },
+            { code: "G9", professor: { name: "JOSHUA THONG" }, location: { building: "SOSS/CIS", room: "Classroom 1-2", level: 1 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] },
+            { code: "G10", professor: { name: "JARED POON JUN KEAT" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }] },
+            { code: "G11", professor: { name: "TONY SEE" }, location: { building: "YPHSL", room: "Seminar Room 2-15", level: 2 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }] },
+          ],
+        mutuallyExclusive: ['COR-STAT1202', 'COR-STAT1203'],
+        credit: 1,
+        terms: ['Term 1', 'Term 2'],
+        preReq: {
+        and: ['COR-1202'],
+        },
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+
+    "COR-1703": {
+        name: "Managing in a Volatile, Uncertain, Complex and Ambiguous Context",
+        moduleCode: "COR-1703",
+        basket: "Modes Of Thinking",
+        exam: { dateTime: new Date("2024-11-29") },
+        description: `
+            The dynamic and fast changing nature of our world today is best described by VUCA, a term coined by the US Army War College. VUCA stands for Volatile, Uncertain, Complex and Ambiguous. The Arab Spring saw a change of government in countries like Tunisia, Egypt, Libya and Yemen. Once powerful countries in Europe are now fighting bankruptcy. The growth of the developing world which was taken for granted has begun to slow down. Even companies that were synonymous with their product categories just a few years ago are now no longer in existence. Kodak, the inventor of the digital camera had to wind up its operations, Borders, once the second largest US bookstore, has shut down due to their inability to evolve their business models with the changing times.
+
+            With such momentous changes happening in the world today, this course prepares the students to better understand the complexity and difficulties in reacting to the ambiguity inherent in those changes. This course helps students to understand the tensions in a given situation and how they need to think through a problem from multiple dimensions.
+
+            The course aims to give students an insight into the mega trends and forces that are impacting their world. We ask what are some of the causes of these trends and their business implications? What can future managers like themselves do about understanding these changing trends, and why they need to address, appreciate, adapt and attempt to manage these changes in their ecosystem? The course aims to introduce some basic VUCA concepts, in order to broaden their world view of management and nature of managing complex problems. The first half of the course introduces some of these trends, while the second half provides tools and possible frameworks to deal with the VUCA aspects that they will face in the future.`,
+        sections: [
+                { code: "G1", professor: { name: "DON CHEN JIAQING" }, location: { building: "LKCSB", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "DON CHEN JIAQING" }, location: { building: "LKCSB", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }] },
+                { code: "G3", professor: { name: "DON CHEN JIAQING" }, location: { building: "LKCSB", room: "Seminar Room 2-6", level: 2 }, classes: [{ day: "Tue", startTime: "19:00", duration: 3.25 }] },
+                { code: "G4", professor: { name: "VENKAT" }, location: { building: "LKCSB", room: "Seminar Room 3-9", level: 3 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
+                { code: "G5", professor: { name: "VENKAT" }, location: { building: "LKCSB", room: "Seminar Room 3-7", level: 3 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] },
+                { code: "G6", professor: { name: "VENKAT" }, location: { building: "LKCSB", room: "Seminar Room 3-7", level: 3 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] },
+                { code: "G7", professor: { name: "WHITNEY ZHANG" }, location: { building: "LKCSB", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
+                { code: "G8", professor: { name: "WHITNEY ZHANG" }, location: { building: "LKCSB", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
+            ],
+            credit: 1,
+            terms: ['Term 1', 'Term 2']
+        },
+        
+
+// ================================================================================================================================================================================================================================================================================================
+
     "COR-MGMT1302": {
         name: "Business, Government and Society",
         moduleCode: "COR-MGMT1302",
-        exam: { dateTime: new Date("2024-12-02") },
+        basket: "Managing",
         description: `This course overviews the economic, legal, social, and ecological responsibilities of business and their implications for managerial decision-making. The primary theoretical perspective taken is the stakeholder view of the firm which allows for close examination of apparently conflicting goals between different stakeholders' interests. Related frameworks and applications discussed in this course include corporate social responsibility, globalization, corporate governance, and public policy measures affecting business. The frameworks and issues discussed are critical to understanding how firms can be both financially successful and valuable to society, a concern which is increasingly influencing managerial decision-making. Illustrations and applications to the Singapore context as a small open economy will be discussed.`,
         sections: [
-                { code: "G1", professor: { name: "CHAN KAY MIN" }, location: { building: "YPHSL", room: "Seminar Room 2-11", level: 2 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
-                { code: "G2", professor: { name: "CHAN KAY MIN" }, location: { building: "YPHSL", room: "Seminar Room 2-11", level: 2 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }]},
-                { code: "G3", professor: { name: "LIEW YAH LING" }, location: { building: "SMUC", room: "Active Learning CR 3-2", level: 3 }, classes: [{ day: "Thu", startTime: "08:15", duration: 3.25 }]},
-                { code: "G4", professor: { name: "LIEW YAH LING" }, location: { building: "SMUC", room: "Active Learning CR 3-2", level: 3 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]},
-                { code: "G5", professor: { name: "GILBERT TAN YIP WEI" }, location: { building: "LKCSB", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }]},
-                { code: "G6", professor: { name: "GILBERT TAN YIP WEI" }, location: { building: "LKCSB", room: "Seminar Room 3-7", level: 3 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }]},
-                { code: "G7", professor: { name: "ELIZABETH SU" }, location: { building: "SOA", room: "Seminar Room 1-2", level: 1 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
-                { code: "G8", professor: { name: "ELIZABETH SU" }, location: { building: "SOA", room: "Seminar Room 1-2", level: 1 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }]},
-                { code: "G9", professor: { name: "LOO KHEE SHENG" }, location: { building: "LKCSB", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }]},
-                { code: "G10", professor: { name: "LOO KHEE SHENG" }, location: { building: "LKCSB", room: "Seminar Room 3-7", level: 3 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]},
-                { code: "G11", professor: { name: "LOO KHEE SHENG" }, location: { building: "LKCSB", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }]},
-                { code: "G12", professor: { name: "MOHAMED IRSHAD ABBAS ALI" }, location: { building: "LKCSB", room: "Seminar Room 1-2", level: 1 }, classes: [{ day: "Mon", startTime: "19:00", duration: 3.25 }]},
-                { code: "G13", professor: { name: "MOHAMED IRSHAD ABBAS ALI" }, location: { building: "LKCSB", room: "Seminar Room 2-7", level: 2 }, classes: [{ day: "Tue", startTime: "19:00", duration: 3.25 }]},
-                { code: "G14", professor: { name: "MOHAMED IRSHAD ABBAS ALI" }, location: { building: "LKCSB", room: "Seminar Room 3-5", level: 3 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }]},
+            { code: "G1", professor: { name: "CHAN KAY MIN" }, location: { building: "YPHSL", room: "Seminar Room 2-11", level: 2 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
+            { code: "G2", professor: { name: "CHAN KAY MIN" }, location: { building: "YPHSL", room: "Seminar Room 2-11", level: 2 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }]},
+            { code: "G3", professor: { name: "LIEW YAH LING" }, location: { building: "SMUC", room: "Active Learning CR 3-2", level: 3 }, classes: [{ day: "Thu", startTime: "08:15", duration: 3.25 }]},
+            { code: "G4", professor: { name: "LIEW YAH LING" }, location: { building: "SMUC", room: "Active Learning CR 3-2", level: 3 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]},
+            { code: "G5", professor: { name: "GILBERT TAN YIP WEI" }, location: { building: "LKCSB", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }]},
+            { code: "G6", professor: { name: "GILBERT TAN YIP WEI" }, location: { building: "LKCSB", room: "Seminar Room 3-7", level: 3 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }]},
+            { code: "G7", professor: { name: "ELIZABETH SU" }, location: { building: "SOA", room: "Seminar Room 1-2", level: 1 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
+            { code: "G8", professor: { name: "ELIZABETH SU" }, location: { building: "SOA", room: "Seminar Room 1-2", level: 1 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }]},
+            { code: "G9", professor: { name: "LOO KHEE SHENG" }, location: { building: "LKCSB", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }]},
+            { code: "G10", professor: { name: "LOO KHEE SHENG" }, location: { building: "LKCSB", room: "Seminar Room 3-7", level: 3 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]},
+            { code: "G11", professor: { name: "LOO KHEE SHENG" }, location: { building: "LKCSB", room: "Seminar Room 3-6", level: 3 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }]},
+            { code: "G12", professor: { name: "MOHAMED IRSHAD ABBAS ALI" }, location: { building: "LKCSB", room: "Seminar Room 1-2", level: 1 }, classes: [{ day: "Mon", startTime: "19:00", duration: 3.25 }]},
+            { code: "G13", professor: { name: "MOHAMED IRSHAD ABBAS ALI" }, location: { building: "LKCSB", room: "Seminar Room 2-7", level: 2 }, classes: [{ day: "Tue", startTime: "19:00", duration: 3.25 }]},
+            { code: "G14", professor: { name: "MOHAMED IRSHAD ABBAS ALI" }, location: { building: "LKCSB", room: "Seminar Room 3-5", level: 3 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }]}
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
             credit: 1,
-            terms: [],
-            preReq: {
-            or: [],
+            terms: ['Term 1', 'Term 2']
             },
-        },
 
 // ================================================================================================================================================================================================================================================================================================
 
     "COR-1305": {
         name: "Spreadsheet Modelling and Analytics",
         moduleCode: "COR-1305",
-        exam: { dateTime: new Date("2024-12-05") },
+        basket: "Managing",
+        exam: { dateTime: new Date("2024-12-05")},
         description: `Data Science has become one of the main drivers in transforming businesses and organizations. With proper data collection, preparation, analysis and modelling, insights can be achieved leading to better decision making and actions that create positive impact. Data analytics is divided into different levels namely, descriptive analytics, predictive analytics, prescriptive analytics and automated (or embedded) analytics. In this course, students will acquire practical skills in modelling and analysis to resolve business problems using software tools including Excel and Tableau. Knowing how to effectively use these tools to build models and analyse data to solve problems will add tremendous value in our students’ future professional career. This course’s primary focus is on using Excel spreadsheet as a platform to build mathematical models from scratch to represent business problems for detailed analysis. The use of such models to drive understanding and consensus towards generating insights and actions enhanced the assurance of execution success. With the data collected, data manipulation and transformation will be needed to prepare the data into useful forms for analysis. In terms of data analytics, this course will cover descriptive analytics, predictive analytics and prescriptive analytics, using both Excel and Tableau. In-class exercises would be used to present business problem modeling and analysis. Students would interactively develop the skills and experience to deal with open-ended questions, unclear assumptions and incomplete information. In addition to the individual assessments (take-home assignments and in-class quizzes), a group project will allow students to apply the knowledge and skills acquired to solve a business problem of their choice end-to-end where they will define the business questions, collect the necessary data, build the models, perform the data analytics, to draw insights and conclusions.`,
         sections: [
                 { code: "G1", professor: { name: "ZHOU KANKAN" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }]},
@@ -126,25 +208,16 @@ export const modules: ModuleBank = {
                 { code: "G4", professor: { name: "WANG HAI" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
                 { code: "G5", professor: { name: "WANG HAI" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }]},
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
             credit: 1,
-            terms: [],
-            preReq: {
-            or: [],
-            },
-            },
+            terms: ['Term 1', 'Term 2'],
+        },
 
 // ================================================================================================================================================================================================================================================================================================
 
     "COR-1301": {
         name: "Leadership and Team Building",
         moduleCode: "COR-1301",
-        exam: { dateTime: new Date("") },
+        basket: 'Managing',
         description: `
             The overall objective of this module is to build and develop students' competency in leadership and teamwork skills. The course employs both a theoretical and an experiential learning approach with the aim of fulfilling the objectives as outlined below.
 
@@ -172,25 +245,17 @@ export const modules: ModuleBank = {
                 { code: "G9", professor: { name: "ROGER LOW" }, location: { building: "LKCSB", room: "Seminar Room 3-8", level: 3 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]},
                 { code: "G10", professor: { name: "ROGER LOW" }, location: { building: "LKCSB", room: "Seminar Room 3-8", level: 3 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }]},
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
+            mutuallyExclusive: ['COR-OBHR1308'],
             credit: 1,
-            terms: [],
-            preReq: {
-            or: [],
-            },
-            },
+            terms: ['Term 1', 'Term 2'],
+    },
 
 // ================================================================================================================================================================================================================================================================================================
 
     "COR-COMM1304": {
         name: "Management Communication",
         moduleCode: "COR-COMM1304",
-        exam: { dateTime: new Date("") },
+        basket: 'Managing',
         description: `Management Communication equips students with strategies that will enable them to successfully communicate their solutions to organizational problems. Since the course emphasizes the importance of effective written and spoken communication within a business setting, students will be exposed to strategies that will enable them to communicate their ideas and values in a clear, persuasive and memorable way. Students will, therefore, learn the art of producing impactful business documents and delivering engaging presentations in various business contexts. By the end of the course, students will be able to function as proficient communicators who are ready to embrace the communicative challenges inherent in today's dynamic business environment.`,
         sections: [
                 { code: "G1", professor: { name: "SHYAMALA DEENATHAYALAN" }, location: { building: "SOA", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }]},
@@ -233,52 +298,279 @@ export const modules: ModuleBank = {
                 { code: "G39", professor: { name: "VANDANA ADVANI" }, location: { building: "SOA", room: "Seminar Room 1-3", level: 1 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }]},
                 { code: "G49", professor: { name: "SHYAMALA DEENATHAYALAN" }, location: { building: "LKCSB", room: "Classroom 3-5", level: 3 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }]}
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
             credit: 1,
             terms: [],
-            preReq: {
-            or: [],
-            },
-            },
+        },
 
 // ================================================================================================================================================================================================================================================================================================
 
     "COR-MGMT1303": {
-        name: "Management Communication",
+        name: "Entrepreneurship and Business Creation",
         moduleCode: "COR-MGMT1303",
-        exam: { dateTime: new Date("") },
+        basket: 'Managing',
         description: `This course is a core course for the Entrepreneurship track of the management concentration offered at the Lee Kong Chian School of Business. It can also be taken as a secondary elective for students majoring in Strategy and Organization.
 
-    This course traces the steps that entrepreneurs likely encounter between a first recognition of a potential business opportunity to the nascent operation of the actual company. This course teaches students the basic ingredients of a business plan and a short ‘pitch’ for their ideas, yet shows the limitations of a static document in the changing marketplace. Through the use of real business cases, this course helps students understand various issues that require analysis and resolution before their company can be on a more financially sustainable footing.`,
+                        This course traces the steps that entrepreneurs likely encounter between a first recognition of a potential business opportunity to the nascent operation of the actual company. This course teaches students the basic ingredients of a business plan and a short ‘pitch’ for their ideas, yet shows the limitations of a static document in the changing marketplace. Through the use of real business cases, this course helps students understand various issues that require analysis and resolution before their company can be on a more financially sustainable footing.`,
         sections: [
                 { code: "G1", professor: { name: "NG XU WEN" }, location: { building: "LKCSB", room: "Seminar Room 3-8", level: 3 }, classes: [{ day: "Thu", startTime: "08:15", duration: 3.25 }]},
                 { code: "G2", professor: { name: "DAVID GOMULYA" }, location: { building: "YPHSL", room: "Seminar Room 2-04", level: 2 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]},
                 { code: "G3", professor: { name: "JOLYN ANG" }, location: { building: "LKCSB", room: "Classroom 2-1", level: 2 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }]},
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
-            credit: 1,
-            terms: [],
-            preReq: {
-            or: [],
-            },
+        credit: 1,
+        terms: [],
     },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-1306": {
+        name: "Capital Markets in China",
+        moduleCode: "COR-1306",
+        basket: 'Managing',
+        exam: { dateTime: new Date("2024-11-28") },
+        description: `Since the establishment of two stock exchanges in Shanghai and Shenzhen in early 1990s, China’s capital markets have experienced amazing growth and become one of the largest capital markets in the world. The equity market is the dominant capital market and has been evolving and growing towards a more even mix of investor classes, with institutions such as investment funds, pension funds, insurance companies, corporates, sovereign wealth funds and Qualified Foreign Institutional Investors (QFIIs) playing a more prominent role. The bond and derivatives markets are emerging as well and there is huge growth potential in the near future.
+
+                    This course is designed to offer a detailed analysis of China's capital markets, ranging from the overall assessment of the macro-economic environment and political context, to the detailed micro level study of the specific players, instruments, and individual transactions. Through seminars, cases, discussions, and group projects, students explore the opportunities and challenges presented by the quickly evolving capital markets in China.`,
+        sections: [
+                { code: "G1", professor: { name: "WANG JIWEI" }, location: { building: "SOA", room: "Seminar Room 2-3", level: 2 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "WANG JIWEI" }, location: { building: "SOA", room: "Seminar Room 2-3", level: 2 }, classes: [{ day: "Mon", startTime: "19:00", duration: 3.25 }] },
+                { code: "G3", professor: { name: "WANG JIWEI" }, location: { building: "SOA", room: "Seminar Room 2-4", level: 2 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-1307": {
+        name: "Accounting for Entrepreneurs",
+        moduleCode: "COR-1307",
+        basket: 'Managing',
+        exam: { dateTime: new Date("2024-11-25") },
+        description: `This course is designed to provide a broad base coverage of financial accounting, management accounting and taxation topics that are relevant to (future) business owners and entrepreneurs. Business owners and entrepreneurs need the general foundation to help plan and control business operations and finance as well as discussing and negotiating with other stakeholders of the business. This course is suitable for students who do not have prior knowledge in accounting and business. Therefore, this course may also act as a stimulator for students to pursue more advance courses in accounting and finance related topics available in SMU.`,
+        sections: [
+                { code: "G1", professor: { name: "YUANTO KUSNADI" }, location: { building: "SOA", room: "Seminar Room 2-5", level: 2 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }] },
+                { code: "SG81", professor: { name: "YUANTO KUSNADI" }, location: { building: "SOA", room: "Seminar Room 2-5", level: 2 }, classes: [] }
+            ],
+        credit: 1,
+        terms: ['Term 1', 'Term 2'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-OBHR130": {
+        name: "Transformative Leadership",
+        moduleCode: "COR-OBHR130",
+        basket: 'Managing',
+        description: `The core objective of the new SMU-X Transformative Leadership course is to nurture a new generation of young leaders motivated and capable of tackling intricate global and local challenges related to the nexus of ‘digital disruption, demographic change and diversity’ in an integrated, interdisciplinary fashion, providing the opportunity to integrate perceived differences between older and younger people in terms of values, communication priorities; age discrimination or the initiation of new types of social (‘digital’) behaviours transmitted from the plugged-in ‘Generation Z’ (born 1996 and after) to Baby Boomers (born 1946 to 1964). These three challenges (positioned at the interface of both current and future issues) are not only globally relevant but also have significant local implications for Singapore. Embedded in the experiential SMU-X initiative, the Transformative Leadership course provides students with a unique learning opportunity to develop and implement (socially) innovative solutions to make a positive impact on business and society in close collaboration with reputable partners in business, nonprofits and government. Learners will be paired up with an external SMU-X partner to work on relevant innovative projects with real impact. The successful completion of such transformative SMU-X projects requires learners diving deep(er) into various disciplines such as social sciences, business, political governance, public policy, demography, technology, etc. It is expected that the chosen practical challenges commissioned by SMU-X partners will ‘stretch’ students, forcing them to step out of their comfort zones and to explore the unknowns in order to make a ‘real’ difference ‘out there’ in both the social and business sectors. In terms of effective leader development, in particular, transformative leadership, the SMU-X course design will support learners in expanding their individual capacity to be effective in leadership roles and processes. Emphasis will be put on proximal indicators of leader development such as self-views around self-concept, including leader self-awareness, leadership self-efficacy and leader. Through their SMU-X projects, students will appreciate the importance of leadership development so that they can articulate what it takes for teams and their leaders to create strong(er) alignment and high(er) levels of commitment. The latter requires interpersonal trust, care and concern as well as shared mind-sets regarding (transformative) goals and values such as the ‘real’ sharing propelled by collaborative leadership approaches.`,
+        sections: [
+                { code: "G55", professor: { name: "PAUL LIM HENG LEONG" }, location: { building: "LKCSB", room: "Classroom 3-2", level: 3 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] }
+            ],
+        mutuallyExclusive: ['COR-1301'],
+        credit: 1,
+        terms: ['Term 1', 'Term 2'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-OBHR1310": {
+        name: "Working and Managing in a Digital World",
+        moduleCode: "COR-OBHR1310",
+        basket: 'Managing',
+        exam: { dateTime: new Date("2024-11-25") },
+        description: `This course examines organizational behavior in the context of technological innovation and digital transformation. Students develop an understanding of the profound impact technological changes have on people and how they accomplish personal, group, and organizational objectives. Topics include managing digital transformation, artificial intelligence, machine learning, leading change and innovation, the future of work, among others.`,
+        sections: [
+                { code: "G1", professor: { name: "RONALD BLEDOW" }, location: { building: "LKCSB", room: "Seminar Room 2-8", level: 2 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }] },
+                { code: "G2", professor: { name: "RONALD BLEDOW" }, location: { building: "LKCSB", room: "Seminar Room 2-8", level: 2 }, classes: [{ day: "Thu", startTime: "15:30", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 2'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-OBHR1309": {
+        name: "Negotiating in Management and Business",
+        moduleCode: "COR-OBHR1309",
+        basket: 'Managing',
+        exam: { dateTime: new Date("2024-11-27") },
+        description: `Negotiation is the art and science of securing agreements between parties who are interdependent, are seeking to maximize their own outcomes, and may or may not be interested in developing or preserving a close relationship. This course is designed to be relevant to the broad spectrum of negotiation problems faced by managers and professionals. A basic premise of this course is that while any manager or professional needs analytical skills to discover optimal solutions to problems, negotiation skills are usually needed to get these solutions accepted and implemented. This course provides participants with conceptual and analytical tools for analyzing and planning their negotiations. It also provides participants with simulated negotiation experiences that allow them to develop their negotiating skills, and to understand how the conceptual and analytical tools can be used in practice.`,
+        sections: [
+                { code: "G1", professor: { name: "MICHAEL SCHAERER" }, location: { building: "LKCSB", room: "Seminar Room 3-10", level: 3 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
+                { code: "G2", professor: { name: "MICHAEL SCHAERER" }, location: { building: "LKCSB", room: "Seminar Room 3-10", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
+                { code: "G3", professor: { name: "MICHAEL SCHAERER" }, location: { building: "LKCSB", room: "Seminar Room 3-10", level: 3 }, classes: [{ day: "Mon", startTime: "15:30", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 2'],
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-PPPM1311": {
+        name: "Collaborative Governance",
+        moduleCode: "COR-PPPM1311",
+        basket: 'Managing',
+        exam: { dateTime: new Date("2024-11-24") },
+        description: `Contemporary governance illustrates a shift from a hierarchical, bureaucratic government to more collaborative, participative, and inclusive governance processes. Actors from public, private, and non-profit sectors collectively engage in policy decision-making to address complex social problems. Today's policy problems are described as ‘wicked problems’ that lack a set of clear definitions, causes and effects, and solutions. The wicked nature of the policy problems requires considering the perspectives of multiple stakeholders and innovative policy solutions. This course explores how governments and their stakeholders have experimented with new ideas, policies, governing processes, institutional arrangements, management tools, and technologies, to create public value and effect positive change. Using cases studies from a variety of policy areas and different countries, the course encourages students to understand the opportunities and challenges of public sector change initiatives including collaborative governance, e-governance, and coproduction. It prepares students to effectively address the multifaceted challenges of public policy and management through a variety of scholarly and practitioner publications, interactive and reflective exercises, and class discussions.`,
+        sections: [
+                { code: "G1", professor: { name: "SEULKI LEE" }, location: { building: "YPHSL", room: "Seminar Room 2-11", level: 2 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2202": {
+        name: "Science, Environment and Empire",
+        moduleCode: "COR-2202",
+        basket: "Technology, Science And Society",
+        exam: { dateTime: new Date("2024-11-22") },
+        description: `This module is designed to introduce students to some key concepts within environmental history and STS studies, especially the impact and control of science and technology, with particular focus on the risks that these have posed to environmental sustainability and society in parts of Asia historically. Focusing on the history of the British Empire in Asia as a way of thinking around such issues, it uses imperial history as a lens into the development of ideas in environmental, medical and climatic science. It also considers the technological transformations that enabled and facilitated global imperial expansion. In so doing it considers imperialism’s role in environmental change in Asia; the transposition of scientific thought between West and East and, the evolution of environmentalism as a movement. It also seeks to promote interdisciplinary thinking about critical contemporary challenges by thinking through the complex historical interconnections of society, environment and science.`,
+        sections: [
+                { code: "G1", professor: { name: "FIONA CLARE WILLIAMSON" }, location: { building: "SOSS/CIS", room: "Seminar Room B1-1", level: "B1" }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "FIONA CLARE WILLIAMSON" }, location: { building: "SOSS/CIS", room: "Seminar Room B1-1", level: "B1" }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2203": {
+        name: "Climate Change: Global and Local Solutions",
+        moduleCode: "COR-2203",
+        basket: "Technology, Science And Society",
+        description: `This course introduces students to climate change, both within cities and globally, through a predominant STS perspective. Through in-class seminars incorporating digital platforms and field trips, students will examine the basic science underpinning present knowledge of climate change; explore the impacts of rising temperatures, changing rainfall patterns, and rising sea levels on society; and discuss the role of technology and its management towards climate change adaptation and mitigation solutions and policies. Case studies from Singapore and the region will be presented, and special attention focused towards the latest research on (i.) socio-economic inequalities that heighten risks towards urban populations, and (ii.) how technological innovation evolves with applied nature-based solutions in reducing climate vulnerabilities. By the end of the course, the student should be cognisant on the potential of effective and practical management in reducing the impacts of environmental hazards to coupled human-environmental systems, and have the ability to assess solutions to adapt to and mitigate climate change impacts on important industries. Climate change will continue to wreck devastating social and economic impact in the years to come. The ability to understand and devise effective solutions to mitigate the impact of climate change across industries will be a valuable core skill enabling SMU graduates to maintain agility as they progress in their careers.`,
+        sections: [
+                { code: "G1", professor: { name: "YULIYA DZYUBAN" }, location: { building: "YPHSL", room: "Seminar Room 2-11", level: 2 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "YULIYA DZYUBAN" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1', 'Term 2'],
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2209": {
+        name: "Can Machines Think? AI in History, Philosophy, and Fiction",
+        moduleCode: "COR-2209",
+        basket: "Technology, Science And Society",
+        description: `The newest development in machine learning methods, such as Deep Neural Networks, brought about ubiquitous proclamations of a radical societal change. Amidst utopian visions of technological enthusiasts and dystopian scenarios advanced by the sceptics that proliferate in media, some basic questions about the aims and the tools of AI remain obscured. "Can Machines think ?” This class takes one of the central questions addressed to and by the proponents of the AI, artists, and philosophers as an entry point to consider the current emphasis on the transformative potential of machine learning from a historical perspective. Therefore, the course structure is mostly chronological. We will situate the field of AI in the long tradition of automata construction, as well as in the context of a cold war meta-discipline of cybernetics. We will read the original works of the founders of the field, such as Alan Turing and John McCarthy, to reconstruct the main lines of the intellectual development of the field as well as its paradoxes. We will also overview some of the main philosophical and ethical debates around the notions of “intelligence," “rationality," and “mind” in light of the computational technics for decision making. Finally, the course materials include a selection of science fiction novels, films, and short stories in order to discuss the notion of technological imagination as a link connecting public science, cultural production, and the formation of a scientific/engineering research programs.`,
+        sections: [
+                { code: "G48", professor: { name: "KSENIA TATARCHENKO" }, location: { building: "PSR", room: "Classroom 1-1", level: 1 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
+                { code: "G49", professor: { name: "KSENIA TATARCHENKO" }, location: { building: "PSR", room: "Classroom 1-1", level: 1 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-MGMT2211": {
+        name: "Harnessing Robotics, UAVs, and Digital Innovation for Business",
+        moduleCode: "COR-MGMT2211",
+        basket: "Technology, Science And Society",
+        description: `This course is a response to the increasing use of robotics, unmanned aerial vehicles (UAVs) and digital technologies in business and society. Drones are unmanned, multi-purpose tools. Their history can be traced back to World War I when the US army experimented with unmanned aerial torpedos. Nowadays, drone technology belongs to the military arsenal of many nations. Drones serve many purposes (intelligence, surveillance, reconnaissance etc.), and they can be deadly. In business and society, drones are utilised to capture images of people and/or buildings, to monitor agricultural conditions, to take pictures from (or of) hard to reach places, to assess the impact of climate change on rainforests, to film events, to deliver parcels, to survey real estate, to deliver help to heart attack victims in remote areas via a flying defibrillator or to fly life-saving kits to swimmers in emergency situations. In view of their increasing importance in terms of commercial value creation, R&D (it is estimated that about $6.4 billion is spent annually for R&D on drones), job creation, innovation (e.g. Internet of Things), new forms of warfare as well as legal/moral-ethical/regulatory concerns, it is imperative that students learn to critically appreciate the multiple and often conflicting implications and consequences of this technology for business and society. To achieve that, students will have to read widely and familiarize themselves with the various functionalities of robotics, UAVs and digital innovations in order to critically assess these technologies and to articulate informed opinions about ‘the good’, ‘the bad’, and ‘the future’ of these novel technological developments. The course will be taught by a multi-disciplinary team of instructors plus exposure to tech entrepreneurs and digital (corporate) innovation champions.`,
+        sections: [
+                { code: "G1", professor: { name: "THOMAS MENKHOFF, EUGENE TAN KHENG BOON, LIONEL CHOK, FOONG SHAOHUI" }, location: { building: "LKCSB", room: "Seminar Room 3-10", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }, { day: "Tue", startTime: "12:00", duration: 3.25 }, { day: "Fri", startTime: "12:00", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 3B'],
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2213": {
+        name: "Biotechnology in a Global Society",
+        moduleCode: "COR-2213",
+        basket: "Technology, Science And Society",
+        description: `Biotechnology has emerged as one of the most promising and potentially profitable fields for venture capital, the government, health practitioners, consumers, and patients. Some biotechnological companies like 23andMe promise clients access to their ancient ancestry with a simple DNA swab. Scientists have harnessed the power of cloning that promises miraculous cures through stem cell therapies. Many patients have pinned their hopes in the secrets of the BRCA genes to find that elusive cure for breast cancer. But what is biotechnology? How did the field emerge and for what purpose? What are the potentials and dangers of this new field? Who actually benefits from new biotechnologies? This course will explore these questions by examining the modern history of biotechnology and its embedding in a global, capitalist society. We will trace the political ideals, scientific developments, technological infrastructures, and new economic modes that made biotechnology possible.`,
+        sections: [
+                { code: "G1", professor: { name: "HAESOO PARK" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }] },
+                { code: "G2", professor: { name: "HAESOO PARK" }, location: { building: "YPHSL", room: "Seminar Room 3-12", level: 3 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] },
+                { code: "G3", professor: { name: "HAESOO PARK" }, location: { building: "YPHSL", room: "Seminar Room 3-11", level: 3 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-LAW2215": {
+        name: "Digital Intelligence for Lawyers",
+        moduleCode: "COR-LAW2215",
+        basket: "Technology, Science And Society",
+        description: `This course employs a top-down approach to introduce high-level concepts in digital technology to (1) future lawyers who expect to work closely on legal/policy matters that intersect with technology and (2) future legal professionals who intend to leverage on the power of modern computing technologies in both legal research and the delivery of legal services.`,
+        sections: [
+                { code: "G1", professor: { name: "LIM HOW KHANG" }, location: { building: "YPHSL", room: "Seminar Room 2-04", level: 2 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
+                { code: "G61", professor: { name: "LIM HOW KHANG" }, location: { building: "YPHSL", room: "Seminar Room 2-04", level: 2 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2219": {
+        name: "Heated Debates: Climate Justice",
+        moduleCode: "COR-2219",
+        basket: "Technology, Science And Society",
+        description: `This course is aimed at anyone who wants to gain an understanding of climate change, the moral problems it raises, and the responsibilities we have, individually and collectively, because of it. This course will consider several interrelated issues connected to climate change. Such issues include: What ethical challenges does climate change raise? Who has a right to what emission levels? How do we negotiate between collective and individual self-interests? What would constitute a just allocation of the burdens of climate change? What can economic analysis tell us (and not tell us) about climate change? In what ways does uncertainty challenge our ability to understand what we should do about climate change? Why might geoengineering be morally problematic? What are we individually and collectively required to do about climate change? What are our responsibilities toward future generations and the environment, and how do we take these into account? This course will examine the science, and look closely at the interplay of science and public policy. It will also look at the role of values in science. This course will approach these issues from a variety of perspectives. Readings will drawn from climate science, philosophy, economics, environmental studies, public policy, and popular media, among other sources.`,
+        sections: [
+                { code: "G1", professor: { name: "JOSHUA LUCZAK" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }] },
+                { code: "G2", professor: { name: "JOSHUA LUCZAK" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Thu", startTime: "08:15", duration: 3.25 }] },
+                { code: "G3", professor: { name: "JOSHUA LUCZAK" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-3", level: 3 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2222": {
+        name: "AI for Social Transformation",
+        moduleCode: "COR-2222",
+        basket: "Technology, Science And Society",
+        description: `The notion that Artificial Intelligence (AI) has the capacity to transform the way society operates has long been a part of popular culture. Androids have been dreaming of electric sheep since 1968, and Tom Cruise was already arresting pre-criminals in 2002. With the explosion of data available to governments and companies, and cloud computing platforms making supercomputing power widely available, science fiction and reality have never been closer. However, the true capabilities and limitations of AI are often poorly understood, as some predict doom, while others promise the moon. Modern AI techniques have the capacity to improve the way organisations operate, improving decision-making and increasing human and environmental wellbeing, but also carry the potential to cause harm if used irresponsibly or ignorantly. Accessible to technical and non-technical students alike, this course will introduce you to key techniques, showing how they can be flexibly applied to a range of problems, from using game theory to intercept wildlife poachers, through machine learning models for crime prediction, to risk-aware logistics scheduling. The course will guide you through the ethical implications of AI, considering the effects of biased data and the uncritical application of techniques. By the end of the course you will have a working understanding of the capacities and limitations of practical AI, equipping you to critically analyse new developments, and engage in responsible, informed decision-making in the workplace.`,
+        sections: [
+                { code: "G1", professor: { name: "JONATHAN DAVID CHASE" }, location: { building: "YPHSL", room: "Seminar Room 3-09", level: 3 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "JONATHAN DAVID CHASE" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }] },
+                { code: "G3", professor: { name: "JONATHAN DAVID CHASE" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 1'],
+    },
+
+// ================================================================================================================================================================================================================================================================================================
+
+    "COR-2223": {
+        name: "Frontiers of Modern Computing: Present Essentials and Future Promises",
+        moduleCode: "COR-2223",
+        basket: "Technology, Science And Society",
+        description: `The pace of development in modern computing can be bewildering. New technologies appear, making headlines, yet the important details of what they are and how they work often seem to be secrets that are accessible to only an initiated few. This course provides an introduction to the hot technologies in modern computing, demystifying terminology and breaking down the relevant technical information for students of all backgrounds. The course scope encompasses both hot topics that grab headlines, and recent developments that have become central to modern computing infrastructure, understanding how the technology developed to this point, and examining where it may progress in the future. Typical topics include blockchain, Internet of Things, cloud computing and machine learning. This course will equip you with an understanding of key contemporary technologies. It does not shy away from technical details, but presents them in an accessible manner so that you can grasp the capabilities and purpose of the tools discussed. As advances in computing methods are evolved from existing techniques, the insights gained from this course will also give you a head start in getting to grips with further developments in computing in the future. You will also be invited to consider the ethical implications and moral responsibilities of deploying the technologies that pervade our daily lives.`,
+        sections: [
+                { code: "G1", professor: { name: "JONATHAN DAVID CHASE" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }] },
+                { code: "G2", professor: { name: "JONATHAN DAVID CHASE" }, location: { building: "YPHSL", room: "Seminar Room 2-04", level: 2 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }] },
+                { code: "G3", professor: { name: "JONATHAN DAVID CHASE" }, location: { building: "SOSS/CIS", room: "Seminar Room 1-1", level: 1 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] }
+            ],
+        credit: 1,
+        terms: ['Term 2'],
+    },
+
+
+
 
 // ================================================================================================================================================================================================================================================================================================
 
     "COR-1100": {
         name: "Writing and Reasoning",
         moduleCode: "COR-1100",
-        exam: { dateTime: new Date("") },
+        basket: "Writing and Reasoning",
         description: `Using Problem-Based Learning strategies, the Writing and Reasoning course equips students with key communication strategies to write cogently in academic, business and professional settings. Through authentic communication problems, students will learn to clarify context, define relevant audience, determine communication goals and use appropriate genres to deliver their intended message clearly, concisely and coherently. Students will also learn to read critically, formulate a position convincingly using appropriate evidence, and convey their ideas persuasively.`,
         sections: [
                 { code: "G1", professor: { name: "CHONG YIN TENG" }, location: { building: "LKCSB", room: "Classroom 3-5", level: 3 }, classes: [{ day: "Tue", startTime: "12:00", duration: 1.5 }, { day: "Fri", startTime: "12:00", duration: 1.5 }]},
@@ -323,24 +615,17 @@ export const modules: ModuleBank = {
                 { code: "G40", professor: { name: "FERNANDEZ CLAUDINE JEAN" }, location: { building: "SOE/SCIS2", room: "Classroom 2-2", level: 2 }, classes: [{ day: "Mon", startTime: "15:30", duration: 1.5 }, { day: "Thu", startTime: "15:30", duration: 1.5 }]},
                 { code: "G41", professor: { name: "LIN XIUXIA" }, location: { building: "LKCSB", room: "Classroom 3-4", level: 3 }, classes: [{ day: "Tue", startTime: "13:45", duration: 1.5 }, { day: "Thu", startTime: "13:45", duration: 1.5 }]},
                 ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
+
             credit: 1,
             terms: [],
-            preReq: {
-            or: [],
-            },
-            },
+    },
 
 // ================================================================================================================================================================================================================================================================================================
 
     "COR-2100": {
         name: "Economics and Society",
         moduleCode: "COR-2100",
+        basket: 'Economics and Society'
         exam: { dateTime: new Date("2024-11-27")},
         description: `In this course, we introduce students to the economic way of thinking about societal issues. We use the themes of incentives and empiricism to illustrate the power of simple economic ideas, and their ability to explain, predict, and improve what happens in the world. The course will examine how market activities are shaped by both the private and public sector. It will allow students to appreciate how free markets and government policies affect society, creating winners and losers, and to understand the societal trade-offs implicated in an economy. The course will also examine debates on the importance of social institutions in contributing to economic growth, and on economic policies surrounding the world financial crisis. Two topics related to Growth in Asia will be covered in the course.`,
         sections: [
@@ -371,24 +656,16 @@ export const modules: ModuleBank = {
                 { code: "G31", professor: { name: "VU HOANG PHUONG QUE" }, location: { building: "SOSS/CIS", room: "Classroom 3-2", level: 3 }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] },
                 { code: "G32", professor: { name: "LAM SAN LING" }, location: { building: "SOSS/CIS", room: "Classroom 3-2", level: 3 }, classes: [{ day: "Tue", startTime: "15:30", duration: 3.25 }] },
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
+            mutuallyExclusive: ['ECON-001', 'CORE-004'],
             credit: 1,
             terms: ['Term 1', 'Term 2'],
-            preReq: {
-            or: [],
-            },
     },
 // ================================================================================================================================================================================================================================================================================================
 
     "COR-3001": {
-        name: "Big Quesstions",
+        name: "Big Questions",
         moduleCode: "COR-3001",
-        exam: { dateTime: new Date("")},
+        basket: 'Big Questions',
         description: `Big Questions will take a theme every year, or a major global challenge broadly defined as a thesis and its (seeming) antithesis. Big Questions will introduce students to the challenging ethical, theoretical, and operational debates that attend to these themes. Students in any given year will be able to choose from a menu of sub-themes, each using a different disciplinary lens and focusing on different aspects of the theme, while also sharing a canon of readings and attending public lectures dedicated to the year's theme for a shared intellectual experience. The themes may include Happiness and Suffering, Global and Local, Robots and Humans, Wealth and Poverty, War and Peace, amongst others.`,
         sections: [
                 { code: "G1", professor: { name: "NGOEI WEN-QING" }, location: { building: "SOSS/CIS", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Wed", startTime: "08:15", duration: 3.25 }] },
@@ -423,17 +700,8 @@ export const modules: ModuleBank = {
                 { code: "G30", professor: { name: "SIAN EIRA JAY" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }] },
                 { code: "G31", professor: { name: "SIAN EIRA JAY" }, location: { building: "SOSS/CIS", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Mon", startTime: "08:15", duration: 3.25 }] },
             ],
-            coRequisite: [
-            {
-                or: [],
-            },
-            ],
-            mutuallyExclusive: [],
             credit: 1,
             terms: ['Term 1', 'Term 2'],
-            preReq: {
-            or: [],
-            },
     },
 
 
@@ -1118,6 +1386,7 @@ export const modules: ModuleBank = {
 "COR-2201": {
     name: "Technology and World Change",
     moduleCode: "COR-2201",
+    basket: 'Technology, Science And Society',
     exam: { dateTime: new Date("2024-12-06")},
     description: `In Technology and World Change, we show our students how technology has changed and continues to change the lives of people and society. We study the processes by which technology and modern society have co-evolved, especially how the past provides insights on potential changes in the future. We study specific examples of how technological innovations have been created, refined and implemented by entrepreneurs, larger corporations or industrial systems. This course trains students to think critically in a broad-based, interdisciplinary manner, and to analyse matters of potential uncertainty and ambiguity. After this course, students should be more perceptive to opportunities for innovations and technological change, regardless of the industry they will be in.`,
     sections: [
@@ -1146,6 +1415,7 @@ export const modules: ModuleBank = {
 "COR-2221": {
     name: "AI and Humanity",
     moduleCode: "COR-2221",
+    basket: 'Technology, Science And Society',
     exam: { dateTime: new Date("")},
     description: `Technology (specifically AI) has evolved beyond a technical proposition to a shaping force of our future, interwoven into social, cultural and political elements of human society. We are at the genesis of how the relationship between humans and AI is evolving. More than ever, it is crucial to examine a fundamental question of what does it mean to be a human (and AI). Can AI perceive, communicate and sense as well as humans do, or perhaps even better? Such pertinent questions require a multidisciplinary lens, which this course equips you with to dexterously navigate an unfolding future as leaders of today. Venture beyond an academic discourse and gain hands-on experience as a psychologist and AI scientist to develop an AI powered chatbot.`,
     sections: [
@@ -1171,6 +1441,7 @@ export const modules: ModuleBank = {
 "COR-2210": {
     name: "Technological Innovations Enhancing Urban Sustainability",
     moduleCode: "COR-2210",
+    basket: 'Technology, Science And Society',
     exam: { dateTime: new Date("")},
     description: `This course provides students with a set of interweaving and interdisciplinary concepts across the social sciences regarding the what, the how and the why regarding the implementation of technology on urban sustainability issues.\n
                 Topics to be covered include:\n
