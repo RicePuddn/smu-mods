@@ -20,7 +20,15 @@ export const clubs: Clubs ={
         contact: "@Jack",
         image: "dothack.png",
         events: ["HEAP", "Company Workshops", "Networking Sessions"]
+    },
+    3 : {
+        name: "The Mentoring Circle",
+        desc: `At The Mentoring Circle (TMC), we aim to transform outstanding individuals into strong people builders. Founded on the principles of giving and professional excellence, our club envisions an SMU where future generations are consistently better than the last. In each circle, each mentee will be able to grow under the guidance of a mentor, seeking advice in areas such as academics and career. This mentorship journey will be the start of a long lasting and symbiotic friendship, where both the mentor and mentee will learn together. Mentees and mentors will also have the opportunity to interact with other members from the Circle and as well as our alumni. With each Circle, our mentoring reach expands and new bonds are formed. We hope that through this endeavour, SMU can become a nexus for mentorship. The Mentoring Circle is proudly supported by the SMU Office of Alumni Relations.`,
+        contact: "@Parry",
+        image: "tmc.jpg",
+        events: ["Odyssey 2024", "Professional Workshops", "Alumni Sharing"]
     }
+
 }
 
  
