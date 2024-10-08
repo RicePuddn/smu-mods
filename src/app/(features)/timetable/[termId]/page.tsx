@@ -4,7 +4,20 @@ import { Button } from "@/components/ui/button";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { Term, termSlug as termArray, TermSlug } from "@/types/planner";
 import { ModifiableClass, Timetable } from "@/types/primitives/timetable";
+import { getClassEndTime } from "@/utils/timetable";
 import { useRouter } from "next/navigation";
+
+type ClassWithWidth = ModifiableClass & {
+  width: number;
+};
+
+type FullClass = ClassWithWidth & {
+  paddingLeft: number;
+};
+
+type Row = Record<number, ClassWithWidth[]>;
+
+type FullRow = Record<number, FullClass[]>;
 
 export default function TimeTablePage({
   params,
@@ -19,8 +32,58 @@ export default function TimeTablePage({
   let currentTermNum = termArray[currentTermIdx]?.split("-")[1];
   const timetable = timetableMap[`Term ${currentTermNum}` as Term];
 
-  function calculateSlotLeftPadding() {
-    return 0;
+  function calculateSlotLeftPadding(rows: Row, totalSlots: number): FullRow {
+    let fullRows: FullRow = {};
+
+    // Iterate through the row
+    for (let rowIndex = 0; rowIndex < Object.keys(rows).length; rowIndex++) {
+      let currentRow = rows[rowIndex];
+      let updatedRow: FullClass[] = [];
+
+      // Initialize previousClassEndMinutes to 08:00 for the first class inserted to the row
+      let previousClassEndMinutes = timeToMinutes("08:00");
+      for (let classIndex = 0; classIndex < currentRow!.length; classIndex++) {
+        let currentClass = currentRow![classIndex];
+        if (!currentClass) {
+          continue;
+        }
+        let currentClassTime = currentClass.classTime.startTime;
+        let currentClassMinutes = timeToMinutes(currentClassTime);
+
+        // If not the first class in the row, change previousClassEndTime to the previous class' actual endTime
+        if (classIndex != 0) {
+          let previousClassEndTime = getClassEndTime(
+            currentRow![classIndex - 1]!.classTime.startTime,
+            currentRow![classIndex - 1]!.classTime.duration,
+          );
+          let previousClassEndMinutes = timeToMinutes(previousClassEndTime);
+        }
+
+        let minutesDifference = currentClassMinutes - previousClassEndMinutes;
+        console.log(minutesDifference);
+
+        // If the two slots are back to back, set padding to 0
+        let paddingLeft = 0;
+        if (minutesDifference != 0) {
+          paddingLeft = (minutesDifference / 60 / totalSlots) * 100;
+        }
+
+        // Assign new padding value to each class in the row
+
+        let fullClass: FullClass = {
+          ...currentClass,
+          paddingLeft: paddingLeft,
+        };
+
+        updatedRow.push(fullClass);
+
+        let currentClassEndMinutes =
+          currentClassMinutes + currentClass.classTime.duration * 60;
+        previousClassEndMinutes = currentClassEndMinutes;
+      }
+      fullRows[rowIndex] = updatedRow;
+    }
+    return fullRows;
   }
 
   function calculateSlotWidth(duration: number, totalSlots: number) {
@@ -53,14 +116,8 @@ export default function TimeTablePage({
     return hours * 60 + minutes;
   }
 
-  function getSlotPadding(day: ModifiableClass[]) {
-    let rows: Record<
-      number,
-      (ModifiableClass & {
-        paddingLeft: number;
-        width: number;
-      })[]
-    > = {
+  function getRowAssignment(day: ModifiableClass[]) {
+    let rows: Row = {
       0: [],
     };
 
@@ -75,7 +132,7 @@ export default function TimeTablePage({
         timeToMinutes(b.classTime.startTime),
     );
 
-    console.log(sortedTimetable);
+    // console.log(sortedTimetable);
 
     for (let index = 0; index < sortedTimetable.length; index++) {
       const currentSlot = sortedTimetable[index]!;
@@ -85,9 +142,9 @@ export default function TimeTablePage({
       const currentSlotEndMinutes =
         currentSlotStartMinutes + currentSlot.classTime.duration * 60;
 
-      console.log(
-        `Processing classes: ${currentSlot.moduleCode}, ${currentSlot.section}`,
-      );
+      // console.log(
+      //   `Processing classes: ${currentSlot.moduleCode}, ${currentSlot.section}`,
+      // );
 
       let addedToRow = false;
 
@@ -110,9 +167,9 @@ export default function TimeTablePage({
               currentSlotStartMinutes < existingClassEndMinutes &&
               currentSlotEndMinutes > existingClassStartMinutes
             ) {
-              console.log(
-                `Overlap detected between ${currentSlot.moduleCode} ${currentSlot.section} and ${existingClass.moduleCode} ${existingClass.section}`,
-              );
+              // console.log(
+              //   `Overlap detected between ${currentSlot.moduleCode} ${currentSlot.section} and ${existingClass.moduleCode} ${existingClass.section}`,
+              // );
               canAddToRow = false;
               break;
             }
@@ -122,7 +179,6 @@ export default function TimeTablePage({
         if (canAddToRow) {
           currentRow.push({
             ...currentSlot,
-            paddingLeft: calculateSlotLeftPadding(), // Function to calculate padding
             width: calculateSlotWidth(currentSlot.classTime.duration, 14), // Function to calculate width
           });
           addedToRow = true;
@@ -136,7 +192,6 @@ export default function TimeTablePage({
         rows[newRowIndex] = [
           {
             ...currentSlot,
-            paddingLeft: calculateSlotLeftPadding(), // Function to calculate padding
             width: calculateSlotWidth(currentSlot.classTime.duration, 14), // Function to calculate width
           },
         ];
@@ -195,10 +250,11 @@ export default function TimeTablePage({
     Saturday: [],
   };
 
-  const rowsResult = getSlotPadding(mondaySample.Monday);
-  console.log(rowsResult);
+  const rowsResult = getRowAssignment(mondaySample.Monday);
+  // console.log(rowsResult);
+  const rowsResultWithPadding = calculateSlotLeftPadding(rowsResult, 14);
+  console.log(rowsResultWithPadding);
 
-  // console.log()
   if (!termArray.includes(params.termId as TermSlug)) {
     return (
       <div>
@@ -209,7 +265,7 @@ export default function TimeTablePage({
 
   const goToPreviousTerm = () => {
     if (currentTermIdx > 0) {
-      console.log(currentTermIdx);
+      // console.log(currentTermIdx);
       router.push(`${termArray[currentTermIdx - 1]}`);
     }
   };
