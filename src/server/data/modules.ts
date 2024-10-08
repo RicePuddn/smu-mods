@@ -672,26 +672,6 @@ export const modules: ModuleBank = {
   },
 // ================================================================================================================================================================================================================================================================================================
 
-  "COR-2632": {
-    name: "French",
-    moduleCode: "COR-2632",
-    basket: "Cultures Of The Modern World",
-    exam: { dateTime: new Date("2024-11-29")},
-    description: `This course introduces the fundamental elements of the French language within a cultural context. Emphasis is on the development of basic listening, speaking, reading, and writing skills. Upon completion, students should be able to comprehend and respond with grammatical accuracy to spoken and written French as well as demonstrate cultural awareness.
-
-                    Students will be involved in a variety of reading, writing, listening and speaking activities. The development of oral communication skills provides the foundation for students to read and write effectively. Students will have opportunities both to listen and to speak French. Speaking and listening ability is developed through oral exercises, individual reports, class discussions, songs and videos.
-
-                    This course will also explore the cultural hurdles to understanding the French and sketch the context that forms “Frenchness”. Through the introduction to traditions, customs and daily life of the French, students will be given the opportunity to understand French behaviour and culture.
-
-                    The lessons will be conducted both in French and in English.`,
-    sections: [
-      { code: "G1", professor: { name: "MARIE DUBOIS" }, location: { building: "SOSS", room: "Seminar Room 2-5", level: 2 }, classes: [{ day: "Fri", startTime: "10:00", duration: 3.25 }]},
-    ],
-    credit: 1,
-    terms: ['Term 1'],
-  },
-// ================================================================================================================================================================================================================================================================================================
-
   "COR-2633": {
     name: "Global and Transnational Sociology",
     moduleCode: "COR-2633",
@@ -961,7 +941,7 @@ export const modules: ModuleBank = {
     "COR-2100": {
         name: "Economics and Society",
         moduleCode: "COR-2100",
-        basket: 'Economics and Society'
+        basket: 'Economics and Society',
         exam: { dateTime: new Date("2024-11-27")},
         description: `In this course, we introduce students to the economic way of thinking about societal issues. We use the themes of incentives and empiricism to illustrate the power of simple economic ideas, and their ability to explain, predict, and improve what happens in the world. The course will examine how market activities are shaped by both the private and public sector. It will allow students to appreciate how free markets and government policies affect society, creating winners and losers, and to understand the societal trade-offs implicated in an economy. The course will also examine debates on the importance of social institutions in contributing to economic growth, and on economic policies surrounding the world financial crisis. Two topics related to Growth in Asia will be covered in the course.`,
         sections: [
@@ -1045,6 +1025,7 @@ export const modules: ModuleBank = {
     "COR-3301": {
         name: "Ethics and Social Responsibility",
         moduleCode: "COR-3301",
+        basket: "Ethics And Social/ Corporate Responsibility",
         exam: { dateTime: new Date("2024-11-29")},
         description: `The objective of the Course is to raise the awareness of students with regard to the multi-faceted ethical and social responsibility issues faced by businesses and corporate executives, whether individuals or organisations. The initial part of the Course will focus on critiquing various ethical and social theories developed by philosophers, economists, sociologists, management theorists and others. Both Western and non-Western theories will be examined. The Course also aims at developing the moral reasoning skills of students and applying them to the specific problems and dilemmas faced by individuals and organisations in the business and corporate world.`,
         sections: [
@@ -1080,6 +1061,7 @@ export const modules: ModuleBank = {
         name: "Computing Fundamentals",
         moduleCode: "IS114",
         exam: { dateTime: new Date("2024-11-27")},
+        basket: "IS Core- Technology Solutioning",
         description: `We begin our adventure by exploring the essential elements of Computing Systems — hardware, software, and network technologies — through a series of challenging yet fun learning activities. We grow our coding skills by building a networked, distributed computing system: starting with physical computing devices that unite the cyber and physical realms, we add fundamental networking capabilities for devices to exchange information and form networks, and finally integrate the system into the cloud. Equipped with newfound skills and knowledge, we unleash our creative energies, our youthful idealism, and our capacity to dream, by designing visionary technology to conquer a real-world societal challenge. This is a journey into the unknown. Yet, a still, small voice deep within us compels us: Courage! Do not be afraid! Put out into the deepest oceans and brave the stormiest seas! Let down your nets for an awesome catch! The adventure reaches its peak at the project showcase, where we witness the work of human hands come to fruition, leaving us inspired to reflect deeply and broadly about how we, as global citizens, can harness the power of Computing Systems as a potent force in the service of humanity.`,
         sections: [
                 { code: "G1", professor: { name: "RAMANATHAN KIRUTHIKA" }, location: { building: "SOE/SCIS2", room: "Seminar Room B1-1", level: "B1" }, classes: [{ day: "Thu", startTime: "08:15", duration: 3.25 }] },
@@ -1112,6 +1094,7 @@ export const modules: ModuleBank = {
     "IS210": {
         name: "Business Process Analysis & Solutioning",
         moduleCode: "IS210",
+        basket: "IS Core- Technology Solutioning",
         exam: { dateTime: new Date("2024-11-29")},
         description: `In practice, a management decision to invest in business process modeling is often motivated by the need to document requirements for an information technology project. So this course aims to help students:
                     - Understand and apply BPM project needs and life-cycle stages
@@ -1155,6 +1138,7 @@ export const modules: ModuleBank = {
     "IS214": {
         name: "Enterprise Solution Management",
         moduleCode: "IS214",
+        basket: "IS Core- Technology Solutioning",
         exam: { dateTime: new Date("2024-04-22")},
         description: `This course explores the elements in the IT ecosystem that is required to support enterprise systems. It is divided into three main areas: maintenance, change and disaster prevention and recovery. Using common tools in the industry for ticketing, automated testing and DevOps, students are given hands-on experience as well as the understanding for robust delivery, efficient change and deep resilience. Teams will be given their own system environment to maintain and protect. Real world use cases and examples are given to highlight the importance and complexity of managing applications in the enterprise.`,
         sections: [
@@ -1179,6 +1163,7 @@ export const modules: ModuleBank = {
     "IS212": {
         name: "Software Project Management",
         moduleCode: "IS212",
+        basket: "IS Core- Technology Solutioning",
         exam: { dateTime: new Date("")},
         description: `In IS212 (Software Project Management), students will learn about modern frameworks and tools for software project management. In particular, students will gain hands-on experience with the ‘scrum’ framework and several other agile techniques (e.g. test-driven development, pair programming, continuous integration) as they design and build the first release of a software system. Students will gain an appreciation for how these methods help to manage the inherent uncertainty of software projects, as well as how they ensure that developers work towards a common goal at a sustainable pace.`,
         sections: [
@@ -1210,6 +1195,7 @@ export const modules: ModuleBank = {
     "IS215": {
         name: "Digital Business - Technologies and Transformation",
         moduleCode: "IS215",
+        basket: "IS Core- Technology Solutioning",
         exam: { dateTime: new Date("2024-04-15")},
         description: `This course introduces students to the fundamentals of digital business, technologies and the principles and practices that lead to successful digital transformation. With the exploitation of digital technologies such as artificial intelligence, cloud, analytics, mobile networks, social media, and the Internet of Things, organizations can develop a competitive edge that can boost efficiency and drive new business models that lead to an increase in the top and bottom lines. The course focuses on digital strategies using four components namely reimagining the business, re-evaluating value chain, reconnecting with customers and rebuilding the organisation. Challenges such as data security and governance, regulatory constraints, and future directions of digital business will be discussed. Besides helping students to understand the key concepts, tools and API services are introduced to implement the digital and analytics solutions. Real world examples and case studies of how organizations innovate and drive digital transformation will also be covered.`,
         sections: [
@@ -1236,6 +1222,7 @@ export const modules: ModuleBank = {
     "IS112": {
         name: "Data Management",
         moduleCode: "IS112",
+        basket: "IS Core- Software Design And Development",
         exam: { dateTime: new Date("2024-04-24")},
         description: `This course will cover fundamentals of relational database theory, important data management concepts such as data modelling, database design, database implementation in current business information systems, and some basic concepts related to unstructured data. A series of in-class exercises, tests, pop quizzes and a course project will help students understand the covered topics. Students are expected to apply knowledge learned in the classroom to solve many problems based on real-life business scenarios, while gaining hands-on experience in designing, implementing, and managing database systems. Students are also expected to understand the differences between structured data and unstructured data. This course is applicable to students declaring a major from SIS.`,
         sections: [
@@ -1261,6 +1248,7 @@ export const modules: ModuleBank = {
         name: "Interaction Design and Prototyping",
         moduleCode: "IS211",
         exam: { dateTime: new Date("2024-12-6")},
+        basket: "IS Core- Software Design And Development",
         description: `This course introduces fundamental human-computer interaction principles and techniques for designing usable interactive systems. Topics include common methods for gathering user requirements, basic UI and graphics programming techniques, and common evaluation techniques. Hands-on experience with UI prototyping tools will be provided and students will complete a UI design and prototyping project as part of this course.`,
         sections: [
                 { code: "G1", professor: { name: "BENJAMIN GAN KOK SIEW" }, location: { building: "SCIS1", room: "Seminar Room 2-2", level: 2 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
@@ -1289,6 +1277,7 @@ export const modules: ModuleBank = {
         name: "Web Application Development 1",
         moduleCode: "IS113",
         exam: { dateTime: new Date("2024-04-18")},
+        basket: "IS Core- Software Design And Development",
         description: `Web applications are commonly used today by governments, enterprises, and even individuals to provide information, market products, etc. Ability to create web applications is thus a crucial skill for graduates in Information Systems. This course is designed to equip students with the knowledge and skill to develop well-styled database-driven web applications. In the early weeks of the course, students would be introduced to web concepts and trained to build static web pages using HTML. Next, students will be taught on how to program dynamic web applications using PHP. Programming concepts that students have learned in Introduction to Programming (IS111) will be revisited (using PHP as the programming language), expanded, and used to allow students to program web applications that can adapt based on user inputs. After basic PHP programming has been introduced, students will then be taught on how they can connect to a database to store, retrieve, modify, and delete data. They can then design dynamic web pages that present different contents reflecting contents stored in a database as well as allow users to modify database contents through the webpages. In the final weeks of the course, students will be introduced to more advanced PHP concepts including session management to allow for stateful interactive information exchange between users and a web application.`,
         sections: [
                 { code: "G1", professor: { name: "MANOJ THULASIDAS" }, location: { building: "SOE/SCIS2", room: "Seminar Room B1-2", level: 1 }, classes: [{ day: "Tue", startTime: "08:15", duration: 3.25 }]},
@@ -1321,6 +1310,7 @@ export const modules: ModuleBank = {
     "IS216": {
         name: "Web Application Development 2",
         moduleCode: "IS216",
+        basket: "IS Core- Software Design And Development",
         exam: { dateTime: new Date("2024-11-27")},
         description: `This course is designed to equip students with knowledge and skills to develop well-styled and responsive web applications that provide rich user experiences. Combining with the skills learnt in IS113 course, which focuses on developing database-driven web applications with basic web designs, after this course, the students will be equipped with full stack web development skills, who can build both front-end and back-end software. In the introductory weeks of the course, the students will revisit HTML and server-side programming (PHP) concepts learnt in IS113. Then, the students will learn the concept of “Styling” the web pages. The students will learn a style sheet language called cascading style sheets (CSS) and learn how to separate the content and presentation of web pages, how to control web page layout, colors and fonts, how to bring multiple styles into a web page, how to control the layout of multiple web pages efficiently, etc. Next, the students will learn the concept of adding responsive behaviors to web pages to enhance the user experience. The students will learn a client-side programming language called JavaScript to make ordinary web elements like input boxes, buttons, forms, tables, menus interactive and animated. Furthermore, they will learn how to connect to API gateways and process data from external sources like RESTful web services so that they can build practical applications. In the latter weeks of the course, the students will be introduced to programming with frameworks. The students will learn how to use frameworks to build complex web applications in an efficient, scalable manner. More specifically, the students will be introduced to Bootstrap, a popular CSS framework for developing responsive website and introduced to Vue, a progressive JavaScript framework for building rich user interfaces.`,
         sections: [
@@ -1352,6 +1342,7 @@ export const modules: ModuleBank = {
     "IS213": {
         name: "Enterprise Solution Development",
         moduleCode: "IS213",
+        basket: "IS Core- Software Design And Development",
         exam: { dateTime: new Date("2024-04-16")},
         description: `With the emergence of new technologies and evolution of existing ones, organizations are changing the way they build enterprise solutions. Rather than build monolithic applications, the current emphasis is on building solutions by leveraging existing functionality exposed as services. This approach to composing solutions using services follows the Service Oriented Architecture (SOA) paradigm, where applications are structured as a collection of loosely coupled services. In this course students will learn how to design and implement enterprise solutions using SOA using suitable tools. The course will cover topics such as service-oriented architecture (SOA), microservices architecture (MSA), web services, JSON/XML, cloud computing, and Enterprise Service Bus (ESB).`,
         sections: [
@@ -1384,6 +1375,7 @@ export const modules: ModuleBank = {
         name: "Object Oriented Programming",
         moduleCode: "IS442",
         exam: { dateTime: new Date("2024-12-05")},
+        basket: "IS Elective",
         description: `This course focuses on fundamental concepts of developing programs using an object orientated approach. There will be an emphasis on writing clean and efficient code, and the ability to use an appropriate data structure or algorithm to solve problems. The Java programming language will be taught in depth. Students are expected to have a strong foundation in programming.
 
             This is a compulsory course for IS (Software Development Track) for 2017 intake and onwards.
@@ -1419,6 +1411,7 @@ export const modules: ModuleBank = {
         name: "Programming Fundamentals II",
         moduleCode: "CS102",
         exam: { dateTime: new Date("2024-04-15")},
+        basket: "IS Elective",
         description: `This course focuses on fundamental concepts of developing programs using an object oriented approach. There will be an emphasis on writing clean and efficient code, and the ability to use an appropriate data structure or algorithm to solve problems. The Java programming language will be taught in depth.`,
         sections: [
                 { code: "G1", professor: { name: "LEE YEOW LEONG" }, location: { building: "SCIS1", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }]},
@@ -1444,6 +1437,7 @@ export const modules: ModuleBank = {
         name: "Advanced Programming and Design",
         moduleCode: "SE301",
         exam: { dateTime: new Date("2024-12-05")},
+        basket: "IS Elective",
         description: `This is an advanced programming course designed to prepare students to become efficient and proficient software developers. Students are expected to be already familiar with object-oriented concepts with a strong working knowledge of Java. SE301 will build upon this foundation and introduce students to important clean coding concepts, continuous refactoring, test-driven development, (OO and architectural) design patterns and SOLID principles - all coupled with lots of hands-on coding exercises. Students will learn Node.js from a selected online course. Design patterns within the Node.js framework will be discussed in class. The course focuses on two aspects of testing: unit testing using JUnit and Web black-box testing using Selenium IDE and Selenium Webdriver scripts. Advanced programming concepts such as multi-threaded programming and advanced programming features will be covered using Java.`,
         sections: [
                 {code: "G1", professor: { name: "MOK HENG NGEE" }, location: { building: "SCIS1", room: "Seminar Room 2-3", level: 2 }, classes: [{ day: "Fri", startTime: "08:15", duration: 3.25 }]},
@@ -1466,6 +1460,7 @@ export const modules: ModuleBank = {
         name: "Cloud Management and Engineering",
         moduleCode: "IS458",
         exam: { dateTime: new Date("2024-12-02")},
+        basket: "IS Elective",
         description: `Cloud computing gain fast development within the past 15 years and continue penetrating to many aspects of our daily lives. It provides strong and reliable support for all kinds of information systems in various industries. It also greatly reduces the go-to-market time for high-tech start-up companies. Although many people are using cloud in their daily work, but few of them have structural understanding on how cloud functions. With more and more fancy features incorporated in Cloud, it seems difficult for beginners to understand their relations and apply them to real world problems. This course provides an introduction to the fundamental concept and basic structure of cloud computing. The topics covered include basic cloud concept, typical business and technical requirements on cloud infrastructure, basic building blocks for an cloud solution, and how to manage reliability and incident using cloud tools. All topics are designed based on actual commercial usage pattern to support real business requirements. Computing theory and mathematical analysis are included at a minimally needed level. Exercising and integration of knowledge learnt will be covered through assignments, labs, and a demonstrative project for real world problems. After this course, students are expected to gain a structural concept of how cloud operates and how to manipulate cloud resources to support information system and business needs. The principles and techniques learnt in this course will help students understand the common core structure of various commercial cloud platforms and how to go deeper to a specific function. With this foundation, students can easily build up their knowledge of a chosen commercial cloud on a systematic way using online resources.`,
         sections: [
                 { code: "G1", professor: { name: "SIM CHER BOON" }, location: { building: "SCIS1", room: "Seminar Room 3-1", level: 3 }, classes: [{ day: "Wed", startTime: "19:00", duration: 3.25 }] }, 
@@ -1491,6 +1486,7 @@ export const modules: ModuleBank = {
         name: "Cloud Solution Development Work-Study Elective",
         moduleCode: "IS492",
         exam: { dateTime: new Date("")},
+        basket: "IS Elective",
         description: `The Cloud Solution Development Work-Study Elective is a six-month internship attachment program under the SMU-AWS-Accenture Cloud Solution Development Work-Study Program. During the vacation period, students work five days a week at Accenture. While undertaking the work-study elective, students may also enrol in 1-2 CUs of courses at SMU during the same term and are allowed to be back in campus up to one day each week. Students will be assigned to a SMU Faculty Advisor and an Internship Supervisor (from Accenture). This elective provides students with an opportunity to do an extended internship with Accenture and applies the solution development skillsets that they learnt to contribute to the industry sector in Singapore.`,
         sections: [
                 // { code: "G1", professor: { name: "OUH ENG LIEH" }, location: { building: "SCIS1", room: "To be confirmed", level: null }, classes: [{ day: "To be confirmed", startTime: "To be confirmed", duration: null }] }
@@ -1514,6 +1510,7 @@ export const modules: ModuleBank = {
         name: "Enterprise Business Solutions",
         moduleCode: "IS412",
         exam: { dateTime: new Date("")},
+        basket: "IS Elective",
         description: `The Enterprise Business Solutions Course is a SMU-X course that will be delivered in collaboration with SAP APJ Innovation Office. This SMU-X course offers an experiential learning opportunity that allows students to translate classroom knowledge and theory into practical solutions for a real organization. Through this student consultancy project, students learn how to work with industry professionals and help come up with innovative solutions for real world problems. The student teams will work under the guidance from the faculty and project sponsor mentors, from problem definition to final client presentation. The course will focus on helping students gain a good understanding of the concepts related to building innovative solutions by leveraging SAP Business Technology Platform (BTP). Students will also gain hands-on experience in building solutions using BTP along with other related technologies. Learning Objectives • Experience real-world problem solving through student consultancy project • Apply classroom learning and research to real-world challenges in order to envision innovative IT solutions using the cloud platform • Understand the changing role of IT modes of delivering solutions • Apply Design Thinking methodology when building an innovative IT solution • Build innovative solutions using a cloud platform (e.g. SAP Cloud Platform) • Use some of the services within a cloud platform (e.g. IoT, analytics, machine learning) • Learning to learn skills as demanded by the project • Learn how to work with industry professionals and deliver an IT solution • Learn how to handle uncertainty in a project`,
         sections:[
                 { code: "G1", professor: { name: "LUM ENG KIT" }, location: { building: "SCIS1", room: "Seminar Room B1-1", level: 1 }, classes: [{ day: "Wed", startTime: "12:00", duration: 3.25 }] }
@@ -1537,6 +1534,7 @@ export const modules: ModuleBank = {
         name: "Foundations of Cybersecurity",
         moduleCode: "CS440",
         exam: { dateTime: new Date("2024-12-03")},
+        basket: "IS Elective",
         description: `The Foundations of Cybersecurity course provides fundamental knowledge and technical skills for protecting computing and networking systems against various cyber-attacks. Topics covered include cryptographic algorithms, public key infrastructure, network security, authentication, access control, web security basics, and malware basics. Classroom instructions will be integrated with hands-on exercises and group projects.`,
         sections: [
                 { code: "G1", professor: { name: "SHAR LWIN KHIN" }, location: { building: "SCIS1", room: "Seminar Room 3-4", level: 3 }, classes: [{ day: "Mon", startTime: "12:00", duration: 3.25 }] },
@@ -1563,6 +1561,7 @@ export const modules: ModuleBank = {
         name: "IT Solution Architecture",
         moduleCode: "CS301",
         exam: { dateTime: new Date("2024-12-27")},
+        basket: "IS Elective",
         description: `The IT Solution Architecture course integrates design concepts and methods to develop IT solutions from both the software and system-level perspectives. It focuses on the analysis, design and implementation of an IT solution through which business requirements, software qualities and solution elements are transformed into implementable artefacts. By combining critical analysis with hands-on design and development, the course prepares students to participate effectively in the architecture design and development stages of a software-intensive IT solution project. It is highly recommended that students are also proficient in IS442 Object Oriented Programming and Java programming language prior to reading this course.`,
         sections: [
                 { code: "G1", professor: { name: "LEE YEOW LEONG" }, location: { building: "SCIS1", room: "Seminar Room 2-1", level: 2 }, classes: [{ day: "Thu", startTime: "12:00", duration: 3.25 }] },
@@ -1586,6 +1585,7 @@ export const modules: ModuleBank = {
     name: "Internet Of Things: Technology and Applications",
     moduleCode: "CS462",
     exam: { dateTime: new Date("2024-12-06")},
+    basket: "IS Elective",
     description: `The Internet of Things (IoT) brings us a vision of a world in which trillions of devices can sense, communicate, and collaborate over the Internet, in the same way that humans interact and collaborate with one another over the World Wide Web. These interconnected devices offer exciting new services to improve our quality of lives and can be applied to various application domains - smart cities, smart homes, social services, and industrial automation. Sounds lit? Bring some bubble tea, come and see: what's the tea with IoT? This course may be conducted using both Flipped Learning and/or Blended Learning strategies. All lessons are on-site. Students will spend 2-3 hours weekly before lessons on flipped and/or blended learning preparatory activities such as readings, videos, meetups in small groups, meetups with the teacher, etc.`,
     sections: [
         { code: "G1", professor: { name: "MA DONG" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-9", level: 3 }, classes: [{ day: "Wed", startTime: "15:30", duration: 3.25 }]}
@@ -1604,9 +1604,10 @@ export const modules: ModuleBank = {
 },
 // ================================================================================================================================================================================================================================================================================================
 "IS446": {
-    name: "Managing Customer Relations with Analytics: Asian Insights",
+    name: "Managing Customer Relations with Analytics",
     moduleCode: "IS446",
     exam: { dateTime: new Date("")},
+    basket: "IS Elective",
     description: `The better any organization can manage the relationship with its customers, the more successful it will become. IT systems targeting the problems of dealing with customers are growing in popularity. Customer Relationship Management (CRM) is not just the use of a technology, or a hardcoded business process, it is a management strategy to help organizations understand and learn about customer behaviors, needs, preferences and expectations in order to improve and maintain a strong relationship with them. Managing Customer Relationship with Analytics: Asian Insights presents the concepts and methodologies required to execute a methodical approach to apply analytics and CRM principles into a business. The course will cover the customer-centric business culture, and the customer relationship process to attract, convert, retain and delight customers with the help of IT tools.`,
     sections: [
         { code: "G1", professor: { name: "ALAN HO" }, location: { building: "SOE/SCIS2", room: "Seminar Room 3-9", level: 3 }, classes: [{ day: "Fri", startTime: "12:00", duration: 3.25 }]},
@@ -1630,6 +1631,7 @@ export const modules: ModuleBank = {
     name: "Mobile & Pervasive Computing and Applications",
     moduleCode: "CS461",
     exam: { dateTime: new Date("")},
+    basket: "IS Elective",
     description: `This course aims to introduce the concept of mobile and pervasive technologies to the students while providing hands-on experience in building such systems. The focus will be mainly on the concepts of (i) mobile/pervasive computing and application development, (ii) applications of mobile systems, (iii) context-awareness, and (iv) improving usability and efficiency of mobile applications. The course examines the outline provided above, from both technical and real-world applications, hence involves the concepts of machine learning. Students of this class will be using development tools and techniques to build mobile Applications (using Android OS) and the main focus will be on making mobile applications faster (lower-latency), more energy-efficient, smarter (context-aware) and highly usable (multimodal UIs).`,
     sections: [],
         coRequisite: [
@@ -1650,6 +1652,7 @@ export const modules: ModuleBank = {
     name: "Software & Systems Security",
     moduleCode: "CS443",
     exam: { dateTime: new Date("")},
+    basket: "IS Elective",
     description: `Software and systems security aims in equipping students with the fundamental concepts in software and systems security, as well as basic hands-on skills in understanding, analyzing, and protecting a software program and a computer system. Each lesson spends roughly 50% of the time on fundamental concepts (lecturing) and 50% of the time on hands-on exercises/assessments. Assessments focus on hands-on projects.`,
     sections: [],
         coRequisite: [
@@ -1669,6 +1672,7 @@ export const modules: ModuleBank = {
     name: "Software Product Management",
     moduleCode: "CS206",
     exam: { dateTime: new Date("2024-11-28")},
+    basket: "IS Elective",
     description: `This course introduces students to the core concepts and skills underlying successful software product management. Students will learn about the distinct characteristics of software products vis-à-vis other industrial artefacts, and how these characteristics can be leveraged in managing the software product life cycle. With an emphasis on the elements of the software product management framework, students will acquire hands-on product management skills through classroom instruction, term projects, and presentations.`,
     sections: [
         { code: "G1", professor: { name: "KELVIN CHNG" }, location: { building: "SOE/SCIS2", room: "Seminar Room B1-2", level: "B1" }, classes: [{ day: "Tue", startTime: "12:00", duration: 3.25 }] }
@@ -1774,6 +1778,7 @@ export const modules: ModuleBank = {
     name: "French",
     moduleCode: "COR-2406",
     exam: { dateTime: new Date("2024-11-27")},
+    basket: "Cultures Of The Modern World",
     description: `This course introduces the fundamental elements of the French language within a cultural context. Emphasis is on the development of basic listening, speaking, reading, and writing skills. Upon completion, students should be able to comprehend and respond with grammatical accuracy to spoken and written French as well as demonstrate cultural awareness. Students will be involved in a variety of reading, writing, listening and speaking activities. The development of oral communication skills provides the foundation for students to read and write effectively. Students will have opportunities both to listen and to speak French. Speaking and listening ability is developed through oral exercises, individual reports, class discussions, songs and videos. This course will also explore the cultural hurdles to understanding the French and sketch the context that forms “Frenchness”. Through the introduction to traditions, customs and daily life of the French, students will be given the opportunity to understand French behaviour and culture. The lessons will be conducted both in French and in English.
 `,
     sections: [
@@ -1798,6 +1803,7 @@ export const modules: ModuleBank = {
     name: "Italian",
     moduleCode: "COR-2407",
     exam: { dateTime: new Date("2024-11-24")},
+    basket: "Cultures Of The Modern World",
     description: `Italian is an elementary language course designed for beginners that focuses on intensive oral communication practice, and aims at developing basic oral expression, listening, comprehension and elementary reading and writing skills. The course will also focus on important aspects of the Italian culture. Classes are based on oral-aural communicative activities: there will be an extensive use of role-plays, class debates, individual and group quizzes and songs listening and singing.
         `,
     sections: [
@@ -1822,6 +1828,7 @@ export const modules: ModuleBank = {
     name: "Spanish",
     moduleCode: "COR-2408",
     exam: { dateTime: new Date("")},
+    basket: "Cultures Of The Modern World",
     description: `It is meant to introduce the students to the learning of the Spanish language and through this, to discover other culture and ways of communicating. The Spanish taught is that from Spain but students will also be familiarized with Spanish of Latin American countries. After taking this course, the students will be able to acquire a basic knowledge of the Spanish language that will equip them to continue learning the language at higher levels later on. Learning a new language like Spanish will be very useful in your academic life if you decide to go for an exchange program with a Spanish speaking country as well as in your professional life (as Spanish is the third most spoken language in the world after English and Chinese). It will also allow you to be familiar with other cultures. 
                 `,
     sections: [
