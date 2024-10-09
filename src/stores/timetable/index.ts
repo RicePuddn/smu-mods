@@ -1,9 +1,9 @@
-import { Term } from "@/types/planner";
+import type { Term } from "@/types/planner";
 import type { Module, ModuleCode, Section } from "@/types/primitives/module";
 import {
   type ColorIndex,
   defaultTimetableMap,
-  TimetableMap,
+  type TimetableMap,
 } from "@/types/primitives/timetable";
 import {
   addModuleToTimetable,
