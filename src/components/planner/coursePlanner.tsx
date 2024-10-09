@@ -1,5 +1,7 @@
 "use client";
 
+import MobileAccordionPlanner from "@/components/planner/accordionPlanner";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
@@ -12,12 +14,14 @@ import {
   type DropResult,
 } from "@hello-pangea/dnd";
 import { X } from "lucide-react";
+import React from "react";
 import { Button } from "../ui/button";
 
 const DELIMITER = "/$/"
 
 const CoursePlanner: React.FC = () => {
-  const { addModule, changeTerm, removeYear, planner, removeModule } = usePlannerStore((state) => state);
+  const isMobile = useIsMobile(); 
+  const { addModule, changeTerm, planner, removeModule } = usePlannerStore((state) => state);
   const { modules } = useModuleBankStore((state) => state);
 
   const onDragEnd = (result: DropResult) => {
@@ -50,16 +54,22 @@ const CoursePlanner: React.FC = () => {
     );
   };
 
-  const handleRemoveYear = (year: Year) => {
-    removeYear(year, modules);
-  };
-
   const handleRemoveModuleFromPlanner = (moduleCode: ModuleCode, year: Year, term: Term)=>{
     removeModule(moduleCode, year, term, modules)
   }
 
   return (
     <div className="p-4">
+      {isMobile ? (
+        <MobileAccordionPlanner
+          planner={planner}
+          onDragEnd={onDragEnd}
+          handleRemoveModuleFromPlanner={handleRemoveModuleFromPlanner}
+          HandleAddMod={HandleAddMod}
+          EXEMPTION_YEAR={EXEMPTION_YEAR}
+          DELIMITER={DELIMITER}
+        />
+      ) : (
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Object.entries(planner).map(([year, terms]) => (
@@ -68,24 +78,9 @@ const CoursePlanner: React.FC = () => {
               className="overflow-hidden rounded-lg bg-white shadow-md flex flex-col"
             >
               <div className="flex justify-between bg-blue-500 p-3 items-center h-14">
-                {year !== "-1" && (
                 <h2 className="text-lg font-semibold text-white">
-                  Year {year}
+                    {year !== EXEMPTION_YEAR ? `Year ${year}` : "Exemptions"}
                 </h2>
-                )}
-                {year == EXEMPTION_YEAR && (
-                  <h2 className="text-lg font-semibold text-white">
-                   Exemptions
-                  </h2>
-                )}
-                {year !== EXEMPTION_YEAR && (
-                  <Button
-                    onClick={() => handleRemoveYear(year as Year)}
-                    className="bg-blue-400 px-2 py-1 text-sm font-semibold text-white transition-colors duration-200 hover:bg-red-600"
-                  >
-                    Clear
-                  </Button>
-                )}
               </div>
               {Object.entries(terms).map(([term, termModules]) => (
                 <Droppable
@@ -148,6 +143,7 @@ const CoursePlanner: React.FC = () => {
           ))}
         </div>
       </DragDropContext>
+      )}
       <Button
         onClick={HandleAddMod}
         className="rounded bg-green-500 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600"
