@@ -1,5 +1,5 @@
-import { Basket } from "@/types/primitives/basket";
-import { Track } from "@/types/primitives/major";
+import type { Basket } from "@/types/primitives/basket";
+import type { Track } from "@/types/primitives/major";
 
 export const baskets: Basket<Track>[] = [
   {
