@@ -20,7 +20,7 @@ export function addModuleToTimetable(
   }
   section.classes.forEach((classTime) => {
     const modifiableClass: ModifiableClass = {
-      module,
+      moduleCode: module.moduleCode,
       section: section.code,
       classTime,
       isModifiable: true,
@@ -50,7 +50,7 @@ export function showAllSections(
       let modifiableClass: ModifiableClass;
       if (section.code !== currentSectionCode) {
         modifiableClass = {
-          module,
+          moduleCode: module.moduleCode,
           section: section.code,
           classTime,
           isModifiable: true,
@@ -60,7 +60,7 @@ export function showAllSections(
         };
       } else {
         modifiableClass = {
-          module,
+          moduleCode: module.moduleCode,
           section: section.code,
           classTime,
           isModifiable: true,
@@ -91,9 +91,9 @@ export function selectSection(
   days.forEach((day) => {
     updatedTimetable[day] = updatedTimetable[day].filter(
       (classItem) =>
-        classItem.module.moduleCode !== module.moduleCode ||
+        classItem.moduleCode !== module.moduleCode ||
         (classItem.section === selectedSectionCode &&
-          classItem.module.moduleCode === module.moduleCode),
+          classItem.moduleCode === module.moduleCode),
     );
   });
 
