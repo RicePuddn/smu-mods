@@ -4,10 +4,10 @@ import { cn } from '@/lib/utils';
 import { EXEMPTION_YEAR, Planner, type Term, type Year } from "@/types/planner";
 import { ModuleCode } from '@/types/primitives/module';
 import {
-    DragDropContext,
-    Draggable,
-    Droppable,
-    DropResult
+  DragDropContext,
+  Draggable,
+  Droppable,
+  DropResult
 } from "@hello-pangea/dnd";
 import { X } from 'lucide-react';
 import React, { useState } from 'react';
@@ -48,7 +48,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ year, content }) => {
 const MobileAccordionPlanner: React.FC<{
     planner: Planner; 
     onDragEnd: (result: DropResult) => void;
-    handleRemoveYear: (year: Year) => void;
     handleRemoveModuleFromPlanner: (moduleCode: ModuleCode, year: Year, term: Term) => void;
     HandleAddMod: () => void;
     EXEMPTION_YEAR: string;
@@ -56,7 +55,6 @@ const MobileAccordionPlanner: React.FC<{
 }> = ({
   planner,
   onDragEnd,
-  handleRemoveYear,
   handleRemoveModuleFromPlanner,
   HandleAddMod,
   EXEMPTION_YEAR,
@@ -72,16 +70,7 @@ const MobileAccordionPlanner: React.FC<{
               year={year}
               content={
                 <div className="overflow-hidden rounded-b-lg bg-white shadow-lg flex flex-col">
-                    {year !== EXEMPTION_YEAR && (
-                        <div className="flex justify-between bg-blue-500 p-3 items-center h-14">   
-                            <Button
-                                onClick={() => handleRemoveYear(year as Year)}
-                                className="bg-blue-400 px-2 py-1 text-sm font-semibold text-white transition-colors duration-200 hover:bg-red-600"
-                            >
-                                Clear
-                            </Button>
-                        </div>
-                    )}
+                    
                   {Object.entries(terms).map(([term, termModules]) => (
                     <Droppable
                       droppableId={`${year}${DELIMITER}${term}`}

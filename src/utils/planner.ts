@@ -134,12 +134,13 @@ export function getPlanner(
   const fullModules = Object.keys(plannerModules).map(
     (moduleCode) => moduleBank[moduleCode as ModuleCode],
   ) as Module[];
-
+  
   for (const moduleCode in plannerModules) {
     const plannerModule = plannerModules[moduleCode as ModuleCode];
     if (!plannerModule) {
       continue;
     }
+    
     planner[plannerModule.year][plannerModule.term][moduleCode as ModuleCode] =
       getPlannerModuleInfo(
         plannerModule,
