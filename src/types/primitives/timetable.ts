@@ -33,7 +33,7 @@ export type ClassTime = {
 };
 
 export type Class = {
-  module: Module;
+  moduleCode: ModuleCode;
   section: string;
   classTime: ClassTime;
 };
