@@ -1,5 +1,5 @@
 import type { Term } from "../planner";
-import type { Module } from "./module";
+import type { ModuleCode } from "./module";
 
 export const startingTime = [
   "08:15",

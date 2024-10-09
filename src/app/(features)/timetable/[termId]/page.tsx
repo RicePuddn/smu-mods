@@ -1,9 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useTimetableStore } from "@/stores/timetable/provider";
-import { Term, termSlug as termArray, TermSlug } from "@/types/planner";
-import { Day, ModifiableClass, Timetable } from "@/types/primitives/timetable";
+import { termSlug, type TermSlug } from "@/types/planner";
+import type { Day, ModifiableClass, Timetable } from "@/types/primitives/timetable";
 import { getClassEndTime } from "@/utils/timetable";
 import { useRouter } from "next/navigation";
 
@@ -24,42 +23,42 @@ export default function TimeTablePage({
 }: {
   params: { termId: string };
 }) {
-  const { timetableMap, showAllSections, selectSection } = useTimetableStore(
-    (state) => state,
-  );
+  // const { timetableMap, showAllSections, selectSection } = useTimetableStore(
+  //   (state) => state,
+  // );
   const router = useRouter();
-  let currentTermIdx = termArray.indexOf(params.termId as TermSlug);
-  let currentTermNum = termArray[currentTermIdx]?.split("-")[1];
-  const timetable = timetableMap[`Term ${currentTermNum}` as Term];
+  const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
+  const currentTermNum = termSlug[currentTermIdx]?.split("-")[1];
+  // const timetable = timetableMap[termMap[params.termId as TermSlug]];
 
   function calculateSlotLeftPadding(rows: Row, totalSlots: number): FullRow {
-    let fullRows: FullRow = {};
+    const fullRows: FullRow = {};
 
     // Iterate through the row
     for (let rowIndex = 0; rowIndex < Object.keys(rows).length; rowIndex++) {
-      let currentRow = rows[rowIndex];
-      let updatedRow: FullClass[] = [];
+      const currentRow = rows[rowIndex];
+      const updatedRow: FullClass[] = [];
 
       // Initialize previousClassEndMinutes to 08:00 for the first class inserted to the row
       let previousClassEndMinutes = timeToMinutes("08:00");
       for (let classIndex = 0; classIndex < currentRow!.length; classIndex++) {
-        let currentClass = currentRow![classIndex];
+        const currentClass = currentRow![classIndex];
         if (!currentClass) {
           continue;
         }
-        let currentClassTime = currentClass.classTime.startTime;
-        let currentClassMinutes = timeToMinutes(currentClassTime);
+        const currentClassTime = currentClass.classTime.startTime;
+        const currentClassMinutes = timeToMinutes(currentClassTime);
 
         // If not the first class in the row, change previousClassEndTime to the previous class' actual endTime
         if (classIndex != 0) {
-          let previousClassEndTime = getClassEndTime(
+          const previousClassEndTime = getClassEndTime(
             currentRow![classIndex - 1]!.classTime.startTime,
             currentRow![classIndex - 1]!.classTime.duration,
           );
-          let previousClassEndMinutes = timeToMinutes(previousClassEndTime);
+          previousClassEndMinutes = timeToMinutes(previousClassEndTime);
         }
 
-        let minutesDifference = currentClassMinutes - previousClassEndMinutes;
+        const minutesDifference = currentClassMinutes - previousClassEndMinutes;
         console.log(minutesDifference);
 
         // If the two slots are back to back, set padding to 0
@@ -70,7 +69,7 @@ export default function TimeTablePage({
 
         // Assign new padding value to each class in the row
 
-        let fullClass: FullClass = {
+        const fullClass: FullClass = {
           ...currentClass,
           paddingLeft: paddingLeft,
         };
@@ -117,7 +116,7 @@ export default function TimeTablePage({
   }
 
   function getRowAssignment(day: ModifiableClass[], totalSlots: number) {
-    let rows: Row = {
+    const rows: Row = {
       0: [],
     };
 
@@ -150,7 +149,7 @@ export default function TimeTablePage({
 
       // Iterate over existing rows to find where we can add the current slot without overlap
       for (let rowIndex = 0; rowIndex < Object.keys(rows).length; rowIndex++) {
-        let currentRow = rows[rowIndex]!;
+        const currentRow = rows[rowIndex]!;
         let canAddToRow = true;
 
         // Check overlap with all classes already in the current row
@@ -191,7 +190,7 @@ export default function TimeTablePage({
 
       // Add new row if not addedToRow
       if (!addedToRow) {
-        let newRowIndex = Object.keys(rows).length;
+        const newRowIndex = Object.keys(rows).length;
         rows[newRowIndex] = [
           {
             ...currentSlot,
@@ -285,7 +284,7 @@ export default function TimeTablePage({
     "22:00",
   ];
 
-  if (!termArray.includes(params.termId as TermSlug)) {
+  if (!termSlug.includes(params.termId as TermSlug)) {
     return (
       <div>
         <p>Term not found</p>
@@ -296,13 +295,13 @@ export default function TimeTablePage({
   const goToPreviousTerm = () => {
     if (currentTermIdx > 0) {
       // console.log(currentTermIdx);
-      router.push(`${termArray[currentTermIdx - 1]}`);
+      router.push(`${termSlug[currentTermIdx - 1]}`);
     }
   };
 
   const goToNextTerm = () => {
-    if (currentTermIdx < termArray.length - 1) {
-      router.push(`${termArray[currentTermIdx + 1]}`);
+    if (currentTermIdx < termSlug.length - 1) {
+      router.push(`${termSlug[currentTermIdx + 1]}`);
     }
   };
 
@@ -320,7 +319,7 @@ export default function TimeTablePage({
         <Button
           variant={"ghost"}
           onClick={goToNextTerm}
-          disabled={currentTermIdx == termArray.length - 1}
+          disabled={currentTermIdx == termSlug.length - 1}
         >
           &gt;
         </Button>
@@ -372,7 +371,7 @@ export default function TimeTablePage({
                 >
                   {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                     const rowIndex = parseInt(rowIndexStr, 10); // Convert rowIndex to number
-                    let minHeight = 60;
+                    const minHeight = 60;
                     // if (!!document) {
                     //   const element = document.getElementById(
                     //     `Slot${rowIndex}`,
