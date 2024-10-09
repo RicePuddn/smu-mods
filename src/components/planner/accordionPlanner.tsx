@@ -1,13 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
-import { EXEMPTION_YEAR, Planner, type Term, type Year } from "@/types/planner";
-import { ModuleCode } from '@/types/primitives/module';
+import { EXEMPTION_YEAR, type Planner, type Term, type Year } from "@/types/planner";
+import type { ModuleCode } from '@/types/primitives/module';
 import {
   DragDropContext,
   Draggable,
   Droppable,
-  DropResult
+  type DropResult
 } from "@hello-pangea/dnd";
 import { X } from 'lucide-react';
 import React, { useState } from 'react';
@@ -56,7 +56,7 @@ const MobileAccordionPlanner: React.FC<{
   planner,
   onDragEnd,
   handleRemoveModuleFromPlanner,
-  HandleAddMod,
+  // HandleAddMod,
   EXEMPTION_YEAR,
   DELIMITER,
 }) => {
@@ -93,6 +93,7 @@ const MobileAccordionPlanner: React.FC<{
                             <h3 className="mb-3 font-medium text-gray-700"></h3>
                           )}
                           {Object.entries(termModules).map(
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
                             ([moduleCode, { conflicts }], index) => (
                               <Draggable
                                 key={moduleCode}
