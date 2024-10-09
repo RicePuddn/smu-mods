@@ -21,7 +21,7 @@ const DELIMITER = "/$/"
 
 const CoursePlanner: React.FC = () => {
   const isMobile = useIsMobile(); 
-  const { addModule, changeTerm, removeYear, planner, removeModule } = usePlannerStore((state) => state);
+  const { addModule, changeTerm, planner, removeModule } = usePlannerStore((state) => state);
   const { modules } = useModuleBankStore((state) => state);
 
   const onDragEnd = (result: DropResult) => {
@@ -54,10 +54,6 @@ const CoursePlanner: React.FC = () => {
     );
   };
 
-  const handleRemoveYear = (year: Year) => {
-    removeYear(year, modules);
-  };
-
   const handleRemoveModuleFromPlanner = (moduleCode: ModuleCode, year: Year, term: Term)=>{
     removeModule(moduleCode, year, term, modules)
   }
@@ -68,7 +64,6 @@ const CoursePlanner: React.FC = () => {
         <MobileAccordionPlanner
           planner={planner}
           onDragEnd={onDragEnd}
-          handleRemoveYear={handleRemoveYear}
           handleRemoveModuleFromPlanner={handleRemoveModuleFromPlanner}
           HandleAddMod={HandleAddMod}
           EXEMPTION_YEAR={EXEMPTION_YEAR}
@@ -86,14 +81,6 @@ const CoursePlanner: React.FC = () => {
                 <h2 className="text-lg font-semibold text-white">
                     {year !== EXEMPTION_YEAR ? `Year ${year}` : "Exemptions"}
                 </h2>
-                {year !== EXEMPTION_YEAR && (
-                  <Button
-                    onClick={() => handleRemoveYear(year as Year)}
-                    className="bg-blue-400 px-2 py-1 text-sm font-semibold text-white transition-colors duration-200 hover:bg-red-600"
-                  >
-                    Clear
-                  </Button>
-                )}
               </div>
               {Object.entries(terms).map(([term, termModules]) => (
                 <Droppable
