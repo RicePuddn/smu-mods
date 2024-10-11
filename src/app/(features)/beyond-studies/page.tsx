@@ -53,23 +53,26 @@ export default function BeyondStudies() {
       </h1>
       <DragDropContext onDragEnd={onDragEnd}>
         {/* Top box where events can be dropped */}
-        <Droppable droppableId="saved-box" type="event">
-          {(provided) => (
-            <div
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              className="mb-4 min-h-[100px] w-full rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-4"
-            >
-              <p className="text-gray-500">Drag Events Here</p>
-              {droppedItems.map((item, index) => (
-                <div key={index} className="m-2 rounded-md bg-gray-200 p-2">
-                  {item}
-                </div>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
+        <div className="grid grid-cols-2">
+          <Droppable droppableId="saved-box" type="event">
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                className="d-inline-block mb-4 h-60 w-60 items-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-4 hover:to-blue-50"
+              >
+                <p className="text-gray-500">Drag Events Here</p>
+                {droppedItems.map((item, index) => (
+                  <div key={index} className="m-2 rounded-md bg-gray-200 p-2">
+                    {item}
+                  </div>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+          <div className="border">Hello</div>
+        </div>
 
         {/* Droppable container for the club cards */}
         <Droppable droppableId="event-container" type="event">
@@ -77,7 +80,7 @@ export default function BeyondStudies() {
             <div
               ref={provided.innerRef}
               {...provided.droppableProps}
-              className="grid grid-cols-4 gap-4 rounded p-12"
+              className="grid grid-cols-1 gap-4 rounded p-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
             >
               {Object.entries(clubData).map(([key, value], index) => (
                 <Draggable key={key} draggableId={key} index={index}>
@@ -87,14 +90,16 @@ export default function BeyondStudies() {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                     >
-                      <Card className="p-6 hover:shadow-lg hover:shadow-gray-300">
-                        <Image
-                          className="rounded-t-lg border bg-gray-400"
-                          src={`/${value.image}`}
-                          alt="logo"
-                          width={500}
-                          height={500}
-                        />
+                      <Card className="p-6 hover:shadow-lg hover:shadow-gray-300 sm:shrink-0">
+                        <div className="flex h-full w-full items-center justify-center">
+                          <Image
+                            className="h-full w-full rounded-t-lg border bg-gray-300 object-contain"
+                            src={`/${value.image}`}
+                            alt="logo"
+                            width={500}
+                            height={500}
+                          />
+                        </div>
                         <CardHeader>{value.name}</CardHeader>
                         <CardDescription className="text-left">
                           <ReadMore
