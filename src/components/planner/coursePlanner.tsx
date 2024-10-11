@@ -4,9 +4,9 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
-// import { api } from "@/trpc/react";
-import { EXEMPTION_YEAR, type Term, type Year } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
+import { api } from "@/trpc/react";
+import { EXEMPTION_YEAR, MODSTOTAKE_TERM, MODSTOTAKE_YEAR, type Term, type Year } from "@/types/planner";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import {
   DragDropContext,
   Draggable,
@@ -14,15 +14,20 @@ import {
   type DropResult,
 } from "@hello-pangea/dnd";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
 const DELIMITER = "/$/"
 
 const CoursePlanner: React.FC = () => {
-  // const {mutateAsync} = api.module.searchModule.useMutation() 
-  // const result= await mutateAsync({query:"okokok"}) //put on event thingy
-  // // once get result, update state
+  const {mutateAsync} = api.module.searchModule.useMutation({
+    onSuccess: (data)=>{
+      setSearchResult(data)
+    }
+  }) 
+  const [searchString, setSearchString] = useState("")
+  const [searchResult, setSearchResult] = useState<Module[]>([])
 
   const isMobile = useIsMobile(); 
   const { addModule: addModuleToPlanner, changeTerm, planner, removeModule } = usePlannerStore((state) => state);
@@ -47,15 +52,16 @@ const CoursePlanner: React.FC = () => {
     );
   };
 
-  const HandleAddMod = () => {
+  const HandleAddMod = (module:Module) => {
+    addModuleToBank(module)
     addModuleToPlanner(
-      "IS216",
+      module.moduleCode,
       {
-        year: "1",
-        term: "Term 1",
-        id: "IS216",
+        year: MODSTOTAKE_YEAR as Year,
+        term: MODSTOTAKE_TERM as Term,
+        id: module.moduleCode,
       },
-      modules,
+      {...modules, [module.moduleCode]: module},
     );
   };
 
@@ -89,7 +95,12 @@ const CoursePlanner: React.FC = () => {
                 onClick={() => isMobile && toggleYear(year)}
               >
                 <h2 className="text-lg font-semibold text-white">
-                    {year !== EXEMPTION_YEAR ? `Year ${year}` : "Exemptions"}
+                    {year === EXEMPTION_YEAR
+                      ? "Exemptions"
+                      : year === MODSTOTAKE_YEAR
+                      ? "Plan to Take"
+                      : `Year ${year}`
+                    }
                 </h2>
                 {isMobile && (
                   !isMobile || isOpen.has(year)  ? <ChevronUp className="text-white" /> : <ChevronDown className="text-white" />
@@ -106,15 +117,17 @@ const CoursePlanner: React.FC = () => {
                         <div
                         ref={provided.innerRef}
                         {...provided.droppableProps}
-                        className={cn("p-3 transition-colors duration-200", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", year !== EXEMPTION_YEAR ? "min-h-[120px]" : "flex-grow")}
+                        className={cn("p-3 transition-colors duration-200", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", year === EXEMPTION_YEAR && !isMobile ? "flex-grow" : year === MODSTOTAKE_YEAR && !isMobile ? "flex-grow" : "min-h-[120px]" )}
                         >
-                      
-                        {year != EXEMPTION_YEAR && (
-                        <h3 className="mb-3 font-medium text-gray-700">{term}</h3>
-                        )}
-                        {year == EXEMPTION_YEAR && (
-                        <h3 className="mb-3 font-medium text-gray-700"></h3>
-                        )}
+                        
+                        <h3 className="mb-3 font-medium text-gray-700">
+                          {(year === EXEMPTION_YEAR
+                          ? ""
+                          : year === MODSTOTAKE_YEAR
+                          ? ""
+                          : `${term}`)}
+                        </h3>
+                        
                         {Object.entries(termModules).map(
                           // eslint-disable-next-line @typescript-eslint/no-unused-vars
                           ([moduleCode, { conflicts }], index) => (
@@ -158,12 +171,55 @@ const CoursePlanner: React.FC = () => {
           ))}
         </div>
       </DragDropContext>
-      <Button
+      <div className="flex items-center">
+        <div className="flex-auto max-w-xl">
+          <Input
+          value={searchString}
+          onChange={(e) => setSearchString(e.target.value)}
+          className="w-full"
+          placeholder="Search Module"
+          >
+          </Input>
+        </div>
+        <div className="ps-4">
+          <Button
+            onClick={async()=>{
+              const result= await mutateAsync({
+                query: searchString
+              })
+            }}
+            className="rounded bg-sky-500 px-3 py-2 font-bold text-white transition-colors duration-200 hover:bg-sky-600"
+          >
+            Search
+          </Button>
+        </div>
+      </div>
+      <div className="grid grid-cols-5">
+        {searchResult.length > 0 ?
+        (searchResult.map((module, index) => (
+          <div key={index} className="col-span-5 p-2 border-b border-gray-200 grid grid-cols-2">
+            <div className="col-span-1 py-2">
+              <a href="#"><h3 className="font-semibold">{module.moduleCode}</h3></a>
+              <p className="text-sm text-gray-600">{module.name}</p>
+            </div>
+            <div className="col-span-1 text-end py-2">
+              <Button
+              className="rounded bg-green-500 px-3 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600"
+              onClick={()=>HandleAddMod(module)}>
+                Add Module
+              </Button>
+            </div>
+          </div>
+        ))) : 
+        (<div className="p-2"> No Result </div>)
+        }
+      </div>
+      {/* <Button
         onClick={HandleAddMod}
         className="rounded bg-green-500 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600"
       >
         Add Module
-      </Button>
+      </Button> */}
     </div>
   );
 };
