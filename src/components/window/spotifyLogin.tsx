@@ -4,11 +4,21 @@ import { env } from "@/env";
 const CLIENT_ID = env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const REDIRECT_URI = "http://localhost:3000/window";
 
-const state = "776f75220521c01edbfd721184112881";
-
 export default function SpotifyLogin() {
+  var generateRandomString = function (length: number) {
+    var text = "";
+    var possible =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  };
   const handleLogin = () => {
-    const scope = "user-read-private user-read-email";
+    const scope =
+      "user-read-private user-read-email streaming user-modify-playback-state user-read-playback-state";
+    const state = generateRandomString(16);
 
     const params = new URLSearchParams({
       response_type: "code",
@@ -18,7 +28,7 @@ export default function SpotifyLogin() {
       state: state,
     });
 
-    const authUrl = `https://accounts.spotify.com/authorize?${params.toString()}`;
+    const authUrl = `https://accounts.spotify.com/authorize/?${params.toString()}`;
 
     // Redirect to Spotify's authorization page
     window.location.href = authUrl;

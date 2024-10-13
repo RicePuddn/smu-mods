@@ -40,6 +40,7 @@
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-spotify-web-playback-sdk": "^3.0.2",
     "sass": "^1.78.0",
     "server-only": "^0.0.1",
     "sonner": "^1.5.0",
