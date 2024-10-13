@@ -1,14 +1,19 @@
 "use client";
 
+import SpotifyLogin from "@/components/window/spotifyLogin";
 import { env } from "@/env";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function WindowPage() {
+  const [player, setPlayer] = useState<Spotify.Player | null>(null);
+  const [deviceId, setDeviceId] = useState<string | null>(null);
+  const [isReady, setIsReady] = useState(false);
+  const [isTokenRequesting, setIsTokenRequesting] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const [currentSlide, setCurrentSlide] = useState(0);
-  const CLIENT_ID = env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID; // Replace with your access token
-  const CLIENT_SECRET = env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET; // Replace with your access token
+  const CLIENT_ID = env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
+  const CLIENT_SECRET = env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
   const slides = [
     {
       video: "https://i.imgur.com/pnqLqHZ.mp4",
@@ -29,9 +34,100 @@ export default function WindowPage() {
         "Some representative placeholder content for the third slide.",
     },
   ];
+  const spotifyTrackUrl = "https://api.spotify.com/v1/tracks/";
+
+  const default_songs = [{ id: "08Fo1zAY2piVFOD2Lv3n3z", name: "Okinawa" }];
   useEffect(() => {
-    connectSpotify();
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+
+    console.log("URL Params:", urlParams.toString());
+    console.log("Code found:", code);
+
+    // Only call getAccessToken if code is not null
+    if (code && !isTokenRequesting) {
+      console.log("Attempting to get access token...");
+      getAccessToken(code);
+    } else {
+      console.log("No authorization code found");
+    }
   }, []);
+
+  async function getAccessToken(code: string) {
+    setIsTokenRequesting(true);
+    const REDIRECT_URI = "http://localhost:3000/window";
+    const authString = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
+      "base64",
+    );
+    const body = new URLSearchParams({
+      grant_type: "authorization_code",
+      code: code as string,
+      redirect_uri: REDIRECT_URI,
+    });
+    // console.log(authString);
+
+    try {
+      const response = await axios.post(
+        "https://accounts.spotify.com/api/token",
+        body.toString(),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: `Basic ${authString}`,
+          },
+        },
+      );
+
+      let accessToken = response.data.access_token;
+      // console.log(accessToken);
+      setAccessToken(accessToken);
+      window.history.replaceState({}, document.title, "/window");
+    } catch (error) {
+      console.error("Error obtaining access token:", error);
+    }
+  }
+
+  useEffect(() => {
+    if (!accessToken) return; // Make sure the access token is available
+
+    const script = document.createElement("script");
+    script.src = "https://sdk.scdn.co/spotify-player.js";
+    script.async = true;
+    script.onload = () => {
+      const player = new Spotify.Player({
+        name: "Web Playback SDK Player",
+        getOAuthToken: (cb) => {
+          cb(accessToken);
+        },
+        volume: 0.5,
+      });
+
+      // console.log(player);
+
+      // Connect to the player
+      player.connect().then((success) => {
+        if (success) {
+          console.log(
+            "The Web Playback SDK successfully connected to Spotify!",
+          );
+        }
+      });
+      player.addListener("ready", ({ device_id }) => {
+        console.log("Ready with Device ID", device_id);
+      });
+
+      player.addListener("not_ready", ({ device_id }) => {
+        console.log("Device ID has gone offline", device_id);
+      });
+    };
+
+    document.body.appendChild(script);
+
+    // Cleanup script when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [accessToken]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -41,34 +137,9 @@ export default function WindowPage() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  async function connectSpotify() {
-    try {
-      const authString = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
-        "base64",
-      );
-
-      // Use axios to make a POST request
-      const response = await axios.post(
-        "https://accounts.spotify.com/api/token",
-        new URLSearchParams({
-          grant_type: "client_credentials",
-        }),
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Basic ${authString}`, // Base64 encoded client_id:client_secret
-          },
-        },
-      );
-      // console.log(response.data);
-      console.log(response.data.access_token);
-      setAccessToken(response.data.access_token);
-    } catch (error) {
-      console.error(`Authentication Failed: ${error}`);
-    }
-  }
   return (
     <>
+      <SpotifyLogin></SpotifyLogin>
       <div className="relative" id="carouselExampleCaptions">
         <div className="relative h-screen w-full overflow-hidden bg-gray-800">
           {slides.map((slide, index) => (
