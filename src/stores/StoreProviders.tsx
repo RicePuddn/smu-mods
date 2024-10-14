@@ -1,4 +1,5 @@
 import { ModuleBankStoreProvider } from "./moduleBank/provider";
+import { PlannerStoreProvider } from "./planner/provider";
 import { TimetableStoreProvider } from "./timetable/provider";
 
 export default function StoreProviders({
@@ -8,7 +9,9 @@ export default function StoreProviders({
 }) {
   return (
     <ModuleBankStoreProvider>
-      <TimetableStoreProvider>{children}</TimetableStoreProvider>
+      <TimetableStoreProvider>
+        <PlannerStoreProvider>{children}</PlannerStoreProvider>
+      </TimetableStoreProvider>
     </ModuleBankStoreProvider>
   );
 }

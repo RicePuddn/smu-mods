@@ -1,12 +1,12 @@
 "use client";
 
-import * as React from "react";
 import { PanelLeft } from "lucide-react";
+import * as React from "react";
 
-import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 export const SIDEBAR_STATE_COOKIE = "sidebar:state";
 

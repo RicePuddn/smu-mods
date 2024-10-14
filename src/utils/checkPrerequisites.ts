@@ -9,8 +9,8 @@ export type StatusNode = {
   fulfilledCount?: number;
 };
 
-export function checkPrerequisites(
-  completedModules: ModuleCode[],
+export function checkPrerequisite(
+  completedModules: Set<ModuleCode>,
   preReqTree?: PreReqTree,
 ): { fulfilled: boolean; status?: StatusNode } {
   if (!preReqTree) {
@@ -20,7 +20,7 @@ export function checkPrerequisites(
     if (typeof tree === "string") {
       return {
         type: "module",
-        fulfilled: completedModules.includes(tree),
+        fulfilled: completedModules.has(tree),
         module: tree,
       };
     }
