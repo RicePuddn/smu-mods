@@ -20,7 +20,7 @@ export function addModuleToTimetable(
   }
   section.classes.forEach((classTime) => {
     const modifiableClass: ModifiableClass = {
-      module,
+      moduleCode: module.moduleCode,
       section: section.code,
       classTime,
       isModifiable: true,
@@ -50,7 +50,7 @@ export function showAllSections(
       let modifiableClass: ModifiableClass;
       if (section.code !== currentSectionCode) {
         modifiableClass = {
-          module,
+          moduleCode: module.moduleCode,
           section: section.code,
           classTime,
           isModifiable: true,
@@ -60,7 +60,7 @@ export function showAllSections(
         };
       } else {
         modifiableClass = {
-          module,
+          moduleCode: module.moduleCode,
           section: section.code,
           classTime,
           isModifiable: true,
@@ -91,11 +91,19 @@ export function selectSection(
   days.forEach((day) => {
     updatedTimetable[day] = updatedTimetable[day].filter(
       (classItem) =>
-        classItem.module.moduleCode !== module.moduleCode ||
+        classItem.moduleCode !== module.moduleCode ||
         (classItem.section === selectedSectionCode &&
-          classItem.module.moduleCode === module.moduleCode),
+          classItem.moduleCode === module.moduleCode),
     );
   });
 
   return updatedTimetable;
+}
+
+export function getClassEndTime(startTime: string, duration: number) {
+  const [hours, minutes] = startTime.split(":").map(Number);
+  const totalMinutes = hours! * 60 + minutes! + duration;
+  const newHours = Math.floor(totalMinutes / 60);
+  const newMinutes = totalMinutes % 60;
+  return `${String(newHours).padStart(2, "0")}:${String(newMinutes).padStart(2, "0")}`;
 }
