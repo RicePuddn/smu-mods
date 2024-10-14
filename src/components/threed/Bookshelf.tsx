@@ -4,11 +4,11 @@ Command: npx gltfjsx@6.5.2 Bookshelf.glb -t
 */
 
 import { Html, useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { type ThreeEvent, useFrame } from "@react-three/fiber";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import * as THREE from "three";
-import { GLTF } from "three-stdlib";
+import type { GLTF } from "three-stdlib";
 
 // Define the GLTF type for the bookshelf
 type GLTFResult = GLTF & {
@@ -71,19 +71,19 @@ export function Bookshelf(props: JSX.IntrinsicElements["group"]) {
   });
 
   // Handle pointer over event to set hovered state
-  const handlePointerOver = (e: any) => {
+  const handlePointerOver = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setHovered(true);
   };
 
   // Handle pointer out event to unset hovered state
-  const handlePointerOut = (e: any) => {
+  const handlePointerOut = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setHovered(false);
   };
 
   // need to change the page here later
-  const handleClick = (e: any) => {
+  const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     setClicked(true);
     router.push("/modules-list");

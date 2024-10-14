@@ -4,11 +4,11 @@ Command: npx gltfjsx@6.5.2 Monitor.glb -t
 */
 
 import { Html, useGLTF } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { type ThreeEvent, useFrame } from "@react-three/fiber";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import * as THREE from "three";
-import { GLTF } from "three-stdlib";
+import type { GLTF } from "three-stdlib";
 
 // Define the GLTF type for the monitor
 type GLTFResult = GLTF & {
@@ -30,7 +30,6 @@ export function Monitor(props: JSX.IntrinsicElements["group"]) {
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
   const router = useRouter();
-  const { camera } = useThree();
 
   // Set up frame loop to update hover, click effect, and pulsing effect
   useFrame((state) => {
@@ -61,19 +60,19 @@ export function Monitor(props: JSX.IntrinsicElements["group"]) {
   });
 
   // Handle pointer over event to set hovered state
-  const handlePointerOver = (e: any) => {
+  const handlePointerOver = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setHovered(true);
   };
 
   // Handle pointer out event to unset hovered state
-  const handlePointerOut = (e: any) => {
+  const handlePointerOut = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setHovered(false);
   };
 
   // Handle click event to navigate to the appropriate page
-  const handleClick = (e: any) => {
+  const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     setClicked(true);
     router.push("/plan-modules");
