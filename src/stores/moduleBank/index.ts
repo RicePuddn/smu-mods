@@ -7,17 +7,40 @@ export type ModuleBankActions = {
   addModule: (module: Module) => void;
   getModule: (moduleCode: ModuleCode) => Promise<Module>;
   fetchAndAddModule: (moduleCode: ModuleCode) => Promise<Module>;
+  toggleFavourites: (moduleCode: ModuleCode) => void;
+  getFavouriteModules: () => ModuleCode[];
 };
 
-export type ModuleBankStore = { modules: ModuleBank } & ModuleBankActions;
+export type ModuleBankStore = { modules: ModuleBank, favouriteModules: ModuleCode[] } & ModuleBankActions;
 
 export const defaultInitState: ModuleBank = {};
+export const defaultFavouriteModules: ModuleCode[] = [];
 
-export const createModuleBank = (initState: ModuleBank = defaultInitState) => {
+export const createModuleBank = (initModuleBank: ModuleBank = defaultInitState, initFavouriteModules: ModuleCode[] = defaultFavouriteModules) => {
   return create<ModuleBankStore>()(
     persist(
       (set, get) => ({
-        modules: initState,
+        modules: initModuleBank,
+        favouriteModules: initFavouriteModules,
+        toggleFavourites: (moduleCode: ModuleCode) => {
+          const originalFavourites = get().favouriteModules;
+          const setFavourites = new Set(originalFavourites);
+          if (setFavourites.has(moduleCode)) {
+            setFavourites.delete(moduleCode);
+          } else {
+            setFavourites.add(moduleCode);
+          }
+          set((state) => {
+            return {
+              ...state,
+              favouriteModules: Array.from(setFavourites),
+            };
+          });
+        },
+        getFavouriteModules: () => {
+          const originalFavourites = get().favouriteModules;
+          return originalFavourites
+        },
         addModule: (module: Module) => {
           set((state) => {
             return {
