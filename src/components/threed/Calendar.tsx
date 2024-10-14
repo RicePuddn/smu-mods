@@ -4,11 +4,11 @@ Command: npx gltfjsx@6.5.2 Calendar.glb -t
 */
 
 import { Html, useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { type ThreeEvent, useFrame } from "@react-three/fiber";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { GLTF } from "three-stdlib";
+import type { GLTF } from "three-stdlib";
 
 // Define the GLTF type for the calendar
 type GLTFResult = GLTF & {
@@ -137,19 +137,19 @@ export function Calendar(props: JSX.IntrinsicElements["group"]) {
   });
 
   // Handle pointer over event to set hovered state
-  const handlePointerOver = (e: any) => {
+  const handlePointerOver = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setHovered(true);
   };
 
   // Handle pointer out event to unset hovered state
-  const handlePointerOut = (e: any) => {
+  const handlePointerOut = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation();
     setHovered(false);
   };
 
   // Handle click event to navigate to the appropriate page
-  const handleClick = (e: any) => {
+  const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     setClicked(true);
     router.push("/weekly-schedule");
