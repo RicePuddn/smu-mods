@@ -1,10 +1,9 @@
 "use client";
 
-
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // import ui components
-import { Check, ChevronDown, Search, Star, StarOff } from "lucide-react";
+import ModuleDetails from "@/components/ModuleDetails";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -15,53 +14,24 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import ModuleDetails from "@/components/ModuleDetails"; 
-import MiniDegreeProgressReport from "@/components/miniDegreeProgressReport";
+import { ChevronDown, Star, StarOff } from "lucide-react";
 
 // Importing module data and basket categories
-import { modules } from "@/server/data/modules";
 import { baskets } from "@/server/data/basket";
-
-
-// Extract categories from baskets
-const categories = baskets.map((basket) => basket.name);
-
-// Function to save favorites to localStorage
-const saveFavorites = (favorites: Set<string>) => {
-    localStorage.setItem("favorites", JSON.stringify(Array.from(favorites)));
-  };
-  
-  // Function to load favorites from localStorage
-  const loadFavorites = (): Set<string> => {
-    const savedFavorites = localStorage.getItem("favorites");
-    return savedFavorites ? new Set(JSON.parse(savedFavorites)) : new Set();
-  };
-  
+import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { type Module } from "@/types/primitives/module";
 
 export default function CourseCatalogue() {
+  // Extract categories from baskets
+  const categories = baskets.map((basket) => basket.name);
+  const { modules, toggleFavourites, favouriteModules } = useModuleBankStore(
+    (state) => state,
+  );
+
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<"name" | "credit">("name");
-  const [favorites, setFavorites] = useState<Set<string>>(loadFavorites()); // Load from localStorage
   const [filterByFavorites, setFilterByFavorites] = useState(false); // Toggle to filter by favorites
-
-  // Save favorites to localStorage whenever it changes
-  useEffect(() => {
-    saveFavorites(favorites);
-  }, [favorites]);
-
-  // Function to toggle a module as a favorite
-  const toggleFavorite = (moduleCode: string) => {
-    setFavorites((prev) => {
-      const updatedFavorites = new Set(prev);
-      if (updatedFavorites.has(moduleCode)) {
-        updatedFavorites.delete(moduleCode); // Remove from favorites
-      } else {
-        updatedFavorites.add(moduleCode); // Add to favorites
-      }
-      return updatedFavorites;
-    });
-  };
 
   // Function to get all modules in a selected category
   const getModulesByCategory = (category: string) => {
@@ -77,7 +47,7 @@ export default function CourseCatalogue() {
         : Object.keys(modules); // If no category is selected, show all modules
 
       // If filter by favorites is enabled, show only favorite modules
-      if (filterByFavorites && !favorites.has(module.moduleCode)) {
+      if (filterByFavorites && !favouriteModules.includes(module.moduleCode)) {
         return false;
       }
 
@@ -88,13 +58,12 @@ export default function CourseCatalogue() {
       );
     })
     .reduce((acc, current) => {
-      // Remove duplicates by checking moduleCode
       const found = acc.find((item) => item.moduleCode === current.moduleCode);
       if (!found) {
         acc.push(current);
       }
       return acc;
-    }, [])
+    }, [] as Module[])
     .sort((a, b) => {
       if (sortBy === "name") {
         return a.name.localeCompare(b.name);
@@ -105,8 +74,8 @@ export default function CourseCatalogue() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Module Catalogue</h1>
-      <div className="flex flex-col md:flex-row gap-4 mb-4">
+      <h1 className="mb-4 text-2xl font-bold">Module Catalogue</h1>
+      <div className="mb-4 flex flex-col gap-4 md:flex-row">
         {/* Search Bar */}
         <div className="flex-1">
           <Input
@@ -142,15 +111,15 @@ export default function CourseCatalogue() {
       </div>
 
       {/* Toggle Filter by Favorites */}
-      <div className="flex items-center mb-4">
+      <div className="mb-4 flex items-center">
         <Checkbox
           checked={filterByFavorites}
-          onCheckedChange={(checked) => setFilterByFavorites(checked)}
+          onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
         />
         <Label className="ml-2">Show Favorites Only</Label>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-4">
         {/* Filter by Categories */}
         <div className="space-y-2">
           <h2 className="font-semibold">Basket</h2>
@@ -163,7 +132,7 @@ export default function CourseCatalogue() {
                   setSelectedCategories(
                     checked
                       ? [...selectedCategories, category]
-                      : selectedCategories.filter((c) => c !== category)
+                      : selectedCategories.filter((c) => c !== category),
                   );
                 }}
               />
@@ -174,17 +143,24 @@ export default function CourseCatalogue() {
 
         {/* Display Modules */}
         <div className="md:col-span-3">
-          <h2 className="font-semibold mb-2">Modules ({filteredModules.length})</h2>
+          <h2 className="mb-2 font-semibold">
+            Modules ({filteredModules.length})
+          </h2>
           <div className="grid gap-4">
             {filteredModules.map((module) => (
               // Wrap the module card with ModuleDetails to open the dialog when clicked
-              <ModuleDetails moduleCode={module.moduleCode} key={module.moduleCode}>
-                <div className="border p-4 rounded-lg cursor-pointer flex justify-between items-center">
+              <ModuleDetails
+                moduleCode={module.moduleCode}
+                key={module.moduleCode}
+              >
+                <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-gray-600">
-                      {module.moduleCode}  |  {module.credit} CU  |  Exam Date:{" "}
-                      {module.exam ? new Date(module.exam.dateTime).toLocaleDateString() : "No Exam"}
+                      {module.moduleCode} | {module.credit} CU | Exam Date:{" "}
+                      {module.exam
+                        ? new Date(module.exam.dateTime).toLocaleDateString()
+                        : "No Exam"}
                     </p>
                   </div>
 
@@ -193,10 +169,10 @@ export default function CourseCatalogue() {
                     className="text-yellow-500"
                     onClick={(e) => {
                       e.stopPropagation(); // Prevents triggering the dialog when clicking the star
-                      toggleFavorite(module.moduleCode);
+                      toggleFavourites(module.moduleCode);
                     }}
                   >
-                    {favorites.has(module.moduleCode) ? (
+                    {favouriteModules.includes(module.moduleCode) ? (
                       <Star className="h-6 w-6 fill-current" />
                     ) : (
                       <StarOff className="h-6 w-6" />
@@ -208,9 +184,6 @@ export default function CourseCatalogue() {
           </div>
         </div>
       </div>
-      
-      </div>
-
-   
+    </div>
   );
 }

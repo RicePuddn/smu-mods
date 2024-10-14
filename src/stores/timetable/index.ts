@@ -13,10 +13,9 @@ import {
 import { toast } from "sonner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { useModuleBankStore } from "../moduleBank/provider";
 
 export type TimetableActions = {
-  AddModuleToTimetable: (moduleCode: ModuleCode, term: Term, colorIndex: ColorIndex) => Promise<void>;
+  AddModuleToTimetable: (module: Module, term: Term, colorIndex: ColorIndex) => Promise<void>;
   removeModuleFromTimetable: (
     moduleCode: ModuleCode,
     sectionCode: string,
@@ -48,9 +47,7 @@ export const createTimetableStore = (
       (set, get) => ({
         timetableMap: initTimetableMap,
         modules: [],
-        AddModuleToTimetable: async (moduleCode: ModuleCode, term: Term, colorIndex) => {
-          const { getModule } = useModuleBankStore((state) => state);
-          const module = await getModule(moduleCode);
+        AddModuleToTimetable: async (module: Module, term: Term, colorIndex) => {
           const timetable = get().timetableMap[term];
           const newTimeTable = addModuleToTimetable(module, timetable, colorIndex);
           set((state) => ({
