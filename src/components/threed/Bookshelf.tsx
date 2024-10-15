@@ -86,7 +86,7 @@ export function Bookshelf(props: JSX.IntrinsicElements["group"]) {
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     setClicked(true);
-    router.push("/modules-list");
+    router.push("/module-catalogue");
   };
 
   return (
