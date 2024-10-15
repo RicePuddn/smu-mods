@@ -119,76 +119,76 @@ const CoursePlanner: React.FC = () => {
               </div>
               {(!isMobile || isOpen.has(year)) &&
                 Object.entries(terms).map(([term, termModules]) => (
-                  <Droppable
-                    droppableId={`${year}${DELIMITER}${term}`}
+                  <div
+                    className={cn(
+                      "p-3 transition-colors duration-200",
+                      year !== EXEMPTION_YEAR ? "min-h-[120px]" : "flex-grow",
+                    )}
                     key={`${year}${DELIMITER}${term}`}
                   >
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                        className={cn(
-                          "p-3 transition-colors duration-200",
-                          snapshot.isDraggingOver
-                            ? "bg-blue-100"
-                            : "bg-gray-50",
-                          year !== EXEMPTION_YEAR
-                            ? "min-h-[120px]"
-                            : "flex-grow",
-                        )}
-                      >
-                        {year != EXEMPTION_YEAR && (
-                          <h3 className="mb-3 font-medium text-gray-700">
-                            {term}
-                          </h3>
-                        )}
-                        {year == EXEMPTION_YEAR && (
-                          <h3 className="mb-3 font-medium text-gray-700"></h3>
-                        )}
-                        {Object.entries(termModules).map(
-                          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                          ([moduleCode, { conflicts }], index) => (
-                            <Draggable
-                              key={moduleCode}
-                              draggableId={moduleCode}
-                              index={index}
-                            >
-                              {(provided, snapshot) => (
-                                <div
-                                  ref={provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                  className={cn(
-                                    "mb-2 flex items-center justify-between rounded p-2 transition-all duration-200",
-                                    snapshot.isDragging
-                                      ? "bg-blue-200 shadow-lg"
-                                      : "border border-gray-200 bg-white hover:bg-gray-100",
-                                  )}
-                                >
-                                  <div className="w-5/6">{moduleCode}</div>
-                                  <Button
-                                    onClick={() =>
-                                      handleRemoveModuleFromPlanner(
-                                        moduleCode as ModuleCode,
-                                        year as Year,
-                                        term as Term,
-                                      )
-                                    }
-                                    variant={"destructive"}
-                                    size={"icon"}
-                                    className="size-6 rounded-full"
-                                  >
-                                    <X className="size-5" />
-                                  </Button>
-                                </div>
-                              )}
-                            </Draggable>
-                          ),
-                        )}
-                        {provided.placeholder}
-                      </div>
+                    {year != EXEMPTION_YEAR && (
+                      <h3 className="font-medium text-gray-700">{term}</h3>
                     )}
-                  </Droppable>
+                    {year == EXEMPTION_YEAR && (
+                      <h3 className="font-medium text-gray-700"></h3>
+                    )}
+                    <Droppable droppableId={`${year}${DELIMITER}${term}`}>
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                          className={cn(
+                            "h-[calc(100%-20px)]",
+                            snapshot.isDraggingOver
+                              ? "bg-blue-100"
+                              : "bg-gray-50",
+                          )}
+                        >
+                          {Object.entries(termModules).map(
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            ([moduleCode, { conflicts }], index) => (
+                              <Draggable
+                                key={moduleCode}
+                                draggableId={moduleCode}
+                                index={index}
+                              >
+                                {(provided, snapshot) => (
+                                  <div
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                    className={cn(
+                                      "mb-2 flex items-center justify-between rounded p-2 transition-all duration-200",
+                                      snapshot.isDragging
+                                        ? "bg-blue-200 shadow-lg"
+                                        : "border border-gray-200 bg-white hover:bg-gray-100",
+                                    )}
+                                  >
+                                    <div className="w-5/6">{moduleCode}</div>
+                                    <Button
+                                      onClick={() =>
+                                        handleRemoveModuleFromPlanner(
+                                          moduleCode as ModuleCode,
+                                          year as Year,
+                                          term as Term,
+                                        )
+                                      }
+                                      variant={"destructive"}
+                                      size={"icon"}
+                                      className="size-6 rounded-full"
+                                    >
+                                      <X className="size-5" />
+                                    </Button>
+                                  </div>
+                                )}
+                              </Draggable>
+                            ),
+                          )}
+                          {provided.placeholder}
+                        </div>
+                      )}
+                    </Droppable>
+                  </div>
                 ))}
             </div>
           ))}
