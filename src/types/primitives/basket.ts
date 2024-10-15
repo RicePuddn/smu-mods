@@ -20,6 +20,8 @@ export const baskets = [
   "IS Core- Project Experience",
   "IS Elective",
   "Uni Core",
+  "IS Product Development Electives",
+  "IS Product Development Core",
 ] as const;
 
 export type BasketType = (typeof baskets)[number];

@@ -57,8 +57,8 @@ const data: SidebarData = {
       isCollapsible: false,
     },
     {
-      title: "Courses",
-      url: "/course",
+      title: "Modules",
+      url: "/modules",
       icon: BookA,
       isCollapsible: false,
     },

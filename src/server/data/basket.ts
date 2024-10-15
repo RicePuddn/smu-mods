@@ -6,16 +6,16 @@ export const baskets: Basket<Track>[] = [
     name: "Managing",
     basketCode: "COR-",
     modules: [
-      "COR-OBHR1309",
-      "COR-OBHR1310",
-      "COR-OBHR130",
-      "COR-1307",
-      "COR-1306",
-      "COR-MGMT1303",
-      "COR-COMM1304",
-      "COR-1301",
-      "COR-1305",
       "COR-MGMT1302",
+      "COR-1305",
+      "COR-1301",
+      "COR-COMM1304",
+      "COR-MGMT1303",
+      "COR-1306",
+      "COR-1307",
+      "COR-OBHR130",
+      "COR-OBHR1310",
+      "COR-OBHR1309",
       "COR-PPPM1311",
     ],
     required: 2,
@@ -51,18 +51,20 @@ export const baskets: Basket<Track>[] = [
     ],
     required: 1,
   },
+
   {
     name: "Uni Core",
     basketCode: "COR-",
     modules: ["COR-3001", "COR-2100", "COR-1100"],
     required: 7,
   },
+
   {
     name: "Cultures Of The Modern World",
     basketCode: "COR-",
     modules: [
       "COR-2647",
-      "COR-XXXX20",
+      "COR-2678",
       "COR-2646",
       "COR-2645",
       "COR-2644",
@@ -87,5 +89,51 @@ export const baskets: Basket<Track>[] = [
       "COR-MLAY2405",
     ],
     required: 1,
+  },
+  {
+    name: "Ethics And Social/ Corporate Responsibility",
+    basketCode: "COR-",
+    modules: ["COR-3301", "COR-3302", "COR-3303", "COR-3304"],
+    required: 1,
+  },
+
+  {
+    name: "IS Core- Technology Solutioning",
+    basketCode: "IS",
+    modules: ["IS114", "IS210", "IS214", "IS212", "IS215"],
+    required: 5,
+  },
+
+  {
+    name: "IS Core- Software Design And Development",
+    basketCode: "IS",
+    modules: ["IS112", "IS211", "IS113", "IS216", "IS213"],
+    required: 7,
+  },
+
+  {
+    name: "IS Product Development Core",
+    basketCode: "IS",
+    modules: ["IS442", "CS102"],
+    required: 1,
+  },
+
+  {
+    name: "IS Product Development Electives",
+    basketCode: "IS",
+    modules: [
+      "SE301",
+      "IS458",
+      "IS492",
+      "IS412",
+      "CS440",
+      "CS301",
+      "CS462",
+      "IS446",
+      "CS461",
+      "CS443",
+      "CS206",
+    ],
+    required: 3,
   },
 ];
