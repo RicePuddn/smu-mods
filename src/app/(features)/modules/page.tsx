@@ -17,16 +17,14 @@ import { Label } from "@/components/ui/label";
 import { ChevronDown, Star, StarOff } from "lucide-react";
 
 // Importing module data and basket categories
-import { baskets } from "@/server/data/basket";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { type Module } from "@/types/primitives/module";
 
 export default function CourseCatalogue() {
   // Extract categories from baskets
+  const { modules, toggleFavourites, favouriteModules, baskets } =
+    useModuleBankStore((state) => state);
   const categories = baskets.map((basket) => basket.name);
-  const { modules, toggleFavourites, favouriteModules } = useModuleBankStore(
-    (state) => state,
-  );
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
