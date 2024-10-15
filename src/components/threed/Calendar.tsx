@@ -152,7 +152,7 @@ export function Calendar(props: JSX.IntrinsicElements["group"]) {
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     setClicked(true);
-    router.push("/weekly-schedule");
+    router.push("/timetable");
   };
 
   return (
