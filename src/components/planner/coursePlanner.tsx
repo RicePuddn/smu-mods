@@ -17,25 +17,30 @@ import { ChevronDown, ChevronUp, X } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
 
-const DELIMITER = "/$/"
+const DELIMITER = "/$/";
 
 const CoursePlanner: React.FC = () => {
-  // const {mutateAsync} = api.module.searchModule.useMutation() 
+  // const {mutateAsync} = api.module.searchModule.useMutation()
   // const result= await mutateAsync({query:"okokok"}) //put on event thingy
   // // once get result, update state
 
-  const isMobile = useIsMobile(); 
-  const { addModule: addModuleToPlanner, changeTerm, planner, removeModule } = usePlannerStore((state) => state);
-  const { modules, addModule: addModuleToBank } = useModuleBankStore((state) => state);
-  const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set())
-  
+  const isMobile = useIsMobile();
+  const {
+    addModule: addModuleToPlanner,
+    changeTerm,
+    planner,
+    removeModule,
+  } = usePlannerStore((state) => state);
+  const { modules } = useModuleBankStore((state) => state);
+  const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
+
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     const dest = result.destination.droppableId.split(DELIMITER);
     const src = result.source.droppableId.split(DELIMITER);
-  
-    if(src[0] == dest[0] && src[1]== dest[1]){
-      return
+
+    if (src[0] == dest[0] && src[1] == dest[1]) {
+      return;
     }
     changeTerm(
       src[0] as Year,
@@ -59,9 +64,13 @@ const CoursePlanner: React.FC = () => {
     );
   };
 
-  const handleRemoveModuleFromPlanner = (moduleCode: ModuleCode, year: Year, term: Term)=>{
-    removeModule(moduleCode, year, term, modules)
-  }
+  const handleRemoveModuleFromPlanner = (
+    moduleCode: ModuleCode,
+    year: Year,
+    term: Term,
+  ) => {
+    removeModule(moduleCode, year, term, modules);
+  };
 
   const toggleYear = (year: string) => {
     setIsOpen((prevExpandedYears) => {
@@ -76,44 +85,65 @@ const CoursePlanner: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div>
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className={cn("mb-6 grid gap-6", isMobile ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3")}>
+        <div
+          className={cn(
+            "mb-6 grid gap-6",
+            isMobile
+              ? "grid-cols-1"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+          )}
+        >
           {Object.entries(planner).map(([year, terms]) => (
             <div
               key={year}
-              className="overflow-hidden rounded-lg bg-white shadow-md flex flex-col"
+              className="flex flex-col overflow-hidden rounded-lg bg-white shadow-md"
             >
-              <div className={cn("flex justify-between bg-blue-500 p-3 items-center h-14", 
-                isMobile && "cursor-pointer")}
+              <div
+                className={cn(
+                  "flex h-14 items-center justify-between bg-blue-500 p-3",
+                  isMobile && "cursor-pointer",
+                )}
                 onClick={() => isMobile && toggleYear(year)}
               >
                 <h2 className="text-lg font-semibold text-white">
-                    {year !== EXEMPTION_YEAR ? `Year ${year}` : "Exemptions"}
+                  {year !== EXEMPTION_YEAR ? `Year ${year}` : "Exemptions"}
                 </h2>
-                {isMobile && (
-                  !isMobile || isOpen.has(year)  ? <ChevronUp className="text-white" /> : <ChevronDown className="text-white" />
-                )}
+                {isMobile &&
+                  (!isMobile || isOpen.has(year) ? (
+                    <ChevronUp className="text-white" />
+                  ) : (
+                    <ChevronDown className="text-white" />
+                  ))}
               </div>
-              {(!isMobile || isOpen.has(year)) && (
+              {(!isMobile || isOpen.has(year)) &&
                 Object.entries(terms).map(([term, termModules]) => (
                   <Droppable
                     droppableId={`${year}${DELIMITER}${term}`}
                     key={`${year}${DELIMITER}${term}`}
                   >
                     {(provided, snapshot) => (
-                      
-                        <div
+                      <div
                         ref={provided.innerRef}
                         {...provided.droppableProps}
-                        className={cn("p-3 transition-colors duration-200", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", year !== EXEMPTION_YEAR ? "min-h-[120px]" : "flex-grow")}
-                        >
-                      
+                        className={cn(
+                          "p-3 transition-colors duration-200",
+                          snapshot.isDraggingOver
+                            ? "bg-blue-100"
+                            : "bg-gray-50",
+                          year !== EXEMPTION_YEAR
+                            ? "min-h-[120px]"
+                            : "flex-grow",
+                        )}
+                      >
                         {year != EXEMPTION_YEAR && (
-                        <h3 className="mb-3 font-medium text-gray-700">{term}</h3>
+                          <h3 className="mb-3 font-medium text-gray-700">
+                            {term}
+                          </h3>
                         )}
                         {year == EXEMPTION_YEAR && (
-                        <h3 className="mb-3 font-medium text-gray-700"></h3>
+                          <h3 className="mb-3 font-medium text-gray-700"></h3>
                         )}
                         {Object.entries(termModules).map(
                           // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -128,21 +158,28 @@ const CoursePlanner: React.FC = () => {
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
-                                  className={cn("flex mb-2 rounded p-2 transition-all duration-200 justify-between items-center",
+                                  className={cn(
+                                    "mb-2 flex items-center justify-between rounded p-2 transition-all duration-200",
                                     snapshot.isDragging
                                       ? "bg-blue-200 shadow-lg"
-                                      : "border border-gray-200 bg-white hover:bg-gray-100"
+                                      : "border border-gray-200 bg-white hover:bg-gray-100",
                                   )}
                                 >
                                   <div className="w-5/6">{moduleCode}</div>
-                                    <Button
-                                    onClick={() => handleRemoveModuleFromPlanner(moduleCode as ModuleCode, year as Year, term as Term)}
-                                    variant={
-                                      "destructive"
+                                  <Button
+                                    onClick={() =>
+                                      handleRemoveModuleFromPlanner(
+                                        moduleCode as ModuleCode,
+                                        year as Year,
+                                        term as Term,
+                                      )
                                     }
-                                    size={"icon"} className="rounded-full size-6"> 
-                                      <X className="size-5"/>
-                                    </Button>
+                                    variant={"destructive"}
+                                    size={"icon"}
+                                    className="size-6 rounded-full"
+                                  >
+                                    <X className="size-5" />
+                                  </Button>
                                 </div>
                               )}
                             </Draggable>
@@ -152,8 +189,7 @@ const CoursePlanner: React.FC = () => {
                       </div>
                     )}
                   </Droppable>
-                ))
-              )}
+                ))}
             </div>
           ))}
         </div>
