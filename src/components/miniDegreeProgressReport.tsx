@@ -2,11 +2,11 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { baskets } from "@/server/data/basket";
-import { modules } from "@/server/data/modules";
+import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { useState } from "react";
 
 export default function MiniDegreeProgressReport() {
+  const { modules, baskets } = useModuleBankStore((state) => state);
   const [completedModules, setCompletedModules] = useState<Set<string>>(
     new Set(),
   ); // Track completed modules
