@@ -1,4 +1,4 @@
-import { getModule, searchModule } from "@/server/data/modules";
+import { getModule, modules, searchModule } from "@/server/data/modules";
 import type { ModuleCode } from "@/types/primitives/module";
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
@@ -24,4 +24,7 @@ export const moduleRouter = createTRPCRouter({
       const modules = await searchModule(input.query);
       return modules;
     }),
+  getAllModules: publicProcedure.query(async () => {
+    return modules;
+  }),
 });
