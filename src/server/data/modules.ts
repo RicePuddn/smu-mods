@@ -6,7 +6,7 @@ export async function searchModule(query?: string): Promise<Module[]> {
     return Object.values(modules);
   }
   return Object.values(modules).filter((module) =>
-    module.name.toLowerCase().includes(query.toLowerCase()),
+    module.name.toLowerCase().includes(query.toLowerCase()) || module.moduleCode.toLowerCase().includes(query.toLowerCase()),
   );
 }
 
