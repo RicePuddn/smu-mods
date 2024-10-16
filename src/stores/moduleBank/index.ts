@@ -1,8 +1,8 @@
 import { baskets } from "@/server/data/basket";
 import { modules } from "@/server/data/modules";
 import type { ModuleBank } from "@/types/banks/moduleBank";
-import { Basket } from "@/types/primitives/basket";
-import { Track } from "@/types/primitives/major";
+import type { Basket } from "@/types/primitives/basket";
+import type { Track } from "@/types/primitives/major";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
