@@ -63,6 +63,7 @@ export const createPlannerBank = (
               },
             },
           };
+          
           set({
             plannerState: newPlannerState,
             planner: getPlanner(newPlannerState.modules, moduleBank),
