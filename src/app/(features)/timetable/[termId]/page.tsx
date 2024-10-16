@@ -1,10 +1,22 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { api } from "@/trpc/react";
 import { termSlug, type TermSlug } from "@/types/planner";
-import type { Day, ModifiableClass, Timetable } from "@/types/primitives/timetable";
+import type {
+  Day,
+  ModifiableClass,
+  Timetable,
+} from "@/types/primitives/timetable";
 import { getClassEndTime } from "@/utils/timetable";
+// import Module from "module";
+import { Module } from "@/types/primitives/module";
+import { debounce } from "lodash";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { BiHide } from "react-icons/bi";
+import { PiTrashSimple } from "react-icons/pi";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -26,6 +38,47 @@ export default function TimeTablePage({
   // const { timetableMap, showAllSections, selectSection } = useTimetableStore(
   //   (state) => state,
   // );
+
+  // STATE FOR DROPDOWN SELECT (MOD INPUT)
+  const [inputValue, setInputValue] = useState<string>("");
+  const [filteredMods, setFilteredMods] = useState<Module[]>([]);
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const [selectedMods, setSelectedMods] = useState<Module[]>([]);
+
+  // Fetch module suggestions based on input value
+  const searchModule = api.module.searchModule.useMutation();
+
+  const debouncedSearch = debounce((query: string) => {
+    if (query.length > 0) {
+      searchModule.mutateAsync({ query }).then((results) => {
+        setFilteredMods(results);
+        setShowDropdown(true);
+      });
+    } else {
+      setShowDropdown(false);
+    }
+  }, 300);
+
+  useEffect(() => {
+    debouncedSearch(inputValue);
+  }, [inputValue]);
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel(); // Cancel debounced function if component unmounts
+    };
+  }, []);
+
+  const handleModSelect = (module: Module) => {
+    setInputValue(""); // Clear input after selecting
+    setSelectedMods((prevSelectedMods) => [...prevSelectedMods, module]); // Add selected mod to array
+    setShowDropdown(false); // Hide the dropdown
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
   const router = useRouter();
   const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
   const currentTermNum = termSlug[currentTermIdx]?.split("-")[1];
@@ -433,6 +486,67 @@ export default function TimeTablePage({
           })}
         </div>
       </div>
+      <div className="flex justify-center gap-24 py-4">
+        <div className="relative w-full">
+          <Input
+            variant="timetable"
+            placeholder="Enter a course code or course name"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          {showDropdown && filteredMods.length > 0 && (
+            <ul className="md absolute left-0 right-0 z-10 mt-2 max-h-40 overflow-auto rounded border border-gray-300 bg-white text-sm shadow-lg">
+              {filteredMods.map((mod, index) => (
+                <li
+                  key={index}
+                  className="cursor-pointer p-2 hover:bg-gray-100"
+                  onClick={() => handleModSelect(mod)}
+                >
+                  {mod.moduleCode} - {mod.name}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+      {selectedMods.length > 0 && (
+        <div className="j flex w-full flex-wrap gap-2">
+          {selectedMods.map((mod, index) => (
+            <div className="flex w-[32%] justify-center rounded bg-white p-4 shadow-sm shadow-gray-300">
+              <div className="flex w-1/12 items-start justify-end">
+                <div className="mr-2 mt-1 h-5 w-5 rounded bg-pink-500"></div>
+              </div>
+              <div className="w-9/12">
+                <p className="text-sm font-bold">
+                  {mod.moduleCode} - {mod.name}
+                </p>
+                <p className="text-sm">
+                  Exam:{" "}
+                  {mod.exam?.dateTime.toLocaleString() || "No exam scheduled"}
+                </p>
+              </div>
+              <div className="flex w-2/12 items-center justify-center">
+                <div className="inline-flex">
+                  <Button
+                    variant={"outline"}
+                    size={"icon"}
+                    className="rounded-r-none"
+                  >
+                    <PiTrashSimple />
+                  </Button>
+                  <Button
+                    variant={"outline"}
+                    size={"icon"}
+                    className="rounded-l-none border-l-0"
+                  >
+                    <BiHide />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
