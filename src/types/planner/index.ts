@@ -78,6 +78,9 @@ export type Planner = Record<Year, Record<Term, ConflictMap>> & {
 };
 
 export const defaultPlanner: Planner = {
+  "-1": {
+    "Term 0": {},
+  },
   "1": {
     "Term 1": {},
     "Term 2": {},
@@ -101,9 +104,6 @@ export const defaultPlanner: Planner = {
     "Term 2": {},
     "Term 3A": {},
     "Term 3B": {},
-  },
-  "-1": {
-    "Term 0": {},
   },
   "-2":{
     "Term Z" : {},

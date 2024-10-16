@@ -17,6 +17,7 @@ import { ChevronDown, ChevronUp, X } from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import "./scrollBar.css";
 
 const DELIMITER = "/$/"
 
@@ -84,11 +85,14 @@ const CoursePlanner: React.FC = () => {
   return (
     <div className="p-4">
       <DragDropContext onDragEnd={onDragEnd}>
-        <div className={cn("mb-6 grid gap-6", isMobile ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3")}>
-          {Object.entries(planner).map(([year, terms]) => (
+        <div className={cn("mb-6", isMobile ? "grid gap-6 grid-cols-1" : "flex flex-nowrap overflow-x-auto scroll-smooth scrollbar-hide")}>
+          {Object.keys(planner).sort((a,b) => parseInt(a) - parseInt(b)).map((year) => {
+            const terms = planner[year as Year]
+            return (
             <div
               key={year}
-              className="overflow-hidden rounded-lg bg-white shadow-md flex flex-col"
+              className={cn("overflow-hidden rounded-lg bg-white shadow-md flex flex-col",
+              !isMobile && "flex-shrink-0 w-96 mr-6 mb-6")}
             >
               <div className={cn("flex justify-between bg-blue-500 p-3 items-center h-14", 
                 isMobile && "cursor-pointer")}
@@ -168,7 +172,7 @@ const CoursePlanner: React.FC = () => {
                 ))
               )}
             </div>
-          ))}
+          )})}
         </div>
       </DragDropContext>
       <div className="flex items-center">
