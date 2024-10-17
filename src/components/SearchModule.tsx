@@ -9,9 +9,10 @@ import { Label } from "./ui/label";
 
 interface SearchModuleProps {
   handleModSelect: (mod: Module) => void;
+  callback?: (modules: Module[]) => void;
 }
 
-export function SearchModule({ handleModSelect }: SearchModuleProps) {
+export function SearchModule({ handleModSelect, callback }: SearchModuleProps) {
   const { modules } = useModuleBankStore((state) => state);
   const [inputValue, setInputValue] = useState<string>("");
 
@@ -19,6 +20,9 @@ export function SearchModule({ handleModSelect }: SearchModuleProps) {
 
   useEffect(() => {
     setSearchResults(searchModule(modules, inputValue));
+    if (callback) {
+      callback(searchModule(modules, inputValue));
+    }
   }, [inputValue]);
   return (
     <div className="flex justify-center gap-24">
@@ -33,7 +37,9 @@ export function SearchModule({ handleModSelect }: SearchModuleProps) {
             onChange={(e) => setInputValue(e.target.value)}
           />
         </div>
-        {inputValue == "" ? (
+        {callback ? (
+          <></>
+        ) : inputValue == "" ? (
           <Label>Please type in search input.</Label>
         ) : (
           <ul className="md absolute left-0 right-0 z-10 mt-2 max-h-40 overflow-auto rounded border border-gray-300 bg-white text-sm shadow-lg">
