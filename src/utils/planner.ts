@@ -130,9 +130,8 @@ export function getPlanner(
   plannerModules: PlannerState["modules"],
   moduleBank: ModuleBank,
 ): Planner {
-  
   const planner: Planner = defaultPlanner;
-  
+
   const fullModules = Object.keys(plannerModules).map(
     (moduleCode) => moduleBank[moduleCode as ModuleCode],
   ) as Module[];
@@ -142,7 +141,7 @@ export function getPlanner(
     if (!plannerModule) {
       continue;
     }
-    
+
     planner[plannerModule.year][plannerModule.term][moduleCode as ModuleCode] =
       getPlannerModuleInfo(
         plannerModule,

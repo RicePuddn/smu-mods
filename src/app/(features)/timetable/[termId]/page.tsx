@@ -1,20 +1,18 @@
 "use client";
 
+import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { api } from "@/trpc/react";
 import { termSlug, type TermSlug } from "@/types/planner";
-import type {
-  Day,
-  ModifiableClass,
-  Timetable,
+import type { Module } from "@/types/primitives/module";
+import {
+  timeSlots,
+  type Day,
+  type ModifiableClass,
+  type Timetable,
 } from "@/types/primitives/timetable";
 import { getClassEndTime } from "@/utils/timetable";
-// import Module from "module";
-import { Module } from "@/types/primitives/module";
-import { debounce } from "lodash";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiHide } from "react-icons/bi";
 import { PiTrashSimple } from "react-icons/pi";
 
@@ -35,50 +33,7 @@ export default function TimeTablePage({
 }: {
   params: { termId: string };
 }) {
-  // const { timetableMap, showAllSections, selectSection } = useTimetableStore(
-  //   (state) => state,
-  // );
-
-  // STATE FOR DROPDOWN SELECT (MOD INPUT)
-  const [inputValue, setInputValue] = useState<string>("");
-  const [filteredMods, setFilteredMods] = useState<Module[]>([]);
-  const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const [selectedMods, setSelectedMods] = useState<Module[]>([]);
-
-  // Fetch module suggestions based on input value
-  const searchModule = api.module.searchModule.useMutation();
-
-  const debouncedSearch = debounce((query: string) => {
-    if (query.length > 0) {
-      searchModule.mutateAsync({ query }).then((results) => {
-        setFilteredMods(results);
-        setShowDropdown(true);
-      });
-    } else {
-      setShowDropdown(false);
-    }
-  }, 300);
-
-  useEffect(() => {
-    debouncedSearch(inputValue);
-  }, [inputValue]);
-
-  useEffect(() => {
-    return () => {
-      debouncedSearch.cancel(); // Cancel debounced function if component unmounts
-    };
-  }, []);
-
-  const handleModSelect = (module: Module) => {
-    setInputValue(""); // Clear input after selecting
-    setSelectedMods((prevSelectedMods) => [...prevSelectedMods, module]); // Add selected mod to array
-    setShowDropdown(false); // Hide the dropdown
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
   const router = useRouter();
   const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
   const currentTermNum = termSlug[currentTermIdx]?.split("-")[1];
@@ -319,24 +274,6 @@ export default function TimeTablePage({
     Saturday: [],
   };
 
-  const timeSlots = [
-    "08:00",
-    "09:00",
-    "10:00",
-    "11:00",
-    "12:00",
-    "13:00",
-    "14:00",
-    "15:00",
-    "16:00",
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-  ];
-
   if (!termSlug.includes(params.termId as TermSlug)) {
     return (
       <div>
@@ -347,7 +284,6 @@ export default function TimeTablePage({
 
   const goToPreviousTerm = () => {
     if (currentTermIdx > 0) {
-      // console.log(currentTermIdx);
       router.push(`${termSlug[currentTermIdx - 1]}`);
     }
   };
@@ -379,10 +315,10 @@ export default function TimeTablePage({
       </div>
 
       <div className="max-w-full overflow-x-scroll">
-        <div className="container mx-auto mt-10 min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
+        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
           {/* Time Labels */}
           <div className="flex">
-            <div className="w-[10%] flex-shrink-0 md:w-[7.5%]"></div>
+            <div className="w-[5%] flex-shrink-0"></div>
             {timeSlots.map((time, index) => (
               <div
                 key={index}
@@ -398,13 +334,6 @@ export default function TimeTablePage({
               </div>
             ))}
           </div>
-          {/* {days.map((day, dayIndex) => (
-          <div key={dayIndex} className="mb-4 flex h-24">
-            <div className="flex w-1/6 flex-shrink-0 items-center justify-center bg-gray-300 font-bold text-gray-700">
-              {day}
-            </div>
-          </div>
-        ))} */}
           {/* red line across current time now */}
           {Object.keys(sampleTimetable).map((day, dayIndex) => {
             const rowResult = getRowAssignment(sampleTimetable[day as Day], 15);
@@ -414,7 +343,7 @@ export default function TimeTablePage({
             );
             return (
               <div className="flex border-t border-gray-300" key={dayIndex}>
-                <div className="flex w-[10%] items-center justify-center text-center font-medium text-gray-800 md:w-[7.5%]">
+                <div className="flex w-[5%] items-center justify-center text-center font-medium text-gray-800">
                   {day.slice(0, 3)}
                 </div>
                 <div
@@ -423,27 +352,8 @@ export default function TimeTablePage({
                   }`}
                 >
                   {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
-                    const rowIndex = parseInt(rowIndexStr, 10); // Convert rowIndex to number
+                    const rowIndex = parseInt(rowIndexStr, 10);
                     const minHeight = 60;
-                    // if (!!document) {
-                    //   const element = document.getElementById(
-                    //     `Slot${rowIndex}`,
-                    //   );
-                    //   if (element) {
-                    //     for (
-                    //       let index = 0;
-                    //       index < element.children.length;
-                    //       index++
-                    //     ) {
-                    //       const child = element.children.item(index);
-                    //       if (!child) continue;
-                    //       const { height } = child.getBoundingClientRect();
-                    //       if (height > minHeight) {
-                    //         minHeight = height;
-                    //       }
-                    //     }
-                    //   }
-                    // }
                     return (
                       <div
                         id={`Slot${rowIndex}`}
@@ -486,33 +396,18 @@ export default function TimeTablePage({
           })}
         </div>
       </div>
-      <div className="flex justify-center gap-24 py-4">
-        <div className="relative w-full">
-          <Input
-            variant="timetable"
-            placeholder="Enter a course code or course name"
-            value={inputValue}
-            onChange={handleInputChange}
-          />
-          {showDropdown && filteredMods.length > 0 && (
-            <ul className="md absolute left-0 right-0 z-10 mt-2 max-h-40 overflow-auto rounded border border-gray-300 bg-white text-sm shadow-lg">
-              {filteredMods.map((mod, index) => (
-                <li
-                  key={index}
-                  className="cursor-pointer p-2 hover:bg-gray-100"
-                  onClick={() => handleModSelect(mod)}
-                >
-                  {mod.moduleCode} - {mod.name}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
+      <SearchModule
+        handleModSelect={(mod) => {
+          setSelectedMods([...selectedMods, mod]);
+        }}
+      />
       {selectedMods.length > 0 && (
         <div className="j flex w-full flex-wrap gap-2">
           {selectedMods.map((mod, index) => (
-            <div className="flex w-[32%] justify-center rounded bg-white p-4 shadow-sm shadow-gray-300">
+            <div
+              className="flex w-[32%] justify-center rounded bg-white p-4 shadow-sm shadow-gray-300"
+              key={index}
+            >
               <div className="flex w-1/12 items-start justify-end">
                 <div className="mr-2 mt-1 h-5 w-5 rounded bg-pink-500"></div>
               </div>
@@ -522,7 +417,7 @@ export default function TimeTablePage({
                 </p>
                 <p className="text-sm">
                   Exam:{" "}
-                  {mod.exam?.dateTime.toLocaleString() || "No exam scheduled"}
+                  {mod.exam?.dateTime.toLocaleString() ?? "No exam scheduled"}
                 </p>
               </div>
               <div className="flex w-2/12 items-center justify-center">

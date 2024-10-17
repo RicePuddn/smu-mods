@@ -21,8 +21,8 @@ export const moduleRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ input }) => {
-      const modules = await searchModule(input.query);
-      return modules;
+      const resultModules = searchModule(modules, input.query);
+      return resultModules;
     }),
   getAllModules: publicProcedure.query(async () => {
     return modules;

@@ -4,7 +4,12 @@ import { PanelLeft } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
@@ -50,7 +55,7 @@ const SidebarLayout = React.forwardRef<
         data-sidebar={state}
         style={
           {
-            "--sidebar-width": "16rem",
+            "--sidebar-width": "12rem",
           } as React.CSSProperties
         }
         className={cn(
@@ -107,6 +112,12 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
             className="w-[260px] p-0 md:w-[--sidebar-width] [&>button]:hidden"
             side="left"
           >
+            <SheetTitle className="sr-only" aria-describedby="sidebar-title">
+              Sidebar Menu
+            </SheetTitle>
+            <SheetDescription className="sr-only">
+              Sidebar Menu
+            </SheetDescription>
             {sidebar}
           </SheetContent>
         </Sheet>
