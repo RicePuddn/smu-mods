@@ -7,6 +7,7 @@ import {
   ImagePlay,
   LifeBuoy,
   NotebookPen,
+  Settings,
 } from "lucide-react";
 
 import {
@@ -67,6 +68,12 @@ const data: SidebarData = {
       title: "Stress Relief",
       url: "/stress-relief",
       icon: ImagePlay,
+      isCollapsible: false,
+    },
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: Settings,
       isCollapsible: false,
     },
   ],

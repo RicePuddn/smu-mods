@@ -27,6 +27,7 @@ export type TimetableActions = {
     term: Term,
     currentSectionCode?: Section["code"],
   ) => void;
+  iSync: (data: TimetableMap) => void;
 };
 
 export type TimetableStore = {
@@ -128,6 +129,12 @@ export const createTimetableStore = (
               ...state.timetableMap,
               [term]: newTimeTable,
             },
+          }));
+        },
+        iSync: (data: TimetableMap) => {
+          set((state) => ({
+            ...state,
+            timetableMap: data,
           }));
         },
       }),
