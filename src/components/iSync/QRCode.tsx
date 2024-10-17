@@ -57,7 +57,7 @@ export function GenerateQRCode() {
   };
 
   return (
-    <div>
+    <div className="flex justify-center">
       {data ? (
         <QRCodeCanvas
           value={`${getBaseUrl(true)}/iSync/${data}`}
