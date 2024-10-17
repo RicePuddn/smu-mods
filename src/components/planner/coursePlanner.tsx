@@ -115,6 +115,7 @@ const CoursePlanner: React.FC = () => {
   
   };
 
+  const isSpecialHidden = usePlannerStore((state) => state.isSpecialHidden);
   const handleHideSpecial = (year: Year) =>{
     hideSpecial(year)
   }
@@ -125,7 +126,7 @@ const CoursePlanner: React.FC = () => {
         <div className={cn("mb-6", isMobile ? "grid gap-6 grid-cols-1" : "flex flex-nowrap overflow-x-auto scroll-smooth scrollbar-hide")}>
           {Object.keys(planner).sort((a,b) => parseInt(a) - parseInt(b)).map((year) => {
             const terms = planner[year as Year]
-            const isHidden = usePlannerStore((state) => state.isSpecialHidden[year as Year])
+            const isHidden = isSpecialHidden[year as Year]
             return (
             <div
               key={year}
