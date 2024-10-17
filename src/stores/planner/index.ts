@@ -31,6 +31,7 @@ export type PlannerActions = {
     moduleBank: ModuleBank,
   ) => void;
   removeModule: (moduleCode: ModuleCode, year: Year, term: Term, moduleBank: ModuleBank) => void;
+  hideSpecial: (year: Year) => void;
   // removeTerm: (year: Year, term: Term, moduleBank: ModuleBank) => void;
   // removeYear: (year: Year, moduleBank: ModuleBank) => void;
 };
@@ -38,6 +39,7 @@ export type PlannerActions = {
 export type PlannerStore = {
   plannerState: PlannerState;
   planner: Planner;
+  isSpecialHidden: Record<Year, boolean>;
 } & PlannerActions;
 
 export const createPlannerBank = (
@@ -49,6 +51,12 @@ export const createPlannerBank = (
       (set, get) => ({
         plannerState: initPlannerState,
         planner: initPlanner,
+        isSpecialHidden: {
+          1: false, 
+          2: false, 
+          3: false, 
+          4: false, 
+        },
         addModule: (moduleCode, attributes, moduleBank) => {
           const original = get();
           if (original.plannerState.modules[moduleCode]) return;
@@ -100,6 +108,7 @@ export const createPlannerBank = (
             const stateTemp = {
               planner: getPlanner(newPlannerState.modules, moduleBank),
               plannerState: newPlannerState,
+              isSpecialHidden: state.isSpecialHidden,
             };
 
             delete stateTemp.planner[srcYear][srcTerm][moduleCode];
@@ -108,6 +117,7 @@ export const createPlannerBank = (
           });
         },
         removeModule: (moduleCode, year, term, moduleBank) => {
+          console.log(year)
           set((state) => {
             const original = state.plannerState;
             const module = original.modules[moduleCode];
@@ -123,11 +133,25 @@ export const createPlannerBank = (
                 modules: remainingModules,
               },
               planner: getPlanner(state.plannerState.modules, moduleBank),
+              isSpecialHidden: state.isSpecialHidden,
             };
             delete temp.planner[year][term][moduleCode]
             return temp 
           });
         },
+        hideSpecial: (year: Year) => {
+          set((state) => {
+            const currentHiddenState = state.isSpecialHidden[year]; 
+            return {
+              ...state,
+              isSpecialHidden: {
+                ...state.isSpecialHidden,
+                [year]: !currentHiddenState,
+              },
+            };
+          });
+        },
+        
         // removeYear: (year: Year, moduleBank: ModuleBank) => {
         //   set((state: { plannerState: PlannerState; planner: Planner }) => {
         //     const newModules = removeModulesFromPlannerState(
