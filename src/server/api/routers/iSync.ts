@@ -19,9 +19,9 @@ export const iSyncRouter = createTRPCRouter({
       const token = await ctx.db.token.findUnique({
         where: {
           id: input.token,
-          // createdAt: {
-          //   gte: new Date(Date.now() - 1000 * 60 * 10),
-          // },
+          createdAt: {
+            gte: new Date(Date.now() - 1000 * 60 * 10),
+          },
         },
       });
       if (!token) {

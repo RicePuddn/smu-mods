@@ -59,11 +59,14 @@ export function GenerateQRCode() {
   return (
     <div className="flex justify-center">
       {data ? (
-        <QRCodeCanvas
-          value={`${getBaseUrl(true)}/iSync/${data}`}
-          className="w-3/4"
-          size={360}
-        />
+        <div className="flex w-full flex-col items-center justify-center">
+          <QRCodeCanvas
+            value={`${getBaseUrl(true)}/iSync/${data}`}
+            className="w-3/4"
+            size={360}
+          />
+          <p>This QR Code is valid for next 10 minutes.</p>
+        </div>
       ) : (
         <Button onClick={handleGenerateQRCode}>Generate QR Code</Button>
       )}
