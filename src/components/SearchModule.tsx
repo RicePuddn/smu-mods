@@ -9,10 +9,15 @@ import { Label } from "./ui/label";
 
 interface SearchModuleProps {
   handleModSelect: (mod: Module) => void;
+  showResults?: boolean;
   callback?: (modules: Module[]) => void;
 }
 
-export function SearchModule({ handleModSelect, callback }: SearchModuleProps) {
+export function SearchModule({
+  handleModSelect,
+  callback,
+  showResults = true,
+}: SearchModuleProps) {
   const { modules } = useModuleBankStore((state) => state);
   const [inputValue, setInputValue] = useState<string>("");
 
@@ -37,7 +42,7 @@ export function SearchModule({ handleModSelect, callback }: SearchModuleProps) {
             onChange={(e) => setInputValue(e.target.value)}
           />
         </div>
-        {callback ? (
+        {!showResults ? (
           <></>
         ) : inputValue == "" ? (
           <Label>Please type in search input.</Label>
