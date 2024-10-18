@@ -1,23 +1,32 @@
 import type { Module, Section } from "@/types/primitives/module";
 import {
-  type ColorIndex,
   days,
   type ModifiableClass,
   type Timetable,
 } from "@/types/primitives/timetable";
 import { toast } from "sonner";
+import { TIMETABLE_COLORS } from "./colours";
+
+export function findFreeColorIndex(timetable: Timetable) {
+  for (let i = 0; i < timetable.modules.length; i++) {
+    if (!timetable.modules.find((m) => m.colorIndex === i)) {
+      return i;
+    }
+  }
+  return timetable.modules.length % TIMETABLE_COLORS.length;
+}
 
 export function addModuleToTimetable(
   module: Module,
   timetable: Timetable,
-  colorIndex: ColorIndex,
 ): Timetable {
-  const updatedTimetable = { ...timetable };
+  const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
   const section = module.sections[0];
   if (!section) {
     toast.error("No sections available for this module");
     return updatedTimetable;
   }
+  const colorIndex = findFreeColorIndex(timetable);
   section.classes.forEach((classTime) => {
     const modifiableClass: ModifiableClass = {
       moduleCode: module.moduleCode,
@@ -34,17 +43,27 @@ export function addModuleToTimetable(
 
     updatedTimetable[classTime.day].push(modifiableClass);
   });
+  updatedTimetable.modules.push({
+    ...module,
+    colorIndex,
+  });
   return updatedTimetable;
 }
 
 export function showAllSections(
   module: Module,
   timetable: Timetable,
-  colorIndex: ColorIndex,
   currentSectionCode?: Section["code"],
 ): Timetable {
-  const updatedTimetable = { ...timetable };
-
+  const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
+  const tmp = timetable.modules.find((m) => m.moduleCode === module.moduleCode);
+  module.sections.forEach((section) => {
+    section.classes.forEach((classTime) => {
+      updatedTimetable[classTime.day] = updatedTimetable[classTime.day].filter(
+        (c) => c.moduleCode !== module.moduleCode,
+      );
+    });
+  });
   module.sections.forEach((section) => {
     section.classes.forEach((classTime) => {
       let modifiableClass: ModifiableClass;
@@ -56,7 +75,7 @@ export function showAllSections(
           isModifiable: true,
           isAvailable: true,
           isActive: true,
-          colorIndex,
+          colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable),
         };
       } else {
         modifiableClass = {
@@ -66,7 +85,7 @@ export function showAllSections(
           isModifiable: true,
           isAvailable: true,
           isActive: false,
-          colorIndex,
+          colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable),
         };
       }
 
@@ -86,7 +105,7 @@ export function selectSection(
   timetable: Timetable,
   selectedSectionCode: string,
 ): Timetable {
-  const updatedTimetable = { ...timetable };
+  const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
 
   days.forEach((day) => {
     updatedTimetable[day] = updatedTimetable[day].filter(

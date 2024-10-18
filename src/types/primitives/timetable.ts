@@ -1,5 +1,23 @@
 import type { Term } from "../planner";
-import type { ModuleCode } from "./module";
+import type { Module, ModuleCode } from "./module";
+
+export const timeSlots = [
+  "08:00",
+  "09:00",
+  "10:00",
+  "11:00",
+  "12:00",
+  "13:00",
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00",
+  "18:00",
+  "19:00",
+  "20:00",
+  "21:00",
+  "22:00",
+] as const;
 
 export const startingTime = [
   "08:15",
@@ -49,7 +67,9 @@ type Modifiable = {
 
 export type ModifiableClass = Class & Modifiable;
 
-export type Timetable = Record<Day, ModifiableClass[]>;
+export type Timetable = Record<Day, ModifiableClass[]> & {
+  modules: (Module & { colorIndex: ColorIndex })[];
+};
 
 export type TimetableMap = Record<Term, Timetable>;
 
@@ -60,6 +80,7 @@ export const defaultTimetable: Timetable = {
   Thursday: [],
   Friday: [],
   Saturday: [],
+  modules: [],
 };
 
 export const defaultTimetableMap: TimetableMap = {

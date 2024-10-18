@@ -1,4 +1,8 @@
+import { baskets } from "@/server/data/basket";
+import { modules } from "@/server/data/modules";
 import type { ModuleBank } from "@/types/banks/moduleBank";
+import type { Basket } from "@/types/primitives/basket";
+import type { Track } from "@/types/primitives/major";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
@@ -9,20 +13,32 @@ export type ModuleBankActions = {
   fetchAndAddModule: (moduleCode: ModuleCode) => Promise<Module>;
   toggleFavourites: (moduleCode: ModuleCode) => void;
   getFavouriteModules: () => ModuleCode[];
+  refreshModuleBank: () => Promise<void>;
+  refreshBaskets: () => Promise<void>;
 };
 
-export type ModuleBankStore = { modules: ModuleBank, favouriteModules: ModuleCode[] } & ModuleBankActions;
+export type ModuleBankStore = {
+  modules: ModuleBank;
+  favouriteModules: ModuleCode[];
+  baskets: Basket<Track>[];
+} & ModuleBankActions;
 
-export const defaultInitState: ModuleBank = {};
+export const defaultInitState: ModuleBank = modules;
+export const defaultBaskets: Basket<Track>[] = baskets;
 export const defaultFavouriteModules: ModuleCode[] = [];
 
-export const createModuleBank = (initModuleBank: ModuleBank = defaultInitState, initFavouriteModules: ModuleCode[] = defaultFavouriteModules) => {
+export const createModuleBank = (
+  initModuleBank: ModuleBank = defaultInitState,
+  initFavouriteModules: ModuleCode[] = defaultFavouriteModules,
+  initBaskets: Basket<Track>[] = defaultBaskets,
+) => {
   return create<ModuleBankStore>()(
     persist(
       (set, get) => ({
         modules: initModuleBank,
         favouriteModules: initFavouriteModules,
-        toggleFavourites: (moduleCode: ModuleCode) => {
+        baskets: initBaskets,
+        toggleFavourites: (moduleCode) => {
           const originalFavourites = get().favouriteModules;
           const setFavourites = new Set(originalFavourites);
           if (setFavourites.has(moduleCode)) {
@@ -39,9 +55,9 @@ export const createModuleBank = (initModuleBank: ModuleBank = defaultInitState, 
         },
         getFavouriteModules: () => {
           const originalFavourites = get().favouriteModules;
-          return originalFavourites
+          return originalFavourites;
         },
-        addModule: (module: Module) => {
+        addModule: (module) => {
           set((state) => {
             return {
               ...state,
@@ -52,14 +68,14 @@ export const createModuleBank = (initModuleBank: ModuleBank = defaultInitState, 
             };
           });
         },
-        getModule: async (moduleCode: ModuleCode) => {
+        getModule: async (moduleCode) => {
           const state = get();
           if (state.modules[moduleCode]) {
             return state.modules[moduleCode];
           }
           return get().fetchAndAddModule(moduleCode);
         },
-        fetchAndAddModule: async (moduleCode: ModuleCode) => {
+        fetchAndAddModule: async (moduleCode) => {
           try {
             const res = await fetch(`/api/module/get?moduleCode=${moduleCode}`);
             const moduleData = (await res.json()) as Module;
@@ -69,6 +85,40 @@ export const createModuleBank = (initModuleBank: ModuleBank = defaultInitState, 
             console.error(`Error fetching module ${moduleCode}:`, error);
             throw error;
           }
+        },
+        refreshModuleBank: async () => {
+          try {
+            const res = await fetch(`/api/module/getAll`);
+            const moduleData = (await res.json()) as ModuleBank;
+            set((state) => {
+              return {
+                ...state,
+                modules: moduleData,
+              };
+            });
+          } catch (error) {
+            console.error(`Error fetching all modules:`, error);
+            throw error;
+          }
+        },
+        refreshBaskets: async () => {
+          try {
+            const res = await fetch(`/api/basket/getAll`);
+            const basketData = (await res.json()) as Basket<Track>[];
+            set((state) => {
+              return {
+                ...state,
+                baskets: basketData,
+              };
+            });
+          } catch (error) {
+            console.error(`Error fetching all baskets:`, error);
+            throw error;
+          }
+        },
+        refreshAll: async () => {
+          await get().refreshModuleBank();
+          await get().refreshBaskets();
         },
       }),
       {
