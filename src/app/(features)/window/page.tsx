@@ -7,10 +7,8 @@ import { useEffect, useState } from "react";
 
 export default function WindowPage() {
   const [player, setPlayer] = useState<Spotify.Player | null>(null);
-  const [deviceId, setDeviceId] = useState<string | null>(null);
-  const [isReady, setIsReady] = useState(false);
   const [isTokenRequesting, setIsTokenRequesting] = useState(false);
-  const [accessToken, setAccessToken] = useState("");
+  const [accessToken, setAccessToken] = useState<string | null>("");
   const [currentSlide, setCurrentSlide] = useState(0);
   const CLIENT_ID = env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
   const CLIENT_SECRET = env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
@@ -34,9 +32,12 @@ export default function WindowPage() {
         "Some representative placeholder content for the third slide.",
     },
   ];
-  const spotifyTrackUrl = "https://api.spotify.com/v1/tracks/";
+  interface window {
+    onSpotifyWebPlaybackSDKReady: (() => void) | undefined;
+  }
+  // const spotifyTrackUrl = "https://api.spotify.com/v1/tracks/";
 
-  const default_songs = [{ id: "08Fo1zAY2piVFOD2Lv3n3z", name: "Okinawa" }];
+  // const default_songs = [{ id: "08Fo1zAY2piVFOD2Lv3n3z", name: "Okinawa" }];
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
@@ -61,7 +62,7 @@ export default function WindowPage() {
     );
     const body = new URLSearchParams({
       grant_type: "authorization_code",
-      code: code as string,
+      code: code,
       redirect_uri: REDIRECT_URI,
     });
     // console.log(authString);
@@ -77,10 +78,8 @@ export default function WindowPage() {
           },
         },
       );
-
-      let accessToken = response.data.access_token;
+      setAccessToken(response.data.access_token);
       // console.log(accessToken);
-      setAccessToken(accessToken);
     } catch (error) {
       console.error("Error obtaining access token:", error);
     }
@@ -103,31 +102,43 @@ export default function WindowPage() {
         volume: 0.5,
       });
       // Error handling
-      player.addListener("initialization_error", ({ message }) => {
-        console.error("Initialization Error:", message);
-      });
-      player.addListener("authentication_error", ({ message }) => {
-        console.error("Authentication Error:", message);
-      });
-      player.addListener("account_error", ({ message }) => {
-        console.error("Account Error:", message);
-      });
-      player.addListener("playback_error", ({ message }) => {
-        console.error("Playback Error:", message);
-      });
-      player.addListener("ready", ({ device_id }) => {
+      player.addListener(
+        "initialization_error",
+        ({ message }: { message: string }) => {
+          console.error("Initialization Error:", message);
+        },
+      );
+      player.addListener(
+        "authentication_error",
+        ({ message }: { message: string }) => {
+          console.error("Authentication Error:", message);
+        },
+      );
+      player.addListener(
+        "account_error",
+        ({ message }: { message: string }) => {
+          console.error("Account Error:", message);
+        },
+      );
+      player.addListener(
+        "playback_error",
+        ({ message }: { message: string }) => {
+          console.error("Playback Error:", message);
+        },
+      );
+      player.addListener("ready", ({ device_id }: { device_id: string }) => {
         console.log("Ready with Device ID", device_id);
-        setDeviceId(device_id);
-        setIsReady(true);
         loadTrack(device_id); // Ensure you load a track
       });
 
-      player.addListener("not_ready", ({ device_id }) => {
-        console.log("Device ID has gone offline", device_id);
-        setIsReady(false);
-      });
+      player.addListener(
+        "not_ready",
+        ({ device_id }: { device_id: string }) => {
+          console.log("Device ID has gone offline", device_id);
+        },
+      );
       // Connect to the player
-      player.connect().then((success) => {
+      player.connect().then((success: boolean) => {
         if (success) {
           console.log(
             "The Web Playback SDK successfully connected to Spotify!",
@@ -145,7 +156,7 @@ export default function WindowPage() {
     };
   }, [accessToken]);
   const loadTrack = async (deviceId: string) => {
-    const trackUri = "spotify:track:08Fo1zAY2piVFOD2Lv3n3z"; // Replace with a valid track URI
+    const trackUri = `spotify:track:08Fo1zAY2piVFOD2Lv3n3z`; // Replace with a valid track URI
 
     await fetch(
       `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`,
