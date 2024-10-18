@@ -1,22 +1,48 @@
 "use client";
 
+import { ReadMore } from "@/components/acad-clubs/ReadMore";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Event } from "@/types/primitives/event";
 import { useState } from "react";
 
-export default function Tabs() {
-  const [activeTab, setActiveTab] = useState("clubs");
+type TabsProps = {
+  tabsData: {
+    [key: string]: {
+      name: string;
+      title: string;
+      description: string;
+      date: string;
+      time: string;
+      venue: string;
+    }[];
+  };
+};
 
-  const tabs = [
-    { id: "clubs", label: "Academic Clubs" },
-    { id: "csp", label: "Community Service Projects" },
-    { id: "others", label: "Others" },
-  ];
+export default function Tabs({ tabsData }: TabsProps) {
+  const [activeTab, setActiveTab] = useState<string>(
+    Object.keys(tabsData)[0] || "clubs",
+  ); // Default to the first tab
 
-  const tabContents: { [key: string]: string } = {
-    clubs:
-      "This is some placeholder content for the Clubs tab's associated content.",
-    csp: "This is some placeholder content for the CSP tab's associated content.",
-    others:
-      "This is some placeholder content for the Others tab's associated content.",
+  const tabs = Object.keys(tabsData);
+
+  const renderCards = (items: Event[]) => {
+    return items.map((value, index) => (
+      <Card
+        key={index}
+        className="rounded-lg p-6 hover:shadow-lg hover:shadow-gray-300"
+      >
+        <CardHeader>{value.name}</CardHeader>
+        <CardDescription className="text-left">
+          <ReadMore id={value.name} text={value.description} />
+        </CardDescription>
+        <CardFooter className="pt-2 text-center">{value.venue}</CardFooter>
+      </Card>
+    ));
   };
 
   return (
@@ -26,39 +52,46 @@ export default function Tabs() {
           className="-mb-px flex flex-wrap text-center text-sm font-medium"
           role="tablist"
         >
-          {tabs.map(({ id, label }) => (
+          {tabs.map((id) => (
             <li key={id} role="presentation" className="me-2">
               <button
                 className={`inline-block rounded-t-lg border-b-2 p-4 ${
-                  activeTab == id
+                  activeTab === id
                     ? "border-blue-500 text-blue-500"
                     : "border-transparent text-gray-500"
                 }`}
                 type="button"
                 role="tab"
                 aria-controls={id}
-                aria-selected={activeTab == id}
+                aria-selected={activeTab === id}
                 onClick={() => setActiveTab(id)}
               >
-                {label}
+                {id.toUpperCase()} {/* Capitalize tab labels */}
               </button>
             </li>
           ))}
         </ul>
       </div>
       <div id="default-tab-content">
-        {Object.keys(tabContents).map((tabKey) => (
+        {tabs.map((id) => (
           <div
-            key={tabKey}
-            className={`rounded-lg bg-gray-50 p-4 dark:bg-gray-800 ${
-              activeTab == tabKey ? "block" : "hidden"
+            key={id}
+            className={`grid grid-cols-1 gap-6 rounded-lg bg-gray-50 p-4 dark:bg-gray-800 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${
+              activeTab === id ? "block" : "hidden"
             }`}
             role="tabpanel"
-            aria-labelledby={`${tabKey}-tab`}
+            aria-labelledby={`${id}-tab`}
           >
-            <p className="text-grey-400 text-sm dark:text-gray-400">
-              {tabContents[tabKey]}
-            </p>
+            {/* Render cards for active tab */}
+            {tabsData && tabsData[id] ? (
+              tabsData[id].length > 0 ? (
+                renderCards(tabsData[id])
+              ) : (
+                <div>No Events Added</div>
+              )
+            ) : (
+              <div>No Events Added</div>
+            )}
           </div>
         ))}
       </div>
