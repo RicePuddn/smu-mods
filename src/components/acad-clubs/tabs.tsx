@@ -36,7 +36,7 @@ export default function Tabs({ tabsData }: TabsProps) {
     return items.map((value, index) => (
       <Card
         key={index}
-        className="flex flex-col justify-between rounded-2xl p-6 hover:shadow-lg hover:shadow-gray-300"
+        className="flex min-w-[350px] max-w-[350px] flex-col justify-between rounded-2xl p-6 hover:shadow-lg hover:shadow-gray-300"
       >
         <CardHeader>{value.title}</CardHeader>
         <CardContent>
@@ -59,7 +59,7 @@ export default function Tabs({ tabsData }: TabsProps) {
           role="tablist"
         >
           {tabs.map((id) => (
-            <li key={id} role="presentation" className="me-2">
+            <li key={id} className="tabs">
               <button
                 className={`inline-block rounded-t-lg border-b-2 p-4 ${
                   activeTab === id
@@ -67,7 +67,6 @@ export default function Tabs({ tabsData }: TabsProps) {
                     : "border-transparent text-gray-500"
                 }`}
                 type="button"
-                role="tab"
                 aria-controls={id}
                 aria-selected={activeTab === id}
                 onClick={() => setActiveTab(id)}
@@ -82,7 +81,7 @@ export default function Tabs({ tabsData }: TabsProps) {
         {tabs.map((id) => (
           <div
             key={id}
-            className={`grid grid-cols-1 gap-6 rounded-lg bg-gray-50 p-4 dark:bg-gray-800 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${
+            className={`grid grid-cols-1 gap-6 rounded-lg bg-gray-50 p-4 dark:bg-gray-800 ${
               activeTab === id ? "block" : "hidden"
             }`}
             role="tabpanel"
@@ -91,7 +90,9 @@ export default function Tabs({ tabsData }: TabsProps) {
             {/* Render cards for active tab */}
             {tabsData && tabsData[id] ? (
               tabsData[id].length > 0 ? (
-                renderCards(tabsData[id])
+                <div className="mx-auto grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+                  {renderCards(tabsData[id])}
+                </div>
               ) : (
                 <div>No Events Added</div>
               )
