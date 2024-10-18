@@ -1,10 +1,19 @@
 "use client";
 
+import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
-import { termSlug, type TermSlug } from "@/types/planner";
-import type { Day, ModifiableClass, Timetable } from "@/types/primitives/timetable";
-import { getClassEndTime } from "@/utils/timetable";
+import { useTimetableStore } from "@/stores/timetable/provider";
+import { termMap, termSlug, type TermSlug } from "@/types/planner";
+import {
+  timeSlots,
+  type Day,
+  type ModifiableClass,
+} from "@/types/primitives/timetable";
+import { TIMETABLE_COLORS } from "@/utils/timetable/colours";
+import { getClassEndTime } from "@/utils/timetable/timetable";
+import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -23,13 +32,20 @@ export default function TimeTablePage({
 }: {
   params: { termId: string };
 }) {
-  // const { timetableMap, showAllSections, selectSection } = useTimetableStore(
-  //   (state) => state,
-  // );
+  const {
+    timetableMap,
+    AddModuleToTimetable,
+    removeModuleFromTimetable,
+    showAllSections,
+    selectSection,
+  } = useTimetableStore((state) => state);
+
+  const [selectedClass, setSelectedSection] = useState<FullClass>();
+
   const router = useRouter();
   const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
   const currentTermNum = termSlug[currentTermIdx]?.split("-")[1];
-  // const timetable = timetableMap[termMap[params.termId as TermSlug]];
+  const timetable = timetableMap[termMap[params.termId as TermSlug]];
 
   function calculateSlotLeftPadding(rows: Row, totalSlots: number): FullRow {
     const fullRows: FullRow = {};
@@ -205,85 +221,6 @@ export default function TimeTablePage({
     return rows;
   }
 
-  const sampleTimetable: Timetable = {
-    Monday: [
-      {
-        moduleCode: "IS113",
-        section: "G2",
-        classTime: {
-          day: "Monday",
-          startTime: "08:15",
-          duration: 3.25,
-        },
-        colorIndex: 0,
-      },
-      {
-        moduleCode: "IS112",
-        section: "G5",
-        classTime: {
-          day: "Monday",
-          startTime: "08:15",
-          duration: 3.25,
-        },
-        colorIndex: 1,
-      },
-      {
-        moduleCode: "COR-IS1704",
-        section: "G1",
-        classTime: {
-          day: "Monday",
-          startTime: "12:00",
-          duration: 3.25,
-        },
-        colorIndex: 2,
-      },
-      {
-        moduleCode: "COR-IS1704",
-        section: "G2",
-        classTime: {
-          day: "Monday",
-          startTime: "10:00",
-          duration: 3.25,
-        },
-        colorIndex: 1,
-      },
-    ],
-    Tuesday: [
-      {
-        moduleCode: "IS114",
-        section: "G2",
-        classTime: {
-          day: "Monday",
-          startTime: "15:30",
-          duration: 1.5,
-        },
-        colorIndex: 0,
-      },
-    ],
-    Wednesday: [],
-    Thursday: [],
-    Friday: [],
-    Saturday: [],
-  };
-
-  const timeSlots = [
-    "08:00",
-    "09:00",
-    "10:00",
-    "11:00",
-    "12:00",
-    "13:00",
-    "14:00",
-    "15:00",
-    "16:00",
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-  ];
-
   if (!termSlug.includes(params.termId as TermSlug)) {
     return (
       <div>
@@ -294,7 +231,6 @@ export default function TimeTablePage({
 
   const goToPreviousTerm = () => {
     if (currentTermIdx > 0) {
-      // console.log(currentTermIdx);
       router.push(`${termSlug[currentTermIdx - 1]}`);
     }
   };
@@ -326,10 +262,10 @@ export default function TimeTablePage({
       </div>
 
       <div className="max-w-full overflow-x-scroll">
-        <div className="container mx-auto mt-10 min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
+        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
           {/* Time Labels */}
           <div className="flex">
-            <div className="w-[10%] flex-shrink-0 md:w-[7.5%]"></div>
+            <div className="w-[5%] flex-shrink-0"></div>
             {timeSlots.map((time, index) => (
               <div
                 key={index}
@@ -345,94 +281,167 @@ export default function TimeTablePage({
               </div>
             ))}
           </div>
-          {/* {days.map((day, dayIndex) => (
-          <div key={dayIndex} className="mb-4 flex h-24">
-            <div className="flex w-1/6 flex-shrink-0 items-center justify-center bg-gray-300 font-bold text-gray-700">
-              {day}
-            </div>
-          </div>
-        ))} */}
           {/* red line across current time now */}
-          {Object.keys(sampleTimetable).map((day, dayIndex) => {
-            const rowResult = getRowAssignment(sampleTimetable[day as Day], 15);
-            const rowResultWithPadding = calculateSlotLeftPadding(
-              rowResult,
-              15,
-            );
-            return (
-              <div className="flex border-t border-gray-300" key={dayIndex}>
-                <div className="flex w-[10%] items-center justify-center text-center font-medium text-gray-800 md:w-[7.5%]">
-                  {day.slice(0, 3)}
+          {Object.keys(timetable)
+            .filter((key) => key != "modules")
+            .map((day, dayIndex) => {
+              const rowResult = getRowAssignment(timetable[day as Day], 15);
+              const rowResultWithPadding = calculateSlotLeftPadding(
+                rowResult,
+                15,
+              );
+              return (
+                <div className="flex border-t border-gray-300" key={dayIndex}>
+                  <div className="flex w-[5%] items-center justify-center text-center font-medium text-gray-800">
+                    {day.slice(0, 3)}
+                  </div>
+                  <div
+                    className={`flex-grow space-y-1 py-1 ${
+                      dayIndex % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                    }`}
+                  >
+                    {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
+                      const rowIndex = parseInt(rowIndexStr, 10);
+                      const minHeight = 60;
+                      return (
+                        <div
+                          id={`Slot${rowIndex}`}
+                          key={rowIndex}
+                          className="relative flex flex-row"
+                          style={{
+                            position: "relative",
+                            height: `${minHeight}px`,
+                          }}
+                        >
+                          {rowResultWithPadding[rowIndex]!.map(
+                            (fullClass, classIndex) => {
+                              return (
+                                <div
+                                  key={classIndex}
+                                  className="absolute rounded bg-blue-300 p-2 text-white shadow-md"
+                                  style={{
+                                    left: `${fullClass.paddingLeft}%`,
+                                    width: `${fullClass.width}%`,
+                                    height: "100%",
+                                    backgroundColor:
+                                      selectedClass?.section ==
+                                      fullClass.section
+                                        ? TIMETABLE_COLORS[fullClass.colorIndex]
+                                            ?.backgroundColor
+                                        : TIMETABLE_COLORS[fullClass.colorIndex]
+                                            ?.outOfFocusBackgroundColor,
+                                    color:
+                                      TIMETABLE_COLORS[fullClass.colorIndex]
+                                        ?.textColor,
+                                  }}
+                                  onClick={() => {
+                                    if (selectedClass) {
+                                      if (
+                                        selectedClass.moduleCode ==
+                                        fullClass.moduleCode
+                                      ) {
+                                        selectSection(
+                                          fullClass.moduleCode,
+                                          fullClass.section,
+                                          termMap[params.termId as TermSlug],
+                                        );
+                                        setSelectedSection(undefined);
+                                      } else {
+                                        selectSection(
+                                          selectedClass.moduleCode,
+                                          selectedClass.section,
+                                          termMap[params.termId as TermSlug],
+                                        );
+                                        setSelectedSection(undefined);
+                                      }
+                                    } else {
+                                      showAllSections(
+                                        fullClass.moduleCode,
+                                        termMap[params.termId as TermSlug],
+                                        fullClass.section,
+                                      );
+                                      setSelectedSection(fullClass);
+                                    }
+                                  }}
+                                >
+                                  <span className="text-sm font-semibold">
+                                    {`${fullClass.moduleCode} - ${fullClass.section}`}
+                                  </span>
+                                  <br />
+                                  <span className="text-xs">
+                                    {`${fullClass.classTime.startTime} (${fullClass.classTime.duration} hrs)`}
+                                  </span>
+                                </div>
+                              );
+                            },
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div
-                  className={`flex-grow space-y-1 py-1 ${
-                    dayIndex % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
-                  }`}
-                >
-                  {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
-                    const rowIndex = parseInt(rowIndexStr, 10); // Convert rowIndex to number
-                    const minHeight = 60;
-                    // if (!!document) {
-                    //   const element = document.getElementById(
-                    //     `Slot${rowIndex}`,
-                    //   );
-                    //   if (element) {
-                    //     for (
-                    //       let index = 0;
-                    //       index < element.children.length;
-                    //       index++
-                    //     ) {
-                    //       const child = element.children.item(index);
-                    //       if (!child) continue;
-                    //       const { height } = child.getBoundingClientRect();
-                    //       if (height > minHeight) {
-                    //         minHeight = height;
-                    //       }
-                    //     }
-                    //   }
-                    // }
-                    return (
-                      <div
-                        id={`Slot${rowIndex}`}
-                        key={rowIndex}
-                        className="relative flex flex-row"
-                        style={{
-                          position: "relative",
-                          height: `${minHeight}px`,
-                        }}
-                      >
-                        {rowResultWithPadding[rowIndex]!.map(
-                          (fullClass, classIndex) => {
-                            return (
-                              <div
-                                key={classIndex}
-                                className="absolute rounded bg-blue-300 p-2 text-white shadow-md"
-                                style={{
-                                  left: `${fullClass.paddingLeft}%`,
-                                  width: `${fullClass.width}%`,
-                                  height: "100%",
-                                }}
-                              >
-                                <span className="text-sm font-semibold">
-                                  {`${fullClass.moduleCode} - ${fullClass.section}`}
-                                </span>
-                                <br />
-                                <span className="text-xs">
-                                  {`${fullClass.classTime.startTime} (${fullClass.classTime.duration} hrs)`}
-                                </span>
-                              </div>
-                            );
-                          },
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
+      <SearchModule
+        handleModSelect={(mod) =>
+          AddModuleToTimetable(mod, termMap[params.termId as TermSlug])
+        }
+      />
+      {timetable.modules.length > 0 && (
+        <div className="j flex w-full flex-wrap gap-2">
+          {timetable.modules.map((mod, index) => (
+            <div
+              className="flex w-[32%] justify-center rounded bg-white p-4 shadow-sm shadow-gray-300"
+              key={index}
+            >
+              <div className="flex w-1/12 items-start justify-end">
+                <div
+                  className="mr-2 mt-1 h-5 w-5 rounded"
+                  style={{
+                    backgroundColor:
+                      TIMETABLE_COLORS[mod.colorIndex]?.backgroundColor,
+                  }}
+                ></div>
+              </div>
+              <div className="w-9/12">
+                <p className="text-sm font-bold">
+                  {mod.moduleCode} - {mod.name}
+                </p>
+                <p className="text-sm">
+                  Exam:{" "}
+                  {mod.exam?.dateTime.toLocaleString() ?? "No exam scheduled"}
+                </p>
+              </div>
+              <div className="flex w-2/12 items-center justify-center">
+                <div className="inline-flex">
+                  <Button
+                    variant={"outline"}
+                    size={"icon"}
+                    className="rounded-r-none"
+                    onClick={() =>
+                      removeModuleFromTimetable(
+                        mod.moduleCode,
+                        termMap[params.termId as TermSlug],
+                      )
+                    }
+                  >
+                    <Trash2 />
+                  </Button>
+                  {/* <Button
+                    variant={"outline"}
+                    size={"icon"}
+                    className="rounded-l-none border-l-0"
+                  >
+                    <BiHide />
+                  </Button> */}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
