@@ -1,5 +1,10 @@
 "use client";
-
+declare global {
+  interface Window {
+    onSpotifyWebPlaybackSDKReady: (() => void) | undefined;
+    Spotify: any; // Add this if you haven't defined the Spotify type yet
+  }
+}
 import SpotifyLogin from "@/components/window/spotifyLogin";
 import { env } from "@/env";
 import axios from "axios";
@@ -32,9 +37,7 @@ export default function WindowPage() {
         "Some representative placeholder content for the third slide.",
     },
   ];
-  interface window {
-    onSpotifyWebPlaybackSDKReady: (() => void) | undefined;
-  }
+
   // const spotifyTrackUrl = "https://api.spotify.com/v1/tracks/";
 
   // const default_songs = [{ id: "08Fo1zAY2piVFOD2Lv3n3z", name: "Okinawa" }];
@@ -96,7 +99,7 @@ export default function WindowPage() {
     window.onSpotifyWebPlaybackSDKReady = () => {
       const player = new window.Spotify.Player({
         name: "Web Playback SDK Player",
-        getOAuthToken: (cb) => {
+        getOAuthToken: (cb: Function) => {
           cb(accessToken);
         },
         volume: 0.5,
