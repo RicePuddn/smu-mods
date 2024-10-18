@@ -1,14 +1,11 @@
-export type Club = {
-    name: string;
-    desc: string;
-    contact: string;
-    image: string;
-    events: string[];
-  };
-
-export type Clubs = {
-    [clubID: string] :Club;
-}
+export type Event = {
+  name: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  venue: string;
+};
 
 
   
