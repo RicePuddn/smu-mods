@@ -8,26 +8,17 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Event } from "@/types/primitives/event";
+import type { Event } from "@/types/primitives/event";
 import { useState } from "react";
 import { Button } from "../ui/button";
 
 type TabsProps = {
-  tabsData: {
-    [key: string]: {
-      name: string;
-      title: string;
-      description: string;
-      date: string;
-      time: string;
-      venue: string;
-    }[];
-  };
+  tabsData: Record<string, Event[]>; // Use Record instead of index signature
 };
 
 export default function Tabs({ tabsData }: TabsProps) {
   const [activeTab, setActiveTab] = useState<string>(
-    Object.keys(tabsData)[0] || "clubs",
+    Object.keys(tabsData)[0] ?? "clubs",
   ); // Default to the first tab
 
   const tabs = Object.keys(tabsData);
@@ -67,6 +58,7 @@ export default function Tabs({ tabsData }: TabsProps) {
                     : "border-transparent text-gray-500"
                 }`}
                 type="button"
+                role="tab"
                 aria-controls={id}
                 aria-selected={activeTab === id}
                 onClick={() => setActiveTab(id)}
@@ -87,15 +79,19 @@ export default function Tabs({ tabsData }: TabsProps) {
             role="tabpanel"
             aria-labelledby={`${id}-tab`}
           >
-            {/* Render cards for active tab */}
-            {tabsData && tabsData[id] ? (
-              tabsData[id].length > 0 ? (
-                <div className="mx-auto grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
-                  {renderCards(tabsData[id])}
-                </div>
-              ) : (
-                <div>No Events Added</div>
-              )
+            {/* Render cards for the active tab
+            {(tabsData[id]?.length || 0) > 0 ? (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {renderCards(tabsData[id] ?? [])}
+              </div>
+            ) : (
+              <div>No Events Added</div>
+            )} */}
+            {/* Render cards for the active tab */}
+            {(tabsData[id]?.length || 0) > 0 ? (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {renderCards(tabsData[id] ?? [])}
+              </div>
             ) : (
               <div>No Events Added</div>
             )}

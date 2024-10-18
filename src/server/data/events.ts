@@ -1,6 +1,6 @@
-import { Event } from "@/types/primitives/event";
+import type { Event } from "@/types/primitives/event";
 
-export const eventsData: { [key: string]: Event[] } = {
+export const eventsData: Record<string, Event[]> = {
     "clubs" : [
         {   
             name: "Ellipsis",
