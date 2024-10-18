@@ -3,12 +3,14 @@
 import { ReadMore } from "@/components/acad-clubs/ReadMore";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
 import { Event } from "@/types/primitives/event";
 import { useState } from "react";
+import { Button } from "../ui/button";
 
 type TabsProps = {
   tabsData: {
@@ -34,13 +36,17 @@ export default function Tabs({ tabsData }: TabsProps) {
     return items.map((value, index) => (
       <Card
         key={index}
-        className="rounded-lg p-6 hover:shadow-lg hover:shadow-gray-300"
+        className="flex flex-col justify-between rounded-2xl p-6 hover:shadow-lg hover:shadow-gray-300"
       >
-        <CardHeader>{value.name}</CardHeader>
-        <CardDescription className="text-left">
-          <ReadMore id={value.name} text={value.description} />
-        </CardDescription>
-        <CardFooter className="pt-2 text-center">{value.venue}</CardFooter>
+        <CardHeader>{value.title}</CardHeader>
+        <CardContent>
+          <CardDescription className="text-left">
+            <ReadMore id={value.description} text={value.description} />
+          </CardDescription>
+        </CardContent>
+        <CardFooter className="mt-auto flex justify-end">
+          <Button>Pin</Button>
+        </CardFooter>
       </Card>
     ));
   };
