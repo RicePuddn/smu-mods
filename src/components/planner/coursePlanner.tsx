@@ -38,7 +38,7 @@ const CoursePlanner: React.FC = () => {
   // ) 
 
   // const [searchString, setSearchString] = useState("");
-  // const [suggestionResults, setSuggestionResults] = useState<Module[]>([]);
+  const [suggestionResults, setSuggestionResults] = useState<Module[]>([]);
   // const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
   const [searchResult, setSearchResult] = useState<Module[]>([]);
   const [showSearchResult, setShowSearchResult]= useState<boolean>(false);
@@ -349,12 +349,13 @@ const CoursePlanner: React.FC = () => {
         <div className="w-full">
           <SearchModule handleModSelect={HandleAddMod} callback={(modules)=> {
           //u can do whatever u want with the modules here
-            setSearchResult(modules)
+            setSuggestionResults(modules)
           }}/>
         </div>
         <div className="my-6 mx-3">
           <Button
             onClick={async()=>{
+              setSearchResult(suggestionResults)
               setShowSearchResult(true)
               // setShowSuggestion(false)
             }}
