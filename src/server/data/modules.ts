@@ -1,12 +1,14 @@
 import type { ModuleBank } from "@/types/banks/moduleBank";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 
-export async function searchModule(query?: string): Promise<Module[]> {
+export function searchModule(modules: ModuleBank, query?: string): Module[] {
   if (!query) {
     return Object.values(modules);
   }
-  return Object.values(modules).filter((module) =>
-    module.name.toLowerCase().includes(query.toLowerCase()),
+  return Object.values(modules).filter(
+    (module) =>
+      module.name.toLowerCase().includes(query.toLowerCase()) ||
+      module.moduleCode.toLowerCase().includes(query.toLowerCase()),
   );
 }
 
@@ -3075,6 +3077,15 @@ export const modules: ModuleBank = {
       or: ["IS111", "CS101"],
     },
   },
+  IS111: {
+    name: "Introduction to Programming",
+    moduleCode: "IS111",
+    exam: { dateTime: new Date("2024-11-22"), durationInHour: 3 },
+    description: `This course introduces students to the fundamental concepts of programming and software development. Students will learn the basics of programming, including data types, control structures, functions, and object-oriented programming. Students will also learn how to design and implement software solutions to solve real-world problems. The course will also cover the basics of software development, including the software development life cycle, software testing, and debugging. Students will gain hands-on experience in programming through a series of programming assignments and a course project.`,
+    sections: [],
+    terms: ["Term 1", "Term 2"],
+    credit: 1,
+  },
 
   // ================================================================================================================================================================================================================================================================================================
   IS112: {
@@ -3382,7 +3393,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 2"],
     preReq: {
-      or: ["CS101"],
+      or: ["IS111"],
     },
   },
 

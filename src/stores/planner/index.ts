@@ -34,6 +34,7 @@ export type PlannerActions = {
   hideSpecial: (year: Year) => void;
   // removeTerm: (year: Year, term: Term, moduleBank: ModuleBank) => void;
   // removeYear: (year: Year, moduleBank: ModuleBank) => void;
+  iSync: (plannerState: PlannerState, planner: Planner) => void;
 };
 
 export type PlannerStore = {
@@ -71,7 +72,7 @@ export const createPlannerBank = (
               },
             },
           };
-          
+
           set({
             plannerState: newPlannerState,
             planner: getPlanner(newPlannerState.modules, moduleBank),
@@ -85,7 +86,6 @@ export const createPlannerBank = (
           moduleCode,
           moduleBank,
         ) => {
-
           const original = get();
           const module = original.plannerState.modules[moduleCode];
           if (!module) return;
@@ -135,8 +135,8 @@ export const createPlannerBank = (
               planner: getPlanner(state.plannerState.modules, moduleBank),
               isSpecialHidden: state.isSpecialHidden,
             };
-            delete temp.planner[year][term][moduleCode]
-            return temp 
+            delete temp.planner[year][term][moduleCode];
+            return temp;
           });
         },
         hideSpecial: (year: Year) => {
@@ -161,9 +161,9 @@ export const createPlannerBank = (
 
         //     const newPlanner= getPlanner(newModules, moduleBank);
         //     console.log(newPlanner)
-            
+
         //     newPlanner[year]= defaultPlanner[year]
-            
+
         //     return {
         //       plannerState: {
         //         ...state.plannerState,
@@ -199,6 +199,12 @@ export const createPlannerBank = (
         //     };
         //   });
         // },
+        iSync: (plannerState, planner) => {
+          set({
+            plannerState,
+            planner,
+          });
+        },
       }),
       {
         name: "planner",

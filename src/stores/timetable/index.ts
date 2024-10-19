@@ -1,26 +1,22 @@
 import type { Term } from "@/types/planner";
 import type { Module, ModuleCode, Section } from "@/types/primitives/module";
 import {
-  type ColorIndex,
   defaultTimetableMap,
+  type Timetable,
   type TimetableMap,
 } from "@/types/primitives/timetable";
 import {
   addModuleToTimetable,
   selectSection,
   showAllSections,
-} from "@/utils/timetable";
+} from "@/utils/timetable/timetable";
 import { toast } from "sonner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 export type TimetableActions = {
-  AddModuleToTimetable: (module: Module, term: Term, colorIndex: ColorIndex) => Promise<void>;
-  removeModuleFromTimetable: (
-    moduleCode: ModuleCode,
-    sectionCode: string,
-    term: Term,
-  ) => void;
+  AddModuleToTimetable: (module: Module, term: Term) => Promise<void>;
+  removeModuleFromTimetable: (moduleCode: ModuleCode, term: Term) => void;
   selectSection: (
     moduleCode: ModuleCode,
     sectionCode: string,
@@ -28,15 +24,14 @@ export type TimetableActions = {
   ) => void;
   showAllSections: (
     moduleCode: ModuleCode,
-    colorIndex: ColorIndex,
     term: Term,
     currentSectionCode?: Section["code"],
   ) => void;
+  iSync: (data: TimetableMap) => void;
 };
 
 export type TimetableStore = {
   timetableMap: TimetableMap;
-  modules: Module[];
 } & TimetableActions;
 
 export const createTimetableStore = (
@@ -46,57 +41,56 @@ export const createTimetableStore = (
     persist(
       (set, get) => ({
         timetableMap: initTimetableMap,
-        modules: [],
-        AddModuleToTimetable: async (module: Module, term: Term, colorIndex) => {
+        AddModuleToTimetable: async (module: Module, term: Term) => {
           const timetable = get().timetableMap[term];
-          const newTimeTable = addModuleToTimetable(module, timetable, colorIndex);
+          if (timetable.modules.length > 7) {
+            toast.error("Maximum of 8 modules allowed");
+            return;
+          }
+          const newTimeTable = addModuleToTimetable(module, timetable);
           set((state) => ({
             ...state,
             timetableMap: { ...state.timetableMap, [term]: newTimeTable },
-            modules: [...state.modules, module],
           }));
         },
-        removeModuleFromTimetable: (
-          moduleCode: ModuleCode,
-          sectionCode: string,
-          term: Term,
-        ) => {
-          const module = get().modules.find((m) => m.moduleCode === moduleCode);
+        removeModuleFromTimetable: (moduleCode: ModuleCode, term: Term) => {
+          const module = get().timetableMap[term].modules.find(
+            (m) => m.moduleCode === moduleCode,
+          );
           if (!module) {
             toast.error("Module not found");
             return;
           }
           const timetable = get().timetableMap[term];
-          const updatedTimetable = { ...timetable };
+          const updatedTimetable = JSON.parse(
+            JSON.stringify(timetable),
+          ) as Timetable;
           module.sections.forEach((section) => {
-            if (section.code === sectionCode) {
-              section.classes.forEach((classTime) => {
-                updatedTimetable[classTime.day] = updatedTimetable[
-                  classTime.day
-                ].filter(
-                  (c) =>
-                    c.moduleCode !== moduleCode ||
-                    c.section !== sectionCode,
-                );
-              });
-            }
+            section.classes.forEach((classTime) => {
+              updatedTimetable[classTime.day] = updatedTimetable[
+                classTime.day
+              ].filter((c) => c.moduleCode !== moduleCode);
+            });
           });
+          updatedTimetable.modules = updatedTimetable.modules.filter(
+            (mod) => mod.moduleCode !== moduleCode,
+          );
           set((state) => ({
             ...state,
             timetableMap: {
               ...state.timetableMap,
               [term]: updatedTimetable,
             },
-            modules: state.modules.filter((m) => m.moduleCode !== moduleCode),
           }));
         },
         showAllSections: (
           moduleCode: ModuleCode,
-          colorIndex: ColorIndex,
           term: Term,
           currentSectionCode?: Section["code"],
         ) => {
-          const module = get().modules.find((m) => m.moduleCode === moduleCode);
+          const module = get().timetableMap[term].modules.find(
+            (m) => m.moduleCode === moduleCode,
+          );
           if (!module) {
             toast.error("Module not found");
             return;
@@ -105,7 +99,6 @@ export const createTimetableStore = (
           const newTimeTable = showAllSections(
             module,
             timetable,
-            colorIndex,
             currentSectionCode,
           );
           set((state) => ({
@@ -121,7 +114,9 @@ export const createTimetableStore = (
           sectionCode: string,
           term: Term,
         ) => {
-          const module = get().modules.find((m) => m.moduleCode === moduleCode);
+          const module = get().timetableMap[term].modules.find(
+            (m) => m.moduleCode === moduleCode,
+          );
           if (!module) {
             toast.error("Module not found");
             return;
@@ -134,6 +129,12 @@ export const createTimetableStore = (
               ...state.timetableMap,
               [term]: newTimeTable,
             },
+          }));
+        },
+        iSync: (data: TimetableMap) => {
+          set((state) => ({
+            ...state,
+            timetableMap: data,
           }));
         },
       }),
