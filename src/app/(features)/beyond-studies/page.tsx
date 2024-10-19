@@ -1,6 +1,7 @@
 "use client";
 
 import Tabs from "@/components/acad-clubs/tabs";
+import { Button } from "@/components/ui/button";
 import { eventsData } from "@/server/data/events";
 import { useEffect, useState } from "react";
 
@@ -17,7 +18,8 @@ export default function BeyondStudies() {
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
           Beyond Studies
         </h1>
-        <Tabs tabsData={eventsData} />
+        <Button className="inline-block"></Button>
+        <Tabs tabsData={eventsData} />{" "}
       </div>
     </>
   );
