@@ -4,8 +4,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
-import { api } from "@/trpc/react";
-import { EXEMPTION_YEAR, MODSTOTAKE_TERM, MODSTOTAKE_YEAR, type Term, type Year } from "@/types/planner";
+import {
+  EXEMPTION_YEAR,
+  MODSTOTAKE_TERM,
+  MODSTOTAKE_YEAR,
+  type Term,
+  type Year,
+} from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import {
   DragDropContext,
@@ -17,10 +22,9 @@ import { debounce } from "lodash";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { Input } from "../ui/input";
 import "./scrollBar.css";
 
-const DELIMITER = "/$/"
+const DELIMITER = "/$/";
 
 const CoursePlanner: React.FC = () => {
 
@@ -71,9 +75,9 @@ const CoursePlanner: React.FC = () => {
     if (!result.destination) return;
     const dest = result.destination.droppableId.split(DELIMITER);
     const src = result.source.droppableId.split(DELIMITER);
-  
-    if(src[0] == dest[0] && src[1]== dest[1]){
-      return
+
+    if (src[0] == dest[0] && src[1] == dest[1]) {
+      return;
     }
     changeTerm(
       src[0] as Year,
@@ -85,8 +89,8 @@ const CoursePlanner: React.FC = () => {
     );
   };
 
-  const HandleAddMod = (module:Module) => {
-    addModuleToBank(module)
+  const HandleAddMod = (module: Module) => {
+    addModuleToBank(module);
     addModuleToPlanner(
       module.moduleCode,
       {
@@ -94,13 +98,17 @@ const CoursePlanner: React.FC = () => {
         term: MODSTOTAKE_TERM as Term,
         id: module.moduleCode,
       },
-      {...modules, [module.moduleCode]: module},
+      { ...modules, [module.moduleCode]: module },
     );
   };
 
-  const handleRemoveModuleFromPlanner = (moduleCode: ModuleCode, year: Year, term: Term)=>{
-    removeModule(moduleCode, year, term, modules)
-  }
+  const handleRemoveModuleFromPlanner = (
+    moduleCode: ModuleCode,
+    year: Year,
+    term: Term,
+  ) => {
+    removeModule(moduleCode, year, term, modules);
+  };
 
   const toggleYear = (year: string) => {
     setIsOpen((prevExpandedYears) => {
