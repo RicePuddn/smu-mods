@@ -204,7 +204,7 @@ const CoursePlanner: React.FC = () => {
                             const conflictList: string[] = [];
 
                             // For each module, check the conflicts present
-                            if(conflicts){
+                            if(conflicts && year !== EXEMPTION_YEAR){
                               Object.entries(conflicts).map(([index, conflict]) => {
                                 if(conflict.type === "prereq" && conflict.statusNode && conflict.statusNode.children && conflict.statusNode.children.length > 0){
                                   let reqGate= conflict.statusNode.type;
@@ -300,7 +300,7 @@ const CoursePlanner: React.FC = () => {
         <div
           key={MODSTOTAKE_YEAR}
           className={cn("overflow-hidden rounded-lg bg-gray-50 shadow-md flex flex-col",
-          !isMobile && "flex-shrink-0 w-96 mr-6 mb-6")}
+          !isMobile && "flex-shrink-0 w-full mr-6 mb-6")}
         >
         <div className={cn("flex justify-between bg-blue-500 p-3 items-center h-14", 
           isMobile && "cursor-pointer")}
@@ -326,10 +326,8 @@ const CoursePlanner: React.FC = () => {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className={cn("p-3 transition-colors duration-200", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile ? "flex-grow" : "min-h-[120px]")}
+                  className={cn("p-3 transition-colors duration-200 min-h-[120px] grid gap-2 lg:grid-cols-3 md:grid-cols-2", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile && "flex-grow")}
                 >
-                          
-                <h3 className="mb-3 font-medium text-gray-700"></h3>
                           
                 {Object.entries(termModules).map(
                   // eslint-disable-next-line @typescript-eslint/no-unused-vars
