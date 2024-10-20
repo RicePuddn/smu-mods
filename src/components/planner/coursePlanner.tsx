@@ -18,10 +18,11 @@ import {
   Droppable,
   type DropResult,
 } from "@hello-pangea/dnd";
-import { ChevronDown, ChevronUp, X } from "lucide-react";
+import { ChevronDown, ChevronUp, CircleAlert, X } from "lucide-react";
 import React, { useState } from "react";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
+import { InteractiveTooltip } from "./customTooltip";
 import "./scrollBar.css";
 
 const DELIMITER = "/$/";
@@ -197,8 +198,49 @@ const CoursePlanner: React.FC = () => {
                         </h3>
                         
                         {Object.entries(termModules).map(
-                          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                          ([moduleCode, { conflicts }], index) => (
+                          ([moduleCode, { conflicts }], index) => {
+                            console.log(moduleCode,conflicts);
+                            const conflictList: string[] = [];
+
+                            // For each module, check the conflicts present
+                            if(conflicts && year !== EXEMPTION_YEAR){
+                              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                              Object.entries(conflicts).map(([index, conflict]) => {
+                                if(conflict.type === "prereq" && (conflict.statusNode?.children?.length?? 0) > 0){
+                                  const reqGate= conflict.statusNode?.type ?? "";
+                                  const sliceAmt= reqGate.length + 2
+                                  let msg= "These modules may need to be taken first: "
+                                  for (const preReqMod of conflict?.statusNode?.children ?? []) {
+                                    if (!preReqMod.fulfilled) {
+                                      msg += `${preReqMod.module} ${reqGate} `;
+                                    }
+                                  }
+                                  conflictList.push(msg.slice(0, -sliceAmt))
+                                }
+                                
+                                if(conflict.type === "term"){
+                                  let msg= "Terms offering this module: ";
+                                  for(const termOffered of conflict.termsOffered){
+                                    msg += `${termOffered}, `
+                                }
+                                  conflictList.push(msg.slice(0, -2))
+                                }
+
+                                if(conflict.type === "exam"){
+                                  if(conflict.conflictModules.length > 1){
+                                    let msg= "This module has clashing exam timings with: "
+                                    for(const modExam of conflict.conflictModules){
+                                      if(moduleCode !== modExam){
+                                        msg += `${modExam}, `
+                                      }
+                                    }
+                                    conflictList.push(msg.slice(0, -2))
+                                  }
+                                }
+                              })
+                            }
+
+                            return (
                             <Draggable
                               key={moduleCode}
                               draggableId={moduleCode}
@@ -215,6 +257,19 @@ const CoursePlanner: React.FC = () => {
                                       : "border border-gray-200 bg-white hover:bg-gray-100"
                                   )}
                                 >
+                                  {conflictList && conflictList.length > 0 && 
+                                    <InteractiveTooltip content={
+                                      <div className="bg-slate-50 text-black">
+                                        {conflictList.map((conflictMsg, idx)=> {
+                                          return (
+                                            <li key={idx}>{conflictMsg}</li>
+                                          )})}
+                                      </div>
+                                    }
+                                    >
+                                      <CircleAlert color="orange" size={18} />
+                                    </InteractiveTooltip>
+                                  }
                                   <div className="w-5/6">{moduleCode}</div>
                                     <Button
                                     onClick={() => handleRemoveModuleFromPlanner(moduleCode as ModuleCode, year as Year, term as Term)}
@@ -227,7 +282,7 @@ const CoursePlanner: React.FC = () => {
                                 </div>
                               )}
                             </Draggable>
-                          ),
+                          );}
                         )}
                         {provided.placeholder}
                       </div>
@@ -245,7 +300,7 @@ const CoursePlanner: React.FC = () => {
         <div
           key={MODSTOTAKE_YEAR}
           className={cn("overflow-hidden rounded-lg bg-gray-50 shadow-md flex flex-col",
-          !isMobile && "flex-shrink-0 w-96 mr-6 mb-6")}
+          !isMobile && "flex-shrink-0 w-full mr-6 mb-6")}
         >
         <div className={cn("flex justify-between bg-blue-500 p-3 items-center h-14", 
           isMobile && "cursor-pointer")}
@@ -271,10 +326,8 @@ const CoursePlanner: React.FC = () => {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className={cn("p-3 transition-colors duration-200", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile ? "flex-grow" : "min-h-[120px]")}
+                  className={cn("p-3 transition-colors duration-200 min-h-[120px] grid gap-2 lg:grid-cols-3 md:grid-cols-2", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile && "flex-grow")}
                 >
-                          
-                <h3 className="mb-3 font-medium text-gray-700"></h3>
                           
                 {Object.entries(termModules).map(
                   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -303,7 +356,7 @@ const CoursePlanner: React.FC = () => {
                               }
                               size={"icon"} className="rounded-full size-6"> 
                                 <X className="size-5"/>
-                              </Button>          
+                            </Button>  
                           </div>
                       )}
                     </Draggable>
