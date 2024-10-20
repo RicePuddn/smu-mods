@@ -1,10 +1,5 @@
 "use client";
-declare global {
-  interface Window {
-    onSpotifyWebPlaybackSDKReady: (() => void) | undefined;
-    Spotify: any; // Add this if you haven't defined the Spotify type yet
-  }
-}
+
 import SpotifyLogin from "@/components/window/spotifyLogin";
 import { env } from "@/env";
 import axios from "axios";
