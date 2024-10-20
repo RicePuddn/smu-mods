@@ -18,10 +18,11 @@ import {
   Droppable,
   type DropResult,
 } from "@hello-pangea/dnd";
-import { ChevronDown, ChevronUp, X } from "lucide-react";
+import { ChevronDown, ChevronUp, CircleAlert, X } from "lucide-react";
 import React, { useState } from "react";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
+import { InteractiveTooltip } from "./customTooltip";
 import "./scrollBar.css";
 
 const DELIMITER = "/$/";
@@ -198,7 +199,48 @@ const CoursePlanner: React.FC = () => {
                         
                         {Object.entries(termModules).map(
                           // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                          ([moduleCode, { conflicts }], index) => (
+                          ([moduleCode, { conflicts }], index) => {
+                            console.log(moduleCode,conflicts);
+                            const conflictList: string[] = [];
+
+                            // For each module, check the conflicts present
+                            if(conflicts){
+                              Object.entries(conflicts).map(([index, conflict]) => {
+                                if(conflict.type === "prereq" && conflict.statusNode && conflict.statusNode.children && conflict.statusNode.children.length > 0){
+                                  let reqGate= conflict.statusNode.type;
+                                  let sliceAmt= reqGate.length + 2
+                                  let msg= "These modules may need to be taken first: "
+                                  for(let preReqMod of conflict.statusNode.children){
+                                    if(preReqMod.fulfilled === false){
+                                      msg += `${preReqMod.module} ${reqGate} `
+                                    } 
+                                  }
+                                  conflictList.push(msg.slice(0, -sliceAmt))
+                                }
+                                
+                                if(conflict.type === "term"){
+                                  let msg= "Terms offering this module: ";
+                                  for(let termOffered of conflict.termsOffered){
+                                    msg += `${termOffered}, `
+                                }
+                                  conflictList.push(msg.slice(0, -2))
+                                }
+
+                                if(conflict.type === "exam"){
+                                  if(conflict.conflictModules.length > 1){
+                                    let msg= "This module has clashing exam timings with: "
+                                    for(let modExam of conflict.conflictModules){
+                                      if(moduleCode !== modExam){
+                                        msg += `${modExam}, `
+                                      }
+                                    }
+                                    conflictList.push(msg.slice(0, -2))
+                                  }
+                                }
+                              })
+                            }
+
+                            return (
                             <Draggable
                               key={moduleCode}
                               draggableId={moduleCode}
@@ -215,6 +257,19 @@ const CoursePlanner: React.FC = () => {
                                       : "border border-gray-200 bg-white hover:bg-gray-100"
                                   )}
                                 >
+                                  {conflictList && conflictList.length > 0 && 
+                                    <InteractiveTooltip content={
+                                      <div className="bg-slate-50 text-black">
+                                        {conflictList.map((conflictMsg, idx)=> {
+                                          return (
+                                            <li key={idx}>{conflictMsg}</li>
+                                          )})}
+                                      </div>
+                                    }
+                                    >
+                                      <CircleAlert color="orange" size={18} />
+                                    </InteractiveTooltip>
+                                  }
                                   <div className="w-5/6">{moduleCode}</div>
                                     <Button
                                     onClick={() => handleRemoveModuleFromPlanner(moduleCode as ModuleCode, year as Year, term as Term)}
@@ -227,7 +282,7 @@ const CoursePlanner: React.FC = () => {
                                 </div>
                               )}
                             </Draggable>
-                          ),
+                          );}
                         )}
                         {provided.placeholder}
                       </div>
@@ -303,7 +358,7 @@ const CoursePlanner: React.FC = () => {
                               }
                               size={"icon"} className="rounded-full size-6"> 
                                 <X className="size-5"/>
-                              </Button>          
+                            </Button>  
                           </div>
                       )}
                     </Draggable>
