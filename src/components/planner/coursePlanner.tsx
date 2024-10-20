@@ -68,7 +68,7 @@ const CoursePlanner: React.FC = () => {
 
 
   const isMobile = useIsMobile(); 
-  const { addModule: addModuleToPlanner, changeTerm, planner, removeModule, hideSpecial } = usePlannerStore((state) => state);
+  const { addModule: addModuleToPlanner, changeTerm, planner, plannerState, removeModule, hideSpecial } = usePlannerStore((state) => state);
   const { modules, addModule: addModuleToBank } = useModuleBankStore((state) => state);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set())
   
@@ -427,13 +427,22 @@ const CoursePlanner: React.FC = () => {
                 <a href="#"><h3 className="font-semibold">{module.moduleCode}</h3></a>
                 <p className="text-sm text-gray-600">{module.name}</p>
               </div>
+              {module.moduleCode in plannerState.modules ? (
               <div className="col-span-1 text-end py-2">
                 <Button
-                className="rounded bg-green-500 px-3 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600"
+                className="rounded bg-slate-400 px-3 py-2 font-bold text-white transition-colors duration-200 hover:bg-slate-600 min-w-28"
+                onClick={()=>handleRemoveModuleFromPlanner(module.moduleCode as ModuleCode, plannerState.modules[module.moduleCode]?.year as Year, plannerState.modules[module.moduleCode]?.term as Term)}>
+                  Remove
+                </Button>
+              </div>
+              ) :
+              (<div className="col-span-1 text-end py-2">
+                <Button
+                className="rounded bg-green-500 px-3 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600 min-w-28"
                 onClick={()=>HandleAddMod(module)}>
                   Add Module
                 </Button>
-              </div>
+              </div>)}
             </div>
           ))) : 
           (<div className="p-2"> No Result </div>)
