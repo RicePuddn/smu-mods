@@ -198,29 +198,29 @@ const CoursePlanner: React.FC = () => {
                         </h3>
                         
                         {Object.entries(termModules).map(
-                          // eslint-disable-next-line @typescript-eslint/no-unused-vars
                           ([moduleCode, { conflicts }], index) => {
                             console.log(moduleCode,conflicts);
                             const conflictList: string[] = [];
 
                             // For each module, check the conflicts present
                             if(conflicts && year !== EXEMPTION_YEAR){
+                              // eslint-disable-next-line @typescript-eslint/no-unused-vars
                               Object.entries(conflicts).map(([index, conflict]) => {
-                                if(conflict.type === "prereq" && conflict.statusNode && conflict.statusNode.children && conflict.statusNode.children.length > 0){
-                                  let reqGate= conflict.statusNode.type;
-                                  let sliceAmt= reqGate.length + 2
+                                if(conflict.type === "prereq" && (conflict.statusNode?.children?.length?? 0) > 0){
+                                  const reqGate= conflict.statusNode?.type ?? "";
+                                  const sliceAmt= reqGate.length + 2
                                   let msg= "These modules may need to be taken first: "
-                                  for(let preReqMod of conflict.statusNode.children){
-                                    if(preReqMod.fulfilled === false){
-                                      msg += `${preReqMod.module} ${reqGate} `
-                                    } 
+                                  for (const preReqMod of conflict?.statusNode?.children ?? []) {
+                                    if (!preReqMod.fulfilled) {
+                                      msg += `${preReqMod.module} ${reqGate} `;
+                                    }
                                   }
                                   conflictList.push(msg.slice(0, -sliceAmt))
                                 }
                                 
                                 if(conflict.type === "term"){
                                   let msg= "Terms offering this module: ";
-                                  for(let termOffered of conflict.termsOffered){
+                                  for(const termOffered of conflict.termsOffered){
                                     msg += `${termOffered}, `
                                 }
                                   conflictList.push(msg.slice(0, -2))
@@ -229,7 +229,7 @@ const CoursePlanner: React.FC = () => {
                                 if(conflict.type === "exam"){
                                   if(conflict.conflictModules.length > 1){
                                     let msg= "This module has clashing exam timings with: "
-                                    for(let modExam of conflict.conflictModules){
+                                    for(const modExam of conflict.conflictModules){
                                       if(moduleCode !== modExam){
                                         msg += `${modExam}, `
                                       }
