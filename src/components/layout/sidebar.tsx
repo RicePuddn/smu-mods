@@ -8,6 +8,7 @@ import {
   ImagePlay,
   LifeBuoy,
   NotebookPen,
+  Settings,
 } from "lucide-react";
 
 import {
@@ -17,6 +18,7 @@ import {
   SidebarLabel,
 } from "@/components/ui/sidebar";
 
+import { APP_CONFIG } from "@/config";
 import { type Links, type MainLink, NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
 
@@ -47,7 +49,7 @@ const data: SidebarData = {
     },
     {
       title: "Timetable",
-      url: "/timetable",
+      url: `/timetable/${APP_CONFIG.currentTerm}`,
       icon: Calendar,
       isCollapsible: false,
     },
@@ -58,8 +60,8 @@ const data: SidebarData = {
       isCollapsible: false,
     },
     {
-      title: "Courses",
-      url: "/course",
+      title: "Modules",
+      url: "/modules",
       icon: BookA,
       isCollapsible: false,
     },
@@ -73,6 +75,12 @@ const data: SidebarData = {
       title: "Stress Relief",
       url: "/stress-relief",
       icon: ImagePlay,
+      isCollapsible: false,
+    },
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: Settings,
       isCollapsible: false,
     },
   ],
