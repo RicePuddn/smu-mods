@@ -1,8 +1,11 @@
 import { env } from "@/env";
 
-export function getBaseUrl() {
+const PROD_URL = `https://smumods.johnnyknl.me`;
+
+export function getBaseUrl(getProductionUrl = false) {
+  if (getProductionUrl) return PROD_URL;
   if (typeof window !== "undefined") return window.location.origin;
   if (process.env.VERCEL_URL && env.NEXT_PUBLIC_NODE_ENV == "production")
-    return `https://smumods.johnnyknl.me`;
+    return PROD_URL;
   return `http://localhost:${process.env.PORT ?? 3000}`;
 }
