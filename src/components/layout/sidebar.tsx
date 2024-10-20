@@ -3,6 +3,7 @@
 import {
   BookA,
   Calendar,
+  HandHeartIcon,
   HomeIcon,
   ImagePlay,
   LifeBuoy,
@@ -62,6 +63,12 @@ const data: SidebarData = {
       title: "Modules",
       url: "/modules",
       icon: BookA,
+      isCollapsible: false,
+    },
+    {
+      title: "Beyond Studies",
+      url: "/beyond-studies",
+      icon: HandHeartIcon,
       isCollapsible: false,
     },
     {
