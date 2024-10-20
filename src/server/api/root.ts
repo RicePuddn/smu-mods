@@ -1,4 +1,6 @@
 import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
+import { basketRouter } from "./routers/basket";
+import { iSyncRouter } from "./routers/iSync";
 import { moduleRouter } from "./routers/module";
 
 /**
@@ -8,6 +10,8 @@ import { moduleRouter } from "./routers/module";
  */
 export const appRouter = createTRPCRouter({
   module: moduleRouter,
+  iSync: iSyncRouter,
+  basket: basketRouter,
 });
 
 // export type definition of API

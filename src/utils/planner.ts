@@ -1,13 +1,17 @@
 import type { ModuleBank } from "@/types/banks/moduleBank";
-import type {
-  Conflict,
-  ExamClashes,
-  PlannerModule,
-  PlannerModuleInfo,
-  Term,
+import {
+  defaultPlanner,
+  terms,
+  type Conflict,
+  type ConflictMap,
+  type ExamClashes,
+  type Planner,
+  type PlannerModule,
+  type PlannerState,
+  type Term,
 } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
-import { get, values } from "lodash";
+import type { Module, ModuleCode } from "@/types/primitives/module";
+import { get, groupBy, values } from "lodash";
 import { checkPrerequisite } from "./checkPrerequisites";
 
 export const prereqConflict =
@@ -51,95 +55,100 @@ export const examConflict =
     return null;
   };
 
-// export function getPlanner(
-//   plannerState: PlannerState,
-//   moduleBank: ModuleBank,
-//   // getModule: (moduleCode: ModuleCode) => Promise<Module>,
-// ): Planner {
-//   const planner: Planner = defaultPlanner;
+const isTermBefore = (termA: Term, termB: Term): boolean => {
+  return terms.indexOf(termA) < terms.indexOf(termB);
+};
 
-//   for (const key in plannerState.modules) {
-//     const moduleCode = key as ModuleCode;
-//     const plannerModule = plannerState.modules[moduleCode]!;
-//     // const module = await getModule(moduleCode);
+export const calculatePreviousModulesTaken = (
+  plannerModules: Record<ModuleCode, PlannerModule>,
+  targetModule: PlannerModule,
+): Set<ModuleCode> => {
+  const modulesTaken = new Set<ModuleCode>();
 
-//     // if (!module) continue;
+  for (const moduleCode in plannerModules) {
+    const currentModule = plannerModules[moduleCode as ModuleCode];
 
-//     const modulesTaken = new Set<ModuleCode>();
+    if (!currentModule) {
+      continue;
+    }
+    // Check if the current module is before the target module
+    if (
+      currentModule.year < targetModule.year ||
+      (currentModule.year === targetModule.year &&
+        isTermBefore(currentModule.term, targetModule.term))
+    ) {
+      modulesTaken.add(moduleCode as ModuleCode);
+    }
+  }
 
-//     // let clashes = {};
-//     // if (!module.exam) {
-//     //   const semesterModules = Object.values(plannerState.modules)
-//     //     .map((moduleTime) => moduleTime.moduleCode)
-//     //     .filter(notNull)
-//     //     .map((moduleCode) => moduleBank[moduleCode])
-//     //     .filter(notNull);
+  return modulesTaken;
+};
 
-//     //   clashes = findExamClashes(semesterModules);
-//     // }
+export function findExamClashes(modules: Module[]): ExamClashes {
+  const grouped = groupBy(modules, (module) => module.exam?.dateTime);
 
-//     const conflicts = [
-//       prereqConflict(moduleBank, modulesTaken)(moduleCode),
-//       semesterConflict(moduleBank, plannerModule.term)(moduleCode),
-//       // examConflict(clashes)(moduleCode),
-//     ].filter((conflict) => conflict !== null);
+  const clashes: ExamClashes = {};
 
-//     if (
-//       plannerModule.year === EXEMPTION_YEAR &&
-//       plannerModule.term === EXEMPTION_TERM
-//     ) {
-//       planner[EXEMPTION_YEAR][EXEMPTION_TERM][moduleCode] = {
-//         conflict: conflicts.length ? conflicts[0] : undefined,
-//       };
-//       continue;
-//     } else {
-//       const term = plannerModule.term as Exclude<Term, typeof EXEMPTION_TERM>;
-//       const year = plannerModule.year as Exclude<Year, typeof EXEMPTION_YEAR>;
-//       if (!planner[year][term]) {
-//         planner[year][term] = {};
-//       }
+  for (const key in grouped) {
+    const group = grouped[key];
+    if (!group) continue;
+    if (group.length > 1) {
+      group.forEach((module) => {
+        if (!clashes[module.moduleCode]) {
+          clashes[module.moduleCode] = [];
+        }
 
-//       planner[year][term][moduleCode] = {
-//         conflict: conflicts.length ? conflicts[0] : undefined,
-//       };
-//     }
-//   }
+        clashes[module.moduleCode]!.push(module);
+      });
+    }
+  }
 
-//   return planner;
-// }
-
-// export function findExamClashes(modules: Module[]): ExamClashes {
-//   const grouped = groupBy(modules, (module) => module.exam?.dateTime);
-
-//   const clashes: ExamClashes = {};
-
-//   for (const key in grouped) {
-//     const group = grouped[key];
-//     if (!group) continue;
-//     if (group.length > 1) {
-//       group.forEach((module) => {
-//         if (!clashes[module.moduleCode]) {
-//           clashes[module.moduleCode] = [];
-//         }
-
-//         clashes[module.moduleCode]!.push(module);
-//       });
-//     }
-//   }
-
-//   return clashes;
-// }
+  return clashes;
+}
 
 export function getPlannerModuleInfo(
   plannerModule: PlannerModule,
   moduleBank: ModuleBank,
-): PlannerModuleInfo[ModuleCode] {
-  const modulesTaken = new Set<ModuleCode>();
+  plannerModules: PlannerState["modules"],
+  fullModules: Module[],
+): ConflictMap[ModuleCode] {
+  const modulesTaken = calculatePreviousModulesTaken(
+    plannerModules,
+    plannerModule,
+  );
   const conflicts = [
     prereqConflict(moduleBank, modulesTaken)(plannerModule.moduleCode),
     semesterConflict(moduleBank, plannerModule.term)(plannerModule.moduleCode),
+    examConflict(findExamClashes(fullModules))(plannerModule.moduleCode),
   ].filter((conflict) => conflict !== null);
   return {
-    conflict: conflicts.length ? conflicts[0] : undefined,
+    conflicts: conflicts,
   };
+}
+
+export function getPlanner(
+  plannerModules: PlannerState["modules"],
+  moduleBank: ModuleBank,
+): Planner {
+  const planner: Planner = defaultPlanner;
+
+  const fullModules = Object.keys(plannerModules).map(
+    (moduleCode) => moduleBank[moduleCode as ModuleCode],
+  ) as Module[];
+
+  for (const moduleCode in plannerModules) {
+    const plannerModule = plannerModules[moduleCode as ModuleCode];
+    if (!plannerModule) {
+      continue;
+    }
+
+    planner[plannerModule.year][plannerModule.term][moduleCode as ModuleCode] =
+      getPlannerModuleInfo(
+        plannerModule,
+        moduleBank,
+        plannerModules,
+        fullModules,
+      );
+  }
+  return planner;
 }

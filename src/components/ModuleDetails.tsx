@@ -1,6 +1,6 @@
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { Module, ModuleCode } from "@/types/primitives/module";
-import { ReactNode, useEffect, useState } from "react";
+import type { Module, ModuleCode } from "@/types/primitives/module";
+import { Fragment, type ReactNode, useEffect, useState } from "react";
 import { ModuleTreeComponent } from "./ModuleTree";
 import {
   Dialog,
@@ -41,7 +41,7 @@ export default function ModuleDetails({
       <DialogContent className="min-w-[300px] p-10 md:min-w-[80vw]">
         {!loading ? (
           !!module ? (
-            <>
+            <Fragment>
               <DialogHeader>
                 <DialogTitle>{module.moduleCode}</DialogTitle>
                 <DialogDescription>
@@ -60,7 +60,7 @@ export default function ModuleDetails({
                   />
                 </div>
               </div>
-            </>
+            </Fragment>
           ) : (
             <p>Module not found</p>
           )
