@@ -296,7 +296,7 @@ const CoursePlanner: React.FC = () => {
         })}
       </div>
 
-      <div className={cn("mb-6", isMobile ? "grid gap-6 grid-cols-1" : "flex flex-wrap px-1")}>
+      <div className={cn("mb-6", isMobile ? "grid gap-6 grid-cols-1 sticky top-12 z-10" : "flex flex-wrap px-1")}>
         <div
           key={MODSTOTAKE_YEAR}
           className={cn("overflow-hidden rounded-lg bg-gray-50 shadow-md flex flex-col",
@@ -326,7 +326,7 @@ const CoursePlanner: React.FC = () => {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className={cn("p-3 transition-colors duration-200 min-h-[120px] grid gap-2 lg:grid-cols-3 md:grid-cols-2", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile && "flex-grow")}
+                  className={cn("p-3 transition-colors duration-200 min-h-[120px] grid gap-2 lg:grid-cols-3 grid-cols-2", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile && "flex-grow")}
                 >
                           
                 {Object.entries(termModules).map(
