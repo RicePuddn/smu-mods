@@ -73,7 +73,7 @@ const data: SidebarData = {
     },
     {
       title: "Stress Relief",
-      url: "/stress-relief",
+      url: "/window",
       icon: ImagePlay,
       isCollapsible: false,
     },
