@@ -27,16 +27,49 @@ export default function Tabs({ tabsData }: TabsProps) {
     return items.map((value, index) => (
       <Card
         key={index}
-        className="flex min-w-[350px] max-w-[350px] flex-col justify-between rounded-2xl p-6 hover:shadow-lg hover:shadow-gray-300"
+        className="mx-3 mb-6 flex transform flex-col justify-between rounded-2xl bg-foreground shadow-md transition-transform hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-400"
       >
-        <CardHeader>{value.title}</CardHeader>
-        <CardContent>
-          <CardDescription className="text-left">
+        <CardHeader className="rounded-t-lg bg-blue-500 p-3 text-center text-lg font-bold text-white">
+          {value.title}
+        </CardHeader>
+        <CardContent className="mt-0 flex flex-col gap-3 px-0">
+          {/* Add event details */}
+          <table className="border-separate rounded-sm border p-0 text-left text-sm text-gray-600">
+            <tr>
+              <td className="rounded-sm bg-black p-2 text-white">
+                <strong>Date:</strong>
+              </td>
+              <td className="pl-3">{value.date}</td>
+            </tr>
+            <tr>
+              <td className="rounded-sm bg-black p-2 text-white">
+                <strong>Time:</strong>
+              </td>
+              <td className="pl-3">
+                {value.startTime} - {value.endTime}
+              </td>
+            </tr>
+            <tr>
+              <td className="rounded-sm bg-black p-2 text-white">
+                <strong>Venue:</strong>
+              </td>
+              <td className="pl-3">{value.venue}</td>
+            </tr>
+          </table>
+          <p className="text-red-500">
+            <strong>Registration Deadline: {value.deadline}</strong>
+          </p>
+          <CardDescription className="px-3 text-left leading-relaxed text-gray-700">
             <ReadMore id={value.description} text={value.description} />
           </CardDescription>
         </CardContent>
-        <CardFooter className="mt-auto flex justify-end">
-          <Button>Pin</Button>
+        <CardFooter className="mt-auto flex items-center justify-between bg-white pt-4">
+          <p className="inline-block text-sm font-bold text-gray-500">
+            Date: {value.date}
+          </p>
+          <Button className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
+            View
+          </Button>
         </CardFooter>
       </Card>
     ));
@@ -73,23 +106,15 @@ export default function Tabs({ tabsData }: TabsProps) {
         {tabs.map((id) => (
           <div
             key={id}
-            className={`grid grid-cols-1 gap-6 rounded-lg bg-gray-50 p-4 dark:bg-gray-800 ${
+            className={`rounded-lg bg-gray-50 dark:bg-gray-800 ${
               activeTab === id ? "block" : "hidden"
             }`}
             role="tabpanel"
             aria-labelledby={`${id}-tab`}
           >
-            {/* Render cards for the active tab
-            {(tabsData[id]?.length || 0) > 0 ? (
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {renderCards(tabsData[id] ?? [])}
-              </div>
-            ) : (
-              <div>No Events Added</div>
-            )} */}
             {/* Render cards for the active tab */}
             {(tabsData[id]?.length || 0) > 0 ? (
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              <div className="grid grid-cols-1 gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {renderCards(tabsData[id] ?? [])}
               </div>
             ) : (
