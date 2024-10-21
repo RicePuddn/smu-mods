@@ -97,7 +97,7 @@ function Scene() {
         enableZoom={false}
       />
       {/* Ambient Light */}
-      <ambientLight intensity={0.6} />
+      <ambientLight intensity={0.9} />
       {/* Directional Light */}
       <directionalLight
         position={[-4, 3, -1]}
