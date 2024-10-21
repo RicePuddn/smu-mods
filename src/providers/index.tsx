@@ -1,6 +1,7 @@
 import StoreProviders from "@/stores/StoreProviders";
 import { TRPCReactProvider } from "@/trpc/react";
 import { HydrateClient } from "@/trpc/server";
+import { ThemeProvider } from "./themeProvider";
 
 export default function MainProviders({
   children,
@@ -8,7 +9,18 @@ export default function MainProviders({
   return (
     <TRPCReactProvider>
       <HydrateClient>
-        <StoreProviders>{children}</StoreProviders>
+        <StoreProviders>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            storageKey="theme"
+            themes={["light", "dark", "system"]}
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </StoreProviders>
       </HydrateClient>
     </TRPCReactProvider>
   );

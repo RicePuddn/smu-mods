@@ -1,4 +1,4 @@
-import { ConfigStoreProvider } from "./iSync/provider";
+import { ConfigStoreProvider } from "./config/provider";
 import { ModuleBankStoreProvider } from "./moduleBank/provider";
 import { PlannerStoreProvider } from "./planner/provider";
 import { TimetableStoreProvider } from "./timetable/provider";
