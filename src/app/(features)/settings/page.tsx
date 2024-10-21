@@ -53,9 +53,9 @@ export default function SettingsPage() {
           }}
           value={roomTheme}
         >
-          {Object.keys(Rooms).map((roomName, index) => (
-            <ToggleGroupItem value={roomName} variant={"outline"} key={index}>
-              {Rooms[roomName as RoomKey].name}
+          {Object.keys(Rooms).map((roomkey, index) => (
+            <ToggleGroupItem value={roomkey} variant={"outline"} key={index}>
+              {Rooms[roomkey as RoomKey].name}
             </ToggleGroupItem>
           ))}
         </ToggleGroup>
