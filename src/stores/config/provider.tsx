@@ -3,7 +3,7 @@
 import { createContext, useContext, useRef, type ReactNode } from "react";
 import { useStore } from "zustand";
 
-import { createConfigBank, type ConfigStore } from "@/stores/iSync";
+import { createConfigBank, type ConfigStore } from "@/stores/config";
 
 export type ConfigStoreApi = ReturnType<typeof createConfigBank>;
 
