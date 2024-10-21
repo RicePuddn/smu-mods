@@ -31,6 +31,7 @@ export const semesterConflict =
   (moduleCode: ModuleCode): Conflict | null => {
     const module = moduleCodeMap[moduleCode];
     if (!module) return null;
+    if (!module.terms || module.terms.length < 1) return null;
     if (!module.terms.includes(term)) {
       return { type: "term", termsOffered: module.terms };
     }

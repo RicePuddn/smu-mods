@@ -8,6 +8,7 @@ export const env = createEnv({
    */
   server: {
     DATABASE_URL: z.string().url(),
+    OPENAI_API_KEY: z.string(),
   },
 
   /**
@@ -18,6 +19,9 @@ export const env = createEnv({
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
     NEXT_PUBLIC_COOKIE_SECRET: z.string(),
+    // NEXT_PUBLIC_SPOTIFY_TOKEN: z.string(),
+    NEXT_PUBLIC_SPOTIFY_CLIENT_ID: z.string(),
+    NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET: z.string(),
     NEXT_PUBLIC_NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -31,6 +35,12 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_COOKIE_SECRET: process.env.NEXT_PUBLIC_COOKIE_SECRET,
+    NEXT_PUBLIC_SPOTIFY_CLIENT_ID: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
+    NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET:
+      process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    // NEXT_PUBLIC_SPOTIFY_TOKEN: process.env.NEXT_PUBLIC_SPOTIFY_TOKEN,
+
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
