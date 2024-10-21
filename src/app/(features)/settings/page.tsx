@@ -1,13 +1,16 @@
 "use client";
 
 import { GenerateQRCode } from "@/components/iSync/QRCode";
+import { RoomKey, Rooms } from "@/components/threed/rooms";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { PADDING } from "@/config";
+import { useConfigStore } from "@/stores/config/provider";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
+  const { roomTheme, changeRoomTheme } = useConfigStore((state) => state);
   return (
     <div
       className="mx-auto max-w-md space-y-4"
@@ -38,6 +41,23 @@ export default function SettingsPage() {
             <Monitor className="mr-2" />
             System
           </ToggleGroupItem>
+        </ToggleGroup>
+      </section>
+      <section className="space-y-3 rounded-lg border p-4 shadow">
+        <h2 className="text-lg font-semibold">Rooms</h2>
+        <ToggleGroup
+          type="single"
+          className="w-fit"
+          onValueChange={(value) => {
+            changeRoomTheme(value as RoomKey);
+          }}
+          value={roomTheme}
+        >
+          {Object.keys(Rooms).map((roomName, index) => (
+            <ToggleGroupItem value={roomName} variant={"outline"} key={index}>
+              {Rooms[roomName as RoomKey].name}
+            </ToggleGroupItem>
+          ))}
         </ToggleGroup>
       </section>
       <section className="space-y-3 rounded-lg border p-4 shadow">
