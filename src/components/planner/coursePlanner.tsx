@@ -4,6 +4,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
+import { useTimetableStore } from "@/stores/timetable/provider";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
@@ -18,7 +19,7 @@ import {
   Droppable,
   type DropResult,
 } from "@hello-pangea/dnd";
-import { ChevronDown, ChevronUp, CircleAlert, X } from "lucide-react";
+import { ChevronDown, ChevronUp, CircleAlert, RefreshCw, X } from "lucide-react";
 import React, { useState } from "react";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
@@ -70,6 +71,7 @@ const CoursePlanner: React.FC = () => {
   const isMobile = useIsMobile(); 
   const { addModule: addModuleToPlanner, changeTerm, planner, plannerState, removeModule, hideSpecial } = usePlannerStore((state) => state);
   const { modules, addModule: addModuleToBank } = useModuleBankStore((state) => state);
+  const { AddModuleToTimetable: addModuleTimetable  } = useTimetableStore((state) => state);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set())
   
   const onDragEnd = (result: DropResult) => {
@@ -88,6 +90,15 @@ const CoursePlanner: React.FC = () => {
       result.draggableId as ModuleCode,
       modules,
     );
+  };
+
+  const HandleSyncTimetable = (year: Year) => {
+    for(const termNo in planner[year]){
+      for(const mods of termNo){
+        console.log(mods)
+        // addModuleTimetable(mods, termNo);
+      }
+    }
   };
 
   const HandleAddMod = (module: Module) => {
@@ -169,12 +180,18 @@ const CoursePlanner: React.FC = () => {
               {(!isMobile || isOpen.has(year)) && (
                 <>
                 {year !== EXEMPTION_YEAR &&(
-                  <button
-                      className="px-3 py-1 bg-white text-blue-500 font-medium rounded-md border border-blue-100 shadow-sm my-1 mx-2 hover:bg-gray-100"
-                      onClick={() => handleHideSpecial(year as Year)} 
-                    >
-                      {isHidden ? "Show Special Terms" : "Hide Special Terms"}
-                  </button>
+                  <div className="w-full">
+                    <button
+                        className="px-3 py-1 bg-white text-blue-500 font-medium rounded-md border border-blue-100 shadow-sm my-1 mx-2 hover:bg-gray-100"
+                        onClick={() => handleHideSpecial(year as Year)} 
+                      >
+                        {isHidden ? "Show Special Terms" : "Hide Special Terms"}
+                    </button>
+                      
+                    <Button onClick={() => HandleSyncTimetable(year as Year)}>
+                      <RefreshCw/>
+                    </Button>
+                  </div>
                   )}
                 {Object.entries(terms).map(([term, termModules]) => (
                   <Droppable
@@ -315,7 +332,7 @@ const CoursePlanner: React.FC = () => {
         )}
 
         </div>
-        <div>
+        <div className={cn(!isMobile && "min-h-[120px]")}>
           {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) && (
             Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(([term, termModules])=>
               <Droppable
@@ -326,7 +343,7 @@ const CoursePlanner: React.FC = () => {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                  className={cn("p-3 transition-colors duration-200 min-h-[120px] grid gap-2 lg:grid-cols-3 grid-cols-2", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile && "flex-grow")}
+                  className={cn("p-3 transition-colors duration-200  grid gap-2 lg:grid-cols-3 grid-cols-2", snapshot.isDraggingOver ? "bg-blue-100" : "bg-gray-50", !isMobile && "flex-grow")}
                 >
                           
                 {Object.entries(termModules).map(
