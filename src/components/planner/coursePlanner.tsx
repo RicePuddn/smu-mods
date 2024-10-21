@@ -574,7 +574,7 @@ const CoursePlanner: React.FC = () => {
               }}
             />
           </div>
-          <div className="mx-3 my-6">
+          {/* <div className="mx-3 my-6">
             <Button
               onClick={async () => {
                 setSearchResult(suggestionResults);
@@ -585,9 +585,9 @@ const CoursePlanner: React.FC = () => {
             >
               Search
             </Button>
-          </div>
+          </div> */}
         </div>
-        <br />
+        {/* <br />
         <div className="grid grid-cols-5">
           {showSearchResult ? (
             searchResult.length > 0 ? (
@@ -618,7 +618,7 @@ const CoursePlanner: React.FC = () => {
           ) : (
             <div></div>
           )}
-        </div>
+        </div> */}
       </div>
       {/* <Button
         onClick={HandleAddMod}
