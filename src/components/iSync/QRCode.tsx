@@ -1,6 +1,6 @@
 "use client";
 
-import { useConfigStore } from "@/stores/iSync/provider";
+import { useConfigStore } from "@/stores/config/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";

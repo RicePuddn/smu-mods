@@ -13,6 +13,7 @@ export type ConfigAction = {
 
 export type ConfigStore = {
   iSyncLatestRecord: ISyncRecord | null;
+  theme: "light" | "dark" | "system";
 } & ConfigAction;
 
 export const createConfigBank = (
@@ -22,6 +23,7 @@ export const createConfigBank = (
     persist(
       (set) => ({
         iSyncLatestRecord: defaultLastRecord,
+        theme: "system",
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
