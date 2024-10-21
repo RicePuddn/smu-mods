@@ -1,3 +1,4 @@
+import { TimetableThemeName } from "@/utils/timetable/colours";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -13,17 +14,18 @@ export type ConfigAction = {
 
 export type ConfigStore = {
   iSyncLatestRecord: ISyncRecord | null;
-  theme: "light" | "dark" | "system";
+  timetableTheme: TimetableThemeName;
 } & ConfigAction;
 
 export const createConfigBank = (
   defaultLastRecord: ISyncRecord | null = null,
+  defaultTimetableTheme: TimetableThemeName = "default",
 ) => {
   return create<ConfigStore>()(
     persist(
       (set) => ({
         iSyncLatestRecord: defaultLastRecord,
-        theme: "system",
+        timetableTheme: defaultTimetableTheme,
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
