@@ -10,6 +10,7 @@ export type ISyncRecord = {
 
 export type ConfigAction = {
   changeISyncLatestRecord: (newRecord: ISyncRecord) => void;
+  changeTheme: (themeName: TimetableThemeName) => void;
 };
 
 export type ConfigStore = {
@@ -29,6 +30,9 @@ export const createConfigBank = (
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
+        changeTheme: (themeName) => {
+          set({timetableTheme: themeName})
+        }
       }),
       {
         name: "config",

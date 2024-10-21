@@ -8,7 +8,7 @@ export type TimetableColor = {
 
 export type TimetableColors = TimetableColor[];
 
-export const TimetableThemeNames = ["default"] as const;
+export const TimetableThemeNames = ["default", "name2", "name3"] as const;
 
 export type TimetableThemeName = (typeof TimetableThemeNames)[number];
 
@@ -70,5 +70,11 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       backgroundColor: "#f43f5e",
       textColor: "#4c0519",
     },
+  ],
+  name2: [
+
+  ],
+  name3: [
+
   ],
 };
