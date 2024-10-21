@@ -3,6 +3,7 @@
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
+import { useConfigStore } from "@/stores/config/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug, type TermSlug } from "@/types/planner";
 import {
@@ -10,11 +11,11 @@ import {
   type Day,
   type ModifiableClass,
 } from "@/types/primitives/timetable";
-import { TIMETABLE_COLORS } from "@/utils/timetable/colours";
-import { getClassEndTime } from "@/utils/timetable/timetable";
+import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -41,6 +42,8 @@ export default function TimeTablePage({
     selectSection,
   } = useTimetableStore((state) => state);
 
+  const { timetableTheme } = useConfigStore((state) => state);
+
   const [selectedClass, setSelectedSection] = useState<FullClass>();
 
   const router = useRouter();
@@ -57,41 +60,63 @@ export default function TimeTablePage({
       const updatedRow: FullClass[] = [];
 
       // Initialize previousClassEndMinutes to 08:00 for the first class inserted to the row
-      let previousClassEndMinutes = timeToMinutes("08:00");
+
+      let totalLeftOffset = 0;
+
+      // let previousClassEndMinutes = timeToMinutes("08:00");
       for (let classIndex = 0; classIndex < currentRow!.length; classIndex++) {
         const currentClass = currentRow![classIndex];
         if (!currentClass) {
           continue;
         }
-        const currentClassTime = currentClass.classTime.startTime;
-        const currentClassMinutes = timeToMinutes(currentClassTime);
+        const currentClassStartMinutes = timeToMinutes(
+          currentClass.classTime.startTime,
+        );
+
+        const minutesDifference =
+          currentClassStartMinutes - (480 + totalLeftOffset);
+
+        let paddingLeft =
+          ((currentClassStartMinutes - 480) / (60 * totalSlots)) * 100 -
+          totalLeftOffset; // 480 mins = 08:00
+
+        paddingLeft = Math.max(paddingLeft, 0);
 
         // If not the first class in the row, change previousClassEndTime to the previous class' actual endTime
-        if (classIndex != 0) {
-          const previousClassEndTime = getClassEndTime(
-            currentRow![classIndex - 1]!.classTime.startTime,
-            currentRow![classIndex - 1]!.classTime.duration,
-          );
-          previousClassEndMinutes = timeToMinutes(previousClassEndTime);
-        }
+        // if (classIndex != 0) {
+        //   const previousClassEndTime = getClassEndTime(
+        //     currentRow![classIndex - 1]!.classTime.startTime,
+        //     currentRow![classIndex - 1]!.classTime.duration,
+        //   );
+        //   previousClassEndMinutes = timeToMinutes(previousClassEndTime);
+        // }
 
-        const minutesDifference = currentClassMinutes - previousClassEndMinutes;
-        console.log(minutesDifference);
+        // const minutesDifference = currentClassMinutes - previousClassEndMinutes;
+        // console.log(minutesDifference);
 
         // If the two slots are back to back, set padding to 0
-        let paddingLeft = 0;
-        if (minutesDifference != 0) {
-          paddingLeft = (minutesDifference / 60 / totalSlots) * 100;
-        }
+        // let paddingLeft = 0;
+        // if (minutesDifference > 0) {
+        //   paddingLeft = (minutesDifference / (60 * totalSlots)) * 100;
+        // }
 
-        // Assign new padding value to each class in the row
+        const durationInMinutes = currentClass.classTime.duration * 60;
+        const width = (durationInMinutes / (60 * totalSlots)) * 100;
+
+        totalLeftOffset += width + paddingLeft;
 
         const fullClass: FullClass = {
           ...currentClass,
-          paddingLeft: paddingLeft,
+          paddingLeft: totalLeftOffset - width,
+          // width: width,
         };
 
         updatedRow.push(fullClass);
+
+        console.log(updatedRow);
+
+        // previousClassEndMinutes =
+        //   currentClassStartMinutes + currentClass!.classTime.duration * 60;
 
         // let currentClassEndMinutes =
         //   currentClassMinutes + currentClass.classTime.duration * 60;
@@ -208,13 +233,12 @@ export default function TimeTablePage({
       // Add new row if not addedToRow
       if (!addedToRow) {
         const newRowIndex = Object.keys(rows).length;
+        const width =
+          ((currentSlot.classTime.duration * 60) / (60 * totalSlots)) * 100;
         rows[newRowIndex] = [
           {
             ...currentSlot,
-            width: calculateSlotWidth(
-              currentSlot.classTime.duration,
-              totalSlots,
-            ), // Function to calculate width
+            width: width,
           },
         ];
       }
@@ -267,7 +291,7 @@ export default function TimeTablePage({
       </div>
 
       <div className="max-w-full overflow-x-scroll">
-        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
+        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border">
           {/* Time Labels */}
           <div className="flex">
             <div className="w-[5%] flex-shrink-0"></div>
@@ -275,14 +299,14 @@ export default function TimeTablePage({
               <div
                 key={index}
                 className={`flex-1 items-center py-1 text-center ${
-                  index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                  index % 2 === 0 ? "bg-border" : "bg-accent/50"
                 }`}
                 style={{
                   width: `${100 / 14}%`,
                   borderLeft: index === 0 ? "none" : "1px solid #e0e0e0",
                 }}
               >
-                <span className="text-sm text-gray-800">{time}</span>
+                <span className="text-sm">{time}</span>
               </div>
             ))}
           </div>
@@ -296,13 +320,13 @@ export default function TimeTablePage({
                 15,
               );
               return (
-                <div className="flex border-t border-gray-300" key={dayIndex}>
-                  <div className="flex w-[5%] items-center justify-center text-center font-medium text-gray-800">
+                <div className="flex border-t" key={dayIndex}>
+                  <div className="flex w-[5%] items-center justify-center bg-background text-center font-medium">
                     {day.slice(0, 3)}
                   </div>
                   <div
                     className={`flex-grow space-y-1 py-1 ${
-                      dayIndex % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                      dayIndex % 2 === 0 ? "bg-border" : "bg-accent/50"
                     }`}
                   >
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
@@ -323,7 +347,7 @@ export default function TimeTablePage({
                               return (
                                 <div
                                   key={classIndex}
-                                  className="absolute rounded bg-blue-300 p-2 text-white shadow-md"
+                                  className="absolute rounded p-2 shadow-md"
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
@@ -331,13 +355,16 @@ export default function TimeTablePage({
                                     backgroundColor:
                                       selectedClass?.section ==
                                       fullClass.section
-                                        ? TIMETABLE_COLORS[fullClass.colorIndex]
-                                            ?.backgroundColor
-                                        : TIMETABLE_COLORS[fullClass.colorIndex]
-                                            ?.outOfFocusBackgroundColor,
+                                        ? TIMETABLE_THEMES[timetableTheme][
+                                            fullClass.colorIndex
+                                          ]?.backgroundColor
+                                        : TIMETABLE_THEMES[timetableTheme][
+                                            fullClass.colorIndex
+                                          ]?.outOfFocusBackgroundColor,
                                     color:
-                                      TIMETABLE_COLORS[fullClass.colorIndex]
-                                        ?.textColor,
+                                      TIMETABLE_THEMES[timetableTheme][
+                                        fullClass.colorIndex
+                                      ]?.textColor,
                                   }}
                                   onClick={() => {
                                     if (selectedClass) {
@@ -363,6 +390,7 @@ export default function TimeTablePage({
                                       showAllSections(
                                         fullClass.moduleCode,
                                         termMap[params.termId as TermSlug],
+                                        timetableTheme,
                                         fullClass.section,
                                       );
                                       setSelectedSection(fullClass);
@@ -390,15 +418,23 @@ export default function TimeTablePage({
         </div>
       </div>
       <SearchModule
-        handleModSelect={(mod) =>
-          AddModuleToTimetable(mod, termMap[params.termId as TermSlug])
-        }
+        handleModSelect={(mod) => {
+          if (mod.terms.includes(termMap[params.termId as TermSlug])) {
+            AddModuleToTimetable(
+              mod,
+              termMap[params.termId as TermSlug],
+              timetableTheme,
+            );
+          } else {
+            toast.error("This module is not offered during this term.");
+          }
+        }}
       />
       {timetable.modules.length > 0 && (
         <div className="j flex w-full flex-wrap gap-2">
           {timetable.modules.map((mod, index) => (
             <div
-              className="flex w-[32%] justify-center rounded bg-white p-4 shadow-sm shadow-gray-300"
+              className="flex w-[32%] justify-center rounded bg-background p-4 shadow-sm"
               key={index}
             >
               <div className="flex w-1/12 items-start justify-end">
@@ -406,7 +442,8 @@ export default function TimeTablePage({
                   className="mr-2 mt-1 h-5 w-5 rounded"
                   style={{
                     backgroundColor:
-                      TIMETABLE_COLORS[mod.colorIndex]?.backgroundColor,
+                      TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
+                        ?.backgroundColor,
                   }}
                 ></div>
               </div>
