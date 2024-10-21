@@ -2,6 +2,7 @@
 
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
+import { PADDING } from "@/config";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug, type TermSlug } from "@/types/planner";
 import {
@@ -10,10 +11,10 @@ import {
   type ModifiableClass,
 } from "@/types/primitives/timetable";
 import { TIMETABLE_COLORS } from "@/utils/timetable/colours";
-import { getClassEndTime } from "@/utils/timetable/timetable";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -56,41 +57,63 @@ export default function TimeTablePage({
       const updatedRow: FullClass[] = [];
 
       // Initialize previousClassEndMinutes to 08:00 for the first class inserted to the row
-      let previousClassEndMinutes = timeToMinutes("08:00");
+
+      let totalLeftOffset = 0;
+
+      // let previousClassEndMinutes = timeToMinutes("08:00");
       for (let classIndex = 0; classIndex < currentRow!.length; classIndex++) {
         const currentClass = currentRow![classIndex];
         if (!currentClass) {
           continue;
         }
-        const currentClassTime = currentClass.classTime.startTime;
-        const currentClassMinutes = timeToMinutes(currentClassTime);
+        const currentClassStartMinutes = timeToMinutes(
+          currentClass!.classTime.startTime,
+        );
+
+        const minutesDifference =
+          currentClassStartMinutes - (480 + totalLeftOffset);
+
+        let paddingLeft =
+          ((currentClassStartMinutes - 480) / (60 * totalSlots)) * 100 -
+          totalLeftOffset; // 480 mins = 08:00
+
+        paddingLeft = Math.max(paddingLeft, 0);
 
         // If not the first class in the row, change previousClassEndTime to the previous class' actual endTime
-        if (classIndex != 0) {
-          const previousClassEndTime = getClassEndTime(
-            currentRow![classIndex - 1]!.classTime.startTime,
-            currentRow![classIndex - 1]!.classTime.duration,
-          );
-          previousClassEndMinutes = timeToMinutes(previousClassEndTime);
-        }
+        // if (classIndex != 0) {
+        //   const previousClassEndTime = getClassEndTime(
+        //     currentRow![classIndex - 1]!.classTime.startTime,
+        //     currentRow![classIndex - 1]!.classTime.duration,
+        //   );
+        //   previousClassEndMinutes = timeToMinutes(previousClassEndTime);
+        // }
 
-        const minutesDifference = currentClassMinutes - previousClassEndMinutes;
-        console.log(minutesDifference);
+        // const minutesDifference = currentClassMinutes - previousClassEndMinutes;
+        // console.log(minutesDifference);
 
         // If the two slots are back to back, set padding to 0
-        let paddingLeft = 0;
-        if (minutesDifference != 0) {
-          paddingLeft = (minutesDifference / 60 / totalSlots) * 100;
-        }
+        // let paddingLeft = 0;
+        // if (minutesDifference > 0) {
+        //   paddingLeft = (minutesDifference / (60 * totalSlots)) * 100;
+        // }
 
-        // Assign new padding value to each class in the row
+        const durationInMinutes = currentClass.classTime.duration * 60;
+        const width = (durationInMinutes / (60 * totalSlots)) * 100;
+
+        totalLeftOffset += width + paddingLeft;
 
         const fullClass: FullClass = {
           ...currentClass,
-          paddingLeft: paddingLeft,
+          paddingLeft: totalLeftOffset - width,
+          // width: width,
         };
 
         updatedRow.push(fullClass);
+
+        console.log(updatedRow);
+
+        // previousClassEndMinutes =
+        //   currentClassStartMinutes + currentClass!.classTime.duration * 60;
 
         // let currentClassEndMinutes =
         //   currentClassMinutes + currentClass.classTime.duration * 60;
@@ -207,13 +230,12 @@ export default function TimeTablePage({
       // Add new row if not addedToRow
       if (!addedToRow) {
         const newRowIndex = Object.keys(rows).length;
+        const width =
+          ((currentSlot.classTime.duration * 60) / (60 * totalSlots)) * 100;
         rows[newRowIndex] = [
           {
             ...currentSlot,
-            width: calculateSlotWidth(
-              currentSlot.classTime.duration,
-              totalSlots,
-            ), // Function to calculate width
+            width: width,
           },
         ];
       }
@@ -242,7 +264,11 @@ export default function TimeTablePage({
   };
 
   return (
-    <div>
+    <div
+      style={{
+        padding: PADDING,
+      }}
+    >
       <div className="flex justify-center gap-24">
         <Button
           variant={"ghost"}
@@ -385,9 +411,13 @@ export default function TimeTablePage({
         </div>
       </div>
       <SearchModule
-        handleModSelect={(mod) =>
-          AddModuleToTimetable(mod, termMap[params.termId as TermSlug])
-        }
+        handleModSelect={(mod) => {
+          if (mod.terms.includes(termMap[params.termId as TermSlug])) {
+            AddModuleToTimetable(mod, termMap[params.termId as TermSlug]);
+          } else {
+            toast.error("This module is not offered during this term.");
+          }
+        }}
       />
       {timetable.modules.length > 0 && (
         <div className="j flex w-full flex-wrap gap-2">
