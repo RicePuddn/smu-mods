@@ -1,8 +1,8 @@
 "use client";
 
-import { Arin_room } from "@/components/threed/Arin_room";
 import { Bookshelf } from "@/components/threed/Bookshelf";
 import { Calendar } from "@/components/threed/Calendar";
+import { Ernest_room } from "@/components/threed/Ernest_room";
 import { Monitor } from "@/components/threed/Monitor";
 import { NoticeBoard } from "@/components/threed/NoticeBoard";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
@@ -116,7 +116,7 @@ function Scene() {
       <Bookshelf />
       <Calendar />
       <NoticeBoard />
-      <Arin_room />
+      <Ernest_room />
     </>
   );
 }
