@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { ChevronDown, Star, StarOff } from "lucide-react";
 
 // Importing module data and basket categories
+import { PADDING } from "@/config";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { type Module } from "@/types/primitives/module";
 
@@ -71,7 +72,12 @@ export default function CourseCatalogue() {
     });
 
   return (
-    <div className="w-full">
+    <div
+      className="w-full"
+      style={{
+        padding: PADDING,
+      }}
+    >
       <h1 className="mb-4 text-2xl font-bold">Module Catalogue</h1>
       <div className="mb-4 flex flex-col gap-4 md:flex-row">
         {/* Search Bar */}
