@@ -2,9 +2,10 @@
 
 import { Bookshelf } from "@/components/threed/Bookshelf";
 import { Calendar } from "@/components/threed/Calendar";
-import { Ernest_room } from "@/components/threed/Ernest_room";
 import { Monitor } from "@/components/threed/Monitor";
 import { NoticeBoard } from "@/components/threed/NoticeBoard";
+import { Rooms } from "@/components/threed/rooms";
+import { useConfigStore } from "@/stores/config/provider";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useTheme } from "next-themes";
@@ -47,7 +48,8 @@ function LoadingFallback() {
 }
 // Simplified Scene Component
 function Scene() {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const { roomTheme } = useConfigStore((state) => state);
   const cameraRef = useRef<THREE.PerspectiveCamera>(null!);
   const { camera } = useThree();
   const lookAtPoint = new THREE.Vector3(-0.8, 2.5, 0);
@@ -116,7 +118,7 @@ function Scene() {
       <Bookshelf />
       <Calendar />
       <NoticeBoard />
-      <Ernest_room />
+      {Rooms[roomTheme]?.room}
     </>
   );
 }

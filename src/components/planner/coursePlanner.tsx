@@ -151,6 +151,9 @@ const CoursePlanner: React.FC = () => {
               ? "grid grid-cols-1 gap-6"
               : "scrollbar-hide flex flex-nowrap overflow-x-auto scroll-smooth px-1",
           )}
+          style={{
+            paddingRight: !!isMobile ? PADDING : "0rem",
+          }}
         >
           {Object.keys(planner)
             .filter((year) => year !== MODSTOTAKE_YEAR)
@@ -162,18 +165,18 @@ const CoursePlanner: React.FC = () => {
                 <div
                   key={year}
                   className={cn(
-                    "flex flex-col overflow-hidden rounded-lg bg-gray-50 shadow-md",
+                    "flex flex-col overflow-hidden rounded-lg bg-accent shadow-md",
                     !isMobile && "mb-6 mr-6 w-96 flex-shrink-0",
                   )}
                 >
                   <div
                     className={cn(
-                      "flex h-14 items-center justify-between bg-blue-500 p-3",
+                      "flex h-14 items-center justify-between bg-primary p-3",
                       isMobile && "cursor-pointer",
                     )}
                     onClick={() => isMobile && toggleYear(year)}
                   >
-                    <h2 className="text-lg font-semibold text-white">
+                    <h2 className="text-lg font-semibold">
                       {year === EXEMPTION_YEAR
                         ? "Exemptions"
                         : year === MODSTOTAKE_YEAR
@@ -198,14 +201,16 @@ const CoursePlanner: React.FC = () => {
                   {(!isMobile || isOpen.has(year)) && (
                     <>
                       {year !== EXEMPTION_YEAR && (
-                        <button
-                          className="mx-2 my-1 rounded-md border border-blue-100 bg-white px-3 py-1 font-medium text-blue-500 shadow-sm hover:bg-gray-100"
+                        <Button
+                          size={"sm"}
+                          variant={"default"}
+                          className="mx-2 mt-2"
                           onClick={() => handleHideSpecial(year as Year)}
                         >
                           {isHidden
                             ? "Show Special Terms"
                             : "Hide Special Terms"}
-                        </button>
+                        </Button>
                       )}
                       {Object.entries(terms).map(([term, termModules]) => (
                         <Droppable
@@ -219,8 +224,8 @@ const CoursePlanner: React.FC = () => {
                               className={cn(
                                 "p-3 transition-colors duration-200",
                                 snapshot.isDraggingOver
-                                  ? "bg-blue-100"
-                                  : "bg-gray-50",
+                                  ? "bg-blue-100/10"
+                                  : "bg-muted",
                                 term === "Term 3A" && isHidden ? "hidden" : "",
                                 term === "Term 3B" && isHidden ? "hidden" : "",
                                 year === EXEMPTION_YEAR && !isMobile
@@ -230,7 +235,7 @@ const CoursePlanner: React.FC = () => {
                                     : "min-h-[120px]",
                               )}
                             >
-                              <h3 className="mb-3 font-medium text-gray-700">
+                              <h3 className="mb-3 font-medium text-foreground">
                                 {year === EXEMPTION_YEAR
                                   ? ""
                                   : year === MODSTOTAKE_YEAR
@@ -307,17 +312,17 @@ const CoursePlanner: React.FC = () => {
                                           {...provided.draggableProps}
                                           {...provided.dragHandleProps}
                                           className={cn(
-                                            "mb-2 flex items-center justify-between gap-2 rounded p-2 transition-all duration-200",
+                                            "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
                                             snapshot.isDragging
-                                              ? "h-fit w-fit bg-blue-200 shadow-lg"
-                                              : "border border-gray-200 bg-white hover:bg-gray-100",
+                                              ? "h-fit w-fit bg-accent shadow-lg"
+                                              : "border bg-background hover:border-foreground",
                                           )}
                                         >
                                           {conflictList &&
                                             conflictList.length > 0 && (
                                               <InteractiveTooltip
                                                 content={
-                                                  <div className="bg-slate-50 text-black">
+                                                  <div className="bg-slate-50 text-foreground">
                                                     {conflictList.map(
                                                       (conflictMsg, idx) => {
                                                         return (
@@ -394,7 +399,7 @@ const CoursePlanner: React.FC = () => {
           >
             <div
               className={cn(
-                "flex h-14 items-center justify-between bg-blue-500 p-3",
+                "flex h-14 items-center justify-between bg-primary p-3",
                 isMobile && "cursor-pointer",
               )}
               onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
@@ -424,8 +429,8 @@ const CoursePlanner: React.FC = () => {
                           className={cn(
                             "grid grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4",
                             snapshot.isDraggingOver
-                              ? "bg-blue-100"
-                              : "bg-gray-50",
+                              ? "bg-blue-100/10"
+                              : "bg-muted",
                             !isMobile && "flex-grow",
                           )}
                         >
@@ -445,8 +450,8 @@ const CoursePlanner: React.FC = () => {
                                     className={cn(
                                       "flex items-center justify-between gap-2 rounded p-2 transition-all duration-200",
                                       snapshot.isDragging
-                                        ? "bg-blue-200 shadow-lg"
-                                        : "border border-gray-200 bg-white hover:bg-gray-100",
+                                        ? "h-fit w-fit bg-accent shadow-lg"
+                                        : "border bg-background hover:border-foreground",
                                     )}
                                   >
                                     <div className="flex-grow">
@@ -542,13 +547,13 @@ const CoursePlanner: React.FC = () => {
               searchResult.map((module, index) => (
                 <div
                   key={index}
-                  className="col-span-5 grid grid-cols-2 border-b border-gray-200 p-2"
+                  className="col-span-5 grid grid-cols-2 border-b p-2"
                 >
                   <div className="col-span-1 py-2">
                     <a href="#">
                       <h3 className="font-semibold">{module.moduleCode}</h3>
                     </a>
-                    <p className="text-sm text-gray-600">{module.name}</p>
+                    <p className="text-sm text-foreground/50">{module.name}</p>
                   </div>
                   <div className="col-span-1 py-2 text-end">
                     <Button
