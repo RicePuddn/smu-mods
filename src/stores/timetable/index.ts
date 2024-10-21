@@ -5,6 +5,7 @@ import {
   type Timetable,
   type TimetableMap,
 } from "@/types/primitives/timetable";
+import { TimetableThemeName } from "@/utils/timetable/colours";
 import {
   addModuleToTimetable,
   selectSection,
@@ -15,7 +16,11 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 export type TimetableActions = {
-  AddModuleToTimetable: (module: Module, term: Term) => Promise<void>;
+  AddModuleToTimetable: (
+    module: Module,
+    term: Term,
+    theme: TimetableThemeName,
+  ) => Promise<void>;
   removeModuleFromTimetable: (moduleCode: ModuleCode, term: Term) => void;
   selectSection: (
     moduleCode: ModuleCode,
@@ -25,6 +30,7 @@ export type TimetableActions = {
   showAllSections: (
     moduleCode: ModuleCode,
     term: Term,
+    theme: TimetableThemeName,
     currentSectionCode?: Section["code"],
   ) => void;
   iSync: (data: TimetableMap) => void;
@@ -41,13 +47,17 @@ export const createTimetableStore = (
     persist(
       (set, get) => ({
         timetableMap: initTimetableMap,
-        AddModuleToTimetable: async (module: Module, term: Term) => {
+        AddModuleToTimetable: async (
+          module: Module,
+          term: Term,
+          theme: TimetableThemeName,
+        ) => {
           const timetable = get().timetableMap[term];
           if (timetable.modules.length > 7) {
             toast.error("Maximum of 8 modules allowed");
             return;
           }
-          const newTimeTable = addModuleToTimetable(module, timetable);
+          const newTimeTable = addModuleToTimetable(module, timetable, theme);
           set((state) => ({
             ...state,
             timetableMap: { ...state.timetableMap, [term]: newTimeTable },
@@ -86,6 +96,7 @@ export const createTimetableStore = (
         showAllSections: (
           moduleCode: ModuleCode,
           term: Term,
+          theme: TimetableThemeName,
           currentSectionCode?: Section["code"],
         ) => {
           const module = get().timetableMap[term].modules.find(
@@ -99,6 +110,7 @@ export const createTimetableStore = (
           const newTimeTable = showAllSections(
             module,
             timetable,
+            theme,
             currentSectionCode,
           );
           set((state) => ({
