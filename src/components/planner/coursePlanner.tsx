@@ -171,12 +171,12 @@ const CoursePlanner: React.FC = () => {
                 >
                   <div
                     className={cn(
-                      "flex h-14 items-center justify-between bg-blue-500 p-3",
+                      "flex h-14 items-center justify-between bg-primary p-3",
                       isMobile && "cursor-pointer",
                     )}
                     onClick={() => isMobile && toggleYear(year)}
                   >
-                    <h2 className="text-lg font-semibold text-white">
+                    <h2 className="text-lg font-semibold">
                       {year === EXEMPTION_YEAR
                         ? "Exemptions"
                         : year === MODSTOTAKE_YEAR
@@ -399,7 +399,7 @@ const CoursePlanner: React.FC = () => {
           >
             <div
               className={cn(
-                "flex h-14 items-center justify-between bg-blue-500 p-3",
+                "flex h-14 items-center justify-between bg-primary p-3",
                 isMobile && "cursor-pointer",
               )}
               onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
