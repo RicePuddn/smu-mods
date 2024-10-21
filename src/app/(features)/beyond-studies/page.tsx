@@ -6,7 +6,7 @@ import { eventsData } from "@/server/data/events";
 import { useEffect, useState } from "react";
 
 export default function BeyondStudies() {
-  const [events, setEvents] = useState(eventsData);
+  const [events, _] = useState(eventsData);
 
   useEffect(() => {
     console.log(events);

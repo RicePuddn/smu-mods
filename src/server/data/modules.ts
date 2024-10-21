@@ -3553,7 +3553,7 @@ export const modules: ModuleBank = {
     ],
     mutuallyExclusive: [],
     credit: 1,
-    terms: ["Term 1"],
+    terms: ["Term 1", "Term 2"],
     preReq: {
       or: [],
     },
@@ -3849,7 +3849,7 @@ export const modules: ModuleBank = {
     ],
     mutuallyExclusive: [],
     credit: 1,
-    terms: ["Term 1"],
+    terms: ["Term 1", "Term 2"],
     preReq: {
       or: [],
     },
