@@ -7,28 +7,27 @@ export type ISyncRecord = {
   dateTime: string;
 };
 
-export type ISyncAction = {
-  changeLatestRecord: (newRecord: ISyncRecord) => void;
+export type ConfigAction = {
+  changeISyncLatestRecord: (newRecord: ISyncRecord) => void;
 };
 
-export type ISyncStore = {
-  latestRecord: ISyncRecord | null;
-} & ISyncAction;
+export type ConfigStore = {
+  iSyncLatestRecord: ISyncRecord | null;
+} & ConfigAction;
 
-export const createISyncBank = (
+export const createConfigBank = (
   defaultLastRecord: ISyncRecord | null = null,
 ) => {
-  return create<ISyncStore>()(
+  return create<ConfigStore>()(
     persist(
       (set) => ({
-        latestRecord: defaultLastRecord,
-        changeLatestRecord: (newRecord) => {
-          set({ latestRecord: newRecord });
+        iSyncLatestRecord: defaultLastRecord,
+        changeISyncLatestRecord: (newRecord) => {
+          set({ iSyncLatestRecord: newRecord });
         },
       }),
-
       {
-        name: "planner",
+        name: "config",
         storage: createJSONStorage(() => localStorage),
       },
     ),

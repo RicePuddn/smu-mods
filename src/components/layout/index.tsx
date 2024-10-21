@@ -17,7 +17,7 @@ export default async function Layout({ children }: LayoutProps) {
       <main className="flex h-[100dvh] max-h-[100dvh] max-w-full flex-1 flex-col p-2 transition-all duration-300 ease-in-out">
         <div className="h-full max-h-full overflow-y-scroll rounded-md border-2 border-dashed">
           <NavHeader />
-          <div className="p-8">{children}</div>
+          <div>{children}</div>
         </div>
       </main>
     </SidebarLayout>
