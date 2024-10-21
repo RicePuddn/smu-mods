@@ -29,6 +29,7 @@ import {
   X,
 } from "lucide-react";
 import React, { useState } from "react";
+import ModuleDetails from "../ModuleDetails";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
 import { InteractiveTooltip } from "./customTooltip";
@@ -37,42 +38,9 @@ import "./scrollBar.css";
 const DELIMITER = "/$/";
 
 const CoursePlanner: React.FC = () => {
-  // const {mutateAsync} = api.module.searchModule.useMutation(
-  //   // {
-  //   // onSuccess: (data)=>{
-  //   //   setSuggestionResults(data);
-  //   //   setShowSuggestion(true);
-  //   // }
-  //   // }
-  // )
-
-  // const [searchString, setSearchString] = useState("");
   const [suggestionResults, setSuggestionResults] = useState<Module[]>([]);
-  // const [showSuggestion, setShowSuggestion] = useState<boolean>(false);
   const [searchResult, setSearchResult] = useState<Module[]>([]);
   const [showSearchResult, setShowSearchResult] = useState<boolean>(false);
-
-  // const debouncedSearch = debounce((query: string) => {
-  //   if (query.length > 0) {
-  //     mutateAsync({
-  //       query: searchString
-  //     }).then((results) => {
-  //       setSuggestionResults(results);
-  //       setShowSuggestion(true);
-  //     });
-  //   } else {
-  //     setShowSuggestion(false);
-  //   }
-  // }, 300);
-
-  // useEffect(() => {
-  //   debouncedSearch(searchString);
-  // }, [searchString]);
-  // useEffect(() => {
-  //   return () => {
-  //     debouncedSearch.cancel();
-  //   };
-  // }, [])
 
   const isMobile = useIsMobile();
   const {
@@ -218,14 +186,7 @@ const CoursePlanner: React.FC = () => {
                         <RefreshCw className="size-4" />
                       </Button>
                     )}
-                    {/* {year !== EXEMPTION_YEAR && !isMobile && (
-                <button
-                    className="ml-2 px-3 py-1 bg-white text-blue-500 rounded-md"
-                    onClick={() => handleHideSpecial(year as Year)} 
-                  >
-                    {isHidden ? "Show Special Terms" : "Hide Special Terms"}
-                </button>
-                )} */}
+        
                     {isMobile &&
                       (!isMobile || isOpen.has(year) ? (
                         <ChevronUp className="text-white" />
@@ -351,7 +312,8 @@ const CoursePlanner: React.FC = () => {
                                       draggableId={moduleCode}
                                       index={index}
                                     >
-                                      {(provided, snapshot) => (
+                                      {(provided, snapshot) => ( 
+                                        <ModuleDetails moduleCode={moduleCode as ModuleCode}>
                                         <div
                                           ref={provided.innerRef}
                                           {...provided.draggableProps}
@@ -407,6 +369,8 @@ const CoursePlanner: React.FC = () => {
                                             <X className="size-5" />
                                           </Button>
                                         </div>
+                                        
+                                        </ModuleDetails>
                                       )}
                                     </Draggable>
                                   );
@@ -539,31 +503,6 @@ const CoursePlanner: React.FC = () => {
           paddingRight: PADDING,
         }}
       >
-        {/*<div className="flex-auto">
-           <Input
-          value={searchString}
-          onChange={(e) => setSearchString(e.target.value)}
-          className="w-full"
-          placeholder="Search Module"
-          >
-          </Input> 
-
-
-          {showSuggestion && suggestionResults.length > 0 && (
-            <ul className="md absolute mt-1 max-h-40 overflow-auto rounded border border-gray-300 bg-white text-sm shadow-lg">
-              {suggestionResults.map((module, index) => (
-                <li
-                  key={index}
-                  className="cursor-pointer p-2 hover:bg-gray-100"
-                  onClick={()=>HandleAddMod(module)}
-                >
-                  {module.moduleCode} - {module.name}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        */}
         <div className="flex">
           <div className="w-full">
             <SearchModule
@@ -574,58 +513,8 @@ const CoursePlanner: React.FC = () => {
               }}
             />
           </div>
-          {/* <div className="mx-3 my-6">
-            <Button
-              onClick={async () => {
-                setSearchResult(suggestionResults);
-                setShowSearchResult(true);
-                // setShowSuggestion(false)
-              }}
-              className="rounded bg-sky-500 px-3 py-2 font-bold text-white transition-colors duration-200 hover:bg-sky-600"
-            >
-              Search
-            </Button>
-          </div> */}
         </div>
-        {/* <br />
-        <div className="grid grid-cols-5">
-          {showSearchResult ? (
-            searchResult.length > 0 ? (
-              searchResult.map((module, index) => (
-                <div
-                  key={index}
-                  className="col-span-5 grid grid-cols-2 border-b p-2"
-                >
-                  <div className="col-span-1 py-2">
-                    <a href="#">
-                      <h3 className="font-semibold">{module.moduleCode}</h3>
-                    </a>
-                    <p className="text-sm text-foreground/50">{module.name}</p>
-                  </div>
-                  <div className="col-span-1 py-2 text-end">
-                    <Button
-                      className="rounded bg-green-500 px-3 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600"
-                      onClick={() => HandleAddMod(module)}
-                    >
-                      Add Module
-                    </Button>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="p-2"> No Result </div>
-            )
-          ) : (
-            <div></div>
-          )}
-        </div> */}
       </div>
-      {/* <Button
-        onClick={HandleAddMod}
-        className="rounded bg-green-500 px-4 py-2 font-bold text-white transition-colors duration-200 hover:bg-green-600"
-      >
-        Add Module
-      </Button> */}
     </div>
   );
 };
