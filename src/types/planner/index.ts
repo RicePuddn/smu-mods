@@ -28,7 +28,7 @@ export type ConflictMap = Record<
 >;
 
 export const EXEMPTION_YEAR = "-1";
-export const MODSTOTAKE_YEAR= "-2"
+export const MODSTOTAKE_YEAR= "10"
 export const years = ["1", "2", "3", "4"] as const;
 
 export type Year = (typeof years)[number];
@@ -105,7 +105,7 @@ export const defaultPlanner: Planner = {
     "Term 3A": {},
     "Term 3B": {},
   },
-  "-2":{
+  "10":{
     "Term Z" : {},
   }
 };
