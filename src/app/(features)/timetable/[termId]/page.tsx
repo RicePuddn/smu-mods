@@ -2,6 +2,7 @@
 
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
+import { PADDING } from "@/config";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug, type TermSlug } from "@/types/planner";
 import {
@@ -242,7 +243,11 @@ export default function TimeTablePage({
   };
 
   return (
-    <div>
+    <div
+      style={{
+        padding: PADDING,
+      }}
+    >
       <div className="flex justify-center gap-24">
         <Button
           variant={"ghost"}

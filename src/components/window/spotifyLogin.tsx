@@ -5,12 +5,12 @@ const CLIENT_ID = env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const REDIRECT_URI = "http://localhost:3000/window";
 
 export default function SpotifyLogin() {
-  var generateRandomString = function (length: number) {
-    var text = "";
-    var possible =
+  const generateRandomString = function (length: number) {
+    let text = "";
+    const possible =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for (var i = 0; i < length; i++) {
+    for (let i = 0; i < length; i++) {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return text;
