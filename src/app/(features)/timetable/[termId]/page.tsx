@@ -67,7 +67,7 @@ export default function TimeTablePage({
           continue;
         }
         const currentClassStartMinutes = timeToMinutes(
-          currentClass!.classTime.startTime,
+          currentClass.classTime.startTime,
         );
 
         const minutesDifference =
