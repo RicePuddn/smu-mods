@@ -5,7 +5,7 @@ import {
   type Timetable,
 } from "@/types/primitives/timetable";
 import { toast } from "sonner";
-import { TIMETABLE_THEMES, TimetableThemeName } from "./colours";
+import { TIMETABLE_THEMES, type TimetableThemeName } from "./colours";
 
 export function findFreeColorIndex(
   timetable: Timetable,
