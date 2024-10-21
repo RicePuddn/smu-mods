@@ -8,7 +8,7 @@ export default function FeatureLayout({
 }) {
   return (
     <Layout>
-      <Toaster richColors theme="light" closeButton />
+      <Toaster richColors theme="light" closeButton position="top-right" />
       {children}
     </Layout>
   );

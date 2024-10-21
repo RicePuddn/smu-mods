@@ -5,20 +5,24 @@ import {
   type Timetable,
 } from "@/types/primitives/timetable";
 import { toast } from "sonner";
-import { TIMETABLE_COLORS } from "./colours";
+import { TIMETABLE_THEMES, TimetableThemeName } from "./colours";
 
-export function findFreeColorIndex(timetable: Timetable) {
+export function findFreeColorIndex(
+  timetable: Timetable,
+  theme: TimetableThemeName,
+) {
   for (let i = 0; i < timetable.modules.length; i++) {
     if (!timetable.modules.find((m) => m.colorIndex === i)) {
       return i;
     }
   }
-  return timetable.modules.length % TIMETABLE_COLORS.length;
+  return timetable.modules.length % TIMETABLE_THEMES[theme].length;
 }
 
 export function addModuleToTimetable(
   module: Module,
   timetable: Timetable,
+  theme: TimetableThemeName,
 ): Timetable {
   const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
   const section = module.sections[0];
@@ -26,7 +30,7 @@ export function addModuleToTimetable(
     toast.error("No sections available for this module");
     return updatedTimetable;
   }
-  const colorIndex = findFreeColorIndex(timetable);
+  const colorIndex = findFreeColorIndex(timetable, theme);
   section.classes.forEach((classTime) => {
     const modifiableClass: ModifiableClass = {
       moduleCode: module.moduleCode,
@@ -53,6 +57,7 @@ export function addModuleToTimetable(
 export function showAllSections(
   module: Module,
   timetable: Timetable,
+  theme: TimetableThemeName,
   currentSectionCode?: Section["code"],
 ): Timetable {
   const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
@@ -75,7 +80,7 @@ export function showAllSections(
           isModifiable: true,
           isAvailable: true,
           isActive: true,
-          colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable),
+          colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable, theme),
         };
       } else {
         modifiableClass = {
@@ -85,7 +90,7 @@ export function showAllSections(
           isModifiable: true,
           isAvailable: true,
           isActive: false,
-          colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable),
+          colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable, theme),
         };
       }
 

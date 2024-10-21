@@ -11,12 +11,18 @@ export const openai: OpenAIProvider = createOpenAI({
 const model = openai.languageModel("gpt-4o");
 
 export const openaiRouter = createTRPCRouter({
-  parseEvent: publicProcedure.input(z.object({})).mutation(async ({}) => {
-    const { object } = await generateObject({
-      model: model,
-      schema: z.object({}),
-      prompt: "",
-    });
-    return object;
-  }),
+  parseEvent: publicProcedure
+    .input(
+      z.object({
+        srcUrl: z.string(),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      const { object } = await generateObject({
+        model: model,
+        schema: z.object({}),
+        prompt: "",
+      });
+      return object;
+    }),
 });
