@@ -1,6 +1,6 @@
 "use client";
 
-import { useISyncStore } from "@/stores/iSync/provider";
+import { useConfigStore } from "@/stores/iSync/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";
@@ -14,7 +14,10 @@ export function GenerateQRCode() {
   const { mutateAsync: getToken } = api.iSync.getToken.useMutation();
   const { timetableMap } = useTimetableStore((state) => state);
   const { planner, plannerState } = usePlannerStore((state) => state);
-  const { latestRecord, changeLatestRecord } = useISyncStore((state) => state);
+  const {
+    iSyncLatestRecord: latestRecord,
+    changeISyncLatestRecord: changeLatestRecord,
+  } = useConfigStore((state) => state);
   const [data, setData] = useState<string | null>(null);
 
   const handleGenerateQRCode = async () => {
@@ -63,7 +66,7 @@ export function GenerateQRCode() {
           <QRCodeCanvas
             value={`${getBaseUrl(true)}/iSync/${data}`}
             className="w-3/4"
-            size={360}
+            size={200}
           />
           <p>This QR Code is valid for next 10 minutes.</p>
         </div>

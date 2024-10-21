@@ -1,11 +1,7 @@
 "use client";
-declare global {
-  interface Window {
-    onSpotifyWebPlaybackSDKReady: (() => void) | undefined;
-    Spotify: any; // Add this if you haven't defined the Spotify type yet
-  }
-}
+
 import SpotifyLogin from "@/components/window/spotifyLogin";
+import { PADDING } from "@/config";
 import { env } from "@/env";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -99,7 +95,7 @@ export default function WindowPage() {
     window.onSpotifyWebPlaybackSDKReady = () => {
       const player = new window.Spotify.Player({
         name: "Web Playback SDK Player",
-        getOAuthToken: (cb: Function) => {
+        getOAuthToken: (cb) => {
           cb(accessToken);
         },
         volume: 0.5,
@@ -189,7 +185,11 @@ export default function WindowPage() {
   }
 
   return (
-    <>
+    <div
+      style={{
+        padding: PADDING,
+      }}
+    >
       <SpotifyLogin></SpotifyLogin>
       <button id="togglePlay" onClick={handlePlay}>
         Play
@@ -226,6 +226,6 @@ export default function WindowPage() {
           <span className="inline-block h-8 w-8">{/* Icon SVG here */}</span>
         </button>
       </div>
-    </>
+    </div>
   );
 }

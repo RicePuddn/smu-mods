@@ -3,35 +3,35 @@
 import { createContext, useContext, useRef, type ReactNode } from "react";
 import { useStore } from "zustand";
 
-import { createISyncBank, type ISyncStore } from "@/stores/iSync";
+import { createConfigBank, type ConfigStore } from "@/stores/iSync";
 
-export type ISyncStoreApi = ReturnType<typeof createISyncBank>;
+export type ConfigStoreApi = ReturnType<typeof createConfigBank>;
 
-export interface ISyncStoreProviderProps {
+export interface ConfigStoreProviderProps {
   children: ReactNode;
 }
 
-const ISyncStoreContext = createContext<ISyncStoreApi | undefined>(undefined);
+const ConfigStoreContext = createContext<ConfigStoreApi | undefined>(undefined);
 
-export const ISyncStoreProvider = ({ children }: ISyncStoreProviderProps) => {
-  const storeRef = useRef<ISyncStoreApi>();
+export const ConfigStoreProvider = ({ children }: ConfigStoreProviderProps) => {
+  const storeRef = useRef<ConfigStoreApi>();
   if (!storeRef.current) {
-    storeRef.current = createISyncBank();
+    storeRef.current = createConfigBank();
   }
 
   return (
-    <ISyncStoreContext.Provider value={storeRef.current}>
+    <ConfigStoreContext.Provider value={storeRef.current}>
       {children}
-    </ISyncStoreContext.Provider>
+    </ConfigStoreContext.Provider>
   );
 };
 
-export const useISyncStore = <T,>(selector: (store: ISyncStore) => T): T => {
-  const iSyncStoreContext = useContext(ISyncStoreContext);
+export const useConfigStore = <T,>(selector: (store: ConfigStore) => T): T => {
+  const configStoreContext = useContext(ConfigStoreContext);
 
-  if (!iSyncStoreContext) {
-    throw new Error(`useISyncStore must be used within ISyncStoreProvider`);
+  if (!configStoreContext) {
+    throw new Error(`useConfigStore must be used within ConfigStoreProvider`);
   }
 
-  return useStore(iSyncStoreContext, selector);
+  return useStore(configStoreContext, selector);
 };

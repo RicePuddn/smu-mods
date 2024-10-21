@@ -7,6 +7,8 @@ export type Config = {
   currentTerm: TermSlug;
 };
 
+export const PADDING = "2rem";
+
 export const APP_CONFIG: Config = {
   academicYear: "2024/2025",
   currentTerm: "term-1",
