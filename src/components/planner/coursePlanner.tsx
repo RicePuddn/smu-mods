@@ -5,12 +5,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
+import { useTimetableStore } from "@/stores/timetable/provider";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
   type Term,
-  type Year,
+  type Year
 } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import {
@@ -19,7 +20,7 @@ import {
   Droppable,
   type DropResult,
 } from "@hello-pangea/dnd";
-import { ChevronDown, ChevronUp, CircleAlert, X } from "lucide-react";
+import { ChevronDown, ChevronUp, CircleAlert, RefreshCw, X } from "lucide-react";
 import React, { useState } from "react";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
@@ -77,6 +78,7 @@ const CoursePlanner: React.FC = () => {
   const { modules, addModule: addModuleToBank } = useModuleBankStore(
     (state) => state,
   );
+  const {AddModuleToTimetable: addModuleTimetable} = useTimetableStore((state)=>state)
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
 
   const onDragEnd = (result: DropResult) => {
@@ -99,10 +101,14 @@ const CoursePlanner: React.FC = () => {
 
   const HandleSyncTimetable = (year: Year) => {
     for(const termNo in planner[year]){
-      for(const mods of termNo){
-        console.log(mods)
-        // addModuleTimetable(mods, termNo);
-      }
+      console.log(planner)
+      const moduleCodes = Object.keys( planner[year as Year][termNo as Term]) as ModuleCode[];
+      moduleCodes.forEach((moduleCode) => {
+        const module = modules[moduleCode]
+        if(!!module){
+          addModuleTimetable(module, termNo as Term)
+        }
+      })
     }
   };
 
@@ -189,6 +195,11 @@ const CoursePlanner: React.FC = () => {
                           ? "Plan to Take"
                           : `Year ${year}`}
                     </h2>
+                    {!isMobile && (
+                    <Button className="mx-2 my-2" onClick={()=>HandleSyncTimetable(year as Year)}>
+                      <RefreshCw className="size-4"/>
+                    </Button>
+                    )}
                     {/* {year !== EXEMPTION_YEAR && !isMobile && (
                 <button
                     className="ml-2 px-3 py-1 bg-white text-blue-500 rounded-md"
@@ -207,14 +218,22 @@ const CoursePlanner: React.FC = () => {
                   {(!isMobile || isOpen.has(year)) && (
                     <>
                       {year !== EXEMPTION_YEAR && (
-                        <button
-                          className="mx-2 my-1 rounded-md border border-blue-100 bg-white px-3 py-1 font-medium text-blue-500 shadow-sm hover:bg-gray-100"
-                          onClick={() => handleHideSpecial(year as Year)}
-                        >
-                          {isHidden
-                            ? "Show Special Terms"
-                            : "Hide Special Terms"}
-                        </button>
+                        <div className="flex flex-cols">
+                          <Button
+                            className="mx-2 my-1 border border-blue-100 bg-white px-3 py-1 font-medium text-blue-500 shadow-sm hover:bg-gray-100"
+                            onClick={() => handleHideSpecial(year as Year)}
+                          >
+                            {isHidden
+                              ? "Show Special Terms"
+                              : "Hide Special Terms"}
+                          </Button>
+
+                          {isMobile && (
+                            <Button className="mx-2 mt-2 hover:bg-gray-100" onClick={()=>HandleSyncTimetable(year as Year)}>
+                              <RefreshCw className="size-4"/>
+                            </Button>
+                          )}
+                        </div>
                       )}
                       {Object.entries(terms).map(([term, termModules]) => (
                         <Droppable
