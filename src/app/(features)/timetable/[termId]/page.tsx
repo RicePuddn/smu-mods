@@ -3,6 +3,7 @@
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
+import { useConfigStore } from "@/stores/config/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug, type TermSlug } from "@/types/planner";
 import {
@@ -10,7 +11,7 @@ import {
   type Day,
   type ModifiableClass,
 } from "@/types/primitives/timetable";
-import { TIMETABLE_COLORS } from "@/utils/timetable/colours";
+import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -41,6 +42,8 @@ export default function TimeTablePage({
     selectSection,
   } = useTimetableStore((state) => state);
 
+  const { timetableTheme } = useConfigStore((state) => state);
+
   const [selectedClass, setSelectedSection] = useState<FullClass>();
 
   const router = useRouter();
@@ -67,7 +70,7 @@ export default function TimeTablePage({
           continue;
         }
         const currentClassStartMinutes = timeToMinutes(
-          currentClass!.classTime.startTime,
+          currentClass.classTime.startTime,
         );
 
         const minutesDifference =
@@ -288,7 +291,7 @@ export default function TimeTablePage({
       </div>
 
       <div className="max-w-full overflow-x-scroll">
-        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
+        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border">
           {/* Time Labels */}
           <div className="flex">
             <div className="w-[5%] flex-shrink-0"></div>
@@ -296,14 +299,14 @@ export default function TimeTablePage({
               <div
                 key={index}
                 className={`flex-1 items-center py-1 text-center ${
-                  index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                  index % 2 === 0 ? "bg-border" : "bg-accent/50"
                 }`}
                 style={{
                   width: `${100 / 14}%`,
                   borderLeft: index === 0 ? "none" : "1px solid #e0e0e0",
                 }}
               >
-                <span className="text-sm text-gray-800">{time}</span>
+                <span className="text-sm">{time}</span>
               </div>
             ))}
           </div>
@@ -317,13 +320,13 @@ export default function TimeTablePage({
                 15,
               );
               return (
-                <div className="flex border-t border-gray-300" key={dayIndex}>
-                  <div className="flex w-[5%] items-center justify-center text-center font-medium text-gray-800">
+                <div className="flex border-t" key={dayIndex}>
+                  <div className="flex w-[5%] items-center justify-center bg-background text-center font-medium">
                     {day.slice(0, 3)}
                   </div>
                   <div
                     className={`flex-grow space-y-1 py-1 ${
-                      dayIndex % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                      dayIndex % 2 === 0 ? "bg-border" : "bg-accent/50"
                     }`}
                   >
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
@@ -344,7 +347,7 @@ export default function TimeTablePage({
                               return (
                                 <div
                                   key={classIndex}
-                                  className="absolute rounded bg-blue-300 p-2 text-white shadow-md"
+                                  className="absolute rounded p-2 shadow-md"
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
@@ -352,13 +355,16 @@ export default function TimeTablePage({
                                     backgroundColor:
                                       selectedClass?.section ==
                                       fullClass.section
-                                        ? TIMETABLE_COLORS[fullClass.colorIndex]
-                                            ?.backgroundColor
-                                        : TIMETABLE_COLORS[fullClass.colorIndex]
-                                            ?.outOfFocusBackgroundColor,
+                                        ? TIMETABLE_THEMES[timetableTheme][
+                                            fullClass.colorIndex
+                                          ]?.backgroundColor
+                                        : TIMETABLE_THEMES[timetableTheme][
+                                            fullClass.colorIndex
+                                          ]?.outOfFocusBackgroundColor,
                                     color:
-                                      TIMETABLE_COLORS[fullClass.colorIndex]
-                                        ?.textColor,
+                                      TIMETABLE_THEMES[timetableTheme][
+                                        fullClass.colorIndex
+                                      ]?.textColor,
                                   }}
                                   onClick={() => {
                                     if (selectedClass) {
@@ -384,6 +390,7 @@ export default function TimeTablePage({
                                       showAllSections(
                                         fullClass.moduleCode,
                                         termMap[params.termId as TermSlug],
+                                        timetableTheme,
                                         fullClass.section,
                                       );
                                       setSelectedSection(fullClass);
@@ -413,7 +420,11 @@ export default function TimeTablePage({
       <SearchModule
         handleModSelect={(mod) => {
           if (mod.terms.includes(termMap[params.termId as TermSlug])) {
-            AddModuleToTimetable(mod, termMap[params.termId as TermSlug]);
+            AddModuleToTimetable(
+              mod,
+              termMap[params.termId as TermSlug],
+              timetableTheme,
+            );
           } else {
             toast.error("This module is not offered during this term.");
           }
@@ -423,7 +434,7 @@ export default function TimeTablePage({
         <div className="j flex w-full flex-wrap gap-2">
           {timetable.modules.map((mod, index) => (
             <div
-              className="flex w-[32%] justify-center rounded bg-white p-4 shadow-sm shadow-gray-300"
+              className="flex w-[32%] justify-center rounded bg-background p-4 shadow-sm"
               key={index}
             >
               <div className="flex w-1/12 items-start justify-end">
@@ -431,7 +442,8 @@ export default function TimeTablePage({
                   className="mr-2 mt-1 h-5 w-5 rounded"
                   style={{
                     backgroundColor:
-                      TIMETABLE_COLORS[mod.colorIndex]?.backgroundColor,
+                      TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
+                        ?.backgroundColor,
                   }}
                 ></div>
               </div>

@@ -5,7 +5,6 @@ import {
   Calendar,
   HandHeartIcon,
   HomeIcon,
-  ImagePlay,
   LifeBuoy,
   NotebookPen,
   Settings,
@@ -69,12 +68,6 @@ const data: SidebarData = {
       title: "Beyond Studies",
       url: "/beyond-studies",
       icon: HandHeartIcon,
-      isCollapsible: false,
-    },
-    {
-      title: "Stress Relief",
-      url: "/window",
-      icon: ImagePlay,
       isCollapsible: false,
     },
     {
