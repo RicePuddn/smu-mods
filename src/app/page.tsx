@@ -4,9 +4,11 @@ import { Bookshelf } from "@/components/threed/Bookshelf";
 import { Calendar } from "@/components/threed/Calendar";
 import { Monitor } from "@/components/threed/Monitor";
 import { NoticeBoard } from "@/components/threed/NoticeBoard";
-import { Room } from "@/components/threed/Room";
+import { Rooms } from "@/components/threed/rooms";
+import { useConfigStore } from "@/stores/config/provider";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useTheme } from "next-themes";
 import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 
@@ -14,8 +16,10 @@ import * as THREE from "three";
 function LoadingFallback() {
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center bg-gradient-to-r from-blue-700 to-indigo-800 text-white">
-      <h1 className="mb-4 text-5xl font-bold">Welcome to SMU Mods</h1>
-      <p className="mb-8 text-xl">
+      <h1 className="mb-4 text-3xl font-bold md:text-5xl lg:text-6xl">
+        Welcome to SMU Mods
+      </h1>
+      <p className="mb-8 text-sm md:text-xl lg:text-2xl">
         Your ultimate university module planning tool
       </p>
       <div className="mb-8 flex space-x-4">
@@ -33,15 +37,19 @@ function LoadingFallback() {
           </svg>
         </div>
       </div>
-      <p className="text-lg">Loading your personalized study space...</p>
-      <div className="mt-8 h-4 w-64 rounded-full bg-blue-200">
-        <div className="h-4 animate-pulse rounded-full bg-blue-600"></div>
+      <p className="text-sm md:text-lg lg:text-xl">
+        Loading your personalized study space...
+      </p>
+      <div className="mt-8 h-4 w-48 rounded-full bg-blue-200 md:w-64 lg:w-80">
+        <div className="h-4 w-full animate-pulse rounded-full bg-blue-600"></div>
       </div>
     </div>
   );
 }
 // Simplified Scene Component
 function Scene() {
+  const { theme } = useTheme();
+  const { roomTheme } = useConfigStore((state) => state);
   const cameraRef = useRef<THREE.PerspectiveCamera>(null!);
   const { camera } = useThree();
   const lookAtPoint = new THREE.Vector3(-0.8, 2.5, 0);
@@ -97,11 +105,11 @@ function Scene() {
         enableZoom={false}
       />
       {/* Ambient Light */}
-      <ambientLight intensity={0.6} />
+      <ambientLight intensity={theme == "light" ? 1.0 : 0.5} />
       {/* Directional Light */}
       <directionalLight
         position={[-4, 3, -1]}
-        intensity={4.5}
+        intensity={theme == "light" ? 3.5 : 0.5}
         castShadow
         shadow-mapSize={[512, 512]}
       />
@@ -110,7 +118,7 @@ function Scene() {
       <Bookshelf />
       <Calendar />
       <NoticeBoard />
-      <Room />
+      {Rooms[roomTheme]?.room}
     </>
   );
 }
@@ -118,8 +126,15 @@ function Scene() {
 // Home Component
 export default function Home() {
   return (
-    <div className="h-screen w-full">
+    <div className="relative h-screen w-full">
       <Suspense fallback={LoadingFallback()}>
+        <div className="absolute left-0 top-0 z-50 w-full p-4">
+          <div className="relative flex h-20 w-full items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg">
+            <h1 className="text-center text-2xl font-bold text-white">
+              Welcome to SMU Mods
+            </h1>
+          </div>
+        </div>
         <Canvas style={{ background: "lightblue" }}>
           <Scene />
         </Canvas>
