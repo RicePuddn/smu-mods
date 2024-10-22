@@ -54,7 +54,7 @@ export const TIMETABLE_THEMES: TimetableTheme = {
     },
     // purple
     {
-      outOfFocusBackgroundColor: "#e879f9",
+      outOfFocusBackgroundColor: "#c084fc",
       backgroundColor: "#a855f7",
       textColor: "#1e1b4b",
     },
@@ -75,6 +75,6 @@ export const TIMETABLE_THEMES: TimetableTheme = {
 
   ],
   name3: [
-
-  ],
+    
+  ]
 };
