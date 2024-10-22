@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Term, Year } from '@/types/planner';
-import { ModuleCode } from '@/types/primitives/module';
+import type { Term, Year } from '@/types/planner';
+import type { ModuleCode } from '@/types/primitives/module';
 import { CircleAlert, X } from 'lucide-react';
 import ModuleDetails from '../ModuleDetails';
 import { InteractiveTooltip } from './customTooltip';
