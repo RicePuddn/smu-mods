@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import React from "react";
 
-import { PADDING } from "@/config";
+import { APP_CONFIG, PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
@@ -27,6 +27,7 @@ import type { Module, ModuleCode } from "@/types/primitives/module";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
 
+import { getUserYear } from "@/utils/getUserYear";
 import ModuleCard from "./moduleCard";
 import "./scrollBar.css";
 
@@ -47,7 +48,8 @@ const CoursePlanner: React.FC = () => {
   const { AddModuleToTimetable: addModuleTimetable } = useTimetableStore(
     (state) => state,
   );
-  const { timetableTheme } = useConfigStore((state) => state);
+  const { timetableTheme, matriculationYear } = useConfigStore((state) => state);
+  const studentYear= getUserYear(matriculationYear,APP_CONFIG.academicYear);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
 
   const onDragEnd = (result: DropResult) => {
@@ -170,7 +172,7 @@ const CoursePlanner: React.FC = () => {
                           : `Year ${year}`}
                     </h2>
 
-                    {year !== EXEMPTION_YEAR
+                    {year === studentYear
                       ? !isMobile && (
                           <Button
                             onClick={() => HandleSyncTimetable(year as Year)}
@@ -203,7 +205,7 @@ const CoursePlanner: React.FC = () => {
                               : "Hide Special Terms"}
                           </Button>
 
-                          {isMobile && (
+                          {year === studentYear ? isMobile && (
                             <Button
                               onClick={() => HandleSyncTimetable(year as Year)}
                               size={"icon"}
@@ -212,7 +214,7 @@ const CoursePlanner: React.FC = () => {
                             >
                               <CalendarArrowUp className="size-4" />
                             </Button>
-                          )}
+                          ):""}
                         </div>
                       )}
                       {Object.entries(terms).map(([term, termModules]) => (
