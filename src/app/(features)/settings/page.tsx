@@ -1,11 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Calendar, Monitor, Moon, RefreshCw, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
+import type { RoomKey } from "@/components/threed/rooms";
+import type { AcademicYear } from "@/config";
+import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { GenerateQRCode } from "@/components/iSync/QRCode";
-import { RoomKey, Rooms } from "@/components/threed/rooms";
+import { Rooms } from "@/components/threed/rooms";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,14 +17,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { AcademicYear, APP_CONFIG, PADDING } from "@/config";
+import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import {
-  TIMETABLE_THEMES,
-  TimetableThemeName,
-} from "@/utils/timetable/colours";
+import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
@@ -35,7 +35,6 @@ export default function SettingsPage() {
     changeMatriculationYear,
   } = useConfigStore((state) => state);
   const { refreshAll } = useModuleBankStore((state) => state);
-  const academicYear = APP_CONFIG.academicYear;
 
   // Matriculation Year options
   const currentYear = new Date().getFullYear();

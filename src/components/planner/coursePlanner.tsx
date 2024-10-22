@@ -1,7 +1,7 @@
 "use client";
 
 import type { DropResult } from "@hello-pangea/dnd";
-import React, { useState } from "react";
+import React from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import {
   CalendarArrowUp,
@@ -36,8 +36,6 @@ import "./scrollBar.css";
 const DELIMITER = "/$/";
 
 const CoursePlanner: React.FC = () => {
-  const [suggestionResults, setSuggestionResults] = useState<Module[]>([]);
-
   const isMobile = useIsMobile();
   const {
     addModule: addModuleToPlanner,
@@ -507,13 +505,7 @@ const CoursePlanner: React.FC = () => {
       >
         <div className="flex">
           <div className="w-full">
-            <SearchModule
-              handleModSelect={HandleAddMod}
-              callback={(modules) => {
-                //u can do whatever u want with the modules here
-                setSuggestionResults(modules);
-              }}
-            />
+            <SearchModule handleModSelect={HandleAddMod} />
           </div>
         </div>
       </div>
