@@ -1,10 +1,10 @@
 "use client";
 
 import type { LucideProps } from "lucide-react";
+import { ChevronsUpDown } from "lucide-react";
+import Link from "next/link";
 import type { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Fragment } from "react";
-import Link from "next/link";
-import { ChevronsUpDown } from "lucide-react";
 
 import {
   Collapsible,
@@ -12,6 +12,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export type SubLinks = {
   title: string;
@@ -49,6 +50,7 @@ export function NavMain({
 }: {
   items: Links[];
 } & React.ComponentProps<"ul">) {
+  const pathname = usePathname();
   return (
     <ul className={cn("grid gap-0.5", className)}>
       {items.map((item, index) => (
@@ -85,7 +87,12 @@ export function NavMain({
             <li>
               <Link
                 href={item.url}
-                className="flex h-8 min-w-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2"
+                className={cn(
+                  "flex h-8 min-w-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2",
+                  pathname.startsWith(item.url) &&
+                    item.url !== "/" &&
+                    "bg-accent text-accent-foreground",
+                )}
               >
                 <item.icon className="h-4 w-4 shrink-0" />
                 <div className="flex flex-1 overflow-hidden">

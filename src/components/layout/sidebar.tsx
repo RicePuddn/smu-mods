@@ -93,7 +93,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarItem>
-          <SidebarLabel>Platform</SidebarLabel>
+          <SidebarLabel>SMUMODS</SidebarLabel>
           <NavMain items={data.navMain} />
         </SidebarItem>
         <SidebarItem className="mt-auto">
