@@ -20,7 +20,7 @@ fs.readdir(directoryPath, (err, files) => {
   const htmlFiles = files.filter((file) => path.extname(file) === ".html");
   htmlFiles.forEach((htmlFile) => {
     processModuleHtml(
-      path.join(directoryPath, htmlFile),
+      path.join(directoryPath, "html", htmlFile),
       path.join(directoryPath, "parsed"),
     );
   });

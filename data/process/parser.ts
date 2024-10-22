@@ -20,11 +20,12 @@ export function parseModuleHtml(html: string): Partial<Module> {
   const dom = new JSDOM(html);
   const document = dom.window.document;
 
-  const moduleName = document
+  const moduleFullName = document
     .querySelector(".rgGroupHeader td:nth-child(2) p")
     ?.textContent?.trim();
 
-  const moduleCode = moduleName?.split(" ")[0];
+  const moduleCode = moduleFullName?.split(" ")[0];
+  const moduleName = moduleFullName?.split("-")[1]?.trim();
 
   const sections: Section[] = [];
   const rows = document.querySelectorAll(".rgRow[id^='mtpRow']");
