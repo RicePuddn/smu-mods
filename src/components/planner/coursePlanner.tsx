@@ -22,10 +22,10 @@ import {
   type DropResult,
 } from "@hello-pangea/dnd";
 import {
+  CalendarArrowUp,
   ChevronDown,
   ChevronUp,
   CircleAlert,
-  RefreshCw,
   X,
 } from "lucide-react";
 import React, { useState } from "react";
@@ -183,7 +183,7 @@ const CoursePlanner: React.FC = () => {
                         onClick={() => HandleSyncTimetable(year as Year)}
                         size={"icon"}
                       >
-                        <RefreshCw className="size-4" />
+                        <CalendarArrowUp className="size-4" />
                       </Button>
                     )}
         
@@ -212,8 +212,9 @@ const CoursePlanner: React.FC = () => {
                             <Button
                               onClick={() => HandleSyncTimetable(year as Year)}
                               size={"icon"}
+                              className="me-2 mt-2"
                             >
-                              <RefreshCw className="size-4" />
+                              <CalendarArrowUp className="size-4" />
                             </Button>
                           )}
                         </div>
@@ -438,7 +439,7 @@ const CoursePlanner: React.FC = () => {
                           ref={provided.innerRef}
                           {...provided.droppableProps}
                           className={cn(
-                            "grid grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4",
+                            "grid grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4 min-h-12",
                             snapshot.isDraggingOver
                               ? "bg-blue-100/10"
                               : "bg-muted",
