@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-import type { Module } from "@/types/primitives/module";
 import { searchModule } from "@/server/data/modules";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import type { Module } from "@/types/primitives/module";
 
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -23,6 +23,7 @@ export function SearchModule({
   const { modules } = useModuleBankStore((state) => state);
   const [inputValue, setInputValue] = useState<string>("");
   const [focused, setFocused] = useState<boolean>(false);
+  const [hovering, setHovering] = useState<boolean>(false)
 
   const [searchResults, setSearchResults] = useState<Module[]>([]);
 
@@ -48,9 +49,9 @@ export function SearchModule({
               setFocused(true);
             }}
             onBlur={() => {
-              setTimeout(() => {
+              if(!hovering) {
                 setFocused(false);
-              }, 50);
+              }
             }}
           />
         </div>
@@ -59,7 +60,10 @@ export function SearchModule({
         ) : (
           inputValue != "" &&
           focused && (
-            <ul className="md absolute left-0 right-0 z-10 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg">
+            <ul className="md absolute left-0 right-0 z-10 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg"
+              onMouseEnter={() => setHovering(true)}
+              onMouseLeave={() => setHovering(false)}
+            >
               {searchResults.length == 0 ? (
                 <li className="p-2">No results found.</li>
               ) : (
@@ -70,6 +74,7 @@ export function SearchModule({
                     onClick={() => {
                       setInputValue("");
                       handleModSelect(mod);
+                      setHovering(false)
                     }}
                   >
                     {mod.moduleCode} - {mod.name}
