@@ -20,6 +20,11 @@ export type ConfigAction = {
   changeTimetableTheme: (newTheme: TimetableThemeName) => void;
   changeRoomTheme: (newTheme: RoomKey) => void;
   changeMatriculationYear: (matriculationYear: AcademicYear) => void;
+  iSync: (
+    timetableTheme: TimetableThemeName,
+    roomTheme: RoomKey,
+    matriculationYear: AcademicYear,
+  ) => void;
 };
 
 export type ConfigStore = {
@@ -70,6 +75,13 @@ export const createConfigBank = (
           // } else {
           //   console.warn("Invalid user year");
           // }
+        },
+        iSync: (timetableTheme, roomTheme, matriculationYear) => {
+          set({
+            timetableTheme,
+            roomTheme,
+            matriculationYear,
+          });
         },
       }),
       {

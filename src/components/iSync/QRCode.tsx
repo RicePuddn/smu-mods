@@ -19,6 +19,9 @@ export function GenerateQRCode() {
   const { planner, plannerState } = usePlannerStore((state) => state);
   const {
     iSyncLatestRecord: latestRecord,
+    timetableTheme,
+    roomTheme,
+    matriculationYear,
     changeISyncLatestRecord: changeLatestRecord,
   } = useConfigStore((state) => state);
   const [data, setData] = useState<string | null>(null);
@@ -28,6 +31,9 @@ export function GenerateQRCode() {
       timetable: timetableMap,
       planner: planner,
       plannerState: plannerState,
+      timetableTheme,
+      roomTheme,
+      matriculationYear,
     });
 
     const hash = SHA256(content).toString();
