@@ -1,12 +1,12 @@
 import { toast } from "sonner";
 
+import type { Term } from "@/types/planner";
 import type { Module, ModuleCode, Section } from "@/types/primitives/module";
 import type {
   Day,
   ModifiableClass,
   Timetable,
 } from "@/types/primitives/timetable";
-import { Term } from "@/types/planner";
 import { days } from "@/types/primitives/timetable";
 
 import type { TimetableThemeName } from "./colours";
