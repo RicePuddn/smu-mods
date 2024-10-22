@@ -1,7 +1,8 @@
-import { RoomKey } from "@/components/threed/rooms";
-import { TimetableThemeName } from "@/utils/timetable/colours";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+import { RoomKey } from "@/components/threed/rooms";
+import { TimetableThemeName } from "@/utils/timetable/colours";
 
 export type ISyncRecord = {
   id: string;
@@ -11,6 +12,7 @@ export type ISyncRecord = {
 
 export type ConfigAction = {
   changeISyncLatestRecord: (newRecord: ISyncRecord) => void;
+  changeTimetableTheme: (newTheme: TimetableThemeName) => void;
   changeRoomTheme: (newTheme: RoomKey) => void;
 };
 
@@ -33,7 +35,10 @@ export const createConfigBank = (
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
-        changeRoomTheme: (newTheme) => {
+        changeTimetableTheme: (newTheme: TimetableThemeName) => {
+          set({ timetableTheme: newTheme });
+        },
+        changeRoomTheme: (newTheme: RoomKey) => {
           set({ roomTheme: newTheme });
         },
       }),

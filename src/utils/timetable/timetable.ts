@@ -1,11 +1,11 @@
-import type { Module, Section } from "@/types/primitives/module";
-import {
-  days,
-  type ModifiableClass,
-  type Timetable,
-} from "@/types/primitives/timetable";
 import { toast } from "sonner";
-import { TIMETABLE_THEMES, type TimetableThemeName } from "./colours";
+
+import type { Module, ModuleCode, Section } from "@/types/primitives/module";
+import type { ModifiableClass, Timetable } from "@/types/primitives/timetable";
+import { Day, days } from "@/types/primitives/timetable";
+
+import type { TimetableThemeName } from "./colours";
+import { TIMETABLE_THEMES } from "./colours";
 
 export function findFreeColorIndex(
   timetable: Timetable,
@@ -19,6 +19,39 @@ export function findFreeColorIndex(
   return timetable.modules.length % TIMETABLE_THEMES[theme].length;
 }
 
+export function changeColorOfModule(
+  moduleCode: ModuleCode,
+  timetable: Timetable,
+  colorIndex: number,
+) {
+  const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
+  const findModuleIndex = updatedTimetable.modules.findIndex(
+    (m) => m.moduleCode === moduleCode,
+  );
+  const findModule = updatedTimetable.modules[findModuleIndex];
+  if (!findModule) {
+    toast.error("Module not found");
+    return updatedTimetable;
+  }
+  updatedTimetable.modules[findModuleIndex]!.colorIndex = colorIndex;
+  Object.keys(updatedTimetable)
+    .filter((key) => key !== "modules")
+    .forEach((day) => {
+      updatedTimetable[day as Day] = updatedTimetable[day as Day].map(
+        (classItem) => {
+          if (classItem.moduleCode === moduleCode) {
+            return {
+              ...classItem,
+              colorIndex,
+            };
+          }
+          return classItem;
+        },
+      );
+    });
+  return updatedTimetable;
+}
+
 export function addModuleToTimetable(
   module: Module,
   timetable: Timetable,
@@ -28,6 +61,13 @@ export function addModuleToTimetable(
   const section = module.sections[0];
   if (!section) {
     toast.error("No sections available for this module");
+    return updatedTimetable;
+  }
+  const findModule = updatedTimetable.modules.findIndex(
+    (m) => m.moduleCode === module.moduleCode,
+  );
+  if (findModule !== -1) {
+    toast.error("Module already added to timetable");
     return updatedTimetable;
   }
   const colorIndex = findFreeColorIndex(timetable, theme);
