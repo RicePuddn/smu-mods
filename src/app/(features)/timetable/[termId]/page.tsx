@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { format } from "date-fns";
 import { RefreshCw, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -319,7 +320,7 @@ export default function TimeTablePage({
 
       <div>
         <Button variant={"default"} onClick={() => handlePullFromPlanner("2")}>
-          <RefreshCw size={"icon"} />
+          <RefreshCw />
           <span style={{ marginLeft: "0.5rem" }}>Synchronize with Planner</span>
         </Button>
       </div>
@@ -505,7 +506,9 @@ export default function TimeTablePage({
                 </p>
                 <p className="text-sm">
                   Exam:{" "}
-                  {mod.exam?.dateTime.toLocaleString() ?? "No exam scheduled"}
+                  {mod.exam?.dateTime
+                    ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
+                    : "No exam scheduled"}
                 </p>
               </div>
               <div className="flex w-2/12 items-center justify-center">
