@@ -6,6 +6,8 @@ import { RefreshCw, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import type { TermSlug, Year } from "@/types/planner";
+import type { Term } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
@@ -15,8 +17,7 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import { Term, termMap, termSlug } from "@/types/planner";
-import { ModuleCode } from "@/types/primitives/module";
+import { termMap, termSlug } from "@/types/planner";
 import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
@@ -44,9 +45,7 @@ export default function TimeTablePage({
     showAllSections,
     selectSection,
   } = useTimetableStore((state) => state);
-  const { timetableTheme, changeTimetableTheme } = useConfigStore(
-    (state) => state,
-  );
+  const { timetableTheme } = useConfigStore((state) => state);
 
   const { planner } = usePlannerStore((state) => state);
 
@@ -80,9 +79,6 @@ export default function TimeTablePage({
         const currentClassStartMinutes = timeToMinutes(
           currentClass.classTime.startTime,
         );
-
-        const minutesDifference =
-          currentClassStartMinutes - (480 + totalLeftOffset);
 
         let paddingLeft =
           ((currentClassStartMinutes - 480) / (60 * totalSlots)) * 100 -
