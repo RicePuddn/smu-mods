@@ -12,6 +12,9 @@ export const TimetableThemeNames = [
   "default",
   "softPastel",
   "darkRich",
+  "coolAndMuted",
+  "brightAndVibrant",
+  "desertSand",
 ] as const;
 
 export type TimetableThemeName = (typeof TimetableThemeNames)[number];
@@ -185,6 +188,174 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       backgroundColor: "#be123c",
       hoverBackgroundColor: "#961030",
       textColor: "#fbe7eb",
+    },
+  ],
+  coolAndMuted: [
+    // red
+    {
+      backgroundColor: "#e57373",
+      hoverBackgroundColor: "#a12923",
+      textColor: "#4c1111",
+    },
+    // yellow
+    {
+      backgroundColor: "#ffd54f",
+      hoverBackgroundColor: "#c8871a",
+      textColor: "#4d3014",
+    },
+    // green
+    {
+      backgroundColor: "#81c784",
+      hoverBackgroundColor: "#136a34",
+      textColor: "#1e2b1a",
+    },
+    // teal
+    {
+      backgroundColor: "#4db6Ac",
+      hoverBackgroundColor: "#007366",
+      textColor: "#003533",
+    },
+    // sky
+    {
+      backgroundColor: "#4fc3f7",
+      hoverBackgroundColor: "#2b58c2",
+      textColor: "#18233d",
+    },
+    // indigo
+    {
+      backgroundColor: "#7986cb",
+      hoverBackgroundColor: "#5f86c4",
+      textColor: "#1e2b5a",
+    },
+    // purple
+    {
+      backgroundColor: "#ba68c8",
+      hoverBackgroundColor: "#b01a4e",
+      textColor: "#52122b",
+    },
+    // fuchsia
+    {
+      backgroundColor: "#ce93d8",
+      hoverBackgroundColor: "#a873ae",
+      textColor: "#4a2147",
+    },
+    // rose
+    {
+      backgroundColor: "#f06292",
+      hoverBackgroundColor: "#ba7574",
+      textColor: "#4f1d20",
+    },
+  ],
+  brightAndVibrant: [
+    // red
+    {
+      backgroundColor: "#cc342b",
+      hoverBackgroundColor: "#9c251e",
+      textColor: "#fff5f5",
+    },
+    // yellow
+    {
+      backgroundColor: "#fba922",
+      hoverBackgroundColor: "#d18d1d",
+      textColor: "#fdf7e1",
+    },
+    // green
+    {
+      backgroundColor: "#198844",
+      hoverBackgroundColor: "#156B37",
+      textColor: "#f2f9f2",
+    },
+    // teal
+    {
+      backgroundColor: "#009688",
+      hoverBackgroundColor: "#006c62",
+      textColor: "#e6f7f5",
+    },
+    // sky
+    {
+      backgroundColor: "#3971ed",
+      hoverBackgroundColor: "#2d5abc",
+      textColor: "#ebf5ff",
+    },
+    // indigo
+    {
+      backgroundColor: "#6674ff",
+      hoverBackgroundColor: "#4d57c3",
+      textColor: "#e8e6f8",
+    },
+    // purple
+    {
+      backgroundColor: "#b061ff",
+      hoverBackgroundColor: "#844abe",
+      textColor: "#f5eaff",
+    },
+    // fuchsia
+    {
+      backgroundColor: "#dd44f4",
+      hoverBackgroundColor: "#b837cb",
+      textColor: "#fde5fb",
+    },
+    // rose
+    {
+      backgroundColor: "#f02e70",
+      hoverBackgroundColor: "#961030",
+      textColor: "#fbe7eb",
+    },
+  ],
+  desertSand: [
+    // red
+    {
+      backgroundColor: "#d1495b",
+      hoverBackgroundColor: "#ba4756",
+      textColor: "#3e0f12",
+    },
+    // yellow
+    {
+      backgroundColor: "#e9c46a",
+      hoverBackgroundColor: "#c8a95c",
+      textColor: "#4a3a1e",
+    },
+    // green
+    {
+      backgroundColor: "#2a9d8f",
+      hoverBackgroundColor: "#298f83",
+      textColor: "#0d3b33",
+    },
+    // teal
+    {
+      backgroundColor: "#5aa7b1",
+      hoverBackgroundColor: "#386369",
+      textColor: "#255055",
+    },
+    // sky
+    {
+      backgroundColor: "#82c0cc",
+      hoverBackgroundColor: "#6898a1",
+      textColor: "#1c2f36",
+    },
+    // indigo
+    {
+      backgroundColor: "#969eca",
+      hoverBackgroundColor: "#7e84a8",
+      textColor: "#2a2c5f",
+    },
+    // purple
+    {
+      backgroundColor: "#bd92c4",
+      hoverBackgroundColor: "#98769d",
+      textColor: "#331a36",
+    },
+    // fuchsia
+    {
+      backgroundColor: "#d0a9d7",
+      hoverBackgroundColor: "#ab8cb0",
+      textColor: "#3f243d",
+    },
+    // rose
+    {
+      backgroundColor: "#e982a5",
+      hoverBackgroundColor: "#cd7996",
+      textColor: "#4c2632",
     },
   ],
 };
