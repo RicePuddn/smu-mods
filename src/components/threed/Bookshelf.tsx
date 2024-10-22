@@ -63,7 +63,7 @@ export function Bookshelf(props: JSX.IntrinsicElements["group"]) {
       // Control the speed and intensity of the pulse
       const pulseFrequency = 2; // Higher number increases the pulse speed
       const baseIntensity = 0.55; // Base intensity to avoid too dim
-      const pulseAmplitude = 0.25; // How much the pulse should vary
+      const pulseAmplitude = 0.35; // How much the pulse should vary
       const pulseIntensity =
         Math.sin(elapsedTime * pulseFrequency) * pulseAmplitude + baseIntensity;
 
