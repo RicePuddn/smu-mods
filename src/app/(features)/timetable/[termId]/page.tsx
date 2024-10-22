@@ -20,6 +20,8 @@ import { termMap, termSlug } from "@/types/planner";
 import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
+import "../../../../styles/globals.css";
+
 type ClassWithWidth = ModifiableClass & {
   width: number;
 };
@@ -380,26 +382,38 @@ export default function TimeTablePage({
                               return (
                                 <div
                                   key={classIndex}
-                                  className="absolute rounded p-2 shadow-md"
+                                  className={`absolute rounded p-2 shadow-md transition-all duration-1000 ${
+                                    selectedClass?.section ===
+                                      fullClass.section &&
+                                    selectedClass?.moduleCode ===
+                                      fullClass.moduleCode
+                                      ? "animate-pop"
+                                      : ""
+                                  }`}
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
                                     height: "100%",
                                     backgroundColor:
-                                      selectedClass?.section ==
-                                        fullClass.section &&
-                                      selectedClass?.moduleCode ==
-                                        fullClass.moduleCode
-                                        ? TIMETABLE_THEMES[timetableTheme][
-                                            fullClass.colorIndex
-                                          ]?.backgroundColor
-                                        : TIMETABLE_THEMES[timetableTheme][
-                                            fullClass.colorIndex
-                                          ]?.outOfFocusBackgroundColor,
+                                      TIMETABLE_THEMES[timetableTheme][
+                                        fullClass.colorIndex
+                                      ]?.backgroundColor,
                                     color:
                                       TIMETABLE_THEMES[timetableTheme][
                                         fullClass.colorIndex
                                       ]?.textColor,
+                                    opacity:
+                                      !selectedClass ||
+                                      (selectedClass.moduleCode ===
+                                        fullClass.moduleCode &&
+                                        selectedClass.section ===
+                                          fullClass.section)
+                                        ? 1
+                                        : fullClass.moduleCode ===
+                                            selectedClass?.moduleCode
+                                          ? 0.6
+                                          : 1,
+                                    transition: "transform 0.2s",
                                   }}
                                   onClick={() => {
                                     if (selectedClass) {
