@@ -12,6 +12,8 @@ export type ISyncRecord = {
 
 export type ConfigAction = {
   changeISyncLatestRecord: (newRecord: ISyncRecord) => void;
+  changeTimetableTheme: (newTheme: TimetableThemeName) => void;
+  changeRoomTheme: (newTheme: RoomKey) => void;
 };
 
 export type ConfigStore = {
@@ -33,7 +35,7 @@ export const createConfigBank = (
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
-        changeTheme: (newTheme: TimetableThemeName) => {
+        changeTimetableTheme: (newTheme: TimetableThemeName) => {
           set({ timetableTheme: newTheme });
         },
         changeRoomTheme: (newTheme: RoomKey) => {
