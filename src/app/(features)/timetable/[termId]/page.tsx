@@ -1,6 +1,6 @@
 "use client";
 
-import { Trash2 } from "lucide-react";
+import { RefreshCw, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -9,9 +9,12 @@ import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
 import { useConfigStore } from "@/stores/config/provider";
+import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import type { TermSlug } from "@/types/planner";
-import { termMap, termSlug } from "@/types/planner";
+import type { TermSlug, Year } from "@/types/planner";
+import { Term, termMap, termSlug } from "@/types/planner";
+import { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
@@ -43,6 +46,10 @@ export default function TimeTablePage({
   const { timetableTheme, changeTimetableTheme } = useConfigStore(
     (state) => state,
   );
+
+  const { planner } = usePlannerStore((state) => state);
+
+  const { modules } = useModuleBankStore((state) => state);
 
   const [selectedClass, setSelectedSection] = useState<FullClass>();
 
@@ -268,13 +275,33 @@ export default function TimeTablePage({
 
   // console.log(TIMETABLE_COLORS);
 
+  const handlePullFromPlanner = (year: Year) => {
+    for (const termNo in planner[year]) {
+      console.log(termNo);
+      console.log(planner[year]);
+      const moduleCodes = Object.keys(
+        planner[year][termNo as Term],
+      ) as ModuleCode[];
+      moduleCodes.forEach((moduleCode) => {
+        const module = modules[moduleCode];
+        if (!!module) {
+          AddModuleToTimetable(
+            module,
+            termMap[params.termId as TermSlug],
+            timetableTheme,
+          );
+        }
+      });
+    }
+  };
+
   return (
     <div
       style={{
         padding: PADDING,
       }}
     >
-      <div className="flex justify-center gap-24">
+      <div className="mb-5 flex justify-center gap-24">
         <Button
           variant={"ghost"}
           onClick={goToPreviousTerm}
@@ -292,8 +319,15 @@ export default function TimeTablePage({
         </Button>
       </div>
 
+      <div>
+        <Button variant={"default"} onClick={() => handlePullFromPlanner("2")}>
+          <RefreshCw size={"icon"} />
+          <span style={{ marginLeft: "0.5rem" }}>Synchronize with Planner</span>
+        </Button>
+      </div>
+
       <div className="max-w-full overflow-x-scroll">
-        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
+        <div className="mt-5 w-full min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
           {/* Time Labels */}
           <div className="flex">
             <div className="w-[5%] flex-shrink-0"></div>
