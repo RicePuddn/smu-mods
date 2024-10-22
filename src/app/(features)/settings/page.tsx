@@ -44,13 +44,6 @@ export default function SettingsPage() {
     matriculationYears.push(`${i}/${i + 1}`);
   }
 
-  // useEffect(() => {
-  //   if (matriculationYear === null) {
-  //     const currentYear = new Date().getFullYear();
-  //     changeMatriculationYear(`${currentYear}/${currentYear + 1}`);
-  //   }
-  // }, [matriculationYear]);
-
   function changeTheme(theme: string) {
     setTheme(theme);
     setTempTheme(theme);
@@ -151,14 +144,11 @@ export default function SettingsPage() {
         <h2 className="text-lg font-semibold">Matriculation Year</h2>
         <div className="flex flex-wrap justify-center gap-2">
           <DropdownMenu>
-            <DropdownMenuTrigger>
-              <span
-                className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                onClick={() => changeMatriculationYear}
-              >
+            <DropdownMenuTrigger asChild>
+              <Button onClick={() => changeMatriculationYear}>
                 <Calendar className="mr-2" />
                 {matriculationYear ?? "Select Year"}
-              </span>
+              </Button>
             </DropdownMenuTrigger>
 
             <DropdownMenuContent>
@@ -166,6 +156,7 @@ export default function SettingsPage() {
                 <DropdownMenuItem
                   key={year}
                   onClick={() => changeMatriculationYear(year as AcademicYear)}
+                  className="justify-center"
                 >
                   AY{year}
                 </DropdownMenuItem>
