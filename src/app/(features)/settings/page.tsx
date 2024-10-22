@@ -10,11 +10,23 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { PADDING } from "@/config";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { useEffect, useState } from "react";
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
+  const [tempTheme, setTempTheme] = useState<string | undefined>("system");
   const { roomTheme, changeRoomTheme } = useConfigStore((state) => state);
   const { refreshAll } = useModuleBankStore((state) => state);
+
+  function changeTheme(theme: string) {
+    setTheme(theme);
+    setTempTheme(theme);
+  }
+
+  useEffect(() => {
+    setTempTheme(theme);
+  }, [theme]);
+
   return (
     <div
       className="mx-auto max-w-md space-y-4"
@@ -29,9 +41,9 @@ export default function SettingsPage() {
           type="single"
           className="w-fit"
           onValueChange={(value) => {
-            setTheme(value);
+            changeTheme(value);
           }}
-          value={theme}
+          value={tempTheme}
         >
           <ToggleGroupItem value="light" variant={"outline"}>
             <Sun className="mr-2" />
