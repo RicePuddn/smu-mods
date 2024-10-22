@@ -176,14 +176,15 @@ const CoursePlanner: React.FC = () => {
                           ? "Plan to Take"
                           : `Year ${year}`}
                     </h2>
-                    {!isMobile && (
+                    {year !== EXEMPTION_YEAR ? !isMobile && (
                       <Button
                         onClick={() => HandleSyncTimetable(year as Year)}
                         size={"icon"}
+                        variant={"secondary"}
                       >
                         <CalendarArrowUp className="size-4" />
                       </Button>
-                    )}
+                    ):""}
         
                     {isMobile &&
                       (!isMobile || isOpen.has(year) ? (
@@ -198,7 +199,7 @@ const CoursePlanner: React.FC = () => {
                         <div className="flex-cols flex">
                           <Button
                             onClick={() => handleHideSpecial(year as Year)}
-                            className="mx-2 mt-2 w-full"
+                            className="mx-2 mt-2 w-full bg-muted-foreground"
                             variant={"outline"}
                           >
                             {isHidden
@@ -210,7 +211,8 @@ const CoursePlanner: React.FC = () => {
                             <Button
                               onClick={() => HandleSyncTimetable(year as Year)}
                               size={"icon"}
-                              className="me-2 mt-2"
+                              className="me-2 mt-2 bg-muted-foreground"
+                              variant={"outline"}
                             >
                               <CalendarArrowUp className="size-4" />
                             </Button>
