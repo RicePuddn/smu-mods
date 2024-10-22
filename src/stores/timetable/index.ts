@@ -1,10 +1,11 @@
+import { toast } from "sonner";
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+
 import type { Term } from "@/types/planner";
 import type { Module, ModuleCode, Section } from "@/types/primitives/module";
-import {
-  defaultTimetableMap,
-  type Timetable,
-  type TimetableMap,
-} from "@/types/primitives/timetable";
+import type { Timetable, TimetableMap } from "@/types/primitives/timetable";
+import { defaultTimetableMap } from "@/types/primitives/timetable";
 import { TimetableThemeName } from "@/utils/timetable/colours";
 import {
   addModuleToTimetable,
@@ -12,9 +13,6 @@ import {
   selectSection,
   showAllSections,
 } from "@/utils/timetable/timetable";
-import { toast } from "sonner";
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
 
 export type TimetableActions = {
   AddModuleToTimetable: (

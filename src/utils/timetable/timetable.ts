@@ -1,12 +1,11 @@
-import type { Module, ModuleCode, Section } from "@/types/primitives/module";
-import {
-  Day,
-  days,
-  type ModifiableClass,
-  type Timetable,
-} from "@/types/primitives/timetable";
 import { toast } from "sonner";
-import { TIMETABLE_THEMES, type TimetableThemeName } from "./colours";
+
+import type { Module, ModuleCode, Section } from "@/types/primitives/module";
+import type { ModifiableClass, Timetable } from "@/types/primitives/timetable";
+import { Day, days } from "@/types/primitives/timetable";
+
+import type { TimetableThemeName } from "./colours";
+import { TIMETABLE_THEMES } from "./colours";
 
 export function findFreeColorIndex(
   timetable: Timetable,

@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+
+import type { Event } from "@/types/primitives/event";
 import { ReadMore } from "@/components/acad-clubs/ReadMore";
 import {
   Card,
@@ -8,8 +11,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import type { Event } from "@/types/primitives/event";
-import { useState } from "react";
+
 import { Button } from "../ui/button";
 
 type TabsProps = {

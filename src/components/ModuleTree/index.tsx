@@ -1,9 +1,10 @@
-import { flatten, values } from "lodash";
 import * as React from "react";
+import { flatten, values } from "lodash";
 
-import { cn } from "@/lib/utils";
 import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
+import { cn } from "@/lib/utils";
 import { notNull } from "@/types/utils";
+
 import styles from "./ModuleTree.module.scss";
 
 type Props = {

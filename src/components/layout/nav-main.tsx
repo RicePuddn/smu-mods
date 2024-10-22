@@ -1,10 +1,11 @@
 "use client";
 
 import type { LucideProps } from "lucide-react";
-import { ChevronsUpDown } from "lucide-react";
-import Link from "next/link";
 import type { ForwardRefExoticComponent, RefAttributes } from "react";
 import { Fragment } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ChevronsUpDown } from "lucide-react";
 
 import {
   Collapsible,
@@ -12,7 +13,6 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 
 export type SubLinks = {
   title: string;

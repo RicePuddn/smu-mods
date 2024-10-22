@@ -1,9 +1,11 @@
 "use client";
 
-import { type ReactNode, createContext, useContext, useRef } from "react";
+import type { ReactNode } from "react";
+import { createContext, useContext, useRef } from "react";
 import { useStore } from "zustand";
 
-import { type ModuleBankStore, createModuleBank } from "@/stores/moduleBank";
+import type { ModuleBankStore } from "@/stores/moduleBank";
+import { createModuleBank } from "@/stores/moduleBank";
 
 export type ModuleBankStoreApi = ReturnType<typeof createModuleBank>;
 
