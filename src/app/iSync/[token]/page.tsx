@@ -1,11 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 import { APP_CONFIG } from "@/config";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function Page({ params }: { params: { token: string } }) {
   const { mutateAsync: getToken } = api.iSync.getContent.useMutation();

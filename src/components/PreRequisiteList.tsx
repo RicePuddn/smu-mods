@@ -1,7 +1,9 @@
-import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
-import { checkPrerequisite, type StatusNode } from "@/utils/checkPrerequisites";
-import { Check, ChevronDown, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
+import { Check, ChevronDown, ChevronRight, X } from "lucide-react";
+
+import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
+import type { StatusNode } from "@/utils/checkPrerequisites";
+import { checkPrerequisite } from "@/utils/checkPrerequisites";
 
 const StatusNodeItem = ({
   node,

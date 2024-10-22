@@ -1,7 +1,7 @@
 "use client";
 
-import { PanelLeft } from "lucide-react";
 import * as React from "react";
+import { PanelLeft } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
