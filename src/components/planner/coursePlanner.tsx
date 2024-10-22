@@ -373,12 +373,7 @@ const CoursePlanner: React.FC = () => {
                                             }
                                             variant={"destructive"}
                                             size={"icon"}
-                                            className={cn(
-                                              "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
-                                              snapshot.isDragging
-                                                ? "h-fit w-fit bg-accent shadow-lg"
-                                                : "border bg-background hover:border-foreground",
-                                            )}
+                                            className="size-6 rounded-full"
                                           >
                                             <X className="size-5" />
                                           </Button>
