@@ -57,7 +57,7 @@ export function SearchModule({
         {!showResults ? (
           <></>
         ) : (
-          inputValue == "" &&
+          inputValue != "" &&
           focused && (
             <ul className="md absolute left-0 right-0 z-10 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg">
               {searchResults.length == 0 ? (
