@@ -57,44 +57,43 @@ export function NoticeBoard(props: JSX.IntrinsicElements["group"]) {
   poster4Texture.flipY = false;
 
   // Set up frame loop to update hover, click effect, and pulsing effect
+  // Set up frame loop to update hover, click effect, and pulsing effect
   useFrame((state) => {
     if (groupRef.current) {
       groupRef.current.traverse((child) => {
         if ((child as THREE.Mesh).material && (child as THREE.Mesh).isMesh) {
-          (
-            (child as THREE.Mesh).material as THREE.MeshStandardMaterial
-          ).emissive = clicked
-            ? new THREE.Color(0x00ff00) // green when clicked
+          const material = (child as THREE.Mesh)
+            .material as THREE.MeshStandardMaterial;
+
+          // Apply different emissive colors for clicked, hovered, or idle states
+          material.emissive = clicked
+            ? new THREE.Color(0x00ff00) // Green when clicked
             : hovered
-              ? new THREE.Color(0xffde21) // yellow when hovered
+              ? new THREE.Color(0x9575cd) // Purple when hovered
               : new THREE.Color(0x444444); // Subtle gray when not hovered or clicked
-        }
-      });
-    }
 
-    // Increase the pulsing effect to make it more obvious when not hovered or clicked
-    if (!hovered && !clicked && groupRef.current) {
-      const elapsedTime = state.clock.getElapsedTime();
+          // Adjust the pulse intensity only when not hovered or clicked
+          if (!hovered && !clicked) {
+            const elapsedTime = state.clock.getElapsedTime();
 
-      // Control the speed and intensity of the pulse
-      const pulseFrequency = 2; // Higher number increases the pulse speed
-      const baseIntensity = 0.55; // Base intensity to avoid too dim
-      const pulseAmplitude = 0.35; // How much the pulse should vary
-      const pulseIntensity =
-        Math.sin(elapsedTime * pulseFrequency) * pulseAmplitude + baseIntensity;
+            // Control the speed and intensity of the pulse
+            const pulseFrequency = 2; // Higher number increases the pulse speed
+            const baseIntensity = 0.55; // Base intensity to avoid too dim
+            const pulseAmplitude = 0.35; // How much the pulse should vary
+            const pulseIntensity =
+              Math.sin(elapsedTime * pulseFrequency) * pulseAmplitude +
+              baseIntensity;
 
-      groupRef.current.traverse((child) => {
-        if ((child as THREE.Mesh).material && (child as THREE.Mesh).isMesh) {
-          // Clamp the intensity to avoid very high or low values
-          const clampedPulseIntensity = THREE.MathUtils.clamp(
-            pulseIntensity,
-            0.1,
-            1.0,
-          );
-
-          (
-            (child as THREE.Mesh).material as THREE.MeshStandardMaterial
-          ).emissiveIntensity = clampedPulseIntensity;
+            // Clamp the intensity to avoid very high or low values
+            material.emissiveIntensity = THREE.MathUtils.clamp(
+              pulseIntensity,
+              0.1,
+              1.0,
+            );
+          } else {
+            // Set a default emissive intensity for hovered or clicked states
+            material.emissiveIntensity = 1.0;
+          }
         }
       });
     }

@@ -16,8 +16,8 @@ import { Rooms } from "@/components/threed/rooms";
 import { useConfigStore } from "@/stores/config/provider";
 
 function Lighting({ theme }: { theme: string }) {
-  const lightIntensity = theme === "light" ? 1.0 : 0.5;
-  const directionalLightIntensity = theme === "light" ? 3.5 : 0.5;
+  const lightIntensity = theme === "light" ? 1.5 : 0.4;
+  const directionalLightIntensity = theme === "light" ? 5.5 : 0.4;
 
   return (
     <>
