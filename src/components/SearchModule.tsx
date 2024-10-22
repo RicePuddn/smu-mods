@@ -45,7 +45,9 @@ export function SearchModule({
               setFocused(true);
             }}
             onBlur={() => {
-              setFocused(false);
+              setTimeout(() => {
+                setFocused(false);
+              }, 50);
             }}
           />
         </div>

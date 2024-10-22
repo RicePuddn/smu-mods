@@ -160,7 +160,7 @@ export default function CourseCatalogue() {
                 <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-foreground/70">
                       {module.moduleCode} | {module.credit} CU | Exam Date:{" "}
                       {module.exam
                         ? new Date(module.exam.dateTime).toLocaleDateString()

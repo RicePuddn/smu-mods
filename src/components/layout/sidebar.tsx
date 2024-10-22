@@ -16,9 +16,10 @@ import {
   SidebarItem,
   SidebarLabel,
 } from "@/components/ui/sidebar";
-
 import { APP_CONFIG } from "@/config";
-import { type Links, type MainLink, NavMain } from "./nav-main";
+
+import type { Links, MainLink } from "./nav-main";
+import { NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
 
 export type SidebarProps = {

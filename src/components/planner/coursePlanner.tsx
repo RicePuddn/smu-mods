@@ -113,7 +113,7 @@ const CoursePlanner: React.FC = () => {
     for (const termNo in planner[year]) {
       console.log(planner);
       const moduleCodes = Object.keys(
-        planner[year as Year][termNo as Term],
+        planner[year][termNo as Term],
       ) as ModuleCode[];
       moduleCodes.forEach((moduleCode) => {
         const module = modules[moduleCode];

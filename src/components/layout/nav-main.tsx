@@ -1,13 +1,10 @@
 "use client";
 
 import type { LucideProps } from "lucide-react";
-import { ChevronsUpDown } from "lucide-react";
+import type { ForwardRefExoticComponent, RefAttributes } from "react";
+import { Fragment } from "react";
 import Link from "next/link";
-import {
-  type ForwardRefExoticComponent,
-  Fragment,
-  type RefAttributes,
-} from "react";
+import { ChevronsUpDown } from "lucide-react";
 
 import {
   Collapsible,
