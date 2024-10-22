@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -98,6 +99,7 @@ export const createModuleBank = (
                 modules: moduleData,
               };
             });
+            toast.success("Module Bank refreshed!");
           } catch (error) {
             console.error(`Error fetching all modules:`, error);
             throw error;
@@ -113,6 +115,7 @@ export const createModuleBank = (
                 baskets: basketData,
               };
             });
+            toast.success("Baskets refreshed!");
           } catch (error) {
             console.error(`Error fetching all baskets:`, error);
             throw error;

@@ -20,6 +20,11 @@ export type ConfigAction = {
   changeTimetableTheme: (newTheme: TimetableThemeName) => void;
   changeRoomTheme: (newTheme: RoomKey) => void;
   changeMatriculationYear: (matriculationYear: AcademicYear) => void;
+  iSync: (
+    timetableTheme: TimetableThemeName,
+    roomTheme: RoomKey,
+    matriculationYear: AcademicYear,
+  ) => void;
 };
 
 export type ConfigStore = {
@@ -53,23 +58,13 @@ export const createConfigBank = (
         },
         changeMatriculationYear: (newMatriculationYear) => {
           set({ matriculationYear: newMatriculationYear });
-          // const [startYear, endYear] = academicYear.split('/').map(Number);
-          // const realMatriculationYear = Number(newMatriculationYear.split('/')[0]);
-          // const currentDate = new Date();
-          // const currentMonth = currentDate.getMonth() + 1; // because JavaScript sets 0 as the first month
-          // const currentYear = currentDate.getFullYear();
-
-          // let userYear = currentYear - realMatriculationYear + 1;
-
-          // if (currentYear == endYear && currentMonth <= 4) {
-          //   userYear -= 1;
-          // }
-
-          // if (userYear >= 1 && userYear <= 4) {
-          //   set({realMatriculationYear: userYear})
-          // } else {
-          //   console.warn("Invalid user year");
-          // }
+        },
+        iSync: (timetableTheme, roomTheme, matriculationYear) => {
+          set({
+            timetableTheme,
+            roomTheme,
+            matriculationYear,
+          });
         },
       }),
       {
