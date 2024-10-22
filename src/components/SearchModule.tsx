@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+import type { Module } from "@/types/primitives/module";
 import { searchModule } from "@/server/data/modules";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import type { Module } from "@/types/primitives/module";
 
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";

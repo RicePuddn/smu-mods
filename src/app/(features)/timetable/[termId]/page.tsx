@@ -1,13 +1,11 @@
 "use client";
 
-import { RefreshCw, Trash2 } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Trash2 } from "lucide-react";
+import { RefreshCw, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
-import type { TermSlug } from "@/types/planner";
+import type { TermSlug, Year } from "@/types/planner";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
@@ -16,10 +14,8 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import type { TermSlug, Year } from "@/types/planner";
 import { Term, termMap, termSlug } from "@/types/planner";
 import { ModuleCode } from "@/types/primitives/module";
-import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
@@ -394,7 +390,9 @@ export default function TimeTablePage({
                                     height: "100%",
                                     backgroundColor:
                                       selectedClass?.section ==
-                                      fullClass.section
+                                        fullClass.section &&
+                                      selectedClass?.moduleCode ==
+                                        fullClass.moduleCode
                                         ? TIMETABLE_THEMES[timetableTheme][
                                             fullClass.colorIndex
                                           ]?.backgroundColor
