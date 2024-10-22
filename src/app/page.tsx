@@ -1,16 +1,17 @@
 "use client";
 
+import { Suspense, useEffect, useRef } from "react";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useTheme } from "next-themes";
+import * as THREE from "three";
+
 import { Bookshelf } from "@/components/threed/Bookshelf";
 import { Calendar } from "@/components/threed/Calendar";
 import { Monitor } from "@/components/threed/Monitor";
 import { NoticeBoard } from "@/components/threed/NoticeBoard";
 import { Rooms } from "@/components/threed/rooms";
 import { useConfigStore } from "@/stores/config/provider";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useTheme } from "next-themes";
-import { Suspense, useEffect, useRef } from "react";
-import * as THREE from "three";
 
 // Loading fall back page
 function LoadingFallback() {
