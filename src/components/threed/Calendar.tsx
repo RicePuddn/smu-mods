@@ -176,7 +176,7 @@ export function Calendar(props: JSX.IntrinsicElements["group"]) {
               borderRadius: "5px",
               pointerEvents: "none",
               height: "40px",
-              width: "200px",
+              width: "220px",
               fontSize: "20px",
               textAlign: "center",
             }}
