@@ -21,10 +21,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const directoryPath = path.resolve(__dirname, "..");
-const filePath = path.join(directoryPath, fileName);
+const filePath = path.join(directoryPath, "html", fileName);
 
 console.log("File Path:", filePath);
-const inputFileName = path.basename(filePath);
-const moduleCode = inputFileName?.split(".")[0];
 
 processModuleHtml(filePath, path.join(directoryPath, "parsed"));

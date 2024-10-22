@@ -173,7 +173,7 @@ const CoursePlanner: React.FC = () => {
                     {year === studentYear
                       ? !isMobile && (
                           <Button
-                            onClick={() => HandleSyncTimetable(year as Year)}
+                            onClick={() => HandleSyncTimetable(year)}
                             size={"icon"}
                             variant={"secondary"}
                           >
@@ -206,9 +206,7 @@ const CoursePlanner: React.FC = () => {
                           {year === studentYear
                             ? isMobile && (
                                 <Button
-                                  onClick={() =>
-                                    HandleSyncTimetable(year as Year)
-                                  }
+                                  onClick={() => HandleSyncTimetable(year)}
                                   size={"icon"}
                                   className="me-2 mt-2"
                                   variant={"outline"}
