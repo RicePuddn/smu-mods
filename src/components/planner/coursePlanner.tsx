@@ -1,14 +1,12 @@
 "use client";
 
 import type { DropResult } from "@hello-pangea/dnd";
-import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import {
-  CalendarArrowUp,
-  ChevronDown,
-  ChevronUp
-} from "lucide-react";
 import React from "react";
+import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
+import { CalendarArrowUp, ChevronDown, ChevronUp } from "lucide-react";
 
+import type { Term, Year } from "@/types/planner";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import { APP_CONFIG, PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -16,19 +14,17 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import type { Term, Year } from "@/types/planner";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
-import type { Module, ModuleCode } from "@/types/primitives/module";
+import { getUserYear } from "@/utils/getUserYear";
 
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
-
-import { getUserYear } from "@/utils/getUserYear";
 import ModuleCard from "./moduleCard";
+
 import "./scrollBar.css";
 
 const DELIMITER = "/$/";
@@ -48,8 +44,10 @@ const CoursePlanner: React.FC = () => {
   const { AddModuleToTimetable: addModuleTimetable } = useTimetableStore(
     (state) => state,
   );
-  const { timetableTheme, matriculationYear } = useConfigStore((state) => state);
-  const studentYear= getUserYear(matriculationYear,APP_CONFIG.academicYear);
+  const { timetableTheme, matriculationYear } = useConfigStore(
+    (state) => state,
+  );
+  const studentYear = getUserYear(matriculationYear, APP_CONFIG.academicYear);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
 
   const onDragEnd = (result: DropResult) => {
@@ -205,16 +203,20 @@ const CoursePlanner: React.FC = () => {
                               : "Hide Special Terms"}
                           </Button>
 
-                          {year === studentYear ? isMobile && (
-                            <Button
-                              onClick={() => HandleSyncTimetable(year as Year)}
-                              size={"icon"}
-                              className="me-2 mt-2"
-                              variant={"outline"}
-                            >
-                              <CalendarArrowUp className="size-4" />
-                            </Button>
-                          ):""}
+                          {year === studentYear
+                            ? isMobile && (
+                                <Button
+                                  onClick={() =>
+                                    HandleSyncTimetable(year as Year)
+                                  }
+                                  size={"icon"}
+                                  className="me-2 mt-2"
+                                  variant={"outline"}
+                                >
+                                  <CalendarArrowUp className="size-4" />
+                                </Button>
+                              )
+                            : ""}
                         </div>
                       )}
                       {Object.entries(terms).map(([term, termModules]) => (
@@ -313,7 +315,17 @@ const CoursePlanner: React.FC = () => {
                                       index={index}
                                     >
                                       {(provided, snapshot) => (
-                                        <ModuleCard moduleCode={moduleCode} year={year as Year} term={term as Term} provided={provided} snapshot={snapshot} conflictList={conflictList} removeModule={handleRemoveModuleFromPlanner}/>
+                                        <ModuleCard
+                                          moduleCode={moduleCode}
+                                          year={year as Year}
+                                          term={term as Term}
+                                          provided={provided}
+                                          snapshot={snapshot}
+                                          conflictList={conflictList}
+                                          removeModule={
+                                            handleRemoveModuleFromPlanner
+                                          }
+                                        />
                                       )}
                                     </Draggable>
                                   );
@@ -397,7 +409,14 @@ const CoursePlanner: React.FC = () => {
                                 index={index}
                               >
                                 {(provided, snapshot) => (
-                                  <ModuleCard moduleCode={moduleCode} year={MODSTOTAKE_YEAR as Year} term={MODSTOTAKE_TERM as Term} provided={provided} snapshot={snapshot} removeModule={handleRemoveModuleFromPlanner}/>
+                                  <ModuleCard
+                                    moduleCode={moduleCode}
+                                    year={MODSTOTAKE_YEAR as Year}
+                                    term={MODSTOTAKE_TERM as Term}
+                                    provided={provided}
+                                    snapshot={snapshot}
+                                    removeModule={handleRemoveModuleFromPlanner}
+                                  />
                                 )}
                               </Draggable>
                             ),
