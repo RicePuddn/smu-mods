@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+import type { Module } from "@/types/primitives/module";
 import { searchModule } from "@/server/data/modules";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import type { Module } from "@/types/primitives/module";
 
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -57,7 +57,7 @@ export function SearchModule({
         {!showResults ? (
           <></>
         ) : (
-          inputValue == "" &&
+          inputValue != "" &&
           focused && (
             <ul className="md absolute left-0 right-0 z-10 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg">
               {searchResults.length == 0 ? (
