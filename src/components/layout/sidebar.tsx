@@ -5,7 +5,6 @@ import {
   Calendar,
   HandHeartIcon,
   HomeIcon,
-  ImagePlay,
   LifeBuoy,
   NotebookPen,
   Settings,
@@ -17,9 +16,10 @@ import {
   SidebarItem,
   SidebarLabel,
 } from "@/components/ui/sidebar";
-
 import { APP_CONFIG } from "@/config";
-import { type Links, type MainLink, NavMain } from "./nav-main";
+
+import type { Links, MainLink } from "./nav-main";
+import { NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
 
 export type SidebarProps = {
@@ -72,12 +72,6 @@ const data: SidebarData = {
       isCollapsible: false,
     },
     {
-      title: "Stress Relief",
-      url: "/window",
-      icon: ImagePlay,
-      isCollapsible: false,
-    },
-    {
       title: "Settings",
       url: "/settings",
       icon: Settings,
@@ -99,7 +93,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarItem>
-          <SidebarLabel>Platform</SidebarLabel>
+          <SidebarLabel>SMUMODS</SidebarLabel>
           <NavMain items={data.navMain} />
         </SidebarItem>
         <SidebarItem className="mt-auto">

@@ -20,6 +20,7 @@ export function SearchModule({
 }: SearchModuleProps) {
   const { modules } = useModuleBankStore((state) => state);
   const [inputValue, setInputValue] = useState<string>("");
+  const [focused, setFocused] = useState<boolean>(false);
 
   const [searchResults, setSearchResults] = useState<Module[]>([]);
 
@@ -40,6 +41,14 @@ export function SearchModule({
             value={inputValue}
             id="searchModule"
             onChange={(e) => setInputValue(e.target.value)}
+            onFocus={() => {
+              setFocused(true);
+            }}
+            onBlur={() => {
+              setTimeout(() => {
+                setFocused(false);
+              }, 50);
+            }}
           />
         </div>
         {!showResults ? (
@@ -47,24 +56,26 @@ export function SearchModule({
         ) : inputValue == "" ? (
           <Label>Please type in search input.</Label>
         ) : (
-          <ul className="md absolute left-0 right-0 z-10 mt-2 max-h-40 overflow-auto rounded border border-gray-300 bg-white text-sm shadow-lg">
-            {searchResults.length == 0 ? (
-              <Label>No modules found.</Label>
-            ) : (
-              searchResults.map((mod, index) => (
-                <li
-                  key={index}
-                  className="cursor-pointer p-2 hover:bg-gray-100"
-                  onClick={() => {
-                    setInputValue("");
-                    handleModSelect(mod);
-                  }}
-                >
-                  {mod.moduleCode} - {mod.name}
-                </li>
-              ))
-            )}
-          </ul>
+          focused && (
+            <ul className="md absolute left-0 right-0 z-10 mt-2 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg">
+              {searchResults.length == 0 ? (
+                <li className="p-2">No results found.</li>
+              ) : (
+                searchResults.map((mod, index) => (
+                  <li
+                    key={index}
+                    className="cursor-pointer p-2 hover:bg-accent"
+                    onClick={() => {
+                      setInputValue("");
+                      handleModSelect(mod);
+                    }}
+                  >
+                    {mod.moduleCode} - {mod.name}
+                  </li>
+                ))
+              )}
+            </ul>
+          )
         )}
       </div>
     </div>
