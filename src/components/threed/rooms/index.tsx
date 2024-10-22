@@ -33,7 +33,7 @@ export const Rooms: Record<RoomKey, Room> = {
   },
   ernest: {
     room: <Ernest_room />,
-    name: "Ernest's Epic Escape",
+    name: "Ernest's Hut",
     description: "Chill zone for inspired minds.",
   },
   isaiah: {
