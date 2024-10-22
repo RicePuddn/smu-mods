@@ -431,7 +431,7 @@ export default function TimeTablePage({
                               return (
                                 <div
                                   key={classIndex}
-                                  className={`absolute rounded p-2 shadow-md transition-all duration-1000 ${
+                                  className={`absolute cursor-pointer rounded p-2 shadow-md transition-all duration-1000 ${
                                     selectedClass?.section ===
                                       fullClass.section &&
                                     selectedClass?.moduleCode ===
@@ -462,7 +462,8 @@ export default function TimeTablePage({
                                             selectedClass?.moduleCode
                                           ? 0.6
                                           : 1,
-                                    transition: "transform 0.2s",
+                                    transition:
+                                      "background-color 0.2s, transform 0.2s",
                                   }}
                                   onClick={() => {
                                     if (selectedClass) {
@@ -493,6 +494,18 @@ export default function TimeTablePage({
                                       );
                                       setSelectedSection(fullClass);
                                     }
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor =
+                                      TIMETABLE_THEMES[timetableTheme][
+                                        fullClass.colorIndex
+                                      ]!.hoverBackgroundColor;
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor =
+                                      TIMETABLE_THEMES[timetableTheme][
+                                        fullClass.colorIndex
+                                      ]!.backgroundColor;
                                   }}
                                 >
                                   <span className="text-sm font-semibold">
