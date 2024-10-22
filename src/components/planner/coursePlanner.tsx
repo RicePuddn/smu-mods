@@ -1,18 +1,14 @@
 "use client";
 
 import type { DropResult } from "@hello-pangea/dnd";
-import React from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import {
   CalendarArrowUp,
   ChevronDown,
-  ChevronUp,
-  CircleAlert,
-  X,
+  ChevronUp
 } from "lucide-react";
+import React from "react";
 
-import type { Term, Year } from "@/types/planner";
-import type { Module, ModuleCode } from "@/types/primitives/module";
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -20,17 +16,18 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
+import type { Term, Year } from "@/types/planner";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 
-import ModuleDetails from "../ModuleDetails";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
-import { InteractiveTooltip } from "./customTooltip";
 
+import ModuleCard from "./moduleCard";
 import "./scrollBar.css";
 
 const DELIMITER = "/$/";
@@ -314,70 +311,7 @@ const CoursePlanner: React.FC = () => {
                                       index={index}
                                     >
                                       {(provided, snapshot) => (
-                                        <div
-                                          ref={provided.innerRef}
-                                          {...provided.draggableProps}
-                                          {...provided.dragHandleProps}
-                                          className={cn(
-                                            "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
-                                            snapshot.isDragging
-                                              ? "h-fit w-fit bg-accent shadow-lg"
-                                              : "border bg-background hover:border-foreground",
-                                          )}
-                                        >
-                                          {conflictList &&
-                                            conflictList.length > 0 && (
-                                              <InteractiveTooltip
-                                                content={
-                                                  <div>
-                                                    {conflictList.map(
-                                                      (conflictMsg, idx) => {
-                                                        return (
-                                                          <li key={idx}>
-                                                            {conflictMsg}
-                                                          </li>
-                                                        );
-                                                      },
-                                                    )}
-                                                    <p>
-                                                      Click on Module for more
-                                                      information
-                                                    </p>
-                                                  </div>
-                                                }
-                                              >
-                                                <CircleAlert
-                                                  color="orange"
-                                                  size={18}
-                                                />
-                                              </InteractiveTooltip>
-                                            )}
-
-                                          <ModuleDetails
-                                            moduleCode={
-                                              moduleCode as ModuleCode
-                                            }
-                                          >
-                                            <div className="flex-grow">
-                                              {moduleCode}
-                                            </div>
-                                          </ModuleDetails>
-
-                                          <Button
-                                            onClick={() =>
-                                              handleRemoveModuleFromPlanner(
-                                                moduleCode as ModuleCode,
-                                                year as Year,
-                                                term as Term,
-                                              )
-                                            }
-                                            variant={"destructive"}
-                                            size={"icon"}
-                                            className="size-6 rounded-full"
-                                          >
-                                            <X className="size-5" />
-                                          </Button>
-                                        </div>
+                                        <ModuleCard moduleCode={moduleCode} year={year as Year} term={term as Term} provided={provided} snapshot={snapshot} conflictList={conflictList} removeModule={handleRemoveModuleFromPlanner}/>
                                       )}
                                     </Draggable>
                                   );
@@ -461,35 +395,7 @@ const CoursePlanner: React.FC = () => {
                                 index={index}
                               >
                                 {(provided, snapshot) => (
-                                  <div
-                                    ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    {...provided.dragHandleProps}
-                                    className={cn(
-                                      "flex items-center justify-between gap-2 rounded p-2 transition-all duration-200",
-                                      snapshot.isDragging
-                                        ? "h-fit w-fit bg-accent shadow-lg"
-                                        : "border bg-background hover:border-foreground",
-                                    )}
-                                  >
-                                    <div className="flex-grow">
-                                      {moduleCode}
-                                    </div>
-                                    <Button
-                                      onClick={() =>
-                                        handleRemoveModuleFromPlanner(
-                                          moduleCode as ModuleCode,
-                                          MODSTOTAKE_YEAR as Year,
-                                          MODSTOTAKE_TERM as Term,
-                                        )
-                                      }
-                                      variant={"destructive"}
-                                      size={"icon"}
-                                      className="size-6 rounded-full"
-                                    >
-                                      <X className="size-5" />
-                                    </Button>
-                                  </div>
+                                  <ModuleCard moduleCode={moduleCode} year={MODSTOTAKE_YEAR as Year} term={MODSTOTAKE_TERM as Term} provided={provided} snapshot={snapshot} removeModule={handleRemoveModuleFromPlanner}/>
                                 )}
                               </Draggable>
                             ),
