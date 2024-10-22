@@ -23,6 +23,7 @@ export default function Error({
 
   function handleReset() {
     localStorage.clear();
+    window.location.reload();
   }
 
   return (
