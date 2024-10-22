@@ -453,19 +453,22 @@ export default function TimeTablePage({
             })}
         </div>
       </div>
-      <SearchModule
-        handleModSelect={(mod) => {
-          if (mod.terms.includes(termMap[params.termId as TermSlug])) {
-            AddModuleToTimetable(
-              mod,
-              termMap[params.termId as TermSlug],
-              timetableTheme,
-            );
-          } else {
-            toast.error("This module is not offered during this term.");
-          }
-        }}
-      />
+      <div className="my-5">
+        <SearchModule
+          handleModSelect={(mod) => {
+            // console.log("Selected Module:", mod); // Debugging
+            if (mod.terms.includes(termMap[params.termId as TermSlug])) {
+              AddModuleToTimetable(
+                mod,
+                termMap[params.termId as TermSlug],
+                timetableTheme,
+              );
+            } else {
+              toast.error("This module is not offered during this term.");
+            }
+          }}
+        />
+      </div>
       {timetable.modules.length > 0 && (
         <div className="j flex w-full flex-wrap gap-2">
           {timetable.modules.map((mod, index) => (
