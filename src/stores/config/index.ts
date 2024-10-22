@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { RoomKey } from "@/components/threed/rooms";
+import { RoomKey, roomKeys } from "@/components/threed/rooms";
 import { AcademicYear, APP_CONFIG } from "@/config";
 import { TimetableThemeName } from "@/utils/timetable/colours";
 
@@ -31,13 +31,14 @@ export const createConfigBank = (
   defaultLastRecord: ISyncRecord | null = null,
   defaultTimetableTheme: TimetableThemeName = "default",
   defaultAcademicYear: AcademicYear = academicYear,
+  defaultRoomTheme: RoomKey = roomKeys[0],
 ) => {
   return create<ConfigStore>()(
     persist(
       (set) => ({
         iSyncLatestRecord: defaultLastRecord,
         timetableTheme: defaultTimetableTheme,
-        roomTheme: "default",
+        roomTheme: defaultRoomTheme,
         matriculationYear: defaultAcademicYear,
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
