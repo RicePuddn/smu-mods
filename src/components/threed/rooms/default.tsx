@@ -4,9 +4,9 @@ Command: npx gltfjsx@6.5.2 Room.glb -T -S -t
 Files: Room.glb [1.41MB] > C:\Users\ernes\Desktop\School\WAD2\study-room\source\Room-transformed.glb [85.12KB] (94%)
 */
 
+import { useGLTF } from "@react-three/drei";
 import type * as THREE from "three";
 import type { GLTF } from "three-stdlib";
-import { useGLTF } from "@react-three/drei";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -37,11 +37,7 @@ type GLTFResult = GLTF & {
   animations: THREE.AnimationClip[];
 };
 
-<<<<<<<< HEAD:src/components/threed/Johnny_room.tsx
-export function Johnny_room(props: JSX.IntrinsicElements["group"]) {
-========
 export function DefaultRoom(props: JSX.IntrinsicElements["group"]) {
->>>>>>>> main:src/components/threed/rooms/default.tsx
   const { nodes, materials } = useGLTF(
     "/room/Room-transformed.glb",
   ) as GLTFResult;

@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Calendar, Monitor, Moon, RefreshCw, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-import type { RoomKey } from "@/components/threed/rooms";
-import type { AcademicYear } from "@/config";
-import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { GenerateQRCode } from "@/components/iSync/QRCode";
+import type { RoomKey } from "@/components/threed/rooms";
 import { Rooms } from "@/components/threed/rooms";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,10 +15,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import type { AcademicYear } from "@/config";
 import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
 export default function SettingsPage() {
@@ -84,23 +84,36 @@ export default function SettingsPage() {
           </ToggleGroupItem>
         </ToggleGroup>
       </section>
-      <section className="space-y-3 rounded-lg border p-4 shadow">
+      <section className="max-w-full space-y-3 overflow-hidden rounded-lg border p-4 shadow">
         <h2 className="text-lg font-semibold">Rooms</h2>
         <ToggleGroup
           type="single"
-          className="w-fit"
+          className="flex w-full flex-col gap-2"
           onValueChange={(value) => {
             changeRoomTheme(value as RoomKey);
           }}
           value={roomTheme}
         >
           {Object.keys(Rooms).map((roomkey, index) => (
-            <ToggleGroupItem value={roomkey} variant={"primary"} key={index}>
-              {Rooms[roomkey as RoomKey].name}
+            <ToggleGroupItem
+              value={roomkey}
+              variant={"primary"}
+              key={index}
+              className="h-fit w-full p-4 text-left"
+            >
+              <div className="space-y-1">
+                <div className="text-center text-sm font-semibold md:text-base">
+                  {Rooms[roomkey as RoomKey].name}
+                </div>
+                <div className="text-center text-xs opacity-60">
+                  {Rooms[roomkey as RoomKey].description}
+                </div>
+              </div>
             </ToggleGroupItem>
           ))}
         </ToggleGroup>
       </section>
+
       <section className="space-y-3 rounded-lg border p-4 shadow">
         <h2 className="text-lg font-semibold">Theme</h2>
         <div className="flex flex-wrap gap-2">
