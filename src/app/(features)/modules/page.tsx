@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown, Star, StarOff } from "lucide-react";
 
 // import ui components
 import ModuleDetails from "@/components/ModuleDetails";
@@ -14,8 +15,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ChevronDown, Star, StarOff } from "lucide-react";
-
 // Importing module data and basket categories
 import { PADDING } from "@/config";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";

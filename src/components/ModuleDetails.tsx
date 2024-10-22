@@ -1,6 +1,9 @@
-import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import type { ReactNode } from "react";
+import { useEffect, useState } from "react";
+
 import type { Module, ModuleCode } from "@/types/primitives/module";
-import { type ReactNode, useEffect, useState } from "react";
+import { useModuleBankStore } from "@/stores/moduleBank/provider";
+
 import { ModuleTreeComponent } from "./ModuleTree";
 import {
   Dialog,

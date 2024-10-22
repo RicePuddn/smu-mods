@@ -1,21 +1,20 @@
 "use client";
 
+import { Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
+
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
 import { useConfigStore } from "@/stores/config/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import { termMap, termSlug, type TermSlug } from "@/types/planner";
-import {
-  timeSlots,
-  type Day,
-  type ModifiableClass,
-} from "@/types/primitives/timetable";
+import type { TermSlug } from "@/types/planner";
+import { termMap, termSlug } from "@/types/planner";
+import type { Day, ModifiableClass } from "@/types/primitives/timetable";
+import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
-import { Trash2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { toast } from "sonner";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -41,8 +40,9 @@ export default function TimeTablePage({
     showAllSections,
     selectSection,
   } = useTimetableStore((state) => state);
-
-  const { timetableTheme } = useConfigStore((state) => state);
+  const { timetableTheme, changeTimetableTheme } = useConfigStore(
+    (state) => state,
+  );
 
   const [selectedClass, setSelectedSection] = useState<FullClass>();
 
@@ -266,6 +266,8 @@ export default function TimeTablePage({
     }
   };
 
+  // console.log(TIMETABLE_COLORS);
+
   return (
     <div
       style={{
@@ -291,7 +293,7 @@ export default function TimeTablePage({
       </div>
 
       <div className="max-w-full overflow-x-scroll">
-        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border">
+        <div className="mt-10 w-full min-w-[1200px] overflow-hidden rounded-lg border border-gray-300">
           {/* Time Labels */}
           <div className="flex">
             <div className="w-[5%] flex-shrink-0"></div>
@@ -299,14 +301,14 @@ export default function TimeTablePage({
               <div
                 key={index}
                 className={`flex-1 items-center py-1 text-center ${
-                  index % 2 === 0 ? "bg-border" : "bg-accent/50"
+                  index % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
                 }`}
                 style={{
                   width: `${100 / 14}%`,
                   borderLeft: index === 0 ? "none" : "1px solid #e0e0e0",
                 }}
               >
-                <span className="text-sm">{time}</span>
+                <span className="text-sm text-gray-800">{time}</span>
               </div>
             ))}
           </div>
@@ -320,13 +322,13 @@ export default function TimeTablePage({
                 15,
               );
               return (
-                <div className="flex border-t" key={dayIndex}>
-                  <div className="flex w-[5%] items-center justify-center bg-background text-center font-medium">
+                <div className="flex border-t border-gray-300" key={dayIndex}>
+                  <div className="flex w-[5%] items-center justify-center text-center font-medium text-gray-800">
                     {day.slice(0, 3)}
                   </div>
                   <div
                     className={`flex-grow space-y-1 py-1 ${
-                      dayIndex % 2 === 0 ? "bg-border" : "bg-accent/50"
+                      dayIndex % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
                     }`}
                   >
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
@@ -347,7 +349,7 @@ export default function TimeTablePage({
                               return (
                                 <div
                                   key={classIndex}
-                                  className="absolute rounded p-2 shadow-md"
+                                  className="absolute rounded bg-blue-300 p-2 text-white shadow-md"
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
@@ -434,7 +436,7 @@ export default function TimeTablePage({
         <div className="j flex w-full flex-wrap gap-2">
           {timetable.modules.map((mod, index) => (
             <div
-              className="flex w-[32%] justify-center rounded bg-background p-4 shadow-sm"
+              className="flex w-[32%] justify-center rounded bg-white p-4 shadow-sm shadow-gray-300"
               key={index}
             >
               <div className="flex w-1/12 items-start justify-end">
@@ -484,6 +486,7 @@ export default function TimeTablePage({
           ))}
         </div>
       )}
+      {/* <div>{TIMETABLE_COLORS.map()}</div> */}
     </div>
   );
 }

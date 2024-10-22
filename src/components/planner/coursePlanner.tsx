@@ -1,5 +1,18 @@
 "use client";
 
+import type { DropResult } from "@hello-pangea/dnd";
+import React, { useState } from "react";
+import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
+import {
+  ChevronDown,
+  ChevronUp,
+  CircleAlert,
+  RefreshCw,
+  X,
+} from "lucide-react";
+
+import type { Term, Year } from "@/types/planner";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -11,27 +24,12 @@ import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
-  type Term,
-  type Year,
 } from "@/types/planner";
-import type { Module, ModuleCode } from "@/types/primitives/module";
-import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-  type DropResult,
-} from "@hello-pangea/dnd";
-import {
-  ChevronDown,
-  ChevronUp,
-  CircleAlert,
-  RefreshCw,
-  X,
-} from "lucide-react";
-import React, { useState } from "react";
+
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
 import { InteractiveTooltip } from "./customTooltip";
+
 import "./scrollBar.css";
 
 const DELIMITER = "/$/";
