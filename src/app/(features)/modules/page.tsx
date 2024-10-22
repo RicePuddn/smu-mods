@@ -127,8 +127,8 @@ export default function CourseCatalogue() {
         {/* Filter by Categories */}
         <div className="space-y-2">
           <h2 className="font-semibold">Basket</h2>
-          {categories.map((category) => (
-            <div key={category} className="flex items-center space-x-2">
+          {categories.map((category, index) => (
+            <div key={index} className="flex items-center space-x-2">
               <Checkbox
                 id={`category-${category}`}
                 checked={selectedCategories.includes(category)}
