@@ -9,7 +9,7 @@ import {
   CircleAlert,
   X
 } from "lucide-react";
-import React, { useState } from "react";
+import React from "react";
 
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -36,7 +36,6 @@ import "./scrollBar.css";
 const DELIMITER = "/$/";
 
 const CoursePlanner: React.FC = () => {
-  const [suggestionResults, setSuggestionResults] = useState<Module[]>([]);
 
   const isMobile = useIsMobile();
   const {
@@ -177,14 +176,16 @@ const CoursePlanner: React.FC = () => {
                     </h2>
                     {year !== EXEMPTION_YEAR ? !isMobile && (
                       <Button
-                        onClick={() => HandleSyncTimetable(year as Year)}
+                        onClick={() => {
+                          HandleSyncTimetable(year as Year);
+                        }}
                         size={"icon"}
                         variant={"secondary"}
                       >
                         <CalendarArrowUp className="size-4" />
                       </Button>
                     ):""}
-        
+
                     {isMobile &&
                       (!isMobile || isOpen.has(year) ? (
                         <ChevronUp className="text-white" />
@@ -198,7 +199,7 @@ const CoursePlanner: React.FC = () => {
                         <div className="flex-cols flex">
                           <Button
                             onClick={() => handleHideSpecial(year as Year)}
-                            className="mx-2 mt-2 w-full bg-muted-foreground"
+                            className="mx-2 mt-2 w-full"
                             variant={"outline"}
                           >
                             {isHidden
@@ -210,7 +211,7 @@ const CoursePlanner: React.FC = () => {
                             <Button
                               onClick={() => HandleSyncTimetable(year as Year)}
                               size={"icon"}
-                              className="me-2 mt-2 bg-muted-foreground"
+                              className="me-2 mt-2"
                               variant={"outline"}
                             >
                               <CalendarArrowUp className="size-4" />
@@ -258,6 +259,7 @@ const CoursePlanner: React.FC = () => {
                                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                     Object.entries(conflicts).map(
                                       ([_, conflict]) => {
+                                        "checkpoint"
                                         if (
                                           conflict.type === "prereq" &&
                                           (conflict.statusNode?.children
@@ -313,7 +315,6 @@ const CoursePlanner: React.FC = () => {
                                       index={index}
                                     >
                                       {(provided, snapshot) => ( 
-                                        <ModuleDetails moduleCode={moduleCode as ModuleCode}>
                                         <div
                                           ref={provided.innerRef}
                                           {...provided.draggableProps}
@@ -339,6 +340,7 @@ const CoursePlanner: React.FC = () => {
                                                         );
                                                       },
                                                     )}
+                                                    <p>Click on Module for more information</p>
                                                   </div>
                                                 }
                                               >
@@ -348,9 +350,13 @@ const CoursePlanner: React.FC = () => {
                                                 />
                                               </InteractiveTooltip>
                                             )}
-                                          <div className="flex-grow">
-                                            {moduleCode}
-                                          </div>
+                                            
+                                          <ModuleDetails moduleCode={moduleCode as ModuleCode}>
+                                            <div className="flex-grow">
+                                              {moduleCode}
+                                            </div>
+                                          </ModuleDetails>
+                                          
                                           <Button
                                             onClick={() =>
                                               handleRemoveModuleFromPlanner(
@@ -368,9 +374,9 @@ const CoursePlanner: React.FC = () => {
                                           >
                                             <X className="size-5" />
                                           </Button>
+                                        
                                         </div>
                                         
-                                        </ModuleDetails>
                                       )}
                                     </Draggable>
                                   );
@@ -507,10 +513,6 @@ const CoursePlanner: React.FC = () => {
           <div className="w-full">
             <SearchModule
               handleModSelect={HandleAddMod}
-              callback={(modules) => {
-                //u can do whatever u want with the modules here
-                setSuggestionResults(modules);
-              }}
             />
           </div>
         </div>

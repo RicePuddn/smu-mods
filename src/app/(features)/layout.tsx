@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import { Toaster } from "@/components/ui/sonner";
+import { ToastProvider } from "@/components/ToastProvider";
 
 export default function FeatureLayout({
   children,
@@ -8,7 +8,7 @@ export default function FeatureLayout({
 }) {
   return (
     <Layout>
-      <Toaster richColors theme="light" closeButton position="top-right" />
+      <ToastProvider />
       {children}
     </Layout>
   );

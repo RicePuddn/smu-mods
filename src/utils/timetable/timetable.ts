@@ -4,6 +4,7 @@ import type { Module, ModuleCode, Section } from "@/types/primitives/module";
 import type { ModifiableClass, Timetable } from "@/types/primitives/timetable";
 import { Day, days } from "@/types/primitives/timetable";
 
+import { Term } from "@/types/planner";
 import type { TimetableThemeName } from "./colours";
 import { TIMETABLE_THEMES } from "./colours";
 
@@ -56,6 +57,7 @@ export function addModuleToTimetable(
   module: Module,
   timetable: Timetable,
   theme: TimetableThemeName,
+  term: Term,
 ): Timetable {
   const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
   const section = module.sections[0];
@@ -67,7 +69,11 @@ export function addModuleToTimetable(
     (m) => m.moduleCode === module.moduleCode,
   );
   if (findModule !== -1) {
-    toast.error("Module already added to timetable");
+    toast.error(`${module.moduleCode} already added to timetable`);
+    return updatedTimetable;
+  }
+  if (!module.terms.includes(term)) {
+    toast.warning(`${module.moduleCode} not offered in ${term}`);
     return updatedTimetable;
   }
   const colorIndex = findFreeColorIndex(timetable, theme);
@@ -91,6 +97,7 @@ export function addModuleToTimetable(
     ...module,
     colorIndex,
   });
+  toast.success(`${module.moduleCode} added to timetable`);
   return updatedTimetable;
 }
 
