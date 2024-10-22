@@ -8,6 +8,7 @@ import {
 import { TimetableThemeName } from "@/utils/timetable/colours";
 import {
   addModuleToTimetable,
+  changeColorOfModule,
   selectSection,
   showAllSections,
 } from "@/utils/timetable/timetable";
@@ -34,6 +35,11 @@ export type TimetableActions = {
     currentSectionCode?: Section["code"],
   ) => void;
   iSync: (data: TimetableMap) => void;
+  changeColorOfModule: (
+    term: Term,
+    moduleCode: ModuleCode,
+    colorIndex: number,
+  ) => void;
 };
 
 export type TimetableStore = {
@@ -47,6 +53,18 @@ export const createTimetableStore = (
     persist(
       (set, get) => ({
         timetableMap: initTimetableMap,
+        changeColorOfModule: (term, moduleCode, colorIndex) => {
+          const timetable = get().timetableMap[term];
+          const newTimeTable = changeColorOfModule(
+            moduleCode,
+            timetable,
+            colorIndex,
+          );
+          set((state) => ({
+            ...state,
+            timetableMap: { ...state.timetableMap, [term]: newTimeTable },
+          }));
+        },
         AddModuleToTimetable: async (
           module: Module,
           term: Term,
