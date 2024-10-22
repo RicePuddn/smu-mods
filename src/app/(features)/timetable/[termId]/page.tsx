@@ -1,14 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { format } from "date-fns";
 import { EyeOff, RefreshCw, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-import type { Term, TermSlug, Year } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
-import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +19,10 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
+import type { Term, TermSlug, Year } from "@/types/planner";
 import { termMap, termSlug } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
+import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { days, timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
@@ -63,6 +63,48 @@ export default function TimeTablePage({
   const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
   const currentTermNum = termSlug[currentTermIdx]?.split("-")[1];
   const timetable = timetableMap[termMap[params.termId as TermSlug]];
+
+  const [currentTimePosition, setCurrentTimePosition] = useState<number | null>(
+    null,
+  );
+
+  const calculateCurrentTimePosition = () => {
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+
+    // Return null if the current hour is not within the timetable time frame
+
+    if (hours < 8 || hours >= 22) {
+      return null;
+    }
+
+    const totalMinutes = (hours - 8) * 60 + minutes;
+    const position = (totalMinutes / (60 * 14)) * 100;
+    return position;
+  };
+
+  useEffect(() => {
+    const updateCurrentTime = () => {
+      setCurrentTimePosition(calculateCurrentTimePosition);
+    };
+    updateCurrentTime();
+    const interval = setInterval(updateCurrentTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // port over to utils
+  const getCurrentDay = () => {
+    let currentDayIdx = new Date().getDay();
+
+    // Return null when it's sunday
+    if (currentDayIdx == 0) {
+      return null;
+    } else {
+      currentDayIdx -= 1;
+    }
+    return days[currentDayIdx];
+  };
 
   function calculateSlotLeftPadding(rows: Row, totalSlots: number): FullRow {
     const fullRows: FullRow = {};
@@ -271,47 +313,7 @@ export default function TimeTablePage({
     }
   };
 
-  const [currentTimePosition, setCurrentTimePosition] = useState<number | null>(
-    null,
-  );
-
-  const calculateCurrentTimePosition = () => {
-    const currentDate = new Date();
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
-
-    // Return null if the current hour is not within the timetable time frame
-
-    if (hours < 8 || hours >= 22) {
-      return null;
-    }
-
-    const totalMinutes = (hours - 8) * 60 + minutes;
-    const position = (totalMinutes / (60 * 14)) * 100;
-    return position;
-  };
-
-  useEffect(() => {
-    const updateCurrentTime = () => {
-      setCurrentTimePosition(calculateCurrentTimePosition);
-    };
-    updateCurrentTime();
-    const interval = setInterval(updateCurrentTime, 60000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // port over to utils
-  const getCurrentDay = () => {
-    let currentDayIdx = new Date().getDay();
-
-    // Return null when it's sunday
-    if (currentDayIdx == 0) {
-      return null;
-    } else {
-      currentDayIdx -= 1;
-    }
-    return days[currentDayIdx];
-  };
+  
 
   return (
     <div
