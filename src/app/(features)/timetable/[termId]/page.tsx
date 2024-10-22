@@ -1,37 +1,30 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { format } from "date-fns";
 import { EyeOff, RefreshCw, Trash2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
+import type { Term, TermSlug, Year } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
+import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import type { Term, TermSlug, Year } from "@/types/planner";
 import { termMap, termSlug } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
-import type {
-  Day,
-  ModifiableClass
-} from "@/types/primitives/timetable";
-import { timeSlots } from "@/types/primitives/timetable";
-import {
-  TIMETABLE_THEMES
-} from "@/utils/timetable/colours";
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { days } from "@/types/primitives/timetable";
+import { days, timeSlots } from "@/types/primitives/timetable";
+import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -278,7 +271,9 @@ export default function TimeTablePage({
     }
   };
 
-  const [currentTimePosition, setCurrentTimePosition] = useState<number | null>(null);
+  const [currentTimePosition, setCurrentTimePosition] = useState<number | null>(
+    null,
+  );
 
   const calculateCurrentTimePosition = () => {
     const currentDate = new Date();
@@ -288,21 +283,21 @@ export default function TimeTablePage({
     // Return null if the current hour is not within the timetable time frame
 
     if (hours < 8 || hours >= 22) {
-      return null; 
+      return null;
     }
 
     const totalMinutes = (hours - 8) * 60 + minutes;
-    const position = (totalMinutes / (60*14)) * 100
+    const position = (totalMinutes / (60 * 14)) * 100;
     return position;
-  }
+  };
 
   useEffect(() => {
-    const updateCurrentTime = () => {setCurrentTimePosition(calculateCurrentTimePosition)};
+    const updateCurrentTime = () => {
+      setCurrentTimePosition(calculateCurrentTimePosition);
+    };
     updateCurrentTime();
     const interval = setInterval(updateCurrentTime, 60000);
     return () => clearInterval(interval);
-
-
   }, []);
 
   // port over to utils
@@ -311,12 +306,12 @@ export default function TimeTablePage({
 
     // Return null when it's sunday
     if (currentDayIdx == 0) {
-      return null; 
+      return null;
     } else {
-      currentDayIdx -= 1
+      currentDayIdx -= 1;
     }
     return days[currentDayIdx];
-  }
+  };
 
   return (
     <div
@@ -388,37 +383,36 @@ export default function TimeTablePage({
                     className={`flex-grow space-y-1 py-1 ${
                       dayIndex % 2 === 0 ? "bg-border" : "bg-accent/50"
                     }`}
-                    style={{position: 'relative'}}
+                    style={{ position: "relative" }}
                   >
                     {/* Show current date and time marker */}
                     {getCurrentDay() == day && currentTimePosition != null && (
                       <>
-                      {/* Red Line */}
-                      <div
-                        className="absolute bg-red-500"
-                        style={{
-                          left: `${currentTimePosition}%`,
-                          height: "95%", 
-                          width: "2px", 
-                          zIndex: 10, 
-                        }}
-                      />
+                        {/* Red Line */}
+                        <div
+                          className="absolute bg-red-500"
+                          style={{
+                            left: `${currentTimePosition}%`,
+                            height: "95%",
+                            width: "2px",
+                            zIndex: 10,
+                          }}
+                        />
 
-                      {/* Circle Marker */}
-                      <div
-                        className="absolute bg-red-500 rounded-full"
-                        style={{
-                          left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
-                          top: "-2px", // Slightly above the line
-                          width: "10px", 
-                          height: "10px", 
-                          zIndex: 10, 
-                        }}
-                      />
-                    </>
-                    
+                        {/* Circle Marker */}
+                        <div
+                          className="absolute rounded-full bg-red-500"
+                          style={{
+                            left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
+                            top: "-2px", // Slightly above the line
+                            width: "10px",
+                            height: "10px",
+                            zIndex: 10,
+                          }}
+                        />
+                      </>
                     )}
-                    
+
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                       const rowIndex = parseInt(rowIndexStr, 10);
                       const minHeight = 60;
@@ -545,28 +539,36 @@ export default function TimeTablePage({
               key={index}
             >
               <div className="flex w-1/12 items-start justify-end">
-              <Popover>
-                <PopoverTrigger asChild>
-                  <div className="mr-2 mt-1 h-5 w-5 rounded"
-                  style={{
-                    backgroundColor:
-                      TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
-                        ?.backgroundColor,
-                  }}></div>
-                </PopoverTrigger>
-                <PopoverContent className="w-fit">
-                  <div className="grid grid-cols-3 justify-center items-center gap-2 w-28">
-                  {TIMETABLE_THEMES[timetableTheme].map((color, index) => (
+                <Popover>
+                  <PopoverTrigger asChild>
                     <div
-                    key={index}
-                    style={{backgroundColor: color.backgroundColor}}
-                    className="size-8 rounded cursor-pointer"
-                    onClick={() =>
-                      {changeColorOfModule(termMap[params.termId as TermSlug], mod.moduleCode, index)}}>
-                    </div>))}
-                  </div>
-                </PopoverContent>
-              </Popover>
+                      className="mr-2 mt-1 h-5 w-5 rounded"
+                      style={{
+                        backgroundColor:
+                          TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
+                            ?.backgroundColor,
+                      }}
+                    ></div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-fit">
+                    <div className="grid w-28 grid-cols-3 items-center justify-center gap-2">
+                      {TIMETABLE_THEMES[timetableTheme].map((color, index) => (
+                        <div
+                          key={index}
+                          style={{ backgroundColor: color.backgroundColor }}
+                          className="size-8 cursor-pointer rounded"
+                          onClick={() => {
+                            changeColorOfModule(
+                              termMap[params.termId as TermSlug],
+                              mod.moduleCode,
+                              index,
+                            );
+                          }}
+                        ></div>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
               <div className="w-9/12">
                 <p className="text-sm font-bold">
