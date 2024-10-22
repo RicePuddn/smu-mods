@@ -1,6 +1,8 @@
 // import Image from "next/image";
 
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { APP_CONFIG } from "@/config";
+import { termMap } from "@/types/planner";
 
 export default function NavHeader() {
   return (
@@ -17,6 +19,9 @@ export default function NavHeader() {
         />
       </div> */}
       <h1 className="text-xl font-semibold">SMU-MODS</h1>
+      <p className="ml-auto mr-2 text-xs">
+        AY{APP_CONFIG.academicYear}, {termMap[APP_CONFIG.currentTerm]}
+      </p>
     </div>
   );
 }
