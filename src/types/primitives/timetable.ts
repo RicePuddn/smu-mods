@@ -63,12 +63,13 @@ type Modifiable = {
   isAvailable?: boolean;
   isActive?: boolean;
   colorIndex: ColorIndex;
+  isVisible: boolean;
 };
 
 export type ModifiableClass = Class & Modifiable;
 
 export type Timetable = Record<Day, ModifiableClass[]> & {
-  modules: (Module & { colorIndex: ColorIndex })[];
+  modules: (Module & { colorIndex: ColorIndex; visible: boolean })[];
 };
 
 export type TimetableMap = Record<Term, Timetable>;
