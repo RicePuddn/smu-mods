@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import { APP_CONFIG } from "@/config";
+import { useConfigStore } from "@/stores/config/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";
@@ -13,7 +14,7 @@ export default function Page({ params }: { params: { token: string } }) {
   const { mutateAsync: deleteToken } = api.iSync.deleteToken.useMutation();
   const { iSync: iSyncTimeTable } = useTimetableStore((state) => state);
   const { iSync: iSyncPlanner } = usePlannerStore((state) => state);
-
+  const { iSync: iSyncConfig } = useConfigStore((state) => state);
   const router = useRouter();
 
   useEffect(() => {
@@ -23,6 +24,11 @@ export default function Page({ params }: { params: { token: string } }) {
       try {
         iSyncTimeTable(data.timetable);
         iSyncPlanner(data.plannerState, data.planner);
+        iSyncConfig(
+          data.timetableTheme,
+          data.roomTheme,
+          data.matriculationYear,
+        );
         await deleteToken({ token: params.token });
       } catch (e) {
         console.error(e);
