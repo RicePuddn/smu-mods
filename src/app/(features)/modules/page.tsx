@@ -127,8 +127,8 @@ export default function CourseCatalogue() {
         {/* Filter by Categories */}
         <div className="space-y-2">
           <h2 className="font-semibold">Basket</h2>
-          {categories.map((category) => (
-            <div key={category} className="flex items-center space-x-2">
+          {categories.map((category, index) => (
+            <div key={index} className="flex items-center space-x-2">
               <Checkbox
                 id={`category-${category}`}
                 checked={selectedCategories.includes(category)}
@@ -160,7 +160,7 @@ export default function CourseCatalogue() {
                 <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-foreground/70">
                       {module.moduleCode} | {module.credit} CU | Exam Date:{" "}
                       {module.exam
                         ? new Date(module.exam.dateTime).toLocaleDateString()

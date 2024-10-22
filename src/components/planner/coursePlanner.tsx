@@ -3,8 +3,10 @@
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
+import { useTimetableStore } from "@/stores/timetable/provider";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
@@ -19,7 +21,13 @@ import {
   Droppable,
   type DropResult,
 } from "@hello-pangea/dnd";
-import { ChevronDown, ChevronUp, CircleAlert, X } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  CircleAlert,
+  RefreshCw,
+  X,
+} from "lucide-react";
 import React, { useState } from "react";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
@@ -77,6 +85,10 @@ const CoursePlanner: React.FC = () => {
   const { modules, addModule: addModuleToBank } = useModuleBankStore(
     (state) => state,
   );
+  const { AddModuleToTimetable: addModuleTimetable } = useTimetableStore(
+    (state) => state,
+  );
+  const { timetableTheme } = useConfigStore((state) => state);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
 
   const onDragEnd = (result: DropResult) => {
@@ -95,6 +107,21 @@ const CoursePlanner: React.FC = () => {
       result.draggableId as ModuleCode,
       modules,
     );
+  };
+
+  const HandleSyncTimetable = (year: Year) => {
+    for (const termNo in planner[year]) {
+      console.log(planner);
+      const moduleCodes = Object.keys(
+        planner[year][termNo as Term],
+      ) as ModuleCode[];
+      moduleCodes.forEach((moduleCode) => {
+        const module = modules[moduleCode];
+        if (!!module) {
+          addModuleTimetable(module, termNo as Term, timetableTheme);
+        }
+      });
+    }
   };
 
   const HandleAddMod = (module: Module) => {
@@ -171,18 +198,26 @@ const CoursePlanner: React.FC = () => {
                 >
                   <div
                     className={cn(
-                      "flex h-14 items-center justify-between bg-blue-500 p-3",
+                      "flex h-14 items-center justify-between bg-primary p-3",
                       isMobile && "cursor-pointer",
                     )}
                     onClick={() => isMobile && toggleYear(year)}
                   >
-                    <h2 className="text-lg font-semibold text-white">
+                    <h2 className="text-lg font-semibold text-primary-foreground">
                       {year === EXEMPTION_YEAR
                         ? "Exemptions"
                         : year === MODSTOTAKE_YEAR
                           ? "Plan to Take"
                           : `Year ${year}`}
                     </h2>
+                    {!isMobile && (
+                      <Button
+                        onClick={() => HandleSyncTimetable(year as Year)}
+                        size={"icon"}
+                      >
+                        <RefreshCw className="size-4" />
+                      </Button>
+                    )}
                     {/* {year !== EXEMPTION_YEAR && !isMobile && (
                 <button
                     className="ml-2 px-3 py-1 bg-white text-blue-500 rounded-md"
@@ -201,16 +236,26 @@ const CoursePlanner: React.FC = () => {
                   {(!isMobile || isOpen.has(year)) && (
                     <>
                       {year !== EXEMPTION_YEAR && (
-                        <Button
-                          size={"sm"}
-                          variant={"default"}
-                          className="mx-2 mt-2"
-                          onClick={() => handleHideSpecial(year as Year)}
-                        >
-                          {isHidden
-                            ? "Show Special Terms"
-                            : "Hide Special Terms"}
-                        </Button>
+                        <div className="flex-cols flex">
+                          <Button
+                            onClick={() => handleHideSpecial(year as Year)}
+                            className="mx-2 mt-2 w-full"
+                            variant={"outline"}
+                          >
+                            {isHidden
+                              ? "Show Special Terms"
+                              : "Hide Special Terms"}
+                          </Button>
+
+                          {isMobile && (
+                            <Button
+                              onClick={() => HandleSyncTimetable(year as Year)}
+                              size={"icon"}
+                            >
+                              <RefreshCw className="size-4" />
+                            </Button>
+                          )}
+                        </div>
                       )}
                       {Object.entries(terms).map(([term, termModules]) => (
                         <Droppable
@@ -399,12 +444,14 @@ const CoursePlanner: React.FC = () => {
           >
             <div
               className={cn(
-                "flex h-14 items-center justify-between bg-blue-500 p-3",
+                "flex h-14 items-center justify-between bg-primary p-3",
                 isMobile && "cursor-pointer",
               )}
               onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
             >
-              <h2 className="text-lg font-semibold text-white">Plan to Take</h2>
+              <h2 className="text-lg font-semibold text-primary-foreground">
+                Plan to Take
+              </h2>
 
               {isMobile &&
                 (!isMobile || isOpen.has(MODSTOTAKE_YEAR) ? (

@@ -37,7 +37,7 @@ type GLTFResult = GLTF & {
   animations: THREE.AnimationClip[];
 };
 
-export function Room(props: JSX.IntrinsicElements["group"]) {
+export function DefaultRoom(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/room/Room-transformed.glb",
   ) as GLTFResult;

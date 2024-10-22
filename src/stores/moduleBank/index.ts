@@ -15,6 +15,7 @@ export type ModuleBankActions = {
   getFavouriteModules: () => ModuleCode[];
   refreshModuleBank: () => Promise<void>;
   refreshBaskets: () => Promise<void>;
+  refreshAll: () => Promise<void>;
 };
 
 export type ModuleBankStore = {

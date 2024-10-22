@@ -118,26 +118,25 @@ export const createPlannerBank = (
         },
         removeModule: (moduleCode, year, term, moduleBank) => {
           console.log(year)
-          set((state) => {
-            const original = state.plannerState;
-            const module = original.modules[moduleCode];
+          const state = get()
+          const original = state.plannerState;
+          const module = original.modules[moduleCode];
 
-            if (!module) return state;
+          if (!module) return state;
 
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const { [moduleCode]: _, ...remainingModules } = original.modules;
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { [moduleCode]: _, ...remainingModules } = original.modules;
 
-            const temp = {
-              plannerState: {
-                ...original,
-                modules: remainingModules,
-              },
-              planner: getPlanner(state.plannerState.modules, moduleBank),
-              isSpecialHidden: state.isSpecialHidden,
-            };
-            delete temp.planner[year][term][moduleCode];
-            return temp;
-          });
+          const temp = {
+            plannerState: {
+              ...original,
+              modules: remainingModules,
+            },
+            planner: getPlanner(state.plannerState.modules, moduleBank),
+            isSpecialHidden: state.isSpecialHidden,
+          };
+          delete temp.planner[year][term][moduleCode];
+          set(temp);
         },
         hideSpecial: (year: Year) => {
           set((state) => {
