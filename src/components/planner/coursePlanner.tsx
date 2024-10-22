@@ -343,7 +343,7 @@ const CoursePlanner: React.FC = () => {
           <div
             key={MODSTOTAKE_YEAR}
             className={cn(
-              "flex flex-col overflow-hidden rounded-lg bg-gray-50 shadow-md",
+              "flex flex-col overflow-hidden rounded-lg shadow-md",
               !isMobile && "mb-6 mr-6 w-full flex-shrink-0",
             )}
           >
