@@ -1,21 +1,20 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Trash2 } from "lucide-react";
+import { toast } from "sonner";
+
+import type { TermSlug } from "@/types/planner";
+import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
 import { useConfigStore } from "@/stores/config/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import { termMap, termSlug, type TermSlug } from "@/types/planner";
-import {
-  timeSlots,
-  type Day,
-  type ModifiableClass,
-} from "@/types/primitives/timetable";
+import { termMap, termSlug } from "@/types/planner";
+import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
-import { Trash2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { toast } from "sonner";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;

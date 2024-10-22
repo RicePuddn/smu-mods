@@ -1,9 +1,11 @@
 "use client";
 
-import { type ReactNode, createContext, useContext, useRef } from "react";
+import type { ReactNode } from "react";
+import { createContext, useContext, useRef } from "react";
 import { useStore } from "zustand";
 
-import { type TimetableStore, createTimetableStore } from "@/stores/timetable";
+import type { TimetableStore } from "@/stores/timetable";
+import { createTimetableStore } from "@/stores/timetable";
 
 export type TimetableStoreApi = ReturnType<typeof createTimetableStore>;
 

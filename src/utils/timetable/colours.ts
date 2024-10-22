@@ -71,10 +71,6 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       textColor: "#4c0519",
     },
   ],
-  name2: [
-
-  ],
-  name3: [
-    
-  ]
+  name2: [],
+  name3: [],
 };

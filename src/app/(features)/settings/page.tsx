@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Monitor, Moon, RefreshCw, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -10,7 +11,6 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { PADDING } from "@/config";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { useEffect, useState } from "react";
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();

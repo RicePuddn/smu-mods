@@ -1,4 +1,3 @@
-import { env } from "@/env";
 import {
   DeleteObjectCommand,
   GetObjectCommand,
@@ -7,6 +6,9 @@ import {
 } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { z } from "zod";
+
+import { env } from "@/env";
+
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 const s3Client = new S3Client({

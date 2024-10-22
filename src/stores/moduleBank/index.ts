@@ -1,11 +1,12 @@
-import { baskets } from "@/server/data/basket";
-import { modules } from "@/server/data/modules";
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+
 import type { ModuleBank } from "@/types/banks/moduleBank";
 import type { Basket } from "@/types/primitives/basket";
 import type { Track } from "@/types/primitives/major";
 import type { Module, ModuleCode } from "@/types/primitives/module";
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { baskets } from "@/server/data/basket";
+import { modules } from "@/server/data/modules";
 
 export type ModuleBankActions = {
   addModule: (module: Module) => void;
