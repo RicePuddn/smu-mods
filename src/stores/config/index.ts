@@ -2,10 +2,10 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 import type { RoomKey } from "@/components/threed/rooms";
-import type { AcademicYear } from "@/config";
-import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { roomKeys } from "@/components/threed/rooms";
+import type { AcademicYear } from "@/config";
 import { APP_CONFIG } from "@/config";
+import type { TimetableThemeName } from "@/utils/timetable/colours";
 
 const academicYear = APP_CONFIG.academicYear;
 
@@ -58,23 +58,6 @@ export const createConfigBank = (
         },
         changeMatriculationYear: (newMatriculationYear) => {
           set({ matriculationYear: newMatriculationYear });
-          // const [startYear, endYear] = academicYear.split('/').map(Number);
-          // const realMatriculationYear = Number(newMatriculationYear.split('/')[0]);
-          // const currentDate = new Date();
-          // const currentMonth = currentDate.getMonth() + 1; // because JavaScript sets 0 as the first month
-          // const currentYear = currentDate.getFullYear();
-
-          // let userYear = currentYear - realMatriculationYear + 1;
-
-          // if (currentYear == endYear && currentMonth <= 4) {
-          //   userYear -= 1;
-          // }
-
-          // if (userYear >= 1 && userYear <= 4) {
-          //   set({realMatriculationYear: userYear})
-          // } else {
-          //   console.warn("Invalid user year");
-          // }
         },
         iSync: (timetableTheme, roomTheme, matriculationYear) => {
           set({

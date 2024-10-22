@@ -1,13 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { RefreshCw, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast } from "sonner";
 
-import type { Term, TermSlug, Year } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
-import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
@@ -16,9 +13,13 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
+import type { Term, TermSlug, Year } from "@/types/planner";
 import { termMap, termSlug } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
+import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
+import { format } from "date-fns";
 
 import "../../../../styles/globals.css";
 
@@ -319,7 +320,7 @@ export default function TimeTablePage({
 
       <div>
         <Button variant={"default"} onClick={() => handlePullFromPlanner("2")}>
-          <RefreshCw size={"icon"} />
+          <RefreshCw />
           <span style={{ marginLeft: "0.5rem" }}>Synchronize with Planner</span>
         </Button>
       </div>
@@ -505,7 +506,9 @@ export default function TimeTablePage({
                 </p>
                 <p className="text-sm">
                   Exam:{" "}
-                  {mod.exam?.dateTime.toLocaleString() ?? "No exam scheduled"}
+                  {mod.exam?.dateTime
+                    ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
+                    : "No exam scheduled"}
                 </p>
               </div>
               <div className="flex w-2/12 items-center justify-center">
