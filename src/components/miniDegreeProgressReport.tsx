@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
+
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { useState } from "react";
 
 export default function MiniDegreeProgressReport() {
   const { modules, baskets } = useModuleBankStore((state) => state);

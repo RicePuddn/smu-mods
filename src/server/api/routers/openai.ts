@@ -1,7 +1,10 @@
-import { env } from "@/env";
-import { createOpenAI, type OpenAIProvider } from "@ai-sdk/openai";
+import type { OpenAIProvider } from "@ai-sdk/openai";
+import { createOpenAI } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import { z } from "zod";
+
+import { env } from "@/env";
+
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const openai: OpenAIProvider = createOpenAI({

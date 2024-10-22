@@ -1,17 +1,18 @@
+import { get, groupBy, values } from "lodash";
+
 import type { ModuleBank } from "@/types/banks/moduleBank";
-import {
-  defaultPlanner,
-  terms,
-  type Conflict,
-  type ConflictMap,
-  type ExamClashes,
-  type Planner,
-  type PlannerModule,
-  type PlannerState,
-  type Term,
+import type {
+  Conflict,
+  ConflictMap,
+  ExamClashes,
+  Planner,
+  PlannerModule,
+  PlannerState,
+  Term,
 } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
-import { get, groupBy, values } from "lodash";
+import { defaultPlanner, terms } from "@/types/planner";
+
 import { checkPrerequisite } from "./checkPrerequisites";
 
 export const prereqConflict =

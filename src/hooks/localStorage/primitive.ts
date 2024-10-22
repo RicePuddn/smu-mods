@@ -1,5 +1,6 @@
-import { env } from "@/env";
 import CryptoJS from "crypto-js";
+
+import { env } from "@/env";
 
 const secretKey = env.NEXT_PUBLIC_COOKIE_SECRET;
 
