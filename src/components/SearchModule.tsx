@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+import type { Module } from "@/types/primitives/module";
 import { searchModule } from "@/server/data/modules";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import type { Module } from "@/types/primitives/module";
-import { useEffect, useState } from "react";
+
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
@@ -37,6 +39,7 @@ export function SearchModule({
           <Label htmlFor="searchModule">Search for a module</Label>
           <Input
             variant="timetable"
+            autoComplete="off"
             placeholder="Enter a module code or module name"
             value={inputValue}
             id="searchModule"
@@ -45,17 +48,18 @@ export function SearchModule({
               setFocused(true);
             }}
             onBlur={() => {
-              setFocused(false);
+              setTimeout(() => {
+                setFocused(false);
+              }, 50);
             }}
           />
         </div>
         {!showResults ? (
           <></>
-        ) : inputValue == "" ? (
-          <Label>Please type in search input.</Label>
         ) : (
+          inputValue != "" &&
           focused && (
-            <ul className="md absolute left-0 right-0 z-10 mt-2 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg">
+            <ul className="md absolute left-0 right-0 z-10 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg">
               {searchResults.length == 0 ? (
                 <li className="p-2">No results found.</li>
               ) : (

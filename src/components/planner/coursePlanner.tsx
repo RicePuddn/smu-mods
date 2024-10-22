@@ -1,5 +1,16 @@
 "use client";
 
+import type { DropResult } from "@hello-pangea/dnd";
+import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
+import {
+  CalendarArrowUp,
+  ChevronDown,
+  ChevronUp,
+  CircleAlert,
+  X
+} from "lucide-react";
+import React, { useState } from "react";
+
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -7,32 +18,19 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
+import type { Term, Year } from "@/types/planner";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
-  type Term,
-  type Year,
 } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
-import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-  type DropResult,
-} from "@hello-pangea/dnd";
-import {
-  CalendarArrowUp,
-  ChevronDown,
-  ChevronUp,
-  CircleAlert,
-  X,
-} from "lucide-react";
-import React, { useState } from "react";
 import ModuleDetails from "../ModuleDetails";
+
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
 import { InteractiveTooltip } from "./customTooltip";
+
 import "./scrollBar.css";
 
 const DELIMITER = "/$/";
@@ -81,7 +79,7 @@ const CoursePlanner: React.FC = () => {
     for (const termNo in planner[year]) {
       console.log(planner);
       const moduleCodes = Object.keys(
-        planner[year as Year][termNo as Term],
+        planner[year][termNo as Term],
       ) as ModuleCode[];
       moduleCodes.forEach((moduleCode) => {
         const module = modules[moduleCode];
@@ -330,7 +328,7 @@ const CoursePlanner: React.FC = () => {
                                             conflictList.length > 0 && (
                                               <InteractiveTooltip
                                                 content={
-                                                  <div className="bg-slate-50 text-foreground">
+                                                  <div>
                                                     {conflictList.map(
                                                       (conflictMsg, idx) => {
                                                         return (

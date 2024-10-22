@@ -1,19 +1,18 @@
-import type { Term } from "@/types/planner";
-import type { Module, ModuleCode, Section } from "@/types/primitives/module";
-import {
-  defaultTimetableMap,
-  type Timetable,
-  type TimetableMap,
-} from "@/types/primitives/timetable";
-import { TimetableThemeName } from "@/utils/timetable/colours";
-import {
-  addModuleToTimetable,
-  selectSection,
-  showAllSections,
-} from "@/utils/timetable/timetable";
 import { toast } from "sonner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+import type { Term } from "@/types/planner";
+import type { Module, ModuleCode, Section } from "@/types/primitives/module";
+import type { Timetable, TimetableMap } from "@/types/primitives/timetable";
+import { defaultTimetableMap } from "@/types/primitives/timetable";
+import { TimetableThemeName } from "@/utils/timetable/colours";
+import {
+  addModuleToTimetable,
+  changeColorOfModule,
+  selectSection,
+  showAllSections,
+} from "@/utils/timetable/timetable";
 
 export type TimetableActions = {
   AddModuleToTimetable: (
@@ -34,6 +33,11 @@ export type TimetableActions = {
     currentSectionCode?: Section["code"],
   ) => void;
   iSync: (data: TimetableMap) => void;
+  changeColorOfModule: (
+    term: Term,
+    moduleCode: ModuleCode,
+    colorIndex: number,
+  ) => void;
 };
 
 export type TimetableStore = {
@@ -47,6 +51,18 @@ export const createTimetableStore = (
     persist(
       (set, get) => ({
         timetableMap: initTimetableMap,
+        changeColorOfModule: (term, moduleCode, colorIndex) => {
+          const timetable = get().timetableMap[term];
+          const newTimeTable = changeColorOfModule(
+            moduleCode,
+            timetable,
+            colorIndex,
+          );
+          set((state) => ({
+            ...state,
+            timetableMap: { ...state.timetableMap, [term]: newTimeTable },
+          }));
+        },
         AddModuleToTimetable: async (
           module: Module,
           term: Term,

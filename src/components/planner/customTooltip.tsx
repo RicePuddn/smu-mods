@@ -1,12 +1,22 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import React, { type ReactNode, useState } from 'react';
+import type { ReactNode } from "react";
+import React, { useState } from "react";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface InteractiveTooltipProps {
   children: ReactNode;
   content: ReactNode;
 }
 
-export const InteractiveTooltip: React.FC<InteractiveTooltipProps> = ({ children, content }) => {
+export const InteractiveTooltip: React.FC<InteractiveTooltipProps> = ({
+  children,
+  content,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,17 +27,13 @@ export const InteractiveTooltip: React.FC<InteractiveTooltipProps> = ({ children
             onClick={() => setIsOpen(true)}
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
-            style={{ cursor: 'pointer', display: 'inline-block' }}
+            style={{ cursor: "pointer", display: "inline-block" }}
           >
             {children}
           </div>
         </TooltipTrigger>
-        <TooltipContent className="bg-slate-50 shadow-md">
-          {content}
-        </TooltipContent>
+        <TooltipContent className="shadow-md">{content}</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
 };
-
-
