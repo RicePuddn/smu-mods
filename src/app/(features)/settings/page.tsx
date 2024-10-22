@@ -1,14 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Monitor, Moon, RefreshCw, Sun } from "lucide-react";
+import { Calendar, Monitor, Moon, RefreshCw, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 import { GenerateQRCode } from "@/components/iSync/QRCode";
 import { RoomKey, Rooms } from "@/components/threed/rooms";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { PADDING } from "@/config";
+import { AcademicYear, APP_CONFIG, PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
@@ -20,9 +26,30 @@ import {
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme();
   const [tempTheme, setTempTheme] = useState<string | undefined>("system");
-  const { roomTheme, changeRoomTheme, timetableTheme, changeTimetableTheme } =
-    useConfigStore((state) => state);
+  const {
+    roomTheme,
+    changeRoomTheme,
+    timetableTheme,
+    changeTimetableTheme,
+    matriculationYear,
+    changeMatriculationYear,
+  } = useConfigStore((state) => state);
   const { refreshAll } = useModuleBankStore((state) => state);
+  const academicYear = APP_CONFIG.academicYear;
+
+  // Matriculation Year options
+  const currentYear = new Date().getFullYear();
+  const matriculationYears = [];
+  for (let i = currentYear - 5; i <= currentYear + 1; i++) {
+    matriculationYears.push(`${i}/${i + 1}`);
+  }
+
+  // useEffect(() => {
+  //   if (matriculationYear === null) {
+  //     const currentYear = new Date().getFullYear();
+  //     changeMatriculationYear(`${currentYear}/${currentYear + 1}`);
+  //   }
+  // }, [matriculationYear]);
 
   function changeTheme(theme: string) {
     setTheme(theme);
@@ -118,6 +145,33 @@ export default function SettingsPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="space-y-3 rounded-lg border p-4 shadow">
+        <h2 className="text-lg font-semibold">Matriculation Year</h2>
+        <div className="flex flex-wrap justify-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <span
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                onClick={() => changeMatriculationYear}
+              >
+                <Calendar className="mr-2" />
+                {matriculationYear !== null ? matriculationYear : "Select Year"}
+              </span>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent>
+              {matriculationYears.map((year) => (
+                <DropdownMenuItem
+                  key={year}
+                  onClick={() => changeMatriculationYear(year as AcademicYear)}
+                >
+                  AY{year}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </section>
       <section className="space-y-3 rounded-lg border p-4 shadow">
