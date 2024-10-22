@@ -89,7 +89,7 @@ export default function SettingsPage() {
             <div
               key={index}
               className={cn(
-                "rounded-lg border p-2 shadow-sm",
+                "rounded-lg border p-2 shadow-sm hover:border-foreground/30",
                 themeName == timetableTheme
                   ? "border-primary"
                   : "border-foreground/10",
