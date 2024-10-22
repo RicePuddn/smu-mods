@@ -1,16 +1,18 @@
 "use client";
 
 import type { DropResult } from "@hello-pangea/dnd";
+import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import {
   CalendarArrowUp,
   ChevronDown,
   ChevronUp,
   CircleAlert,
-  X
+  X,
 } from "lucide-react";
-import React, { useState } from "react";
 
+import type { Term, Year } from "@/types/planner";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -18,15 +20,13 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import type { Term, Year } from "@/types/planner";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
-import type { Module, ModuleCode } from "@/types/primitives/module";
-import ModuleDetails from "../ModuleDetails";
 
+import ModuleDetails from "../ModuleDetails";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
 import { InteractiveTooltip } from "./customTooltip";
@@ -74,7 +74,6 @@ const CoursePlanner: React.FC = () => {
   };
 
   const HandleSyncTimetable = (year: Year) => {
-
     for (const termNo in planner[year]) {
       console.log(planner);
       const moduleCodes = Object.keys(
@@ -175,16 +174,18 @@ const CoursePlanner: React.FC = () => {
                           ? "Plan to Take"
                           : `Year ${year}`}
                     </h2>
-                    {year !== EXEMPTION_YEAR ? !isMobile && (
-                      <Button
-                        onClick={() => HandleSyncTimetable(year as Year)}
-                        size={"icon"}
-                        variant={"secondary"}
-                      >
-                        <CalendarArrowUp className="size-4" />
-                      </Button>
-                    ):""}
-        
+                    {year !== EXEMPTION_YEAR
+                      ? !isMobile && (
+                          <Button
+                            onClick={() => HandleSyncTimetable(year as Year)}
+                            size={"icon"}
+                            variant={"secondary"}
+                          >
+                            <CalendarArrowUp className="size-4" />
+                          </Button>
+                        )
+                      : ""}
+
                     {isMobile &&
                       (!isMobile || isOpen.has(year) ? (
                         <ChevronUp className="text-white" />
@@ -312,64 +313,65 @@ const CoursePlanner: React.FC = () => {
                                       draggableId={moduleCode}
                                       index={index}
                                     >
-                                      {(provided, snapshot) => ( 
-                                        <ModuleDetails moduleCode={moduleCode as ModuleCode}>
-                                        <div
-                                          ref={provided.innerRef}
-                                          {...provided.draggableProps}
-                                          {...provided.dragHandleProps}
-                                          className={cn(
-                                            "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
-                                            snapshot.isDragging
-                                              ? "h-fit w-fit bg-accent shadow-lg"
-                                              : "border bg-background hover:border-foreground",
-                                          )}
+                                      {(provided, snapshot) => (
+                                        <ModuleDetails
+                                          moduleCode={moduleCode as ModuleCode}
                                         >
-                                          {conflictList &&
-                                            conflictList.length > 0 && (
-                                              <InteractiveTooltip
-                                                content={
-                                                  <div>
-                                                    {conflictList.map(
-                                                      (conflictMsg, idx) => {
-                                                        return (
-                                                          <li key={idx}>
-                                                            {conflictMsg}
-                                                          </li>
-                                                        );
-                                                      },
-                                                    )}
-                                                  </div>
-                                                }
-                                              >
-                                                <CircleAlert
-                                                  color="orange"
-                                                  size={18}
-                                                />
-                                              </InteractiveTooltip>
-                                            )}
-                                          <div className="flex-grow">
-                                            {moduleCode}
-                                          </div>
-                                          <Button
-                                            onClick={() =>
-                                              handleRemoveModuleFromPlanner(
-                                                moduleCode as ModuleCode,
-                                                year as Year,
-                                                term as Term,
-                                              )
-                                            }
-                                            variant={"destructive"}
-                                            size={"icon"}
+                                          <div
+                                            ref={provided.innerRef}
+                                            {...provided.draggableProps}
+                                            {...provided.dragHandleProps}
                                             className={cn(
-                                              "size-6 rounded-full",
-                                              snapshot.isDragging && "hidden",
+                                              "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
+                                              snapshot.isDragging
+                                                ? "h-fit w-fit bg-accent shadow-lg"
+                                                : "border bg-background hover:border-foreground",
                                             )}
                                           >
-                                            <X className="size-5" />
-                                          </Button>
-                                        </div>
-                                        
+                                            {conflictList &&
+                                              conflictList.length > 0 && (
+                                                <InteractiveTooltip
+                                                  content={
+                                                    <div>
+                                                      {conflictList.map(
+                                                        (conflictMsg, idx) => {
+                                                          return (
+                                                            <li key={idx}>
+                                                              {conflictMsg}
+                                                            </li>
+                                                          );
+                                                        },
+                                                      )}
+                                                    </div>
+                                                  }
+                                                >
+                                                  <CircleAlert
+                                                    color="orange"
+                                                    size={18}
+                                                  />
+                                                </InteractiveTooltip>
+                                              )}
+                                            <div className="flex-grow">
+                                              {moduleCode}
+                                            </div>
+                                            <Button
+                                              onClick={() =>
+                                                handleRemoveModuleFromPlanner(
+                                                  moduleCode as ModuleCode,
+                                                  year as Year,
+                                                  term as Term,
+                                                )
+                                              }
+                                              variant={"destructive"}
+                                              size={"icon"}
+                                              className={cn(
+                                                "size-6 rounded-full",
+                                                snapshot.isDragging && "hidden",
+                                              )}
+                                            >
+                                              <X className="size-5" />
+                                            </Button>
+                                          </div>
                                         </ModuleDetails>
                                       )}
                                     </Draggable>
@@ -438,7 +440,7 @@ const CoursePlanner: React.FC = () => {
                           ref={provided.innerRef}
                           {...provided.droppableProps}
                           className={cn(
-                            "grid grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4 min-h-12",
+                            "grid min-h-12 grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4",
                             snapshot.isDraggingOver
                               ? "bg-blue-100/10"
                               : "bg-muted",
