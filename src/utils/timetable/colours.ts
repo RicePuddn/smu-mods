@@ -1,8 +1,8 @@
 export type ColorCode = `#${string}`;
 
 export type TimetableColor = {
-  outOfFocusBackgroundColor: ColorCode;
   backgroundColor: ColorCode;
+  hoverBackgroundColor: ColorCode;
   textColor: ColorCode;
 };
 
@@ -22,169 +22,169 @@ export const TIMETABLE_THEMES: TimetableTheme = {
   default: [
     // red
     {
-      outOfFocusBackgroundColor: "#f87171",
-      backgroundColor: "#ef4444",
+      backgroundColor: "#f87171",
+      hoverBackgroundColor: "#ef4444",
       textColor: "#450a0a",
     },
     // yellow
     {
-      outOfFocusBackgroundColor: "#facc15",
-      backgroundColor: "#eab308",
+      backgroundColor: "#facc15",
+      hoverBackgroundColor: "#eab308",
       textColor: "#422006",
     },
     // green
     {
-      outOfFocusBackgroundColor: "#4ade80",
-      backgroundColor: "#22c55e",
+      backgroundColor: "#4ade80",
+      hoverBackgroundColor: "#22c55e",
       textColor: "#052e16",
     },
     // teal
     {
-      outOfFocusBackgroundColor: "#2dd4bf",
-      backgroundColor: "#14b8a6",
+      backgroundColor: "#2dd4bf",
+      hoverBackgroundColor: "#14b8a6",
       textColor: "#042f2e",
     },
     // sky
     {
-      outOfFocusBackgroundColor: "#38bdf8",
-      backgroundColor: "#0ea5e9",
+      backgroundColor: "#38bdf8",
+      hoverBackgroundColor: "#0ea5e9",
       textColor: "#082f49",
     },
     // indigo
     {
-      outOfFocusBackgroundColor: "#818cf8",
-      backgroundColor: "#6366f1",
+      backgroundColor: "#818cf8",
+      hoverBackgroundColor: "#6366f1",
       textColor: "#1e1b4b",
     },
     // purple
     {
-      outOfFocusBackgroundColor: "#c084fc",
-      backgroundColor: "#a855f7",
-      textColor: "#1e1b4b",
+      backgroundColor: "#c084fc",
+      hoverBackgroundColor: "#a855f7",
+      textColor: "#3b0764",
     },
     // fuchsia
     {
-      outOfFocusBackgroundColor: "#e879f9",
-      backgroundColor: "#d946ef",
+      backgroundColor: "#e879f9",
+      hoverBackgroundColor: "#d946ef",
       textColor: "#4a044e",
     },
     // rose
     {
-      outOfFocusBackgroundColor: "#fb7185",
-      backgroundColor: "#f43f5e",
+      backgroundColor: "#fb7185",
+      hoverBackgroundColor: "#f43f5e",
       textColor: "#4c0519",
     },
   ],
   softPastel: [
     // red
     {
-      outOfFocusBackgroundColor: "#fca5a5",
       backgroundColor: "#fca5a5",
-      textColor: "#450a0a",
+      hoverBackgroundColor: "#f87171",
+      textColor: "#7f1d1d",
     },
     // yellow
     {
-      outOfFocusBackgroundColor: "#fde68a",
       backgroundColor: "#fde68a",
-      textColor: "#422006",
+      hoverBackgroundColor: "#facc15",
+      textColor: "#713f12",
     },
     // green
     {
-      outOfFocusBackgroundColor: "#86efac",
       backgroundColor: "#86efac",
-      textColor: "#052e16",
+      hoverBackgroundColor: "#4ade80",
+      textColor: "#14532d",
     },
     // teal
     {
-      outOfFocusBackgroundColor: "#67e8f9",
       backgroundColor: "#67e8f9",
-      textColor: "#042f2e",
+      hoverBackgroundColor: "#2dd4bf",
+      textColor: "#134e4a",
     },
     // sky
     {
-      outOfFocusBackgroundColor: "#7dd3fc",
       backgroundColor: "#7dd3fc",
-      textColor: "#082f49",
+      hoverBackgroundColor: "#38bdf8",
+      textColor: "#0c4a6e",
     },
     // indigo
     {
-      outOfFocusBackgroundColor: "#a5b4fc",
       backgroundColor: "#a5b4fc",
-      textColor: "#1e1b4b",
+      hoverBackgroundColor: "#818cf8",
+      textColor: "#312e81",
     },
     // purple
     {
-      outOfFocusBackgroundColor: "#d8b4fe",
       backgroundColor: "#d8b4fe",
-      textColor: "#1e1b4b",
+      hoverBackgroundColor: "#c084fc",
+      textColor: "#581c87",
     },
     // fuchsia
     {
-      outOfFocusBackgroundColor: "#f0abfc",
       backgroundColor: "#f0abfc",
-      textColor: "#4a044e",
+      hoverBackgroundColor: "#e879f9",
+      textColor: "#701a75",
     },
     // rose
     {
-      outOfFocusBackgroundColor: "#fdb6c7",
       backgroundColor: "#fdb6c7",
-      textColor: "#4c0519",
+      hoverBackgroundColor: "#fb7185",
+      textColor: "#881337",
     },
   ],
   darkRich: [
     // red
     {
-      outOfFocusBackgroundColor: "#b91c1c",
       backgroundColor: "#b91c1c",
-      textColor: "#450a0a",
+      hoverBackgroundColor: "#8e1717",
+      textColor: "#fff5f5",
     },
     // yellow
     {
-      outOfFocusBackgroundColor: "#b45309",
       backgroundColor: "#b45309",
-      textColor: "#422006",
+      hoverBackgroundColor: "#8c4007",
+      textColor: "#fdf7e1",
     },
     // green
     {
-      outOfFocusBackgroundColor: "#15803d",
       backgroundColor: "#15803d",
-      textColor: "#052e16",
+      hoverBackgroundColor: "#106632",
+      textColor: "#f2f9f2",
     },
     // teal
     {
-      outOfFocusBackgroundColor: "#0f766e",
       backgroundColor: "#0f766e",
-      textColor: "#042f2e",
+      hoverBackgroundColor: "#0c5f59",
+      textColor: "#e6f7f5",
     },
     // sky
     {
-      outOfFocusBackgroundColor: "#0369a1",
       backgroundColor: "#0369a1",
-      textColor: "#082f49",
+      hoverBackgroundColor: "#025480",
+      textColor: "#ebf5ff",
     },
     // indigo
     {
-      outOfFocusBackgroundColor: "#3730a3",
       backgroundColor: "#3730a3",
-      textColor: "#1e1b4b",
+      hoverBackgroundColor: "#2c267e",
+      textColor: "#e8e6f8",
     },
     // purple
     {
-      outOfFocusBackgroundColor: "#6d28d9",
       backgroundColor: "#6d28d9",
-      textColor: "#1e1b4b",
+      hoverBackgroundColor: "#541fb0",
+      textColor: "#f5eaff",
     },
     // fuchsia
     {
-      outOfFocusBackgroundColor: "#a21caf",
       backgroundColor: "#a21caf",
-      textColor: "#4a044e",
+      hoverBackgroundColor: "#80198c",
+      textColor: "#fde5fb",
     },
     // rose
     {
-      outOfFocusBackgroundColor: "#be123c",
       backgroundColor: "#be123c",
-      textColor: "#4c0519",
+      hoverBackgroundColor: "#961030",
+      textColor: "#fbe7eb",
     },
   ],
 };
