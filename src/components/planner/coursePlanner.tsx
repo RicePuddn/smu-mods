@@ -37,8 +37,6 @@ const DELIMITER = "/$/";
 
 const CoursePlanner: React.FC = () => {
   const [suggestionResults, setSuggestionResults] = useState<Module[]>([]);
-  const [searchResult, setSearchResult] = useState<Module[]>([]);
-  const [showSearchResult, setShowSearchResult] = useState<boolean>(false);
 
   const isMobile = useIsMobile();
   const {
@@ -76,6 +74,7 @@ const CoursePlanner: React.FC = () => {
   };
 
   const HandleSyncTimetable = (year: Year) => {
+
     for (const termNo in planner[year]) {
       console.log(planner);
       const moduleCodes = Object.keys(
