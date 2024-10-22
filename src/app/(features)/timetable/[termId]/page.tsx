@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { format } from "date-fns";
-import { RefreshCw, Trash2 } from "lucide-react";
+import { EyeOff, RefreshCw, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast } from "sonner";
 
-import type { Term, TermSlug, Year } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
-import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
@@ -17,11 +14,25 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
+import type { Term, TermSlug, Year } from "@/types/planner";
 import { termMap, termSlug } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
+import type {
+  ColorIndex,
+  Day,
+  ModifiableClass,
+} from "@/types/primitives/timetable";
 import { timeSlots } from "@/types/primitives/timetable";
-import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
+import {
+  TIMETABLE_THEMES,
+  TimetableThemeName,
+} from "@/utils/timetable/colours";
 
-import "../../../../styles/globals.css";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -46,6 +57,7 @@ export default function TimeTablePage({
     removeModuleFromTimetable,
     showAllSections,
     selectSection,
+    changeColorOfModule,
   } = useTimetableStore((state) => state);
   const { timetableTheme } = useConfigStore((state) => state);
 
@@ -294,6 +306,10 @@ export default function TimeTablePage({
     }
   };
 
+  const showColorOptions = (themeName: TimetableThemeName) => {};
+
+  const handleChangeModuleColor = (color: ColorIndex) => {};
+
   return (
     <div
       style={{
@@ -491,14 +507,28 @@ export default function TimeTablePage({
               key={index}
             >
               <div className="flex w-1/12 items-start justify-end">
-                <div
-                  className="mr-2 mt-1 h-5 w-5 rounded"
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="mr-2 mt-1 h-5 w-5 rounded"
                   style={{
                     backgroundColor:
                       TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
                         ?.backgroundColor,
-                  }}
-                ></div>
+                  }}></div>
+                </PopoverTrigger>
+                <PopoverContent className="w-fit">
+                  <div className="grid grid-cols-3 justify-center items-center gap-2 w-28">
+                  {TIMETABLE_THEMES[timetableTheme].map((color, index) => (
+                    <div
+                    key={index}
+                    style={{backgroundColor: color.backgroundColor}}
+                    className="size-8 rounded cursor-pointer"
+                    onClick={() =>
+                      {changeColorOfModule(termMap[params.termId as TermSlug], mod.moduleCode, index)}}>
+                    </div>))}
+                  </div>
+                </PopoverContent>
+              </Popover>
               </div>
               <div className="w-9/12">
                 <p className="text-sm font-bold">
@@ -526,20 +556,19 @@ export default function TimeTablePage({
                   >
                     <Trash2 />
                   </Button>
-                  {/* <Button
+                  <Button
                     variant={"outline"}
                     size={"icon"}
                     className="rounded-l-none border-l-0"
                   >
-                    <BiHide />
-                  </Button> */}
+                    <EyeOff />
+                  </Button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       )}
-      {/* <div>{TIMETABLE_COLORS.map()}</div> */}
     </div>
   );
 }
