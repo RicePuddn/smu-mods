@@ -6,6 +6,3 @@ export type Event = {
   time: string;
   venue: string;
 };
-
-
-  

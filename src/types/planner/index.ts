@@ -1,4 +1,5 @@
 import { type StatusNode } from "@/utils/checkPrerequisites";
+
 import type { Module, ModuleCode } from "../primitives/module";
 
 export type ExamConflict = {
@@ -28,13 +29,13 @@ export type ConflictMap = Record<
 >;
 
 export const EXEMPTION_YEAR = "-1";
-export const MODSTOTAKE_YEAR= "-2"
+export const MODSTOTAKE_YEAR = "10";
 export const years = ["1", "2", "3", "4"] as const;
 
 export type Year = (typeof years)[number];
 
 export const EXEMPTION_TERM = "Term 0";
-export const MODSTOTAKE_TERM = "Term Z"
+export const MODSTOTAKE_TERM = "Term Z";
 export const terms = ["Term 1", "Term 2", "Term 3A", "Term 3B"] as const;
 export type Term = (typeof terms)[number];
 export const termSlug = ["term-1", "term-2", "term-3a", "term-3b"] as const;
@@ -44,8 +45,8 @@ export const termMap: Record<TermSlug, Term> = {
   "term-1": "Term 1",
   "term-2": "Term 2",
   "term-3a": "Term 3A",
-  "term-3b": "Term 3B"
-} 
+  "term-3b": "Term 3B",
+};
 
 export type PlannerModule = {
   year: Year;
@@ -70,7 +71,7 @@ export const defaultPlannerState: PlannerState = {
 export type Planner = Record<Year, Record<Term, ConflictMap>> & {
   [MODSTOTAKE_YEAR]: {
     [MODSTOTAKE_TERM]: ConflictMap;
-    };
+  };
 } & {
   [EXEMPTION_YEAR]: {
     [EXEMPTION_TERM]: ConflictMap;
@@ -105,7 +106,7 @@ export const defaultPlanner: Planner = {
     "Term 3A": {},
     "Term 3B": {},
   },
-  "-2":{
-    "Term Z" : {},
-  }
+  "10": {
+    "Term Z": {},
+  },
 };

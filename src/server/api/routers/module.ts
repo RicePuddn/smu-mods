@@ -1,6 +1,8 @@
-import { getModule, modules, searchModule } from "@/server/data/modules";
-import type { ModuleCode } from "@/types/primitives/module";
 import { z } from "zod";
+
+import type { ModuleCode } from "@/types/primitives/module";
+import { getModule, modules, searchModule } from "@/server/data/modules";
+
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const moduleRouter = createTRPCRouter({

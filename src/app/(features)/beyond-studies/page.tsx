@@ -1,9 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import Tabs from "@/components/acad-clubs/tabs";
 import { Button } from "@/components/ui/button";
 import { eventsData } from "@/server/data/events";
-import { useEffect, useState } from "react";
 
 export default function BeyondStudies() {
   const [events, _] = useState(eventsData);
