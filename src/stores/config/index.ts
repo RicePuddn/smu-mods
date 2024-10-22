@@ -32,10 +32,10 @@ export const createConfigBank = (
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
-        changeTheme: (themeName) => {
-          set({timetableTheme: themeName})
+        changeTheme: (newTheme: TimetableThemeName) => {
+          set({timetableTheme: newTheme})
         },
-        changeRoomTheme: (newTheme) => {
+        changeRoomTheme: (newTheme: RoomKey) => {
           set({ roomTheme: newTheme });
         },
       }),
