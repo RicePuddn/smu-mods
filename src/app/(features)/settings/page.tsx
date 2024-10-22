@@ -1,8 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Calendar, Monitor, Moon, RefreshCw, Sun } from "lucide-react";
+import {
+  Calendar,
+  Monitor,
+  Moon,
+  RefreshCw,
+  RotateCcw,
+  Sun,
+} from "lucide-react";
 import { useTheme } from "next-themes";
+import { toast } from "sonner";
 
 import type { RoomKey } from "@/components/threed/rooms";
 import type { AcademicYear } from "@/config";
@@ -51,6 +59,16 @@ export default function SettingsPage() {
   useEffect(() => {
     setTempTheme(theme);
   }, [theme]);
+
+  function ResetTimetable() {
+    localStorage.removeItem("timetable");
+    toast.success("Timetable has been reset.");
+  }
+
+  function ResetPlanner() {
+    localStorage.removeItem("planner");
+    toast.success("Planner has been reset.");
+  }
 
   return (
     <div
@@ -182,6 +200,24 @@ export default function SettingsPage() {
           <Button onClick={async () => await refreshAll()}>
             <RefreshCw className="mr-2" />
             Update
+          </Button>
+        </div>
+      </section>
+      <section className="space-y-3 rounded-lg border p-4 shadow">
+        <h3 className="text-lg font-semibold">Reset Application</h3>
+        <p>
+          If you are facing issues with the application, you can reset the data
+          stored in the application. This will remove all your Planner and
+          Timetable data.
+        </p>
+        <div className="flex justify-center gap-2">
+          <Button onClick={ResetTimetable} variant={"destructive"}>
+            <RotateCcw className="mr-2" />
+            Reset Timetable
+          </Button>
+          <Button onClick={ResetPlanner} variant={"destructive"}>
+            <RotateCcw className="mr-2" />
+            Reset Planner
           </Button>
         </div>
       </section>
