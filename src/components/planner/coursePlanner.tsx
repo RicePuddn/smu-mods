@@ -1,7 +1,6 @@
 "use client";
 
 import type { DropResult } from "@hello-pangea/dnd";
-import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import {
   ChevronDown,
@@ -10,9 +9,8 @@ import {
   RefreshCw,
   X,
 } from "lucide-react";
+import React, { useState } from "react";
 
-import type { Term, Year } from "@/types/planner";
-import type { Module, ModuleCode } from "@/types/primitives/module";
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -20,11 +18,13 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
+import type { Term, Year } from "@/types/planner";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
@@ -365,7 +365,7 @@ const CoursePlanner: React.FC = () => {
                                             conflictList.length > 0 && (
                                               <InteractiveTooltip
                                                 content={
-                                                  <div className="bg-slate-50 text-foreground">
+                                                  <div>
                                                     {conflictList.map(
                                                       (conflictMsg, idx) => {
                                                         return (
