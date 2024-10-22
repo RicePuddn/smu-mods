@@ -73,7 +73,12 @@ export const createTimetableStore = (
             toast.error("Maximum of 8 modules allowed");
             return;
           }
-          const newTimeTable = addModuleToTimetable(module, timetable, theme, term);
+          const newTimeTable = addModuleToTimetable(
+            module,
+            timetable,
+            theme,
+            term,
+          );
           set((state) => ({
             ...state,
             timetableMap: { ...state.timetableMap, [term]: newTimeTable },

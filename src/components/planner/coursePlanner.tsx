@@ -11,7 +11,6 @@ import {
   X,
 } from "lucide-react";
 
-
 import type { Term, Year } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import { PADDING } from "@/config";
@@ -259,7 +258,7 @@ const CoursePlanner: React.FC = () => {
                                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                     Object.entries(conflicts).map(
                                       ([_, conflict]) => {
-                                        "checkpoint"
+                                        "checkpoint";
                                         if (
                                           conflict.type === "prereq" &&
                                           (conflict.statusNode?.children
@@ -314,7 +313,7 @@ const CoursePlanner: React.FC = () => {
                                       draggableId={moduleCode}
                                       index={index}
                                     >
-                                      {(provided, snapshot) => ( 
+                                      {(provided, snapshot) => (
                                         <div
                                           ref={provided.innerRef}
                                           {...provided.draggableProps}
@@ -340,7 +339,10 @@ const CoursePlanner: React.FC = () => {
                                                         );
                                                       },
                                                     )}
-                                                    <p>Click on Module for more information</p>
+                                                    <p>
+                                                      Click on Module for more
+                                                      information
+                                                    </p>
                                                   </div>
                                                 }
                                               >
@@ -350,13 +352,17 @@ const CoursePlanner: React.FC = () => {
                                                 />
                                               </InteractiveTooltip>
                                             )}
-                                            
-                                          <ModuleDetails moduleCode={moduleCode as ModuleCode}>
+
+                                          <ModuleDetails
+                                            moduleCode={
+                                              moduleCode as ModuleCode
+                                            }
+                                          >
                                             <div className="flex-grow">
                                               {moduleCode}
                                             </div>
                                           </ModuleDetails>
-                                          
+
                                           <Button
                                             onClick={() =>
                                               handleRemoveModuleFromPlanner(
@@ -376,7 +382,7 @@ const CoursePlanner: React.FC = () => {
                                           >
                                             <X className="size-5" />
                                           </Button>
-                                        </div>                                    
+                                        </div>
                                       )}
                                     </Draggable>
                                   );
