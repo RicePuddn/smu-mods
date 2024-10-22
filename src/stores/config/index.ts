@@ -49,7 +49,7 @@ export const createConfigBank = (
           set({ roomTheme: newTheme });
         },
         changeMatriculationYear: (newMatriculationYear) => {
-          set({matriculationYear: newMatriculationYear});
+          set({ matriculationYear: newMatriculationYear });
           // const [startYear, endYear] = academicYear.split('/').map(Number);
           // const realMatriculationYear = Number(newMatriculationYear.split('/')[0]);
           // const currentDate = new Date();
@@ -67,7 +67,7 @@ export const createConfigBank = (
           // } else {
           //   console.warn("Invalid user year");
           // }
-        }
+        },
       }),
       {
         name: "config",

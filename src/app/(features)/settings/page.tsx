@@ -1,8 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Calendar, Monitor, Moon, RefreshCw, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 import { GenerateQRCode } from "@/components/iSync/QRCode";
 import { RoomKey, Rooms } from "@/components/threed/rooms";
