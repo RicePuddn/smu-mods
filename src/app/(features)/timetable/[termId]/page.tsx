@@ -3,7 +3,7 @@
 import { format } from "date-fns";
 import { EyeOff, RefreshCw, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import { SearchModule } from "@/components/SearchModule";
@@ -18,14 +18,12 @@ import type { Term, TermSlug, Year } from "@/types/planner";
 import { termMap, termSlug } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import type {
-  ColorIndex,
   Day,
-  ModifiableClass,
+  ModifiableClass
 } from "@/types/primitives/timetable";
 import { timeSlots } from "@/types/primitives/timetable";
 import {
-  TIMETABLE_THEMES,
-  TimetableThemeName,
+  TIMETABLE_THEMES
 } from "@/utils/timetable/colours";
 
 import {
@@ -33,6 +31,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { days } from "@/types/primitives/timetable";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -100,24 +99,6 @@ export default function TimeTablePage({
 
         paddingLeft = Math.max(paddingLeft, 0);
 
-        // If not the first class in the row, change previousClassEndTime to the previous class' actual endTime
-        // if (classIndex != 0) {
-        //   const previousClassEndTime = getClassEndTime(
-        //     currentRow![classIndex - 1]!.classTime.startTime,
-        //     currentRow![classIndex - 1]!.classTime.duration,
-        //   );
-        //   previousClassEndMinutes = timeToMinutes(previousClassEndTime);
-        // }
-
-        // const minutesDifference = currentClassMinutes - previousClassEndMinutes;
-        // console.log(minutesDifference);
-
-        // If the two slots are back to back, set padding to 0
-        // let paddingLeft = 0;
-        // if (minutesDifference > 0) {
-        //   paddingLeft = (minutesDifference / (60 * totalSlots)) * 100;
-        // }
-
         const durationInMinutes = currentClass.classTime.duration * 60;
         const width = (durationInMinutes / (60 * totalSlots)) * 100;
 
@@ -130,15 +111,6 @@ export default function TimeTablePage({
         };
 
         updatedRow.push(fullClass);
-
-        console.log(updatedRow);
-
-        // previousClassEndMinutes =
-        //   currentClassStartMinutes + currentClass!.classTime.duration * 60;
-
-        // let currentClassEndMinutes =
-        //   currentClassMinutes + currentClass.classTime.duration * 60;
-        // previousClassEndMinutes = currentClassEndMinutes;
       }
       fullRows[rowIndex] = updatedRow;
     }
@@ -306,9 +278,45 @@ export default function TimeTablePage({
     }
   };
 
-  const showColorOptions = (themeName: TimetableThemeName) => {};
+  const [currentTimePosition, setCurrentTimePosition] = useState<number | null>(null);
 
-  const handleChangeModuleColor = (color: ColorIndex) => {};
+  const calculateCurrentTimePosition = () => {
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+
+    // Return null if the current hour is not within the timetable time frame
+
+    if (hours < 8 || hours >= 22) {
+      return null; 
+    }
+
+    const totalMinutes = (hours - 8) * 60 + minutes;
+    const position = (totalMinutes / (60*14)) * 100
+    return position;
+  }
+
+  useEffect(() => {
+    const updateCurrentTime = () => {setCurrentTimePosition(calculateCurrentTimePosition)};
+    updateCurrentTime();
+    const interval = setInterval(updateCurrentTime, 60000);
+    return () => clearInterval(interval);
+
+
+  }, []);
+
+  // port over to utils
+  const getCurrentDay = () => {
+    let currentDayIdx = new Date().getDay();
+
+    // Return null when it's sunday
+    if (currentDayIdx == 0) {
+      return null; 
+    } else {
+      currentDayIdx -= 1
+    }
+    return days[currentDayIdx];
+  }
 
   return (
     <div
@@ -362,7 +370,7 @@ export default function TimeTablePage({
               </div>
             ))}
           </div>
-          {/* red line across current time now */}
+          {/* Timetable rows */}
           {Object.keys(timetable)
             .filter((key) => key != "modules")
             .map((day, dayIndex) => {
@@ -380,7 +388,37 @@ export default function TimeTablePage({
                     className={`flex-grow space-y-1 py-1 ${
                       dayIndex % 2 === 0 ? "bg-border" : "bg-accent/50"
                     }`}
+                    style={{position: 'relative'}}
                   >
+                    {/* Show current date and time marker */}
+                    {getCurrentDay() == day && currentTimePosition != null && (
+                      <>
+                      {/* Red Line */}
+                      <div
+                        className="absolute bg-red-500"
+                        style={{
+                          left: `${currentTimePosition}%`,
+                          height: "95%", 
+                          width: "2px", 
+                          zIndex: 10, 
+                        }}
+                      />
+
+                      {/* Circle Marker */}
+                      <div
+                        className="absolute bg-red-500 rounded-full"
+                        style={{
+                          left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
+                          top: "-2px", // Slightly above the line
+                          width: "10px", 
+                          height: "10px", 
+                          zIndex: 10, 
+                        }}
+                      />
+                    </>
+                    
+                    )}
+                    
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                       const rowIndex = parseInt(rowIndexStr, 10);
                       const minHeight = 60;
