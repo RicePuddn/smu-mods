@@ -1,7 +1,14 @@
 "use client";
+
+import { RefreshCw, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
+
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
+import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
@@ -12,10 +19,6 @@ import { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
-import { RefreshCw, Trash2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { toast } from "sonner";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -325,19 +328,20 @@ export default function TimeTablePage({
       </div>
 
       <div className="max-w-full overflow-x-scroll">
-        <div className="mt-5 w-full min-w-[1200px] overflow-hidden rounded-lg border">
+        <div className="mt-5 w-full min-w-[1200px] overflow-hidden rounded-lg border border-foreground/20">
           {/* Time Labels */}
           <div className="flex">
             <div className="w-[5%] flex-shrink-0"></div>
             {timeSlots.map((time, index) => (
               <div
                 key={index}
-                className={`flex-1 items-center py-1 text-center ${
-                  index % 2 === 0 ? "bg-border" : "bg-accent/50"
-                }`}
+                className={cn(
+                  "flex-1 items-center border-foreground/20 py-1 text-center",
+                  index % 2 === 0 ? "bg-border" : "bg-accent/50",
+                  index === 0 ? "border-none" : "border-l",
+                )}
                 style={{
                   width: `${100 / 14}%`,
-                  borderLeft: index === 0 ? "none" : "1px solid #e0e0e0",
                 }}
               >
                 <span className="text-sm">{time}</span>
@@ -388,7 +392,9 @@ export default function TimeTablePage({
                                     height: "100%",
                                     backgroundColor:
                                       selectedClass?.section ==
-                                      fullClass.section
+                                        fullClass.section &&
+                                      selectedClass?.moduleCode ==
+                                        fullClass.moduleCode
                                         ? TIMETABLE_THEMES[timetableTheme][
                                             fullClass.colorIndex
                                           ]?.backgroundColor
