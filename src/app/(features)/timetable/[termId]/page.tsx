@@ -5,8 +5,7 @@ import { useRouter } from "next/navigation";
 import { RefreshCw, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
-import type { TermSlug, Year } from "@/types/planner";
-import type { Term } from "@/types/planner";
+import type { Term, TermSlug, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
