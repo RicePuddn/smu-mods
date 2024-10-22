@@ -5,8 +5,8 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import type { Term } from "@/types/planner";
 import type { Module, ModuleCode, Section } from "@/types/primitives/module";
 import type { Timetable, TimetableMap } from "@/types/primitives/timetable";
+import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { defaultTimetableMap } from "@/types/primitives/timetable";
-import { TimetableThemeName } from "@/utils/timetable/colours";
 import {
   addModuleToTimetable,
   changeColorOfModule,

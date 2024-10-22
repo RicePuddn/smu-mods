@@ -1,9 +1,11 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { RoomKey, roomKeys } from "@/components/threed/rooms";
-import { AcademicYear, APP_CONFIG } from "@/config";
-import { TimetableThemeName } from "@/utils/timetable/colours";
+import type { RoomKey } from "@/components/threed/rooms";
+import type { AcademicYear } from "@/config";
+import type { TimetableThemeName } from "@/utils/timetable/colours";
+import { roomKeys } from "@/components/threed/rooms";
+import { APP_CONFIG } from "@/config";
 
 const academicYear = APP_CONFIG.academicYear;
 
