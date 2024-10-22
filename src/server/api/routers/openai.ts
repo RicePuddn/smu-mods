@@ -20,7 +20,7 @@ export const openaiRouter = createTRPCRouter({
         srcUrl: z.string(),
       }),
     )
-    .mutation(async ({ input }) => {
+    .mutation(async () => {
       const { object } = await generateObject({
         model: model,
         schema: z.object({}),
