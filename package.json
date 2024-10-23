@@ -12,7 +12,8 @@
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start",
-    "ui-add": "pnpm dlx shadcn@latest add"
+    "ui-add": "pnpm dlx shadcn@latest add",
+    "format": "eslint . --fix"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.68",
@@ -82,7 +83,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
     "postcss": "^8.4.39",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "prisma": "^5.21.1",
     "tailwindcss": "^3.4.3",
