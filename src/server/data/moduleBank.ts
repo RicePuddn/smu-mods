@@ -8050,8 +8050,8 @@ export const modules: ModuleBank = {
     name: "Enterprise Solution Development",
     moduleCode: "IS213",
     exam: {
-      dateTime: new Date("2024-04-16T00:00:00.000Z"),
-      durationInHour: 3,
+      dateTime: new Date("2025-04-29T00:30:00.000Z"),
+      durationInHour: 2,
     },
     description:
       "With the emergence of new technologies and evolution of existing ones, organizations are changing the way they build enterprise solutions. Rather than build monolithic applications, the current emphasis is on building solutions by leveraging existing functionality exposed as services. This approach to composing solutions using services follows the Service Oriented Architecture (SOA) paradigm, where applications are structured as a collection of loosely coupled services. In this course students will learn how to design and implement enterprise solutions using SOA using suitable tools. The course will cover topics such as service-oriented architecture (SOA), microservices architecture (MSA), web services, JSON/XML, cloud computing, and Enterprise Service Bus (ESB).",
@@ -8068,8 +8068,8 @@ export const modules: ModuleBank = {
         },
         classes: [
           {
-            day: "Tuesday",
-            startTime: "12:00",
+            day: "Thursday",
+            startTime: "08:15",
             duration: 3.25,
           },
         ],
@@ -8086,8 +8086,8 @@ export const modules: ModuleBank = {
         },
         classes: [
           {
-            day: "Tuesday",
-            startTime: "15:30",
+            day: "Thursday",
+            startTime: "12:00",
             duration: 3.25,
           },
         ],
@@ -8099,12 +8099,12 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SCIS1",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-2",
+          level: 2,
         },
         classes: [
           {
-            day: "Wednesday",
+            day: "Friday",
             startTime: "08:15",
             duration: 3.25,
           },
@@ -8113,17 +8113,17 @@ export const modules: ModuleBank = {
       {
         code: "G4",
         professor: {
-          name: "NICHOLAS TAN CHEE HIANG",
+          name: "JIANG LINGXIAO",
         },
         location: {
           building: "SCIS1",
-          room: "Seminar Room 3-3",
-          level: 3,
+          room: "Seminar Room 2-2",
+          level: 2,
         },
         classes: [
           {
-            day: "Thursday",
-            startTime: "08:15",
+            day: "Friday",
+            startTime: "12:00",
             duration: 3.25,
           },
         ],
@@ -8131,16 +8131,16 @@ export const modules: ModuleBank = {
       {
         code: "G5",
         professor: {
-          name: "NICHOLAS TAN CHEE HIANG",
+          name: "ALAN MEGARGEL",
         },
         location: {
           building: "SCIS1",
-          room: "Seminar Room 3-3",
-          level: 3,
+          room: "Seminar Room 2-3",
+          level: 2,
         },
         classes: [
           {
-            day: "Thursday",
+            day: "Monday",
             startTime: "12:00",
             duration: 3.25,
           },
@@ -8149,7 +8149,7 @@ export const modules: ModuleBank = {
       {
         code: "G6",
         professor: {
-          name: "CHRISTOPHER MICHAEL POSKITT",
+          name: "ALAN MEGARGEL",
         },
         location: {
           building: "SCIS1",
@@ -8158,8 +8158,8 @@ export const modules: ModuleBank = {
         },
         classes: [
           {
-            day: "Wednesday",
-            startTime: "12:00",
+            day: "Monday",
+            startTime: "15:30",
             duration: 3.25,
           },
         ],
@@ -8167,7 +8167,7 @@ export const modules: ModuleBank = {
       {
         code: "G7",
         professor: {
-          name: "CHRISTOPHER MICHAEL POSKITT",
+          name: "ALAN MEGARGEL",
         },
         location: {
           building: "SCIS1",
@@ -8177,7 +8177,7 @@ export const modules: ModuleBank = {
         classes: [
           {
             day: "Wednesday",
-            startTime: "15:30",
+            startTime: "12:00",
             duration: 3.25,
           },
         ],
@@ -8185,17 +8185,17 @@ export const modules: ModuleBank = {
       {
         code: "G8",
         professor: {
-          name: "ALAN MEGARGEL",
+          name: "CHRISTOPHER MICHAEL POSKITT",
         },
         location: {
           building: "SCIS1",
-          room: "Seminar Room 3-3",
-          level: 3,
+          room: "Seminar Room 2-3",
+          level: 2,
         },
         classes: [
           {
-            day: "Monday",
-            startTime: "12:00",
+            day: "Tuesday",
+            startTime: "15:30",
             duration: 3.25,
           },
         ],
@@ -8203,16 +8203,16 @@ export const modules: ModuleBank = {
       {
         code: "G9",
         professor: {
-          name: "ALAN MEGARGEL",
+          name: "CHRISTOPHER MICHAEL POSKITT",
         },
         location: {
           building: "SCIS1",
-          room: "Seminar Room 3-3",
-          level: 3,
+          room: "Seminar Room 2-1",
+          level: 2,
         },
         classes: [
           {
-            day: "Monday",
+            day: "Wednesday",
             startTime: "15:30",
             duration: 3.25,
           },
@@ -8225,12 +8225,12 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SCIS1",
-          room: "Seminar Room B1-1",
-          level: "B1",
+          room: "Seminar Room 2-4",
+          level: 2,
         },
         classes: [
           {
-            day: "Friday",
+            day: "Wednesday",
             startTime: "08:15",
             duration: 3.25,
           },
@@ -9454,5 +9454,38 @@ export const modules: ModuleBank = {
     preReq: {
       or: [],
     },
+  },
+  IS484: {
+    name: "IS Project Experience [FinTech]",
+    moduleCode: "IS484",
+    description: "DESCRIPTION_NEEDED",
+    credit: 1,
+    terms: ["Term 1"],
+    sections: [
+      {
+        code: "G1",
+        professor: {
+          name: "MAHESH GOEL",
+        },
+        location: {
+          building: "",
+          room: "",
+          level: 0,
+        },
+        classes: [],
+      },
+      {
+        code: "G2",
+        professor: {
+          name: "SEEMA CHOKSHI",
+        },
+        location: {
+          building: "",
+          room: "",
+          level: 0,
+        },
+        classes: [],
+      },
+    ],
   },
 };
