@@ -8,7 +8,7 @@ import MainProviders from "@/providers";
 export const metadata: Metadata = {
   title: "SMU MODs",
   description: "Plan your SMU modules with ease",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
 export default function RootLayout({
