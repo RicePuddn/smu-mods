@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const directoryPath = path.resolve(__dirname, "..");
 const projectBaseDir = path.resolve(directoryPath, "..");
 
-fs.readdir(directoryPath, (err, files) => {
+fs.readdir(path.join(directoryPath, "html"), (err, files) => {
   if (err) {
     console.error("Unable to scan directory:", err);
     return;
