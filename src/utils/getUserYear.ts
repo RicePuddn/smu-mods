@@ -5,7 +5,7 @@ export function getUserYear(
   matriculationYear: AcademicYear,
   currentAcademicYear: AcademicYear,
 ): Year {
-  const [startYear, endYear] = currentAcademicYear.split("/").map(Number);
+  const [_, endYear] = currentAcademicYear.split("/").map(Number);
   const realMatriculationYear = Number(matriculationYear.split("/")[0]);
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth() + 1; // because JavaScript sets 0 as the first month

@@ -1,13 +1,18 @@
 "use client";
 
 import { format } from "date-fns";
-import { RefreshCw, Trash2 } from "lucide-react";
+import { EyeOff, RefreshCw, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
@@ -18,10 +23,8 @@ import type { Term, TermSlug, Year } from "@/types/planner";
 import { termMap, termSlug } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
-import { timeSlots } from "@/types/primitives/timetable";
+import { days, timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
-
-import "../../../../styles/globals.css";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -46,6 +49,7 @@ export default function TimeTablePage({
     removeModuleFromTimetable,
     showAllSections,
     selectSection,
+    changeColorOfModule,
   } = useTimetableStore((state) => state);
   const { timetableTheme } = useConfigStore((state) => state);
 
@@ -72,6 +76,47 @@ export default function TimeTablePage({
     });
     return addedModsList;
   }
+  const [currentTimePosition, setCurrentTimePosition] = useState<number | null>(
+    null,
+  );
+
+  const calculateCurrentTimePosition = () => {
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+
+    // Return null if the current hour is not within the timetable time frame
+
+    if (hours < 8 || hours >= 22) {
+      return null;
+    }
+
+    const totalMinutes = (hours - 8) * 60 + minutes;
+    const position = (totalMinutes / (60 * 14)) * 100;
+    return position;
+  };
+
+  useEffect(() => {
+    const updateCurrentTime = () => {
+      setCurrentTimePosition(calculateCurrentTimePosition);
+    };
+    updateCurrentTime();
+    const interval = setInterval(updateCurrentTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // port over to utils
+  const getCurrentDay = () => {
+    let currentDayIdx = new Date().getDay();
+
+    // Return null when it's sunday
+    if (currentDayIdx == 0) {
+      return null;
+    } else {
+      currentDayIdx -= 1;
+    }
+    return days[currentDayIdx];
+  };
 
   function calculateSlotLeftPadding(rows: Row, totalSlots: number): FullRow {
     const fullRows: FullRow = {};
@@ -101,24 +146,6 @@ export default function TimeTablePage({
 
         paddingLeft = Math.max(paddingLeft, 0);
 
-        // If not the first class in the row, change previousClassEndTime to the previous class' actual endTime
-        // if (classIndex != 0) {
-        //   const previousClassEndTime = getClassEndTime(
-        //     currentRow![classIndex - 1]!.classTime.startTime,
-        //     currentRow![classIndex - 1]!.classTime.duration,
-        //   );
-        //   previousClassEndMinutes = timeToMinutes(previousClassEndTime);
-        // }
-
-        // const minutesDifference = currentClassMinutes - previousClassEndMinutes;
-        // console.log(minutesDifference);
-
-        // If the two slots are back to back, set padding to 0
-        // let paddingLeft = 0;
-        // if (minutesDifference > 0) {
-        //   paddingLeft = (minutesDifference / (60 * totalSlots)) * 100;
-        // }
-
         const durationInMinutes = currentClass.classTime.duration * 60;
         const width = (durationInMinutes / (60 * totalSlots)) * 100;
 
@@ -131,15 +158,6 @@ export default function TimeTablePage({
         };
 
         updatedRow.push(fullClass);
-
-        console.log(updatedRow);
-
-        // previousClassEndMinutes =
-        //   currentClassStartMinutes + currentClass!.classTime.duration * 60;
-
-        // let currentClassEndMinutes =
-        //   currentClassMinutes + currentClass.classTime.duration * 60;
-        // previousClassEndMinutes = currentClassEndMinutes;
       }
       fullRows[rowIndex] = updatedRow;
     }
@@ -359,7 +377,7 @@ export default function TimeTablePage({
               </div>
             ))}
           </div>
-          {/* red line across current time now */}
+          {/* Timetable rows */}
           {Object.keys(timetable)
             .filter((key) => key != "modules")
             .map((day, dayIndex) => {
@@ -377,7 +395,36 @@ export default function TimeTablePage({
                     className={`flex-grow space-y-1 py-1 ${
                       dayIndex % 2 === 0 ? "bg-border" : "bg-accent/50"
                     }`}
+                    style={{ position: "relative" }}
                   >
+                    {/* Show current date and time marker */}
+                    {getCurrentDay() == day && currentTimePosition != null && (
+                      <>
+                        {/* Red Line */}
+                        <div
+                          className="absolute bg-red-500"
+                          style={{
+                            left: `${currentTimePosition}%`,
+                            height: "95%",
+                            width: "2px",
+                            zIndex: 10,
+                          }}
+                        />
+
+                        {/* Circle Marker */}
+                        <div
+                          className="absolute rounded-full bg-red-500"
+                          style={{
+                            left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
+                            top: "-2px", // Slightly above the line
+                            width: "10px",
+                            height: "10px",
+                            zIndex: 10,
+                          }}
+                        />
+                      </>
+                    )}
+
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                       const rowIndex = parseInt(rowIndexStr, 10);
                       const minHeight = 60;
@@ -396,7 +443,7 @@ export default function TimeTablePage({
                               return (
                                 <div
                                   key={classIndex}
-                                  className={`absolute rounded p-2 shadow-md transition-all duration-1000 ${
+                                  className={`absolute cursor-pointer rounded p-2 shadow-md transition-all duration-1000 ${
                                     selectedClass?.section ===
                                       fullClass.section &&
                                     selectedClass?.moduleCode ===
@@ -427,7 +474,8 @@ export default function TimeTablePage({
                                             selectedClass?.moduleCode
                                           ? 0.6
                                           : 1,
-                                    transition: "transform 0.2s",
+                                    transition:
+                                      "background-color 0.2s, transform 0.2s",
                                   }}
                                   onClick={() => {
                                     if (selectedClass) {
@@ -458,6 +506,18 @@ export default function TimeTablePage({
                                       );
                                       setSelectedSection(fullClass);
                                     }
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor =
+                                      TIMETABLE_THEMES[timetableTheme][
+                                        fullClass.colorIndex
+                                      ]!.hoverBackgroundColor;
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor =
+                                      TIMETABLE_THEMES[timetableTheme][
+                                        fullClass.colorIndex
+                                      ]!.backgroundColor;
                                   }}
                                 >
                                   <span className="text-sm font-semibold">
@@ -505,14 +565,36 @@ export default function TimeTablePage({
               key={index}
             >
               <div className="flex w-1/12 items-start justify-end">
-                <div
-                  className="mr-2 mt-1 h-5 w-5 rounded"
-                  style={{
-                    backgroundColor:
-                      TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
-                        ?.backgroundColor,
-                  }}
-                ></div>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div
+                      className="mr-2 mt-1 h-5 w-5 rounded"
+                      style={{
+                        backgroundColor:
+                          TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
+                            ?.backgroundColor,
+                      }}
+                    ></div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-fit">
+                    <div className="grid w-28 grid-cols-3 items-center justify-center gap-2">
+                      {TIMETABLE_THEMES[timetableTheme].map((color, index) => (
+                        <div
+                          key={index}
+                          style={{ backgroundColor: color.backgroundColor }}
+                          className="size-8 cursor-pointer rounded"
+                          onClick={() => {
+                            changeColorOfModule(
+                              termMap[params.termId as TermSlug],
+                              mod.moduleCode,
+                              index,
+                            );
+                          }}
+                        ></div>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
               <div className="w-9/12">
                 <p className="text-sm font-bold">
@@ -540,20 +622,19 @@ export default function TimeTablePage({
                   >
                     <Trash2 />
                   </Button>
-                  {/* <Button
+                  <Button
                     variant={"outline"}
                     size={"icon"}
                     className="rounded-l-none border-l-0"
                   >
-                    <BiHide />
-                  </Button> */}
+                    <EyeOff />
+                  </Button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       )}
-      {/* <div>{TIMETABLE_COLORS.map()}</div> */}
     </div>
   );
 }

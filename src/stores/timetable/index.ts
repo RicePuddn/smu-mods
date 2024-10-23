@@ -12,6 +12,7 @@ import {
   changeColorOfModule,
   selectSection,
   showAllSections,
+  toggleVisibility,
 } from "@/utils/timetable/timetable";
 
 export type TimetableActions = {
@@ -51,6 +52,14 @@ export const createTimetableStore = (
     persist(
       (set, get) => ({
         timetableMap: initTimetableMap,
+        toggleVisibility: (moduleCode: ModuleCode, term: Term) => {
+          const timetable = get().timetableMap[term];
+          const newTimeTable = toggleVisibility(moduleCode, timetable);
+          set((state) => ({
+            ...state,
+            timetableMap: { ...state.timetableMap, [term]: newTimeTable },
+          }));
+        },
         changeColorOfModule: (term, moduleCode, colorIndex) => {
           const timetable = get().timetableMap[term];
           const newTimeTable = changeColorOfModule(

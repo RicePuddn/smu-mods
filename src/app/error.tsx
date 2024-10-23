@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 
 export default function Error({
   error,
-  reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
@@ -41,6 +40,7 @@ export default function Error({
             the app.
           </p>
         </div>
+        <Button onClick={() => window.location.reload()}>Reload</Button>
         {pathname == "/settings" ? (
           <Button variant={"destructive"} onClick={handleReset}>
             Reset Application
