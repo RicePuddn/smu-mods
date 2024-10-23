@@ -1,7 +1,8 @@
 import { z } from "zod";
 
 import type { ModuleCode } from "@/types/primitives/module";
-import { getModule, modules, searchModule } from "@/server/data/modules";
+import { modules } from "@/server/data/moduleBank";
+import { searchModule } from "@/utils/moduleBank";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
@@ -13,7 +14,10 @@ export const moduleRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ input }) => {
-      const module = await getModule(input.moduleCode as ModuleCode);
+      const module = modules[input.moduleCode as ModuleCode];
+      if (!module) {
+        return null;
+      }
       return module;
     }),
   searchModule: publicProcedure

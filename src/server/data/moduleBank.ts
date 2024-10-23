@@ -1,16 +1,4 @@
 import type { ModuleBank } from "@/types/banks/moduleBank";
-import type { Module, ModuleCode } from "@/types/primitives/module";
-
-export function searchModule(modules: ModuleBank, query?: string): Module[] {
-  if (!query) {
-    return Object.values(modules);
-  }
-  return Object.values(modules).filter(
-    (module) =>
-      module.name.toLowerCase().includes(query.toLowerCase()) ||
-      module.moduleCode.toLowerCase().includes(query.toLowerCase()),
-  );
-}
 
 export const modules: ModuleBank = {
   "COR-STAT1202": {
@@ -4219,7 +4207,6 @@ export const modules: ModuleBank = {
   "COR-2408": {
     name: "Spanish",
     moduleCode: "COR-2408",
-    exam: { dateTime: new Date(""), durationInHour: 3 },
     description: `It is meant to introduce the students to the learning of the Spanish language and through this, to discover other culture and ways of communicating. The Spanish taught is that from Spain but students will also be familiarized with Spanish of Latin American countries. After taking this course, the students will be able to acquire a basic knowledge of the Spanish language that will equip them to continue learning the language at higher levels later on. Learning a new language like Spanish will be very useful in your academic life if you decide to go for an exchange program with a Spanish speaking country as well as in your professional life (as Spanish is the third most spoken language in the world after English and Chinese). It will also allow you to be familiar with other cultures. 
                 `,
     sections: [
@@ -4255,7 +4242,3 @@ export const modules: ModuleBank = {
     },
   },
 };
-
-export async function getModule(moduleCode: ModuleCode) {
-  return modules[moduleCode]!;
-}

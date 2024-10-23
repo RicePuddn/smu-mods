@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 
 // Define the directory path
 const directoryPath = path.resolve(__dirname, "..");
+const projectBaseDir = path.resolve(directoryPath, "..");
 
 fs.readdir(directoryPath, (err, files) => {
   if (err) {
@@ -22,6 +23,7 @@ fs.readdir(directoryPath, (err, files) => {
     processModuleHtml(
       path.join(directoryPath, "html", htmlFile),
       path.join(directoryPath, "parsed"),
+      projectBaseDir,
     );
   });
 });

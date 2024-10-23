@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 import type { Module } from "@/types/primitives/module";
-import { searchModule } from "@/server/data/modules";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { searchModule } from "@/utils/moduleBank";
 
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
