@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
 import { env } from "@/env";
@@ -9,7 +9,9 @@ import { useModuleBankStore } from "@/stores/moduleBank/provider";
 
 import { Button } from "../ui/button";
 
-const APP_VERSION = env.NEXT_PUBLIC_VERCEL_DEPLOYMENT_ID;
+const APP_VERSION = env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
+
+const TURN_ON_REFRESH = false;
 
 export function Banners() {
   const {
@@ -22,35 +24,69 @@ export function Banners() {
   const { refreshAll } = useModuleBankStore((state) => state);
 
   useEffect(() => {
-    if (appVersion !== APP_VERSION) {
+    if (
+      appVersion !== APP_VERSION ||
+      (appVersion == "development" && TURN_ON_REFRESH)
+    ) {
+      if (appVersion != "development") {
+        refreshAll();
+      }
       refreshBanners();
-      refreshAll();
       changeAppVersion(APP_VERSION);
     }
   }, []);
 
+  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Rotate banners every 3 seconds, unless the user is hovering or focusing
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setCurrentBannerIndex(
+          (prevIndex) =>
+            (prevIndex + 1) %
+            banners.filter((banner) => !banner.dismissed).length,
+        );
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [isHovered, banners]);
+
+  // Function to dismiss a banner
+  const HandleDismissBanner = (id?: string) => {
+    const index = banners.findIndex((banner) => banner.id === id);
+    if (!banners[index]) return;
+    banners[index].dismissed = true; // Update your state to dismiss the banner
+    setCurrentBannerIndex(0); // Reset to the first available banner after dismissal
+    dismissBanner(index);
+  };
+
+  const activeBanners = banners.filter((banner) => !banner.dismissed);
+
   return (
     <>
-      {banners.filter((banner) => !banner.dismissed).length > 0 && (
-        <div className="mb-2 flex items-center justify-start rounded-lg border-2 bg-background p-2 shadow-md">
-          {banners
-            .filter((banner) => !banner.dismissed)
-            .map((banner, index) => (
-              <div
-                key={index}
-                className="flex w-full items-center justify-between"
-              >
-                <div>{banner.message}</div>
-                <Button
-                  onClick={() => dismissBanner(index)}
-                  size={"icon"}
-                  variant={"ghost"}
-                  className="size-6 rounded-full"
-                >
-                  <X className="size-4" />
-                </Button>
-              </div>
-            ))}
+      {activeBanners.length > 0 && (
+        <div
+          className="mb-2 flex items-center justify-start rounded-lg border-2 bg-background p-2 shadow-md"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onFocus={() => setIsHovered(true)}
+          onBlur={() => setIsHovered(false)}
+        >
+          <div className="flex w-full items-center justify-between">
+            <div>{activeBanners[currentBannerIndex]?.message}</div>
+            <Button
+              onClick={() =>
+                HandleDismissBanner(activeBanners[currentBannerIndex]?.id)
+              }
+              size={"icon"}
+              variant={"ghost"}
+              className="size-6 rounded-full"
+            >
+              <X className="size-4" />
+            </Button>
+          </div>
         </div>
       )}
     </>

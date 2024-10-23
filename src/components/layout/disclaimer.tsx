@@ -15,12 +15,10 @@ export function Disclaimer() {
   const { warningDismissedTime, dismissWarning } = useConfigStore(
     (state) => state,
   );
+  if (!warningDismissedTime) return null;
   return (
     <AlertDialog
-      defaultOpen={
-        !!warningDismissedTime &&
-        Date.now() - warningDismissedTime > 1000 * 60 * 60 * 24 * 7
-      }
+      defaultOpen={Date.now() - warningDismissedTime > 1000 * 60 * 60 * 24 * 7}
     >
       <AlertDialogContent>
         <AlertDialogHeader>
