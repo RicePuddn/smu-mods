@@ -1,5 +1,5 @@
-import { ModuleBank } from "@/types/banks/moduleBank";
-import { Module } from "@/types/primitives/module";
+import type { ModuleBank } from "@/types/banks/moduleBank";
+import type { Module } from "@/types/primitives/module";
 
 export function searchModule(modules: ModuleBank, query?: string): Module[] {
   if (!query) {
