@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,7 +17,16 @@ export function Disclaimer() {
   const { warningDismissedTime, dismissWarning } = useConfigStore(
     (state) => state,
   );
-  if (!warningDismissedTime) return null;
+
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <AlertDialog
       defaultOpen={Date.now() - warningDismissedTime > 1000 * 60 * 60 * 24 * 7}
