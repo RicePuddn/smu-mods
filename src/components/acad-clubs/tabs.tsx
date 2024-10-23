@@ -22,55 +22,43 @@ export default function Tabs({ tabsData }: TabsProps) {
   ); // Default to the first tab
 
   const tabs = Object.keys(tabsData);
-
   const renderCards = (items: Event[]) => {
     return items.map((value, index) => (
       <Card
         key={index}
-        className="mx-3 mb-6 flex transform flex-col justify-between rounded-2xl bg-foreground shadow-md transition-transform hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-400"
+        className="relative mx-3 mb-6 flex transform flex-col justify-between rounded-2xl bg-white shadow-md hover:shadow-xl hover:shadow-gray-400"
       >
+        {/* Title remains visible */}
         <CardHeader className="rounded-t-lg bg-blue-500 p-3 text-center text-lg font-bold text-white">
           {value.title}
         </CardHeader>
-        <CardContent className="mt-0 flex flex-col gap-3 px-0">
-          {/* Add event details */}
-          <table className="border-separate rounded-sm border p-0 text-left text-sm text-gray-600">
-            <tr>
-              <td className="rounded-sm bg-black p-2 text-white">
-                <strong>Date:</strong>
-              </td>
-              <td className="pl-3">{value.date}</td>
-            </tr>
-            <tr>
-              <td className="rounded-sm bg-black p-2 text-white">
-                <strong>Time:</strong>
-              </td>
-              <td className="pl-3">
-                {value.startTime} - {value.endTime}
-              </td>
-            </tr>
-            <tr>
-              <td className="rounded-sm bg-black p-2 text-white">
-                <strong>Venue:</strong>
-              </td>
-              <td className="pl-3">{value.venue}</td>
-            </tr>
-          </table>
-          <p className="text-red-500">
-            <strong>Registration Deadline: {value.deadline}</strong>
-          </p>
-          <CardDescription className="px-3 text-left leading-relaxed text-gray-700">
-            <ReadMore id={value.description} text={value.description} />
-          </CardDescription>
-        </CardContent>
-        <CardFooter className="mt-auto flex items-center justify-between bg-white pt-4">
-          <p className="inline-block text-sm font-bold text-gray-500">
-            Date: {value.date}
-          </p>
-          <Button className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
-            View
-          </Button>
-        </CardFooter>
+
+        {/* Content is positioned outside of view and moved up on hover */}
+        <div className="flex flex-col gap-3 rounded-2xl bg-white">
+          <CardContent className="p-4">
+            <p className="text-sm text-gray-800">{value.name}</p>
+            <p className="text-sm text-gray-800">{value.date}</p>
+            <p className="text-sm text-gray-800">
+              {value.startTime} - {value.endTime}
+            </p>
+            <p className="text-sm text-gray-800">{value.venue}</p>
+            <p className="mt-2 text-red-500">
+              <strong>Registration Deadline: {value.deadline}</strong>
+            </p>
+            <CardDescription className="mt-2 leading-relaxed text-gray-700">
+              <ReadMore id={value.description} text={value.description} />
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex items-center justify-between bg-white px-4 py-2">
+            <p className="inline-block text-sm font-bold text-gray-500">
+              Date: {value.date}
+            </p>
+            <Button className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
+              View
+            </Button>
+          </CardFooter>
+        </div>
       </Card>
     ));
   };

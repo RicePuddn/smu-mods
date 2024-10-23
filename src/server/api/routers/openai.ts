@@ -19,7 +19,6 @@ export const openaiRouter = createTRPCRouter({
     srcUrl : z.string().url(),
   })
 ).mutation(async ({input}) => {
-  const {srcUrl} = input;
     try {
       const completion = await openai.chat.completions.create({
         model: "gpt-4o",
@@ -31,7 +30,7 @@ export const openaiRouter = createTRPCRouter({
               {
                 type: "image_url",
                 image_url: {
-                  url: srcUrl,
+                  url: input.srcUrl,
                 },
               },
             ],
