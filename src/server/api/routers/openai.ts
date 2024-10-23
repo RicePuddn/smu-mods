@@ -13,10 +13,13 @@ export  const openai = new OpenAI({
 const prompt = ` 
 Based on the this image, extract the following details from the infographic and return it in the JSON format given.`;
 
-const img_url = "https://imgur.com/a0HHtuo.png";
 
 export const openaiRouter = createTRPCRouter({
-  parseEvent: publicProcedure.input(z.object({})).mutation(async ({}) => {
+  parseEvent: publicProcedure.input(z.object({
+    srcUrl : z.string().url(),
+  })
+).mutation(async ({input}) => {
+  const {srcUrl} = input;
     try {
       const completion = await openai.chat.completions.create({
         model: "gpt-4o",
@@ -28,7 +31,7 @@ export const openaiRouter = createTRPCRouter({
               {
                 type: "image_url",
                 image_url: {
-                  url: img_url,
+                  url: srcUrl,
                 },
               },
             ],
