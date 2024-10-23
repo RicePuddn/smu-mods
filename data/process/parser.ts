@@ -34,6 +34,7 @@ export function parseModuleHtml(html: string): Partial<Module> {
     return firstChild?.tagName === "SPAN" && firstChild.id.endsWith("_Label18");
   });
   const sectionElements = document.querySelectorAll("a[id$='_HyperLink2']");
+  const credit = document.querySelector("[id$='_Label5']");
   rows.forEach((row, index) => {
     const sectionCode = sectionElements.item(index).textContent || "";
     const classInfo = classes[index];
@@ -100,10 +101,13 @@ export function parseModuleHtml(html: string): Partial<Module> {
         ).getTime() -
           dateTime.getTime()) /
         3600000;
-      exam = {
-        dateTime,
-        durationInHour,
-      };
+
+      if (dateTime && durationInHour) {
+        exam = {
+          dateTime,
+          durationInHour,
+        };
+      }
     }
   }
 
@@ -112,6 +116,7 @@ export function parseModuleHtml(html: string): Partial<Module> {
     moduleCode: (moduleCode ?? "IS000") as ModuleCode,
     sections,
     exam,
+    credit: parseInt(credit?.textContent?.trim().split(" ")[0] ?? "0"),
   };
 }
 
