@@ -39,12 +39,14 @@ const CoursePlanner: React.FC = () => {
     addModule: addModuleToPlanner,
     changeTerm,
     planner,
+    plannerState,
     removeModule,
     hideSpecial,
   } = usePlannerStore((state) => state);
   const { modules, addModule: addModuleToBank } = useModuleBankStore(
     (state) => state,
   );
+ 
   const { AddModuleToTimetable: addModuleTimetable } = useTimetableStore(
     (state) => state,
   );
@@ -420,7 +422,7 @@ const CoursePlanner: React.FC = () => {
       >
         <div className="flex">
           <div className="w-full">
-            <SearchModule handleModSelect={HandleAddMod} />
+            <SearchModule handleModSelect={HandleAddMod} takenModule={Object.keys(plannerState.modules)as ModuleCode[]} />
           </div>
         </div>
       </div>

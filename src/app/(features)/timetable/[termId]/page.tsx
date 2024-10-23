@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { format } from "date-fns";
 import { RefreshCw, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast } from "sonner";
 
-import type { Term, TermSlug, Year } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
-import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import { PADDING } from "@/config";
@@ -17,7 +14,10 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
+import type { Term, TermSlug, Year } from "@/types/planner";
 import { termMap, termSlug } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
+import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
@@ -59,6 +59,19 @@ export default function TimeTablePage({
   const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
   const currentTermNum = termSlug[currentTermIdx]?.split("-")[1];
   const timetable = timetableMap[termMap[params.termId as TermSlug]];
+
+  const addedMods= ()=>{
+    const addedModsList: ModuleCode[] =[]
+    Object.keys(timetable).forEach((day) => {
+      const dayMods = timetable[day as Day]; 
+      if (dayMods.length > 0) {
+        dayMods.forEach((mod) => {
+          addedModsList.push(mod.moduleCode);
+        });
+      }
+    });
+    return addedModsList;
+  }
 
   function calculateSlotLeftPadding(rows: Row, totalSlots: number): FullRow {
     const fullRows: FullRow = {};
@@ -481,6 +494,7 @@ export default function TimeTablePage({
               toast.error("This module is not offered during this term.");
             }
           }}
+          takenModule={addedMods()} 
         />
       </div>
       {timetable.modules.length > 0 && (
