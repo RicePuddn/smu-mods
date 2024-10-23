@@ -1,13 +1,16 @@
 "use client";
 
+import { useState } from "react";
+import SHA256 from "crypto-js/sha256";
+import { QrCode } from "lucide-react";
+import { QRCodeCanvas } from "qrcode.react";
+
 import { useConfigStore } from "@/stores/config/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";
 import { getBaseUrl } from "@/utils/getBaseUrl";
-import SHA256 from "crypto-js/sha256";
-import { QRCodeCanvas } from "qrcode.react";
-import { useState } from "react";
+
 import { Button } from "../ui/button";
 
 export function GenerateQRCode() {
@@ -16,6 +19,9 @@ export function GenerateQRCode() {
   const { planner, plannerState } = usePlannerStore((state) => state);
   const {
     iSyncLatestRecord: latestRecord,
+    timetableTheme,
+    roomTheme,
+    matriculationYear,
     changeISyncLatestRecord: changeLatestRecord,
   } = useConfigStore((state) => state);
   const [data, setData] = useState<string | null>(null);
@@ -25,6 +31,9 @@ export function GenerateQRCode() {
       timetable: timetableMap,
       planner: planner,
       plannerState: plannerState,
+      timetableTheme,
+      roomTheme,
+      matriculationYear,
     });
 
     const hash = SHA256(content).toString();
@@ -71,7 +80,10 @@ export function GenerateQRCode() {
           <p>This QR Code is valid for next 10 minutes.</p>
         </div>
       ) : (
-        <Button onClick={handleGenerateQRCode}>Generate QR Code</Button>
+        <Button onClick={handleGenerateQRCode}>
+          <QrCode className="mr-2" />
+          Generate
+        </Button>
       )}
     </div>
   );

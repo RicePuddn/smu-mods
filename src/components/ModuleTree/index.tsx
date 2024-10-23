@@ -1,9 +1,10 @@
-import { flatten, values } from "lodash";
 import * as React from "react";
+import { flatten, values } from "lodash";
 
-import { cn } from "@/lib/utils";
 import type { ModuleCode, PreReqTree } from "@/types/primitives/module";
+import { cn } from "@/lib/utils";
 import { notNull } from "@/types/utils";
+
 import styles from "./ModuleTree.module.scss";
 
 type Props = {
@@ -142,7 +143,7 @@ export const ModuleTreeComponent: React.FC<Props> = (props) => {
   return (
     <>
       <h3 className="font-semibold">Prerequisites</h3>
-      <div className={"flex items-center overflow-y-auto p-12"}>
+      <div className={"flex items-center overflow-y-auto p-4"}>
         {fulfillRequirements && fulfillRequirements.length > 0 && (
           <>
             <ul className={styles.prereqTree}>

@@ -1,9 +1,11 @@
 "use client";
 
-import { createContext, useContext, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
+import { createContext, useContext, useRef } from "react";
 import { useStore } from "zustand";
 
-import { createConfigBank, type ConfigStore } from "@/stores/config";
+import type { ConfigStore } from "@/stores/config";
+import { createConfigBank } from "@/stores/config";
 
 export type ConfigStoreApi = ReturnType<typeof createConfigBank>;
 

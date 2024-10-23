@@ -1,19 +1,19 @@
-import type { Term } from "@/types/planner";
-import type { Module, ModuleCode, Section } from "@/types/primitives/module";
-import {
-  defaultTimetableMap,
-  type Timetable,
-  type TimetableMap,
-} from "@/types/primitives/timetable";
-import { TimetableThemeName } from "@/utils/timetable/colours";
-import {
-  addModuleToTimetable,
-  selectSection,
-  showAllSections,
-} from "@/utils/timetable/timetable";
 import { toast } from "sonner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+
+import type { Term } from "@/types/planner";
+import type { Module, ModuleCode, Section } from "@/types/primitives/module";
+import type { Timetable, TimetableMap } from "@/types/primitives/timetable";
+import type { TimetableThemeName } from "@/utils/timetable/colours";
+import { defaultTimetableMap } from "@/types/primitives/timetable";
+import {
+  addModuleToTimetable,
+  changeColorOfModule,
+  selectSection,
+  showAllSections,
+  toggleVisibility,
+} from "@/utils/timetable/timetable";
 
 export type TimetableActions = {
   AddModuleToTimetable: (
@@ -34,6 +34,11 @@ export type TimetableActions = {
     currentSectionCode?: Section["code"],
   ) => void;
   iSync: (data: TimetableMap) => void;
+  changeColorOfModule: (
+    term: Term,
+    moduleCode: ModuleCode,
+    colorIndex: number,
+  ) => void;
 };
 
 export type TimetableStore = {
@@ -47,6 +52,26 @@ export const createTimetableStore = (
     persist(
       (set, get) => ({
         timetableMap: initTimetableMap,
+        toggleVisibility: (moduleCode: ModuleCode, term: Term) => {
+          const timetable = get().timetableMap[term];
+          const newTimeTable = toggleVisibility(moduleCode, timetable);
+          set((state) => ({
+            ...state,
+            timetableMap: { ...state.timetableMap, [term]: newTimeTable },
+          }));
+        },
+        changeColorOfModule: (term, moduleCode, colorIndex) => {
+          const timetable = get().timetableMap[term];
+          const newTimeTable = changeColorOfModule(
+            moduleCode,
+            timetable,
+            colorIndex,
+          );
+          set((state) => ({
+            ...state,
+            timetableMap: { ...state.timetableMap, [term]: newTimeTable },
+          }));
+        },
         AddModuleToTimetable: async (
           module: Module,
           term: Term,
@@ -57,7 +82,12 @@ export const createTimetableStore = (
             toast.error("Maximum of 8 modules allowed");
             return;
           }
-          const newTimeTable = addModuleToTimetable(module, timetable, theme);
+          const newTimeTable = addModuleToTimetable(
+            module,
+            timetable,
+            theme,
+            term,
+          );
           set((state) => ({
             ...state,
             timetableMap: { ...state.timetableMap, [term]: newTimeTable },
