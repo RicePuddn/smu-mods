@@ -12,18 +12,23 @@ const __dirname = path.dirname(__filename);
 const directoryPath = path.resolve(__dirname, "..");
 const projectBaseDir = path.resolve(directoryPath, "..");
 
-fs.readdir(path.join(directoryPath, "html"), (err, files) => {
-  if (err) {
-    console.error("Unable to scan directory:", err);
-    return;
-  }
+let htmlFiles: string[] = [];
+try {
+  const files = fs.readdirSync(path.join(directoryPath, "html"));
+  htmlFiles = files.filter((file) => path.extname(file) === ".html");
+} catch (err) {
+  console.error("Unable to scan directory:", err);
+}
 
-  const htmlFiles = files.filter((file) => path.extname(file) === ".html");
-  htmlFiles.forEach((htmlFile) => {
-    processModuleHtml(
+for (const htmlFile of htmlFiles) {
+  try {
+    await processModuleHtml(
       path.join(directoryPath, "html", htmlFile),
       path.join(directoryPath, "parsed"),
       projectBaseDir,
     );
-  });
-});
+    console.log(`Processed file: ${htmlFile}`);
+  } catch (error) {
+    console.error(`Error processing file ${htmlFile}:`, error);
+  }
+}
