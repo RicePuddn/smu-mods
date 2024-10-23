@@ -27,7 +27,6 @@ for (const htmlFile of htmlFiles) {
       path.join(directoryPath, "parsed"),
       projectBaseDir,
     );
-    console.log(`Processed file: ${htmlFile}`);
   } catch (error) {
     console.error(`Error processing file ${htmlFile}:`, error);
   }

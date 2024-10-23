@@ -1,10 +1,12 @@
 "use client";
 
 import type { DropResult } from "@hello-pangea/dnd";
+import React from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import { CalendarArrowUp, ChevronDown, ChevronUp } from "lucide-react";
-import React from "react";
 
+import type { Term, Year } from "@/types/planner";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import { APP_CONFIG, PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -12,13 +14,11 @@ import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
-import type { Term, Year } from "@/types/planner";
 import {
   EXEMPTION_YEAR,
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
-import type { Module, ModuleCode } from "@/types/primitives/module";
 import { getUserYear } from "@/utils/getUserYear";
 
 import { SearchModule } from "../SearchModule";
@@ -42,7 +42,7 @@ const CoursePlanner: React.FC = () => {
   const { modules, addModule: addModuleToBank } = useModuleBankStore(
     (state) => state,
   );
- 
+
   const { AddModuleToTimetable: addModuleTimetable } = useTimetableStore(
     (state) => state,
   );
@@ -439,7 +439,10 @@ const CoursePlanner: React.FC = () => {
       >
         <div className="flex">
           <div className="w-full">
-            <SearchModule handleModSelect={HandleAddMod} takenModule={Object.keys(plannerState.modules)as ModuleCode[]} />
+            <SearchModule
+              handleModSelect={HandleAddMod}
+              takenModule={Object.keys(plannerState.modules) as ModuleCode[]}
+            />
           </div>
         </div>
       </div>
