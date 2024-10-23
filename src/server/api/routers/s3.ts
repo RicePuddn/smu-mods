@@ -28,7 +28,7 @@ export const s3Router = createTRPCRouter({
       const signedUrl = await getSignedUrl(s3Client, command, {
         expiresIn: 60,
       });
-      const srcUrl = getFile(input.key);
+      const srcUrl = await getFile(input.key);
       return {
         signedUrl,
         srcUrl,
