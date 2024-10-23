@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import type { Module, ModuleCode } from "@/types/primitives/module";
+import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { searchModule } from "@/utils/moduleBank";
 
 import { Badge } from "./ui/badge";
@@ -82,8 +82,11 @@ export function SearchModule({
                     }}
                   >
                     {mod.moduleCode} - {mod.name}
-                    {takenModule.includes(mod.moduleCode) && <Badge variant={"secondary"} className="ms-2">Added</Badge>
-                    }
+                    {takenModule.includes(mod.moduleCode) && (
+                      <Badge variant={"secondary"} className="ms-2">
+                        Added
+                      </Badge>
+                    )}
                   </li>
                 ))
               )}

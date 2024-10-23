@@ -13,7 +13,7 @@ import { ModuleBank } from "@/types/banks/moduleBank";
 import { termMap } from "@/types/planner";
 import { ModuleCode } from "@/types/primitives/module";
 
-import { parseModuleHtml } from "./parser";
+import { parseModulesHtml } from "./batchParser";
 
 async function loadModuleBank(projectBaseDir: string): Promise<ModuleBank> {
   const moduleBankPath = path.join(
@@ -39,80 +39,84 @@ export async function processModuleHtml(
     "<html><body><table>" +
     readFileSync(inputFilePath, "utf-8") +
     "</table></body></html>";
-  const module = parseModuleHtml(htmlData);
-  const inputFileName = path.basename(inputFilePath);
-  const moduleCode = inputFileName?.split(".")[0];
+  const modules = parseModulesHtml(htmlData);
 
-  if (!existsSync(jsonOutDir)) {
-    mkdirSync(jsonOutDir, { recursive: true });
-  }
+  const moduleBank = await loadModuleBank(projectBaseDir);
 
-  if (jsonOutputEnabled) {
-    writeFileSync(
-      path.join(jsonOutDir, `${moduleCode}.json`),
-      JSON.stringify(module, null, 2),
-    );
-  } else {
-    const moduleBank = await loadModuleBank(projectBaseDir);
-    const newModuleBank = JSON.parse(JSON.stringify(moduleBank));
+  const newModuleBank = JSON.parse(JSON.stringify(moduleBank));
 
-    if (newModuleBank[moduleCode as ModuleCode]) {
-      console.log(`Module found: ${moduleCode}`);
-      newModuleBank[moduleCode as ModuleCode]!.sections = module.sections ?? [];
-      newModuleBank[moduleCode as ModuleCode]!.exam = module.exam;
-      newModuleBank[moduleCode as ModuleCode]!.terms = [
-        ...new Set([
-          ...newModuleBank[moduleCode as ModuleCode]!.terms,
-          termMap[APP_CONFIG.currentTerm],
-        ]),
-      ];
-      newModuleBank[moduleCode as ModuleCode]!.credit = module.credit ?? 1;
-      newModuleBank[moduleCode as ModuleCode]!.description =
-        newModuleBank[moduleCode as ModuleCode]!.description.length < 1
-          ? (module.description ?? "DESCRIPTION_NEEDED")
-          : newModuleBank[moduleCode as ModuleCode]!.description;
-    } else {
-      console.log(`New module found: ${moduleCode}`);
-      newModuleBank[moduleCode as ModuleCode] = {
-        name: module.name ?? "",
-        moduleCode: moduleCode as ModuleCode,
-        exam: module.exam,
-        description: module.description ?? "DESCRIPTION_NEEDED",
-        credit: module.credit ?? 1,
-        terms: [termMap[APP_CONFIG.currentTerm]],
-        sections: module.sections ?? [],
-      };
+  modules.forEach((module) => {
+    if (!existsSync(jsonOutDir)) {
+      mkdirSync(jsonOutDir, { recursive: true });
     }
 
-    // Replace dateTime fields in a structured way to avoid unterminated string issues
+    if (jsonOutputEnabled) {
+      writeFileSync(
+        path.join(jsonOutDir, `${module.moduleCode}.json`),
+        JSON.stringify(module, null, 2),
+      );
+    } else {
+      if (!moduleBank) {
+        throw new Error("Unable to load module bank");
+      }
 
-    // Write the updated module bank to the output file
-    const outputFilePath = path.join(
-      projectBaseDir,
-      "src/server/data/moduleBank.ts",
-    );
+      if (newModuleBank[module.moduleCode as ModuleCode]) {
+        newModuleBank[module.moduleCode as ModuleCode]!.sections =
+          module.sections ?? [];
+        newModuleBank[module.moduleCode as ModuleCode]!.exam = module.exam;
+        newModuleBank[module.moduleCode as ModuleCode]!.terms = [
+          ...new Set([
+            ...newModuleBank[module.moduleCode as ModuleCode]!.terms,
+            termMap[APP_CONFIG.currentTerm],
+          ]),
+        ];
+        newModuleBank[module.moduleCode as ModuleCode]!.credit =
+          module.credit ?? 1;
+        newModuleBank[module.moduleCode as ModuleCode]!.description =
+          newModuleBank[module.moduleCode as ModuleCode]!.description.length < 1
+            ? (module.description ?? "DESCRIPTION_NEEDED")
+            : newModuleBank[module.moduleCode as ModuleCode]!.description;
+      } else {
+        console.log(`New module found: ${module.moduleCode}`);
+        newModuleBank[module.moduleCode as ModuleCode] = {
+          name: module.name ?? "",
+          moduleCode: module.moduleCode as ModuleCode,
+          exam: module.exam,
+          description: module.description ?? "DESCRIPTION_NEEDED",
+          credit: module.credit ?? 1,
+          terms: [termMap[APP_CONFIG.currentTerm]],
+          sections: module.sections ?? [],
+        };
+      }
 
-    const moduleBankString = JSON.stringify(newModuleBank, null, 2).replaceAll(
-      /"dateTime": "([^"]+)"/g,
-      '"dateTime": new Date("$1")',
-    );
+      // Replace dateTime fields in a structured way to avoid unterminated string issues
 
-    const writeStream = createWriteStream(outputFilePath, {
-      encoding: "utf-8",
-    });
-    writeStream.write(
-      `import type { ModuleBank } from "@/types/banks/moduleBank";\n\n`,
-    );
-    writeStream.write(`export const modules: ModuleBank = `);
-    writeStream.write(moduleBankString);
-    writeStream.end(";\n");
+      // Write the updated module bank to the output file
+    }
+  });
+  const outputFilePath = path.join(
+    projectBaseDir,
+    "src/server/data/moduleBank.ts",
+  );
 
-    writeStream.on("finish", () => {
-      console.log("-----------");
-    });
+  const moduleBankString = JSON.stringify(newModuleBank, null, 2).replaceAll(
+    /"dateTime": "([^"]+)"/g,
+    '"dateTime": new Date("$1")',
+  );
 
-    writeStream.on("error", (err) => {
-      console.error("Error writing file:", err);
-    });
-  }
+  const writeStream = createWriteStream(outputFilePath, {
+    encoding: "utf-8",
+  });
+  writeStream.write(
+    `import type { ModuleBank } from "@/types/banks/moduleBank";\n\n`,
+  );
+  writeStream.write(`export const modules: ModuleBank = `);
+  writeStream.write(moduleBankString);
+  writeStream.end(";\n");
+
+  writeStream.on("finish", () => {});
+
+  writeStream.on("error", (err) => {
+    console.error("Error writing file:", err);
+  });
 }
