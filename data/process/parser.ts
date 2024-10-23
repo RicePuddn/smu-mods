@@ -35,12 +35,15 @@ export function parseModuleHtml(html: string): Partial<Module> {
   });
   const sectionElements = document.querySelectorAll("a[id$='_HyperLink2']");
   const credit = document.querySelector("[id$='_Label5']");
+
+  let exam: Exam | undefined;
+
   rows.forEach((row, index) => {
     const sectionCode = sectionElements.item(index).textContent || "";
     const classInfo = classes[index];
 
     if (classInfo) {
-      const classRows = classInfo.querySelectorAll("tr.rgRow");
+      const classRows = classInfo.querySelectorAll("tr.rgRow, tr.rgAltRow");
 
       const classTimes: ClassTime[] = [];
 
@@ -63,18 +66,38 @@ export function parseModuleHtml(html: string): Partial<Module> {
       classRows.forEach((classRow) => {
         const cells = classRow.querySelectorAll("td");
         if (cells.length >= 8) {
-          const day = cells[3]?.textContent?.trim();
-          if (!day) {
-            return;
-          }
-          const startTime = cells[4]?.textContent?.trim() || "08:15";
-          const endTime = cells[5]?.textContent?.trim() || "";
+          const type = cells[0]?.textContent?.trim();
+          if (type == "EXAM") {
+            const dateTime = new Date(
+              `${cells[1]?.textContent?.trim()} ${cells[4]?.textContent?.trim()}`,
+            );
+            const durationInHour =
+              (new Date(
+                `${cells[2]?.textContent?.trim()} ${cells[5]?.textContent?.trim()}`,
+              ).getTime() -
+                dateTime.getTime()) /
+              3600000;
 
-          classTimes.push({
-            day: getFullDay(day),
-            startTime: startTime as StartingTime,
-            duration: getClassDuration(startTime, endTime) as Duration,
-          });
+            if (dateTime && durationInHour) {
+              exam = {
+                dateTime,
+                durationInHour,
+              };
+            }
+          } else if (type == "CLASS") {
+            const day = cells[3]?.textContent?.trim();
+            if (!day) {
+              return;
+            }
+            const startTime = cells[4]?.textContent?.trim() || "08:15";
+            const endTime = cells[5]?.textContent?.trim() || "";
+
+            classTimes.push({
+              day: getFullDay(day),
+              startTime: startTime as StartingTime,
+              duration: getClassDuration(startTime, endTime) as Duration,
+            });
+          }
         }
       });
       sections.push({
@@ -85,31 +108,6 @@ export function parseModuleHtml(html: string): Partial<Module> {
       });
     }
   });
-
-  // Extracting exam details
-  const examRow = document.querySelector(".rgAltRow");
-  let exam: Exam | undefined;
-  if (examRow) {
-    const cells = examRow.querySelectorAll("td");
-    if (cells.length >= 8) {
-      const dateTime = new Date(
-        `${cells[1]?.textContent?.trim()} ${cells[4]?.textContent?.trim()}`,
-      );
-      const durationInHour =
-        (new Date(
-          `${cells[2]?.textContent?.trim()} ${cells[5]?.textContent?.trim()}`,
-        ).getTime() -
-          dateTime.getTime()) /
-        3600000;
-
-      if (dateTime && durationInHour) {
-        exam = {
-          dateTime,
-          durationInHour,
-        };
-      }
-    }
-  }
 
   return {
     name: moduleName ?? "Unknown",

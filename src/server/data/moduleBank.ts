@@ -304,9 +304,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
-  "COR-1202": {
+  COR1202: {
     name: "Calculus",
-    moduleCode: "COR-1202",
+    moduleCode: "COR1202",
     exam: {
       dateTime: new Date("2024-11-29T00:00:00.000Z"),
       durationInHour: 3,
@@ -496,7 +496,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      and: ["COR-1202"],
+      and: ["COR1202"],
     },
   },
   "COR-IS1702": {
@@ -625,9 +625,9 @@ export const modules: ModuleBank = {
       or: [],
     },
   },
-  "COR-1701": {
+  COR1701: {
     name: "Critical Thinking In The Real World",
-    moduleCode: "COR-1701",
+    moduleCode: "COR1701",
     description:
       "You give reasons for what you do and think every day. You argue. You often argue about things that matter to you. For example you might argue that you are the best candidate for promotion, about whether your company should invest in China, about the best way to help a friend or about what the right thing to do is in an ethical dilemma. The list is up to you. Increasingly in the 21st job market, you will need to think straight about any issue, even those unfamiliar to you. Recent surveys indicate that the most important skills employers are looking for are critical thinking and problem solving skills. We will teach you how to get better at reasoning and arguing in a way that can be applied to any subject matter.\n                Topics covered include evaluating arguments, constructing arguments, reconstructing arguments, formalizing arguments, clarifying meaning and identifying common mistakes in argument (fallacies). At the end of the course you should be able to (1) identify the structures of real-life arguments in order to decide if they are good or bad, and (2) argue logically about things that matter to you. This course is specifically designed to improve writing, thinking and oral presentation skills that are applicable to all areas of academic study and relevant to working life. Careful application in this course will deepen your capacity to critically evaluate everyday practical scenarios and will help you ‘think outside the box’.",
     sections: [
@@ -834,12 +834,12 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      and: ["COR-1202"],
+      and: ["COR1202"],
     },
   },
-  "COR-1703": {
+  COR1703: {
     name: "Managing in a Volatile, Uncertain, Complex and Ambiguous Context",
-    moduleCode: "COR-1703",
+    moduleCode: "COR1703",
     exam: {
       dateTime: new Date("2024-11-29T00:00:00.000Z"),
       durationInHour: 3,
@@ -1257,9 +1257,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
-  "COR-1305": {
+  COR1305: {
     name: "Spreadsheet Modelling and Analytics",
-    moduleCode: "COR-1305",
+    moduleCode: "COR1305",
     exam: {
       dateTime: new Date("2024-12-05T00:00:00.000Z"),
       durationInHour: 3,
@@ -1361,9 +1361,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
-  "COR-1301": {
+  COR1301: {
     name: "Leadership and Team Building",
-    moduleCode: "COR-1301",
+    moduleCode: "COR1301",
     description:
       "\n            The overall objective of this module is to build and develop students' competency in leadership and teamwork skills. The course employs both a theoretical and an experiential learning approach with the aim of fulfilling the objectives as outlined below.\n\n            Students will gain knowledge and skills about leadership development and team-building skills based on theories, principles, concepts, application, exercises/class activities, self-assessments/instruments, and experiential learning.\n\n            Central to the course is the action-based and experiential Group Project Assignment that offers an opportunity for students to work in groups to collaborate with a non-profit organization or profit-based organization that upholds community development and/or corporate social responsibility or sustainability initiatives1, that is, they initiate and act as idea champions to contribute to community with a project of their own and approach beneficiaries along the way to amend or improve on their ideas. Students are also free to work with any profit and/or non-profit organization on an existing or new project they may have, provided such opportunities exist and are offered to students.\n\n            As idea champions, students work in groups, to develop/invent a prototype/model or mobile application or put into place a process, program or plan such as a business plan that will value-add and contribute to the needs of the beneficiary or organization of their choice. It is entirely up to the leadership of the organization concerned whether they would consider implementing or not implementing what students have designed. In other words, there is no compulsion for any organization to eventually sponsor the proposed ideas to the organization(s) concerned or may be collaborating with.\n\n            The outcomes of the group project for students are outlined as follows:\n            (i) Students will learn about leadership from the leaders they are connecting with. For example, they will learn how and why today's leaders are engaged in community-based or social initiatives in Singapore and beyond.\n            (ii) Students will also learn from the leaders lessons on leadership and/or teamwork based on the leaders' experiences.\n            (iii) By undertaking a hands-on group project, students will also learn practical lessons as well as the complexities of teamwork based on their OWN experience and process of working internally, with their group mates and externally, with organizations outside of school.\n            (iv) Each student will also reflect on his/her own learning throughout the project from start to end as outlined below (see 'Reflection Essay' for details).\n            (v) Students will also fulfill other learning objectives that include cognitive and academic development as outlined below in the section, 'Learning Objectives'",
     sections: [
@@ -2328,9 +2328,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: [],
   },
-  "COR-1306": {
+  COR1306: {
     name: "Capital Markets in China",
-    moduleCode: "COR-1306",
+    moduleCode: "COR1306",
     exam: {
       dateTime: new Date("2024-11-28T00:00:00.000Z"),
       durationInHour: 3,
@@ -2396,9 +2396,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-1307": {
+  COR1307: {
     name: "Accounting for Entrepreneurs",
-    moduleCode: "COR-1307",
+    moduleCode: "COR1307",
     exam: {
       dateTime: new Date("2024-11-25T00:00:00.000Z"),
       durationInHour: 3,
@@ -2465,7 +2465,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    mutuallyExclusive: ["COR-1301"],
+    mutuallyExclusive: ["COR1301"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
@@ -2619,9 +2619,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2202": {
+  COR2202: {
     name: "Science, Environment and Empire",
-    moduleCode: "COR-2202",
+    moduleCode: "COR2202",
     exam: {
       dateTime: new Date("2024-11-22T00:00:00.000Z"),
       durationInHour: 3,
@@ -2669,9 +2669,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2203": {
+  COR2203: {
     name: "Climate Change: Global and Local Solutions",
-    moduleCode: "COR-2203",
+    moduleCode: "COR2203",
     description:
       "This course introduces students to climate change, both within cities and globally, through a predominant STS perspective. Through in-class seminars incorporating digital platforms and field trips, students will examine the basic science underpinning present knowledge of climate change; explore the impacts of rising temperatures, changing rainfall patterns, and rising sea levels on society; and discuss the role of technology and its management towards climate change adaptation and mitigation solutions and policies. Case studies from Singapore and the region will be presented, and special attention focused towards the latest research on (i.) socio-economic inequalities that heighten risks towards urban populations, and (ii.) how technological innovation evolves with applied nature-based solutions in reducing climate vulnerabilities. By the end of the course, the student should be cognisant on the potential of effective and practical management in reducing the impacts of environmental hazards to coupled human-environmental systems, and have the ability to assess solutions to adapt to and mitigate climate change impacts on important industries. Climate change will continue to wreck devastating social and economic impact in the years to come. The ability to understand and devise effective solutions to mitigate the impact of climate change across industries will be a valuable core skill enabling SMU graduates to maintain agility as they progress in their careers.",
     sections: [
@@ -2715,9 +2715,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
-  "COR-2209": {
+  COR2209: {
     name: "Can Machines Think? AI in History, Philosophy, and Fiction",
-    moduleCode: "COR-2209",
+    moduleCode: "COR2209",
     description:
       'The newest development in machine learning methods, such as Deep Neural Networks, brought about ubiquitous proclamations of a radical societal change. Amidst utopian visions of technological enthusiasts and dystopian scenarios advanced by the sceptics that proliferate in media, some basic questions about the aims and the tools of AI remain obscured. "Can Machines think ?” This class takes one of the central questions addressed to and by the proponents of the AI, artists, and philosophers as an entry point to consider the current emphasis on the transformative potential of machine learning from a historical perspective. Therefore, the course structure is mostly chronological. We will situate the field of AI in the long tradition of automata construction, as well as in the context of a cold war meta-discipline of cybernetics. We will read the original works of the founders of the field, such as Alan Turing and John McCarthy, to reconstruct the main lines of the intellectual development of the field as well as its paradoxes. We will also overview some of the main philosophical and ethical debates around the notions of “intelligence," “rationality," and “mind” in light of the computational technics for decision making. Finally, the course materials include a selection of science fiction novels, films, and short stories in order to discuss the notion of technological imagination as a link connecting public science, cultural production, and the formation of a scientific/engineering research programs.',
     sections: [
@@ -2799,9 +2799,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 3B"],
   },
-  "COR-2213": {
+  COR2213: {
     name: "Biotechnology in a Global Society",
-    moduleCode: "COR-2213",
+    moduleCode: "COR2213",
     description:
       "Biotechnology has emerged as one of the most promising and potentially profitable fields for venture capital, the government, health practitioners, consumers, and patients. Some biotechnological companies like 23andMe promise clients access to their ancient ancestry with a simple DNA swab. Scientists have harnessed the power of cloning that promises miraculous cures through stem cell therapies. Many patients have pinned their hopes in the secrets of the BRCA genes to find that elusive cure for breast cancer. But what is biotechnology? How did the field emerge and for what purpose? What are the potentials and dangers of this new field? Who actually benefits from new biotechnologies? This course will explore these questions by examining the modern history of biotechnology and its embedding in a global, capitalist society. We will trace the political ideals, scientific developments, technological infrastructures, and new economic modes that made biotechnology possible.",
     sections: [
@@ -2909,9 +2909,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2219": {
+  COR2219: {
     name: "Heated Debates: Climate Justice",
-    moduleCode: "COR-2219",
+    moduleCode: "COR2219",
     description:
       "This course is aimed at anyone who wants to gain an understanding of climate change, the moral problems it raises, and the responsibilities we have, individually and collectively, because of it. This course will consider several interrelated issues connected to climate change. Such issues include: What ethical challenges does climate change raise? Who has a right to what emission levels? How do we negotiate between collective and individual self-interests? What would constitute a just allocation of the burdens of climate change? What can economic analysis tell us (and not tell us) about climate change? In what ways does uncertainty challenge our ability to understand what we should do about climate change? Why might geoengineering be morally problematic? What are we individually and collectively required to do about climate change? What are our responsibilities toward future generations and the environment, and how do we take these into account? This course will examine the science, and look closely at the interplay of science and public policy. It will also look at the role of values in science. This course will approach these issues from a variety of perspectives. Readings will drawn from climate science, philosophy, economics, environmental studies, public policy, and popular media, among other sources.",
     sections: [
@@ -2973,9 +2973,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2222": {
+  COR2222: {
     name: "AI for Social Transformation",
-    moduleCode: "COR-2222",
+    moduleCode: "COR2222",
     description:
       "The notion that Artificial Intelligence (AI) has the capacity to transform the way society operates has long been a part of popular culture. Androids have been dreaming of electric sheep since 1968, and Tom Cruise was already arresting pre-criminals in 2002. With the explosion of data available to governments and companies, and cloud computing platforms making supercomputing power widely available, science fiction and reality have never been closer. However, the true capabilities and limitations of AI are often poorly understood, as some predict doom, while others promise the moon. Modern AI techniques have the capacity to improve the way organisations operate, improving decision-making and increasing human and environmental wellbeing, but also carry the potential to cause harm if used irresponsibly or ignorantly. Accessible to technical and non-technical students alike, this course will introduce you to key techniques, showing how they can be flexibly applied to a range of problems, from using game theory to intercept wildlife poachers, through machine learning models for crime prediction, to risk-aware logistics scheduling. The course will guide you through the ethical implications of AI, considering the effects of biased data and the uncritical application of techniques. By the end of the course you will have a working understanding of the capacities and limitations of practical AI, equipping you to critically analyse new developments, and engage in responsible, informed decision-making in the workplace.",
     sections: [
@@ -3037,9 +3037,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2223": {
+  COR2223: {
     name: "Frontiers of Modern Computing: Present Essentials and Future Promises",
-    moduleCode: "COR-2223",
+    moduleCode: "COR2223",
     description:
       "The pace of development in modern computing can be bewildering. New technologies appear, making headlines, yet the important details of what they are and how they work often seem to be secrets that are accessible to only an initiated few. This course provides an introduction to the hot technologies in modern computing, demystifying terminology and breaking down the relevant technical information for students of all backgrounds. The course scope encompasses both hot topics that grab headlines, and recent developments that have become central to modern computing infrastructure, understanding how the technology developed to this point, and examining where it may progress in the future. Typical topics include blockchain, Internet of Things, cloud computing and machine learning. This course will equip you with an understanding of key contemporary technologies. It does not shy away from technical details, but presents them in an accessible manner so that you can grasp the capabilities and purpose of the tools discussed. As advances in computing methods are evolved from existing techniques, the insights gained from this course will also give you a head start in getting to grips with further developments in computing in the future. You will also be invited to consider the ethical implications and moral responsibilities of deploying the technologies that pervade our daily lives.",
     sections: [
@@ -3215,9 +3215,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 2"],
   },
-  "COR-2627": {
+  COR2627: {
     name: "European Cultural History: From Antiquity to Brexit",
-    moduleCode: "COR-2627",
+    moduleCode: "COR2627",
     description:
       "Cultural history brings to life past epochs and places. In this pursuit, it analyses beliefs and ideas, products of artistic nature, as well as the objects and experiences of everyday life, such as clothing or cuisine. Culture also encompasses attitudes, values, assumptions and prejudices, and the rituals and practices that express them. In this regard, our current thoughts and acts have an ancestry which cultural history can illuminate and critically examine. This course explores fundamental moments in the history of Europe: from the foundations in Greece and Rome, through the alliances, conflicts and revolutions that transformed it, and key periods such as the Enlightenment and Modernism, that significantly shaped it. They all help understand the complexities of today's Europe, from the challenges in cultural integration to Brexit. Through lectures, key readings, analyses of case studies and research projects, this course broadens understanding of Europe. By establishing linkages between history, socio-political and economic contexts, religion, and art forms, it reveals crucial intersections to comprehend the landmarks of the cultural history of Europe.",
     sections: [
@@ -3243,9 +3243,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2628": {
+  COR2628: {
     name: "Fashioning a Nation",
-    moduleCode: "COR-2628",
+    moduleCode: "COR2628",
     description:
       "Nations have long sought to evoke loyalty and personal attachment, while in turn providing those living within it with a collective experience and common destiny. The potent force of the nation as a cognitive idea is at the heart of this course, which conceives of the making of a nation as an ongoing work in progress in which everyone has a stake. The central question that we will investigate concerns the reciprocal influences between the nation, its institutional manifestations and ‘the people’. How do ‘the people’ shape institutions and fashion a nation on a daily basis and vice versa?\n\n                To explore these relationships, the course is structured around three themes: prerequisites, process and practice. The first theme provides the general conceptual framework through a series of brief discussions of what a nation is, how it relates to a state and to a ‘people’. The second theme is devoted to what is often seen as the quintessential nation-building moment: the formal drafting of a constitution. We will consider the choice of language in that text to harness the people’s fidelity to the budding nation as well as the respective roles played by the elites and ordinary citizens during the constitution-process. For the third theme, we will probe the lived reality of how the nation constitutes itself every day through its people, from the elites who claim to speak on behalf of the nation in formal rule-making to the personification of the nation in image, song and icon to the architectural design of state institutions and public spaces and the wearing of folk costumes or traditional outfits that seek to give expression to the identity of the nation.\n\n                Our explorations will feature the experiences of a diverse range of nations located within and outside Asia. These will provide the backdrop against which the Singapore story will be considered, thereby allowing students to interrogate the familiar domestic narrative of nation-building from a comparative angle. The approach taken will be practically grounded and interdisciplinary, drawing on insights from law, political theory, history, linguistics, architecture and the arts. To do so effectively, the course will be team-taught by two instructors with complementary disciplinary backgrounds.\n                ",
     sections: [
@@ -3271,9 +3271,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2629": {
+  COR2629: {
     name: "Film in Southeast Asia",
-    moduleCode: "COR-2629",
+    moduleCode: "COR2629",
     exam: {
       dateTime: new Date("2024-11-28T00:00:00.000Z"),
       durationInHour: 3,
@@ -3303,9 +3303,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2630": {
+  COR2630: {
     name: "Finding Home in a Globalized World",
-    moduleCode: "COR-2630",
+    moduleCode: "COR2630",
     exam: {
       dateTime: new Date("2024-11-29T00:00:00.000Z"),
       durationInHour: 3,
@@ -3335,9 +3335,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2631": {
+  COR2631: {
     name: "Food Cultures - Are We What, Where and How We Eat?",
-    moduleCode: "COR-2631",
+    moduleCode: "COR2631",
     exam: {
       dateTime: new Date("2024-11-25T00:00:00.000Z"),
       durationInHour: 3,
@@ -3367,9 +3367,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2632": {
+  COR2632: {
     name: "French",
-    moduleCode: "COR-2632",
+    moduleCode: "COR2632",
     exam: {
       dateTime: new Date("2024-11-29T00:00:00.000Z"),
       durationInHour: 3,
@@ -3399,9 +3399,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2633": {
+  COR2633: {
     name: "Global and Transnational Sociology",
-    moduleCode: "COR-2633",
+    moduleCode: "COR2633",
     description:
       "Globalization is the increasing interconnectedness of social, economic, and political activities between countries around the world. In this course, we will examine the sociology of globalization from these and other various perspectives, paying attention to specific topics that have become prominent in global debates. We will cover major theoretical perspectives that social scientists of different disciplines have used to guide their study of globalization. Although globalization often seems like a set of chaotic events, these theoretical perspectives shed light on the systematic and institutionalized nature of global processes. We will discuss issues in global politics, society, and culture where we will examine the role of the nation-state, global human rights, social movements, and questions of national culture and identity. We will also explore issues in the global economy and questions of global economic governance, where will examine the consequences of global institutions and economic globalization. Throughout the course, we emphasize the core question of global governance.\n\n        This course prepares students for informed citizenship in a rapidly globalizing world. Many students will go on to find employment in organizations in which decisions made can have profound global consequences. As such, students will be equipped with the necessary conceptual and empirical knowledge to evaluate debates on globalization and to critique the roles that state and non-state actors play in global processes. Students will be trained to discern the positive and negative impacts of key actors that are involved in global governance. Students will also acquire familiarity with key sociology, political science, and economics approaches to globalization.",
     sections: [
@@ -3427,9 +3427,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2634": {
+  COR2634: {
     name: "Introduction to Chinese History, Culture, Economy, Politics and Law",
-    moduleCode: "COR-2634",
+    moduleCode: "COR2634",
     description:
       "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students’ understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
     sections: [
@@ -3455,9 +3455,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2635": {
+  COR2635: {
     name: "Italian",
-    moduleCode: "COR-2635",
+    moduleCode: "COR2635",
     description:
       "Italian is an elementary language course designed for beginners that focuses on intensive oral communication practice, and aims at developing basic oral expression, listening, comprehension and elementary reading and writing skills. The course will also focus on important aspects of the Italian culture. Classes are based on oral-aural communicative activities: there will be an extensive use of role-plays, class debates, individual and group quizzes and songs listening and singing.",
     sections: [
@@ -3483,9 +3483,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2636": {
+  COR2636: {
     name: "Japanese",
-    moduleCode: "COR-2636",
+    moduleCode: "COR2636",
     description:
       "This course is designed for students with no previous background in Japanese. It provides a foundation for the practical knowledge and ability to communicate effectively in both spoken and written Japanese. Lessons will evolve along topics such as self-introduction, family and home, neighborhood, daily activities, shopping, holiday activities, and Japanese culture will be incorporated in each lesson. This course is the equivalent of CEFR A1 level. Japanese scripts (Hiragana and Katakana) is used throughout the course, and basic Kanji readings would also be introduced. ",
     sections: [
@@ -3511,9 +3511,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2637": {
+  COR2637: {
     name: "Jurisprudence: Modern and Critical Theories of Law",
-    moduleCode: "COR-2637",
+    moduleCode: "COR2637",
     exam: {
       dateTime: new Date("2024-12-01T00:00:00.000Z"),
       durationInHour: 3,
@@ -3543,9 +3543,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2638": {
+  COR2638: {
     name: "Korean",
-    moduleCode: "COR-2638",
+    moduleCode: "COR2638",
     exam: {
       dateTime: new Date("2024-11-24T00:00:00.000Z"),
       durationInHour: 3,
@@ -3575,9 +3575,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2639": {
+  COR2639: {
     name: "Making Peace in, and with, a World at War",
-    moduleCode: "COR-2639",
+    moduleCode: "COR2639",
     description:
       "Humans have been making war and peace throughout their recorded history. We can be fairly certain this was the case well before civilization emerged. Conflicts always seem to erupt over scarce resources, contentious values and ideas, fissures in relationships, fault-lines in societies, the list goes on. And, intertwined with these conflicts are efforts to end violence, to heal wounds and reconcile, to share resources, to create or re-establish a semblance of harmony between peoples. Most of all will perceive these human activities as binary opposites, as mutually exclusive, leading us to invest particular meanings in each to distinguish them further from each other. Indeed, thanks to influences from culture, media, from our communities, families and leaders, we typically perceive war and peace as suffering versus happiness, action not stillness, a zone of masculine combat versus one of safety for women and children, and much more. These ingrained perceptions shape our decisions, actions and relationships in fundamental ways, determining our behavior and experiences in all spaces and times, whether we have construed them to be in the context of war, peace, and anything beyond or in-between. Since our views of war and peace are so fundamental to our life experience, this course asks us for a deeper engagement of our prior knowledge.\n                    Through critical engagement with a variety of disciplines and empirical contexts, we will consider the intertwined phenomena of war and peace in theory and praxis. The course explores the value systems we attach to each, why, and with what consequences for ourselves and others? We investigate how our notions of war and peace contribute directly to the construction of our identity as well as ideas about belonging, power, justice, progress, and more. In so doing, we look into the ways people, their customs, laws and culture respond to their perceptions and experiences of war and peace; reflect on how they debate the purposes of war-making and peace-making; and discuss how they compete and cooperate for the spoils of both war and peace. Also, we will study how our knowledge of war and peace may continually change over time. By the end of the course, students will have an expansive understanding of how these two phenomena come together in ways that structure and define their everyday lives.",
     sections: [
@@ -3603,9 +3603,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2640": {
+  COR2640: {
     name: "Mandarin",
-    moduleCode: "COR-2640",
+    moduleCode: "COR2640",
     description:
       "This course is an introduction to Mandarin, focusing on building basic conversational skills, grammar, and vocabulary.",
     sections: [
@@ -3631,9 +3631,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2641": {
+  COR2641: {
     name: "Politics of South-East Asia",
-    moduleCode: "COR-2641",
+    moduleCode: "COR2641",
     description:
       "This course examines the political systems, governance, and key political issues facing the countries of South-East Asia.",
     sections: [
@@ -3659,9 +3659,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2642": {
+  COR2642: {
     name: "Publics and Privates on the Pacific Rim",
-    moduleCode: "COR-2642",
+    moduleCode: "COR2642",
     description:
       "This course explores the dynamic between public and private sectors in the Pacific Rim, focusing on economic, political, and cultural interactions.",
     sections: [
@@ -3687,9 +3687,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2643": {
+  COR2643: {
     name: "Redefining the Third Age in Singapore",
-    moduleCode: "COR-2643",
+    moduleCode: "COR2643",
     description:
       "This course addresses the concept of aging in Singapore, focusing on social policies, challenges, and opportunities for the elderly in the third age.",
     sections: [
@@ -3715,9 +3715,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2644": {
+  COR2644: {
     name: "Refocusing Wealth and Poverty: Relations, Forms, Causes & Strategies",
-    moduleCode: "COR-2644",
+    moduleCode: "COR2644",
     description:
       "This course examines the causes and consequences of wealth and poverty, and strategies to address inequality on a global scale.",
     sections: [
@@ -3743,9 +3743,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2645": {
+  COR2645: {
     name: "Scratches on their Minds: Images of Asia in Hollywood",
-    moduleCode: "COR-2645",
+    moduleCode: "COR2645",
     description:
       "This course explores how Hollywood has portrayed Asia and its people, analyzing both historical and contemporary films.",
     sections: [
@@ -3771,9 +3771,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2646": {
+  COR2646: {
     name: "Screening Asia: History, Society, and Politics in Films",
-    moduleCode: "COR-2646",
+    moduleCode: "COR2646",
     description:
       "This course uses films to examine the history, society, and politics of Asia, focusing on key events and societal changes through cinematic portrayals.",
     sections: [
@@ -3827,9 +3827,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-2647": {
+  COR2647: {
     name: "Singapore: Imagining the Next Fifty Years",
-    moduleCode: "COR-2647",
+    moduleCode: "COR2647",
     description:
       "This course analyzes the social, political, and economic challenges that Singapore may face in the next fifty years, exploring possible strategies for future growth and development.",
     sections: [
@@ -3855,9 +3855,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
   },
-  "COR-1100": {
+  COR1100: {
     name: "Writing and Reasoning",
-    moduleCode: "COR-1100",
+    moduleCode: "COR1100",
     description:
       "Using Problem-Based Learning strategies, the Writing and Reasoning course equips students with key communication strategies to write cogently in academic, business and professional settings. Through authentic communication problems, students will learn to clarify context, define relevant audience, determine communication goals and use appropriate genres to deliver their intended message clearly, concisely and coherently. Students will also learn to read critically, formulate a position convincingly using appropriate evidence, and convey their ideas persuasively.",
     sections: [
@@ -4808,9 +4808,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: [],
   },
-  "COR-2100": {
+  COR2100: {
     name: "Economics and Society",
-    moduleCode: "COR-2100",
+    moduleCode: "COR2100",
     exam: {
       dateTime: new Date("2024-11-27T00:00:00.000Z"),
       durationInHour: 3,
@@ -5291,9 +5291,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
-  "COR-3001": {
+  COR3001: {
     name: "Big Questions",
-    moduleCode: "COR-3001",
+    moduleCode: "COR3001",
     description:
       "Big Questions will take a theme every year, or a major global challenge broadly defined as a thesis and its (seeming) antithesis. Big Questions will introduce students to the challenging ethical, theoretical, and operational debates that attend to these themes. Students in any given year will be able to choose from a menu of sub-themes, each using a different disciplinary lens and focusing on different aspects of the theme, while also sharing a canon of readings and attending public lectures dedicated to the year's theme for a shared intellectual experience. The themes may include Happiness and Suffering, Global and Local, Robots and Humans, Wealth and Poverty, War and Peace, amongst others.",
     sections: [
@@ -5859,9 +5859,9 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
-  "COR-3301": {
+  COR3301: {
     name: "Ethics and Social Responsibility",
-    moduleCode: "COR-3301",
+    moduleCode: "COR3301",
     exam: {
       dateTime: new Date("2024-11-29T00:00:00.000Z"),
       durationInHour: 3,
@@ -8975,9 +8975,9 @@ export const modules: ModuleBank = {
       or: [],
     },
   },
-  "COR-2201": {
+  COR2201: {
     name: "Technology and World Change",
-    moduleCode: "COR-2201",
+    moduleCode: "COR2201",
     exam: {
       dateTime: new Date("2024-12-06T00:00:00.000Z"),
       durationInHour: 3,
@@ -9124,9 +9124,9 @@ export const modules: ModuleBank = {
       or: [],
     },
   },
-  "COR-2221": {
+  COR2221: {
     name: "AI and Humanity",
-    moduleCode: "COR-2221",
+    moduleCode: "COR2221",
     description:
       "Technology (specifically AI) has evolved beyond a technical proposition to a shaping force of our future, interwoven into social, cultural and political elements of human society. We are at the genesis of how the relationship between humans and AI is evolving. More than ever, it is crucial to examine a fundamental question of what does it mean to be a human (and AI). Can AI perceive, communicate and sense as well as humans do, or perhaps even better? Such pertinent questions require a multidisciplinary lens, which this course equips you with to dexterously navigate an unfolding future as leaders of today. Venture beyond an academic discourse and gain hands-on experience as a psychologist and AI scientist to develop an AI powered chatbot.",
     sections: [
@@ -9215,9 +9215,9 @@ export const modules: ModuleBank = {
       or: [],
     },
   },
-  "COR-2210": {
+  COR2210: {
     name: "Technological Innovations Enhancing Urban Sustainability",
-    moduleCode: "COR-2210",
+    moduleCode: "COR2210",
     description:
       "This course provides students with a set of interweaving and interdisciplinary concepts across the social sciences regarding the what, the how and the why regarding the implementation of technology on urban sustainability issues.\n\n                Topics to be covered include:\n\n                1. Sustainability in cities, particularly in the context of environmental and climate change.\n\n                2. The role of technology in enhancing and disrupting “normal” ways of life in the city, through the use of shared riding/food delivery apps, and social media.\n\n                3. How technology applied judiciously can enhance livability and livelihoods for a wide range of urban residents who are both technology-savvy and residents uncomfortable using technology.\n\n                \n                Students will gain an understanding of how selected industries consider and apply these technologies towards urban sustainability issues. While there will be some in-class meetings to discuss theoretical concepts, learning will be primarily experiential in nature through class discussion, group exercises, and a team project. Guest speakers with practical and industrial experience may be invited as well. The course project will work with one or two industry sponsors. Students are expected to conceive a solution to address a defined problem statement, related to an aspect of urban sustainability with societal impact, and in accordance to the real-world needs of the industry sponsor.",
     sections: [
@@ -9252,9 +9252,9 @@ export const modules: ModuleBank = {
       or: [],
     },
   },
-  "COR-2406": {
+  COR2406: {
     name: "French",
-    moduleCode: "COR-2406",
+    moduleCode: "COR2406",
     exam: {
       dateTime: new Date("2024-11-27T00:00:00.000Z"),
       durationInHour: 3,
@@ -9321,9 +9321,9 @@ export const modules: ModuleBank = {
       or: [],
     },
   },
-  "COR-2407": {
+  COR2407: {
     name: "Italian",
-    moduleCode: "COR-2407",
+    moduleCode: "COR2407",
     exam: {
       dateTime: new Date("2024-11-24T00:00:00.000Z"),
       durationInHour: 3,
@@ -9390,9 +9390,9 @@ export const modules: ModuleBank = {
       or: [],
     },
   },
-  "COR-2408": {
+  COR2408: {
     name: "Spanish",
-    moduleCode: "COR-2408",
+    moduleCode: "COR2408",
     description:
       "It is meant to introduce the students to the learning of the Spanish language and through this, to discover other culture and ways of communicating. The Spanish taught is that from Spain but students will also be familiarized with Spanish of Latin American countries. After taking this course, the students will be able to acquire a basic knowledge of the Spanish language that will equip them to continue learning the language at higher levels later on. Learning a new language like Spanish will be very useful in your academic life if you decide to go for an exchange program with a Spanish speaking country as well as in your professional life (as Spanish is the third most spoken language in the world after English and Chinese). It will also allow you to be familiar with other cultures. \n                ",
     sections: [
@@ -9460,7 +9460,7 @@ export const modules: ModuleBank = {
     moduleCode: "IS484",
     description: "DESCRIPTION_NEEDED",
     credit: 1,
-    terms: ["Term 1"],
+    terms: ["Term 1", "Term 2"],
     sections: [
       {
         code: "G1",
