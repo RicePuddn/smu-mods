@@ -12,6 +12,8 @@ if (args.length === 0) {
 
 const fileName = args[0];
 
+const write = args[1] === "--write";
+
 if (!fileName) {
   console.error("File not found.");
   process.exit(1);
@@ -27,4 +29,9 @@ console.log("File Path:", filePath);
 
 const projectBaseDir = path.resolve(directoryPath, "..");
 
-processModuleHtml(filePath, path.join(directoryPath, "parsed"), projectBaseDir);
+processModuleHtml(
+  filePath,
+  path.join(directoryPath, "parsed"),
+  projectBaseDir,
+  write,
+);
