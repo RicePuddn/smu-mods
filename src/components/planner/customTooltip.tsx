@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
+import React, { useState } from "react";
+
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import React, { type ReactNode, useState } from "react";
 
 interface InteractiveTooltipProps {
   children: ReactNode;
@@ -30,9 +32,7 @@ export const InteractiveTooltip: React.FC<InteractiveTooltipProps> = ({
             {children}
           </div>
         </TooltipTrigger>
-        <TooltipContent className="bg-slate-50 shadow-md">
-          {content}
-        </TooltipContent>
+        <TooltipContent className="shadow-md">{content}</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

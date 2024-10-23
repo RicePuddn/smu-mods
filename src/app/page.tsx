@@ -106,15 +106,7 @@ function Scene() {
         enableZoom={false}
       />
       {/* Ambient Light */}
-<<<<<<< Updated upstream
       <ambientLight intensity={theme == "light" ? 1.0 : 0.5} />
-=======
-<<<<<<< main
-      <ambientLight intensity={theme == "light" ? 1.0 : 0.5} />
-=======
-      <ambientLight intensity={0.9} />
->>>>>>> arin-course-cat
->>>>>>> Stashed changes
       {/* Directional Light */}
       <directionalLight
         position={[-4, 3, -1]}

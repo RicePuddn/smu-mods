@@ -1,5 +1,7 @@
 import { SidebarLayout } from "@/components/ui/sidebar";
 
+import { Banners } from "./banners";
+import { Disclaimer } from "./disclaimer";
 import NavHeader from "./nav-header";
 import { AppSidebar } from "./sidebar";
 
@@ -15,6 +17,8 @@ export default async function Layout({ children }: LayoutProps) {
     >
       <AppSidebar />
       <main className="flex h-[100dvh] max-h-[100dvh] max-w-full flex-1 flex-col p-2 transition-all duration-300 ease-in-out">
+        <Banners />
+        <Disclaimer />
         <div className="h-full max-h-full overflow-y-scroll rounded-md border-2 border-dashed">
           <NavHeader />
           <div>{children}</div>

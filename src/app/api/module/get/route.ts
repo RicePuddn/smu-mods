@@ -1,6 +1,7 @@
-import { api } from "@/trpc/server";
-import type { ModuleCode } from "@/types/primitives/module";
 import type { NextRequest } from "next/server";
+
+import type { ModuleCode } from "@/types/primitives/module";
+import { api } from "@/trpc/server";
 
 export async function GET(req: NextRequest) {
   const moduleCode = req.nextUrl.searchParams.get(

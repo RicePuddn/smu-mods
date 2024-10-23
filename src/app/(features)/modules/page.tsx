@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown, Star, StarOff } from "lucide-react";
 
 // import ui components
 import ModuleDetails from "@/components/ModuleDetails";
@@ -14,8 +15,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ChevronDown, Star, StarOff } from "lucide-react";
-
 // Importing module data and basket categories
 import { PADDING } from "@/config";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
@@ -127,8 +126,8 @@ export default function CourseCatalogue() {
         {/* Filter by Categories */}
         <div className="space-y-2">
           <h2 className="font-semibold">Basket</h2>
-          {categories.map((category) => (
-            <div key={category} className="flex items-center space-x-2">
+          {categories.map((category, index) => (
+            <div key={index} className="flex items-center space-x-2">
               <Checkbox
                 id={`category-${category}`}
                 checked={selectedCategories.includes(category)}
@@ -160,7 +159,7 @@ export default function CourseCatalogue() {
                 <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-foreground/70">
                       {module.moduleCode} | {module.credit} CU | Exam Date:{" "}
                       {module.exam
                         ? new Date(module.exam.dateTime).toLocaleDateString()

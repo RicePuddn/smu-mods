@@ -1,20 +1,21 @@
 "use client";
 
 import type { LucideProps } from "lucide-react";
-import { ChevronsUpDown } from "lucide-react";
+import type { ForwardRefExoticComponent, RefAttributes } from "react";
+import { Fragment } from "react";
 import Link from "next/link";
-import {
-  type ForwardRefExoticComponent,
-  Fragment,
-  type RefAttributes,
-} from "react";
+import { usePathname } from "next/navigation";
+import { ChevronsUpDown } from "lucide-react";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+
+import { SheetClose } from "../ui/sheet";
 
 export type SubLinks = {
   title: string;
@@ -52,6 +53,8 @@ export function NavMain({
 }: {
   items: Links[];
 } & React.ComponentProps<"ul">) {
+  const pathname = usePathname();
+  const isMobile = useIsMobile();
   return (
     <ul className={cn("grid gap-0.5", className)}>
       {items.map((item, index) => (
@@ -72,12 +75,25 @@ export function NavMain({
                   <ul className="grid border-l px-2">
                     {item.items?.map((subItem) => (
                       <li key={subItem.title}>
-                        <Link
-                          href={subItem.url}
-                          className="flex h-8 min-w-8 items-center gap-2 overflow-hidden rounded-md px-2 text-sm font-medium text-muted-foreground ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2"
-                        >
-                          <div className="line-clamp-1">{subItem.title}</div>
-                        </Link>
+                        {isMobile ? (
+                          <SheetClose asChild>
+                            <Link
+                              href={subItem.url}
+                              className="flex h-8 min-w-8 items-center gap-2 overflow-hidden rounded-md px-2 text-sm font-medium text-muted-foreground ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2"
+                            >
+                              <div className="line-clamp-1">
+                                {subItem.title}
+                              </div>
+                            </Link>
+                          </SheetClose>
+                        ) : (
+                          <Link
+                            href={subItem.url}
+                            className="flex h-8 min-w-8 items-center gap-2 overflow-hidden rounded-md px-2 text-sm font-medium text-muted-foreground ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2"
+                          >
+                            <div className="line-clamp-1">{subItem.title}</div>
+                          </Link>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -86,15 +102,39 @@ export function NavMain({
             </Collapsible>
           ) : (
             <li>
-              <Link
-                href={item.url}
-                className="flex h-8 min-w-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2"
-              >
-                <item.icon className="h-4 w-4 shrink-0" />
-                <div className="flex flex-1 overflow-hidden">
-                  <div className="line-clamp-1 pr-6">{item.title}</div>
-                </div>
-              </Link>
+              {isMobile ? (
+                <SheetClose asChild>
+                  <Link
+                    href={item.url}
+                    className={cn(
+                      "flex h-8 min-w-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2",
+                      pathname.startsWith(item.url) &&
+                        item.url !== "/" &&
+                        "bg-accent text-accent-foreground",
+                    )}
+                  >
+                    <item.icon className="h-4 w-4 shrink-0" />
+                    <div className="flex flex-1 overflow-hidden">
+                      <div className="line-clamp-1 pr-6">{item.title}</div>
+                    </div>
+                  </Link>
+                </SheetClose>
+              ) : (
+                <Link
+                  href={item.url}
+                  className={cn(
+                    "flex h-8 min-w-8 flex-1 items-center gap-2 overflow-hidden rounded-md px-1.5 text-sm font-medium outline-none ring-ring transition-all hover:bg-accent hover:text-accent-foreground focus-visible:ring-2",
+                    pathname.startsWith(item.url) &&
+                      item.url !== "/" &&
+                      "bg-accent text-accent-foreground",
+                  )}
+                >
+                  <item.icon className="h-4 w-4 shrink-0" />
+                  <div className="flex flex-1 overflow-hidden">
+                    <div className="line-clamp-1 pr-6">{item.title}</div>
+                  </div>
+                </Link>
+              )}
             </li>
           )}
         </Fragment>

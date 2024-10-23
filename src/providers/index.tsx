@@ -1,6 +1,7 @@
 import StoreProviders from "@/stores/StoreProviders";
 import { TRPCReactProvider } from "@/trpc/react";
 import { HydrateClient } from "@/trpc/server";
+
 import { ThemeProvider } from "./themeProvider";
 
 export default function MainProviders({
