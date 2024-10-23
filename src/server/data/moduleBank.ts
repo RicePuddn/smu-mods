@@ -634,17 +634,17 @@ export const modules: ModuleBank = {
       {
         code: "G1",
         professor: {
-          name: "MATTHEW HAMMERTON",
+          name: "TAN SOR HOON",
         },
         location: {
           building: "SOSS/CIS",
-          room: "Seminar Room 1-1",
-          level: 1,
+          room: "Seminar Room 2-2",
+          level: 2,
         },
         classes: [
           {
-            day: "Tuesday",
-            startTime: "12:00",
+            day: "Wednesday",
+            startTime: "08:15",
             duration: 3.25,
           },
         ],
@@ -652,29 +652,11 @@ export const modules: ModuleBank = {
       {
         code: "G2",
         professor: {
-          name: "MATTHEW HAMMERTON",
+          name: "SOVAN PATRA",
         },
         location: {
           building: "SOSS/CIS",
-          room: "Seminar Room 1-1",
-          level: 1,
-        },
-        classes: [
-          {
-            day: "Wednesday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G3",
-        professor: {
-          name: "MATTHEW HAMMERTON",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Seminar Room 1-1",
+          room: "Seminar Room 1-3",
           level: 1,
         },
         classes: [
@@ -686,27 +668,9 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G4",
+        code: "G3",
         professor: {
-          name: "MATTHEW HAMMERTON",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Seminar Room 1-1",
-          level: 1,
-        },
-        classes: [
-          {
-            day: "Friday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G5",
-        professor: {
-          name: "BRANDON YIP",
+          name: "STEVEN BURIK",
         },
         location: {
           building: "SOSS/CIS",
@@ -715,8 +679,44 @@ export const modules: ModuleBank = {
         },
         classes: [
           {
+            day: "Monday",
+            startTime: "15:30",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G4",
+        professor: {
+          name: "STEVEN BURIK",
+        },
+        location: {
+          building: "SOSS/CIS",
+          room: "Seminar Room 1-1",
+          level: 1,
+        },
+        classes: [
+          {
             day: "Tuesday",
-            startTime: "08:15",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G5",
+        professor: {
+          name: "STEVEN BURIK",
+        },
+        location: {
+          building: "SOSS/CIS",
+          room: "Seminar Room 1-1",
+          level: 1,
+        },
+        classes: [
+          {
+            day: "Wednesday",
+            startTime: "15:30",
             duration: 3.25,
           },
         ],
@@ -724,17 +724,17 @@ export const modules: ModuleBank = {
       {
         code: "G6",
         professor: {
-          name: "SOVAN PATRA",
+          name: "BRANDON YIP",
         },
         location: {
           building: "SOSS/CIS",
-          room: "Seminar Room B1-1",
-          level: "B1",
+          room: "Seminar Room 3-3",
+          level: 3,
         },
         classes: [
           {
-            day: "Monday",
-            startTime: "12:00",
+            day: "Thursday",
+            startTime: "08:15",
             duration: 3.25,
           },
         ],
@@ -742,16 +742,16 @@ export const modules: ModuleBank = {
       {
         code: "G7",
         professor: {
-          name: "SOVAN PATRA",
+          name: "JOSHUA THONG",
         },
         location: {
           building: "SOSS/CIS",
-          room: "Seminar Room B1-1",
-          level: "B1",
+          room: "Classroom 3-4",
+          level: 0,
         },
         classes: [
           {
-            day: "Monday",
+            day: "Tuesday",
             startTime: "15:30",
             duration: 3.25,
           },
@@ -765,25 +765,7 @@ export const modules: ModuleBank = {
         location: {
           building: "SOSS/CIS",
           room: "Classroom 1-2",
-          level: 1,
-        },
-        classes: [
-          {
-            day: "Tuesday",
-            startTime: "15:30",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G9",
-        professor: {
-          name: "JOSHUA THONG",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Classroom 1-2",
-          level: 1,
+          level: 0,
         },
         classes: [
           {
@@ -794,19 +776,37 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G10",
+        code: "G9",
         professor: {
-          name: "JARED POON JUN KEAT",
+          name: "TONY SEE",
         },
         location: {
           building: "SOSS/CIS",
-          room: "Seminar Room 1-1",
-          level: 1,
+          room: "Seminar Room 2-1",
+          level: 2,
         },
         classes: [
           {
             day: "Wednesday",
-            startTime: "08:15",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G10",
+        professor: {
+          name: "TONY SEE",
+        },
+        location: {
+          building: "SOSS/CIS",
+          room: "Seminar Room 2-1",
+          level: 2,
+        },
+        classes: [
+          {
+            day: "Wednesday",
+            startTime: "15:30",
             duration: 3.25,
           },
         ],
@@ -814,17 +814,17 @@ export const modules: ModuleBank = {
       {
         code: "G11",
         professor: {
-          name: "TONY SEE",
+          name: "JARED POON JUN KEAT",
         },
         location: {
-          building: "YPHSL",
-          room: "Seminar Room 2-15",
+          building: "SOSS/CIS",
+          room: "Seminar Room 2-2",
           level: 2,
         },
         classes: [
           {
             day: "Monday",
-            startTime: "15:30",
+            startTime: "08:15",
             duration: 3.25,
           },
         ],
@@ -841,8 +841,8 @@ export const modules: ModuleBank = {
     name: "Managing in a Volatile, Uncertain, Complex and Ambiguous Context",
     moduleCode: "COR1703",
     exam: {
-      dateTime: new Date("2024-11-29T00:00:00.000Z"),
-      durationInHour: 3,
+      dateTime: new Date("2025-04-29T05:00:00.000Z"),
+      durationInHour: 2,
     },
     description:
       "\n            The dynamic and fast changing nature of our world today is best described by VUCA, a term coined by the US Army War College. VUCA stands for Volatile, Uncertain, Complex and Ambiguous. The Arab Spring saw a change of government in countries like Tunisia, Egypt, Libya and Yemen. Once powerful countries in Europe are now fighting bankruptcy. The growth of the developing world which was taken for granted has begun to slow down. Even companies that were synonymous with their product categories just a few years ago are now no longer in existence. Kodak, the inventor of the digital camera had to wind up its operations, Borders, once the second largest US bookstore, has shut down due to their inability to evolve their business models with the changing times.\n\n            With such momentous changes happening in the world today, this course prepares the students to better understand the complexity and difficulties in reacting to the ambiguity inherent in those changes. This course helps students to understand the tensions in a given situation and how they need to think through a problem from multiple dimensions.\n\n            The course aims to give students an insight into the mega trends and forces that are impacting their world. We ask what are some of the causes of these trends and their business implications? What can future managers like themselves do about understanding these changing trends, and why they need to address, appreciate, adapt and attempt to manage these changes in their ecosystem? The course aims to introduce some basic VUCA concepts, in order to broaden their world view of management and nature of managing complex problems. The first half of the course introduces some of these trends, while the second half provides tools and possible frameworks to deal with the VUCA aspects that they will face in the future.",
@@ -854,7 +854,7 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "LKCSB",
-          room: "Seminar Room 3-6",
+          room: "Seminar Room 3-7",
           level: 3,
         },
         classes: [
@@ -872,7 +872,7 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "LKCSB",
-          room: "Seminar Room 3-6",
+          room: "Seminar Room 3-7",
           level: 3,
         },
         classes: [
@@ -886,17 +886,17 @@ export const modules: ModuleBank = {
       {
         code: "G3",
         professor: {
-          name: "DON CHEN JIAQING",
+          name: "VENKAT",
         },
         location: {
           building: "LKCSB",
-          room: "Seminar Room 2-6",
+          room: "Seminar Room 2-1",
           level: 2,
         },
         classes: [
           {
             day: "Tuesday",
-            startTime: "19:00",
+            startTime: "12:00",
             duration: 3.25,
           },
         ],
@@ -908,44 +908,8 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "LKCSB",
-          room: "Seminar Room 3-9",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Monday",
-            startTime: "08:15",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G5",
-        professor: {
-          name: "VENKAT",
-        },
-        location: {
-          building: "LKCSB",
-          room: "Seminar Room 3-7",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Tuesday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G6",
-        professor: {
-          name: "VENKAT",
-        },
-        location: {
-          building: "LKCSB",
-          room: "Seminar Room 3-7",
-          level: 3,
+          room: "Seminar Room 2-1",
+          level: 2,
         },
         classes: [
           {
@@ -956,14 +920,14 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G7",
+        code: "G5",
         professor: {
           name: "WHITNEY ZHANG",
         },
         location: {
           building: "LKCSB",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-7",
+          level: 2,
         },
         classes: [
           {
@@ -974,14 +938,14 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G8",
+        code: "G6",
         professor: {
           name: "WHITNEY ZHANG",
         },
         location: {
           building: "LKCSB",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-7",
+          level: 2,
         },
         classes: [
           {
@@ -2400,7 +2364,7 @@ export const modules: ModuleBank = {
     name: "Accounting for Entrepreneurs",
     moduleCode: "COR1307",
     exam: {
-      dateTime: new Date("2024-11-25T00:00:00.000Z"),
+      dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 3,
     },
     description:
@@ -2413,28 +2377,16 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOA",
-          room: "Seminar Room 2-5",
-          level: 2,
+          room: "Seminar Room 3-2",
+          level: 3,
         },
         classes: [
           {
-            day: "Thursday",
-            startTime: "12:00",
+            day: "Tuesday",
+            startTime: "08:15",
             duration: 3.25,
           },
         ],
-      },
-      {
-        code: "SG81",
-        professor: {
-          name: "YUANTO KUSNADI",
-        },
-        location: {
-          building: "SOA",
-          room: "Seminar Room 2-5",
-          level: 2,
-        },
-        classes: [],
       },
     ],
     credit: 1,
@@ -4674,8 +4626,8 @@ export const modules: ModuleBank = {
     name: "Economics and Society",
     moduleCode: "COR2100",
     exam: {
-      dateTime: new Date("2024-11-27T00:00:00.000Z"),
-      durationInHour: 3,
+      dateTime: new Date("2025-04-21T00:30:00.000Z"),
+      durationInHour: 2,
     },
     description:
       "In this course, we introduce students to the economic way of thinking about societal issues. We use the themes of incentives and empiricism to illustrate the power of simple economic ideas, and their ability to explain, predict, and improve what happens in the world. The course will examine how market activities are shaped by both the private and public sector. It will allow students to appreciate how free markets and government policies affect society, creating winners and losers, and to understand the societal trade-offs implicated in an economy. The course will also examine debates on the importance of social institutions in contributing to economic growth, and on economic policies surrounding the world financial crisis. Two topics related to Growth in Asia will be covered in the course.",
@@ -4687,8 +4639,8 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-4",
+          level: 2,
         },
         classes: [
           {
@@ -4705,8 +4657,8 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-4",
+          level: 2,
         },
         classes: [
           {
@@ -4723,8 +4675,8 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-10",
+          level: 2,
         },
         classes: [
           {
@@ -4741,8 +4693,8 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-10",
+          level: 2,
         },
         classes: [
           {
@@ -4759,7 +4711,7 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-2",
+          room: "Seminar Room 3-1",
           level: 3,
         },
         classes: [
@@ -4777,8 +4729,8 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 2-4",
-          level: 2,
+          room: "Seminar Room 3-1",
+          level: 3,
         },
         classes: [
           {
@@ -4795,8 +4747,8 @@ export const modules: ModuleBank = {
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-1",
-          level: 3,
+          room: "Seminar Room 2-5",
+          level: 2,
         },
         classes: [
           {
@@ -4809,12 +4761,66 @@ export const modules: ModuleBank = {
       {
         code: "G8",
         professor: {
-          name: "BIAN XIAOCHEN",
+          name: "WONG FOT CHYI",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-7",
-          level: 3,
+          room: "Seminar Room 2-1",
+          level: 2,
+        },
+        classes: [
+          {
+            day: "Friday",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G9",
+        professor: {
+          name: "HO KONG WENG",
+        },
+        location: {
+          building: "SOE/SCIS2",
+          room: "Seminar Room 2-5",
+          level: 2,
+        },
+        classes: [
+          {
+            day: "Thursday",
+            startTime: "08:15",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G10",
+        professor: {
+          name: "HO KONG WENG",
+        },
+        location: {
+          building: "SOE/SCIS2",
+          room: "Seminar Room 2-5",
+          level: 2,
+        },
+        classes: [
+          {
+            day: "Thursday",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G11",
+        professor: {
+          name: "HO KONG WENG",
+        },
+        location: {
+          building: "SOE/SCIS2",
+          room: "Seminar Room 2-4",
+          level: 2,
         },
         classes: [
           {
@@ -4825,72 +4831,18 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G9",
+        code: "G12",
         professor: {
-          name: "BIAN XIAOCHEN",
+          name: "HO KONG WENG",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-7",
-          level: 3,
+          room: "Seminar Room 2-4",
+          level: 2,
         },
         classes: [
           {
             day: "Friday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G10",
-        professor: {
-          name: "KOSMAS MARINAKIS",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Classroom 3-2",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Wednesday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G11",
-        professor: {
-          name: "KOSMAS MARINAKIS",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Classroom 3-2",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Wednesday",
-            startTime: "15:30",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G12",
-        professor: {
-          name: "KOSMAS MARINAKIS",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Classroom 3-2",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Thursday",
             startTime: "12:00",
             duration: 3.25,
           },
@@ -4904,7 +4856,61 @@ export const modules: ModuleBank = {
         location: {
           building: "SOSS/CIS",
           room: "Classroom 3-2",
-          level: 3,
+          level: 0,
+        },
+        classes: [
+          {
+            day: "Wednesday",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G14",
+        professor: {
+          name: "KOSMAS MARINAKIS",
+        },
+        location: {
+          building: "SOSS/CIS",
+          room: "Classroom 3-2",
+          level: 0,
+        },
+        classes: [
+          {
+            day: "Wednesday",
+            startTime: "15:30",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G15",
+        professor: {
+          name: "KOSMAS MARINAKIS",
+        },
+        location: {
+          building: "SOSS/CIS",
+          room: "Classroom 3-2",
+          level: 0,
+        },
+        classes: [
+          {
+            day: "Thursday",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G16",
+        professor: {
+          name: "KOSMAS MARINAKIS",
+        },
+        location: {
+          building: "SOSS/CIS",
+          room: "Classroom 3-2",
+          level: 0,
         },
         classes: [
           {
@@ -4915,32 +4921,32 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G14",
+        code: "G17",
         professor: {
-          name: "TAN KIM SONG",
+          name: "NONA PEPITO",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-3",
-          level: 3,
+          room: "Seminar Room 2-5",
+          level: 2,
         },
         classes: [
           {
             day: "Monday",
-            startTime: "08:15",
+            startTime: "12:00",
             duration: 3.25,
           },
         ],
       },
       {
-        code: "G15",
+        code: "G18",
         professor: {
-          name: "TAN KIM SONG",
+          name: "NONA PEPITO",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-3",
-          level: 3,
+          room: "Seminar Room 2-5",
+          level: 2,
         },
         classes: [
           {
@@ -4951,13 +4957,49 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G16",
+        code: "G19",
         professor: {
-          name: "TAN KIM SONG",
+          name: "NONA PEPITO",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-3",
+          room: "Seminar Room B1-2",
+          level: "B1",
+        },
+        classes: [
+          {
+            day: "Tuesday",
+            startTime: "08:15",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G20",
+        professor: {
+          name: "NONA PEPITO",
+        },
+        location: {
+          building: "SOE/SCIS2",
+          room: "Seminar Room B1-2",
+          level: "B1",
+        },
+        classes: [
+          {
+            day: "Tuesday",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G21",
+        professor: {
+          name: "TAN SWEE LIANG",
+        },
+        location: {
+          building: "SOE/SCIS2",
+          room: "Seminar Room 3-1",
           level: 3,
         },
         classes: [
@@ -4969,31 +5011,13 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G17",
+        code: "G22",
         professor: {
           name: "TAN SWEE LIANG",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-6",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Tuesday",
-            startTime: "08:15",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G18",
-        professor: {
-          name: "TAN SWEE LIANG",
-        },
-        location: {
-          building: "SOE/SCIS2",
-          room: "Seminar Room 3-3",
+          room: "Seminar Room 3-1",
           level: 3,
         },
         classes: [
@@ -5005,14 +5029,14 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G19",
+        code: "G23",
         professor: {
           name: "TAN SWEE LIANG",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-3",
-          level: 3,
+          room: "Seminar Room B1-1",
+          level: "B1",
         },
         classes: [
           {
@@ -5023,14 +5047,50 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G20",
+        code: "G24",
+        professor: {
+          name: "YANG CHENYING",
+        },
+        location: {
+          building: "SOE/SCIS2",
+          room: "Seminar Room 2-5",
+          level: 2,
+        },
+        classes: [
+          {
+            day: "Tuesday",
+            startTime: "12:00",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G25",
+        professor: {
+          name: "YANG CHENYING",
+        },
+        location: {
+          building: "SOE/SCIS2",
+          room: "Seminar Room 2-5",
+          level: 2,
+        },
+        classes: [
+          {
+            day: "Tuesday",
+            startTime: "15:30",
+            duration: 3.25,
+          },
+        ],
+      },
+      {
+        code: "G26",
         professor: {
           name: "LAM SAN LING",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-6",
-          level: 3,
+          room: "Seminar Room 2-10",
+          level: 2,
         },
         classes: [
           {
@@ -5041,115 +5101,25 @@ export const modules: ModuleBank = {
         ],
       },
       {
-        code: "G21",
-        professor: {
-          name: "LAM SAN LING",
-        },
-        location: {
-          building: "SOE/SCIS2",
-          room: "Seminar Room 3-2",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Thursday",
-            startTime: "15:30",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G22",
-        professor: {
-          name: "VU HOANG PHUONG QUE",
-        },
-        location: {
-          building: "SOE/SCIS2",
-          room: "Seminar Room 3-5",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Friday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G23",
-        professor: {
-          name: "VU HOANG PHUONG QUE",
-        },
-        location: {
-          building: "SOE/SCIS2",
-          room: "Seminar Room 3-3",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Thursday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G24",
+        code: "G27",
         professor: {
           name: "WONG FOT CHYI",
         },
         location: {
           building: "SOE/SCIS2",
-          room: "Seminar Room 3-9",
-          level: 3,
+          room: "Seminar Room 2-1",
+          level: 2,
         },
         classes: [
           {
-            day: "Monday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G31",
-        professor: {
-          name: "VU HOANG PHUONG QUE",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Classroom 3-2",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Tuesday",
-            startTime: "12:00",
-            duration: 3.25,
-          },
-        ],
-      },
-      {
-        code: "G32",
-        professor: {
-          name: "LAM SAN LING",
-        },
-        location: {
-          building: "SOSS/CIS",
-          room: "Classroom 3-2",
-          level: 3,
-        },
-        classes: [
-          {
-            day: "Tuesday",
-            startTime: "15:30",
+            day: "Friday",
+            startTime: "08:15",
             duration: 3.25,
           },
         ],
       },
     ],
-    mutuallyExclusive: ["ECON-001", "CORE-004"],
+    mutuallyExclusive: ["ECON001", "COR004"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
   },
