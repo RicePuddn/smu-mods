@@ -18,7 +18,7 @@ export default function NavHeader() {
           priority
         />
       </div> */}
-      <h1 className="text-xl font-semibold">SMU-MODS</h1>
+      <h1 className="text-xl font-semibold">SMUMODS</h1>
       <p className="ml-auto mr-2 text-sm">
         AY{APP_CONFIG.academicYear}, {termMap[APP_CONFIG.currentTerm]}
       </p>
