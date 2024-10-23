@@ -5,6 +5,7 @@ import { type TermSlug } from "./types/planner";
 export type AcademicYear = `${number}/${number}`;
 
 export type Banner = {
+  id: string;
   message: ReactNode;
 };
 
@@ -21,7 +22,12 @@ export const APP_CONFIG: Config = {
   currentTerm: "term-2",
   banners: [
     {
+      id: "welcome",
       message: "Welcome to the new academic year!",
+    },
+    {
+      id: "timetable",
+      message: "Don't forget to plan your timetable for the upcoming term!",
     },
   ],
 };
