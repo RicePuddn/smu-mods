@@ -2,12 +2,11 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 import type { RoomKey } from "@/components/threed/rooms";
-import type { AcademicYear } from "@/config";
+import type { AcademicYear, Banner } from "@/config";
 import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { roomKeys } from "@/components/threed/rooms";
 import { APP_CONFIG } from "@/config";
-
-const academicYear = APP_CONFIG.academicYear;
+import { env } from "@/env";
 
 export type ISyncRecord = {
   id: string;
@@ -25,20 +24,30 @@ export type ConfigAction = {
     roomTheme: RoomKey,
     matriculationYear: AcademicYear,
   ) => void;
+  dismissBanner: (bannerIndex: number) => void;
+  dismissWarning: () => void;
+  refreshBanners: () => void;
+  changeAppVersion: (newVersion: string) => void;
 };
+
+export type BannerState = Banner & { dismissed: boolean };
 
 export type ConfigStore = {
   iSyncLatestRecord: ISyncRecord | null;
   timetableTheme: TimetableThemeName;
   roomTheme: RoomKey;
   matriculationYear: AcademicYear;
+  banners: BannerState[];
+  warningDismissedTime: number;
+  appVersion: string;
 } & ConfigAction;
 
 export const createConfigBank = (
   defaultLastRecord: ISyncRecord | null = null,
   defaultTimetableTheme: TimetableThemeName = "default",
-  defaultAcademicYear: AcademicYear = academicYear,
+  defaultAcademicYear: AcademicYear = APP_CONFIG.academicYear,
   defaultRoomTheme: RoomKey = roomKeys[0],
+  defaultBanners: BannerState[] = [],
 ) => {
   return create<ConfigStore>()(
     persist(
@@ -47,6 +56,9 @@ export const createConfigBank = (
         timetableTheme: defaultTimetableTheme,
         roomTheme: defaultRoomTheme,
         matriculationYear: defaultAcademicYear,
+        banners: defaultBanners,
+        warningDismissedTime: Date.now() - 1000 * 60 * 60 * 24 * 7,
+        appVersion: env.NEXT_PUBLIC_VERCEL_DEPLOYMENT_ID,
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
@@ -65,6 +77,32 @@ export const createConfigBank = (
             roomTheme,
             matriculationYear,
           });
+        },
+        dismissBanner: (bannerIndex) => {
+          set((state) => {
+            const banners = JSON.parse(
+              JSON.stringify(state.banners),
+            ) as BannerState[];
+            if (banners[bannerIndex]) {
+              banners[bannerIndex].dismissed = true;
+            }
+            return { banners };
+          });
+        },
+        dismissWarning: () => {
+          set({ warningDismissedTime: Date.now() });
+        },
+        refreshBanners: () => {
+          set(() => {
+            const banners = APP_CONFIG.banners.map((banner) => ({
+              ...banner,
+              dismissed: false,
+            }));
+            return { banners };
+          });
+        },
+        changeAppVersion: (newVersion) => {
+          set({ appVersion: newVersion });
         },
       }),
       {

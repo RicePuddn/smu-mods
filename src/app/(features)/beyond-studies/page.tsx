@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { eventsData } from "@/server/data/events";
 
 export default function BeyondStudies() {
-  const [events, _] = useState(eventsData);
+  const [events, _setEvents] = useState(eventsData);
 
   useEffect(() => {
     console.log(events);
