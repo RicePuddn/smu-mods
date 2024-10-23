@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-import { searchModule } from "@/server/data/modules";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import type { Module, ModuleCode } from "@/types/primitives/module";
+import { searchModule } from "@/utils/moduleBank";
 
 import { Badge } from "./ui/badge";
 import { Input } from "./ui/input";

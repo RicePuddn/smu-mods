@@ -24,6 +24,36 @@ export function findFreeColorIndex(
   return timetable.modules.length % TIMETABLE_THEMES[theme].length;
 }
 
+export function toggleVisibility(moduleCode: ModuleCode, timetable: Timetable) {
+  const updatedTimetable = JSON.parse(JSON.stringify(timetable)) as Timetable;
+  const findModuleIndex = updatedTimetable.modules.findIndex(
+    (m) => m.moduleCode === moduleCode,
+  );
+  const findModule = updatedTimetable.modules[findModuleIndex];
+  if (!findModule) {
+    toast.error("Module not found");
+    return updatedTimetable;
+  }
+  const newVisibility = !findModule.visible;
+  updatedTimetable.modules[findModuleIndex]!.visible = newVisibility;
+  Object.keys(updatedTimetable)
+    .filter((key) => key !== "modules")
+    .forEach((day) => {
+      updatedTimetable[day as Day] = updatedTimetable[day as Day].map(
+        (classItem) => {
+          if (classItem.moduleCode === moduleCode) {
+            return {
+              ...classItem,
+              visible: newVisibility,
+            };
+          }
+          return classItem;
+        },
+      );
+    });
+  return updatedTimetable;
+}
+
 export function changeColorOfModule(
   moduleCode: ModuleCode,
   timetable: Timetable,
@@ -90,6 +120,7 @@ export function addModuleToTimetable(
       isAvailable: true,
       isActive: true,
       colorIndex,
+      isVisible: true,
     };
     if (!updatedTimetable[classTime.day]) {
       updatedTimetable[classTime.day] = [];
@@ -100,6 +131,7 @@ export function addModuleToTimetable(
   updatedTimetable.modules.push({
     ...module,
     colorIndex,
+    visible: true,
   });
   toast.success(`${module.moduleCode} added to timetable`);
   return updatedTimetable;
@@ -131,6 +163,7 @@ export function showAllSections(
           isModifiable: true,
           isAvailable: true,
           isActive: true,
+          isVisible: tmp?.visible ?? true,
           colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable, theme),
         };
       } else {
@@ -141,6 +174,7 @@ export function showAllSections(
           isModifiable: true,
           isAvailable: true,
           isActive: false,
+          isVisible: tmp?.visible ?? true,
           colorIndex: tmp?.colorIndex ?? findFreeColorIndex(timetable, theme),
         };
       }

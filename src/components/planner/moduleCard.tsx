@@ -1,17 +1,19 @@
+import { CircleAlert, X } from "lucide-react";
+
+import type { Term, Year } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { Term, Year } from '@/types/planner';
-import type { ModuleCode } from '@/types/primitives/module';
-import { CircleAlert, X } from 'lucide-react';
-import ModuleDetails from '../ModuleDetails';
-import { InteractiveTooltip } from './customTooltip';
+
+import ModuleDetails from "../ModuleDetails";
+import { InteractiveTooltip } from "./customTooltip";
 
 interface ModuleCardProps {
   moduleCode: string;
   year: Year;
   term: Term;
-  provided: any; 
-  snapshot: any; 
+  provided: any;
+  snapshot: any;
   conflictList?: string[];
   removeModule: (moduleCode: ModuleCode, year: Year, term: Term) => void;
 }
@@ -34,7 +36,7 @@ const ModuleCard = ({
         "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
         snapshot.isDragging
           ? "h-fit w-fit bg-accent shadow-lg"
-          : "border bg-background hover:border-foreground"
+          : "border bg-background hover:border-foreground",
       )}
     >
       {conflictList.length > 0 && (
@@ -48,19 +50,14 @@ const ModuleCard = ({
             </div>
           }
         >
-          <CircleAlert
-            color="orange"
-            size={18}
-          />
+          <CircleAlert color="orange" size={18} />
         </InteractiveTooltip>
       )}
-      
+
       <ModuleDetails moduleCode={moduleCode as ModuleCode}>
-        <div className="flex-grow">
-          {moduleCode}
-        </div>
+        <div className="flex-grow">{moduleCode}</div>
       </ModuleDetails>
-      
+
       <Button
         onClick={() => removeModule(moduleCode as ModuleCode, year, term)}
         variant="destructive"
