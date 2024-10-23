@@ -15,7 +15,7 @@
     "ui-add": "pnpm dlx shadcn@latest add",
     "format": "prettier --check . --ignore-path .gitignore --ignore-path .prettierignore",
     "batchParse": "pnpm dlx tsx data/process/batchProcessor.ts",
-    "parse": "pnpm dlx tsx data/process/processor.ts && format --write",
+    "parse": "pnpm dlx tsx data/process/processor.ts",
     "process": "pnpm batchParse && pnpm format --write"
   },
   "dependencies": {
