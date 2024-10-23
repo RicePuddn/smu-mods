@@ -33,6 +33,7 @@ export function processModuleHtml(
   } else {
     const newModuleBank = JSON.parse(JSON.stringify(modules)) as ModuleBank;
     if (newModuleBank[moduleCode as ModuleCode]) {
+      console.log(`Module found: ${moduleCode}`);
       newModuleBank[moduleCode as ModuleCode]!.sections = module.sections ?? [];
       newModuleBank[moduleCode as ModuleCode]!.exam = module.exam;
       newModuleBank[moduleCode as ModuleCode]!.terms = [
@@ -47,6 +48,7 @@ export function processModuleHtml(
           ? (module.description ?? "DESCRIPTION_NEEDED")
           : newModuleBank[moduleCode as ModuleCode]!.description;
     } else {
+      console.log(`New module found: ${moduleCode}`);
       newModuleBank[moduleCode as ModuleCode] = {
         name: module.name ?? "",
         moduleCode: moduleCode as ModuleCode,

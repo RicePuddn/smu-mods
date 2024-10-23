@@ -30,7 +30,7 @@ export const basketCodes = [
   "IS",
   "CS",
   "SE",
-  "COR-",
+  "COR",
   "DSA",
   "COR-CS",
   "COR-IS",
