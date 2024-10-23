@@ -27,9 +27,4 @@ console.log("File Path:", filePath);
 
 const projectBaseDir = path.resolve(directoryPath, "..");
 
-processModuleHtml(
-  filePath,
-  path.join(directoryPath, "parsed"),
-  projectBaseDir,
-  true,
-);
+processModuleHtml(filePath, path.join(directoryPath, "parsed"), projectBaseDir);

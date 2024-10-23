@@ -47,3 +47,4 @@ yarn-error.log*
 
 # data
 data/parsed/
+data/html/
