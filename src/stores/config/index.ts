@@ -38,7 +38,7 @@ export type ConfigStore = {
   roomTheme: RoomKey;
   matriculationYear: AcademicYear;
   banners: BannerState[];
-  warningDismissedTime: number | null;
+  warningDismissedTime: number;
   appVersion: string;
 } & ConfigAction;
 
@@ -47,7 +47,10 @@ export const createConfigBank = (
   defaultTimetableTheme: TimetableThemeName = "default",
   defaultAcademicYear: AcademicYear = APP_CONFIG.academicYear,
   defaultRoomTheme: RoomKey = roomKeys[0],
-  defaultBanners: BannerState[] = [],
+  defaultBanners: BannerState[] = APP_CONFIG.banners.map((banner) => ({
+    ...banner,
+    dismissed: false,
+  })),
 ) => {
   return create<ConfigStore>()(
     persist(
@@ -57,7 +60,7 @@ export const createConfigBank = (
         roomTheme: defaultRoomTheme,
         matriculationYear: defaultAcademicYear,
         banners: defaultBanners,
-        warningDismissedTime: null,
+        warningDismissedTime: Date.now() - 1000 * 60 * 60 * 24 * 7,
         appVersion: env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });

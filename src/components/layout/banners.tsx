@@ -23,9 +23,11 @@ export function Banners() {
   } = useConfigStore((state) => state);
   const { refreshAll } = useModuleBankStore((state) => state);
 
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    console.log("current version", appVersion);
-    console.log("new version", APP_VERSION);
+    setIsClient(true);
+    console.log("Version:", appVersion);
     if (
       appVersion !== APP_VERSION ||
       (appVersion == "development" && TURN_ON_REFRESH)
@@ -65,6 +67,10 @@ export function Banners() {
   };
 
   const activeBanners = banners.filter((banner) => !banner.dismissed);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <>
