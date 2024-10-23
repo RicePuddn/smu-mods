@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-import type { Module } from "@/types/primitives/module";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import { searchModule } from "@/utils/moduleBank";
 
+import { Badge } from "./ui/badge";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
@@ -13,12 +14,14 @@ interface SearchModuleProps {
   handleModSelect: (mod: Module) => void;
   showResults?: boolean;
   callback?: (modules: Module[]) => void;
+  takenModule: ModuleCode[];
 }
 
 export function SearchModule({
   handleModSelect,
   callback,
   showResults = true,
+  takenModule,
 }: SearchModuleProps) {
   const { modules } = useModuleBankStore((state) => state);
   const [inputValue, setInputValue] = useState<string>("");
@@ -79,6 +82,8 @@ export function SearchModule({
                     }}
                   >
                     {mod.moduleCode} - {mod.name}
+                    {takenModule.includes(mod.moduleCode) && <Badge variant={"secondary"} className="ms-2">Added</Badge>
+                    }
                   </li>
                 ))
               )}
