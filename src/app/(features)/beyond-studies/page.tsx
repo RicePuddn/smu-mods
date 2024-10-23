@@ -6,7 +6,8 @@ import { eventsData } from "@/server/data/events";
 import { api } from "@/trpc/react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
-import { ChangeEvent, useEffect, useState } from "react";
+import type { ChangeEvent } from "react";
+import { useEffect, useState } from "react";
 
 export default function BeyondStudies() {
   const [events, setEvents] = useState(eventsData);
@@ -24,8 +25,6 @@ export default function BeyondStudies() {
     if (target && target.files) {
       const file = target.files[0];
       if (file) {
-        // console.log(file);
-        // console.log(file.type);
         setSelectedFile(file);
       }
     }
@@ -54,7 +53,7 @@ export default function BeyondStudies() {
 
       // Hash the Base64 string
       const hash = CryptoJS.SHA256(base64Image).toString(CryptoJS.enc.Hex);
-      console.log("Hash:", hash);
+      // console.log("Hash:", hash);
       return hash;
     } catch (error) {
       console.error("Error hashing image:", error);
@@ -88,8 +87,8 @@ export default function BeyondStudies() {
       if (hashedImg) {
         // Use the tRPC mutation to get the signed URL from the backend
         const response = await uploadFile({ key: hashedImg });
-        console.log("Signed URL:", response.signedUrl);
-        console.log("Source URL:", response.srcUrl);
+        // console.log("Signed URL:", response.signedUrl);
+        // console.log("Source URL:", response.srcUrl);
 
         // post file to the signed URL
         await uploadImageToS3(response.signedUrl, selectedFile);
