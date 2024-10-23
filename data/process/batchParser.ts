@@ -55,21 +55,19 @@ export function parseModulesHtml(html: string): Partial<Module>[] {
 
     const sections: Section[] = [];
     const rows = group.rows;
-    const classes = Array.from(document.querySelectorAll("td")).filter((td) => {
-      const firstChild = td.firstElementChild;
-      return (
-        firstChild?.tagName === "SPAN" && firstChild.id.endsWith("_Label18")
-      );
-    });
-    const sectionElements = document.querySelectorAll("a[id$='_HyperLink2']");
-    const credit = document.querySelector("[id$='_Label5']");
 
     let exam: Exam | undefined;
-
+    const credit = rows[0]?.querySelector("[id$='_Label5']");
     rows.forEach((row, index) => {
-      const sectionCode = sectionElements.item(index).textContent || "";
-      const classInfo = classes[index];
-
+      const classes = Array.from(row.querySelectorAll("td")).filter((td) => {
+        const firstChild = td.firstElementChild;
+        return (
+          firstChild?.tagName === "SPAN" && firstChild.id.endsWith("_Label18")
+        );
+      });
+      const sectionCode =
+        row.querySelector("a[id$='_HyperLink2']")?.textContent || "";
+      const classInfo = classes[0];
       if (classInfo) {
         const classRows = classInfo.querySelectorAll("tr.rgRow, tr.rgAltRow");
 

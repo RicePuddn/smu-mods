@@ -29,7 +29,7 @@ export const startingTime = [
   "19:00",
   "20:45",
 ] as const;
-export const duration = [1.5, 3.25] as const;
+export const duration = [1.5, 3.25, 2.25] as const;
 
 export type StartingTime = (typeof startingTime)[number];
 export type Duration = (typeof duration)[number];
