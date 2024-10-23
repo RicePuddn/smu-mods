@@ -24,6 +24,8 @@ export function Banners() {
   const { refreshAll } = useModuleBankStore((state) => state);
 
   useEffect(() => {
+    console.log("current version", appVersion);
+    console.log("new version", APP_VERSION);
     if (
       appVersion !== APP_VERSION ||
       (appVersion == "development" && TURN_ON_REFRESH)
