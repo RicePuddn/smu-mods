@@ -70,7 +70,7 @@ export function parseModuleHtml(html: string): Partial<Module> {
           const endTime = cells[5]?.textContent?.trim() || "";
 
           classTimes.push({
-            day: day as Day,
+            day: getFullDay(day),
             startTime: startTime as StartingTime,
             duration: getClassDuration(startTime, endTime) as Duration,
           });
@@ -113,4 +113,22 @@ export function parseModuleHtml(html: string): Partial<Module> {
     sections,
     exam,
   };
+}
+
+export function getFullDay(input: string): Day {
+  const dayMap: { [key: string]: Day } = {
+    Mon: "Monday",
+    Tue: "Tuesday",
+    Wed: "Wednesday",
+    Thu: "Thursday",
+    Fri: "Friday",
+    Sat: "Saturday",
+  };
+
+  const fullDay = dayMap[input.slice(0, 3)];
+  if (fullDay) {
+    return fullDay;
+  } else {
+    throw new Error(`Invalid day input: ${input}`);
+  }
 }
