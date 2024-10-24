@@ -14,7 +14,7 @@ export type ISyncRecord = {
 };
 
 export type ConfigAction = {
-  changeISyncLatestRecord: (newRecord: ISyncRecord) => void;
+  changeISyncLatestRecord: (newRecord: ISyncRecord | null) => void;
   changeTimetableTheme: (newTheme: TimetableThemeName) => void;
   changeRoomTheme: (newTheme: RoomKey) => void;
   changeMatriculationYear: (matriculationYear: AcademicYear) => void;
