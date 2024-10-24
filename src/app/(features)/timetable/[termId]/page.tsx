@@ -1,9 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { atcb_action } from "add-to-calendar-button-react";
 import { format } from "date-fns";
-import { Calendar, EyeOff, RefreshCw, Trash2 } from "lucide-react";
+import { toCanvas, toPng } from "html-to-image";
+import jsPDF from "jspdf";
+import {
+  Calendar,
+  Download,
+  EyeOff,
+  File,
+  Image,
+  RefreshCw,
+  Trash2,
+} from "lucide-react";
 import { toast } from "sonner";
 
 import type { Term, TermSlug, Year } from "@/types/planner";
@@ -12,11 +23,17 @@ import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { PADDING } from "@/config";
+import { APP_CONFIG, PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
@@ -284,14 +301,6 @@ export default function TimeTablePage({
     return rows;
   }
 
-  if (!termSlug.includes(params.termId as TermSlug)) {
-    return (
-      <div>
-        <p>Term not found</p>
-      </div>
-    );
-  }
-
   const goToPreviousTerm = () => {
     if (currentTermIdx > 0) {
       router.push(`${termSlug[currentTermIdx - 1]}`);
@@ -326,6 +335,56 @@ export default function TimeTablePage({
     }
   };
 
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  const exportAsPdfOrImage = async (type: "png" | "pdf") => {
+    const element = elementRef.current;
+    if (!element) {
+      return;
+    }
+    if (type === "pdf") {
+      const canvas = await toCanvas(element, {
+        quality: 1,
+      });
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "px",
+        format: [canvas.width, canvas.height],
+      });
+      pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+      pdf.save(
+        `smumods_${APP_CONFIG.academicYear}_${APP_CONFIG.currentTerm}.pdf`,
+      );
+    } else {
+      const image = await toPng(element, {
+        quality: 1,
+      });
+      downloadImage(
+        image,
+        `smumods_${APP_CONFIG.academicYear}_${APP_CONFIG.currentTerm}.png`,
+      );
+    }
+  };
+
+  const downloadImage = (url: string, fileName: string) => {
+    const link = document.createElement("a");
+    link.style.display = "none";
+    link.href = url;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  if (!termSlug.includes(params.termId as TermSlug)) {
+    return (
+      <div>
+        <p>Term not found</p>
+      </div>
+    );
+  }
+
   return (
     <div
       style={{
@@ -357,8 +416,11 @@ export default function TimeTablePage({
         </Button>
       </div>
 
-      <div className="max-w-full overflow-x-scroll">
-        <div className="mt-5 w-full min-w-[1200px] overflow-hidden rounded-lg border border-foreground/20">
+      <div className="my-4 max-w-full overflow-x-scroll">
+        <div
+          className="w-full min-w-[1200px] overflow-hidden rounded-lg border border-foreground/20 bg-background"
+          ref={elementRef}
+        >
           {/* Time Labels */}
           <div className="flex">
             <div className="w-[5%] flex-shrink-0"></div>
@@ -542,22 +604,50 @@ export default function TimeTablePage({
         </div>
       </div>
       <div>
-        <Button
-          onClick={() => {
-            // atcb_action({
-            //   name: "SMUMODS Timetable",
-            //   description: "Your SMUMODS Timetable",
-            //   options: ["Google", "Outlook.com", "iCal", "Apple"],
-            //   listStyle: "modal",
-            //   lightMode: "bodyScheme",
-            // });
-            const res = getCalendarFormat(timetable);
-            console.log(res);
-          }}
-        >
-          <Calendar className="mr-2" />
-          Add to Calendar
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant={"outline"} disabled={!!selectedClass}>
+              <Download className="mr-2" />
+              Download
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            {APP_CONFIG.currentTerm == params.termId && (
+              <DropdownMenuItem
+                onClick={() => {
+                  atcb_action({
+                    name: "SMUMODS Timetable",
+                    description: "Your SMUMODS Timetable",
+                    listStyle: "modal",
+                    lightMode: "bodyScheme",
+                    iCalFileName: "smumods-timetable",
+                    dates: getCalendarFormat(timetable),
+                  });
+                }}
+              >
+                <Calendar className="mr-2 size-4" />
+                iCal
+              </DropdownMenuItem>
+            )}
+            <DropdownMenuItem
+              onClick={() => {
+                exportAsPdfOrImage("pdf");
+              }}
+            >
+              <File className="mr-2 size-4" />
+              PDF
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => {
+                exportAsPdfOrImage("png");
+              }}
+            >
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image className="mr-2 size-4" />
+              PNG
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       <div className="my-5">
         <SearchModule

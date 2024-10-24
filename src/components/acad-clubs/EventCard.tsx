@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { format } from "date-fns";
 
-import { ExtendedSchoolEvent } from "@/stores/event";
+import { type ExtendedSchoolEvent } from "@/stores/event";
 
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 
