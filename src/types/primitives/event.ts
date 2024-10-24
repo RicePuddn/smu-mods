@@ -3,6 +3,8 @@ export type Event = {
   title: string;
   description: string;
   date: string;
-  time: string;
+  startTime: string;
+  endTime: string;
   venue: string;
+  deadline: string;
 };
