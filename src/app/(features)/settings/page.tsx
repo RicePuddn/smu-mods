@@ -1,14 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  Calendar,
-  Monitor,
-  Moon,
-  RefreshCw,
-  RotateCcw,
-  Sun,
-} from "lucide-react";
+import { Calendar, Monitor, Moon, RefreshCw, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
@@ -29,6 +22,7 @@ import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { sleep } from "@/utils/sleep";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
 export default function SettingsPage() {
@@ -60,14 +54,11 @@ export default function SettingsPage() {
     setTempTheme(theme);
   }, [theme]);
 
-  function ResetTimetable() {
-    localStorage.removeItem("timetable");
-    toast.success("Timetable has been reset.");
-  }
-
-  function ResetPlanner() {
-    localStorage.removeItem("planner");
-    toast.success("Planner has been reset.");
+  async function ResetApplication() {
+    localStorage.clear();
+    toast.success("Application has been reset.");
+    await sleep(1000);
+    window.location.reload();
   }
 
   return (
@@ -211,13 +202,9 @@ export default function SettingsPage() {
           Timetable data.
         </p>
         <div className="flex flex-wrap justify-center gap-2">
-          <Button onClick={ResetTimetable} variant={"destructive"}>
-            <RotateCcw className="mr-2" />
-            Reset Timetable
-          </Button>
-          <Button onClick={ResetPlanner} variant={"destructive"}>
-            <RotateCcw className="mr-2" />
-            Reset Planner
+          <Button onClick={ResetApplication} variant={"destructive"}>
+            <X className="mr-2" />
+            Reset Application
           </Button>
         </div>
       </section>

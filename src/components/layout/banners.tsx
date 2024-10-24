@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import Marquee from "react-fast-marquee";
 
 import { env } from "@/env";
 import { useConfigStore } from "@/stores/config/provider";
@@ -87,16 +88,18 @@ export function Banners() {
         >
           <div className="flex w-full items-center justify-between">
             <div className="w-full overflow-hidden">
-              <div
-                className="animate-scroll whitespace-nowrap"
-                style={{
-                  animationDuration: isHovered
-                    ? `${Infinity}s`
-                    : `${ANIMATION_DURATION}s`,
-                }} // adjust duration as needed
+              <Marquee
+                pauseOnHover
+                onCycleComplete={() =>
+                  setCurrentBannerIndex((orig) =>
+                    orig + 1 >= activeBanners.length ? 0 : orig + 1,
+                  )
+                }
               >
-                {activeBanners[currentBannerIndex]?.message}
-              </div>
+                <div className="w-full">
+                  {activeBanners[currentBannerIndex]?.message}
+                </div>
+              </Marquee>
             </div>
             <Button
               onClick={() =>
