@@ -9,6 +9,7 @@ import type {
   Timetable,
 } from "@/types/primitives/timetable";
 import { APP_CONFIG } from "@/config";
+import { modules } from "@/server/data/moduleBank";
 import { days } from "@/types/primitives/timetable";
 
 import type { TimetableThemeName } from "./colours";
@@ -212,11 +213,55 @@ export function selectSection(
 }
 
 export function getClassEndTime(startTime: string, duration: number) {
-  const [hours, minutes] = startTime.split(":").map(Number);
-  const totalMinutes = hours! * 60 + minutes! + duration;
-  const newHours = Math.floor(totalMinutes / 60);
-  const newMinutes = totalMinutes % 60;
-  return `${String(newHours).padStart(2, "0")}:${String(newMinutes).padStart(2, "0")}`;
+  // Parse the startTime into hours and minutes
+  const [hoursStr, minutesStr] = startTime.split(":");
+  const startHours = Number(hoursStr);
+  const startMinutes = Number(minutesStr);
+
+  // Validate the parsed hours and minutes
+  if (
+    isNaN(startHours) ||
+    isNaN(startMinutes) ||
+    startHours < 0 ||
+    startHours >= 24 ||
+    startMinutes < 0 ||
+    startMinutes >= 60
+  ) {
+    throw new Error(`Invalid startTime: ${startTime}`);
+  }
+
+  // Validate the duration
+  if (isNaN(duration) || duration < 0) {
+    throw new Error(`Invalid duration: ${duration}`);
+  }
+
+  // Convert duration in hours to minutes
+  const durationMinutes = duration * 60;
+
+  // Calculate the total minutes and handle overflow
+  let totalMinutes = startHours * 60 + startMinutes + durationMinutes;
+
+  // Since totalMinutes may not be an integer due to fractional durations, round to the nearest minute
+  totalMinutes = Math.round(totalMinutes);
+
+  // Wrap around after 24 hours (1440 minutes)
+  totalMinutes = totalMinutes % 1440;
+
+  // Convert total minutes back to hours and minutes
+  let endHours = Math.floor(totalMinutes / 60);
+  let endMinutes = totalMinutes % 60;
+
+  // Handle cases where endMinutes equals 60 after rounding
+  if (endMinutes === 60) {
+    endMinutes = 0;
+    endHours = (endHours + 1) % 24;
+  }
+
+  // Format the end time with leading zeros if necessary
+  const formattedHours = String(endHours).padStart(2, "0");
+  const formattedMinutes = String(endMinutes).padStart(2, "0");
+
+  return `${formattedHours}:${formattedMinutes}`;
 }
 
 export function getCalendarFormat(
@@ -240,7 +285,7 @@ export function getCalendarFormat(
     "Saturday",
   ];
 
-  let currentDate = new Date(termStartDate);
+  const currentDate = new Date(termStartDate);
 
   while (currentDate <= termEndDate) {
     const dayIndex = currentDate.getDay(); // 0 (Sunday) to 6 (Saturday)
@@ -255,15 +300,24 @@ export function getCalendarFormat(
           const { startTime } = classTime;
           const endTime = getClassEndTime(startTime, classTime.duration);
 
+          // Calculate week number
+          const timeDifference =
+            currentDate.getTime() - termStartDate.getTime();
+          const weekNo =
+            Math.floor(timeDifference / (7 * 24 * 60 * 60 * 1000)) + 1;
+
           // Format date to YYYY-MM-DD
           const startDate = currentDate.toISOString().split("T")[0];
 
+          const section = modules[moduleCode]?.sections.find(
+            (section) => section.code === modClass.section,
+          );
           // Add the class event to the result
           result.push({
-            name: moduleCode,
             startDate,
             startTime,
             endTime,
+            name: `[${moduleCode}] ${section?.location.building + " " + section?.location.room} Week ${weekNo}`,
           });
         }
       }

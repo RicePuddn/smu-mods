@@ -1,8 +1,9 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import type { ReactNode } from "react";
+import { useState } from "react";
 
-import { ExtendedSchoolEvent } from "@/stores/event";
+import type { ExtendedSchoolEvent } from "@/stores/event";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { EventCard } from "./EventCard";
