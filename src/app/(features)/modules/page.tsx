@@ -78,9 +78,10 @@ export default function CourseCatalogue() {
       }}
     >
       <h1 className="mb-4 text-2xl font-bold">Module Catalogue</h1>
-      <div className="mb-4 flex flex-col gap-4 md:flex-row">
+
+      <div className="mb-4 flex flex-col gap-4 md:flex-row sticky style={{ minHeight: '100vh' }">
         {/* Search Bar */}
-        <div className="flex-1">
+        <div className="flex-1 mb-4 sticky top-0 z-10 bg-white">
           <Input
             placeholder="Search modules..."
             value={searchQuery}
@@ -88,44 +89,19 @@ export default function CourseCatalogue() {
             className="w-full"
           />
         </div>
-        {/* Sort By Dropdown */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="w-full md:w-auto">
-              Sort by {sortBy === "name" ? "Name" : "Credit"}
-              <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuCheckboxItem
-              checked={sortBy === "name"}
-              onCheckedChange={() => setSortBy("name")}
-            >
-              Name
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={sortBy === "credit"}
-              onCheckedChange={() => setSortBy("credit")}
-            >
-              Credit
-            </DropdownMenuCheckboxItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
 
-      {/* Toggle Filter by Favorites */}
-      <div className="mb-4 flex items-center">
-        <Checkbox
-          checked={filterByFavorites}
-          onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
-        />
-        <Label className="ml-2">Show Favorites Only</Label>
-      </div>
 
       <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-4">
         {/* Filter by Categories */}
-        <div className="space-y-2">
-          <h2 className="font-semibold">Basket</h2>
+        <div className="space-y-2 top-11 bg-white shadow-lg p-6 rounded-xl sticky w-fit h-fit">
+        <Checkbox
+          checked={filterByFavorites}
+          onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
+          className="hover:border-blue-500 hover:bg-blue-100"
+        />
+        <Label className="ml-2">Show Favorites Only</Label>
+          <h2 className="font-semibold">Sort By Basket</h2>
           {categories.map((category, index) => (
             <div key={index} className="flex items-center space-x-2">
               <Checkbox
@@ -138,6 +114,7 @@ export default function CourseCatalogue() {
                       : selectedCategories.filter((c) => c !== category),
                   );
                 }}
+                className="hover:border-blue-500 hover:bg-blue-100"
               />
               <Label htmlFor={`category-${category}`}>{category}</Label>
             </div>
@@ -156,7 +133,7 @@ export default function CourseCatalogue() {
                 moduleCode={module.moduleCode}
                 key={module.moduleCode}
               >
-                <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4">
+                <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4 hover:border-blue-200 hover:shadow-[0_4px_15px_0_rgba(59,130,246,0.6)] transition-all duration-200  transform hover:-translate-y-1">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
