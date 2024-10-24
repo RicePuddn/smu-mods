@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 // Importing module data and basket categories
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { PADDING } from "@/config";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { type Module } from "@/types/primitives/module";
@@ -72,13 +73,15 @@ export default function CourseCatalogue() {
 
   return (
     <div
-      className="w-full"
+      className="relative w-full space-y-4"
       style={{
-        padding: PADDING,
+        paddingTop: PADDING,
+        paddingLeft: PADDING,
+        paddingRight: PADDING,
       }}
     >
-      <h1 className="mb-4 text-2xl font-bold">Module Catalogue</h1>
-      <div className="mb-4 flex flex-col gap-4 md:flex-row">
+      <h1 className="text-2xl font-bold">Module Catalogue</h1>
+      <div className="flex flex-col gap-4 md:flex-row">
         {/* Search Bar */}
         <div className="flex-1">
           <Input
@@ -114,49 +117,50 @@ export default function CourseCatalogue() {
       </div>
 
       {/* Toggle Filter by Favorites */}
-      <div className="mb-4 flex items-center">
+      <div className="flex items-center">
         <Checkbox
           checked={filterByFavorites}
           onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
         />
         <Label className="ml-2">Show Favorites Only</Label>
       </div>
-
-      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-4">
+      <div className="flex gap-4">
         {/* Filter by Categories */}
-        <div className="space-y-2">
+        {/* <div className="w-fit max-w-24 space-y-2 md:max-w-none">
           <h2 className="font-semibold">Basket</h2>
-          {categories.map((category, index) => (
-            <div key={index} className="flex items-center space-x-2">
-              <Checkbox
-                id={`category-${category}`}
-                checked={selectedCategories.includes(category)}
-                onCheckedChange={(checked) => {
-                  setSelectedCategories(
-                    checked
-                      ? [...selectedCategories, category]
-                      : selectedCategories.filter((c) => c !== category),
-                  );
-                }}
-              />
-              <Label htmlFor={`category-${category}`}>{category}</Label>
-            </div>
-          ))}
-        </div>
+          <ScrollArea className="h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]">
+            {categories.map((category, index) => (
+              <div key={index} className="mb-2 flex items-center space-x-2">
+                <Checkbox
+                  id={`category-${category}`}
+                  checked={selectedCategories.includes(category)}
+                  onCheckedChange={(checked) => {
+                    setSelectedCategories(
+                      checked
+                        ? [...selectedCategories, category]
+                        : selectedCategories.filter((c) => c !== category),
+                    );
+                  }}
+                />
+                <Label htmlFor={`category-${category}`}>{category}</Label>
+              </div>
+            ))}
+          </ScrollArea>
+        </div> */}
 
         {/* Display Modules */}
-        <div className="md:col-span-3">
+        <div className="flex-grow">
           <h2 className="mb-2 font-semibold">
             Modules ({filteredModules.length})
           </h2>
-          <div className="grid gap-4">
+          <ScrollArea className="h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]">
             {filteredModules.map((module) => (
               // Wrap the module card with ModuleDetails to open the dialog when clicked
               <ModuleDetails
                 moduleCode={module.moduleCode}
                 key={module.moduleCode}
               >
-                <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4">
+                <div className="mb-2 flex cursor-pointer items-center justify-between rounded-lg border p-4">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
@@ -184,7 +188,7 @@ export default function CourseCatalogue() {
                 </div>
               </ModuleDetails>
             ))}
-          </div>
+          </ScrollArea>
         </div>
       </div>
     </div>
