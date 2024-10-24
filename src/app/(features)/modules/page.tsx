@@ -18,6 +18,8 @@ import { Label } from "@/components/ui/label";
 // Importing module data and basket categories
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PADDING } from "@/config";
+import { cn } from "@/lib/utils";
+import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { type Module } from "@/types/primitives/module";
 
@@ -25,6 +27,8 @@ export default function CourseCatalogue() {
   // Extract categories from baskets
   const { modules, toggleFavourites, favouriteModules, baskets } =
     useModuleBankStore((state) => state);
+  const { banners } = useConfigStore((state) => state);
+  const activeBanners = banners.filter((banner) => !banner.dismissed);
   // const categories = baskets.map((basket) => basket.name);
 
   const [selectedCategories, _setSelectedCategories] = useState<string[]>([]);
@@ -153,7 +157,13 @@ export default function CourseCatalogue() {
           <h2 className="mb-2 font-semibold">
             Modules ({filteredModules.length})
           </h2>
-          <ScrollArea className="h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]">
+          <ScrollArea
+            className={cn(
+              "h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]",
+              activeBanners.length > 0 &&
+                "h-[calc(100dvh-24rem)] md:h-[calc(100dvh-21rem)]",
+            )}
+          >
             {filteredModules.map((module) => (
               // Wrap the module card with ModuleDetails to open the dialog when clicked
               <ModuleDetails
