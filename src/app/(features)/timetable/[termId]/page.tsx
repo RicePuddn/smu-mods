@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { format } from "date-fns";
-import { EyeOff, RefreshCw, Trash2 } from "lucide-react";
+import { Calendar, EyeOff, RefreshCw, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import type { Term, TermSlug, Year } from "@/types/planner";
@@ -25,6 +25,7 @@ import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug } from "@/types/planner";
 import { days, timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
+import { getCalendarFormat } from "@/utils/timetable/timetable";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -539,6 +540,24 @@ export default function TimeTablePage({
               );
             })}
         </div>
+      </div>
+      <div>
+        <Button
+          onClick={() => {
+            // atcb_action({
+            //   name: "SMUMODS Timetable",
+            //   description: "Your SMUMODS Timetable",
+            //   options: ["Google", "Outlook.com", "iCal", "Apple"],
+            //   listStyle: "modal",
+            //   lightMode: "bodyScheme",
+            // });
+            const res = getCalendarFormat(timetable);
+            console.log(res);
+          }}
+        >
+          <Calendar className="mr-2" />
+          Add to Calendar
+        </Button>
       </div>
       <div className="my-5">
         <SearchModule

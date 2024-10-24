@@ -1,26 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-import Tabs from "@/components/acad-clubs/tabs";
-import { Button } from "@/components/ui/button";
-import { eventsData } from "@/server/data/events";
-import { api } from "@/trpc/react";
+import type { ChangeEvent } from "react";
+import { useState } from "react";
+import { atcb_action } from "add-to-calendar-button-react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
-import type { ChangeEvent } from "react";
-import { useEffect, useState } from "react";
+import { format } from "date-fns";
+import { Calendar, Star, Trash } from "lucide-react";
+
+import EventTabs from "@/components/acad-clubs/tabs";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { PADDING } from "@/config";
+import { eventsData } from "@/server/data/events";
+import { useEventStore } from "@/stores/event/provider";
+import { api } from "@/trpc/react";
+import { schoolEventSchema } from "@/types/primitives/event";
 
 export default function BeyondStudies() {
-  const [events, setEvents] = useState(eventsData);
+  const { events, addEvent, removeEvent } = useEventStore((state) => state);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const { mutateAsync: uploadFile } = api.s3.upload.useMutation();
   const { mutateAsync: parseEvent } = api.chatgpt.parseEvent.useMutation();
-
-  useEffect(() => {
-    console.log(events);
-  });
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
@@ -61,12 +64,12 @@ export default function BeyondStudies() {
       console.error("Error hashing image:", error);
     }
   }
-  // Function to upload the image to S3 using the signedUrl
+
   async function uploadImageToS3(signedUrl: string, file: File) {
     try {
       const response = await axios.put(signedUrl, file, {
         headers: {
-          "Content-Type": file.type, // Ensure correct content type is passed
+          "Content-Type": file.type,
         },
       });
 
@@ -87,16 +90,18 @@ export default function BeyondStudies() {
       const hashedImg = await hashImage(selectedFile);
 
       if (hashedImg) {
-        // Use the tRPC mutation to get the signed URL from the backend
-        const response = await uploadFile({ key: hashedImg });
-        // console.log("Signed URL:", response.signedUrl);
-        // console.log("Source URL:", response.srcUrl);
-
-        // post file to the signed URL
+        const response = await uploadFile({
+          key: hashedImg,
+          type: selectedFile.type,
+        });
         await uploadImageToS3(response.signedUrl, selectedFile);
 
-        const content = await parseEvent({ srcUrl: response.srcUrl });
-        console.log("Content:", content);
+        const content = await parseEvent({
+          srcUrl: response.srcUrl,
+          key: response.key,
+        });
+        const parsed = schoolEventSchema.parse(JSON.parse(content));
+        addEvent(parsed);
       }
     } catch (error) {
       console.error("Error processing the file:", error);
@@ -104,22 +109,94 @@ export default function BeyondStudies() {
   };
 
   return (
-    <>
-      <div className="mx-auto text-center md:container">
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-          Beyond Studies
-        </h1>
-        <input
+    <div
+      style={{
+        padding: PADDING,
+      }}
+      className="space-y-4"
+    >
+      <h1 className="text-2xl font-bold">Beyond Studies</h1>
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="picture">Upload Image</Label>
+        <Input
+          id="picture"
           type="file"
-          id="inputFile"
           accept="image/*"
           onChange={handleFileChange}
-        ></input>
-        <Button className="inline-block justify-end" onClick={handleAddCard}>
-          Add Card
-        </Button>
-        <Tabs tabsData={eventsData} />{" "}
+        />
       </div>
-    </>
+      <Button onClick={handleAddCard} className="mb-4">
+        Add Card
+      </Button>
+      <div>
+        <h2 className="text-xl font-bold">Your Starred Events</h2>
+        <EventTabs
+          tabsData={{
+            upcoming: events.filter(
+              (event) => new Date(event.startTime) > new Date(),
+            ),
+            past: events.filter(
+              (event) => new Date(event.endTime) < new Date(),
+            ),
+          }}
+          eventCardActions={[
+            (event, index) => {
+              return (
+                <Button
+                  key={index}
+                  onClick={() => {
+                    atcb_action({
+                      name: event.title,
+                      description: event.description,
+                      startDate: format(
+                        new Date(event.startTime),
+                        "yyyy-MM-dd",
+                      ),
+                      startTime: format(new Date(event.startTime), "HH:mm"),
+                      endTime: format(new Date(event.endTime), "HH:mm"),
+                      location: event.venue,
+                      options: ["Google", "Outlook.com", "iCal", "Apple"],
+                      listStyle: "modal",
+                      lightMode: "bodyScheme",
+                    });
+                  }}
+                >
+                  <Calendar className="mr-2" />
+                  Add to Calendar
+                </Button>
+              );
+            },
+            (event, index) => {
+              return (
+                <Button
+                  onClick={() => event.id && removeEvent(event.id)}
+                  key={index}
+                  variant={"destructive"}
+                  size={"icon"}
+                >
+                  <Trash />
+                </Button>
+              );
+            },
+          ]}
+        />
+      </div>
+      <div>
+        <h2 className="text-xl font-bold">Available Events</h2>
+        <EventTabs
+          tabsData={eventsData}
+          eventCardActions={[
+            (event, index) => {
+              return (
+                <Button onClick={() => addEvent(event)} key={index}>
+                  <Star className="mr-2" />
+                  Star
+                </Button>
+              );
+            },
+          ]}
+        />
+      </div>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import type { AddToCalendarActionType } from "add-to-calendar-button-react";
 import { toast } from "sonner";
 
 import type { Term } from "@/types/planner";
@@ -7,6 +8,7 @@ import type {
   ModifiableClass,
   Timetable,
 } from "@/types/primitives/timetable";
+import { APP_CONFIG } from "@/config";
 import { days } from "@/types/primitives/timetable";
 
 import type { TimetableThemeName } from "./colours";
@@ -215,4 +217,61 @@ export function getClassEndTime(startTime: string, duration: number) {
   const newHours = Math.floor(totalMinutes / 60);
   const newMinutes = totalMinutes % 60;
   return `${String(newHours).padStart(2, "0")}:${String(newMinutes).padStart(2, "0")}`;
+}
+
+export function getCalendarFormat(
+  timetable: Timetable,
+): AddToCalendarActionType["dates"] {
+  const { termStartMonday, termEndSunday } = APP_CONFIG;
+
+  const result: AddToCalendarActionType["dates"] = [];
+
+  const termStartDate = new Date(termStartMonday);
+  const termEndDate = new Date(termEndSunday);
+
+  // Array to map JavaScript's getDay() index to day names
+  const dayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let currentDate = new Date(termStartDate);
+
+  while (currentDate <= termEndDate) {
+    const dayIndex = currentDate.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const dayName = dayNames[dayIndex]; // Get the day name
+
+    // Check if the day is in our timetable (Monday to Saturday)
+    if (days.includes(dayName as Day)) {
+      const classes = timetable[dayName as Day];
+      if (classes) {
+        for (const modClass of classes) {
+          const { moduleCode, classTime } = modClass;
+          const { startTime } = classTime;
+          const endTime = getClassEndTime(startTime, classTime.duration);
+
+          // Format date to YYYY-MM-DD
+          const startDate = currentDate.toISOString().split("T")[0];
+
+          // Add the class event to the result
+          result.push({
+            name: moduleCode,
+            startDate,
+            startTime,
+            endTime,
+          });
+        }
+      }
+    }
+
+    // Move to the next day
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+
+  return result;
 }
