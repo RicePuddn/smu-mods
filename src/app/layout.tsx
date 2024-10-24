@@ -8,7 +8,7 @@ import MainProviders from "@/providers";
 export const metadata: Metadata = {
   title: "SMU MODs",
   description: "Plan your SMU modules with ease",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
 export default function RootLayout({
@@ -20,6 +20,12 @@ export default function RootLayout({
       className={`${GeistSans.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+      </head>
       <body>
         <MainProviders>{children}</MainProviders>
       </body>

@@ -3,17 +3,11 @@
 import type { DropResult } from "@hello-pangea/dnd";
 import React from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import {
-  CalendarArrowUp,
-  ChevronDown,
-  ChevronUp,
-  CircleAlert,
-  X,
-} from "lucide-react";
+import { CalendarArrowUp, ChevronDown, ChevronUp } from "lucide-react";
 
 import type { Term, Year } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
-import { PADDING } from "@/config";
+import { APP_CONFIG, PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
@@ -25,11 +19,11 @@ import {
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
+import { getUserYear } from "@/utils/getUserYear";
 
-import ModuleDetails from "../ModuleDetails";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
-import { InteractiveTooltip } from "./customTooltip";
+import ModuleCard from "./moduleCard";
 
 import "./scrollBar.css";
 
@@ -41,16 +35,21 @@ const CoursePlanner: React.FC = () => {
     addModule: addModuleToPlanner,
     changeTerm,
     planner,
+    plannerState,
     removeModule,
     hideSpecial,
   } = usePlannerStore((state) => state);
   const { modules, addModule: addModuleToBank } = useModuleBankStore(
     (state) => state,
   );
+
   const { AddModuleToTimetable: addModuleTimetable } = useTimetableStore(
     (state) => state,
   );
-  const { timetableTheme } = useConfigStore((state) => state);
+  const { timetableTheme, matriculationYear } = useConfigStore(
+    (state) => state,
+  );
+  const studentYear = getUserYear(matriculationYear, APP_CONFIG.academicYear);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
 
   const onDragEnd = (result: DropResult) => {
@@ -172,10 +171,11 @@ const CoursePlanner: React.FC = () => {
                           ? "Plan to Take"
                           : `Year ${year}`}
                     </h2>
-                    {year !== EXEMPTION_YEAR
+
+                    {year === studentYear
                       ? !isMobile && (
                           <Button
-                            onClick={() => HandleSyncTimetable(year as Year)}
+                            onClick={() => HandleSyncTimetable(year)}
                             size={"icon"}
                             variant={"secondary"}
                           >
@@ -197,7 +197,7 @@ const CoursePlanner: React.FC = () => {
                         <div className="flex-cols flex">
                           <Button
                             onClick={() => handleHideSpecial(year as Year)}
-                            className="mx-2 mt-2 w-full bg-muted-foreground"
+                            className="mx-2 mt-2 w-full"
                             variant={"outline"}
                           >
                             {isHidden
@@ -205,16 +205,18 @@ const CoursePlanner: React.FC = () => {
                               : "Hide Special Terms"}
                           </Button>
 
-                          {isMobile && (
-                            <Button
-                              onClick={() => HandleSyncTimetable(year as Year)}
-                              size={"icon"}
-                              className="me-2 mt-2 bg-muted-foreground"
-                              variant={"outline"}
-                            >
-                              <CalendarArrowUp className="size-4" />
-                            </Button>
-                          )}
+                          {year === studentYear
+                            ? isMobile && (
+                                <Button
+                                  onClick={() => HandleSyncTimetable(year)}
+                                  size={"icon"}
+                                  className="me-2 mt-2"
+                                  variant={"outline"}
+                                >
+                                  <CalendarArrowUp className="size-4" />
+                                </Button>
+                              )
+                            : ""}
                         </div>
                       )}
                       {Object.entries(terms).map(([term, termModules]) => (
@@ -257,6 +259,7 @@ const CoursePlanner: React.FC = () => {
                                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                     Object.entries(conflicts).map(
                                       ([_, conflict]) => {
+                                        "checkpoint";
                                         if (
                                           conflict.type === "prereq" &&
                                           (conflict.statusNode?.children
@@ -312,65 +315,17 @@ const CoursePlanner: React.FC = () => {
                                       index={index}
                                     >
                                       {(provided, snapshot) => (
-                                        <ModuleDetails
-                                          moduleCode={moduleCode as ModuleCode}
-                                        >
-                                          <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            className={cn(
-                                              "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
-                                              snapshot.isDragging
-                                                ? "h-fit w-fit bg-accent shadow-lg"
-                                                : "border bg-background hover:border-foreground",
-                                            )}
-                                          >
-                                            {conflictList &&
-                                              conflictList.length > 0 && (
-                                                <InteractiveTooltip
-                                                  content={
-                                                    <div>
-                                                      {conflictList.map(
-                                                        (conflictMsg, idx) => {
-                                                          return (
-                                                            <li key={idx}>
-                                                              {conflictMsg}
-                                                            </li>
-                                                          );
-                                                        },
-                                                      )}
-                                                    </div>
-                                                  }
-                                                >
-                                                  <CircleAlert
-                                                    color="orange"
-                                                    size={18}
-                                                  />
-                                                </InteractiveTooltip>
-                                              )}
-                                            <div className="flex-grow">
-                                              {moduleCode}
-                                            </div>
-                                            <Button
-                                              onClick={() =>
-                                                handleRemoveModuleFromPlanner(
-                                                  moduleCode as ModuleCode,
-                                                  year as Year,
-                                                  term as Term,
-                                                )
-                                              }
-                                              variant={"destructive"}
-                                              size={"icon"}
-                                              className={cn(
-                                                "size-6 rounded-full",
-                                                snapshot.isDragging && "hidden",
-                                              )}
-                                            >
-                                              <X className="size-5" />
-                                            </Button>
-                                          </div>
-                                        </ModuleDetails>
+                                        <ModuleCard
+                                          moduleCode={moduleCode}
+                                          year={year as Year}
+                                          term={term as Term}
+                                          provided={provided}
+                                          snapshot={snapshot}
+                                          conflictList={conflictList}
+                                          removeModule={
+                                            handleRemoveModuleFromPlanner
+                                          }
+                                        />
                                       )}
                                     </Draggable>
                                   );
@@ -402,7 +357,7 @@ const CoursePlanner: React.FC = () => {
           <div
             key={MODSTOTAKE_YEAR}
             className={cn(
-              "flex flex-col overflow-hidden rounded-lg bg-gray-50 shadow-md",
+              "flex flex-col overflow-hidden rounded-lg shadow-md",
               !isMobile && "mb-6 mr-6 w-full flex-shrink-0",
             )}
           >
@@ -454,35 +409,14 @@ const CoursePlanner: React.FC = () => {
                                 index={index}
                               >
                                 {(provided, snapshot) => (
-                                  <div
-                                    ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    {...provided.dragHandleProps}
-                                    className={cn(
-                                      "flex items-center justify-between gap-2 rounded p-2 transition-all duration-200",
-                                      snapshot.isDragging
-                                        ? "h-fit w-fit bg-accent shadow-lg"
-                                        : "border bg-background hover:border-foreground",
-                                    )}
-                                  >
-                                    <div className="flex-grow">
-                                      {moduleCode}
-                                    </div>
-                                    <Button
-                                      onClick={() =>
-                                        handleRemoveModuleFromPlanner(
-                                          moduleCode as ModuleCode,
-                                          MODSTOTAKE_YEAR as Year,
-                                          MODSTOTAKE_TERM as Term,
-                                        )
-                                      }
-                                      variant={"destructive"}
-                                      size={"icon"}
-                                      className="size-6 rounded-full"
-                                    >
-                                      <X className="size-5" />
-                                    </Button>
-                                  </div>
+                                  <ModuleCard
+                                    moduleCode={moduleCode}
+                                    year={MODSTOTAKE_YEAR as Year}
+                                    term={MODSTOTAKE_TERM as Term}
+                                    provided={provided}
+                                    snapshot={snapshot}
+                                    removeModule={handleRemoveModuleFromPlanner}
+                                  />
                                 )}
                               </Draggable>
                             ),
@@ -505,7 +439,10 @@ const CoursePlanner: React.FC = () => {
       >
         <div className="flex">
           <div className="w-full">
-            <SearchModule handleModSelect={HandleAddMod} />
+            <SearchModule
+              handleModSelect={HandleAddMod}
+              takenModule={Object.keys(plannerState.modules) as ModuleCode[]}
+            />
           </div>
         </div>
       </div>

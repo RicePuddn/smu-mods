@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -6,7 +7,7 @@ import type { Basket } from "@/types/primitives/basket";
 import type { Track } from "@/types/primitives/major";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import { baskets } from "@/server/data/basket";
-import { modules } from "@/server/data/modules";
+import { modules } from "@/server/data/moduleBank";
 
 export type ModuleBankActions = {
   addModule: (module: Module) => void;
@@ -98,6 +99,7 @@ export const createModuleBank = (
                 modules: moduleData,
               };
             });
+            toast.success("Module Bank refreshed!");
           } catch (error) {
             console.error(`Error fetching all modules:`, error);
             throw error;
@@ -113,6 +115,7 @@ export const createModuleBank = (
                 baskets: basketData,
               };
             });
+            toast.success("Baskets refreshed!");
           } catch (error) {
             console.error(`Error fetching all baskets:`, error);
             throw error;
