@@ -29,7 +29,7 @@ export const startingTime = [
   "19:00",
   "20:45",
 ] as const;
-export const duration = [1.5, 3.25] as const;
+export const duration = [1.5, 3.25, 2.25] as const;
 
 export type StartingTime = (typeof startingTime)[number];
 export type Duration = (typeof duration)[number];
@@ -63,12 +63,13 @@ type Modifiable = {
   isAvailable?: boolean;
   isActive?: boolean;
   colorIndex: ColorIndex;
+  isVisible: boolean;
 };
 
 export type ModifiableClass = Class & Modifiable;
 
 export type Timetable = Record<Day, ModifiableClass[]> & {
-  modules: (Module & { colorIndex: ColorIndex })[];
+  modules: (Module & { colorIndex: ColorIndex; visible: boolean })[];
 };
 
 export type TimetableMap = Record<Term, Timetable>;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SHA256 from "crypto-js/sha256";
 import { QrCode } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
@@ -19,15 +19,27 @@ export function GenerateQRCode() {
   const { planner, plannerState } = usePlannerStore((state) => state);
   const {
     iSyncLatestRecord: latestRecord,
+    timetableTheme,
+    roomTheme,
+    matriculationYear,
     changeISyncLatestRecord: changeLatestRecord,
   } = useConfigStore((state) => state);
   const [data, setData] = useState<string | null>(null);
+
+  useEffect(() => {
+    return () => {
+      changeLatestRecord(null);
+    };
+  }, []);
 
   const handleGenerateQRCode = async () => {
     const content = JSON.stringify({
       timetable: timetableMap,
       planner: planner,
       plannerState: plannerState,
+      timetableTheme,
+      roomTheme,
+      matriculationYear,
     });
 
     const hash = SHA256(content).toString();
@@ -65,13 +77,15 @@ export function GenerateQRCode() {
   return (
     <div className="flex justify-center">
       {data ? (
-        <div className="flex w-full flex-col items-center justify-center">
+        <div className="flex w-full flex-col items-center justify-center gap-2">
           <QRCodeCanvas
             value={`${getBaseUrl(true)}/iSync/${data}`}
             className="w-3/4"
             size={200}
           />
-          <p>This QR Code is valid for next 10 minutes.</p>
+          <p className="text-destructive">
+            This QR Code is valid for next 10 minutes.
+          </p>
         </div>
       ) : (
         <Button onClick={handleGenerateQRCode}>

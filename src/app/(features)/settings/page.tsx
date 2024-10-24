@@ -1,11 +1,21 @@
 "use client";
 
-import { Calendar, Monitor, Moon, RefreshCw, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import {
+  Calendar,
+  Monitor,
+  Moon,
+  RefreshCw,
+  RotateCcw,
+  Sun,
+} from "lucide-react";
+import { useTheme } from "next-themes";
+import { toast } from "sonner";
 
-import { GenerateQRCode } from "@/components/iSync/QRCode";
 import type { RoomKey } from "@/components/threed/rooms";
+import type { AcademicYear } from "@/config";
+import type { TimetableThemeName } from "@/utils/timetable/colours";
+import { GenerateQRCode } from "@/components/iSync/QRCode";
 import { Rooms } from "@/components/threed/rooms";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,12 +25,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import type { AcademicYear } from "@/config";
 import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
 export default function SettingsPage() {
@@ -52,6 +60,16 @@ export default function SettingsPage() {
     setTempTheme(theme);
   }, [theme]);
 
+  function ResetTimetable() {
+    localStorage.removeItem("timetable");
+    toast.success("Timetable has been reset.");
+  }
+
+  function ResetPlanner() {
+    localStorage.removeItem("planner");
+    toast.success("Planner has been reset.");
+  }
+
   return (
     <div
       className="mx-auto max-w-md space-y-4"
@@ -64,7 +82,7 @@ export default function SettingsPage() {
         <h2 className="text-lg font-semibold">Dark Mode</h2>
         <ToggleGroup
           type="single"
-          className="w-fit"
+          className="w-fit flex-wrap"
           onValueChange={(value) => {
             changeTheme(value);
           }}
@@ -116,12 +134,12 @@ export default function SettingsPage() {
 
       <section className="space-y-3 rounded-lg border p-4 shadow">
         <h2 className="text-lg font-semibold">Theme</h2>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap justify-center gap-2">
           {Object.entries(TIMETABLE_THEMES).map(([themeName, theme], index) => (
             <div
               key={index}
               className={cn(
-                "rounded-lg border p-2 shadow-sm hover:border-foreground/30",
+                "w-full rounded-lg border p-2 shadow-sm hover:border-foreground/30 md:w-fit",
                 themeName == timetableTheme
                   ? "border-primary"
                   : "border-foreground/10",
@@ -136,7 +154,7 @@ export default function SettingsPage() {
                     .replace(/_/g, " ")
                     .replace(/^\w/, (c) => c.toUpperCase())}
                 </p>
-                <div className="flex">
+                <div className="flex justify-center">
                   {theme.map((color, index) => (
                     <div
                       key={index}
@@ -195,6 +213,24 @@ export default function SettingsPage() {
           <Button onClick={async () => await refreshAll()}>
             <RefreshCw className="mr-2" />
             Update
+          </Button>
+        </div>
+      </section>
+      <section className="space-y-3 rounded-lg border p-4 shadow">
+        <h3 className="text-lg font-semibold">Reset Application</h3>
+        <p>
+          If you are facing issues with the application, you can reset the data
+          stored in the application. This will remove all your Planner and
+          Timetable data.
+        </p>
+        <div className="flex flex-wrap justify-center gap-2">
+          <Button onClick={ResetTimetable} variant={"destructive"}>
+            <RotateCcw className="mr-2" />
+            Reset Timetable
+          </Button>
+          <Button onClick={ResetPlanner} variant={"destructive"}>
+            <RotateCcw className="mr-2" />
+            Reset Planner
           </Button>
         </div>
       </section>
