@@ -1,10 +1,9 @@
 "use client";
 
-import { ReadMore } from "@/components/acad-clubs/ReadMore";
 import {
   Card,
   CardContent,
-  CardDescription,
+  // CardDescription,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
@@ -26,7 +25,7 @@ export default function Tabs({ tabsData }: TabsProps) {
     return items.map((value, index) => (
       <Card
         key={index}
-        className="relative mx-3 mb-6 flex transform flex-col justify-between rounded-2xl bg-white shadow-md hover:shadow-xl hover:shadow-gray-400"
+        className="mx-3 mb-6 flex flex-col justify-between rounded-2xl bg-white shadow-md hover:shadow-xl hover:shadow-gray-400"
       >
         {/* Title remains visible */}
         <CardHeader className="rounded-t-lg bg-blue-500 p-3 text-center text-lg font-bold text-white">
@@ -39,15 +38,15 @@ export default function Tabs({ tabsData }: TabsProps) {
             <p className="text-sm text-gray-800">{value.name}</p>
             <p className="text-sm text-gray-800">{value.date}</p>
             <p className="text-sm text-gray-800">
-              {value.startTime} - {value.endTime}
+              {value.startTime} to {value.endTime}
             </p>
             <p className="text-sm text-gray-800">{value.venue}</p>
             <p className="mt-2 text-red-500">
               <strong>Registration Deadline: {value.deadline}</strong>
             </p>
-            <CardDescription className="mt-2 leading-relaxed text-gray-700">
+            {/* <CardDescription className="mt-2 leading-relaxed text-gray-700">
               <ReadMore id={value.description} text={value.description} />
-            </CardDescription>
+            </CardDescription> */}
           </CardContent>
 
           <CardFooter className="flex items-center justify-between bg-white px-4 py-2">
