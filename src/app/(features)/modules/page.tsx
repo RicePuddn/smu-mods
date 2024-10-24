@@ -94,7 +94,7 @@ export default function CourseCatalogue() {
 
       <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-4">
         {/* Filter by Categories */}
-        <div className="space-y-2 top-0 bg-white shadow-lg p-6 rounded-xl sticky w-fit h-fit">
+        <div className="space-y-2 top-11 bg-white shadow-lg p-6 rounded-xl sticky w-fit h-fit">
         <Checkbox
           checked={filterByFavorites}
           onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
