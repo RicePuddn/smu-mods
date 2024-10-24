@@ -27,18 +27,21 @@ export function Banners() {
 
   useEffect(() => {
     setIsClient(true);
-    console.log("Version:", appVersion);
-    if (
-      appVersion !== APP_VERSION ||
-      (appVersion == "development" && TURN_ON_REFRESH)
-    ) {
-      if (appVersion != "development") {
-        refreshAll();
+    if (appVersion !== null) {
+      console.log("Version:", appVersion);
+      if (
+        appVersion !== APP_VERSION ||
+        (appVersion == "development" && TURN_ON_REFRESH)
+      ) {
+        console.log("New version detected, refreshing data...");
+        if (appVersion != "development") {
+          refreshAll();
+        }
+        refreshBanners();
+        changeAppVersion(APP_VERSION);
       }
-      refreshBanners();
-      changeAppVersion(APP_VERSION);
     }
-  }, []);
+  }, [appVersion]);
 
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);

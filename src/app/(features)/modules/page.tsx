@@ -25,9 +25,9 @@ export default function CourseCatalogue() {
   // Extract categories from baskets
   const { modules, toggleFavourites, favouriteModules, baskets } =
     useModuleBankStore((state) => state);
-  const categories = baskets.map((basket) => basket.name);
+  // const categories = baskets.map((basket) => basket.name);
 
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, _setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<"name" | "credit">("name");
   const [filterByFavorites, setFilterByFavorites] = useState(false); // Toggle to filter by favorites
