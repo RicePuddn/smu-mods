@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useTheme } from "next-themes";
-
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { APP_CONFIG } from "@/config";
 import { termMap } from "@/types/planner";
@@ -30,6 +29,7 @@ export default function NavHeader() {
           priority
         />
       </div>
+
       <p className="ml-auto mr-2 text-sm">
         AY{APP_CONFIG.academicYear}, {termMap[APP_CONFIG.currentTerm]}
       </p>
