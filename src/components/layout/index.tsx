@@ -21,7 +21,7 @@ export default async function Layout({ children }: LayoutProps) {
         <Disclaimer />
         <div className="h-full max-h-full overflow-y-scroll rounded-md border-2 border-dashed">
           <NavHeader />
-          <div>{children}</div>
+          {children}
         </div>
       </main>
     </SidebarLayout>

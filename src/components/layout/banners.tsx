@@ -13,6 +13,8 @@ const APP_VERSION = env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
 
 const TURN_ON_REFRESH = false;
 
+const ANIMATION_DURATION = 10;
+
 export function Banners() {
   const {
     banners,
@@ -46,7 +48,6 @@ export function Banners() {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Rotate banners every 3 seconds, unless the user is hovering or focusing
   useEffect(() => {
     if (!isHovered) {
       const interval = setInterval(() => {
@@ -55,12 +56,11 @@ export function Banners() {
             (prevIndex + 1) %
             banners.filter((banner) => !banner.dismissed).length,
         );
-      }, 3000);
+      }, ANIMATION_DURATION * 1000);
       return () => clearInterval(interval);
     }
   }, [isHovered, banners]);
 
-  // Function to dismiss a banner
   const HandleDismissBanner = (id?: string) => {
     const index = banners.findIndex((banner) => banner.id === id);
     if (!banners[index]) return;
@@ -86,7 +86,18 @@ export function Banners() {
           onBlur={() => setIsHovered(false)}
         >
           <div className="flex w-full items-center justify-between">
-            <div>{activeBanners[currentBannerIndex]?.message}</div>
+            <div className="w-full overflow-hidden">
+              <div
+                className="animate-scroll whitespace-nowrap"
+                style={{
+                  animationDuration: isHovered
+                    ? `${Infinity}s`
+                    : `${ANIMATION_DURATION}s`,
+                }} // adjust duration as needed
+              >
+                {activeBanners[currentBannerIndex]?.message}
+              </div>
+            </div>
             <Button
               onClick={() =>
                 HandleDismissBanner(activeBanners[currentBannerIndex]?.id)
