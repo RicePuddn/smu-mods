@@ -135,7 +135,8 @@ export default function BeyondStudies() {
         className="mb-4"
         disabled={isLoading || !selectedFile}
       >
-        {isLoading && <Loader2 className="mr-2" />} Add Event Details
+        {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
+        Details
       </Button>
       <div>
         <h2 className="text-xl font-bold">Your Starred Events</h2>
