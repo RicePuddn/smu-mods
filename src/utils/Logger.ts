@@ -34,8 +34,8 @@ export class Logger {
   private static formatMessage(level: string, ...args: any[]): string {
     const timestamp = new Date().toISOString();
     const originalMessage = args
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       .map((arg) =>
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         typeof arg === "object" ? JSON.stringify(arg, null, 2) : arg,
       )
       .join(" ");
