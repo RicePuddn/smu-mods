@@ -2,48 +2,22 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import Marquee from "react-fast-marquee";
 
-import { env } from "@/env";
 import { useConfigStore } from "@/stores/config/provider";
-import { useModuleBankStore } from "@/stores/moduleBank/provider";
 
 import { Button } from "../ui/button";
-
-const APP_VERSION = env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
-
-const TURN_ON_REFRESH = false;
 
 const ANIMATION_DURATION = 10;
 
 export function Banners() {
-  const {
-    banners,
-    dismissBanner,
-    refreshBanners,
-    appVersion,
-    changeAppVersion,
-  } = useConfigStore((state) => state);
-  const { refreshAll } = useModuleBankStore((state) => state);
+  const { banners, dismissBanner } = useConfigStore((state) => state);
 
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-    if (appVersion !== null) {
-      console.log("Version:", appVersion);
-      if (
-        appVersion !== APP_VERSION ||
-        (appVersion == "development" && TURN_ON_REFRESH)
-      ) {
-        console.log("New version detected, refreshing data...");
-        if (appVersion != "development") {
-          refreshAll();
-        }
-        refreshBanners();
-        changeAppVersion(APP_VERSION);
-      }
-    }
-  }, [appVersion]);
+  }, []);
 
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -87,16 +61,18 @@ export function Banners() {
         >
           <div className="flex w-full items-center justify-between">
             <div className="w-full overflow-hidden">
-              <div
-                className="animate-scroll whitespace-nowrap"
-                style={{
-                  animationDuration: isHovered
-                    ? `${Infinity}s`
-                    : `${ANIMATION_DURATION}s`,
-                }} // adjust duration as needed
+              <Marquee
+                pauseOnHover
+                onCycleComplete={() =>
+                  setCurrentBannerIndex((orig) =>
+                    orig + 1 >= activeBanners.length ? 0 : orig + 1,
+                  )
+                }
               >
-                {activeBanners[currentBannerIndex]?.message}
-              </div>
+                <div className="w-full">
+                  {activeBanners[currentBannerIndex]?.message}
+                </div>
+              </Marquee>
             </div>
             <Button
               onClick={() =>

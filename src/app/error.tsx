@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 
+export const dynamic = "error";
+
 export default function Error({
   error,
 }: {

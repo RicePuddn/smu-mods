@@ -95,12 +95,20 @@ export const createConfigBank = (
           set({ warningDismissedTime: Date.now() });
         },
         refreshBanners: () => {
-          set(() => {
-            const banners = APP_CONFIG.banners.map((banner) => ({
-              ...banner,
-              dismissed: false,
-            }));
-            return { banners };
+          set((state) => {
+            const newBanners: BannerState[] = [];
+
+            APP_CONFIG.banners.forEach((banner) => {
+              const existingBanner = state.banners.find(
+                (b) => b.id === banner.id,
+              );
+              if (existingBanner) {
+                newBanners.push(existingBanner);
+              } else {
+                newBanners.push({ ...banner, dismissed: false });
+              }
+            });
+            return { banners: newBanners };
           });
         },
         changeAppVersion: (newVersion) => {
