@@ -41,7 +41,7 @@ function isMobileDevice() {
 
 function Scene() {
   const { theme = "light" } = useTheme();
-  const { roomTheme } = useConfigStore((state) => state);
+  const { roomTheme = "johnny" } = useConfigStore((state) => state);
   const cameraRef = useRef<THREE.PerspectiveCamera>(null!);
   const { camera } = useThree();
 
