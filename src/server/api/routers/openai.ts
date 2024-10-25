@@ -1,9 +1,11 @@
+import { TRPCError } from "@trpc/server";
 import { OpenAI } from "openai";
 import { z } from "zod";
 
 import { env } from "@/env";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
+import { deleteImage } from "./s3";
 
 // export const openai: OpenAIProvider = createOpenAI({
 //   apiKey: env.OPENAI_API_KEY,
@@ -20,6 +22,7 @@ export const openaiRouter = createTRPCRouter({
     .input(
       z.object({
         srcUrl: z.string().url(),
+        key: z.string(),
       }),
     )
     .mutation(async ({ input }) => {
@@ -63,15 +66,15 @@ export const openaiRouter = createTRPCRouter({
                     type: "string",
                   },
                   date: {
-                    description: "YYYY-MM-DD",
+                    description: "YYYY-MM-DDTHH:MM:SS+08:00",
                     type: "string",
                   },
                   startTime: {
-                    description: "HH:MM:SS+08:00",
+                    description: "YYYY-MM-DDTHH:MM:SS+08:00",
                     type: "string",
                   },
                   endTime: {
-                    description: "HH:MM:SS+08:00",
+                    description: "YYYY-MM-DDTHH:MM:SS+08:00",
                     type: "string",
                   },
                   venue: {
@@ -79,7 +82,7 @@ export const openaiRouter = createTRPCRouter({
                     type: "string",
                   },
                   deadline: {
-                    description: "YYYY-MM-DD",
+                    description: "YYYY-MM-DDTHH:MM:SS+08:00",
                     type: "string",
                   },
                 },
@@ -93,13 +96,21 @@ export const openaiRouter = createTRPCRouter({
         const content = completion.choices?.[0]?.message?.content;
 
         if (!content) {
-          throw new Error("No content returned from OpenAI.");
+          throw new TRPCError({
+            message: "No content returned from OpenAI.",
+            code: "BAD_REQUEST",
+          });
         }
+
+        await deleteImage(input.key);
 
         return content;
       } catch (error) {
         console.error("Error fetching completion:", error);
-        throw new Error("Failed to parse event information.");
+        throw new TRPCError({
+          message: "No content returned from OpenAI.",
+          code: "BAD_REQUEST",
+        });
       }
     }),
 });
