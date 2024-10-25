@@ -4,9 +4,9 @@ Command: npx gltfjsx@6.5.2 isaiah_room.glb -T -t
 Files: isaiah_room.glb [1.88MB] > C:\Users\ernes\Desktop\School\WAD2\study-room\source\isaiah_room-transformed.glb [170.86KB] (91%)
 */
 
+import type * as THREE from "three";
+import type { GLTF } from "three-stdlib";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
-import { GLTF } from "three-stdlib";
 
 type GLTFResult = GLTF & {
   nodes: {

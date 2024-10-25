@@ -1,10 +1,10 @@
-import { Html, useGLTF } from "@react-three/drei";
 import type { ThreeEvent } from "@react-three/fiber";
-import { useFrame } from "@react-three/fiber";
-import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
-import * as THREE from "three";
 import type { GLTF } from "three-stdlib";
+import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Html, useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 // Define the GLTF type for the bookshelf
 type GLTFResult = GLTF & {
