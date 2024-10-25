@@ -132,7 +132,115 @@ const CoursePlanner: React.FC = () => {
         paddingBottom: PADDING,
       }}
     >
+      <div
+        className="mb-6 flex flex-col"
+        style={{
+          paddingRight: PADDING,
+        }}
+      >
+        <div className="flex">
+          <div className="w-full">
+            <SearchModule
+              handleModSelect={HandleAddMod}
+              takenModule={Object.keys(plannerState.modules) as ModuleCode[]}
+            />
+          </div>
+        </div>
+      </div>
+
       <DragDropContext onDragEnd={onDragEnd}>
+        <div
+          className={cn(
+            "mb-6",
+            isMobile
+              ? "sticky top-12 z-10 grid grid-cols-1 gap-6"
+              : "flex flex-wrap px-1",
+          )}
+          style={{
+            paddingRight: PADDING,
+          }}
+        >
+          <div
+            key={MODSTOTAKE_YEAR}
+            className={cn(
+              "flex flex-col overflow-hidden rounded-lg shadow-md",
+              !isMobile && "mb-6 mr-6 w-full flex-shrink-0",
+            )}
+          >
+            <div
+              className={cn(
+                "flex h-14 items-center justify-between bg-primary p-3",
+                isMobile && "cursor-pointer",
+              )}
+              onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
+            >
+              <h2 className="text-lg font-semibold text-primary-foreground">
+                Plan to Take
+              </h2>
+
+              {isMobile &&
+                (!isMobile || isOpen.has(MODSTOTAKE_YEAR) ? (
+                  <ChevronUp className="text-white" />
+                ) : (
+                  <ChevronDown className="text-white" />
+                ))}
+            </div>
+            <div>
+              {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) &&
+                Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(
+                  ([term, termModules]) => (
+                    <Droppable
+                      droppableId={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
+                      key={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
+                      direction="horizontal"
+                    >
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                          className={cn(
+                            "grid min-h-12 grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4",
+                            snapshot.isDraggingOver
+                              ? "bg-blue-100/10"
+                              : "bg-muted",
+                            !isMobile && "flex-grow",
+                          )}
+                        >
+                          {Object.entries(termModules).map(
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            ([moduleCode, { conflicts }], index) => (
+                              <Draggable
+                                key={moduleCode}
+                                draggableId={moduleCode}
+                                index={index}
+                              >
+                                {(provided, snapshot) => (
+                                  <ModuleCard
+                                    moduleCode={moduleCode}
+                                    moduleName={
+                                      modules[moduleCode as ModuleCode]?.name ??
+                                      ""
+                                    }
+                                    year={MODSTOTAKE_YEAR as Year}
+                                    term={MODSTOTAKE_TERM as Term}
+                                    provided={provided}
+                                    snapshot={snapshot}
+                                    removeModule={handleRemoveModuleFromPlanner}
+                                  />
+                                )}
+                              </Draggable>
+                            ),
+                          )}
+                          {provided.placeholder}
+                        </div>
+                      )}
+                    </Droppable>
+                  ),
+                )}
+            </div>
+          </div>
+        </div>
+
         <div
           className={cn(
             "mb-6",
@@ -318,6 +426,10 @@ const CoursePlanner: React.FC = () => {
                                       {(provided, snapshot) => (
                                         <ModuleCard
                                           moduleCode={moduleCode}
+                                          moduleName={
+                                            modules[moduleCode as ModuleCode]
+                                              ?.name ?? ""
+                                          }
                                           year={year as Year}
                                           term={term as Term}
                                           provided={provided}
@@ -343,110 +455,7 @@ const CoursePlanner: React.FC = () => {
               );
             })}
         </div>
-
-        <div
-          className={cn(
-            "mb-6",
-            isMobile
-              ? "sticky top-12 z-10 grid grid-cols-1 gap-6"
-              : "flex flex-wrap px-1",
-          )}
-          style={{
-            paddingRight: PADDING,
-          }}
-        >
-          <div
-            key={MODSTOTAKE_YEAR}
-            className={cn(
-              "flex flex-col overflow-hidden rounded-lg shadow-md",
-              !isMobile && "mb-6 mr-6 w-full flex-shrink-0",
-            )}
-          >
-            <div
-              className={cn(
-                "flex h-14 items-center justify-between bg-primary p-3",
-                isMobile && "cursor-pointer",
-              )}
-              onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
-            >
-              <h2 className="text-lg font-semibold text-primary-foreground">
-                Plan to Take
-              </h2>
-
-              {isMobile &&
-                (!isMobile || isOpen.has(MODSTOTAKE_YEAR) ? (
-                  <ChevronUp className="text-white" />
-                ) : (
-                  <ChevronDown className="text-white" />
-                ))}
-            </div>
-            <div>
-              {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) &&
-                Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(
-                  ([term, termModules]) => (
-                    <Droppable
-                      droppableId={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
-                      key={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
-                      direction="horizontal"
-                    >
-                      {(provided, snapshot) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.droppableProps}
-                          className={cn(
-                            "grid min-h-12 grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4",
-                            snapshot.isDraggingOver
-                              ? "bg-blue-100/10"
-                              : "bg-muted",
-                            !isMobile && "flex-grow",
-                          )}
-                        >
-                          {Object.entries(termModules).map(
-                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                            ([moduleCode, { conflicts }], index) => (
-                              <Draggable
-                                key={moduleCode}
-                                draggableId={moduleCode}
-                                index={index}
-                              >
-                                {(provided, snapshot) => (
-                                  <ModuleCard
-                                    moduleCode={moduleCode}
-                                    year={MODSTOTAKE_YEAR as Year}
-                                    term={MODSTOTAKE_TERM as Term}
-                                    provided={provided}
-                                    snapshot={snapshot}
-                                    removeModule={handleRemoveModuleFromPlanner}
-                                  />
-                                )}
-                              </Draggable>
-                            ),
-                          )}
-                          {provided.placeholder}
-                        </div>
-                      )}
-                    </Droppable>
-                  ),
-                )}
-            </div>
-          </div>
-        </div>
       </DragDropContext>
-      <div
-        className="flex flex-col"
-        style={{
-          paddingRight: PADDING,
-        }}
-      >
-        <div className="flex">
-          <div className="w-full">
-            <SearchModule
-              handleModSelect={HandleAddMod}
-              takenModule={Object.keys(plannerState.modules) as ModuleCode[]}
-            />
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
