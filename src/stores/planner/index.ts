@@ -5,6 +5,7 @@ import type { ModuleBank } from "@/types/banks/moduleBank";
 import type { Planner, PlannerState, Term, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import { defaultPlanner, defaultPlannerState } from "@/types/planner";
+import { Logger } from "@/utils/Logger";
 import { getPlanner } from "@/utils/planner";
 
 export type PlannerActions = {
@@ -117,7 +118,7 @@ export const createPlannerBank = (
           });
         },
         removeModule: (moduleCode, year, term, moduleBank) => {
-          console.log(year);
+          Logger.log(year);
           const state = get();
           const original = state.plannerState;
           const module = original.modules[moduleCode];
@@ -159,7 +160,7 @@ export const createPlannerBank = (
         //     );
 
         //     const newPlanner= getPlanner(newModules, moduleBank);
-        //     console.log(newPlanner)
+        //     Logger.log(newPlanner)
 
         //     newPlanner[year]= defaultPlanner[year]
 

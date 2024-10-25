@@ -41,6 +41,7 @@ import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug } from "@/types/planner";
 import { days, timeSlots } from "@/types/primitives/timetable";
+import { Logger } from "@/utils/Logger";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 import { getRecurringEvents } from "@/utils/timetable/timetable";
 
@@ -229,7 +230,7 @@ export default function TimeTablePage({
         timeToMinutes(b.classTime.startTime),
     );
 
-    // console.log(sortedTimetable);
+    // Logger.log(sortedTimetable);
 
     for (let index = 0; index < sortedTimetable.length; index++) {
       const currentSlot = sortedTimetable[index]!;
@@ -239,7 +240,7 @@ export default function TimeTablePage({
       const currentSlotEndMinutes =
         currentSlotStartMinutes + currentSlot.classTime.duration * 60;
 
-      // console.log(
+      // Logger.log(
       //   `Processing classes: ${currentSlot.moduleCode}, ${currentSlot.section}`,
       // );
 
@@ -264,7 +265,7 @@ export default function TimeTablePage({
               currentSlotStartMinutes < existingClassEndMinutes &&
               currentSlotEndMinutes > existingClassStartMinutes
             ) {
-              // console.log(
+              // Logger.log(
               //   `Overlap detected between ${currentSlot.moduleCode} ${currentSlot.section} and ${existingClass.moduleCode} ${existingClass.section}`,
               // );
               canAddToRow = false;
@@ -314,12 +315,12 @@ export default function TimeTablePage({
     }
   };
 
-  // console.log(TIMETABLE_COLORS);
+  // Logger.log(TIMETABLE_COLORS);
 
   const handlePullFromPlanner = (year: Year) => {
     for (const termNo in planner[year]) {
-      console.log(termNo);
-      console.log(planner[year]);
+      Logger.log(termNo);
+      Logger.log(planner[year]);
       const moduleCodes = Object.keys(
         planner[year][termNo as Term],
       ) as ModuleCode[];
@@ -668,7 +669,7 @@ export default function TimeTablePage({
       <div className="my-5">
         <SearchModule
           handleModSelect={(mod) => {
-            // console.log("Selected Module:", mod); // Debugging
+            // Logger.log("Selected Module:", mod); // Debugging
             if (mod.terms.includes(termMap[params.termId as TermSlug])) {
               AddModuleToTimetable(
                 mod,

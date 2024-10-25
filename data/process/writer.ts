@@ -12,6 +12,7 @@ import { APP_CONFIG } from "@/config";
 import { ModuleBank } from "@/types/banks/moduleBank";
 import { termMap } from "@/types/planner";
 import { ModuleCode } from "@/types/primitives/module";
+import { Logger } from "@/utils/Logger";
 
 import { parseModulesHtml } from "./batchParser";
 
@@ -77,7 +78,7 @@ export async function processModuleHtml(
             ? (module.description ?? "DESCRIPTION_NEEDED")
             : newModuleBank[module.moduleCode as ModuleCode]!.description;
       } else {
-        console.log(`New module found: ${module.moduleCode}`);
+        Logger.log(`New module found: ${module.moduleCode}`);
         newModuleBank[module.moduleCode as ModuleCode] = {
           name: module.name ?? "",
           moduleCode: module.moduleCode as ModuleCode,
