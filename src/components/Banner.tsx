@@ -17,16 +17,32 @@ export default function Banner() {
   return (
     <div className="absolute left-0 top-0 z-50 w-full p-4">
       {resolvedTheme === "light" ? (
-        <div className="relative flex h-24 w-full items-center justify-between rounded-lg bg-gradient-to-r from-white to-gray-300 px-6 shadow-lg">
-          <Image src="/logo_light.png" width="200" height="100" alt="logo" />
-          <p className="text-right text-sm font-semibold text-gray-600 md:text-lg">
+        <div className="relative flex h-24 w-full items-center rounded-lg bg-gradient-to-r from-white to-gray-300 px-6 shadow-lg">
+          <div className="relative h-full w-64">
+            <Image
+              src="/logo_light.png"
+              alt="logo"
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
+          </div>
+          <p className="ml-auto text-right text-sm font-semibold text-gray-600 md:text-lg">
             Your Ultimate Module Planning Tool
           </p>
         </div>
       ) : (
-        <div className="relative flex h-24 w-full items-center justify-between rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 px-6 shadow-lg">
-          <Image src="/logo_dark.png" width="200" height="100" alt="logo" />
-          <p className="text-right text-sm font-semibold text-white md:text-lg">
+        <div className="relative flex h-24 w-full items-center rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 px-6 shadow-lg">
+          <div className="relative h-full w-64">
+            <Image
+              src="/logo_dark.png"
+              alt="logo"
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
+          </div>
+          <p className="ml-auto text-right text-sm font-semibold text-white md:text-lg">
             Your Ultimate Module Planning Tool
           </p>
         </div>
