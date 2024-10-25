@@ -3,8 +3,8 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 import type { ModuleBank } from "@/types/banks/moduleBank";
 import type { Planner, PlannerState, Term, Year } from "@/types/planner";
-import type { ModuleCode } from "@/types/primitives/module";
 import { defaultPlanner, defaultPlannerState } from "@/types/planner";
+import type { ModuleCode } from "@/types/primitives/module";
 import { getPlanner } from "@/utils/planner";
 
 export type PlannerActions = {
@@ -53,10 +53,10 @@ export const createPlannerBank = (
         plannerState: initPlannerState,
         planner: initPlanner,
         isSpecialHidden: {
-          1: false,
-          2: false,
-          3: false,
-          4: false,
+          1: true,
+          2: true,
+          3: true,
+          4: true,
         },
         addModule: (moduleCode, attributes, moduleBank) => {
           const original = get();

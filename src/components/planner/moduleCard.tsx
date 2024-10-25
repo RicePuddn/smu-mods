@@ -10,6 +10,7 @@ import { InteractiveTooltip } from "./customTooltip";
 
 interface ModuleCardProps {
   moduleCode: string;
+  moduleName: string;
   year: Year;
   term: Term;
   provided: any;
@@ -20,6 +21,7 @@ interface ModuleCardProps {
 
 const ModuleCard = ({
   moduleCode,
+  moduleName,
   year,
   term,
   provided,
@@ -55,14 +57,18 @@ const ModuleCard = ({
       )}
 
       <ModuleDetails moduleCode={moduleCode as ModuleCode}>
-        <div className="flex-grow">{moduleCode}</div>
+        <div className="flex-grow text-sm">
+          {/* <div className="w-fit text-nowrap pe-1"></div>
+          <div></div> */}
+          {moduleCode}: {moduleName}
+        </div>
       </ModuleDetails>
 
       <Button
         onClick={() => removeModule(moduleCode as ModuleCode, year, term)}
         variant="destructive"
         size="icon"
-        className="size-6 rounded-full"
+        className="size-6 min-w-6 rounded-full"
       >
         <X className="size-5" />
       </Button>
