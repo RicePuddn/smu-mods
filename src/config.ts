@@ -13,6 +13,8 @@ export type Config = {
   academicYear: AcademicYear;
   currentTerm: TermSlug;
   banners: Banner[];
+  termStartMonday: string;
+  termEndSunday: string;
 };
 
 export const PADDING = "2rem";
@@ -30,4 +32,6 @@ export const APP_CONFIG: Config = {
       message: "Don't forget to plan your timetable for the upcoming term!",
     },
   ],
+  termStartMonday: "2025-01-13",
+  termEndSunday: "2025-04-20",
 };

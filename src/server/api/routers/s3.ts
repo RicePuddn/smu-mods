@@ -5,6 +5,7 @@ import {
   S3Client,
 } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
 import { env } from "@/env";
@@ -19,13 +20,29 @@ const s3Client = new S3Client({
   },
 });
 
+const ALLOWED_MIME_TYPES = [
+  "image/jpeg", // JPG
+  "image/png", // PNG
+  "image/gif", // GIF
+  "application/pdf", // PDF
+  "application/msword", // DOC
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // DOCX
+];
+
 export const s3Router = createTRPCRouter({
   upload: publicProcedure
-    .input(z.object({ key: z.string() }))
+    .input(z.object({ key: z.string(), type: z.string() }))
     .mutation(async ({ input }) => {
+      if (!ALLOWED_MIME_TYPES.includes(input.type)) {
+        throw new TRPCError({
+          message: "Invalid file type",
+          code: "BAD_REQUEST",
+        });
+      }
       const command = new PutObjectCommand({
         Bucket: env.AWS_S3_BUCKET_NAME,
         Key: input.key,
+        ContentType: input.type,
       });
       const signedUrl = await getSignedUrl(s3Client, command, {
         expiresIn: 60,
@@ -34,6 +51,7 @@ export const s3Router = createTRPCRouter({
       return {
         signedUrl,
         srcUrl,
+        key: input.key,
       };
     }),
 });
