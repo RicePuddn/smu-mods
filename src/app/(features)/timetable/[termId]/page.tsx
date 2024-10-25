@@ -76,6 +76,7 @@ export default function TimeTablePage({
   const { modules } = useModuleBankStore((state) => state);
 
   const [selectedClass, setSelectedSection] = useState<FullClass>();
+  const [hideCurrentTime, setHideCurrentTime] = useState(false);
 
   const router = useRouter();
   const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
@@ -338,6 +339,7 @@ export default function TimeTablePage({
   const elementRef = useRef<HTMLDivElement>(null);
 
   const exportAsPdfOrImage = async (type: "png" | "pdf") => {
+    setHideCurrentTime(true);
     const element = elementRef.current;
     if (!element) {
       return;
@@ -365,6 +367,7 @@ export default function TimeTablePage({
         `smumods_${APP_CONFIG.academicYear}_${APP_CONFIG.currentTerm}.png`,
       );
     }
+    setHideCurrentTime(false);
   };
 
   const download = (url: string, fileName: string) => {
@@ -461,32 +464,34 @@ export default function TimeTablePage({
                     style={{ position: "relative" }}
                   >
                     {/* Show current date and time marker */}
-                    {getCurrentDay() == day && currentTimePosition != null && (
-                      <>
-                        {/* Red Line */}
-                        <div
-                          className="absolute bg-red-500"
-                          style={{
-                            left: `${currentTimePosition}%`,
-                            height: "95%",
-                            width: "2px",
-                            zIndex: 10,
-                          }}
-                        />
+                    {getCurrentDay() == day &&
+                      currentTimePosition != null &&
+                      !hideCurrentTime && (
+                        <>
+                          {/* Red Line */}
+                          <div
+                            className="absolute bg-red-500"
+                            style={{
+                              left: `${currentTimePosition}%`,
+                              height: "95%",
+                              width: "2px",
+                              zIndex: 10,
+                            }}
+                          />
 
-                        {/* Circle Marker */}
-                        <div
-                          className="absolute rounded-full bg-red-500"
-                          style={{
-                            left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
-                            top: "-2px", // Slightly above the line
-                            width: "10px",
-                            height: "10px",
-                            zIndex: 10,
-                          }}
-                        />
-                      </>
-                    )}
+                          {/* Circle Marker */}
+                          <div
+                            className="absolute rounded-full bg-red-500"
+                            style={{
+                              left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
+                              top: "-2px", // Slightly above the line
+                              width: "10px",
+                              height: "10px",
+                              zIndex: 10,
+                            }}
+                          />
+                        </>
+                      )}
 
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                       const rowIndex = parseInt(rowIndexStr, 10);
