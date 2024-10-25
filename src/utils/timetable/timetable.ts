@@ -1,4 +1,5 @@
-import type { AddToCalendarActionType } from "add-to-calendar-button-react";
+import type { ICalEventData } from "ical-generator";
+import { ICalEventRepeatingFreq } from "ical-generator";
 import { toast } from "sonner";
 
 import type { Term } from "@/types/planner";
@@ -264,68 +265,75 @@ export function getClassEndTime(startTime: string, duration: number) {
   return `${formattedHours}:${formattedMinutes}`;
 }
 
-export function getCalendarFormat(
-  timetable: Timetable,
-): AddToCalendarActionType["dates"] {
+export function getRecurringEvents(timetable: Timetable): ICalEventData[] {
   const { termStartMonday, termEndSunday } = APP_CONFIG;
 
-  const result: AddToCalendarActionType["dates"] = [];
+  const result: ICalEventData[] = [];
 
   const termStartDate = new Date(termStartMonday);
   const termEndDate = new Date(termEndSunday);
 
-  // Array to map JavaScript's getDay() index to day names
-  const dayNames = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  // Mapping of day names to their numerical representation (0-6)
+  const dayIndexes: { [key in Day]: number } = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+    Saturday: 6,
+  };
 
-  const currentDate = new Date(termStartDate);
-
-  while (currentDate <= termEndDate) {
-    const dayIndex = currentDate.getDay(); // 0 (Sunday) to 6 (Saturday)
-    const dayName = dayNames[dayIndex]; // Get the day name
-
-    // Check if the day is in our timetable (Monday to Saturday)
-    if (days.includes(dayName as Day)) {
-      const classes = timetable[dayName as Day];
+  Object.keys(timetable).forEach((day) => {
+    if (days.includes(day as Day)) {
+      const classes = timetable[day as Day];
       if (classes) {
         for (const modClass of classes) {
           const { moduleCode, classTime } = modClass;
           const { startTime } = classTime;
           const endTime = getClassEndTime(startTime, classTime.duration);
 
-          // Calculate week number
-          const timeDifference =
-            currentDate.getTime() - termStartDate.getTime();
-          const weekNo =
-            Math.floor(timeDifference / (7 * 24 * 60 * 60 * 1000)) + 1;
+          // Get the day index for the class day and term start day
+          const classDayIndex = dayIndexes[day as Day];
+          const termStartDayIndex = termStartDate.getDay(); // 0 (Sunday) to 6 (Saturday)
 
-          // Format date to YYYY-MM-DD
-          const startDate = currentDate.toISOString().split("T")[0];
+          // Calculate the number of days to add to termStartDate to get the first class date
+          const daysToAdd = (classDayIndex - termStartDayIndex + 7) % 7;
 
-          const section = modules[moduleCode]?.sections.find(
+          // Calculate the actual start date for the class
+          const startDate = new Date(termStartDate);
+          startDate.setDate(startDate.getDate() + daysToAdd);
+
+          const module = modules[moduleCode];
+
+          if (!module) {
+            continue;
+          }
+
+          const section = module.sections.find(
             (section) => section.code === modClass.section,
           );
-          // Add the class event to the result
+
           result.push({
-            startDate,
-            startTime,
-            endTime,
-            name: `[${moduleCode}] ${section?.location.building + " " + section?.location.room} Week ${weekNo}`,
+            start: new Date(
+              `${startDate.toISOString().split("T")[0]}T${startTime}`,
+            ),
+            end: new Date(
+              `${startDate.toISOString().split("T")[0]}T${endTime}`,
+            ),
+            summary: `[${moduleCode}] ${module.name}`,
+            location:
+              (section?.location.building ?? "") +
+              " " +
+              (section?.location.room ?? ""),
+            description: moduleCode,
+            repeating: {
+              freq: ICalEventRepeatingFreq.WEEKLY,
+              until: termEndDate,
+            },
           });
         }
       }
     }
-
-    // Move to the next day
-    currentDate.setDate(currentDate.getDate() + 1);
-  }
-
+  });
   return result;
 }

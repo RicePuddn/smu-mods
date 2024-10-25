@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { atcb_action } from "add-to-calendar-button-react";
 import { format } from "date-fns";
 import { toCanvas, toPng } from "html-to-image";
+import ical, { ICalCalendarMethod } from "ical-generator";
 import jsPDF from "jspdf";
 import {
   Calendar,
@@ -42,7 +42,7 @@ import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug } from "@/types/planner";
 import { days, timeSlots } from "@/types/primitives/timetable";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
-import { getCalendarFormat } from "@/utils/timetable/timetable";
+import { getRecurringEvents } from "@/utils/timetable/timetable";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -360,14 +360,14 @@ export default function TimeTablePage({
       const image = await toPng(element, {
         quality: 1,
       });
-      downloadImage(
+      download(
         image,
         `smumods_${APP_CONFIG.academicYear}_${APP_CONFIG.currentTerm}.png`,
       );
     }
   };
 
-  const downloadImage = (url: string, fileName: string) => {
+  const download = (url: string, fileName: string) => {
     const link = document.createElement("a");
     link.style.display = "none";
     link.href = url;
@@ -615,14 +615,25 @@ export default function TimeTablePage({
             {APP_CONFIG.currentTerm == params.termId && (
               <DropdownMenuItem
                 onClick={() => {
-                  atcb_action({
-                    name: "SMUMODS Timetable",
-                    description: "Your SMUMODS Timetable",
-                    listStyle: "modal",
-                    lightMode: "bodyScheme",
-                    iCalFileName: "smumods-timetable",
-                    dates: getCalendarFormat(timetable),
+                  const calendar = ical({
+                    name: "smumods-timetable",
+                    prodId: "-//smumods.johnnyknl.me//EN",
                   });
+
+                  calendar.method(ICalCalendarMethod.PUBLISH);
+
+                  const classes = getRecurringEvents(timetable);
+                  classes.forEach((event) => {
+                    calendar.createEvent(event);
+                  });
+                  const string = calendar.toString();
+                  const blob = new Blob([string], {
+                    type: "text/calendar;charset=utf-8",
+                  });
+                  download(
+                    URL.createObjectURL(blob),
+                    `smumods_${APP_CONFIG.academicYear}_${APP_CONFIG.currentTerm}.ics`,
+                  );
                 }}
               >
                 <Calendar className="mr-2 size-4" />
