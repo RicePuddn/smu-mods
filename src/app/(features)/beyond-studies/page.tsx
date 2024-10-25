@@ -6,7 +6,7 @@ import { atcb_action } from "add-to-calendar-button-react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import { format } from "date-fns";
-import { Calendar, Star, Trash } from "lucide-react";
+import { Calendar, Loader2, Star, Trash } from "lucide-react";
 
 import EventTabs from "@/components/acad-clubs/tabs";
 import { Button } from "@/components/ui/button";
@@ -130,8 +130,12 @@ export default function BeyondStudies() {
           onChange={handleFileChange}
         />
       </div>
-      <Button onClick={handleAddCard} className="mb-4" disabled={isLoading}>
-        Add Event Details
+      <Button
+        onClick={handleAddCard}
+        className="mb-4"
+        disabled={isLoading || !selectedFile}
+      >
+        {isLoading && <Loader2 className="mr-2" />} Add Event Details
       </Button>
       <div>
         <h2 className="text-xl font-bold">Your Starred Events</h2>
