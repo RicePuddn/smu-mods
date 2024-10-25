@@ -20,6 +20,7 @@ import {
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
 import { getUserYear } from "@/utils/getUserYear";
+import { Logger } from "@/utils/Logger";
 
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
@@ -72,7 +73,7 @@ const CoursePlanner: React.FC = () => {
 
   const HandleSyncTimetable = (year: Year) => {
     for (const termNo in planner[year]) {
-      console.log(planner);
+      Logger.log(planner);
       const moduleCodes = Object.keys(
         planner[year][termNo as Term],
       ) as ModuleCode[];
