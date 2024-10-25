@@ -1,9 +1,9 @@
 "use client";
 
+import { Suspense, useEffect, useRef } from "react";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useTheme } from "next-themes";
-import { Suspense, useEffect, useRef } from "react";
 import * as THREE from "three";
 
 import Banner from "@/components/Banner";
@@ -116,9 +116,11 @@ function Scene() {
 }
 
 export default function Home() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const canvasStyle =
-    theme === "light" ? { background: "white" } : { background: "black" };
+    resolvedTheme === "light"
+      ? { background: "white" }
+      : { background: "black" };
 
   return (
     <div className="relative h-screen w-full">
