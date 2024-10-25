@@ -99,7 +99,7 @@ export default function TimeTablePage({
     null,
   );
 
-  const calculateCurrentTimePosition = () => {
+  const calculateCurrentTimePosition = (totalSlots: number) => {
     const currentDate = new Date();
     const hours = currentDate.getHours();
     const minutes = currentDate.getMinutes();
@@ -111,13 +111,13 @@ export default function TimeTablePage({
     }
 
     const totalMinutes = (hours - 8) * 60 + minutes;
-    const position = (totalMinutes / (60 * 14)) * 100;
+    const position = (totalMinutes / (60 * totalSlots)) * 100;
     return position;
   };
 
   useEffect(() => {
     const updateCurrentTime = () => {
-      setCurrentTimePosition(calculateCurrentTimePosition);
+      setCurrentTimePosition(calculateCurrentTimePosition(15));
     };
     updateCurrentTime();
     const interval = setInterval(updateCurrentTime, 60000);
