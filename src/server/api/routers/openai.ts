@@ -91,8 +91,8 @@ export const openaiRouter = createTRPCRouter({
             },
           },
         });
-        // console.log(completion.choices[0].finish_reason);
-        // console.log(completion.choices[0].message.content);
+        // Logger.log(completion.choices[0].finish_reason);
+        // Logger.log(completion.choices[0].message.content);
         const content = completion.choices?.[0]?.message?.content;
 
         if (!content) {

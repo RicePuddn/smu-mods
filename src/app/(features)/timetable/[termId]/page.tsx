@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { atcb_action } from "add-to-calendar-button-react";
 import { format } from "date-fns";
 import { toCanvas, toPng } from "html-to-image";
+import ical, { ICalCalendarMethod } from "ical-generator";
 import jsPDF from "jspdf";
 import {
   Calendar,
@@ -41,8 +41,9 @@ import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug } from "@/types/planner";
 import { days, timeSlots } from "@/types/primitives/timetable";
+import { Logger } from "@/utils/Logger";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
-import { getCalendarFormat } from "@/utils/timetable/timetable";
+import { getRecurringEvents } from "@/utils/timetable/timetable";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -76,6 +77,7 @@ export default function TimeTablePage({
   const { modules } = useModuleBankStore((state) => state);
 
   const [selectedClass, setSelectedSection] = useState<FullClass>();
+  const [hideCurrentTime, setHideCurrentTime] = useState(false);
 
   const router = useRouter();
   const currentTermIdx = termSlug.indexOf(params.termId as TermSlug);
@@ -228,7 +230,7 @@ export default function TimeTablePage({
         timeToMinutes(b.classTime.startTime),
     );
 
-    // console.log(sortedTimetable);
+    // Logger.log(sortedTimetable);
 
     for (let index = 0; index < sortedTimetable.length; index++) {
       const currentSlot = sortedTimetable[index]!;
@@ -238,7 +240,7 @@ export default function TimeTablePage({
       const currentSlotEndMinutes =
         currentSlotStartMinutes + currentSlot.classTime.duration * 60;
 
-      // console.log(
+      // Logger.log(
       //   `Processing classes: ${currentSlot.moduleCode}, ${currentSlot.section}`,
       // );
 
@@ -263,7 +265,7 @@ export default function TimeTablePage({
               currentSlotStartMinutes < existingClassEndMinutes &&
               currentSlotEndMinutes > existingClassStartMinutes
             ) {
-              // console.log(
+              // Logger.log(
               //   `Overlap detected between ${currentSlot.moduleCode} ${currentSlot.section} and ${existingClass.moduleCode} ${existingClass.section}`,
               // );
               canAddToRow = false;
@@ -313,12 +315,12 @@ export default function TimeTablePage({
     }
   };
 
-  // console.log(TIMETABLE_COLORS);
+  // Logger.log(TIMETABLE_COLORS);
 
   const handlePullFromPlanner = (year: Year) => {
     for (const termNo in planner[year]) {
-      console.log(termNo);
-      console.log(planner[year]);
+      Logger.log(termNo);
+      Logger.log(planner[year]);
       const moduleCodes = Object.keys(
         planner[year][termNo as Term],
       ) as ModuleCode[];
@@ -338,6 +340,7 @@ export default function TimeTablePage({
   const elementRef = useRef<HTMLDivElement>(null);
 
   const exportAsPdfOrImage = async (type: "png" | "pdf") => {
+    setHideCurrentTime(true);
     const element = elementRef.current;
     if (!element) {
       return;
@@ -360,14 +363,15 @@ export default function TimeTablePage({
       const image = await toPng(element, {
         quality: 1,
       });
-      downloadImage(
+      download(
         image,
         `smumods_${APP_CONFIG.academicYear}_${APP_CONFIG.currentTerm}.png`,
       );
     }
+    setHideCurrentTime(false);
   };
 
-  const downloadImage = (url: string, fileName: string) => {
+  const download = (url: string, fileName: string) => {
     const link = document.createElement("a");
     link.style.display = "none";
     link.href = url;
@@ -461,32 +465,34 @@ export default function TimeTablePage({
                     style={{ position: "relative" }}
                   >
                     {/* Show current date and time marker */}
-                    {getCurrentDay() == day && currentTimePosition != null && (
-                      <>
-                        {/* Red Line */}
-                        <div
-                          className="absolute bg-red-500"
-                          style={{
-                            left: `${currentTimePosition}%`,
-                            height: "95%",
-                            width: "2px",
-                            zIndex: 10,
-                          }}
-                        />
+                    {getCurrentDay() == day &&
+                      currentTimePosition != null &&
+                      !hideCurrentTime && (
+                        <>
+                          {/* Red Line */}
+                          <div
+                            className="absolute bg-red-500"
+                            style={{
+                              left: `${currentTimePosition}%`,
+                              height: "95%",
+                              width: "2px",
+                              zIndex: 10,
+                            }}
+                          />
 
-                        {/* Circle Marker */}
-                        <div
-                          className="absolute rounded-full bg-red-500"
-                          style={{
-                            left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
-                            top: "-2px", // Slightly above the line
-                            width: "10px",
-                            height: "10px",
-                            zIndex: 10,
-                          }}
-                        />
-                      </>
-                    )}
+                          {/* Circle Marker */}
+                          <div
+                            className="absolute rounded-full bg-red-500"
+                            style={{
+                              left: `calc(${currentTimePosition}% - 4px)`, // Center the circle on the line
+                              top: "-2px", // Slightly above the line
+                              width: "10px",
+                              height: "10px",
+                              zIndex: 10,
+                            }}
+                          />
+                        </>
+                      )}
 
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                       const rowIndex = parseInt(rowIndexStr, 10);
@@ -615,14 +621,25 @@ export default function TimeTablePage({
             {APP_CONFIG.currentTerm == params.termId && (
               <DropdownMenuItem
                 onClick={() => {
-                  atcb_action({
-                    name: "SMUMODS Timetable",
-                    description: "Your SMUMODS Timetable",
-                    listStyle: "modal",
-                    lightMode: "bodyScheme",
-                    iCalFileName: "smumods-timetable",
-                    dates: getCalendarFormat(timetable),
+                  const calendar = ical({
+                    name: "smumods-timetable",
+                    prodId: "-//smumods.johnnyknl.me//EN",
                   });
+
+                  calendar.method(ICalCalendarMethod.PUBLISH);
+
+                  const classes = getRecurringEvents(timetable);
+                  classes.forEach((event) => {
+                    calendar.createEvent(event);
+                  });
+                  const string = calendar.toString();
+                  const blob = new Blob([string], {
+                    type: "text/calendar;charset=utf-8",
+                  });
+                  download(
+                    URL.createObjectURL(blob),
+                    `smumods_${APP_CONFIG.academicYear}_${APP_CONFIG.currentTerm}.ics`,
+                  );
                 }}
               >
                 <Calendar className="mr-2 size-4" />
@@ -652,7 +669,7 @@ export default function TimeTablePage({
       <div className="my-5">
         <SearchModule
           handleModSelect={(mod) => {
-            // console.log("Selected Module:", mod); // Debugging
+            // Logger.log("Selected Module:", mod); // Debugging
             if (mod.terms.includes(termMap[params.termId as TermSlug])) {
               AddModuleToTimetable(
                 mod,

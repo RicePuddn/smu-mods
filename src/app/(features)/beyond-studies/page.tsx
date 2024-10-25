@@ -17,6 +17,7 @@ import { eventsData } from "@/server/data/events";
 import { useEventStore } from "@/stores/event/provider";
 import { api } from "@/trpc/react";
 import { schoolEventSchema } from "@/types/primitives/event";
+import { Logger } from "@/utils/Logger";
 
 export default function BeyondStudies() {
   const { events, addEvent, removeEvent } = useEventStore((state) => state);
@@ -59,7 +60,7 @@ export default function BeyondStudies() {
 
       // Hash the Base64 string
       const hash = CryptoJS.SHA256(base64Image).toString(CryptoJS.enc.Hex);
-      // console.log("Hash:", hash);
+      // Logger.log("Hash:", hash);
       return hash;
     } catch (error) {
       console.error("Error hashing image:", error);
@@ -75,7 +76,7 @@ export default function BeyondStudies() {
       });
 
       if (response.status === 200) {
-        console.log("Image uploaded successfully");
+        Logger.log("Image uploaded successfully");
       } else {
         console.error("Failed to upload image:", response.statusText);
       }
@@ -135,7 +136,8 @@ export default function BeyondStudies() {
         className="mb-4"
         disabled={isLoading || !selectedFile}
       >
-        {isLoading && <Loader2 className="mr-2" />} Add Event Details
+        {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
+        Details
       </Button>
       <div>
         <h2 className="text-xl font-bold">Your Starred Events</h2>

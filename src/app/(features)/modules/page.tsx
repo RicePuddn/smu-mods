@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// Importing module data and basket categories
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
@@ -29,7 +28,6 @@ export default function CourseCatalogue() {
     useModuleBankStore((state) => state);
   const { banners } = useConfigStore((state) => state);
   const activeBanners = banners.filter((banner) => !banner.dismissed);
-  // const categories = baskets.map((basket) => basket.name);
 
   const [selectedCategories, _setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -125,6 +123,7 @@ export default function CourseCatalogue() {
         <Checkbox
           checked={filterByFavorites}
           onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
+          className="hover:bg-primary/50"
         />
         <Label className="ml-2">Show Favorites Only</Label>
       </div>
@@ -133,22 +132,25 @@ export default function CourseCatalogue() {
         {/* <div className="w-fit max-w-24 space-y-2 md:max-w-none">
           <h2 className="font-semibold">Basket</h2>
           <ScrollArea className="h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]">
-            {categories.map((category, index) => (
-              <div key={index} className="mb-2 flex items-center space-x-2">
-                <Checkbox
-                  id={`category-${category}`}
-                  checked={selectedCategories.includes(category)}
-                  onCheckedChange={(checked) => {
-                    setSelectedCategories(
-                      checked
-                        ? [...selectedCategories, category]
-                        : selectedCategories.filter((c) => c !== category),
-                    );
-                  }}
-                />
-                <Label htmlFor={`category-${category}`}>{category}</Label>
-              </div>
-            ))}
+            {baskets
+              .map((basket) => basket.name)
+              .map((category, index) => (
+                <div key={index} className="mb-2 flex items-center space-x-2">
+                  <Checkbox
+                    id={`category-${category}`}
+                    checked={selectedCategories.includes(category)}
+                    onCheckedChange={(checked) => {
+                      _setSelectedCategories(
+                        checked
+                          ? [...selectedCategories, category]
+                          : selectedCategories.filter((c) => c !== category),
+                      );
+                    }}
+                    className="hover:bg-primary/50"
+                  />
+                  <Label htmlFor={`category-${category}`}>{category}</Label>
+                </div>
+              ))}
           </ScrollArea>
         </div> */}
 
@@ -170,7 +172,7 @@ export default function CourseCatalogue() {
                 moduleCode={module.moduleCode}
                 key={module.moduleCode}
               >
-                <div className="mb-2 flex cursor-pointer items-center justify-between rounded-lg border p-4">
+                <div className="mb-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 shadow-md shadow-transparent hover:-translate-y-2 hover:shadow-primary">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
