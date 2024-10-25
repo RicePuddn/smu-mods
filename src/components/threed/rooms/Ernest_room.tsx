@@ -4,9 +4,9 @@ Command: npx gltfjsx@6.5.2 ernest_room.glb -T -t
 Files: ernest_room.glb [5.25MB] > C:\Users\ernes\Desktop\School\WAD2\study-room\source\rooms\ernest_room-transformed.glb [497.07KB] (91%)
 */
 
+import type * as THREE from "three";
+import type { GLTF } from "three-stdlib";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
-import { GLTF } from "three-stdlib";
 
 type GLTFResult = GLTF & {
   nodes: {
