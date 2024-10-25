@@ -21,6 +21,7 @@ import { schoolEventSchema } from "@/types/primitives/event";
 export default function BeyondStudies() {
   const { events, addEvent, removeEvent } = useEventStore((state) => state);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { mutateAsync: uploadFile } = api.s3.upload.useMutation();
   const { mutateAsync: parseEvent } = api.chatgpt.parseEvent.useMutation();
@@ -87,6 +88,7 @@ export default function BeyondStudies() {
   const handleAddCard = async () => {
     if (!selectedFile) return;
     try {
+      setIsLoading(true);
       const hashedImg = await hashImage(selectedFile);
 
       if (hashedImg) {
@@ -105,6 +107,9 @@ export default function BeyondStudies() {
       }
     } catch (error) {
       console.error("Error processing the file:", error);
+    } finally {
+      setSelectedFile(null);
+      setIsLoading(false);
     }
   };
 
@@ -125,8 +130,8 @@ export default function BeyondStudies() {
           onChange={handleFileChange}
         />
       </div>
-      <Button onClick={handleAddCard} className="mb-4">
-        Add Card
+      <Button onClick={handleAddCard} className="mb-4" disabled={isLoading}>
+        Add Event Details
       </Button>
       <div>
         <h2 className="text-xl font-bold">Your Starred Events</h2>
