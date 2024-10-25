@@ -28,7 +28,7 @@ export const Rooms: Record<RoomKey, Room> = {
   },
   johnny: {
     room: <DefaultRoom />,
-    name: "Johnny's JavaScript Junction",
+    name: "Johnny's Default Room",
     description: "Code, debug, and innovate here.",
   },
   ernest: {
@@ -38,17 +38,17 @@ export const Rooms: Record<RoomKey, Room> = {
   },
   isaiah: {
     room: <Isaiah_room />,
-    name: "Isaiah's Idea Igloo",
-    description: "Where creativity thrives and flows.",
+    name: "Izzy's Code Cave",
+    description: "Where 2am debugging goes crazy.",
   },
   fp: {
     room: <DefaultRoom />,
-    name: "Felicia Paulus' Peaceful Pad",
-    description: "Serene space for thoughtful relaxation.",
+    name: "Paulus' Hideout",
+    description: "Plotting wolrd domination here (Do not disturb).",
   },
   ft: {
     room: <FT_room />,
-    name: "Felicia Tanujaya's Funhouse",
-    description: "Exciting hangout for playful ideas.",
+    name: "FT's Little Lair",
+    description: "Intersection of eunoia and tranquility.",
   },
 };
