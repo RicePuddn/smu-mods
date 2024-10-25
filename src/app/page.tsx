@@ -16,7 +16,9 @@ import { Rooms } from "@/components/threed/rooms";
 import { useConfigStore } from "@/stores/config/provider";
 
 function Lighting({ theme }: { theme: string }) {
-  const lightIntensity = theme === "light" ? 1.5 : 0.4;
+  const { roomTheme } = useConfigStore((state) => state);
+  const lightIntensity =
+    theme === "light" ? 1.5 : roomTheme == "isaiah" ? 0.6 : 0.4;
   const directionalLightIntensity = theme === "light" ? 5.5 : 0.4;
 
   return (
@@ -39,7 +41,7 @@ function isMobileDevice() {
 
 function Scene() {
   const { theme = "light" } = useTheme();
-  const { roomTheme } = useConfigStore((state) => state);
+  const { roomTheme = "johnny" } = useConfigStore((state) => state);
   const cameraRef = useRef<THREE.PerspectiveCamera>(null!);
   const { camera } = useThree();
 
