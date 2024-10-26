@@ -3,7 +3,7 @@
 import type { DropResult } from "@hello-pangea/dnd";
 import React from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import { CalendarArrowUp, ChevronDown, ChevronUp } from "lucide-react";
+import { CalendarArrowUp, ChevronDown, ChevronUp, Ghost } from "lucide-react";
 
 import type { Term, Year } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
@@ -307,8 +307,8 @@ const CoursePlanner: React.FC = () => {
                         <div className="flex-cols flex">
                           <Button
                             onClick={() => handleHideSpecial(year as Year)}
-                            className="mx-2 mt-2 w-full"
-                            variant={"outline"}
+                            className="show-special-terms-btn"
+                            variant={Ghost}
                           >
                             {isHidden
                               ? "Show Special Terms"
