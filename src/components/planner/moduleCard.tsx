@@ -1,4 +1,4 @@
-import { CircleAlert, X } from "lucide-react";
+import { CircleAlert, Ghost, X } from "lucide-react";
 
 import type { Term, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
@@ -17,9 +17,11 @@ interface ModuleCardProps {
   snapshot: any;
   conflictList?: string[];
   removeModule: (moduleCode: ModuleCode, year: Year, term: Term) => void;
+
 }
 
 const ModuleCard = ({
+  
   moduleCode,
   moduleName,
   year,
@@ -28,6 +30,7 @@ const ModuleCard = ({
   snapshot,
   conflictList = [],
   removeModule,
+
 }: ModuleCardProps) => {
   return (
     <div
@@ -35,7 +38,9 @@ const ModuleCard = ({
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       className={cn(
-        "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
+        "module-card-planner",
+        "hover-effect", "hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)]", "dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.3)] ",
+
         snapshot.isDragging
           ? "h-fit w-fit bg-accent shadow-lg"
           : "border bg-background hover:border-foreground",
@@ -57,7 +62,7 @@ const ModuleCard = ({
       )}
 
       <ModuleDetails moduleCode={moduleCode as ModuleCode}>
-        <div className="flex-grow text-sm">
+        <div className="flex-grow text-sm ">
           {/* <div className="w-fit text-nowrap pe-1"></div>
           <div></div> */}
           {moduleCode}: {moduleName}
@@ -66,9 +71,9 @@ const ModuleCard = ({
 
       <Button
         onClick={() => removeModule(moduleCode as ModuleCode, year, term)}
-        variant="destructive"
+        variant={Ghost}
         size="icon"
-        className="size-6 min-w-6 rounded-full"
+        className="cross-btn-planner"
       >
         <X className="size-5" />
       </Button>
