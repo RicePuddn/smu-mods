@@ -16,6 +16,7 @@ interface EventCardProps {
 export const EventCard = ({ event, actions }: EventCardProps) => {
   return (
     <Card className="overflow-hidden bg-accent">
+      
       {/* Title remains visible */}
       <CardHeader className="bg-primary p-3 text-center text-lg font-bold text-primary-foreground">
         {event.title}

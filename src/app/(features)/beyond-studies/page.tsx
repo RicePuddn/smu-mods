@@ -19,7 +19,12 @@ import { api } from "@/trpc/react";
 import { schoolEventSchema } from "@/types/primitives/event";
 import { Logger } from "@/utils/Logger";
 
+import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 export default function BeyondStudies() {
+  const isMobile = useIsMobile();
   const { events, addEvent, removeEvent } = useEventStore((state) => state);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +65,6 @@ export default function BeyondStudies() {
 
       // Hash the Base64 string
       const hash = CryptoJS.SHA256(base64Image).toString(CryptoJS.enc.Hex);
-      // Logger.log("Hash:", hash);
       return hash;
     } catch (error) {
       console.error("Error hashing image:", error);
@@ -115,12 +119,7 @@ export default function BeyondStudies() {
   };
 
   return (
-    <div
-      style={{
-        padding: PADDING,
-      }}
-      className="space-y-4"
-    >
+    <div style={{ padding: PADDING }} className="space-y-4">
       <h1 className="text-2xl font-bold">Beyond Studies</h1>
       <div className="grid w-full max-w-sm items-center gap-1.5">
         <Label htmlFor="picture">Upload Image</Label>
@@ -139,75 +138,105 @@ export default function BeyondStudies() {
         {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
         Details
       </Button>
-      <div>
-        <h2 className="text-xl font-bold">Your Starred Events</h2>
+
+      {/* Starred Events Section */}
+      <div
+        className={cn(
+          "flex flex-col overflow-hidden rounded-lg bg-muted shadow-md",
+          !isMobile && "mb-6 mr-6 w-full flex-shrink-0"
+        )}
+      >
+        <div
+          className={cn(
+            "flex h-14 items-center justify-between bg-smu-blue p-3",
+            isMobile && "cursor-pointer"
+          )}
+        >
+          <h2 className="text-lg font-semibold text-primary-foreground">
+            Your Starred Events
+          </h2>
+          {isMobile && <ChevronDown className="text-primary-foreground" />}
+        </div>
+
         <EventTabs
           tabsData={{
             upcoming: events.filter(
-              (event) => new Date(event.startTime) > new Date(),
+              (event) => new Date(event.startTime) > new Date()
             ),
             past: events.filter(
-              (event) => new Date(event.endTime) < new Date(),
+              (event) => new Date(event.endTime) < new Date()
             ),
           }}
           eventCardActions={[
-            (event, index) => {
-              return (
-                <Button
-                  key={index}
-                  onClick={() => {
-                    atcb_action({
-                      name: event.title,
-                      description: event.description,
-                      startDate: format(
-                        new Date(event.startTime),
-                        "yyyy-MM-dd",
-                      ),
-                      startTime: format(new Date(event.startTime), "HH:mm"),
-                      endTime: format(new Date(event.endTime), "HH:mm"),
-                      location: event.venue,
-                      options: ["Google", "Outlook.com", "iCal", "Apple"],
-                      listStyle: "modal",
-                      lightMode: "bodyScheme",
-                    });
-                  }}
-                >
-                  <Calendar className="mr-2" />
-                  Add to Calendar
-                </Button>
-              );
-            },
-            (event, index) => {
-              return (
-                <Button
-                  onClick={() => event.id && removeEvent(event.id)}
-                  key={index}
-                  variant={"destructive"}
-                  size={"icon"}
-                >
-                  <Trash />
-                </Button>
-              );
-            },
+            (event, index) => (
+              <Button
+                key={index}
+                onClick={() =>
+                  atcb_action({
+                    name: event.title,
+                    description: event.description,
+                    startDate: format(new Date(event.startTime), "yyyy-MM-dd"),
+                    startTime: format(new Date(event.startTime), "HH:mm"),
+                    endTime: format(new Date(event.endTime), "HH:mm"),
+                    location: event.venue,
+                    options: ["Google", "Outlook.com", "iCal", "Apple"],
+                    listStyle: "modal",
+                    lightMode: "bodyScheme",
+                  })
+                }
+              >
+                <Calendar className="mr-2" />
+                Add to Calendar
+              </Button>
+            ),
+            (event, index) => (
+              <Button
+                onClick={() => event.id && removeEvent(event.id)}
+                key={index}
+                variant={"destructive"}
+                size={"icon"}
+              >
+                <Trash />
+              </Button>
+            ),
           ]}
         />
       </div>
-      <div>
-        <h2 className="text-xl font-bold">Available Events</h2>
-        <EventTabs
-          tabsData={eventsData}
-          eventCardActions={[
-            (event, index) => {
-              return (
-                <Button onClick={() => addEvent(event)} key={index}>
-                  <Star className="mr-2" />
-                  Star
-                </Button>
-              );
-            },
-          ]}
-        />
-      </div>
+
+      {/* Available Events Section */}
+      <div
+        className={cn(
+            "flex flex-col overflow-hidden rounded-lg bg-muted shadow-md ",
+            !isMobile && "mb-6 mr-6 w-full flex-shrink-0"
+        )}
+        >
+        <div
+            className={cn(
+            "flex h-14 items-center justify-between bg-smu-blue p-3",
+            isMobile && "cursor-pointer"
+            )}
+        >
+            <h2 className="text-lg font-semibold text-primary-foreground">
+            Available Events
+            </h2>
+            {isMobile && <ChevronDown className="text-primary-foreground" />}
+        </div>
+
+
+        <div className="p-4">
+            <EventTabs
+                tabsData={eventsData}
+                eventCardActions={[
+                (event, index) => (
+                    <Button onClick={() => addEvent(event)} key={index}>
+                    <Star className="mr-2" />
+                    Star
+                    </Button>
+                ),
+                ]}
+            />
+        </div>
+        </div>
     </div>
   );
 }
