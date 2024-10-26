@@ -1,6 +1,8 @@
 import * as path from "path";
 import { fileURLToPath } from "url";
 
+import { Logger } from "@/utils/Logger";
+
 import { processModuleHtml } from "./writer";
 
 const args = process.argv.slice(2);
@@ -25,7 +27,7 @@ const __dirname = path.dirname(__filename);
 const directoryPath = path.resolve(__dirname, "..");
 const filePath = path.join(directoryPath, "html", fileName);
 
-console.log("File Path:", filePath);
+Logger.log("File Path:", filePath);
 
 const projectBaseDir = path.resolve(directoryPath, "..");
 

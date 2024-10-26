@@ -6,7 +6,7 @@ import type { AcademicYear, Banner } from "@/config";
 import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { roomKeys } from "@/components/threed/rooms";
 import { APP_CONFIG } from "@/config";
-import { env } from "@/env";
+import { Logger } from "@/utils/Logger";
 
 export type ISyncRecord = {
   id: string;
@@ -15,7 +15,7 @@ export type ISyncRecord = {
 };
 
 export type ConfigAction = {
-  changeISyncLatestRecord: (newRecord: ISyncRecord) => void;
+  changeISyncLatestRecord: (newRecord: ISyncRecord | null) => void;
   changeTimetableTheme: (newTheme: TimetableThemeName) => void;
   changeRoomTheme: (newTheme: RoomKey) => void;
   changeMatriculationYear: (matriculationYear: AcademicYear) => void;
@@ -39,7 +39,7 @@ export type ConfigStore = {
   matriculationYear: AcademicYear;
   banners: BannerState[];
   warningDismissedTime: number;
-  appVersion: string;
+  appVersion: string | null;
 } & ConfigAction;
 
 export const createConfigBank = (
@@ -61,7 +61,7 @@ export const createConfigBank = (
         matriculationYear: defaultAcademicYear,
         banners: defaultBanners,
         warningDismissedTime: Date.now() - 1000 * 60 * 60 * 24 * 7,
-        appVersion: env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
+        appVersion: null,
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
@@ -96,15 +96,24 @@ export const createConfigBank = (
           set({ warningDismissedTime: Date.now() });
         },
         refreshBanners: () => {
-          set(() => {
-            const banners = APP_CONFIG.banners.map((banner) => ({
-              ...banner,
-              dismissed: false,
-            }));
-            return { banners };
+          set((state) => {
+            const newBanners: BannerState[] = [];
+
+            APP_CONFIG.banners.forEach((banner) => {
+              const existingBanner = state.banners.find(
+                (b) => b.id === banner.id,
+              );
+              if (existingBanner) {
+                newBanners.push(existingBanner);
+              } else {
+                newBanners.push({ ...banner, dismissed: false });
+              }
+            });
+            return { banners: newBanners };
           });
         },
         changeAppVersion: (newVersion) => {
+          Logger.log("Changing app version to", newVersion);
           set({ appVersion: newVersion });
         },
       }),

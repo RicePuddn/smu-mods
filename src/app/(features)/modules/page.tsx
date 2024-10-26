@@ -15,8 +15,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// Importing module data and basket categories
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { PADDING } from "@/config";
+import { cn } from "@/lib/utils";
+import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { type Module } from "@/types/primitives/module";
 
@@ -24,9 +26,10 @@ export default function CourseCatalogue() {
   // Extract categories from baskets
   const { modules, toggleFavourites, favouriteModules, baskets } =
     useModuleBankStore((state) => state);
-  const categories = baskets.map((basket) => basket.name);
+  const { banners } = useConfigStore((state) => state);
+  const activeBanners = banners.filter((banner) => !banner.dismissed);
 
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, _setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<"name" | "credit">("name");
   const [filterByFavorites, setFilterByFavorites] = useState(false); // Toggle to filter by favorites
@@ -72,16 +75,17 @@ export default function CourseCatalogue() {
 
   return (
     <div
-      className="w-full"
+      className="relative w-full space-y-4"
       style={{
-        padding: PADDING,
+        paddingTop: PADDING,
+        paddingLeft: PADDING,
+        paddingRight: PADDING,
       }}
     >
-      <h1 className="mb-4 text-2xl font-bold">Module Catalogue</h1>
-
-      <div className="mb-4 flex flex-col gap-4 md:flex-row sticky style={{ minHeight: '100vh' }">
+      <h1 className="text-2xl font-bold">Module Catalogue</h1>
+      <div className="flex flex-col gap-4 md:flex-row">
         {/* Search Bar */}
-        <div className="flex-1 mb-4 sticky top-0 z-10 bg-white">
+        <div className="flex-1">
           <Input
             placeholder="Search modules..."
             value={searchQuery}
@@ -89,51 +93,86 @@ export default function CourseCatalogue() {
             className="w-full"
           />
         </div>
+        {/* Sort By Dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="w-full md:w-auto">
+              Sort by {sortBy === "name" ? "Name" : "Credit"}
+              <ChevronDown className="ml-2 h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuCheckboxItem
+              checked={sortBy === "name"}
+              onCheckedChange={() => setSortBy("name")}
+            >
+              Name
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem
+              checked={sortBy === "credit"}
+              onCheckedChange={() => setSortBy("credit")}
+            >
+              Credit
+            </DropdownMenuCheckboxItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
-
-      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-4">
-        {/* Filter by Categories */}
-        <div className="space-y-2 top-11 bg-white shadow-lg p-6 rounded-xl sticky w-fit h-fit">
+      {/* Toggle Filter by Favorites */}
+      <div className="flex items-center">
         <Checkbox
           checked={filterByFavorites}
           onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
-          className="hover:border-blue-500 hover:bg-blue-100"
+          className="hover:bg-primary/50"
         />
         <Label className="ml-2">Show Favorites Only</Label>
-          <h2 className="font-semibold">Sort By Basket</h2>
-          {categories.map((category, index) => (
-            <div key={index} className="flex items-center space-x-2">
-              <Checkbox
-                id={`category-${category}`}
-                checked={selectedCategories.includes(category)}
-                onCheckedChange={(checked) => {
-                  setSelectedCategories(
-                    checked
-                      ? [...selectedCategories, category]
-                      : selectedCategories.filter((c) => c !== category),
-                  );
-                }}
-                className="hover:border-blue-500 hover:bg-blue-100"
-              />
-              <Label htmlFor={`category-${category}`}>{category}</Label>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="flex gap-4">
+        {/* Filter by Categories */}
+        {/* <div className="w-fit max-w-24 space-y-2 md:max-w-none">
+          <h2 className="font-semibold">Basket</h2>
+          <ScrollArea className="h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]">
+            {baskets
+              .map((basket) => basket.name)
+              .map((category, index) => (
+                <div key={index} className="mb-2 flex items-center space-x-2">
+                  <Checkbox
+                    id={`category-${category}`}
+                    checked={selectedCategories.includes(category)}
+                    onCheckedChange={(checked) => {
+                      _setSelectedCategories(
+                        checked
+                          ? [...selectedCategories, category]
+                          : selectedCategories.filter((c) => c !== category),
+                      );
+                    }}
+                    className="hover:bg-primary/50"
+                  />
+                  <Label htmlFor={`category-${category}`}>{category}</Label>
+                </div>
+              ))}
+          </ScrollArea>
+        </div> */}
 
         {/* Display Modules */}
-        <div className="md:col-span-3">
+        <div className="flex-grow">
           <h2 className="mb-2 font-semibold">
             Modules ({filteredModules.length})
           </h2>
-          <div className="grid gap-4">
+          <ScrollArea
+            className={cn(
+              "h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]",
+              activeBanners.length > 0 &&
+                "h-[calc(100dvh-24rem)] md:h-[calc(100dvh-21rem)]",
+            )}
+          >
             {filteredModules.map((module) => (
               // Wrap the module card with ModuleDetails to open the dialog when clicked
               <ModuleDetails
                 moduleCode={module.moduleCode}
                 key={module.moduleCode}
               >
-                <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4 hover:border-blue-200 hover:shadow-[0_4px_15px_0_rgba(59,130,246,0.6)] transition-all duration-200  transform hover:-translate-y-1">
+                <div className="mb-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 shadow-md shadow-transparent hover:-translate-y-2 hover:shadow-primary">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
@@ -161,7 +200,7 @@ export default function CourseCatalogue() {
                 </div>
               </ModuleDetails>
             ))}
-          </div>
+          </ScrollArea>
         </div>
       </div>
     </div>
