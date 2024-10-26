@@ -2,8 +2,8 @@ import { type ReactNode } from "react";
 import { format } from "date-fns";
 
 import { type ExtendedSchoolEvent } from "@/stores/event";
-
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { Card, CardContent, CardFooter } from "../ui/card";
+import { cn } from "@/lib/utils";
 
 interface EventCardProps {
   event: ExtendedSchoolEvent;
@@ -15,36 +15,41 @@ interface EventCardProps {
 
 export const EventCard = ({ event, actions }: EventCardProps) => {
   return (
-    <Card className="overflow-hidden bg-accent">
+    <Card className="group relative h-60 overflow-hidden rounded-lg bg-accent shadow-md transition-all duration-500 ease-in-out hover:shadow-lg">
       
-      {/* Title remains visible */}
-      <CardHeader className="bg-primary p-3 text-center text-lg font-bold text-primary-foreground">
-        {event.title}
-      </CardHeader>
+      {/* parent container */}
+        <div className="relative h-full w-full overflow-hidden">
+        
+        {/* event title and organiser*/}
+        <div className={cn("absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:translate-y-[-50%] space-y-1")}>
+          <h3 className="text-lg font-semibold">{event.title}</h3>
+          <p className="text-sm text-gray-600">{event.name}</p>
+        </div>
 
-      {/* Content is positioned outside of view and moved up on hover */}
-      <CardContent className="p-4">
-        <p className="text-sm">{event.name}</p>
-        <p>{format(new Date(event.date), "MMMM d, yyyy")}</p>
-        <p className="text-sm">
-          {format(new Date(event.startTime), "HH:mm")} to{" "}
-          {format(new Date(event.endTime), "HH:mm")}
-        </p>
-        <p className="text-sm">{event.venue}</p>
-        <p className="mt-2 text-red-500">
-          <strong>
-            Registration Deadline:{" "}
-            {format(new Date(event.deadline), "MMMM d, yyyy HH:mm")}
-          </strong>
-        </p>
-        {/* <CardDescription className="mt-2 leading-relaxed text-gray-700">
-      <ReadMore id={value.description} text={value.description} />
-    </CardDescription> */}
-      </CardContent>
+        {/* more information (hidden initially) */}
+        <div className={cn( "absolute inset-0 mt-12 flex flex-col items-center justify-start p-4 transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 space-y-1")}>
+            <p>{format(new Date(event.date), "MMMM d, yyyy")}</p>
+            <p className="text-sm">
+                {format(new Date(event.startTime), "HH:mm")} to{" "}
+                {format(new Date(event.endTime), "HH:mm")}
+            </p>
+            <p className="text-sm">{event.venue}</p>
+            <p className="mt-2 text-red-500 text-center">
+                <strong>
+                Registration Deadline:{" "} {format(new Date(event.deadline), "MMMM d, yyyy HH:mm")}
+                </strong>
+            </p>
 
-      <CardFooter className="gap-2">
-        {actions?.map((action, index) => action(event, index))}
-      </CardFooter>
+          {/* Action Buttons */}
+            <div className="mt-4 flex justify-center gap-2">
+                {actions?.map((action, index) => (
+                <div key={index} className="flex-shrink-0">
+                    {action(event, index)}
+                </div>
+            ))}
+            </div>
+        </div>
+    </div>
     </Card>
   );
 };
