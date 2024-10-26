@@ -32,7 +32,7 @@ export const InteractiveTooltip: React.FC<InteractiveTooltipProps> = ({
             {children}
           </div>
         </TooltipTrigger>
-        <TooltipContent className="shadow-md bg-yellow-400">{content}</TooltipContent>
+        <TooltipContent className="shadow-md bg-yellow-400">{content} </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

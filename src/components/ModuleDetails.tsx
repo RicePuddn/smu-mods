@@ -42,7 +42,7 @@ export default function ModuleDetails({
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="min-w-[300px] p-10 md:min-w-[80vw]">
+      <DialogContent className=" dialog-content min-w-[300px] p-10 md:min-w-[80vw]">
         {!loading ? (
           !!module ? (
             <div className="max-h-[80dvh] overflow-y-scroll">
