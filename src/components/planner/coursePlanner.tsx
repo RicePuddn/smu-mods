@@ -169,7 +169,7 @@ const CoursePlanner: React.FC = () => {
           >
             <div
               className={cn(
-                "flex h-14 items-center justify-between bg-smuBlue p-3",
+                "flex h-14 items-center justify-between bg-smu-blue p-3",
                 isMobile && "cursor-pointer",
               )}
               onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
@@ -216,7 +216,6 @@ const CoursePlanner: React.FC = () => {
                               >
                                 {(provided, snapshot) => (
                                   <ModuleCard 
-                                    className= ""
                                     moduleCode={moduleCode}
                                     moduleName={
                                       modules[moduleCode as ModuleCode]?.name ??
@@ -269,7 +268,7 @@ const CoursePlanner: React.FC = () => {
                 >
                   <div
                     className={cn(
-                      "flex h-14 items-center justify-between bg-smuGold p-3",
+                      "flex h-14 items-center justify-between bg-smu-gold p-3",
                       isMobile && "cursor-pointer",
                     )}
                     onClick={() => isMobile && toggleYear(year)}

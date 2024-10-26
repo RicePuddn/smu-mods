@@ -29,6 +29,14 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --smu-gold: 37, 37%, 64%;
+    --smu-blue: 233, 32%, 35%;
+
+    /* hover effects  */
+    --light-hover-bg: 0 0% 100%;
+    --light-hover-border: 214.3 31.8% 85%;
+    --light-hover-shadow: 0_4px_15px_0_rgba(8,47,73,0.3);
+    --light-hover-translate: -0.125rem;
   }
 
   .dark {
@@ -56,6 +64,15 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --smu-gold: 37, 37%, 64%;
+    --smu-blue: 233, 32%, 35%;
+
+    /* hover effects for module card */
+    --dark-hover-bg: 220, 20%, 27%;
+    --dark-hover-border: 220, 14%, 65%;
+    --dark-hover-shadow: 0_4px_15px_0_rgba(255,255,255,0.3);
+    --dark-border: 215.4 15.3% 34.5%; 
+    --dark-translate-up: -0.125rem;
   }
 }
 
@@ -65,5 +82,36 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .module-card {
+    @apply mb-2 flex items-center justify-between gap-2 rounded-lg p-2 border ;
+  }
+}
+
+@layer utilities {
+  .hover-effect {
+    @apply transition-all duration-200 transform;
+  }
+  .hover-effect:hover {
+    background-color: hsl(var(--light-hover-bg));
+    border-color: hsl(var(--light-hover-border));
+    transform: translateY(var(--light-hover-translate));
+  }
+  .dark .hover-effect:hover {
+    background-color: hsl(var(--dark-hover-bg));
+    border-color: hsl(var(--dark-hover-border));
+    box-shadow: var(--dark-hover-shadow);
+    transform: translateY(var(--dark-translate-up));
+  }
+  .dark .module-card {
+    border-color: hsl(var(--dark-border));
+    background-color: hsl(var(--dark-hover-bg))
+  }
+
+  .dragging-effect {
+    @apply h-fit w-fit bg-accent shadow-lg;
   }
 }
