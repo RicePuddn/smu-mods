@@ -101,10 +101,7 @@
   .dialog-content {
     @apply border border-slate-300 dark:border-slate-500 dark:bg-slate-800;
   }
-/* 
-  .dark .dialog-content {
-    border-color: hsl(var(--dark-dialog-border));
-  } */
+
 }
 
 @layer utilities {
