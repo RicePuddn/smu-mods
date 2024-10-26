@@ -3,8 +3,8 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 import type { ModuleBank } from "@/types/banks/moduleBank";
 import type { Planner, PlannerState, Term, Year } from "@/types/planner";
-import { defaultPlanner, defaultPlannerState } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
+import { defaultPlanner, defaultPlannerState } from "@/types/planner";
 import { Logger } from "@/utils/Logger";
 import { getPlanner } from "@/utils/planner";
 
