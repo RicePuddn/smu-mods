@@ -38,9 +38,9 @@ const ModuleCard = ({
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       className={cn(
-        "mb-2 flex items-center justify-between gap-2 rounded-lg p-2 border transition-all duration-200 transform hover:-translate-y-0.5",
-        "hover:border-1 hover:border-sky-900 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)]",
-        "dark:hover:border-white dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.3)] dark:border-slate-500",
+        "module-card",
+        "hover-effect", "hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)]", "dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.3)] ",
+
         snapshot.isDragging
           ? "h-fit w-fit bg-accent shadow-lg"
           : "border bg-background hover:border-foreground",

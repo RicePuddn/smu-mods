@@ -55,8 +55,8 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
-        smuGold: "#A28B66",
-        smuBlue: "#3C4375"
+        "smu-blue": "hsl(var(--smu-blue))",
+        "smu-gold": "hsl(var(--smu-gold))",
       },
       keyframes: {
         "accordion-down": {
