@@ -132,7 +132,7 @@ const CoursePlanner: React.FC = () => {
         paddingBottom: PADDING,
       }}
     >
-      <h1 className="text-2xl font-bold mb-3">Plan Ahead</h1>
+      <h1 className="text-2xl font-bold mb-3">Your Modules Planner</h1>
 
       <div
         className="mb-6 flex flex-col"
