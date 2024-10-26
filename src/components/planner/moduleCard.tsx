@@ -35,7 +35,9 @@ const ModuleCard = ({
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       className={cn(
-        "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
+        "mb-2 flex items-center justify-between gap-2 rounded-lg p-2 border transition-all duration-200 transform hover:-translate-y-1",
+        "hover:border-1 hover:border-sky-950 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.6)]",
+        "dark:hover:border-white dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.6)]",
         snapshot.isDragging
           ? "h-fit w-fit bg-accent shadow-lg"
           : "border bg-background hover:border-foreground",
@@ -57,7 +59,7 @@ const ModuleCard = ({
       )}
 
       <ModuleDetails moduleCode={moduleCode as ModuleCode}>
-        <div className="flex-grow text-sm">
+        <div className="flex-grow text-sm ">
           {/* <div className="w-fit text-nowrap pe-1"></div>
           <div></div> */}
           {moduleCode}: {moduleName}
@@ -68,7 +70,7 @@ const ModuleCard = ({
         onClick={() => removeModule(moduleCode as ModuleCode, year, term)}
         variant="destructive"
         size="icon"
-        className="size-6 min-w-6 rounded-full"
+        className="size-6 min-w-6 "
       >
         <X className="size-5" />
       </Button>
