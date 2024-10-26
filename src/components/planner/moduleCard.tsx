@@ -1,4 +1,4 @@
-import { CircleAlert, X } from "lucide-react";
+import { CircleAlert, Ghost, X } from "lucide-react";
 
 import type { Term, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
@@ -71,6 +71,7 @@ const ModuleCard = ({
 
       <Button
         onClick={() => removeModule(moduleCode as ModuleCode, year, term)}
+        variant={Ghost}
         size="icon"
         className="cross-btn-planner"
       >

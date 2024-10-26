@@ -90,20 +90,10 @@
     @apply mb-2 flex items-center justify-between gap-2 rounded-lg p-2 border ;
   }
   .cross-btn-planner {
-    @apply size-6 min-w-6 bg-transparent text-black rounded-full transition-colors duration-200 !important;
+    @apply size-6 min-w-6 bg-transparent text-black dark:text-white rounded-full transition-colors duration-200 hover:bg-red-500 hover:text-white !important;
   }
-  .cross-btn-planner:hover {
-    @apply bg-red-500 text-white !important;
-  }
-  .cross-btn-planner:focus {
-    @apply ring-2 ring-offset-2 ring-red-500;
-  }
-
-  .dark .cross-btn-planner {
-    @apply size-6 min-w-6 bg-transparent text-white rounded-full transition-colors duration-200 !important;
-  }
-  .cross-btn-planner:hover {
-    @apply bg-red-500 text-white !important;
+  .show-special-terms-btn {
+    @apply mx-2 mt-2 w-full border border-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600;
   }
 }
 
@@ -119,14 +109,12 @@
   .dark .hover-effect:hover {
     background-color: hsl(var(--dark-hover-bg));
     border-color: hsl(var(--dark-hover-border));
-    box-shadow: var(--dark-hover-shadow);
     transform: translateY(var(--dark-translate-up));
   }
   .dark .module-card {
     border-color: hsl(var(--dark-border));
     background-color: hsl(var(--dark-hover-bg))
   }
-
   .dragging-effect {
     @apply h-fit w-fit bg-accent shadow-lg;
   }
