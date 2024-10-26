@@ -3,7 +3,7 @@
 import type { DropResult } from "@hello-pangea/dnd";
 import React from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import { CalendarArrowUp, ChevronDown, ChevronUp, Ghost } from "lucide-react";
+import { CalendarArrowUp, ChevronDown, ChevronUp } from "lucide-react";
 
 import type { Term, Year } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
@@ -97,6 +97,7 @@ const CoursePlanner: React.FC = () => {
       },
       { ...modules, [module.moduleCode]: module },
     );
+    toggleYear(MODSTOTAKE_YEAR, true);
   };
 
   const handleRemoveModuleFromPlanner = (
@@ -107,8 +108,11 @@ const CoursePlanner: React.FC = () => {
     removeModule(moduleCode, year, term, modules);
   };
 
-  const toggleYear = (year: string) => {
+  const toggleYear = (year: string, forceOpen = false) => {
     setIsOpen((prevExpandedYears) => {
+      if (forceOpen) {
+        return new Set([...prevExpandedYears, year]);
+      }
       const newOpenYears = new Set(prevExpandedYears);
       if (newOpenYears.has(year)) {
         newOpenYears.delete(year);
@@ -132,7 +136,7 @@ const CoursePlanner: React.FC = () => {
         paddingBottom: PADDING,
       }}
     >
-      <h1 className="text-2xl font-bold mb-3">Your Modules Planner</h1>
+      <h1 className="mb-3 text-2xl font-bold">Your Modules Planner</h1>
 
       <div
         className="mb-6 flex flex-col"
@@ -155,7 +159,7 @@ const CoursePlanner: React.FC = () => {
           className={cn(
             "mb-6",
             isMobile
-              ? "sticky top-12 z-10 grid grid-cols-1 gap-6"
+              ? "sticky top-12 grid grid-cols-1 gap-6"
               : "flex flex-wrap px-1",
           )}
           style={{
@@ -165,7 +169,7 @@ const CoursePlanner: React.FC = () => {
           <div
             key={MODSTOTAKE_YEAR}
             className={cn(
-              "flex flex-col overflow-hidden rounded-lg shadow-md",
+              "flex flex-col overflow-hidden rounded-lg bg-muted shadow-md",
               !isMobile && "mb-6 mr-6 w-full flex-shrink-0",
             )}
           >
@@ -182,9 +186,9 @@ const CoursePlanner: React.FC = () => {
 
               {isMobile &&
                 (!isMobile || isOpen.has(MODSTOTAKE_YEAR) ? (
-                  <ChevronUp className="text-white" />
+                  <ChevronUp className="text-primary-foreground" />
                 ) : (
-                  <ChevronDown className="text-white" />
+                  <ChevronDown className="text-primary-foreground" />
                 ))}
             </div>
 
@@ -218,7 +222,7 @@ const CoursePlanner: React.FC = () => {
                                 index={index}
                               >
                                 {(provided, snapshot) => (
-                                  <ModuleCard 
+                                  <ModuleCard
                                     moduleCode={moduleCode}
                                     moduleName={
                                       modules[moduleCode as ModuleCode]?.name ??
@@ -229,7 +233,6 @@ const CoursePlanner: React.FC = () => {
                                     provided={provided}
                                     snapshot={snapshot}
                                     removeModule={handleRemoveModuleFromPlanner}
-                                    
                                   />
                                 )}
                               </Draggable>
@@ -242,14 +245,12 @@ const CoursePlanner: React.FC = () => {
                   ),
                 )}
             </div>
-            <div className="text-xs text-muted-foreground mt-1 ml-3 mb-3">
-                Add modules. Hold and drag them to their respective terms.
+            <div className="my-3 ml-3 text-xs text-muted-foreground">
+              Add modules. Hold and drag them to their respective terms.
             </div>
           </div>
         </div>
-
         <div
-        
           className={cn(
             "mb-6",
             isMobile
@@ -270,7 +271,7 @@ const CoursePlanner: React.FC = () => {
                 <div
                   key={year}
                   className={cn(
-                    "flex flex-col  rounded-lg bg-accent shadow-md",
+                    "flex flex-col overflow-hidden rounded-lg bg-accent shadow-md",
                     !isMobile && "mb-6 mr-6 w-96 flex-shrink-0",
                   )}
                 >
@@ -315,7 +316,7 @@ const CoursePlanner: React.FC = () => {
                           <Button
                             onClick={() => handleHideSpecial(year as Year)}
                             className="show-special-terms-btn"
-                            variant={Ghost}
+                            variant={"ghost"}
                           >
                             {isHidden
                               ? "Show Special Terms"
