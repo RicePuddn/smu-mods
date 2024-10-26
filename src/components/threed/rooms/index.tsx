@@ -45,7 +45,7 @@ export const Rooms: Record<RoomKey, Room> = {
   fp: {
     room: <FP_room />,
     name: "Paulus' Hideout",
-    description: "Plotting wolrd domination here (Do not disturb).",
+    description: "Plotting world domination here (do not disturb).",
   },
   ft: {
     room: <FT_room />,

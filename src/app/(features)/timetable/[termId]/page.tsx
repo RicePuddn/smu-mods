@@ -41,6 +41,7 @@ import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug } from "@/types/planner";
 import { days, timeSlots } from "@/types/primitives/timetable";
+import { Logger } from "@/utils/Logger";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 import { getRecurringEvents } from "@/utils/timetable/timetable";
 
@@ -99,7 +100,7 @@ export default function TimeTablePage({
     null,
   );
 
-  const calculateCurrentTimePosition = () => {
+  const calculateCurrentTimePosition = (totalSlots: number) => {
     const currentDate = new Date();
     const hours = currentDate.getHours();
     const minutes = currentDate.getMinutes();
@@ -111,13 +112,13 @@ export default function TimeTablePage({
     }
 
     const totalMinutes = (hours - 8) * 60 + minutes;
-    const position = (totalMinutes / (60 * 14)) * 100;
+    const position = (totalMinutes / (60 * totalSlots)) * 100;
     return position;
   };
 
   useEffect(() => {
     const updateCurrentTime = () => {
-      setCurrentTimePosition(calculateCurrentTimePosition);
+      setCurrentTimePosition(calculateCurrentTimePosition(15));
     };
     updateCurrentTime();
     const interval = setInterval(updateCurrentTime, 60000);
@@ -229,7 +230,7 @@ export default function TimeTablePage({
         timeToMinutes(b.classTime.startTime),
     );
 
-    // console.log(sortedTimetable);
+    // Logger.log(sortedTimetable);
 
     for (let index = 0; index < sortedTimetable.length; index++) {
       const currentSlot = sortedTimetable[index]!;
@@ -239,7 +240,7 @@ export default function TimeTablePage({
       const currentSlotEndMinutes =
         currentSlotStartMinutes + currentSlot.classTime.duration * 60;
 
-      // console.log(
+      // Logger.log(
       //   `Processing classes: ${currentSlot.moduleCode}, ${currentSlot.section}`,
       // );
 
@@ -264,7 +265,7 @@ export default function TimeTablePage({
               currentSlotStartMinutes < existingClassEndMinutes &&
               currentSlotEndMinutes > existingClassStartMinutes
             ) {
-              // console.log(
+              // Logger.log(
               //   `Overlap detected between ${currentSlot.moduleCode} ${currentSlot.section} and ${existingClass.moduleCode} ${existingClass.section}`,
               // );
               canAddToRow = false;
@@ -314,12 +315,12 @@ export default function TimeTablePage({
     }
   };
 
-  // console.log(TIMETABLE_COLORS);
+  // Logger.log(TIMETABLE_COLORS);
 
   const handlePullFromPlanner = (year: Year) => {
     for (const termNo in planner[year]) {
-      console.log(termNo);
-      console.log(planner[year]);
+      Logger.log(termNo);
+      Logger.log(planner[year]);
       const moduleCodes = Object.keys(
         planner[year][termNo as Term],
       ) as ModuleCode[];
@@ -415,13 +416,13 @@ export default function TimeTablePage({
       <div>
         <Button variant={"default"} onClick={() => handlePullFromPlanner("2")}>
           <RefreshCw />
-          <span style={{ marginLeft: "0.5rem" }}>Synchronize with Planner</span>
+          <span className="ml-2">Synchronize with Planner</span>
         </Button>
       </div>
 
-      <div className="my-4 max-w-full overflow-x-scroll">
+      <div className="my-4 max-w-full overflow-x-auto">
         <div
-          className="w-full min-w-[1200px] overflow-hidden rounded-lg border border-foreground/20 bg-background"
+          className="w-full min-w-[600px] overflow-hidden rounded-lg border border-foreground/20 bg-background lg:min-w-[1200px]"
           ref={elementRef}
         >
           {/* Time Labels */}
@@ -668,7 +669,7 @@ export default function TimeTablePage({
       <div className="my-5">
         <SearchModule
           handleModSelect={(mod) => {
-            // console.log("Selected Module:", mod); // Debugging
+            // Logger.log("Selected Module:", mod); // Debugging
             if (mod.terms.includes(termMap[params.termId as TermSlug])) {
               AddModuleToTimetable(
                 mod,
@@ -683,7 +684,7 @@ export default function TimeTablePage({
         />
       </div>
       {timetable.modules.length > 0 && (
-        <div className="j flex w-full flex-wrap gap-2">
+        <div className="flex w-full flex-wrap gap-2">
           {timetable.modules.map((mod, index) => (
             <div
               className="flex w-[32%] justify-center rounded bg-background p-4 shadow-sm"

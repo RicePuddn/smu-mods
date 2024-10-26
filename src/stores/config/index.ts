@@ -6,6 +6,7 @@ import type { AcademicYear, Banner } from "@/config";
 import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { roomKeys } from "@/components/threed/rooms";
 import { APP_CONFIG } from "@/config";
+import { Logger } from "@/utils/Logger";
 
 export type ISyncRecord = {
   id: string;
@@ -115,7 +116,7 @@ export const createConfigBank = (
           });
         },
         changeAppVersion: (newVersion) => {
-          console.log("Changing app version to", newVersion);
+          Logger.log("Changing app version to", newVersion);
           set({ appVersion: newVersion });
         },
         dimissNavigationPopup: () => {
