@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import SHA256 from "crypto-js/sha256";
-import { QrCode } from "lucide-react";
+import { Loader2, QrCode } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
 
 import { useConfigStore } from "@/stores/config/provider";
@@ -14,7 +14,7 @@ import { getBaseUrl } from "@/utils/getBaseUrl";
 import { Button } from "../ui/button";
 
 export function GenerateQRCode() {
-  const { mutateAsync: getToken } = api.iSync.getToken.useMutation();
+  const { mutateAsync: getToken, isPending } = api.iSync.getToken.useMutation();
   const { timetableMap } = useTimetableStore((state) => state);
   const { planner, plannerState } = usePlannerStore((state) => state);
   const {
@@ -88,8 +88,12 @@ export function GenerateQRCode() {
           </p>
         </div>
       ) : (
-        <Button onClick={handleGenerateQRCode}>
-          <QrCode className="mr-2" />
+        <Button onClick={handleGenerateQRCode} disabled={isPending}>
+          {isPending ? (
+            <Loader2 className="mr-2 animate-spin" />
+          ) : (
+            <QrCode className="mr-2" />
+          )}
           Generate
         </Button>
       )}
