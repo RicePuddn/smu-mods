@@ -71,9 +71,8 @@ const ModuleCard = ({
 
       <Button
         onClick={() => removeModule(moduleCode as ModuleCode, year, term)}
-        variant="destructive"
         size="icon"
-        className="size-6 min-w-6 "
+        className="cross-btn-planner"
       >
         <X className="size-5" />
       </Button>
