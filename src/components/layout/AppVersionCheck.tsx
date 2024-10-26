@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { env } from "@/env";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { Logger } from "@/utils/Logger";
 
 const APP_VERSION = env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
 const TURN_ON_REFRESH = false;
@@ -16,12 +17,12 @@ export const AppVersionCheck = () => {
   const { refreshAll } = useModuleBankStore((state) => state);
   useEffect(() => {
     if (appVersion !== null) {
-      console.log("Version:", appVersion);
+      Logger.log("Version:", appVersion, true);
       if (
         appVersion !== APP_VERSION ||
         (appVersion == "development" && TURN_ON_REFRESH)
       ) {
-        console.log("New version detected, refreshing data...");
+        Logger.log("New version detected, refreshing data...", true);
         if (appVersion != "development") {
           refreshAll();
         }
