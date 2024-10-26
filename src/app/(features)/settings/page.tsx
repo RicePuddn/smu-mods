@@ -70,6 +70,52 @@ export default function SettingsPage() {
     >
       <h2 className="text-xl font-bold">Settings</h2>
       <section className="space-y-3 rounded-lg border p-4 shadow">
+        <h2 className="text-lg font-semibold">Matriculation Year</h2>
+        <div className="flex flex-wrap justify-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button onClick={() => changeMatriculationYear}>
+                <Calendar className="mr-2" />
+                {matriculationYear ?? "Select Year"}
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent>
+              {matriculationYears.map((year) => (
+                <DropdownMenuItem
+                  key={year}
+                  onClick={() => changeMatriculationYear(year as AcademicYear)}
+                  className="justify-center"
+                >
+                  AY{year}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </section>
+      <section className="space-y-3 rounded-lg border p-4 shadow">
+        <h3 className="text-lg font-semibold">iSync</h3>
+        <p>
+          Synchronize your timetable and module planning data between your
+          devices.
+        </p>
+        <GenerateQRCode />
+      </section>
+      <section className="space-y-3 rounded-lg border p-4 shadow">
+        <h3 className="text-lg font-semibold">Get Latest Module List</h3>
+        <p>
+          Get the latest module list from the server. This is to ensure that you
+          have the latest modules and their information.
+        </p>
+        <div className="flex justify-center">
+          <Button onClick={async () => await refreshAll()}>
+            <RefreshCw className="mr-2" />
+            Update
+          </Button>
+        </div>
+      </section>
+      <section className="space-y-3 rounded-lg border p-4 shadow">
         <h2 className="text-lg font-semibold">Dark Mode</h2>
         <ToggleGroup
           type="single"
@@ -124,7 +170,7 @@ export default function SettingsPage() {
       </section>
 
       <section className="space-y-3 rounded-lg border p-4 shadow">
-        <h2 className="text-lg font-semibold">Theme</h2>
+        <h2 className="text-lg font-semibold">Timetable Theme</h2>
         <div className="flex flex-wrap justify-center gap-2">
           {Object.entries(TIMETABLE_THEMES).map(([themeName, theme], index) => (
             <div
@@ -159,52 +205,6 @@ export default function SettingsPage() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-      <section className="space-y-3 rounded-lg border p-4 shadow">
-        <h2 className="text-lg font-semibold">Matriculation Year</h2>
-        <div className="flex flex-wrap justify-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button onClick={() => changeMatriculationYear}>
-                <Calendar className="mr-2" />
-                {matriculationYear ?? "Select Year"}
-              </Button>
-            </DropdownMenuTrigger>
-
-            <DropdownMenuContent>
-              {matriculationYears.map((year) => (
-                <DropdownMenuItem
-                  key={year}
-                  onClick={() => changeMatriculationYear(year as AcademicYear)}
-                  className="justify-center"
-                >
-                  AY{year}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </section>
-      <section className="space-y-3 rounded-lg border p-4 shadow">
-        <h3 className="text-lg font-semibold">iSync</h3>
-        <p>
-          Synchronize your timetable and module planning data between your
-          devices.
-        </p>
-        <GenerateQRCode />
-      </section>
-      <section className="space-y-3 rounded-lg border p-4 shadow">
-        <h3 className="text-lg font-semibold">Get Latest Module List</h3>
-        <p>
-          Get the latest module list from the server. This is to ensure that you
-          have the latest modules and their information.
-        </p>
-        <div className="flex justify-center">
-          <Button onClick={async () => await refreshAll()}>
-            <RefreshCw className="mr-2" />
-            Update
-          </Button>
         </div>
       </section>
       <section className="space-y-3 rounded-lg border p-4 shadow">

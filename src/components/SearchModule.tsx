@@ -8,7 +8,6 @@ import { searchModule } from "@/utils/moduleBank";
 
 import { Badge } from "./ui/badge";
 import { Input } from "./ui/input";
-import { Label } from "./ui/label";
 
 interface SearchModuleProps {
   handleModSelect: (mod: Module) => void;
