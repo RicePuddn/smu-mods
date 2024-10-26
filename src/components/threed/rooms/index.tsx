@@ -1,6 +1,7 @@
 import { ArinRoom } from "./arin";
 import { DefaultRoom } from "./default";
 import { Ernest_room } from "./Ernest_room";
+import { FP_room } from "./Fp_room";
 import { FT_room } from "./Ft_room";
 import { Isaiah_room } from "./Isaiah_room";
 
@@ -23,8 +24,8 @@ export type RoomKey = (typeof roomKeys)[number];
 export const Rooms: Record<RoomKey, Room> = {
   arin: {
     room: <ArinRoom />,
-    name: "Arin's Awesome Alcove",
-    description: "Quiet corner for deep thoughts.",
+    name: "Arin's Humble Abode",
+    description: "Where her intrusive thoughts get contained.",
   },
   johnny: {
     room: <DefaultRoom />,
@@ -42,7 +43,7 @@ export const Rooms: Record<RoomKey, Room> = {
     description: "Where 2am debugging goes crazy.",
   },
   fp: {
-    room: <DefaultRoom />,
+    room: <FP_room />,
     name: "Paulus' Hideout",
     description: "Plotting wolrd domination here (Do not disturb).",
   },
