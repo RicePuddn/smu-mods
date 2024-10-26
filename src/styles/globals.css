@@ -73,6 +73,8 @@
     --dark-hover-shadow: 0_4px_15px_0_rgba(255,255,255,0.3);
     --dark-border: 215.4 15.3% 34.5%; 
     --dark-translate-up: -0.125rem;
+
+    --dark-dialog-border: 217.2 32.6% 40%;
   }
 }
 
@@ -95,9 +97,14 @@
   .show-special-terms-btn {
     @apply mx-2 mt-2 w-full border border-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600;
   }
-  .module-card-modules {
 
+  .dialog-content {
+    @apply border border-slate-300 dark:border-slate-500 dark:bg-slate-800;
   }
+/* 
+  .dark .dialog-content {
+    border-color: hsl(var(--dark-dialog-border));
+  } */
 }
 
 @layer utilities {

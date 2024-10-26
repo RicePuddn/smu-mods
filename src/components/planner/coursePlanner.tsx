@@ -132,6 +132,8 @@ const CoursePlanner: React.FC = () => {
         paddingBottom: PADDING,
       }}
     >
+      <h1 className="text-2xl font-bold mb-3">Plan Ahead</h1>
+
       <div
         className="mb-6 flex flex-col"
         style={{
@@ -186,10 +188,6 @@ const CoursePlanner: React.FC = () => {
                 ))}
             </div>
 
-            <div className="text-xs text-muted-foreground mt-1 ml-3">
-                Add modules and drag them to their respective year
-            </div>
-            
             <div>
               {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) &&
                 Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(
@@ -243,6 +241,9 @@ const CoursePlanner: React.FC = () => {
                     </Droppable>
                   ),
                 )}
+            </div>
+            <div className="text-xs text-muted-foreground mt-1 ml-3 mb-3">
+                Add modules. Hold and drag them to their respective terms.
             </div>
           </div>
         </div>

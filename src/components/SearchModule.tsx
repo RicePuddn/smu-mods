@@ -40,11 +40,11 @@ export function SearchModule({
     <div className="flex justify-center gap-24">
       <div className="relative w-full space-y-2">
         <div>
-          <Label htmlFor="searchModule">Search for a module</Label>
+          {/* <Label htmlFor="searchModule">Search for a module</Label> */}
           <Input
             variant="timetable"
             autoComplete="off"
-            placeholder="Enter a module code or module name"
+            placeholder="Search by module name or code"
             value={inputValue}
             id="searchModule"
             onChange={(e) => setInputValue(e.target.value)}
