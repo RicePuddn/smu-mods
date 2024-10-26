@@ -173,7 +173,7 @@ export default function CourseCatalogue() {
                 key={module.moduleCode}
               >
                 {/* <div className="mb-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 shadow-md shadow-transparent transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-primary"> */}
-                <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4 m-4 hover:border-blue-200 hover:shadow-[0_4px_15px_0_rgba(59,130,246,0.6)] transition-all duration-200  transform hover:-translate-y-1">
+                <div className="flex cursor-pointer items-center justify-between rounded-lg p-4 m-4 border hover:border-1 hover:border-sky-950 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.6)] transition-all duration-200  transform hover:-translate-y-1">
                   <div>
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
