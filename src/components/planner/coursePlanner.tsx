@@ -226,6 +226,7 @@ const CoursePlanner: React.FC = () => {
                                     provided={provided}
                                     snapshot={snapshot}
                                     removeModule={handleRemoveModuleFromPlanner}
+                                    
                                   />
                                 )}
                               </Draggable>
