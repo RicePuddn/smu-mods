@@ -215,7 +215,8 @@ const CoursePlanner: React.FC = () => {
                                 index={index}
                               >
                                 {(provided, snapshot) => (
-                                  <ModuleCard
+                                  <ModuleCard 
+                                    className= ""
                                     moduleCode={moduleCode}
                                     moduleName={
                                       modules[moduleCode as ModuleCode]?.name ??
