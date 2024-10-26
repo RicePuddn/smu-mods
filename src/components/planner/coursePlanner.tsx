@@ -185,6 +185,11 @@ const CoursePlanner: React.FC = () => {
                   <ChevronDown className="text-white" />
                 ))}
             </div>
+
+            <div className="text-xs text-muted-foreground mt-1 ml-3">
+                Add modules and drag them to their respective year
+            </div>
+            
             <div>
               {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) &&
                 Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(
@@ -243,6 +248,7 @@ const CoursePlanner: React.FC = () => {
         </div>
 
         <div
+        
           className={cn(
             "mb-6",
             isMobile

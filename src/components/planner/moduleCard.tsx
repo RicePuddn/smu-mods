@@ -38,7 +38,7 @@ const ModuleCard = ({
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       className={cn(
-        "module-card",
+        "module-card-planner",
         "hover-effect", "hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)]", "dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.3)] ",
 
         snapshot.isDragging
