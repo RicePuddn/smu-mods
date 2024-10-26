@@ -113,26 +113,38 @@ export function Calendar(props: JSX.IntrinsicElements["group"]) {
     if (groupRef.current) {
       groupRef.current.traverse((child) => {
         if ((child as THREE.Mesh).material && (child as THREE.Mesh).isMesh) {
-          (
-            (child as THREE.Mesh).material as THREE.MeshStandardMaterial
-          ).emissive = clicked
-            ? new THREE.Color(0x00ff00) // Red when clicked
-            : hovered
-              ? new THREE.Color(0xffde21) // Green when hovered
-              : new THREE.Color(0x444444); // Subtle gray when not hovered or clicked
-        }
-      });
-    }
+          const material = (child as THREE.Mesh)
+            .material as THREE.MeshStandardMaterial;
 
-    // Tone down the pulsing effect when not hovered or clicked
-    if (!hovered && !clicked && groupRef.current) {
-      const pulseIntensity =
-        Math.sin(state.clock.getElapsedTime() * 2) * 0.4 + 0.7;
-      groupRef.current.traverse((child) => {
-        if ((child as THREE.Mesh).material && (child as THREE.Mesh).isMesh) {
-          (
-            (child as THREE.Mesh).material as THREE.MeshStandardMaterial
-          ).emissiveIntensity = pulseIntensity;
+          // Apply different emissive colors for clicked, hovered, or idle states
+          material.emissive = clicked
+            ? new THREE.Color(0x00ff00) // Green when clicked
+            : hovered
+              ? new THREE.Color(0x6ac5fe) // blue when hovered
+              : new THREE.Color(0xaaaaaa); // Subtle gray when not hovered or clicked
+
+          // Adjust the pulse intensity only when not hovered or clicked
+          if (!hovered && !clicked) {
+            const elapsedTime = state.clock.getElapsedTime();
+
+            // Control the speed and intensity of the pulse
+            const pulseFrequency = 2; // Higher number increases the pulse speed
+            const baseIntensity = 0.55; // Base intensity to avoid too dim
+            const pulseAmplitude = 0.35; // How much the pulse should vary
+            const pulseIntensity =
+              Math.sin(elapsedTime * pulseFrequency) * pulseAmplitude +
+              baseIntensity;
+
+            // Clamp the intensity to avoid very high or low values
+            material.emissiveIntensity = THREE.MathUtils.clamp(
+              pulseIntensity,
+              0.1,
+              1.0,
+            );
+          } else {
+            // Set a default emissive intensity for hovered or clicked states
+            material.emissiveIntensity = 1.0;
+          }
         }
       });
     }
@@ -149,7 +161,6 @@ export function Calendar(props: JSX.IntrinsicElements["group"]) {
     e.stopPropagation();
     setHovered(false);
   };
-
   // Handle click event to navigate to the appropriate page
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();

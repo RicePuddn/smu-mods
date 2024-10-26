@@ -1,14 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  Calendar,
-  Monitor,
-  Moon,
-  RefreshCw,
-  RotateCcw,
-  Sun,
-} from "lucide-react";
+import { Calendar, Monitor, Moon, RefreshCw, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { toast } from "sonner";
 
@@ -29,6 +22,7 @@ import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { sleep } from "@/utils/sleep";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
 
 export default function SettingsPage() {
@@ -60,14 +54,11 @@ export default function SettingsPage() {
     setTempTheme(theme);
   }, [theme]);
 
-  function ResetTimetable() {
-    localStorage.removeItem("timetable");
-    toast.success("Timetable has been reset.");
-  }
-
-  function ResetPlanner() {
-    localStorage.removeItem("planner");
-    toast.success("Planner has been reset.");
+  async function ResetApplication() {
+    localStorage.clear();
+    toast.success("Application has been reset.");
+    await sleep(1000);
+    window.location.reload();
   }
 
   return (
@@ -102,23 +93,36 @@ export default function SettingsPage() {
           </ToggleGroupItem>
         </ToggleGroup>
       </section>
-      <section className="space-y-3 rounded-lg border p-4 shadow">
+      <section className="max-w-full space-y-3 overflow-hidden rounded-lg border p-4 shadow">
         <h2 className="text-lg font-semibold">Rooms</h2>
         <ToggleGroup
           type="single"
-          className="w-fit"
+          className="flex w-full flex-col gap-2"
           onValueChange={(value) => {
             changeRoomTheme(value as RoomKey);
           }}
           value={roomTheme}
         >
           {Object.keys(Rooms).map((roomkey, index) => (
-            <ToggleGroupItem value={roomkey} variant={"primary"} key={index}>
-              {Rooms[roomkey as RoomKey].name}
+            <ToggleGroupItem
+              value={roomkey}
+              variant={"primary"}
+              key={index}
+              className="h-fit w-full p-4 text-left"
+            >
+              <div className="space-y-1">
+                <div className="text-center text-sm font-semibold md:text-base">
+                  {Rooms[roomkey as RoomKey].name}
+                </div>
+                <div className="text-center text-xs opacity-60">
+                  {Rooms[roomkey as RoomKey].description}
+                </div>
+              </div>
             </ToggleGroupItem>
           ))}
         </ToggleGroup>
       </section>
+
       <section className="space-y-3 rounded-lg border p-4 shadow">
         <h2 className="text-lg font-semibold">Theme</h2>
         <div className="flex flex-wrap justify-center gap-2">
@@ -211,13 +215,9 @@ export default function SettingsPage() {
           Timetable data.
         </p>
         <div className="flex flex-wrap justify-center gap-2">
-          <Button onClick={ResetTimetable} variant={"destructive"}>
-            <RotateCcw className="mr-2" />
-            Reset Timetable
-          </Button>
-          <Button onClick={ResetPlanner} variant={"destructive"}>
-            <RotateCcw className="mr-2" />
-            Reset Planner
+          <Button onClick={ResetApplication} variant={"destructive"}>
+            <X className="mr-2" />
+            Reset Application
           </Button>
         </div>
       </section>

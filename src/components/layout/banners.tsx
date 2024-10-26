@@ -2,48 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import Marquee from "react-fast-marquee";
 
-import { env } from "@/env";
 import { useConfigStore } from "@/stores/config/provider";
-import { useModuleBankStore } from "@/stores/moduleBank/provider";
 
 import { Button } from "../ui/button";
 
-const APP_VERSION = env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
-
-const TURN_ON_REFRESH = false;
+const ANIMATION_DURATION = 10;
 
 export function Banners() {
-  const {
-    banners,
-    dismissBanner,
-    refreshBanners,
-    appVersion,
-    changeAppVersion,
-  } = useConfigStore((state) => state);
-  const { refreshAll } = useModuleBankStore((state) => state);
+  const { banners, dismissBanner } = useConfigStore((state) => state);
 
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-    console.log("Version:", appVersion);
-    if (
-      appVersion !== APP_VERSION ||
-      (appVersion == "development" && TURN_ON_REFRESH)
-    ) {
-      if (appVersion != "development") {
-        refreshAll();
-      }
-      refreshBanners();
-      changeAppVersion(APP_VERSION);
-    }
   }, []);
 
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Rotate banners every 3 seconds, unless the user is hovering or focusing
   useEffect(() => {
     if (!isHovered) {
       const interval = setInterval(() => {
@@ -52,12 +30,11 @@ export function Banners() {
             (prevIndex + 1) %
             banners.filter((banner) => !banner.dismissed).length,
         );
-      }, 3000);
+      }, ANIMATION_DURATION * 1000);
       return () => clearInterval(interval);
     }
   }, [isHovered, banners]);
 
-  // Function to dismiss a banner
   const HandleDismissBanner = (id?: string) => {
     const index = banners.findIndex((banner) => banner.id === id);
     if (!banners[index]) return;
@@ -83,7 +60,20 @@ export function Banners() {
           onBlur={() => setIsHovered(false)}
         >
           <div className="flex w-full items-center justify-between">
-            <div>{activeBanners[currentBannerIndex]?.message}</div>
+            <div className="w-full overflow-hidden">
+              <Marquee
+                pauseOnHover
+                onCycleComplete={() =>
+                  setCurrentBannerIndex((orig) =>
+                    orig + 1 >= activeBanners.length ? 0 : orig + 1,
+                  )
+                }
+              >
+                <div className="w-full">
+                  {activeBanners[currentBannerIndex]?.message}
+                </div>
+              </Marquee>
+            </div>
             <Button
               onClick={() =>
                 HandleDismissBanner(activeBanners[currentBannerIndex]?.id)

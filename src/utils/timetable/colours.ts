@@ -10,11 +10,11 @@ export type TimetableColors = TimetableColor[];
 
 export const TimetableThemeNames = [
   "default",
-  "softPastel",
-  "darkRich",
-  "coolAndMuted",
-  "brightAndVibrant",
-  "desertSand",
+  "soft_pastel",
+  "dark_rich",
+  "cool_and_muted",
+  "bright_and_vibrant",
+  "desert_sand",
 ] as const;
 
 export type TimetableThemeName = (typeof TimetableThemeNames)[number];
@@ -78,7 +78,7 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       textColor: "#4c0519",
     },
   ],
-  softPastel: [
+  soft_pastel: [
     // red
     {
       backgroundColor: "#fca5a5",
@@ -134,7 +134,7 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       textColor: "#881337",
     },
   ],
-  darkRich: [
+  dark_rich: [
     // red
     {
       backgroundColor: "#b91c1c",
@@ -190,7 +190,7 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       textColor: "#fbe7eb",
     },
   ],
-  coolAndMuted: [
+  cool_and_muted: [
     // red
     {
       backgroundColor: "#e57373",
@@ -246,7 +246,7 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       textColor: "#4f1d20",
     },
   ],
-  brightAndVibrant: [
+  bright_and_vibrant: [
     // red
     {
       backgroundColor: "#cc342b",
@@ -302,7 +302,7 @@ export const TIMETABLE_THEMES: TimetableTheme = {
       textColor: "#fbe7eb",
     },
   ],
-  desertSand: [
+  desert_sand: [
     // red
     {
       backgroundColor: "#d1495b",

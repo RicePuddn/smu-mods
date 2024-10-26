@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -20,6 +22,12 @@ export default function RootLayout({
       className={`${GeistSans.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+      </head>
       <body>
         <MainProviders>{children}</MainProviders>
       </body>
