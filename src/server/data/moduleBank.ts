@@ -491,9 +491,6 @@ export const modules: ModuleBank = {
     mutuallyExclusive: ["COR-STAT1202"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      and: ["COR1202"],
-    },
     exam: {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
@@ -621,9 +618,6 @@ export const modules: ModuleBank = {
     mutuallyExclusive: ["COR-IS1704", "IS115"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   COR1701: {
     name: "Critical Thinking In The Real World",
@@ -830,12 +824,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    mutuallyExclusive: ["COR-STAT1202", "COR-STAT1203"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      and: ["COR1202"],
-    },
   },
   COR1703: {
     name: "Managing in a Volatile, Uncertain, Complex and Ambiguous Context",
@@ -5831,12 +5821,8 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   IS114: {
     name: "Computing Fundamentals",
@@ -6453,6 +6439,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IS303"],
     credit: 1,
     terms: ["Term 2"],
   },
@@ -6625,12 +6612,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: ["CS203", "IS212", "IS105"],
+    mutuallyExclusive: ["CS203"],
     credit: 1,
     terms: ["Term 1"],
     preReq: {
@@ -7164,7 +7146,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    mutuallyExclusive: ["IS105"],
+    mutuallyExclusive: ["IS105", "DSA308"],
     credit: 1,
     terms: ["Term 2"],
   },
@@ -7706,7 +7688,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 2"],
     preReq: {
-      or: ["IS111"],
+      or: ["IS111", "SMT111", "CS101","COR-IS704"],
     },
   },
   IS216: {
@@ -8105,15 +8087,12 @@ export const modules: ModuleBank = {
     ],
     coRequisite: [
       {
-        or: [],
+        and: ["IS113", "IS112"],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["IS301", "CS302"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   IS442: {
     name: "Object Oriented Programming",
@@ -8303,11 +8282,11 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["CS102"],
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      or: [],
+      or: ["IS111", "SMT111","CS101"],
     },
   },
   IS458: {
@@ -8353,16 +8332,11 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
     mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      and: ["IS213", "IS214"],
     },
     exam: {
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
@@ -8384,7 +8358,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      or: [],
+      and: ["IS213", "CS301"],
     },
   },
   IS412: {
@@ -8412,16 +8386,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      or: [],
+      or: ["IS213", "CS302"],
     },
   },
   CS440: {
@@ -8512,11 +8480,11 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["IS302"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS111", "SMT111", "CS101"],
     },
   },
   CS301: {
@@ -8589,11 +8557,11 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["IS303", "IS458"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS213", "IS301", "SMT203", "CS204"],
     },
   },
   CS462: {
@@ -8652,7 +8620,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["CS201", "CS460", "SMT203", "IS111"],
     },
   },
   IS446: {
@@ -8721,12 +8689,8 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   CS461: {
     name: "Mobile & Pervasive Computing and Applications",
@@ -8753,16 +8717,11 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
     mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS203","IS212","CS203","CS201","CS205"],
     },
     exam: {
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
@@ -8817,11 +8776,10 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS200", "IS111", "SMT111", "CS101"],
     },
   },
   CS206: {
@@ -8912,11 +8870,10 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      and: ["IS211", "IS203"],
     },
   },
   COR2201: {
@@ -9034,17 +8991,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
     exam: {
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
@@ -9129,17 +9077,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   COR2210: {
     name: "Technological Innovations Enhancing Urban Sustainability",
@@ -9166,17 +9105,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1"],
-    preReq: {
-      or: [],
-    },
   },
   COR2406: {
     name: "French",
@@ -9203,17 +9133,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
     exam: {
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
@@ -9290,17 +9211,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   COR2408: {
     name: "Spanish",
@@ -9355,22 +9267,13 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   IS484: {
     name: "IS Project Experience [FinTech]",
     moduleCode: "IS484",
-    description: "DESCRIPTION_NEEDED",
+    description: "This is an SMU-X course designed in collaboration with Citibank, and has since been extended to include other banking/fintech sponsors such as OCBC, UBS, and NETS.  Sponsors will each supply 3-5 projects ideas to select from.  Students will form teams of 5 or 6, and select one of the sponsors’ project ideas to work on.  Project selections do not need to be unique, meaning multiple teams can select the same project idea. Each student project team will be assigned to a sponsor and an SMU faculty supervisor.  Sponsors will provide project scope and management for student teams to have practical industry learning experiences.  Student teams will have weekly check in meetings, either virtually or physically, with their sponsor. Student project teams will be expected to develop a working software application prototype, to be delivered to the sponsor at the end of the course.  Sponsors will specify the technologies to be used, including; development tools/languages, OS, database, 3rd party libraries, target deployment environment e.g. cloud environment. This course counts as a direct replacement for the IS483 Project Experience course.",
     credit: 1,
     terms: ["Term 1", "Term 2"],
     sections: [
@@ -9399,6 +9302,9 @@ export const modules: ModuleBank = {
         classes: [],
       },
     ],
+    preReq: {
+      or:["IS212", "CS203"],
+    },
   },
   CS202: {
     name: "Design and Analysis of Algorithms",
@@ -9407,7 +9313,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "This course teaches students how to solve problems by designing efficient algorithms, and how to analyze the efficiency of algorithms. Students' earlier programming experiences, mathematics (discrete maths and linear algebra), and the mastery of data structures are necessary for this course.  The materials as well as the assignments expect students to have proficient programming skills in Python. Students will learn: The different paradigms of algorithm design such as divide and conquer, dynamic programming and greedy algorithms. The analysis on the complexity of algorithms. Limits of algorithm design via the study of intractability including the reductions of given problems to known problems and the knowledge of NP completeness and NP hardness. More modern algorithm design concepts such as approximation to achieve more effective problem solving and more efficient solutions. This course will go into the theoretical underpinnings of efficiency, algorithm correctness, and how algorithm design has a basis in identifying mathematical properties of the problem.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9484,11 +9390,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or:["CS201", "IS115"],
+    },
   },
   "COR-IS1704": {
-    name: "IS1704",
+    name: "Computational Thinking and Programming",
     moduleCode: "COR-IS1704",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course equips students with both foundational computer programming skills and computational thinking skills, through the use of Python, a widely-used programming language. Upon successful completion of this course, students will understand and be able to appropriately apply fundamental programming concepts including variables, functions, parameters, loops and conditions to solve computational problems. The students will also be introduced to basic data structures including arrays (lists in Python) and hash tables (dictionaries in Python). In addition, students will receive a gentle introduction to computational complexity and apply the notion of complexity to analyse simple algorithms.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9569,6 +9478,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
+    mutuallyExclusive: ["IS111", "CS101", "COR-IS1702"],
   },
   CS427: {
     name: "AI Safety",
@@ -9577,7 +9487,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "With the advancement of systems like GPT, artificial intelligence (AI) techniques are anticipated to significantly impact various aspects of individuals' lives. While these AI techniques have demonstrated remarkable, occasionally superhuman, performance across numerous applications, there is a growing concern regarding their safety and security. It has been shown AI systems are subject to a range of attacks, ranging from adversarial attacks (i.e., perturbing an input slightly causes an AI to make completely wrong predictions), backdoor attacks (i.e., backdoors can be easily embedded in neural networks), and privacy-violating attacks such as membership inference attacks (i.e., an adversary may reliably infer whether a certain sample is used during training or not). In addition, AI systems can inherit or amplify biases present in their training data, potentially leading to unfair or discriminatory outcomes. Furthermore, many AI models, including GPT, are complex and not easily interpretable. It makes understanding how these models make decisions highly nontrivial, even though it is crucial for trust and accountability. This course aims to present a systematic view on the range of AI safety problems that have been identified, analyse their root causes, and study potential approaches to mitigate the safety and security risks. In particular, we will focus on answering two key questions. First, given an AI system, how do we systematically evaluate its safety risk? Second, given an AI system that potentially has safety issues, how do we systematically mitigate the risks? This course will feature real-life AI safety issues on popular AI systems such as ImageNet, GPT and so on.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9618,11 +9528,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS111", "CS101"],
+    },
   },
   COR1201: {
     name: "Calculus",
     moduleCode: "COR1201",
-    description: "DESCRIPTION_NEEDED",
+    description: "Calculus introduces to students a set of elementary functions, their properties, various forms of analysis, and fundamental concepts in Calculus. Also introduced are the modeling methods in business and management by applying Calculus knowledge. The objective of the course is to develop the students' understanding and skills in analyzing managerial problems, creating mathematical models, and using them to solve these problems. Although the module is essentially mathematical in nature, a rigid mathematical treatment is avoided and the necessary mathematical concepts are derived from examples rather than through proofs.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9657,7 +9570,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "This is a first course in probability and statistics. It will teach fundamental concepts and techniques, and demonstrate their relevance to computer science and related disciplines particularly to data science, machine learning and artificial intelligence. In particular, some topics such as Bayesian inference, is crucial to AI-related courses (CS420, CS421, CS422, CS424, CS425). Thus, the course will require not only the understanding and development of some theoretical results with mathematical rigour, but also hands-on programming skills for practical applications. Knowledge in basic calculus is required. Some concepts in discrete mathematics (CS104) are useful, such as counting, sets and functions. While the course will use Python and its packages to illustrate and practice class work, prior knowledge of Python is not required. However, previous experience in any programming language such as C/C++ and Java is expected.  Good programming etiquettes such as code readability, reusability, efficiency and reproducibility are also expected at a level adequate for most computer science courses.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9752,6 +9665,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["COR1201"]
+    }
   },
   CS106: {
     name: "Computer Architecture",
@@ -9760,14 +9676,14 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "CS106 is an introductory course in computer architecture. It aims to develop an understanding of the hardware environment upon which computing is based, and the interface it provides to higher software layers. The course also introduces basic architectures and hardware-software interfaces of computer systems. Students will understand a computer system's functional components, their characteristics, and interactions. Previously titled CS106 Computer Hardware and Embedded Systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
       {
         code: "G1",
         professor: {
-          name: "TONY TANG",
+          name: "TONY TANG",
         },
         location: {
           building: "SCIS1",
@@ -9837,6 +9753,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or:["CS101"]
+    },
   },
   CS201: {
     name: "Data Structures and Algorithms",
@@ -9845,7 +9764,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "This course builds on students' earlier programming experiences, moving beyond syntax and logic, to the question of how to build “better” programs focusing on organizing data and designing algorithms for efficiency. The materials as well as the assignments rely heavily on proficiency with Java programming language. Students will learn: - the concept of efficiency, why it is important for programs to be efficient and scalable, how to manage the trade-offs of computational time as well as resources such as memory, and how to compare the efficiency of various algorithms, - problem-solving through judicious organization of data, how abstract data types allow encapsulation and localization, as well as how their concrete implementations in the form of various data structures allow for efficient access and modification of data. This course is different from Computational Thinking, as it goes into the theoretical underpinnings of efficiency, covers more data structures, and delves deeply into the implementations of those data structures.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9868,6 +9787,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IS115"],
+    preReq:{
+      or:["CS102", "IS442"]
+    },
   },
   CS205: {
     name: "Operating Systems",
@@ -9876,7 +9799,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "This course aims to introduce the concepts, design principles and architectures of modern operating systems. The topics will focus on the management of computing resources, including process, memory, storage and file system. Various algorithms for resource scheduling, synchronization, caching and failure recovery will be discussed. The Android operating system will be used as the platform for system programming.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9953,6 +9876,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: ["CS102", "CS106"]
+    },
   },
   CS420: {
     name: "Introduction to Artificial Intelligence",
@@ -9961,7 +9887,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "Artificial Intelligence (Artificial Intelligence) aims to augment or substitute human intelligence in solving complex real world decision making problems. This is a breadth course that will equip students with core concepts and practical know-how to build basic AI applications that impact business and society. Specifically, we will cover search (e.g., to schedule meetings between different people with different preferences), probabilistic graphical models (e.g. to build an AI bot that evaluates whether credit card fraud has happened based on transactions), planning and learning under uncertainty (e.g., to build AI systems that guide doctors in recommending medicines for patients or taxi drivers to 'right' places at the 'right' times to earn more revenue), multi-agent systems (e.g., to build next generation patrolling systems for critical infrastructure security), image processing (e.g. to build systems that track and/or recognize suspicious people) and natural language processing (e.g., to build chat bots that can automatically and intelligently interact with customers in different service industries).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10020,6 +9946,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or:["IS111", "SMT111"]
+    }
   },
   CS421: {
     name: "Principles of Machine Learning",
@@ -10028,7 +9957,18 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Machine Learning is one of the fundamental subjects in the field of Artificial Intelligence. Machine Learning is concerned with computer programs that automatically improve their performance through experience (e.g., learning to recognize images, classify text documents, detect fraudulent credit card transactions, or drive autonomous vehicles). This course covers both fundamental principles and practical algorithms for machine learning. It includes in-depth introduction of the techniques and algorithms in two major machine learning paradigms – supervised learning and unsupervised learning. For supervised learning, it covers both linear and non-linear models for two supervised tasks: classification and regression. For unsupervised learning, it covers three major unsupervised tasks: clustering, dimension reduction, and anomaly detection. The course also includes deep learning approaches for each of the aforementioned five tasks, highlighting the principles of making different “shallow” models “deeper”.
+      The course is intended to prepare students for a good understanding of principles, challenges, and opportunities in ML. It aims to equip students with the capability of applying machine learning techniques to address real-world applications and building the foundations of doing research in machine learning. To this end, the course highlights the following five key features:
+      ·   	Systematic treatment of ML techniques. It covers shallow and deep algorithms and techniques for five popular ML tasks.
+      ·   	Understanding of commonly used mathematical foundations in ML. The course introduces principled mathematical foundations behind diverse ML techniques, such as least squares optimization, Lp regularization, maximum likelihood estimation, gradient descent optimization, and backpropagation.
+      ·   	Introduction to emerging topics and current ML challenges. The course includes an overview of emerging topics including semi-supervised learning, self-supervised learning, and interpretability, security, privacy, and safety in ML.
+      ·   	Progressive ML model development. CS421 includes a Kaggle-competition-style group project to shape the capability of developing effective models to address a real problem with data progressively made available.
+      ·   	Model implementation. One assignment and diverse lab sessions are designed to support the development of capability in implementing different ML models using existing libraries.
+      It is a course recommended for those who have some ML experience/skill and want to achieve a more systematic and comprehensive understanding of ML, as well as for beginners who are not familiar with ML but have very strong curiosity to explore. Extensive coding is expected for this course.
+      Students are strongly encouraged to have proficiency in IS103 Computational Thinking prior to reading this course.
+      NOTE: While this is an introduction course, it is a technical course and it is highly recommended that students are proficient in programming, probability, statistics and linear algebra (e.g., CS103 Linear Algebra for Computing Applications, CS105 Statistical Thinking for Data Science, CS201 Data Structures and Algorithms and CS202 Design and Analysis of Algorithms).
+      Previous course code & title: IS449 Introduction to Machine Learning
+      `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10051,6 +9991,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and:["IS103", "IS217"]
+    }
   },
   CS423: {
     name: "Heuristic Search and Optimisation",
@@ -10059,7 +10002,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "Search and optimization are the fundamental building blocks of AI. Almost all problems in AI (including machine learning) involve some sort of search or optimization. This course will cover the basics of search and optimization. Broadly, the course will be split along two axes: one is discrete vs continuous optimization, and another is heuristic methods vs exact techniques. The applications of the topics covered in class is immediate, for example, shortest path problems are used by all mapping services such as Google Maps. Travelling salesman problems are used to design routes for parcel delivery. Fundamental topics such linear and convex programming with gradient descent will help in understanding techniques in deep learning which will be useful for other AI courses. Recent applications of linear programs such as in designing security of critical infrastructure will be discussed in class.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10100,11 +10043,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["CS201", "CS420"]
+    }
   },
   CS424: {
     name: "Generative AI for Vision",
     moduleCode: "CS424",
-    description: "DESCRIPTION_NEEDED",
+    description: "When we see a table, we vividly perceive it as an object in the class of tables.  However, computers only see a bunch of pixels. Image perception is the task of getting computers to see in a human like manner. To achieve this, researchers have pooled techniques and results from a large variety of different fields. This course introduces the mathematical tools and concepts underlying image perception. These include deep learning, linear algebra, statistics and multi-view geometry. The goal is to get students comfortable with utilizing and interpreting the results of state-of-art machine learning techniques. At the end of the course, students should be aware of what can be achieved by current visual perception techniques, how to achieve it and what the limitations of these techniques are. Students are expected to have a good mathematical foundation and programing skills. Foundational Mathematical Courses (i.e., CS103 or CS105) will be an advantage but are not insisted on. The primary programing language of the course is python. Having a good GPU at home will help with course work. Previously titled as CS424 Image Perception.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10145,6 +10091,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS111", "SMT111"]
+    }
   },
   CS441: {
     name: "Network Security",
@@ -10153,7 +10102,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "Built on the foundation of the information security and trust course, the Network Security course draws on hard-won experience to explain the latest developments in security protocols, network security, web security, and industrial standards. Classroom instruction and discussion will closely integrate technical principles with real world applications such as secure e-banking, secure corporate networking, secure messaging in healthcare environment and multimedia system security. In addition, case studies will be used to demonstrate that security and trust are not only for protection of information assets, but also means of improving business operation or even starting new businesses. Besides the textbook knowledge, CS441 may host guest lectures from security practitioners/researchers in government agencies, industry and research labs. Previous course code & title: IS403 Network Security",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10194,6 +10143,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS302", "IS443", "CS440"]
+    }
   },
   CS444: {
     name: "Strategic Cybersecurity Management",
@@ -10202,7 +10154,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "Cybersecurity is not just a technical issue but a critical policy and business issue. The purpose of this course is to help students acquire the knowledge and build up the capability to understand and analyse the key policy and business issues pertaining to cybersecurity threats and countermeasures, based on a solid understanding of the cybersecurity ecosystem along with the dynamics of technology innovation and in the context of digital transformation.  We approach this purpose by integrating five learning components and class activities, which include i) introducing cybersecurity risk management methodology following an up-to-date agenda, ii) introducing economic, social psychology theories and law issues as the theoretical foundation to design and implement cybersecurity policy and regulation, iii) discussing cases focused on the critical issues in government and industry practices, iv) playing games to experiment strategic decision and v) playing with real data.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10225,11 +10177,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq:{
+      or: ["IS302", "IS443", "CS440"]
+    }
   },
   CS445: {
     name: "Cyber Threat Intelligence",
     moduleCode: "CS445",
-    description: "DESCRIPTION_NEEDED",
+    description: "Cyber threat intelligence can potentially be a force multiplier for organizations looking to update their cyber posture, specifically their response and detection programs to deal with increasingly sophisticated advanced persistent threats. Adversaries are constantly developing new tools, techniques, tactics and procedures to bypass security mechanisms successfully. Cyber threat intelligence empowers cyber defenders on countering those flexible and persistent threats with a good understanding of the attacker’s behaviour, motivation and playbook. During an attack, an organization needs a top-notch and cutting-edge threat hunting or incident response team armed with the threat intelligence necessary to understand how adversaries operate and to counter the threat. Cyber Threat Intelligence course will equip students with a brief understanding of various aspects of cyber threat intelligence – in the tactical, operational, and strategic level cyber threat intelligence skills and tradecraft required to make security teams better, threat hunting more accurate, incident response more effective, and organizations more aware of the evolving threat landscape.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10252,15 +10207,18 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: ["IS112", "CS440"]
+    }
   },
   CS460: {
-    name: "Foundations of Cyber",
+    name: "Foundations of Cyber-Physical Systems",
     moduleCode: "CS460",
     exam: {
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "Cyber-Physical Systems infuse sensing, control, networking, and computation capabilities into physical objects, breathing into them new life, new purpose, and new meaning. In this course, we embark on an adventure; sometimes challenging, always exciting. We discover the essential elements of Cyber-Physical Systems. We explore the hardware and software interfaces fusing the cyber and physical realms. We unleash our creative energies, our youthful idealism, and our capacity to dream, by creating visionary technology to conquer a real-world societal challenge. The adventure reaches its peak at the project showcase, where we witness the work of human hands come to fruition, leaving us inspired to reflect deeply and broadly about how we, as global citizens, can harness the power of Cyber-Physical Systems as a potent force in the service of humanity. This is a journey into the unknown. Yet, a still, small voice deep within us compels us: Courage! Do not be afraid! Put out into the deepest oceans and brave the stormiest seas! Let down your nets for an awesome catch! This course may be conducted using Flipped Learning and/or Blended Learning modes. All lessons are on-site. Students spend 2-3 hours weekly on flipped and/or blended learning activities such as readings, meetups in small groups, etc.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10283,11 +10241,24 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["CS101", "IS111", "SMT111", "IS112"]
+    }
   },
   CS463: {
     name: "Computer Graphics and Virtual Reality",
     moduleCode: "CS463",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will provide an introduction to the principles and techniques of computer graphics and virtual reality, with an emphasis on interactive 3D applications. The course will cover topics such as:
+                • Introduction to computer graphics
+                • The graphics pipeline
+                • 3D modeling, rendering, and animation
+                • Ray Tracing and Illumination
+                • Interactive Graphics
+                • Stereoscopic perception and display systems
+                • Human perception and multimodal interaction
+                • Virtual and augmented reality environments and applications
+                The course will include lectures, labs, assignments, and final projects. The students will learn how to use various tools and frameworks for developing 3D graphics and VR applications. The students will also gain hands-on experience with building their own CG and VR applications. The course will also expose the students to current research and trends in computer graphics and virtual reality.
+              `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10310,6 +10281,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IS462"],
+    preReq: {
+      or: ["CS101", "IS111"]
+    }
   },
   CS464: {
     name: "Full Stack Development",
@@ -10318,7 +10293,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "This course exposes students to full stack development. It is designed to equip students with the skills and knowledge to build robust full stack applications using modern technologies. From backend development in Golang, to frontend user interactions with HTMX, and managing data using both SQL and NoSQL, as well as object storage, to deploying applications on the cloud using containers. Students will gain hands-on development that spans the full spectrum of web development.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10341,11 +10316,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["CS203", "IS213"]
+    }
   },
   CS470: {
     name: "Guided Research in Computer Science",
     moduleCode: "CS470",
-    description: "DESCRIPTION_NEEDED",
+    description: "CS470 aims to introduce students to academic research in Computer Science. It allows students to experience first-hand the challenges and exhilaration of research, discovery and innovation, and enriches their academic experience by working at/near the frontiers of research in computer science.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10362,11 +10340,38 @@ export const modules: ModuleBank = {
         classes: [],
       },
     ],
+    preReq:{
+      or:["CS202", "CS203"]
+    }
+  },
+  CS471: {
+    name: "Guided Research in Computer Science II",
+    moduleCode: "CS471",
+    description: "CS471 is to allow students to continue with the research project done during CS470 OR to embark on a new research project (and there should not be any significant overlap with your CS470 research project).",
+    credit: 1,
+    terms: ["Term 2"],
+    sections: [
+      {
+        code: "G1",
+        professor: {
+          name: "SUN JUN",
+        },
+        location: {
+          building: "",
+          room: "",
+          level: 0,
+        },
+        classes: [],
+      },
+    ],
+    preReq:{
+      or:["CS470"]
+    }
   },
   CS472: {
     name: "Guided Advanced Research in Computer Science",
     moduleCode: "CS472",
-    description: "DESCRIPTION_NEEDED",
+    description: "CS472 aims to train students to conduct scientific research in a specific area and prepare students for postgraduate study. The students will be guided to formulate research problems, propose research methods, develop experiment design for research validation and write scientific publication (in the form of a conference proceeding paper or journal article). Only students who are undertaking the Computing Research Programme are eligible to take this course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10383,11 +10388,15 @@ export const modules: ModuleBank = {
         classes: [],
       },
     ],
+    preReq: {
+      or: ["CS470"]
+    },
+    coRequisite: [],
   },
   CS480: {
     name: "Computer Science Project Experience",
     moduleCode: "CS480",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course will provide opportunity for BSc (CS) students to:- Develop a proof of concept software application or system that satisfies a list of functional and quality requirements. Students will work with a team and practice their requirement analysis, design, implementation, testing, deployment and project management skills. Build the professional knowledge depth required to become a software developer or research engineer. This includes building up competence in the student's selected track, applying their learning domain knowledge and technology to the relevant industry sectors or research areas. A CS project does not have to be tied to a specific track, i.e., it can be multidisciplinary. The project's nature and scope are set by the project sponsor. Students can work on an application development or a research project.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10420,7 +10429,7 @@ export const modules: ModuleBank = {
   IS105: {
     name: "Business Data Management",
     moduleCode: "IS105",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course will cover the fundamentals of relational database theory, important data management concepts such as data modelling, database design, database implementation in current business information systems for non-SCIS students. Students are expected to apply knowledge learned in the classroom to solve many problems based upon real-life business scenarios, while gaining hands-on experiences in designing, implementing, and managing database systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10465,6 +10474,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 2,
     },
+    mutuallyExclusive:["IS112", "DSA308"]
   },
   IS115: {
     name: "Algorithms and Programming",
@@ -10473,7 +10483,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "A&P can be viewed as a first course in algorithms. Students will be trained to compute the time complexity of algorithms and compare algorithms using their Big-O time complexity. Besides coming up with the pseudocode of an algorithm to solve a given problem, students are expected to implement the pseudocode in Python for the project assignments. Common data structures such as stacks, queues, trees, graphs, heaps and hash maps will be covered. After students have gained a strong foundation in complexity and data structures, students will be introduced to heuristic approaches – specifically greedy and local search algorithms – that can be used to tackle computationally intractable problems. Emphasis will be placed on tackling technical algo-related `interview questions` commonly given to students applying for internships or jobs as software engineers.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10604,6 +10614,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["COR-IS1702", "CS201"],
   },
   IS217: {
     name: "Analytics Foundation",
@@ -10612,7 +10623,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The term “Analytics” has been around in the business settings for a while now, where past results have been used to guide and improve future performance of business. More recently, enhancements in technology have enabled the business world to produce and store very large amounts of data which needs to be processed, managed and analysed in order to uncover its hidden value. There is a real dearth of analytical talent needed to perform this task. This course aims to introduce students to the fundamental skills needed to get started with analytics. This course will help them build a foundation needed for advanced analytics by introducing them to data exploration techniques, data preparation methodologies, applying key analytics techniques and use them in formulating a business problem and identifying the correct analytical approach to solve it.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10671,11 +10682,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS111", "SMT111", "CS101"],
+    },
+    coRequisite: ["STAT101", "COR-STAT1202","CS105"]
   },
   IS419: {
     name: "Retail Banking and Mobile Technology",
     moduleCode: "IS419",
-    description: "DESCRIPTION_NEEDED",
+    description: "The Financial Services Industry was among the early adopters of IT in delivering banking products and services, and in achieving operation efficiencies and increased revenues through new opportunities enabled by IT. This course introduces the retail banking environment and architecture. It delves into some of the key processes that span the front and back office of a bank and the associated banking products that require IT solutions to enable these processes. The curriculum also includes core banking as well as delivery channels such as ATM, internet and IVRS.  Emphasis will be placed on Mobile Technology due to the FINTECH focus of the upcoming revamped course for AY 2017-2018. Topics such as FINTECH, banking security, customer and credit analytics, emerging technologies and industry trends will also be covered.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10698,11 +10713,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS213", "SMT203", "CS302"]
+    },
   },
   IS424: {
     name: "Data Mining and Business Analytics",
     moduleCode: "IS424",
-    description: "DESCRIPTION_NEEDED",
+    description: "Data mining consists of a wide range of data analysis techniques that can be applied to large datasets to discover patterns, trends and other forms of knowledge embedded in the data.  In the commercial world, data mining is often conducted on enterprise data stored in relational databases to help managers make informed decisions so as to keep businesses competitive and attuned to changing market conditions. With the recent advances in big data generation and collection, new data types such as text, Web, spatial, and temporal data have emerged creating new opportunities for mining knowledge from data for business intelligence. This course provides an introduction to the fundamental issues and basic techniques of data mining. The topics covered include data mining process, data preprocessing, data mining techniques and data mining evaluation.  In particular, the use of data mining in supporting business intelligence and decision making will be covered through labs, projects and case studies. Students are expected to learn data mining and its use in business intelligence through acquiring the basic data mining concepts and techniques, using them to explore data, and deriving useful knowledge patterns from the data through hands-on programming and experimentation that involve some industry strength data mining software packages.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10725,11 +10743,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS105", "IS112", "IS217", "CS105"]
+    }
   },
   IS428: {
     name: "Visual Analytics for Business Intelligence",
     moduleCode: "IS428",
-    description: "DESCRIPTION_NEEDED",
+    description: "Data analysis and communications can be fun! With visual analytics techniques and tools, everyday data analysts from various disciplines such business, economic, sociology, political science and public policy can now synthesize information and derive insight from massive, dynamic, ambiguous, and often conflicting data without having to deal with complex statistical formulas and programming. Many companies and organization took notice when Gartner cited visual analytics as one of the top five trends transforming business intelligence. In this course, students learn how to use data visualization and interactive analytic tools and techniques to interact with data of different formats from various sources, explore the expected relationships and discover unexpected correlations and patterns. You will also acquire the skills for building cutting edge visual analytics application based on principles and best practices from graphic design, visual arts, perceptual psychology, cognitive science and interfaces design.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10774,7 +10795,7 @@ export const modules: ModuleBank = {
   IS444: {
     name: "Digital Banking Enterprise Architecture",
     moduleCode: "IS444",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course examines the role of Enterprise Architecture in implementing a bank’s digital business strategy while minimising the overall technology cost for the bank.  In today’s market where the speed of doing business is rapidly increasing, and customers are becoming increasingly more sophisticated, banks are challenged to provide faster and better digital services, anytime, anywhere.  Technology, as a business enabler, has become a key consideration of any bank's strategy. The adoption of enterprise platforms such as Service-Oriented Architecture (SOA), Business Process Management (BPM), Business Rules Management System (BRMS), Master Data Management (MDM), and Enterprise Data Warehouse (EDW) will improve a bank’s competitive advantage with measurable results; increased revenue, speed to market, product & service innovation, improved agility, and reduced cost. Emphasis is placed throughout this course on analysing real-world situations using case studies, in particular large-scale change scenarios such as; core banking system replacements, and bank mergers whereby multiple vendor products need to coexist.  Hands-on lab exercises and project assignments will include the assembly of prototype banking solutions which invoke the API of SMU Teaching Bank (SMU tBank).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10801,11 +10822,14 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
+    preReq: {
+      or:["IS213", "SMT203", "CS302"]
+    }
   },
   IS447: {
     name: "Smart Healthcare in Asia",
     moduleCode: "IS447",
-    description: "DESCRIPTION_NEEDED",
+    description: "The importance of healthcare was never felt so keenly as during the COVID-19 pandemic. In its aftermath, there is a greater appreciation of the need to proactively build resilient and high-quality health systems, and to explore new innovations. With a rapidly ageing population, the burden of disease will increase even as the pool of potential care providers decreases. At the same time, the cost of healthcare needs to be contained, while meeting patient needs and keeping providers motivated. This calls for radical increases in the productivity of the healthcare sector. In this scenario, there is a need to understand complex systems concepts in assessing the impact of interventions. This technology-agnostic course will explore the context of the healthcare industry, with a particular focus on Singapore and Asia. Students will understand and apply the concepts of systems thinking and gain hands-on experience in both qualitative and quantitative simulation of health systems through the techniques of system dynamics, discrete event simulation, and agent-based modelling. The course will utilise cases and educational games, but also encourage students to build system simulation models. It will help students to broaden their horizons and develop critical thinking, while gaining practical skills in simulation and understanding the concepts of Digital Twins in social systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10832,7 +10856,7 @@ export const modules: ModuleBank = {
   IS450: {
     name: "Text Mining and Language Processing",
     moduleCode: "IS450",
-    description: "DESCRIPTION_NEEDED",
+    description: "Given the dominance of text information over the Internet, mining high-quality information from text becomes increasingly critical. The actionable knowledge extracted from text data facilitates our life in a broad spectrum of areas, including business intelligence, information acquisition, behavior analysis and decision making process. In this course, we will cover important topics in text mining including: document representation, text categorization and clustering, sentiment analysis, probabilistic topic models and text visualization. Text mining techniques adopt the models from research areas such as Statistics, NLP and Linguistics. We will also focus on basic natural language processing techniques, language parsing and analysis and evaluation techniques.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10877,11 +10901,14 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      or:["IS111", "SMT111", "CS101"]
+    }
   },
   IS453: {
     name: "Financial Analytics",
     moduleCode: "IS453",
-    description: "DESCRIPTION_NEEDED",
+    description: "Financial analytics helps to identify insights from vast amounts of data that financial institutions have to help them to answer specific business questions and to forecast possible future scenarios.  Financial firms are investing significant sums in data analytics to facilitate market trading activities and to improve business processes that range from customer acquisition to fraud detection.  With large amounts of data available and great potential value for providing competitive edge to businesses, the demand for analytics professionals is also increasing. Analytics professionals in the banks require a broad array of skills such as data management, analysis, statistics, and an understanding of the financial services domain. The module helps students understand how analytics techniques are applied in financial institutions. Through hands-on application of analytics techniques in financial services contexts, together with class discussion and labs, students will learn how business objectives and constraints can be supported by data analytics.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10922,11 +10949,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS111", "CS105"]
+    }
   },
   IS455: {
     name: "Overseas Project Experience (Data Analytics in Asia)",
     moduleCode: "IS455",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course provides students with an overview of the many concepts, techniques and algorithms in data analytics and machine learning. Students will acquire knowledge on classification and regression models such as support vector machines and linear regression e.t.c. The emphasis in this course will be on the application side of data analytics which includes not only creating the predictive model but also deploying and visualizing the output from the models. More importantly, this course allows students to apply cross-disciplinary and project management approaches while learning and applying machine learning techniques to help Thai companies to effectively and efficiently apply data analytics and machine learning to improve their competitiveness and business efficiency. It hones students' problem-solving skills and prepares them for the complex regional business environment today. Thailand, as part of ASEAN, is rich in natural resources eg. gems and precious metals and is considered to be one of the vital exporters of resources globally. Other than the 2 traditional sectors of agriculture and tourism, it is also a prime manufacturing hub for investors in vehicles, electronics and medical equipment. In recent years, Covid-19 has become a key accelerator for digital transformation globally and the Thai government has also been relentlessly encouraging its businesses to adopt digital technologies and the use of data analytics. This course is not biddable. Students will be shortlisted for interviews and selected students will be enrolled via offline enrolment (e$20 will be deducted).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10949,11 +10979,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or:["IS217", "MGMT108"]
+    }
   },
   IS459: {
     name: "Big Data Architecture",
     moduleCode: "IS459",
-    description: "DESCRIPTION_NEEDED",
+    description: "Big data has become an essential part of our digital world in the last decade. Governments, e-commerce websites, even short video platforms, are now relying on big data technologies to gain business insight and design their strategies. Different from the traditional data analytics industry, the infrastructure of big data is mostly built on top of cheap commodity PCs and open source software.  This trend has successfully lowered the deployment as well as operational cost of such big data platforms. On the other hand, it raises new challenges to data engineers and scientists when building their own system with such infrastructure. This course aims to bridge the gap between the big data practice and the skills of undergraduate students in data infrastructure. It will provide an overview of big data infrastructure, which enables the student to build their own system based on the data characteristics and processing demands. It will get the students involved in the whole process of big data system building, i.e., the design, planning and implementation. It will also cover additional tools and techniques crucial to the success of big data, including data visualization, and monitoring. Students are expected to learn skills of 1) software development infrastructure in mainstream data-driven IT products; 2) data crawling and extraction frameworks for web-based data collection; 3) data storage architecture for highly variant data in big data systems; 4) massive data processing frameworks; 5) real-time and streaming data processing frameworks; 6) data visualization tools for big data analytics; 7) orchestration of the open source systems with high-level data interface.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10976,11 +11009,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq:{
+      or: ["IS112", "IS105", "IS217", "MGMT108"]
+    }
   },
   IS460: {
     name: "Machine Learning & Applications",
     moduleCode: "IS460",
-    description: "DESCRIPTION_NEEDED",
+    description: "Machine Learning is one of the fundamental subjects in the field of Artificial Intelligence. Machine Learning is concerned with computer programs that automatically improve their performance through experience (e.g., learning to recognize images or speech, classifying text documents, detecting credit card frauds, or driving autonomous vehicles).  This course covers both fundamental theory, practical algorithms and the applications for machine learning from a variety of perspectives. It includes a range of topics, from supervised learning (such as Naïve Bayes Classifier, Linear Regression, Logistic Regression, and Neural Networks) and their applications, to unsupervised learning (such as Principal Component Analysis (PCA) and Singular Value Decomposition (SVD)) and their applications, and from traditional (shallow) learning (such as Support Vector Machine (SVM)) to recent state-of-the-art deep learning methods (such as Recurrent Neural Networks (RNN) and Convolutional Neural Network (CNN)). The course is intended to prepare students for basic understanding of machine learning fundamentals and equip students with the capability to apply machine learning techniques through real world business applications (to solve real world problems). NOTE: This is an algorithm and technical course with applications. It is highly recommended that students are proficient in programming, and have learnt probabilities and statistics. Solid math background, such as linear algebra and calculus, will be very useful and helpful for your learning journey as well. Previous course code & title: This course is a new version of a previous course CS421 Introduction to Machine Learning (the version prepared by Prof. WANG Zhaoxia)",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11007,6 +11043,10 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      or: ["IS217", "MGMT108", "CS105", "COR-STAT1202", "COR-STAT1203"]
+    },
+    mutuallyExclusive: ["IS449", "CS421"]
   },
   IS462: {
     name: "Virtual Reality for Business",
