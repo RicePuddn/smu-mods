@@ -6,7 +6,7 @@ import { atcb_action } from "add-to-calendar-button-react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import { format } from "date-fns";
-import { Calendar, Loader2, Star, Trash } from "lucide-react";
+import { Calendar, Ghost, Loader2, Star, StarOff, Trash } from "lucide-react";
 
 import EventTabs from "@/components/acad-clubs/tabs";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ import { Logger } from "@/utils/Logger";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import ReactTooltip from "react-tooltip";
 
 export default function BeyondStudies() {
   const isMobile = useIsMobile();
@@ -31,6 +32,7 @@ export default function BeyondStudies() {
 
   const { mutateAsync: uploadFile } = api.s3.upload.useMutation();
   const { mutateAsync: parseEvent } = api.chatgpt.parseEvent.useMutation();
+  const [starredEvents, setStarredEvents] = useState<string[]>([]); 
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
@@ -57,6 +59,16 @@ export default function BeyondStudies() {
         reader.readAsDataURL(file); // Converts the file to Base64
         });
     }
+
+     // Function to toggle the starred state of an event
+    const toggleStar = (eventId: string) => {
+        setStarredEvents((prev) =>
+        prev.includes(eventId)
+            ? prev.filter((id) => id !== eventId) // Unstar
+            : [...prev, eventId] // Star
+        );
+    };
+
 
     // Function to hash the image
     async function hashImage(file: File) {
@@ -121,29 +133,33 @@ export default function BeyondStudies() {
     return (
         <div style={{ padding: PADDING }} className="space-y-4">
         <h1 className="text-2xl font-bold">Beyond Studies</h1>
-        <div className="grid w-full max-w-sm items-center gap-1.5">
+
+        <div className="flex items-start w-full gap-2">
             <Label htmlFor="picture">Upload Image</Label>
-            <Input
-            id="picture"
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            />
+
+            <div className="flex-1">
+                <Input
+                id="picture"
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                />
+            </div>
+            <Button
+                onClick={handleAddCard}
+                className="mb-4"
+                disabled={isLoading || !selectedFile}
+            >
+                {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
+                Details
+            </Button>
         </div>
-        <Button
-            onClick={handleAddCard}
-            className="mb-4"
-            disabled={isLoading || !selectedFile}
-        >
-            {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
-            Details
-        </Button>
 
         {/* Starred Events Section */}
         <div
             className={cn(
-            "flex flex-col overflow-hidden rounded-lg bg-muted shadow-md",
-            !isMobile && "mb-6 mr-6 w-full flex-shrink-0"
+                "flex flex-col overflow-hidden rounded-lg bg-muted shadow-md",
+                !isMobile && "mb-6 mr-6 w-full flex-shrink-0"
             )}
         >
             <div
@@ -155,10 +171,11 @@ export default function BeyondStudies() {
             <h2 className="text-lg font-semibold text-primary-foreground">
                 Your Starred Events
             </h2>
+
             {isMobile && <ChevronDown className="text-primary-foreground"/>}
             </div>
 
-            <div className="p-4">
+            <div className="p-4 ">
                 <EventTabs
                 tabsData={{
                     upcoming: events.filter(
@@ -170,7 +187,7 @@ export default function BeyondStudies() {
                 }}
                 eventCardActions={[
                     (event, index) => (
-                    <Button
+                    <Button className='bg-slate-500'
                         key={index}
                         onClick={() =>
                         atcb_action({
@@ -186,8 +203,12 @@ export default function BeyondStudies() {
                         })
                         }
                     >
-                        <Calendar className="mr-2" />
-                        Add to Calendar
+                        <div className="relative group">
+                        <Calendar className="cursor-pointer" />
+
+                        </div>
+
+
                     </Button>
                     ),
                     (event, index) => (
@@ -230,9 +251,8 @@ export default function BeyondStudies() {
                     tabsData={eventsData}
                     eventCardActions={[
                     (event, index) => (
-                        <Button onClick={() => addEvent(event)} key={index}>
-                        <Star className="mr-2" />
-                        Star
+                        <Button onClick={() => addEvent(event)} key={index} variant={"ghost"}>
+                        <Star className=""  />
                         </Button>
                     ),
                     ]}
