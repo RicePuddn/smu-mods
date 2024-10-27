@@ -123,4 +123,5 @@
   .dragging-effect {
     @apply h-fit w-fit bg-accent shadow-lg;
   }
+
 }
