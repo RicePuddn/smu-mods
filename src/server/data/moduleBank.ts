@@ -22468,7 +22468,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Companies produce and deliver goods or services to meet customer demand through various operations. In this course, students discover how the operations of any organization can be designed, analyzed and improved to lift its performance, whether the organization is a bank, a hospital, a resort, a manufacturing plant, or a fashion retailer. The course reveals how operations management skills can be used to reduce costs, lower inventories, cut waiting times, improve quality, enhance service levels, increase revenues and company profits, and potentially improve the environmental and social sustainability performances. Specifically, students will gain practical knowledge of process analysis and design, demand forecasting, capacity planning, workflow planning and control, inventory management, quality management, and lean operations. With a focus on the basic concepts that govern operations management, the course also provides the necessary foundation to pursue further development in business management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22679,7 +22679,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the dimensions of successful service firms through the use of case studies and lectures. It prepares students for enlightened management and suggests creative entrepreneurial opportunities. Outstanding service organizations are managed differently than their "merely good" competitors. Actions are based on totally different assumptions about the way success is achieved. The results show not only in terms of conventional measures of performance but also in the enthusiasm of the employees and quality of customer satisfaction. Beginning with the service encounter, service managers must blend marketing, technology, people, and information to achieve a distinctive competitive advantage. As the service sector is the fastest-growing sector of the economy, this course is also intended to help students discover entrepreneurial opportunities.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22720,11 +22720,13 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM313: {
     name: "Project Management",
     moduleCode: "OPIM313",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims to provide students with a sound understanding and knowledge of basic concepts and analytical skills critical to effective project management in any industry. The students will acquire a range of “soft” skills (behavioral) and “hard” (analytical) tools and techniques, and learn how to link theory to real-world projects. Topics covered include project proposal, selection, initiation, planning, implementation, control and evaluation. With the project life cycle in mind, topics such as the role of the project manager and organization, scheduling and resources allocation will also be covered.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22747,6 +22749,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { and: ["OPIM101", "OPIM201"] },
   },
   OPIM314: {
     name: "Logistics and Transportation Management",
@@ -22755,7 +22758,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Transportation is an integral part of the global supply chain system. Goods cannot move on their own from supply points to demand locations, conferring transportation a central role in the global distribution of freight. Transportation creates value-add in a supply chain by performing the "moving" function in the physical distribution of products and it facilitates international trade and hence globalisation. In broader terms, transport connectivity is often referred to as the lifeline of a nation and is often a precondition for economic progress and development. This course explores the business issues in the design and operation of international transportation systems and underlines their strategic importance to firms and the economy. It draws upon the disciplines of operations management, decision analysis and transport economics to present a holistic view of the theories and practices of transportation management. The course also discusses the core concepts and terminologies of road, air, rail, sea and intermodal transportation, as well as the implications for contemporary supply chain management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22778,6 +22781,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["OPIM101"] },
   },
   OPIM318: {
     name: "Sustainable Operations",
@@ -22786,7 +22790,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The objective of this course is to study how companies use their operations to improve environmental (and social) performance and contribute to business success at the same time. Many companies have started doing so by integrating sustainability into their operations. A focus on reducing environmental impact not only allows these companies to comply with increased regulations but also to reduce their costs, to improve the quality of their products, and to enhance the reputation of their brands. In addition, a new brand of companies is going beyond simply reducing negative externalities and actively tries to create a positive impact on the world. In this course, students will learn how citizens, governments, customers, and employees are creating pressures for more sustainable development and how operations managers are responding to these pressures with principles and frameworks such as waste reduction, pollution prevention, and product stewardship. Through the course, students will study specific tools and concepts such as life cycle assessment (LCA), design for environment (DfE), take-back legislation, green manufacturing, green purchasing, remanufacturing, recycling and by-product synergy. Students will also learn how to create a successful strategy for sustainable operations by incorporating sustainability considerations into business strategy, improvement planning, product and process design, supply management and risk management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22809,6 +22813,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM319: {
     name: "Operations Strategy: Principles and Practice",
@@ -22817,7 +22822,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `How did ZARA become one of the fastest growing and most profitable brands in fashion retailing? How did Wal-Mart grow to be the world’s largest retailer? Largely the answer is that ZARA and Wal-Mart view their operational capabilities as an important and integral part of their competitive advantage. As do other successful companies, such as Procter & Gamble, Toyota, and Coca Cola, they invest strategically in physical plants and facilities, in process and information technology, in employees, suppliers, and distributor relationships, and perhaps most importantly, in organizational practices and know-how. The objective of this course is to provide students with a set of qualitative frameworks and quantitative tools to analyze and guide the long-term, strategic decisions for a company’s operations function. This course caters to those interested in management and business consulting, general management, and operations careers. Finance specialists interested in assessing the risks, the opportunities, the competitive advantages, and ultimately the value embedded in a company’s operations will benefit from the course as well.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22840,6 +22845,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM321: {
     name: "Supply Chain Management",
@@ -22848,7 +22854,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Matching supply with demand is a primary challenge for a firm: excess supply is too costly, inadequate supply irritates customers. Matching supply to demand is easiest when a firm has a flexible supply process, but flexibility is generally expensive. In this course we will learn (1) how to assess the appropriate level of supply flexibility for a given industry and (2) explore strategies for economically increasing a firm’s supply flexibility. Lastly we will study coordination and incentives across multiple firms in a supply chain. While tactical models and decisions are part of this course, the emphasis is on the qualitative insights needed by general managers or management consultants. We will demonstrate that companies can use (and have used) the principles from this course to significantly enhance their competitiveness.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22889,6 +22895,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { and: ["OPIM101", "OPIM201"] },
   },
   OPIM324: {
     name: "Global Supply Chains",
@@ -22897,7 +22904,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Global Supply Chain refers to the cross-border organization of the activities required to produce goods or services and bring them to consumers through inputs and various phases of development, production and delivery (International Labour Organization). As global trade is dependent on global supply chain, companies make investment decisions to globalize, setting up production facilities overseas and sales offices beyond their domestic market. The key aspects for companies embarking on global Supply Chain involves cross-border sourcing, overseas production, global planning and international distribution, where the various components for a final product could be sourced from different parts of the world, and manufactured at one or multiple locations and have them distributed to different markets. Managing a global supply chain is also no longer about driving down cost, but it is how companies can maintain their competitiveness and global supply chains has never been more challenging and disruptive in the current environment of pandemic and geo-political tensions. In addition, e-commerce has also changed the design for global supply chain as well. This course provides students with a practical lens and frameworks regarding global supply chain. Students learn the key concepts on global supply chain management, together with special topics on maritime logistics, technology and green supply chain that affects the development of global supply chain. Understanding them would enable the students to better appreciate the complexities when handling global supply chain activities in future. Topics covered include: considerations for global sourcing, selection criteria for global production locations, planning in an uncertainty, volatility, complexity and ambiguity environment, various international methods of entry to overseas market, e-commerce distribution, incoterms and different modes of transportation, terms of payment, customs requirements, and maritime distribution network. Business cases and real-life examples will be used in the course. Industry speakers will be invited as guest lecturers to share the challenges and practical solutions relating to global supply chain. This course is highly relevant for the current business environment and is recommended for those interested in working for global companies managing cross-border business.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22920,6 +22927,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM326: {
     name: "Service and Operations Analytics",
@@ -22928,7 +22936,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The increasing availability of data is changing the way organizations are thinking about themselves and the way they interact with the world. Data is helping improve the profits of businesses, the quality of life of individuals, the performance of sports teams, and social interactions. In this course you will learn how to use data and analytics to improve the service and operations of the organisations. The course will expose students to real world examples of how analytics is being used from various domains in managing operations and service delivery, e.g., product quality control, revenue management. Through these examples you will learn how to use tools of analytics such as linear regression, logistic regression, classification and regression trees, random forests, clustering, optimization, and visualization techniques in practice. The statistical software R will be used in the course, and class demo will be presented in R Notebooks. Students are encouraged to create their assignment and project reports using R Notebooks.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22951,6 +22959,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["OPIM101"] },
   },
   OPIM343: {
     name: "Port,Focal Logistics and Maritime Operations",
@@ -22959,7 +22968,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `As much as 90% of world trade is carried via maritime transportation. A wide range of cargoes, each with their own specific handling and storage requirements, pass through the world’s ports and terminals every day. Port operations is a complicated business dealing with a number of disparate activities such as the movement of ships, containers, and other cargo, the loading and unloading of ships and containers, and customs activities. Efficient port operations are important to ensure the smooth transition of cargoes, so that these cargoes reach their destination on time. This course introduces the functions of ports and their roles in contemporary logistics. With the intermodal advancements that lead to expanded but overlapping hinterlands, ports face competitive pressure. This course equips students with knowledge on port operations and how ports can provide value in the modern supply chain. The inter-related relationship among shipping lines, stevedores, port operators and the regulatory environment is discussed.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22990,7 +22999,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `International shipping and ports are fundamental to the achievement of world sustainable development. However, the challenges to shipping and ports in providing safe, secure, energy efficient, environmentally and climate friendly services that, at the same time, promote connectivity and trade and enables economic growth are complex and tremendous. These challenges call for a multi-stakeholder approach involving shipping companies, port authorities/port development companies, regulators, financial institutions, research institutions, and other relevant partners. This course addresses the sustainability imperative for shipping and ports and the various solutions that are available to the different industry stakeholders. Indeed, the shipping and ports industries have started to respond to the growing environmental and social concerns of regulators, customers and the local communities in which they operate, while at the same time increasingly recognizing that sustainability may provide for new business opportunities and profitability.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23026,7 +23035,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The increasing availability of data is changing the way a supply chain is managed. Supply chain analytics is where data analytics meet supply chain management. Given the conflicting objectives of efficiency and customer satisfaction, data-driven analysis can be useful in achieving supply chain excellence. In this course, you will learn the analytics tools and skills to diagnose and optimize a supply chain. In particular, you will learn how statistical tools and data-based optimization can help supply chain stay competitive and attain its leadership.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23049,6 +23058,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    coRequisite: ["OPIM321"],
   },
   POSC003: {
     name: "Introduction to Political and Policy Studies",
@@ -23057,7 +23067,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides an introduction to the major theories, ideas, concepts, and issues in political science and public policy studies. Topics may include but are not restricted to distribution, fairness and justice as they relate to politics and policies. Understanding politics and public policies is crucial for participation in modern society. This course facilitates this understanding by discussing crucial questions such as why states go to war, why some states have become democratic while others have not, how does culture affect politics, and why various countries are ruled in such different ways.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23124,7 +23134,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course introduces students to the conceptual and pragmatic skills necessary for analyzing and devising public policy. On the one hand, the course exposes students to the methods and concepts that make up the tool-box of the contemporary policy analyst. On the other hand, by using these tools to make sense of real-life policy issues and political processes in South-East Asia and elsewhere, the course also introduces students to the more pragmatic “craft” aspects of producing incisive analysis relevant to policy actors in real policy-making environments.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23151,7 +23161,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC103: {
     name: "World Politics",
     moduleCode: "POSC103",
-    description: "DESCRIPTION_NEEDED",
+    description: `The objective of the course is twofold. The course aims to provide students with a broad understanding of the major schools of international relations and to place these theories into the larger historical context. Building on this, also provides a brief survey of the major international state and non-state ‘practices’ (structures, processes, and agents) before moving on to the discussion of some of the most salient international issues of today and the future.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23178,7 +23188,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC108: {
     name: "Mass Media and Public Opinion Research",
     moduleCode: "POSC108",
-    description: "DESCRIPTION_NEEDED",
+    description: `The mass media constitutes an important sphere through which we can understand our complex political and social world. Why does the media focus on certain issues, give voice to particular actors, and frame stories in particular ways? And consequently, how does the media affect public opinion and behavior. Does the media foster understanding, insight, and hold the powerful to account, or does it spread discord, misinformation, and maintain power hierarchies? These are the kinds of questions that students can find answers to in this project-based research design course. During the course students will learn how to write a rigorous empirical research paper and develop the methodological skills to survey public opinion and systematically code media content. After studying how to plan a content analysis and public opinion survey, students will work in groups and write a research proposal on a topic of their choosing. Potential topics are wide ranging. For instance, they could relate to elections, identity politics, migration, protest, conflict, as well as economic, business, environmental, health, or educational issues. Students then choose to design a survey or a content analysis. For the survey, students develop a questionnaire plan to gather public opinions on the media or preform a survey experiment to understand the impact of media. Students doing a content analysis will develop a codebook to code newspapers, TV, film, social media, or the web. After analyzing their unique data, student projects culminate in a presentation and an original research paper of approximately 9,000 words.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23223,7 +23233,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC203: {
     name: "Comparing Political Systems",
     moduleCode: "POSC203",
-    description: "DESCRIPTION_NEEDED",
+    description: `The comparative study provides us with a ready array of conceptual and analytical tools that we can use to address and answer a wider range of questions about the political-economic-social world. This course is intended to acquaint students with some important classic and contemporary works on selected problems and issues in the field of comparative politics, which is one of the main subfields of political research. What can we learn through comparisons that we would be unable to from the study of political systems one by one? Why compare, and how? These questions should be in the forefront of this course. Topics include critical comparative methods, political power, political institutions (executive, legislative, judiciary, and bureaucracy), capitalism, globalization, and federalism in developed and developing countries.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23254,7 +23264,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course analyzes in comparative perspective the relationships between states, governments, markets, international organizations and civil societies in the East and South East Asian regions.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23285,7 +23295,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course offers a historical overview of the debates over cardinal political categories, such as power, authority, rule, legitimacy, freedom, equality, and justice. We will survey the history of political thinking in Europe, mainly because a global capitalist economy and the dissemination of the modern state form in the postwar period beyond Europe makes the political and social categories articulated in the Western tradition applicable to non-European contexts. Each week, we will concentrate on primary texts by canonical thinkers ranging from Plato to Foucault. In discussing the works of individual political philosophers, our objective is not to study each thinker’s thought for its own sake but to investigate the fundamental concepts and questions they brought to the fore. We will regularly ground the abstract ideas we examine in empirical phenomena, both past and present. This enterprise will involve textual interpretation and critical reflection in order to systematically scrutinize what we mean by “politics,” where we draw the boundaries of the “political,” and how we interrelate different political concepts and schemes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23312,7 +23322,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC222: {
     name: "Chinese Foreign Policy",
     moduleCode: "POSC222",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides a comprehensive introduction to Chinese foreign policy. We analyze important historical periods in Chinese foreign relations, the sources, actors, and processes in Chinese foreign policy making, China’s relations with various countries and regions, Chinese policy toward key functional issues in international affairs, how the rise of China is affecting global power relations, and how other actors are responding. The course pays attention to the application of international relations theories, and also takes an interest in policy issues facing decision-makers in China and other countries who deal with China.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23344,7 +23354,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC304: {
     name: "Social Movements in Asia",
     moduleCode: "POSC304",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course examines contemporary social movements in Asia. Following the surge in political activism in recent years, particularly among young people, students will explore the origins, dynamics, and impacts of social movements across diverse Asian societies. Through contemporary case studies, documentary screenings, and theories of social movements, students will delve into the complexities of collective action and the reciprocal relationship between social movements and their environments. Key questions addressed include the drivers of mobilization, the role of political, social, and cultural factors, and the challenges faced by activists. By engaging with diverse case studies and theoretical frameworks, students will gain analytical tools to understand and engage with activism in Asia. Specifically, the course will cover pro-democracy movements in Hong Kong, Thailand, and Myanmar; farming movements in India; environmental movements in the Philippines and Indonesia; women’s movements in China; and human rights movements across the Southeast Asia region. The course takes an interdisciplinary approach, drawing on works from sociology, anthropology, political science, communications, and Asian studies.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23376,7 +23386,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC308: {
     name: "Gender Politics: Exclusion and Empowerment",
     moduleCode: "POSC308",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the ways in which the social and cultural construction of gender influences the nature and practice of politics. The course revolves around two themes – exclusion and empowerment – and examines the practices, policies and structures that exclude different genders, as well as the strategies and repertoires of different gendered communities to protect their rights and interests. Using case studies in development and specific experiences within countries, as well as lessons from practitioners, the course outlines how gender shapes political life.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23403,7 +23413,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC309: {
     name: "Intervention and Justice in International Relations",
     moduleCode: "POSC309",
-    description: "DESCRIPTION_NEEDED",
+    description: `International intervention, particularly since the end of the Cold War, is often said to expose a conflict between order and justice. This course is concerned with the evolution of intervention in the historical norms and rules of states, with a focus on debates occurring in and around the United Nations. In addition to assessing the changing character of international society, we will consider the moral and political adequacy of existing institutions. When, if ever, is it justified to wage war against another country? To what extent should international organisations promote and encourage respect for human rights? What is a just and equitable global economic and information order? How much force should peacekeepers be allowed to use? Should powerful countries be allowed to interfere in the internal affairs of smaller states?`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23434,7 +23444,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Global economic growth over the past few centuries has brought unprecedented prosperity to more people than ever before. Despite this, many nations remain desperately poor, with more than one billion people unable to support themselves and their families and a reported 18 million poverty-related deaths worldwide each year. This course, applying a variety of perspectives, focuses on the relationship between development and poverty to ask: Why does poverty exist? What is its relationship with economic and political development? What are effective ways to reduce rural and urban poverty?`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23457,11 +23467,12 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["POSC201"],
   },
   PPPM106: {
     name: "Policy Design and Analysis",
     moduleCode: "PPPM106",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course critically analyses public policy designs and how governments pursue the process of designing. With an overarching focus on contemporary environmental sustainability topics, the course allows students to explore questions about how different categories of policy instruments or tools that are part of governments’ public policy ‘toolkits’ are formulated, how they work and how they can be combined in order to address multifaceted problems of the environment. The course allows an examination the craft of policy design from a policy process perspective, namely: how public policy problems get framed and raised on government agendas, how different instruments are analysed, combined and chosen as solutions to these problems, how these instruments mixes are implemented and how their success at addressing policy goals gets evaluated. Students of the course will have the opportunity to analyse contemporary environmental policy cases and learn about the policy design experience from experts of the field who will be invited as guest speakers to the classroom. Some topics that are covered in the course include: policy cycles; policy tool classifications; simple vs. complex tool mixes; policy instrument calibrations; procedural instruments; nudges and nodality tools; regulations and authority-based instruments; organizational tools and tools for co-production and collaborative government.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23488,7 +23499,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   PPPM301: {
     name: "Public Policy Task Force",
     moduleCode: "PPPM301",
-    description: "DESCRIPTION_NEEDED",
+    description: `Public Policy Task Force (PPTF) is a core part of PPPM program. PPTF emphasize the development of problem-solving and analytical skills that constitutes a strong comparative advantage for PPPM students. Students are required to sign up for a specific public policy topic that is suggested by a faculty, discuss, and deliberate core theoretical issues for a few weeks, and then conduct actual field works for solving policy problems. At the end of semester, students are required to come up with a specific policy recommendations and reports. The topics include: subjective well-being, environmental pollution, climate change, international conflicts, immigration policy, urban transportation, poverty, etc.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23519,7 +23530,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Psychology is the scientific study of behavior and mental processes. The goals of this science are to measure and describe behavior, understand and explain it, and predict and modify it. This course will introduce students to the study of behavior as a scientific enterprise and as a formal academic discipline. Topics include the biological bases of behavior, motivation, learning, sensation, perception, memory, thought and knowledge, language, social behavior, intelligence, personality, development, and psychopathology. The overall goal is to provide students with an overview of contemporary Psychology.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23586,7 +23597,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides an overview of the psychological research on developmental processes throughout the lifespan. It will include developmental processes in the prenatal period, infancy, childhood, adolescence, and adulthood in the areas of cognition and reasoning ability, morality, emotions, social behavior, and personality.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23627,6 +23638,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { and: ["PSYC001, PSYC110"] },
   },
   PSYC108: {
     name: "Social Psychology",
@@ -23635,7 +23647,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course gives an overview of the field which studies the behavior, thoughts and feelings of individuals in social contexts. The course will cover topics such as social cognition, social perception, social motivation, attitude formation and change, interpersonal dynamics, aggression and altruism, social influence and leadership, conformity, and antisocial behavior.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23666,7 +23678,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Psychology experiments can range from simple to complex, but there are some basic terms and concepts that all students of psychology should understand. This course introduces students to the core methodological concepts and procedures used in empirical research in psychology. Basic issues relating to the formulation of research questions, hypothesis generation and testing, research design, measurement, descriptive and inferential statistics, and ethical principles will be discussed. Applications in various areas of psychology will be used to illustrate these issues.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23689,6 +23701,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["IDIS100"],
   },
   PSYC112: {
     name: "Health Psychology",
@@ -23697,7 +23710,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is designed to provide students with a foundation in the scientific literature and key concepts related to health psychology. In particular the course will examine health-related behaviors and evaluate interventions aimed at modifying or promoting these behaviours. Topics will include health and wellness promotion, stress, coping and resilience and psychological issues with managing chronic and terminal illnesses. This course requires active learning and engagement.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23738,11 +23751,12 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["PSYC001"] },
   },
   PSYC113: {
     name: "Family Dynamics and Processes",
     moduleCode: "PSYC113",
-    description: "DESCRIPTION_NEEDED",
+    description: `The family environment is a critical context for the development of children and for adult adjustment. In this course we will delve into major theories and conceptual models that underpin the intricacies of parenting and family interactions. We will also look at functional and dysfunctional family relationships and behaviours, and effective ways to assess such interactions. The course culminates in an investigation on applications of developmental models to intervention and clinical applications, and emphasize the critical role of parenting interventions in preventing and managing social, emotional, behavioural and health-related challenges.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23765,6 +23779,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["PSYC001"] },
   },
   PSYC202: {
     name: "Cultural Psychology",
@@ -23773,7 +23788,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Human thought and behavior do not exist in a cultural vacuum. This course provides an overview of the psychological research on how culture affects the way humans think and behave. Examples of topics that may be covered include cognition, motivation, personality, self concept, inter-personal processes, and inter-group processes. Methodological and data analysis issues that are particularly important in cultural psychology such as measurement invariance and emic versus etic approaches may also be discussed.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23796,11 +23811,12 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { and: ["PSYC001", "PSYC108", "PSYC110"] },
   },
   PSYC204: {
     name: "Psychology of Reasoning and Thinking",
     moduleCode: "PSYC204",
-    description: "DESCRIPTION_NEEDED",
+    description: `People often have to make choices under situations involving uncertainty and risk. To understand how people make choices or decisions, we need to understand the thinking, reasoning and judgment processes involved. In addition, decision and choice situations often involve making tradeoffs (e.g. price versus quality) or evaluating multiple different options and alternatives. With limited human cognitive capacity and the multiple task demands involved in choice and decision making, it appears that reasoning or decision-making processes are challenging. This course will help you understand these complexities and processes. It will cover topics such as judgments of risk and uncertainty, affect and decision making, self-control, heuristics and biases. In addition, we will connect decision-making theories to other areas of application, such as negotiation, consumer behaviour, and team processes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23823,6 +23839,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { and: ["PSYC001", "PSYC110"] },
   },
   PSYC205: {
     name: "Evolutionary Psychology",
@@ -23831,7 +23848,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to teach students the adaptive explanations of why people think, feel, and behave the way they do. Students will learn about evolved psychological mechanisms that underlie various areas of human behavior.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23854,6 +23871,22 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: [
+        "PSYC001",
+        "PSYC110",
+        {
+          or: [
+            "PSYC103",
+            "PSYC104",
+            "PSYC112",
+            "PSYC105",
+            "PSYC108",
+            "PSYC111",
+          ],
+        },
+      ],
+    },
   },
   PSYC208: {
     name: "Psychology Research Methods II",
@@ -23862,7 +23895,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course builds on the methodological concepts and procedures discussed in PSYC110 Psychology Research Methods I. The course focuses on the knowledge and skills necessary for planning, implementing (i.e., conducting and analyzing data), and presenting a research project. Students will be provided with hands-on experience in empirical studies relating to design, measurement, and analysis issues in psychological research.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23921,11 +23954,27 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: [
+        "PSYC001",
+        "PSYC110",
+        {
+          or: [
+            "PSYC103",
+            "PSYC104",
+            "PSYC112",
+            "PSYC105",
+            "PSYC108",
+            "PSYC111",
+          ],
+        },
+      ],
+    },
   },
   PSYC213: {
     name: "Work, Play, and Life",
     moduleCode: "PSYC213",
-    description: "DESCRIPTION_NEEDED",
+    description: `Modern societies extol busyness and may even regard work as a defining aspect of one's life. Consequently, leisure is often relegated as "time off work" and sometimes leads people to construe work and leisure as opposites. This promotes the pursuit of passive and convenient leisure in contrast to their more goal-directed and effortful work activities. Unfortunately, research shows that passive leisure is not restorative nor provides important ingredients to meaningful living. In this course, we examine people’s motivation to work and its reciprocal relationship with their pursuit of leisure. It aims to help students apply to their daily lives what the psychological literature advocates about quality leisure activities and living a "good" life, which will also help them flourish at work.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23952,7 +24001,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   QF101: {
     name: "Quantitative Finance",
     moduleCode: "QF101",
-    description: "DESCRIPTION_NEEDED",
+    description: `What is Quantitative Finance? Why quantitative? Increasingly, mathematical and statistical methods have been applied to analyse financial markets. Quantitative finance models are derived to extract critical information from the data collected in investment and trading activities. These models are used in pricing assets, managing risks, developing trading strategies, and making investment decisions. Strong quantitative skills have become an essential competence for the modern finance industry. This 101 course introduces you to the fundamentals of quantitative finance models. It covers the foundational mathematical concepts and techniques that are used in quantitative modelling. Attention is given to topics such as rules for functions, solving systems of linear equations, solutions of differential equations, option pricing application, and optimization. This course provides the mathematical tools that can be used to solve problems encountered in financial markets.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23979,11 +24028,14 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   QF102: {
     name: "Investment Statistics",
     moduleCode: "QF102",
-    description: "DESCRIPTION_NEEDED",
+    description: `Have you ever wondered how do outstanding asset managers consistently outperform the market and generate alpha? How can we predict important financial time series like earning, volatility, volume, and return? The answer lies in clever use of investment statistical techniques. This course teaches you how to extract patterns from historical data, create investment strategies, and test profitability and hypothesis.
+
+    The application of statistical methods to investment and trading is one of the areas experiencing the fastest pace of growth and development in the world of investment banks, hedge funds and asset managers. Mathematical models for trading and investment management are rapidly growing both in terms of sophistication and scope. On the buy side, hedge funds and asset managers make constant use of empirical statistical models to analyse financial time series for optimal investment decision. On the sell side, front office trading teams in investment banks employ risk-neutral probability models to price and risk manage their portfolio to hedge their exposure. Students aspiring to careers in the financial market ought to be proficient in investment statistics to fully comprehend the dynamics behind the financial market.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24010,11 +24062,14 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      or: [{ or: ["COR1202", "COR1201"] }, "COR-STAT1202", "COR-STAT1203"],
+    },
   },
   QF205: {
     name: "Computing Technology For Finance",
     moduleCode: "QF205",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to expose students to the use and usefulness of computing technology in the realm of finance. From the collation of data, analysis of data in order to tease out relevant information, to the presentation and visualization of information, computing technology plays an important role that is increasingly essential as one faces the need to assimilate an astronomical amount of information in today’s world. The course is structured in such a way as to employ topics in finance to motivate the discourse on computing technology. Equipped with the computing skills, in turn, students are motivated to handle more challenging problems in finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24045,7 +24100,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   QF206: {
     name: "Quantitative Trading Strategies",
     moduleCode: "QF206",
-    description: "DESCRIPTION_NEEDED",
+    description: `Like any financial investment, trading in stocks, currencies, commodities, and fixed income instruments may lead to substantial profits but they can also lead to substantial losses. It goes without saying that a suite of trading strategies is needed to keep winning the game of probability while limiting the downside risk. In this course, practicable trading strategies coupled with risk management will be covered in detail. Algorithmic trading, high-frequency trading, and the likes will be demystified along with quantitative trading. Using the MSCI Singapore Free Index futures as a case study, students will get to see concretely what a limit-order book and its dynamics look like throughout the trading session. This practical course also provides students with a rare opportunity to learn and practise trading on a software platform used by professional traders.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24076,7 +24131,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   QF209: {
     name: "Machine Learning in Quantitative Finance",
     moduleCode: "QF209",
-    description: "DESCRIPTION_NEEDED",
+    description: `Machine learning represent different modeling principles and techniques and underpin many successful financial applications. This course covers common machine learning models, including deep neural networks and reinforcement learning, with financial applications such as stock price prediction and portfolio management. This course is designed to combine both theory and practice/implementation of model development, focusing on developing the core data analytics skills of the students and presenting specialized exposure to quantitative finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24103,11 +24158,12 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   QF210: {
     name: "Reinforcement Learning in Portfolio Optimisation",
     moduleCode: "QF210",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course helps students explore the intersection of advanced machine learning techniques and strategic financial management practices. It starts by building a good foundation of both reinforcement learning and portfolio optimisation, followed by an interplay between these two exciting fields. Aimed at navigating and mastering the complexities of investment strategies, the course offers practical applications in Python to construct and adapt dynamic portfolios, driving decision-making in the evolving landscape of finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24134,11 +24190,15 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   QF307: {
     name: "Stochastic Finance",
     moduleCode: "QF307",
-    description: "DESCRIPTION_NEEDED",
+    description: `The objective of this course is to introduce students to stochastic modelling of financial assets and the valuation of derivatives.
+    The concept that created the subject and led to the development of the field of financial derivatives is the work of Fisher Black and Myron Scholes (1973). Stochastic models based on the principle of no-arbitrage, dynamic hedging, martingale valuation, and risk-neutrality can be formulated to price derivatives traded in the financial market. The same framework has subsequently been applied to the pricing and hedging of other more exotic financial products.
+    The course is an interesting mix of finance and mathematics. Students will see that fundamental financial concepts like the no-arbitrage principle, coupled with careful mathematical reasoning, lead to a sophisticated framework of valuation and hedging.
+    The mathematical tools employed are calculus, stochastic calculus, probability theory and numerical methods. A good background in calculus and probability is assumed. The other mathematical requisites will be furnished during the course.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24165,11 +24225,12 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   SMT201: {
     name: "Geographic Information Systems for Urban Planning",
     moduleCode: "SMT201",
-    description: "DESCRIPTION_NEEDED",
+    description: `Effective planning and management of smart cities require urban planners to integrate and share data from multiple sources to the urban users so that they can be active participants in the smart city planning process. GIS with its capability to capture, manage, display, and analyse information spatially is emerging as one of the important enabling tool in smart city planning. This course provides students with an introduction to practical applications of GIS in smart city management and planning. Emphasis will be placed on - locating, acquiring and integrating multi-sources of data into GIS, - understanding the principles and methodologies of geocoding and geo referencing, - become familiar with geovisualisation and GIS analysis techniques, and - exploring the technologies and possibilities of GIS-enabled Planning Support Systems for smart city management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24196,7 +24257,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SMT203: {
     name: "Computational Social Science: Principles and Applications",
     moduleCode: "SMT203",
-    description: "DESCRIPTION_NEEDED",
+    description: `We use mobile devices any time to access the internet, read the news, watch videos, search for nearby restaurants, chat with friends, and leave posts on social networking sites. These online interactions leave massive digital footprints which enable us to understand, and ultimately influence human behavior and social dynamics: what and why we like, hate, believe, behave, and engage. Computational Social Science is an exciting and emerging field that sits at the intersection of computer science, statistics, and social science. This course provides a hands-on introduction to the ideas and methods of Computational Social Science. We will discuss questions and problems across various domains of social science including politics, economics, and health and will learn how new online data sources and computational methods are being used to tackle those problems. Through exploring computational social science methods and their use in social sciences today, this course helps students to engage with questions on research design. Also, students will have the opportunity to try their hand at analyzing big data from various sources such as #covid-19 Tweets, Data.gov.sg, etc.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24223,11 +24284,18 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      and: [
+        { or: ["COR-IS1704", "IS111", "SMT111", "CS101"] },
+        { or: ["IS112", "IS105"] },
+        { or: ["IS217", "CS105", "MGMT108"] },
+      ],
+    },
   },
   SOCG001: {
     name: "Understanding Societies",
     moduleCode: "SOCG001",
-    description: "DESCRIPTION_NEEDED",
+    description: `The interdependence between society and the individual is the primary focus of sociology and social anthropology. In order to understand society one needs to develop sociological imagination—a quality of mind that provides an understanding of ourselves within the context of the larger society (C. Wright Mills). This course serves as a foundation for understanding society, culture, individuals and their relationships. The course will familiarise students with various sociological concepts, theories and methodologies to explore social organisations, institutions, and stratifications. The objective of the course is to understand the ways in which societies can be analysed systematically as well as critically observe how individuals, institutions, culture, symbols, and social structure interact to shape society and human behavior.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24290,7 +24358,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SOCG201: {
     name: "Social Stratification and Inequality",
     moduleCode: "SOCG201",
-    description: "DESCRIPTION_NEEDED",
+    description: `Social stratification concerns the unequal distribution of things that are scarce but widely desired to different positions in society and the process of placing individuals into these positions. Stratification is the core of both societies and sociology. This survey course introduces students to key topics in stratification studies, including different modes of explaining social inequalities, the status attainment process, class analysis, social mobility, and gender and race inequalities.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24322,7 +24390,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SOCG211: {
     name: "Food, Environment and Sustainability",
     moduleCode: "SOCG211",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the connections between food, environment and sustainability. We use empirical materials from food-related issues—agricultural production, food manufacturing and processing, food distribution and retail, food consumption, and global food trade—to learn about theories in environmental sociology and political ecology, and discuss the possibility of sustainable food systems and agriculture and debate the future environmental sustainability. The first part of the course is devoted to introducing students to key theoretical perspectives in environmental sociology. Environmental sociology examines the changing relationship between social systems and the environment and explores how environmental issues emerge—and can be addressed—as social problems. In the second part, we take these theoretical perspectives to investigate the food system. We explore how society and environment interacts throughout the food system, how the current food system faces challenges in sustainability, and how sustainable alternatives can be developed.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24349,11 +24417,13 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: "SOCG001",
+    mutuallyExclusive: ["SOCG301"],
   },
   SOCG215: {
     name: "Introduction to Sociological Theory",
     moduleCode: "SOCG215",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course examines the major theoretical developments in sociological theory from the classical period of Marx, Weber, and Durkheim to contemporary schools from structural-functionalism, conflict theory, exchange theory, and symbolic interactionism. The purpose of this course is to introduce the students to a variety of theoretical orientations, past and present, with an emphasis on the strengths and weaknesses of each theoretical approaches. Students are expected to develop skills to analyse social issues critically by learning these theories and to be able to use them as analytical tools for sociological research.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24384,7 +24454,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SOCG223: {
     name: "Sociology of Education",
     moduleCode: "SOCG223",
-    description: "DESCRIPTION_NEEDED",
+    description: `The education system is one of the most important institutions in the contemporary world. It plays a decisive role in socializing younger generations, stratifying them to different socioeconomic statuses, and producing new visions, knowledge, and technologies for society. Given its connections with the economy, politics, family, and other spheres of social life, however, the education system is also penetrated by multiple societal problems and contradictions. In this course, we will examine these problems and contradictions, simultaneously internal and external to the education system, while critically reflecting on our own experiences as stakeholders in the system.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24416,7 +24486,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SOCG226: {
     name: "Medical Sociology",
     moduleCode: "SOCG226",
-    description: "DESCRIPTION_NEEDED",
+    description: `Medical Sociology (also commonly known as the Sociology of Health and Illness) is one of the most important contributions sociology makes to understanding critical social issues prevalent in our society. In this course, we will focus on the social construction of well-being and illness, and the influence of the social on health policies. We will also look through sociological lens at the dynamics in health-seeking behavior, the doctor-patient relationship, the professionalization of medicine in general as well as the role of alternative healing systems in a society where the western biomedical module predominates.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24447,7 +24517,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SOCG227: {
     name: "InterAsian Mobilities",
     moduleCode: "SOCG227",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will explore the migrations and cross-border mobilities that occur from and within Asia. While social science research has seen a broadening interest in how nations are interconnected in today's globalized world, much of the field continues to be focused on movements towards destinations in the West. This course will allow students to critically examine our conventional understanding of global mobility in the context of Asia, where nationhood is "new" and migration is "old." The class will discuss a wide range of case studies: transnational families, unauthorized migration, "new" racisms, and multinational migrations within the region.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24474,7 +24544,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SOCG229: {
     name: "Life Course and Ageing",
     moduleCode: "SOCG229",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the sociology of aging and the life course, examining how social structures, cultural norms, and individual actions influence the aging process and shape experiences across the life span. Topics include ageism, life transitions, linked lives, cumulative inequalities, retirement, social isolation, and successful aging.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24501,7 +24571,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   SOCG303: {
     name: "Capitalism: Past and Present",
     moduleCode: "SOCG303",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course investigates capitalism as the economic institution that creates our modern world. With a theoretical critic of this institution as the objective of this course, we will look at both the social-historical origin of capitalism and the embedded social contexts that eventually lead to the development of a variety of capitalisms in our contemporary world.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24542,6 +24612,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: "SOCG001",
   },
   STAT201: {
     name: "Probability Theory and Applications",
@@ -24550,7 +24621,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is to develop knowledge of the fundamental probability theory for quantitatively assessing the uncertain events. The focus in each teaching topic is on the applications of the probability concepts in everyday life. But practical problems encountered in actuarial science and finance are particularly emphasized. Topics include overview of probability, probability distributions, mathematical expectation, some special discrete distributions, some continuous distributions, functions of random variables, sampling distributions, jointly distributed random variables, Limit theorems and stochastic process.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24573,6 +24644,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["COR-STAT1202", "COR-STAT1203"] },
   },
   STAT203: {
     name: "Financial Mathematics",
@@ -24581,7 +24653,16 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course covers the following topics:
+    1) Introduction to interest rate, present value and future value, present value of cash flows and annuities
+    2) Payment interval and interest-conversion interval, non-level annuities
+    3) Spot rates, forward rates and the term structure
+    4) Rates of return, internal rate of return (yield rate) and other measures of return
+    5) Loans, amortization schedule and sinking fund
+    6) Bonds and bond pricing
+    7) Bond yield and the term structure
+    8) Bond management, duration, convexity and immunization
+    9) Futures, forward contracts, options and swaps`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24622,6 +24703,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   STAT310: {
     name: "Life Contingent Risks",
@@ -24630,7 +24712,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course covers the construction of probability models for life contingencies with special reference to life insurance. The basic concepts and tools in survival-time random variables for one life and two lives will be discussed, as well as the specific statistical models such as uniform, constant force of mortality and hyperbolic. Topics also include analysis of life insurance and annuities, properties of their present-value random variables, computation of premiums using the Equivalence Principle and Percentile Principle, the present value of future loss, expense-loaded liabilities and the recursion method for the calculation of reserves.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24653,6 +24735,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { and: ["STAT201", "STAT203"] },
   },
   TRAD201: {
     name: "Shipping Business",
@@ -24661,7 +24744,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course helps students to understand the elements common to all sectors of Shipping. In particular, students will see the interaction between the various players involved in the shipment process. This course will help students to understand the general process involved in the shipment of goods. Students interested in a career in Trade or Shipping may consider taking this course.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24688,7 +24771,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   WRIT200: {
     name: "Virtual Business Professional",
     moduleCode: "WRIT200",
-    description: "DESCRIPTION_NEEDED",
+    description: `In this course, students will work in virtual global teams, with students from other universities, to develop a proposal for a corporate client. Students will develop essential skills to thrive in the modern workplace – they will explore virtual collaboration tools, hone their interpersonal and intercultural competence, and employ data storytelling principles to craft persuasive narratives for business proposals. In the first half of the course, students work in SMU teams to communicate their recommendations persuasively through corporate documents like executive summaries and Slidedocs. Through whole-class and small-group discussions, students explore theories on virtual communication and working in remote teams, and familiarize themselves with tools for cultural analysis and virtual collaboration. In the culminating capstone project in collaboration with the University of Southern California (USC), students will work in global teams comprising students from universities across Asia, Europe and America to develop a proposal for a corporate client. Past industry partners of the VBP project included companies such as Google, Starbucks, Netflix, Tesla and SpaceX. Over 6 weeks, students collaborate virtually with their global counterparts to craft a report to the client of their choice, recommending strategies to enhance the client’s corporate reputation. In the course of the project, students use social and AI-driven collaboration tools, navigate cross-cultural team processes and learn to collaborate effectively across borders and time zones. The deliverables in this course can be included in students’ portfolio of written and reflective work to showcase their ability to produce industry and discipline-specific communication outcomes. USC will award certificates of achievement to all participants.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24711,11 +24794,12 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: "COR1100",
   },
   WRIT300: {
     name: "Professional Writing",
     moduleCode: "WRIT300",
-    description: "DESCRIPTION_NEEDED",
+    description: `Professional Writing will expand and deepen students’ ability to write effectively in civic and corporate contexts. Such writing skills emerge in leaders who not only know how to analyze and articulate complex problems but also know how to envision and express written solutions that reveal solid decision-making on public policy, and business and societal trends. While the Writing & Reasoning course, taken by most SMU students in their first year, focuses on breadth, here the students will be deepening their skills by exploring and writing about more complex issues in society and business. Students will engage with the need for deeper research, better audience analysis, and more structured writing, with a more nuanced adaptation to the context appropriate to their intended publications. Students will consider and respond to meaningful real-world issues and situations in each of the three written projects. They will explore not only what other people have said about the issues that they confront, but also develop and communicate their own responses. The finished pieces will form the basis of a portfolio of written work to showcase their ability to think critically, conduct appropriate literature research, analyse their findings, argue their case, and produce professional communication outcomes. This portfolio will be a valuable addition to their resumes when they graduate. The final project will be an in-depth feature piece written for either Rice Media (https://www.ricemedia.co/) or the Skeptic Magazine (https://www.skeptic.org.uk/). Rice Media, and Skeptic Magazine editors advise the students during the Week 10 presentations, and students will have the chance to have their work published by the media outlet that they write for after the term finishes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24738,11 +24822,12 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["COR1100", "LAW106", "WRIT001"] },
   },
   ACM204: {
     name: "Special Topics in Arts Management",
     moduleCode: "ACM204",
-    description: "DESCRIPTION_NEEDED",
+    description: `Today, the arts have to be equipped to deal with the radical socio-economic and environmental changes that we are living through, from evolving audience behaviours and the relentless pressures of inflation. Additionally, arts organisations can no longer rely on pre-pandemic business models to sustain their survival, relevance and influence. Navigating these new challenges with a commitment to creative entrepreneurship and community relevance will be critical moving forward. This special topic on Arts Entrepreneurship and Creative Economies was chosen because the arts today must be equipped to deal with the radical socio-economic and environmental changes that we are living through, from evolving audience behaviours to the relentless pressures of inflation and a boundless array of inequities. Additionally, arts organisations can no longer rely on pre-pandemic business models to sustain their survival, relevance and influence. Navigating these new challenges with a commitment to creative entrepreneurship, community relevance and social justice will be critical moving forward. This topic will focus on enabling students to adopt an entrepreneurial mindset to identify, frame and shape the developments, challenges and opportunities facing the cultural and creative industries today and in the near future. They will acquire conceptual and practical skills to address these challenges using a cultural economics approach and cultural value perspective, particularly within a Singapore context. Upon completion, students will better understand: (1) the dynamic development and competition of the arts as exceptional and creative economies in Singapore, (2) the ambidexterity required to support the creation of conducive conditions to develop works of art, creative goods and services, and (3) how to develop evidence-based insights and value-based strategies from existing empirical case studies and ventures. **This course will require preexisting arts management and Singapore art world knowledge.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24765,11 +24850,18 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ARTS008"],
   },
   ACM306: {
     name: "Arts, Culture and the Global City",
     moduleCode: "ACM306",
-    description: "DESCRIPTION_NEEDED",
+    description: `Across the globe, the arts and culture have been identified as key instruments for urban rejuvenation and global competitiveness. Asia is no exception – over the last twenty years, there has been a proliferation of large-scale arts and cultural infrastructure, as well as an energetic bubbling of artist-led initiatives in cities such as Singapore, Jakarta, Hong Kong and Seoul.
+
+    This course aims to explore the growing and diversified roles of “arts” and “culture” in contemporary urbanism, and to interrogate how categories such as “arts” and “culture” can transform cities. In particular, this course will focus on the changing spatial conditions and challenges of the arts and culture in Asia, with a focus on the role of Singapore in the region during this time of rapid change, global complexity and increasing austerity.
+
+    Through an analysis of a range of real-world case studies and experiential learning, students will critically consider questions such as: What are the roles of arts and culture in cities today? Can the arts and culture become key drivers of urban growth, enabling cities to forge and maintain global connections? Do they differentiate cities, and generate distinctive place-identities amidst a globalising world? How do art events and exhibitions like biennales influence cultural and city development, and give rise to more diverse, reflective and vibrant societies? Can the arts and culture create, reinforce and enhance sense of place and belonging in global cities, especially for the less privileged? What are some of the particularities and specificities of the arts within cities in the Asia-Pacific region?
+
+    Ultimately, this course aspires to provide students with a reflexive understanding of the unique arts ecologies in Asia, and a heightened appreciation of the significance of the arts to urban processes, practices and everyday life.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24792,5 +24884,6 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: { or: ["ACM214", "ACM301"] },
   },
 };
