@@ -708,43 +708,44 @@ export default function TimeTablePage({
       </div>
       {timetable.modules.length > 0 && (
         <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
-          {timetable.modules.map((mod) => (
-            <ModuleDetails moduleCode={mod.moduleCode} key={mod.moduleCode}>
-              <div className="flex w-full rounded bg-background p-4 shadow-sm">
-                <div className="w-fit">
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <div
-                        className="mr-2 mt-1 h-5 w-5 cursor-pointer rounded"
-                        style={{
-                          backgroundColor:
-                            TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
-                              ?.backgroundColor,
-                        }}
-                      ></div>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-fit">
-                      <div className="grid w-28 grid-cols-3 items-center justify-center gap-2">
-                        {TIMETABLE_THEMES[timetableTheme].map(
-                          (color, index) => (
-                            <div
-                              key={index}
-                              style={{ backgroundColor: color.backgroundColor }}
-                              className="size-8 cursor-pointer rounded"
-                              onClick={() => {
-                                changeColorOfModule(
-                                  termMap[params.termId as TermSlug],
-                                  mod.moduleCode,
-                                  index,
-                                );
-                              }}
-                            ></div>
-                          ),
-                        )}
-                      </div>
-                    </PopoverContent>
-                  </Popover>
-                </div>
+          {timetable.modules.map((mod, index) => (
+            <div
+              className="flex w-full rounded bg-background p-4 shadow-sm"
+              key={index}
+            >
+              <div className="w-fit">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div
+                      className="mr-2 mt-1 h-5 w-5 cursor-pointer rounded"
+                      style={{
+                        backgroundColor:
+                          TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
+                            ?.backgroundColor,
+                      }}
+                    ></div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-fit">
+                    <div className="grid w-28 grid-cols-3 items-center justify-center gap-2">
+                      {TIMETABLE_THEMES[timetableTheme].map((color, index) => (
+                        <div
+                          key={index}
+                          style={{ backgroundColor: color.backgroundColor }}
+                          className="size-8 cursor-pointer rounded"
+                          onClick={() => {
+                            changeColorOfModule(
+                              termMap[params.termId as TermSlug],
+                              mod.moduleCode,
+                              index,
+                            );
+                          }}
+                        ></div>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+              <ModuleDetails moduleCode={mod.moduleCode}>
                 <div className="flex-grow">
                   <p className="text-sm font-bold">
                     {mod.moduleCode} - {mod.name}
@@ -756,38 +757,39 @@ export default function TimeTablePage({
                       : "No exam scheduled"}
                   </p>
                 </div>
-                <div className="w-fit content-center">
-                  <div className="flex flex-row">
-                    <Button
-                      variant={"outline"}
-                      size={"icon"}
-                      className="rounded-r-none"
-                      onClick={() =>
-                        removeModuleFromTimetable(
-                          mod.moduleCode,
-                          termMap[params.termId as TermSlug],
-                        )
-                      }
-                    >
-                      <Trash2 />
-                    </Button>
-                    <Button
-                      variant={mod.visible ? "default" : "outline"}
-                      size={"icon"}
-                      className="rounded-l-none border-l-0"
-                      onClick={() => {
-                        toggleVisibility(
-                          mod.moduleCode,
-                          termMap[params.termId as TermSlug],
-                        );
-                      }}
-                    >
-                      {mod.visible ? <Eye /> : <EyeOff />}
-                    </Button>
-                  </div>
+              </ModuleDetails>
+
+              <div className="w-fit content-center">
+                <div className="flex flex-row">
+                  <Button
+                    variant={"outline"}
+                    size={"icon"}
+                    className="rounded-r-none"
+                    onClick={() =>
+                      removeModuleFromTimetable(
+                        mod.moduleCode,
+                        termMap[params.termId as TermSlug],
+                      )
+                    }
+                  >
+                    <Trash2 />
+                  </Button>
+                  <Button
+                    variant={mod.visible ? "default" : "outline"}
+                    size={"icon"}
+                    className="rounded-l-none border-l-0"
+                    onClick={() => {
+                      toggleVisibility(
+                        mod.moduleCode,
+                        termMap[params.termId as TermSlug],
+                      );
+                    }}
+                  >
+                    {mod.visible ? <Eye /> : <EyeOff />}
+                  </Button>
                 </div>
               </div>
-            </ModuleDetails>
+            </div>
           ))}
         </div>
       )}
