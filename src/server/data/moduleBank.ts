@@ -11143,7 +11143,14 @@ export const modules: ModuleBank = {
   IS463: {
     name: "Digital Technologies for Environmental Sustainability",
     moduleCode: "IS463",
-    description: "DESCRIPTION_NEEDED",
+    description: `The efficient management of our shared resources and the way we dispose of waste and pollutants are crucial to achieving responsible consumption and production. Encouraging industries, businesses and consumers to recycle and reduce waste is necessary, as is supporting consumers to move towards a more sustainable pattern of consumption. This forms the basis of SDG12: Responsible consumption and production, which includes the following targets1
+
+1.	Substantially reducing waste generation through prevention, reduction, recycling and reuse
+2.	Reduce food waste along the supply chains, retail and consumer levels
+3.	Ensure that people have the relevant information and awareness for sustainable development.
+
+Digital Technologies for Environmental Sustainability (in the Singapore context) is a hands on module which allows students to employ problem solving and prototyping skills using digital technologies to address the above targets. In addition to case studies of how the issue of Responsible consumption and production is tackled by various Singapore organizations, communities and businesses, they will also be exposed to design thinking, hardware and software prototyping, prototyping tools and technologes (IoT, Microcontrollers, App development, Artificial Intelligence) and will gain first hand experience in using these tools to prototype a solution to address a challenge statement around environmental sustainability.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11170,7 +11177,20 @@ export const modules: ModuleBank = {
   IS464: {
     name: "Data Analytics and Technology Guided External Course",
     moduleCode: "IS464",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is structured as a guided-by-instructor course with content provided by Google through the Google Career Certificates (hosted on online learning platform, Coursera) together with guidance and assessments by SMU. It incorporates industry or career certification in the undergraduate study to equip students with professional and technical skills.
+
+Data Analytics and Technology Guided External Course is part of the SMU-KPMG Analytics and Cloud Technology Work Study Program in partnership with Google. Students need to clear this course and its corresponding Google Career Certificate before embarking on a six-month work-study with KPMG. There are two certificates:
+1) Google Advanced Data Analytics Professional Certificate aims to give students the skillsets on translating data for insights, applying statistics, regression analysis and machine learning on complex data in order to draw conclusions and drive informed decision making; 
+2) Google IT Automation with Python Professional Certificate focuses on equipping students to use Python in automating common system administration tasks, troubleshoot, debug complex problems, and apply automation at scale using configuration management and the Cloud.
+
+NOTE! 
+This course is only open to students accepted into the SMU-KPMG Analytics and Cloud Technology Work Study Program in partnership with Google and enrollment will be done offline with e$20 deduction.
+All students accepted and enrolled in the Program will be awarded with Google Skills Ignition SG Scholarship to complete the Google Career Certificate.
+This is a Pass/Fail course and if F grade is awarded, it will be counted towards your GPA.
+
+For students taking Google Advanced Data Analytics Professional Certificate, IS217 Analytics Foundation is required as a co-requisite. 
+For students taking Google IT Automation with Python Professional Certificate, there is no pre-requisite.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11193,11 +11213,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS217"],
+    },
   },
   IS465: {
     name: "Quantum Computing in Financial Services",
     moduleCode: "IS465",
-    description: "DESCRIPTION_NEEDED",
+    description: `Quantum computing is now being realised at an ever-increasing pace. “Quantum advantage” has been demonstrated and the underlying technology continues to advance weekly. While everyone talks about the speed of quantum computers, the power of this technology is not just in how fast calculations can be performed but also how accurate. The overall objective of the course is to understand quantum computing, how it differs from classical computing and what the main applications are, now and in the future. Emphasis is placed on FinTech/Banking applications, e.g., trade, investments. Furthermore, you can experience programming real quantum computers and explore the quantum world.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11228,7 +11252,17 @@ export const modules: ModuleBank = {
   IS466: {
     name: "Digital Ethics for Responsible Computing",
     moduleCode: "IS466",
-    description: "DESCRIPTION_NEEDED",
+    description: `In a world where digital technologies are not just tools but extensions of our daily lives, their societal impacts are far-reaching yet still emerging. Past slogans like "move fast and break things" led tech companies to overlook harms, as evidenced by scandals involving user data misuse and workplace culture issues.
+There is now broader recognition that responsible innovation requires understanding potential risks and aligning with human values. But how can we ensure that technology advances in a manner that's ethical, sustainable, and beneficial for all?
+This timely course explores ethics in computing. Through case studies and frameworks, students will develop skills in critical and nuanced thinking about complex issues at the intersection of technology and society.
+What you will find in this course:
+Embracing Complexity: We won't seek single "right" answers. Instead, we'll foster a space for exploring multidimensional problems with interconnected tradeoffs, encouraging students to understand, appreciate, and engage with differing viewpoints.
+Skill Development: Students will practise not just theory but systematic analysis of real-world impacts, preparing them for the consequential decisions they may face in their future careers.
+Structured Exploration: The course is divided into two engaging parts. The first introduces fundamental concepts, while the second dives into contemporary dilemmas, exposing the tensions between responsible development and disruptive innovation.
+Respectful Discourse: A commitment to respectful dialogue is central to this course. We recognise the intricate and "messy" nature of real-world problems, with ramifications extending far into a dynamic and uncertain technological future.
+Distinct Focus on Technology: While courses like "COR3301 Ethics and Social Responsibility" provide a broad understanding of ethical conduct across various professions, this course specialises in the intersection of technology and ethics. This course targets the unique challenges of the digital age, equipping tech professionals with the nuanced understanding needed to navigate ethical dilemmas specific to computing, AI, and digital human rights. It's a tailored exploration for those aiming to align technological advancements with responsible decision-making.
+Empowering Future Leaders: By attuning students to ethical imperatives and responsible decision-making processes, this course prepares the next generation of tech professionals to navigate and guide technological progress in a manner that honours human values and serves the greater good.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11255,7 +11289,31 @@ export const modules: ModuleBank = {
   IS483: {
     name: "IS/SMT/C&L Project Experience (Applications)",
     moduleCode: "IS483",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will provide opportunity for BSc(IS) student to:
+
+Develop an IT system or proof of concept application that satisfies a list of functional and quality requirements. Student will work with a team and practice their requirements gatherings, analysis, design, implementation, testing, deployment and project management skills.
+Build the additional depth required to become a Business IT professional. This includes building up competence in the student's selected track, applying their learning domain knowledge and technology to the relevant track domain industry sector.
+Upon completion of the course, student will be able to:
+
+Showcase expertise in executing a project using knowledge acquired from the courses taken from the IS curriculum
+Experience developing of some technology deliverable for an IT system or proof of concept
+Experience working in a team environment with a sponsored project (internal, external or self-proposed) using project management skills experience throughout the courses taken in IS
+Learn about an industry or technology that is related to his selected track not otherwise available in the course curriculum.
+Work on complex and real project used by the project sponsor
+
+Details on the course are available in the course MS Teams sharepoint site. Please join by following the instructions below: 
+Visit https://teams.microsoft.com/_#/discover  and enter the invitation code 2f33cau under "Join a team with a code", and click "Join team"
+
+Prerequisites:
+- Be a year 3 or year 4 student . As you need sufficient coursework exposure to do a good job in your IS483, it is best to take it later in your curriculum. Taking IS485/IS483 in the first term of year 3 is discouraged.
+- A maximum of 4 (four) additional courses at SMU can be taken by a student in a term along with IS485/IS483/IS484.
+- You must work on one of the tracks declared for your first major. If you are taking dual track, you can align to either of the two tracks. You cannot drop the track to which you have aligned your IS483/ IS484/ IS485 project as it will affect your graduation pre-requisites.
+- IS483 projects can only be aligned to IS tracks and cannot involve tracks from other majors.
+- For BA / DCS / FT / SMT track students, you need to pass the following courses
+    - Software Project Management (IS212) is a co-requisite
+    - Any two (2) track courses. One of these courses can be a co-requisite.
+    - If the student drops the co-requisite courses in the same term that IS Project experience is being taken, the student will get an F for IS project experience.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11336,7 +11394,8 @@ export const modules: ModuleBank = {
   COR2415: {
     name: "Vietnamese",
     moduleCode: "COR2415",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This is an elementary language course designed for beginners who do not have an experience in the language, focusing on intensive oral communication practice, with the aim to develop basic oral expression, listening, comprehension and elementary reading and writing skills. The course is conducted in Vietnamese, comprising a series of activities, which includes: individual and group presentations, discussions, role-play and other class activities.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11368,7 +11427,11 @@ export const modules: ModuleBank = {
   COR2603: {
     name: "Singapore: Imagining The Next Fifty Years",
     moduleCode: "COR2603",
-    description: "DESCRIPTION_NEEDED",
+    description: `The course content is jointly developed by professors from the six local universities and will be delivered using a blended learning approach.
+
+Singapore is both a city and a country contained in a small geographical space located in Southeast Asia. It houses a diverse population in terms of race, language, religion, class and nationality. It possesses no natural resources, but has a highly educated labour force. Its economy has experienced significant growth rates, particularly in the late 70s and early 80s, coupled with low unemployment.
+
+Like most other more developed economies, it now confronts a range of socioeconomic issues (rapidly ageing population, declining fertility rates, widening income inequality, rising costs of living) amidst increasing global competition, technological advancements, and security threats. At the same time, Singaporeans have become more of a people with a stronger national identity, a greater propensity to participate in the decisions that affect the destiny of the country, and a wider range of views and voices on the future direction of Singapore, the challenges it confronts, and the strategies and means by which to achieve their preferred goal(s) for themselves, their children, and the country.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11449,7 +11512,8 @@ export const modules: ModuleBank = {
   COR2622: {
     name: "Asia and World Literature: Beyond Orientalism",
     moduleCode: "COR2622",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course surveys the complex cultural and political relationships that exist between Asia and World Literature, exploring how canonical works of prose, poetry and drama have been used (and continue to be used) to advance divergent imperialist, nationalist and intercultural goals. We begin by tracing the formation of ‘Orientalist’ stereotypes about Asia in World Literature, illuminating the role these texts played in the Western colonial project. Next, we interrogate how Asian nationalists and creative practitioners sought to move beyond these Orientalist tropes by adapting Shakespeare’s plays to create bold, new intercultural performances. We then dive into a range of canonical Asian texts and their contemporary adaptations. We ask what these texts can tell us about the connected political, cultural and technological histories of Asia and Europe; probe how these texts play shape our perceptions of racial, religious, national and gender differences; and ponder the place Singapore writers have in world literature today.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11512,7 +11576,7 @@ export const modules: ModuleBank = {
   "COR-ACM2629": {
     name: "ACM2629 , Art & History: Beginnings to Revolutions",
     moduleCode: "COR-ACM2629",
-    description: "DESCRIPTION_NEEDED",
+    description: `Art has inspired and fascinated people all over the world since the beginning of time. Since the early cave art produced more than thirty thousand years ago, every civilisation has captured its exploits, concerns and everyday life in vases, murals, sculptures, paintings and monuments. Art has always been an enduring product of human creativity, symbolic communication, and emotional expression that exists in an intriguing intersection between past and present historical contexts. This course introduces students to major developments in art history in the Western World, which has and continues to form a key reference system in today’s art world. This course will focus on key periods and movements affecting the production of art until the 19th century, particularly Ancient Mesopotamia and Egypt, Greece, Rome, the Middle Ages and the Renaissance. Emphasis will be placed on the relationships between art and its historical, religious and socio-political contexts, and the effects on the definitions, styles, practices and communities of art.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11543,7 +11607,8 @@ export const modules: ModuleBank = {
   "COR-COMM1312": {
     name: "COMM1312 , Communication Strategies in the Digital Age",
     moduleCode: "COR-COMM1312",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Management Communication equips students with strategies that will enable them to successfully communicate their solutions to organizational problems. Since the course emphasizes the importance of effective written and spoken communication within a business setting, students will be exposed to strategies that will enable them to communicate their ideas and values in a clear, persuasive and memorable way. Students will, therefore, learn the art of producing impactful business documents and delivering engaging presentations in various business contexts. By the end of the course, students will be able to function as proficient communicators who are ready to embrace the communicative challenges inherent in today’s dynamic business environment.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11588,7 +11653,8 @@ export const modules: ModuleBank = {
   "COR-COMM1313": {
     name: "COMM1313 , Intercultural Communication",
     moduleCode: "COR-COMM1313",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The course provides strategies on how to read a person’s culture as well as corporate culture. Features of culture such as individualism and collectivism, masculinity and femininity, power distance and issues related to intercultural adaptation, ethnocentrism, stereotyping and prejudice will be discussed. The aim of this course is to develop intercultural competencies, which will make business practices more meaningful and significant.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11651,7 +11717,8 @@ export const modules: ModuleBank = {
   "COR-COMM2246": {
     name: "COMM2246 , Storytelling with AI",
     moduleCode: "COR-COMM2246",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Human beings have been telling stories for centuries. But now, Generative AI is making it possible for people to seamlessly bridge the gap between a story idea and its execution. This course will teach you how to combine the science of storytelling with Generative AI tools to create compelling and impactful stories for organizations and brands, so as to engage, persuade, and inspire audiences. In addition, you will have the opportunity to apply what you have learnt to a real-time, real-world client project.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11696,7 +11763,7 @@ export const modules: ModuleBank = {
   "COR-GA2248": {
     name: "GA2248 , Anthropocene Asia",
     moduleCode: "COR-GA2248",
-    description: "DESCRIPTION_NEEDED",
+    description: `The Anthropocene, derived from the Ancient Greek terms for human "anthropo" and new "-cene," has gained widespread interest through assessing the irrefutable characteristics and impact of human activities on global ecology. This interdisciplinary course seeks to situate the Anthropocene in Asia by exploring its impact on the region's politics, markets, societies, and selves. We will primarily draw on the fields of environmental studies, anthropology, cultural studies, history, geography, and sociology to critically examine the multifaceted dimensions of the Anthropocene in the region. In this course, we will explore contemporary debates around climate change, capitalism, biodiversity, and political and cultural ecology to understand the complex and interrelated challenges posed by these issues. In doing so, it will challenge us to rethink what it means to live, be, and thrive in the Anthropocene Asia. This course invites students to go beyond disciplinary paradigms and consider how emerging issues in the Anthropocene demand new ways of thinking, learning, and acting. Ultimately, we aim to foster a critical awareness of the Anthropocene and its impact on Asia, and to explore possibilities for sustainable and equitable futures.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11728,7 +11795,8 @@ export const modules: ModuleBank = {
   "COR-GA2635": {
     name: "GA2635 , Contemporary Asia: Power, Diversity & Change",
     moduleCode: "COR-GA2635",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Home to around forty percent of the world's population, Asia is a region of extraordinary natural, cultural, economic, and socio-political diversity. It is characterised by both patterns of continuity across time and space, as well as far-reaching and rapid social and physical change. This course surveys a variety of contemporary trends and challenges found across Asia. By exploring weekly themes such as urbanisation, transnational migration, civil society and social movements, religious politics, security issues, environmental degradation, geopolitics and the role of China, economic growth and disparity, and regional structures like ASEAN and SAARC, students will gain a deeper understanding of the complex dynamics of contemporary Asian societies. At some points in this course we will approach ‘Asia’ with a wide-lens, taking global, transnational, and regional perspectives, while at other times we will zoom in to particular experiences at a national or sub-national level. This is a survey course, and while students will be exposed to a wide range of issues relevant to contemporary Asia, they will also be encouraged to delve deeper into one or two select topics that are of particular interest to them.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11759,7 +11827,8 @@ export const modules: ModuleBank = {
   "COR-GA2636": {
     name: "GA2636 , Managing Diversity in Asia",
     moduleCode: "COR-GA2636",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course explores various models in managing diversity in Asia. It examines forms of ‘difference’ such as ethnicity, religion and sexuality, and policy frameworks are important for multicultural societies. The course critically engages with the debates within scholarship of multiculturalism that encourages a theoretically-informed approach towards a range of empirical examples from Europe, North America and Asia. The analysis of empirical examples enables the consideration of demographic, cultural and ideological particularities, as well as nation-building efforts that vary across historical and geographical environments. This context-driven approach will also be taken towards the analysis of contemporary policy issues including citizenship, education and employment, including current debates such as disability in education and the ‘headscarf affair’. The course also includes an applied component which allows students to put the theories to use and to experience how to deal with diversity through three dialogue sessions outside the campus.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11786,7 +11855,8 @@ export const modules: ModuleBank = {
   "COR-GA2641": {
     name: "GA2641 , India in the World: Traditions and Transitions",
     moduleCode: "COR-GA2641",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The flow of, products, practices and ideas, and into India from the rest of the world, and from India into Asia, especially, and around the world have contributed considerably to the country’s current economic and political state and its position in the world. This course introduces students to Indian beliefs and cultural traditions in the context of the global forces that have shaped the country over millennia. Religious and philosophical traditions, visual and performing art theory and practice, culinary methods, language and literature, film and television trends of the diverse subcontinent are examined in the context of a globalized world. The course also looks at 21st century India and its soft power globally.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11813,7 +11883,8 @@ export const modules: ModuleBank = {
   "COR-INTS2240": {
     name: "INTS2240 , Climate Change: Past, Present and Future",
     moduleCode: "COR-INTS2240",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This multi-disciplinary course offers critical perspectives into the subject of climate change. Co-taught by experts in the fields of climate science, social science, and the humanities, it provides critical insights into the deep contexts of modern climate change, the complex relationship between climatic changes and humanity and, will introduce students to how different disciplinary perspectives can be utilised for understanding complex modern problems. Subjects include the history of climate science, understanding climate change as a complex problem, the role and efficacy of modern-day organisations in tackling climate change, and specific climate-induced challenges facing humanity, such as urban heat and extreme weathers. The multidisciplinary approach will demonstrate how each individual discipline offers powerful frameworks and tools to understand and engage with climate change in all its complexity.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11858,7 +11929,10 @@ export const modules: ModuleBank = {
   "COR-JPAN2401": {
     name: "JPAN2401 , Japanese",
     moduleCode: "COR-JPAN2401",
-    description: "DESCRIPTION_NEEDED",
+    description: `Japanese is designed for students with no previous background in Japanese. This course provides an introduction to the four skills of language: speaking, listening, reading and writing, as well as Japanese culture. Our emphasis is on oral communication skills in basic survival situations in a Japanese speaking environment. Hiragana, Katakana (Japanese scripts) and approximately 50 Kanji (Chinese Characters) to enhance reading and writing skills will also be introduced.
+
+IMPORTANT: You must be a complete beginner. Please contact the instructor if you have any background in Japanese. You will be required to sign a form to declare that you are a complete beginner, and any false statement will lead to ‘F’ grade.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11936,7 +12010,8 @@ export const modules: ModuleBank = {
   "COR-KREA2402": {
     name: "KREA2402 , Korean",
     moduleCode: "COR-KREA2402",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides participants with Korean speaking, listening, reading and writing skills necessary to communicate and integrate confidently in a Korean speaking environment. In particular, participants will be able to understand and carry out basic Korean conversation such as greetings, making and answering basic queries, exchanging information on everyday life and discussing topics of general interest. In addition, participants will be provided many opportunities to experience Korean culture first hand.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12014,7 +12089,9 @@ export const modules: ModuleBank = {
   "COR-LAW2225": {
     name: "LAW2225 , Governing for Sustainable Futures",
     moduleCode: "COR-LAW2225",
-    description: "DESCRIPTION_NEEDED",
+    description: `
+We live in a hyperconnected world – ecosystems and societies are linked like never before. This occurs through the movement of people, goods and products and the transfer of capital and information. At the same time, there is mounting appreciation of the need to address issues of equity and sustainability concurrently. To adequately understand, and ultimately to govern and regulate, for equitable-sustainability there is the need to identify and appreciate the complex feedbacks across activities of multiple individual, government and corporate actors across scales from the global to the local. This interdisciplinary course equips students with a grounding in concepts from the biophysical sciences, social sciences, law and governance. It focuses on key social, ecological and economic concerns in the context of biodiversity and climate change. By introducing students to systems and futures approaches it enables students to engage in sustainable and equitable governance for more desirable tomorrows.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12045,7 +12122,8 @@ export const modules: ModuleBank = {
   "COR-LAW2235": {
     name: "LAW2235 , Sustainable Ocean Law and Governance",
     moduleCode: "COR-LAW2235",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The aim of this course is to introduce students to law, policy and institutions on sustainable management of the world’s oceans. It first introduces the UN Sustainable Development Goals and its relevance with the ocean. The course then provides a comprehensive study of international law regulating major human activities at sea, such as shipping, fisheries, marine energy, mining and marine scientific research. The course will lay foundations for students to imagine a future governance regime that could secure a healthy ocean for humanity.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12076,7 +12154,8 @@ export const modules: ModuleBank = {
   "COR-LAW2237": {
     name: "LAW2237 , Introduction to Sustainability Law",
     moduleCode: "COR-LAW2237",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In recent years, sustainability has become a popular buzzword in society. The need for sustainable development is quickly emerging as an area of focus among businesses, organisations, governments and the media. This course will introduce students to the fascinating environmental, economic and social dimensions and intersections for sustainability and various streams of law and policy. Students will gain exposure to a range of current developments involving sustainability locally and globally, while reflecting on current laws and policies that address them. This course serves as a good stepping stone to the more in-depth exploration of selected sustainability issues in other electives, such as LAW4052 Sustainable Ocean Law and Governance and COR-LAW2225 Governing for Sustainable Futures.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12107,7 +12186,8 @@ export const modules: ModuleBank = {
   "COR-LAW2242": {
     name: "LAW2242 , Digital Media Governance: Law, Policy and Practice",
     moduleCode: "COR-LAW2242",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In recent years, sustainability has become a popular buzzword in society. The need for sustainable development is quickly emerging as an area of focus among businesses, organisations, governments and the media. This course will introduce students to the fascinating environmental, economic and social dimensions and intersections for sustainability and various streams of law and policy. Students will gain exposure to a range of current developments involving sustainability locally and globally, while reflecting on current laws and policies that address them. This course serves as a good stepping stone to the more in-depth exploration of selected sustainability issues in other electives, such as LAW4052 Sustainable Ocean Law and Governance and COR-LAW2225 Governing for Sustainable Futures.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12138,7 +12218,8 @@ export const modules: ModuleBank = {
   "COR-LAW2243": {
     name: "LAW2243 , Legal Technology, Operations and Digital Justice",
     moduleCode: "COR-LAW2243",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Legal technology, operations, and artificial intelligence are not just future trends; they are currently being utilised by organisations across the legal industry to enhance efficiency, effectiveness, and service quality. This course introduces students to the intersection of law and technology, emphasising the integration of digital tools in legal practice, operations, and the pursuit of digital justice. Students will examine the market forces driving innovation and explore use cases from law firms, in‐house legal departments, the judiciary, and legal technology startups. They will investigate how artificial intelligence and automation are transforming legal processes, access to justice, and the regulatory frameworks governing these changes. Through practical case studies, interactive projects, and comprehensive instruction, participants will gain insights into the business context and regulatory environment for developing digital legal services.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12169,7 +12250,8 @@ export const modules: ModuleBank = {
   "COR-LAW2630": {
     name: "LAW2630 , Introduction to Chinese History, Culture, Economy, Politics and Law",
     moduleCode: "COR-LAW2630",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students’ understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12196,7 +12278,8 @@ export const modules: ModuleBank = {
   "COR-LAW2640": {
     name: "LAW2640 , EU,ASEAN Law and Relations",
     moduleCode: "COR-LAW2640",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will explore interdisciplinary issues in EU-ASEAN law and relations. The EU and ASEAN are among the world’s most advanced regional structures, representing distinct models of integration. Since the 1980s, the evolution of EU-ASEAN relations has offered valuable insights into the multifaceted concept of interregionalism in international law and relations. ASEAN became a priority in the EU’s Asia policy agenda following the Treaty of Lisbon, and the European Commission’s 2015 “Trade for All” strategy articulated an ASEAN approach based on individual agreements, culminating in a region-to-region framework. The recent conclusion of the EU’s trade and investment agreements with Singapore and Vietnam reinforces this incremental approach towards realising the EU-ASEAN free trade agreement. Amidst China’s changing status, the impasse in WTO negotiations, and the COVID-19 pandemic, EU-ASEAN legal frameworks and relations have gained prominence on the global stage. In 2020, the two blocs upgraded their “Dialogue Partnership” to a “Strategic Partnership,” which aimed at enhancing economic and security cooperation, sustainable connectivity, and development. In 2021, the EU’s Indo-Pacific strategy underscored its engagement with the ASEAN-led regional architecture, particularly in light of the economic and political impact of the CPTPP and RCEP. In this SMU-X course, students will explore EU and ASEAN institutions and examine the EU’s new Indo-Pacific strategy from legal and political perspectives. The course will specifically evaluate EU-ASEAN economic agreements and focus on cutting-edge areas such as trade and investment liberalisation, AI and digital trade, and sustainable development. Students will gain practical experience by collaborating with legal and policy experts to tackle real-world challenges. Please note: This course does not include an overseas trip and does not meet SMU’s global exposure requirement. However, students will visit EU and/or ASEAN institutions in Singapore and engage in projects with legal and policy experts specialising in EU-ASEAN law and relations. The course will also incorporate SMU’s blended learning approach, which may include some online sessions. The grade will be on a pass/fail basis.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12223,7 +12306,8 @@ export const modules: ModuleBank = {
   "COR-MAND2404": {
     name: "MAND2404 , Mandarin",
     moduleCode: "COR-MAND2404",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is design to equip you with elementary knowledge of the structure of Han Yu Pin Yin and the correct usage of vocabulary and grammar in daily conversation. Empowered with this knowledge and with the help of Chinese dictionary, you will be able to read all Chinese characters and pronounce them accurately. These skills provide a foundation in the usage of computer to enter Chinese characters.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12250,7 +12334,11 @@ export const modules: ModuleBank = {
   "COR-MGMT2207": {
     name: "MGMT2207 , Innovations for Asia’s Smart Cities",
     moduleCode: "COR-MGMT2207",
-    description: "DESCRIPTION_NEEDED",
+    description: `The world is rapidly urbanizing. More and more cities around the world are becoming increasingly popular as economic powerhouses and magnets for migrants from the countryside, suburban areas and other parts of the world. All big cities in both First and Third World countries as well as emerging markets such as New York, London, Tokyo, Paris, Shanghai, Hong Kong, Singapore, New Dehli, Jakarta etc. have to cope with high population density and serious challenges such as air pollution or traffic congestion. How do we pack more people into big cities and yet continue to achieve a high quality of life? How do we create and manage ‘good cities’ which are safe, spacious, green, connected, fair and resilient? How can cities create economic wealth while still fulfilling the CSR responsibilities of sustaining a “Green Planet”? What are the best practice designs and technical smart city solutions which could be leveraged to tackle these challenges and how can they be successfully commercialised? This course will provide answers to these questions with special emphasis on the managerial and commercial aspects of smart city concepts.
+
+The key lies in creating and effectively managing innovative and sustainable, smart cities able to leverage on new technologies such as smart grids or sensor networks to create a place where people can live, play and work well. Starting from the stakeholder requirements of citizens and planners of innovative cities, the course will introduce students to urban design concepts as well as commercialization, management challenges and implementation issues of the smart city model. There will also be a focus on how good governance and enabling technologies such as sensor networks can facilitate the creation, management and sustainability of ‘good’ cities.
+
+With the help of case studies and resource persons such as industry leaders, innovative city designers, tech experts and business development experts from local and int. companies such as ST Electronics, JTC, Jurong Consultants, Frost & Sullivan, IDA International, Urban Redevelopment Authority (URA) etc., students will be familiarized with the opportunities and challenges of the ‘smart city business’ which represents a key element in the value creation and extraction strategy of the Singapore Government and related businesses.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12277,7 +12365,8 @@ export const modules: ModuleBank = {
   "COR-MGMT2238": {
     name: "MGMT2238 , Doing Business with Artificial Intelligence",
     moduleCode: "COR-MGMT2238",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "More and more business organizations are using A.I. technologies such as predictive analytics, deep learning or sentiment / image analysis to identify patterns and trends in vast reams of (big) data, allowing them to make ‘smarter’ decisions (e.g. about loss of customers or the necessary service inspection of equipment) and potentially to become more competitive in real-time. As A.I. technology is already surpassing human decision-making in certain instances, there is growing concern about ‘uncontrolled A.I.’ in business and society, incl. regulatory and ethical-legal challenges. Against this background, this new course aims to equip students with foundational, theoretical and practical knowledge about A.I. driven business applications in selected private and public sector organizations. Besides reconstructing the history of artificial intelligence from the 1960s to the current era (as well as a refresher about the basics of computer science algorithms such as audio and video compression algorithms), we will put emphasis on explaining the A.I. driven business models of several top international and local organizations. In order to appreciate the power of A.I. technology, we will take a closer look ‘under the A.I. hood’ to understand what makes machine learning, deep learning, neural networks and image analysis tick. Visits to A.I. powered business organizations engaged in customer service management, finance, marketing, supply chain management or manufacturing will be organised aimed at appreciating both the benefits and downside of A.I. Students graduating from this course will be equipped with critical competencies to solve real-world business problems using A.I. technology while simultaneously casting a critical eye on the morality and ethics of commercialising A.I.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12304,7 +12393,8 @@ export const modules: ModuleBank = {
   "COR-OBHR2247": {
     name: "OBHR2247 , The Science and Practice of Mindfulness at Work",
     moduleCode: "COR-OBHR2247",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Our world is characterized by the phenomena of VUCA (volatility, uncertainty, complexity, ambiguity) and overload (of attention, information, stimulation, and work). This affects our attention, emotions, cognitions, well-being, functioning, and performance. It challenges our ability to flourish, to both feel well and do well. In this course, we explore the science and practice of mindfulness as a way of flourishing at work and in life. Mindfulness-based practices are rooted in Eastern contemplative traditions but have been adapted to a secular, modern context. A large amount of research has accumulated, showing that such mindfulness-based practices confer numerous benefits both for well-being and functioning, including at the workplace. “Mindfulness at work” has two meanings in this course: First, we will focus on mindfulness in the context of work and organizations. Second, we will incorporate mindfulness practices such as mindfulness meditations into the course itself. Thus, in this course, we will examine both the science as well as the practice of mindfulness. For the science aspect, we will read and discuss scientific research studies on mindfulness related to each of the course topics. For the practice aspect, we will engage in mindfulness practices based on established and carefully designed secular mindfulness trainings. The practice aspect is integral to this course and students will be required to commit about 20-45 minutes daily to these practices. Evidence suggests that the practices can help individuals feel and function better and are a good investment of the students’ time.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12331,7 +12421,8 @@ export const modules: ModuleBank = {
   "COR-POSC2604": {
     name: "POSC2604 , Politics of South East Asia",
     moduleCode: "COR-POSC2604",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines contemporary politics in Southeast Asia, with a focus on events since 1970. The course begins by reviewing the impact of colonialism and historical trajectories on contemporary politics. We then move to a focus on the specific eleven countries in the region, tracing key political events, outlining the impact of leaders, reviewing the patterns of political contestation and providing a foundation of the structure of governments. In the final part of the course we focus on specific issues and challenges, including the role of leaders, dynamics within political institutions, development, civil society, conflict and human rights, ASEAN, foreign policy and regional security. This course provides a valuable foundation for understanding Southeast Asia and is recommended for any student interested in learning about the region.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12380,7 +12471,8 @@ export const modules: ModuleBank = {
   "COR-PPPM2233": {
     name: "PPPM2233 , From Numbers to Narratives: Evidence in Modern Policy,making",
     moduleCode: "COR-PPPM2233",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In today's fast-paced and interconnected world, policy challenges are multifaceted and often transcend traditional boundaries. Governments worldwide are tasked with navigating this complexity, requiring an evolved approach to policy-making and the incorporation of diverse forms of evidence. This course adopts an interdisciplinary, practitioner-focused perspective, exploring the diverse landscape of evidence and its role in innovative policy-making. Through an examination of case studies from various policy areas and different countries, we delve into how governments and public organizations use multiple types of evidence, from traditional statistical data to intuition and experiential insights, to formulate impactful policies. Our exploration encompasses both technical tools like Python and Tableau, as well as thought frameworks like scenario thinking and futures thinking, providing a holistic view of the evidence-policy nexus. We will investigate the role of different stakeholders in the policy-making process, emphasizing the concept of co-creation within the Singapore context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12411,7 +12503,8 @@ export const modules: ModuleBank = {
   "COR-PSYC2638": {
     name: "PSYC2638 , Subjective Well,Being",
     moduleCode: "COR-PSYC2638",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Subjective well-being (SWB) refers to individuals’ evaluations and experiences of the quality of their lives in terms of how they think and feel, so it involves both cognitions and emotions. At the general level, we can construe SWB as the relative presence of positives and absence of negatives. However, what are these positives and negatives, how do they combine and inter-relate, and why and how do they matter? The psychological study of subjective well-being attempts to address these questions using an evidence-based approach grounded in the scientific method and the empirical research on the constructs, causes, correlates, and consequences of SWB. The goal of this course is to introduce students to the scientific literature and psychological study of SWB. Although the primary focus is on SWB at the individual level due to the inherently subjective nature of the construct, we will also discuss issues and implications in the contexts and levels beyond the individual such as the team, organizational or national levels.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12442,7 +12535,8 @@ export const modules: ModuleBank = {
   "COR-SOCG2637": {
     name: "SOCG2637 , Deconstructing Singapore Society",
     moduleCode: "COR-SOCG2637",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Singapore is a fascinating subject of sociological inquiry. Constructing Singapore’s history remains a struggle against competing notions of the state as a tool of British colonialism, an adjunct of Malaysia before its untimely expulsion, immigrants’ lay-over and Lee Kuan Yew’s political success. Since independence, Singapore’s leaders lament its lacking natural resources to justify their “pragmatic” management of the everyday lives of Singaporeans, including speech, educational environment, sexuality, religious expressions, ethnic identity and political culture, at the expense of citizens’ rights. Populated dominantly by ethnic Chinese with Malays and Indians as minorities, yet geographically surrounded by Muslim-majority nations have made the ruling PAP reluctant to observe multiracialism in governance policies which compromises the nation-building project. Presently, forces of globalisation threaten the state’s monopoly over political space and ideologies. This module targets students interested in developing a critical appreciation of the socio-economic and political contexts that structure Singaporeans’ daily lives. It highlights critical historical circumstances that shape Singapore’s post-independent governance policies, political discourses and contemporary development as a nation-state. It sharpens students’ sociological imagination as they deconstruct political ideologies to grasp alternative interpretations of the development of Singapore society and make sense of contemporary issues of importance in Singapore and to Singaporeans.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12474,7 +12568,8 @@ export const modules: ModuleBank = {
   "COR-SSOC2227": {
     name: "SSOC2227 , Sustainability and Society",
     moduleCode: "COR-SSOC2227",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This core module focuses on providing students with fundamental proficiency of concepts and key frameworks of sustainability and how they apply to the multifaceted issues linking climate change, environment and society. The course will introduce students to key frameworks such as the UN Sustainable Development Goals (SDGs), the UN Sustainable Development Agenda 2030, the Paris Agreement and relevant developments concerning net zero principles in the public and private sector. Beyond this overview, the course will focus on specifically on 6 SDGs and their interlinkages reflecting the sustainability research and pedagogy emphases at SOSS. Namely, these are Climate Action, No Poverty, Good Health & Wellbeing, Reduced Inequalities, Zero Hunger and SDG Partnershps. Furthermore, the course will use case studies and key examples from whole-of-nation sustainability policies such as the SG Green Plan 2030 and energy transitions in Asia, which directly reflect the adoption of these frameworks. As part of the instruction on key climate-literacy concepts such as mitigation, adaptation and resilience, the course will emphasize topics reflecting the social dimensions of environmental sustainability related to access to water, food, energy, social vulnerabilities and disaster risk. Practical knowledge of social enterprises and triple bottom line approaches will be covered through key readings and examples discussed in class.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12506,7 +12601,8 @@ export const modules: ModuleBank = {
   "COR-THAI2403": {
     name: "THAI2403 , Thai",
     moduleCode: "COR-THAI2403",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The basic Thai language course aims to provide students with a good foundation of Thai pronunciation, grammar and vocabulary. This course will introduce students to Thai alphabet, vowels and tones, and teach students to construct sentences using basic vocabulary and expressions commonly used in daily communication situation. The students will develop the four language skills of listening, speaking, reading and writing.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12551,7 +12647,8 @@ export const modules: ModuleBank = {
   COR2212: {
     name: "Epidemics , Biomedicine and Global Health",
     moduleCode: "COR2212",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The past 20 years have seen several epidemics and pandemics: 2003 SARS, 2009 Flu Pandemic, the continuing Ebola outbreaks since 2014, and now, COVID-19. Discussions about preparedness for an outbreak abound and systems of biological research, biomedical interventions, and global health measures are implemented to contain and resolve an outbreak. Governments and communities respond by suspending some privileges as scientists and institutions fast-track therapeutic solutions. While these events may feel “unprecedented,” epidemics have occurred in the past. The key is to understand what has changed and what has remained similar. This course examines epidemics from the perspectives of history of biomedicine, global health, and the life sciences. Understanding the history of epidemics will help us attain a comprehensive understanding about what epidemics actually are. This knowledge will also aid in our social responses to COVID-19 in our everyday lives, chart informed biomedical interventions and potential socio-political actions. We will explore questions such as, How have epidemics shaped society? How did the biomedical practices around epidemics arise? Are vaccines really the “magic bullet” to solve all of our problems?",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12614,7 +12711,8 @@ export const modules: ModuleBank = {
   COR2220: {
     name: "Digital Law and Technological Innovations",
     moduleCode: "COR2220",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is dedicated to curious laypersons. In your professional life after graduation, whatever your chosen field, you will face two certainties. First, a professional matter which involves machine learning or the Blockchain. Second, you will work with a lawyer! This course gives you a toolkit, a shorthand for constructive dialogue with a lawyer’s concerns, to solve your problems within your domain expertise. Consider this example: what is your understanding of a “token”? A banker might think about asset ownership records, and link a “token” to “accounts”. To a programmer, a “token” could be a technical standard for a fungible unit of value on the Blockchain. In contrast, a lawyer understands a “token” based on legislation or judge-made law. Significantly, lawyers have an exclusive right to advocate for all your professional interests in a court of law. This course will cover legal reactions to technological innovations in the Fourth Industrial Revolution. We will examine case studies in Artificial Intelligence and Blockchain concerning, for instance, autonomous vehicles and smart contracts, which are dumb contracts. Lawyers are trained to shape these realities with words by manipulating natural language. You will understand how – and why - lawyers convert the realities of algorithms and codes into legalese to mitigate harm against persons, to aid commercial growth and resolve its disputes.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12645,7 +12743,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides the student with a basic understanding of accounting as "the language of business". It introduces students to the basic concepts, principles, procedures and approaches underlying the accounting process. This basic understanding facilitates the interpretation of financial information, which is necessary for making business decisions.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12874,7 +12973,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces cost and management accounting topics to enable students to understand how accounting information is used to manage an organisation. It focuses on the factors that differentiate one company from another. The course will look at various functional areas within the firm, ranging from manufacturing to marketing, and from accounting to human relations. In addition, the concept of management, how senior managers plan, implement and control those plans through people will be briefly discussed. The course will enhance students' personal skills in preparation for more advanced courses at the university in the following ways: working in groups, analysing cases, writing reports, and making presentations.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13049,7 +13149,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces cost and management accounting topics to enable students to understand how accounting information is used to manage an organisation. It focuses on the factors that differentiate one company from another. The course will look at various functional areas within the firm, ranging from manufacturing to marketing, and from accounting to human relations. In addition, the concept of management, how senior managers plan, implement and control those plans through people will be briefly discussed. The course will enhance students' personal skills in preparation for more advanced courses at the university in the following ways: working in groups, analysing cases, writing reports, and making presentations.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13188,9 +13289,13 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines corporate reporting issues and accounting standards as well as the analysis and interpretation of financial statements and reports prepared under those standards. The objective is to attain technical and analytical proficiency in preparing and using financial reports of companies, whether as accountants, auditors, managers, financial analysts or investors. Topics covered include: financial reporting framework and environment, accounting standards and disclosure requirements, quarterly reporting, accounting changes, classification of income, introduction to consolidated statements and accounting for investments in associates and joint ventures, financial statement analysis, credit risk analysis and bankruptcy prediction, equity valuation, leases and other off-balance sheet financing, capitalisation of borrowing costs, revenue recognition, intangible assets, impairment of assets, segment reporting, events after balance sheet date, provisions and contingencies.",
     credit: 1,
     terms: ["Term 2"],
+    preReq: {
+      or: ["ACCT101"],
+    },
     sections: [
       {
         code: "G1",
