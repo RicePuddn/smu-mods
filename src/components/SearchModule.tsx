@@ -55,6 +55,16 @@ export function SearchModule({
                 setFocused(false);
               }
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                setInputValue("");
+              } else if (e.key === "Enter") {
+                if (searchResults[0]) {
+                  handleModSelect(searchResults[0]);
+                  setInputValue("");
+                }
+              }
+            }}
           />
         </div>
         {!showResults ? (
