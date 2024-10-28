@@ -8,7 +8,7 @@ export type ExtendedSchoolEvent = SchoolEvent & {
 };
 
 export type EventStoreAction = {
-  addEvent: (event: SchoolEvent) => void;
+  addEvent: (event: ExtendedSchoolEvent) => void;
   removeEvent: (eventId: string) => void;
 };
 
@@ -22,7 +22,7 @@ export const createEventStore = () => {
       (set) => ({
         events: [],
         addEvent: (event) => {
-          const id = Math.random().toString(36);
+          const id = event.id ?? Math.random().toString(36);
           set((state) => ({ events: [...state.events, { ...event, id }] }));
         },
         removeEvent: (id) =>
