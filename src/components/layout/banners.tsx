@@ -63,7 +63,7 @@ export function Banners() {
             <div className="w-full overflow-hidden">
               <Marquee
                 pauseOnHover
-                onCycleComplete={() =>
+                onFinish={() =>
                   setCurrentBannerIndex((orig) =>
                     orig + 1 >= activeBanners.length ? 0 : orig + 1,
                   )

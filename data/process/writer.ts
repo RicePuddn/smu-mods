@@ -89,10 +89,6 @@ export async function processModuleHtml(
           sections: module.sections ?? [],
         };
       }
-
-      // Replace dateTime fields in a structured way to avoid unterminated string issues
-
-      // Write the updated module bank to the output file
     }
   });
   const outputFilePath = path.join(
