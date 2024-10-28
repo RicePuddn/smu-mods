@@ -9679,7 +9679,7 @@ export const modules: ModuleBank = {
       },
     ],
     preReq: {
-      or: ["COR1201"],
+      or: ["COR1201", "COR1202"],
     },
   },
   CS106: {
@@ -15229,7 +15229,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       },
     ],
     preReq: {
-      or: ["COR1201"],
+      or: ["COR1201", "COR1202"],
     },
   },
   ECON107: {
