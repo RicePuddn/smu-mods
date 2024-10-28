@@ -36,7 +36,7 @@ export default function CourseCatalogue() {
 
   const [selectedCategories, _setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState<"name" | "credit">("name");
+  const [sortBy, setSortBy] = useState<"name" | "code">("name");
   const [filterByFavorites, setFilterByFavorites] = useState(false); // Toggle to filter by favorites
 
   // Function to get all modules in a selected category
@@ -74,7 +74,7 @@ export default function CourseCatalogue() {
       if (sortBy === "name") {
         return a.name.localeCompare(b.name);
       } else {
-        return a.credit - b.credit;
+        return a.moduleCode.localeCompare(b.moduleCode);
       }
     });
 
@@ -133,10 +133,10 @@ export default function CourseCatalogue() {
               Name
             </DropdownMenuCheckboxItem>
             <DropdownMenuCheckboxItem
-              checked={sortBy === "credit"}
-              onCheckedChange={() => setSortBy("credit")}
+              checked={sortBy === "code"}
+              onCheckedChange={() => setSortBy("code")}
             >
-              Credit
+              Module Code
             </DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>

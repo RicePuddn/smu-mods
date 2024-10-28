@@ -28,6 +28,7 @@ export type ConfigAction = {
   dismissWarning: () => void;
   refreshBanners: () => void;
   changeAppVersion: (newVersion: string) => void;
+  setAppVersion: (newVersion: string) => void;
   dimissNavigationPopup: () => void;
 };
 
@@ -117,6 +118,9 @@ export const createConfigBank = (
         },
         changeAppVersion: (newVersion) => {
           Logger.log("Changing app version to", newVersion);
+          set({ appVersion: newVersion });
+        },
+        setAppVersion: (newVersion) => {
           set({ appVersion: newVersion });
         },
         dimissNavigationPopup: () => {
