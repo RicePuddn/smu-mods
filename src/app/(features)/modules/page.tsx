@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, NotebookPen, Star, StarOff } from "lucide-react";
+import { toast } from "sonner";
 
 import type { Term, Year } from "@/types/planner";
 import type { Module } from "@/types/primitives/module";
@@ -197,8 +198,8 @@ export default function CourseCatalogue() {
                 key={module.moduleCode}
               >
                 {/* <div className="mb-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 shadow-md shadow-transparent transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-primary"> */}
-                <div className="hover:border-1 m-4 grid transform cursor-pointer items-center justify-between rounded-lg border p-4 transition-all duration-200 hover:-translate-y-1 hover:border-sky-950 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)] dark:border-slate-500 dark:hover:border-white dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.6)] md:grid-cols-3">
-                  <div className="col-span-2">
+                <div className="hover:border-1 m-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 transition-all duration-200 hover:-translate-y-1 hover:border-sky-950 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)] dark:border-slate-500 dark:hover:border-white dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.6)]">
+                  <div className="flex-grow">
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
                       {module.moduleCode} | {module.credit} CU | Exam Date:{" "}
@@ -211,8 +212,8 @@ export default function CourseCatalogue() {
                   {/* Favorite Icon */}
                   <div
                     className={cn(
-                      "col-start-3 text-right",
-                      isMobile && "flex flex-col",
+                      "flex w-fit items-center",
+                      isMobile ? "flex-col" : "flex-row",
                     )}
                   >
                     <button
@@ -247,12 +248,13 @@ export default function CourseCatalogue() {
                       onClick={(e) => {
                         e.stopPropagation();
                         HandleAddMod(module);
+                        toast.success(`${module.moduleCode} added to planner`);
                       }}
                       variant={"outline"}
-                      className="align-middle"
+                      size={"icon"}
                       disabled={takenModule.includes(module.moduleCode)}
                     >
-                      <NotebookPen></NotebookPen>
+                      <NotebookPen />
                     </Button>
                   </div>
                 </div>
