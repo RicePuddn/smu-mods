@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Star, StarOff } from "lucide-react";
+import { ChevronDown, NotebookPen, Star, StarOff } from "lucide-react";
 
 import type { Module } from "@/types/primitives/module";
 // import ui components
@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PADDING } from "@/config";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
@@ -81,6 +82,7 @@ export default function CourseCatalogue() {
     (state) => state,
   );
   const takenModule = Object.keys(plannerState.modules) as ModuleCode[];
+  const isMobile = useIsMobile();
 
   const HandleAddMod = (module: Module) => {
     addModuleToPlanner(
@@ -194,8 +196,8 @@ export default function CourseCatalogue() {
                 key={module.moduleCode}
               >
                 {/* <div className="mb-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 shadow-md shadow-transparent transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-primary"> */}
-                <div className="hover:border-1 m-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 transition-all duration-200 hover:-translate-y-1 hover:border-sky-950 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)] dark:border-slate-500 dark:hover:border-white dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.6)]">
-                  <div>
+                <div className="hover:border-1 m-4 grid transform cursor-pointer items-center justify-between rounded-lg border p-4 transition-all duration-200 hover:-translate-y-1 hover:border-sky-950 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)] dark:border-slate-500 dark:hover:border-white dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.6)] md:grid-cols-3">
+                  <div className="col-span-2">
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
                       {module.moduleCode} | {module.credit} CU | Exam Date:{" "}
@@ -206,9 +208,17 @@ export default function CourseCatalogue() {
                   </div>
 
                   {/* Favorite Icon */}
-                  <div>
+                  <div
+                    className={cn(
+                      "col-start-3 text-right",
+                      isMobile && "flex flex-col",
+                    )}
+                  >
                     <button
-                      className="right-0 me-4 align-middle text-yellow-500"
+                      className={cn(
+                        "right-0 mx-4 align-middle text-yellow-500",
+                        isMobile && "mb-4",
+                      )}
                       onClick={(e) => {
                         e.stopPropagation(); // Prevents triggering the dialog when clicking the star
                         toggleFavourites(module.moduleCode);
@@ -226,12 +236,11 @@ export default function CourseCatalogue() {
                         e.stopPropagation();
                         HandleAddMod(module);
                       }}
-                      className="w-36"
+                      variant={"outline"}
+                      className="align-middle"
                       disabled={takenModule.includes(module.moduleCode)}
                     >
-                      {takenModule.includes(module.moduleCode)
-                        ? "Added"
-                        : "Add to Planner"}
+                      <NotebookPen></NotebookPen>
                     </Button>
                   </div>
                 </div>
