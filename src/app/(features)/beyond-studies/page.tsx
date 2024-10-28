@@ -1,12 +1,12 @@
 "use client";
 
-import type { ChangeEvent } from "react";
-import { useState } from "react";
 import { atcb_action } from "add-to-calendar-button-react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import { format } from "date-fns";
-import { Calendar, Ghost, Loader2, Star, StarOff, Trash } from "lucide-react";
+import { Calendar, Loader2, Star, StarOff, Trash } from "lucide-react";
+import type { ChangeEvent } from "react";
+import { useState } from "react";
 
 import EventTabs from "@/components/acad-clubs/tabs";
 import { Button } from "@/components/ui/button";
@@ -19,10 +19,9 @@ import { api } from "@/trpc/react";
 import { schoolEventSchema } from "@/types/primitives/event";
 import { Logger } from "@/utils/Logger";
 
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import ReactTooltip from "react-tooltip";
 
 export default function BeyondStudies() {
   const isMobile = useIsMobile();
@@ -134,25 +133,28 @@ export default function BeyondStudies() {
         <div style={{ padding: PADDING }} className="space-y-4">
         <h1 className="text-2xl font-bold">Beyond Studies</h1>
 
-        <div className="flex items-start w-full gap-2">
+        <div className=" items-start w-full gap-2">
             <Label htmlFor="picture">Upload Image</Label>
 
-            <div className="flex-1">
-                <Input
-                id="picture"
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-                />
+
+            <div className="flex gap-2">
+                <div className="w-1/3">
+                    <Input
+                    id="picture"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    />
+                </div>
+                <Button
+                    onClick={handleAddCard}
+                    className="mb-4"
+                    disabled={isLoading || !selectedFile}
+                >
+                    {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
+                    Details
+                </Button>
             </div>
-            <Button
-                onClick={handleAddCard}
-                className="mb-4"
-                disabled={isLoading || !selectedFile}
-            >
-                {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
-                Details
-            </Button>
         </div>
 
         {/* Starred Events Section */}
@@ -168,14 +170,14 @@ export default function BeyondStudies() {
                 isMobile && "cursor-pointer"
             )}
             >
-            <h2 className="text-lg font-semibold text-primary-foreground">
+            <h2 className="text-lg font-semibold text-primary-foreground p-3">
                 Your Starred Events
             </h2>
 
             {isMobile && <ChevronDown className="text-primary-foreground"/>}
             </div>
 
-            <div className="p-4 ">
+            <div className="p-3">
                 <EventTabs
                 tabsData={{
                     upcoming: events.filter(
@@ -186,9 +188,22 @@ export default function BeyondStudies() {
                     ),
                 }}
                 eventCardActions={[
+
                     (event, index) => (
-                    <Button className='bg-slate-500'
+                        <Button
+                            onClick={() => event.id && removeEvent(event.id)}
+                            key={index}
+                            variant={"arin"}
+                            size={"icon"}
+                        >
+                            <Star className="fill-current text-yellow-500 hover:text-yellow-300" />
+                        </Button>
+                        ),
+
+                    (event, index) => (
+                    <Button
                         key={index}
+                        variant={"arin"}
                         onClick={() =>
                         atcb_action({
                             name: event.title,
@@ -204,23 +219,12 @@ export default function BeyondStudies() {
                         }
                     >
                         <div className="relative group">
-                        <Calendar className="cursor-pointer" />
-
+                        <Calendar className="cursor-pointer transition duration-300 " />
                         </div>
 
-
                     </Button>
-                    ),
-                    (event, index) => (
-                    <Button
-                        onClick={() => event.id && removeEvent(event.id)}
-                        key={index}
-                        variant={"destructive"}
-                        size={"icon"}
-                    >
-                        <Trash />
-                    </Button>
-                    ),
+                    )
+                    
                 ]}
                 />
             </div>
@@ -239,7 +243,7 @@ export default function BeyondStudies() {
                 isMobile && "cursor-pointer"
                 )}
             >
-                <h2 className="text-lg font-semibold text-primary-foreground">
+                <h2 className="text-lg font-semibold text-primary-foreground p-3">
                 Available Events
                 </h2>
                 {isMobile && <ChevronDown className="text-primary-foreground" />}
@@ -250,11 +254,15 @@ export default function BeyondStudies() {
                 <EventTabs
                     tabsData={eventsData}
                     eventCardActions={[
-                    (event, index) => (
-                        <Button onClick={() => addEvent(event)} key={index} variant={"ghost"}>
-                        <Star className=""  />
+                    (event, index) => {
+                        console.log(events, event)
+                        const find = events.find(e => e.id == event.id)
+                        console.log(find)
+                        return (
+                        <Button onClick={() => addEvent(event)} key={index} variant={"arin"} size="icon" disabled={!!find} className="text-yellow-500">
+                        {find ? <Star className="fill-current" /> : <StarOff className="hover:text-yellow-400"/>}
                         </Button>
-                    ),
+                    )},
                     ]}
                 />
             </div>

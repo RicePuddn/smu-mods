@@ -1,9 +1,9 @@
-import { type ReactNode } from "react";
 import { format } from "date-fns";
+import { type ReactNode } from "react";
 
-import { type ExtendedSchoolEvent } from "@/stores/event";
-import { Card, CardContent, CardFooter } from "../ui/card";
 import { cn } from "@/lib/utils";
+import { type ExtendedSchoolEvent } from "@/stores/event";
+import { Card } from "../ui/card";
 
 interface EventCardProps {
   event: ExtendedSchoolEvent;
@@ -15,10 +15,10 @@ interface EventCardProps {
 
 export const EventCard = ({ event, actions }: EventCardProps) => {
   return (
-    <Card className="parent-event-card group">
+    <Card className="parent-event-card group text-center">
       
       {/* action button */}
-      <div className="absolute top-2 left-2 flex gap-2 z-10">
+      <div className="absolute top-2 left-2 flex gap-0 z-10">
           {actions?.map((action, index) => (
             <div key={index} className="flex-shrink-0">
               {action(event, index)}
@@ -31,16 +31,16 @@ export const EventCard = ({ event, actions }: EventCardProps) => {
         <div className="relative h-full w-full overflow-hidden">
 
         {/* event title and organiser*/}
-        <div className={cn("absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:translate-y-[-32%] space-y-1")}>
+        <div className={cn("absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:translate-y-[-27%] space-y-1 md:p-4")}>
        
         
-          <h3 className="text-lg font-semibold">{event.title}</h3>
+          <h3 className="text-base font-semibold">{event.title}</h3>
           <p className="text-sm text-gray-600 dark:text-white">{event.name}</p>
           
         </div>
 
         {/* more information (hidden initially) */}
-        <div className={cn( "child-hidden-event-card group-hover:translate-y-9 ")}>
+        <div className={cn( "text-left child-hidden-event-card group-hover:translate-y-9 ")}>
             <p>{format(new Date(event.date), "MMMM d, yyyy")}</p>
             <p className="text-sm">
                 {format(new Date(event.startTime), "HH:mm")} to{" "}
@@ -48,19 +48,9 @@ export const EventCard = ({ event, actions }: EventCardProps) => {
             </p>
             <p className="text-sm">{event.venue}</p>
             <p className="mt-2 text-red-400 dark:text-red-500">
-                <p>
                 Registration Deadline:{" "} {format(new Date(event.deadline), "MMMM d, yyyy HH:mm")}
-                </p>
             </p>
 
-          {/* Action Buttons */}
-            {/* <div className="mt-4 flex justify-center gap-2">
-                {actions?.map((action, index) => (
-                <div key={index} className="flex-shrink-0">
-                    {action(event, index)}
-                </div>
-            ))}
-            </div> */}
         </div>
     </div>
     </Card>
