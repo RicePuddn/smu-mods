@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, Star, StarOff } from "lucide-react";
 
+import type { Term, Year } from "@/types/planner";
 import type { Module } from "@/types/primitives/module";
 // import ui components
 import ModuleDetails from "@/components/ModuleDetails";
@@ -22,8 +23,8 @@ import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
-import { MODSTOTAKE_TERM, MODSTOTAKE_YEAR, Term, Year } from "@/types/planner";
-import { ModuleCode } from "@/types/primitives/module";
+import { MODSTOTAKE_TERM, MODSTOTAKE_YEAR } from "@/types/planner";
+import { type ModuleCode } from "@/types/primitives/module";
 
 export default function CourseCatalogue() {
   // Extract categories from baskets
