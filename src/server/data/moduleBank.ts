@@ -10331,7 +10331,13 @@ export const modules: ModuleBank = {
   CS470: {
     name: "Guided Research in Computer Science",
     moduleCode: "CS470",
-    description: "CS470 aims to introduce students to academic research in Computer Science. It allows students to experience first-hand the challenges and exhilaration of research, discovery and innovation, and enriches their academic experience by working at/near the frontiers of research in computer science.",
+    description: `CS470 aims to introduce students to academic research in Computer Science. It allows students to experience first-hand the challenges and exhilaration of research, discovery and innovation, and enriches their academic experience by working at/near the frontiers of research in computer science. 
+                  Additional Requirements:
+                  - GPA of >= 3.40
+                  - 3rd or 4th year
+                  - Students must get the approval of C470/CS471 Course Coordinator
+                  - Students must find a SCIS faculty member who agrees to serve as his/her project supervisor
+                  - Students who do not meet the GPA requirement will need to seek special permission from the Course Coordinator.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10355,7 +10361,13 @@ export const modules: ModuleBank = {
   CS471: {
     name: "Guided Research in Computer Science II",
     moduleCode: "CS471",
-    description: "CS471 is to allow students to continue with the research project done during CS470 OR to embark on a new research project (and there should not be any significant overlap with your CS470 research project).",
+    description: `CS471 is to allow students to continue with the research project done during CS470 OR to embark on a new research project (and there should not be any significant overlap with your CS470 research project). 
+                  Additional Requirements:
+                  - GPA of >= 3.40
+                  - 3rd or 4th year
+                  - Students must get the approval of C470/CS471 Course Coordinator
+                  - Students must find a SCIS faculty member who agrees to serve as his/her project supervisor
+                  - Students who do not meet the GPA requirement will need to seek special permission from the Course Coordinator.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10404,7 +10416,7 @@ export const modules: ModuleBank = {
   CS480: {
     name: "Computer Science Project Experience",
     moduleCode: "CS480",
-    description: "This course will provide opportunity for BSc (CS) students to:- Develop a proof of concept software application or system that satisfies a list of functional and quality requirements. Students will work with a team and practice their requirement analysis, design, implementation, testing, deployment and project management skills. Build the professional knowledge depth required to become a software developer or research engineer. This includes building up competence in the student's selected track, applying their learning domain knowledge and technology to the relevant industry sectors or research areas. A CS project does not have to be tied to a specific track, i.e., it can be multidisciplinary. The project's nature and scope are set by the project sponsor. Students can work on an application development or a research project.",
+    description: "This course will provide opportunity for BSc (CS) students to:- Develop a proof of concept software application or system that satisfies a list of functional and quality requirements. Students will work with a team and practice their requirement analysis, design, implementation, testing, deployment and project management skills. Build the professional knowledge depth required to become a software developer or research engineer. This includes building up competence in the student's selected track, applying their learning domain knowledge and technology to the relevant industry sectors or research areas. A CS project does not have to be tied to a specific track, i.e., it can be multidisciplinary. The project's nature and scope are set by the project sponsor. Students can work on an application development or a research project. Co-requisite of PhD Course related to research project",
     credit: 1,
     terms: ["Term 2"],
     sections: [
