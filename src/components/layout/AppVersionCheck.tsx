@@ -16,11 +16,11 @@ export const AppVersionCheck = () => {
   const { refreshAll } = useModuleBankStore((state) => state);
   useEffect(() => {
     if (
-      appVersion !== APP_VERSION ||
+      appVersion != APP_VERSION ||
       (appVersion == "development" && TURN_ON_REFRESH)
     ) {
-      Logger.log("Version:", appVersion, true);
-      if (appVersion != null) {
+      if (appVersion !== null) {
+        Logger.log("Version:", appVersion, true);
         Logger.log("New version detected, refreshing data...", true);
         if (appVersion != "development") {
           refreshAll();
