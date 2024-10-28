@@ -114,6 +114,6 @@ export async function processModuleHtml(
   writeStream.on("finish", () => {});
 
   writeStream.on("error", (err) => {
-    console.error("Error writing file:", err);
+    Logger.error("Error writing file:", err);
   });
 }

@@ -76,7 +76,7 @@ export default function BeyondStudies() {
       const hash = CryptoJS.SHA256(base64Image).toString(CryptoJS.enc.Hex);
       return hash;
     } catch (error) {
-      console.error("Error hashing image:", error);
+      Logger.error("Error hashing image:", error);
     }
   }
 
@@ -91,10 +91,10 @@ export default function BeyondStudies() {
       if (response.status === 200) {
         Logger.log("Image uploaded successfully");
       } else {
-        console.error("Failed to upload image:", response.statusText);
+        Logger.error("Failed to upload image:", response.statusText);
       }
     } catch (error) {
-      console.error("Error uploading image to S3:", error);
+      Logger.error("Error uploading image to S3:", error);
     }
   }
 
@@ -120,7 +120,7 @@ export default function BeyondStudies() {
         addEvent(parsed);
       }
     } catch (error) {
-      console.error("Error processing the file:", error);
+      Logger.error("Error processing the file:", error);
     } finally {
       setSelectedFile(null);
       setIsLoading(false);
