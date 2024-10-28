@@ -121,7 +121,7 @@ export default function CourseCatalogue() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="w-full md:w-auto">
-              Sort by {sortBy === "name" ? "Name" : "Credit"}
+              Sort by {sortBy === "name" ? "Name" : "Module Code"}
               <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
