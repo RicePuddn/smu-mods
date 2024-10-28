@@ -385,8 +385,9 @@ export default function TimeTablePage({
 
   if (!termSlug.includes(params.termId as TermSlug)) {
     return (
-      <div>
-        <p>Term not found</p>
+      <div className="flex h-[90%] w-full flex-col items-center justify-center">
+        <p className="text-7xl">404</p>
+        <p className="font-semibold">Oops! This term doesn't exist.</p>
       </div>
     );
   }
@@ -399,22 +400,22 @@ export default function TimeTablePage({
     >
       <h1 className="text-2xl font-bold">Plan Your Timetable</h1>
 
-      <div className="mb-5 flex justify-center gap-24">
+      <div className="flex justify-center gap-24">
         <button
           // variant={"ghost"}
           onClick={goToPreviousTerm}
           disabled={currentTermIdx == 0}
-          className={`${currentTermIdx == 0 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
+          className={`${currentTermIdx == 0 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
         >
           &lt;
         </button>
 
-        <h1 className="my-1 font-semibold">Term {currentTermNum}</h1>
+        <h1 className="my-5 font-semibold">Term {currentTermNum}</h1>
         <button
           // variant={"ghost"}
           onClick={goToNextTerm}
           disabled={currentTermIdx == termSlug.length - 1}
-          className={`${currentTermIdx == termSlug.length - 1 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
+          className={`${currentTermIdx == termSlug.length - 1 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
         >
           &gt;
         </button>
@@ -715,7 +716,7 @@ export default function TimeTablePage({
                 <Popover>
                   <PopoverTrigger asChild>
                     <div
-                      className="mr-2 mt-1 h-5 w-5 rounded"
+                      className="mr-2 mt-1 h-5 w-5 cursor-pointer rounded"
                       style={{
                         backgroundColor:
                           TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
