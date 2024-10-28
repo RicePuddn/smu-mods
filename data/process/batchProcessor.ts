@@ -2,6 +2,8 @@ import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
 
+import { Logger } from "@/utils/Logger";
+
 import { processModuleHtml } from "./writer";
 
 // Equivalent to __dirname in CommonJS
@@ -17,7 +19,7 @@ try {
   const files = fs.readdirSync(path.join(directoryPath, "html"));
   htmlFiles = files.filter((file) => path.extname(file) === ".html");
 } catch (err) {
-  console.error("Unable to scan directory:", err);
+  Logger.error("Unable to scan directory:", err);
 }
 
 for (const htmlFile of htmlFiles) {
@@ -28,6 +30,6 @@ for (const htmlFile of htmlFiles) {
       projectBaseDir,
     );
   } catch (error) {
-    console.error(`Error processing file ${htmlFile}:`, error);
+    Logger.error(`Error processing file ${htmlFile}:`, error);
   }
 }
