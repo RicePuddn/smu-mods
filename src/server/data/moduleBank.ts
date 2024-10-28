@@ -6616,7 +6616,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      and: ["IS113", "IS112"],
+      or: [{and:["IS113", "IS112"]}, {and: ["IS113", "IS105"]}],
     },
   },
   IS215: {
@@ -8336,7 +8336,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      and: ["IS213", "IS214"],
+      or: [{and: ["IS213", "IS214" ]}, {and:["CS203", "IS112"]} ],
     },
     exam: {
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
@@ -8358,7 +8358,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      and: ["IS213", "CS301"],
+      and: [{or:["IS213", "CS302"]}, {or:["IS458", "CS301"]}],
     },
   },
   IS412: {
@@ -8620,7 +8620,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: ["CS201", "CS460", "SMT203", "IS111"],
+      or: [{and: ["CS201", "CS204"] }, "CS460", "SMT203", {and: ["IS111", {or: ["IS112", "IS105"]}, "IS210", "IS212", "IS213" ]}],
     },
   },
   IS446: {
@@ -8721,7 +8721,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: ["IS203","IS212","CS203","CS201","CS205"],
+      or: ["IS203","IS212","CS203",{and: ["CS201","CS205"]}],
     },
     exam: {
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
@@ -8873,7 +8873,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      and: ["IS211", "IS203"],
+      and: ["IS211", {or: ["IS113", "CS203"]}],
     },
   },
   COR2201: {
@@ -9529,7 +9529,7 @@ export const modules: ModuleBank = {
       },
     ],
     preReq: {
-      or: ["IS111", "CS101"],
+      and: [{or: ["IS111", "CS101"]}, {or: ["CS420", "CS421", "IS460"]}],
     },
   },
   COR1201: {
@@ -9947,7 +9947,7 @@ export const modules: ModuleBank = {
       },
     ],
     preReq: {
-      or:["IS111", "SMT111"]
+      or:[{or: [{or: ["IS111", "IS200"]}, "SMT111" ]}, {and: ["CS101", "CS201"]} ]
     }
   },
   CS421: {
@@ -9992,8 +9992,9 @@ export const modules: ModuleBank = {
       },
     ],
     preReq: {
-      and:["IS103", "IS217"]
-    }
+        or:[{and:["IS103", {or: ["IS217", "MGMT108"] }]}, {and: ["CS103", "CS105", "CS201" ]} ]
+    },
+    mutuallyExclusive: ["IS460"]
   },
   CS423: {
     name: "Heuristic Search and Optimisation",
@@ -10092,7 +10093,14 @@ export const modules: ModuleBank = {
       },
     ],
     preReq: {
-      or: ["IS111", "SMT111"]
+      or: [
+        // For non-CS students
+        { or: ["IS200", "IS111", "SMT111"] },
+        // For CS students
+        {
+          and: ["CS101", "CS103"]
+        }
+      ]
     }
   },
   CS441: {
@@ -10178,7 +10186,7 @@ export const modules: ModuleBank = {
       },
     ],
     preReq:{
-      or: ["IS302", "IS443", "CS440"]
+      and: [{or: ["IS302", "IS443", "CS440"]}, {and: ["IS112", "IS105"]}]
     }
   },
   CS445: {
@@ -10242,7 +10250,7 @@ export const modules: ModuleBank = {
       },
     ],
     preReq: {
-      or: ["CS101", "IS111", "SMT111", "IS112"]
+      and: [{or: ["CS101", "IS111", "SMT111"]}, "IS112"]
     }
   },
   CS463: {
@@ -10283,7 +10291,7 @@ export const modules: ModuleBank = {
     ],
     mutuallyExclusive: ["IS462"],
     preReq: {
-      or: ["CS101", "IS111"]
+      and: [{or: ["CS101", "IS111"]}, "CS103"]
     }
   },
   CS464: {
@@ -11051,7 +11059,7 @@ export const modules: ModuleBank = {
   IS462: {
     name: "Virtual Reality for Business",
     moduleCode: "IS462",
-    description: "DESCRIPTION_NEEDED",
+    description: `Technology continues to transform businesses around the world in the 21st century. Digital platforms are revolutionizing the way businesses communicate with their customers and offer products and services. In recent years, there has been a rising interest in XR (extended reality – including virtual, augmented, and mixed reality) technology and applications in consumer, commercial, and industrial markets. In the coming years, advanced 5G network technology and edge computing will enable the rapid progress of XR towards mainstream adoption in many areas of our work and life. With many new developments happening in XR technology, now is the perfect time for businesses to consider incorporating XR with their enterprise solutions. The objective of this course is to cultivate a broad and comprehensive understanding of XR and prepare students for participating in the ideation, development, and integration of highly integrative and immersive applications in businesses. In particular, through the SMU-X course project, students will learn how to develop a Virtual Reality application for e-commerce businesses. The course curriculum covers a wide range of business cases (from Industrial, Manufacturing, Medical, R&D, Entertainment, Educatio, etc.), literature, and practice including: Computer Science Human-Computer Interaction (HCI) concepts, evolution of visual displays for VR, motion tracking, interactive 3D graphics, multi-modal sensory integration, user interfaces, experience design, psychology of VR, and challenges of VR as a communication and collaboration medium. This course will include lectures, readings, case discussions, guest speakers, hands-on labs, and exploration of VR platforms. The course project will require students to render e-commerce business scenarios in a VR environment.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11074,6 +11082,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+
   },
   IS463: {
     name: "Digital Technologies for Environmental Sustainability",
