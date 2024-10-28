@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, Star, StarOff } from "lucide-react";
 
+import type { Module } from "@/types/primitives/module";
 // import ui components
 import ModuleDetails from "@/components/ModuleDetails";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,9 @@ import { PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { type Module } from "@/types/primitives/module";
+import { usePlannerStore } from "@/stores/planner/provider";
+import { MODSTOTAKE_TERM, MODSTOTAKE_YEAR, Term, Year } from "@/types/planner";
+import { ModuleCode } from "@/types/primitives/module";
 
 export default function CourseCatalogue() {
   // Extract categories from baskets
@@ -72,6 +75,24 @@ export default function CourseCatalogue() {
         return a.credit - b.credit;
       }
     });
+
+  // Add Module to Planner
+  const { addModule: addModuleToPlanner, plannerState } = usePlannerStore(
+    (state) => state,
+  );
+  const takenModule = Object.keys(plannerState.modules) as ModuleCode[];
+
+  const HandleAddMod = (module: Module) => {
+    addModuleToPlanner(
+      module.moduleCode,
+      {
+        year: MODSTOTAKE_YEAR as Year,
+        term: MODSTOTAKE_TERM as Term,
+        id: module.moduleCode,
+      },
+      { ...modules, [module.moduleCode]: module },
+    );
+  };
 
   return (
     <div
@@ -185,19 +206,34 @@ export default function CourseCatalogue() {
                   </div>
 
                   {/* Favorite Icon */}
-                  <button
-                    className="text-yellow-500"
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevents triggering the dialog when clicking the star
-                      toggleFavourites(module.moduleCode);
-                    }}
-                  >
-                    {favouriteModules.includes(module.moduleCode) ? (
-                      <Star className="h-6 w-6 fill-current" />
-                    ) : (
-                      <StarOff className="h-6 w-6" />
-                    )}
-                  </button>
+                  <div>
+                    <button
+                      className="right-0 me-4 align-middle text-yellow-500"
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevents triggering the dialog when clicking the star
+                        toggleFavourites(module.moduleCode);
+                      }}
+                    >
+                      {favouriteModules.includes(module.moduleCode) ? (
+                        <Star className="h-6 w-6 fill-current" />
+                      ) : (
+                        <StarOff className="h-6 w-6" />
+                      )}
+                    </button>
+
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        HandleAddMod(module);
+                      }}
+                      className="w-36"
+                      disabled={takenModule.includes(module.moduleCode)}
+                    >
+                      {takenModule.includes(module.moduleCode)
+                        ? "Added"
+                        : "Add to Planner"}
+                    </Button>
+                  </div>
                 </div>
               </ModuleDetails>
             ))}
