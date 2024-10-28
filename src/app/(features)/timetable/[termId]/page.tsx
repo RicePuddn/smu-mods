@@ -445,7 +445,7 @@ export default function TimeTablePage({
                   width: `${100 / 14}%`,
                 }}
               >
-                <span className="text-sm">{time}</span>
+                <span className="text-sm sm:text-xs">{time}</span>
               </div>
             ))}
           </div>
@@ -460,7 +460,7 @@ export default function TimeTablePage({
               );
               return (
                 <div className="flex border-t" key={dayIndex}>
-                  <div className="flex w-[7%] items-center justify-center bg-background text-center font-medium md:w-[5%]">
+                  <div className="flex w-[7%] items-center justify-center bg-background text-center font-medium sm:text-xs md:w-[5%]">
                     {day.slice(0, 3)}
                   </div>
                   <div
@@ -532,7 +532,8 @@ export default function TimeTablePage({
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
-                                    height: "100%",
+                                    minWidth: "fit-content",
+                                    height: "auto",
                                     backgroundColor:
                                       TIMETABLE_THEMES[timetableTheme][
                                         fullClass.colorIndex
@@ -604,7 +605,8 @@ export default function TimeTablePage({
                                   <p className="text-xs">
                                     {`${fullClass.classTime.startTime} (${fullClass.classTime.duration} hrs)`}
                                   </p>
-                                  <p className="text-xs">
+                                  <br />
+                                  <span className="text-xs">
                                     {
                                       modules[
                                         fullClass.moduleCode
@@ -613,7 +615,7 @@ export default function TimeTablePage({
                                           section.code === fullClass.section,
                                       )?.professor.name
                                     }
-                                  </p>
+                                  </span>
                                 </div>
                               );
                             },
@@ -702,13 +704,13 @@ export default function TimeTablePage({
         />
       </div>
       {timetable.modules.length > 0 && (
-        <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
           {timetable.modules.map((mod, index) => (
             <div
-              className="flex w-full justify-center gap-1 rounded bg-background p-4 shadow-sm"
+              className="flex w-full rounded bg-background p-4 shadow-sm"
               key={index}
             >
-              <div className="flex w-fit items-start justify-end">
+              <div className="w-fit">
                 <Popover>
                   <PopoverTrigger asChild>
                     <div
@@ -741,44 +743,46 @@ export default function TimeTablePage({
                 </Popover>
               </div>
               <div className="flex-grow">
-                <p className="text-sm font-bold">
-                  {mod.moduleCode} - {mod.name}
-                </p>
-                <p className="text-sm">
-                  Exam:{" "}
-                  {mod.exam?.dateTime
-                    ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
-                    : "No exam scheduled"}
-                </p>
-              </div>
-              <div className="flex w-fit items-center justify-center">
-                <div className="inline-flex">
-                  <Button
-                    variant={"outline"}
-                    size={"icon"}
-                    className="rounded-r-none"
-                    onClick={() =>
-                      removeModuleFromTimetable(
-                        mod.moduleCode,
-                        termMap[params.termId as TermSlug],
-                      )
-                    }
-                  >
-                    <Trash2 />
-                  </Button>
-                  <Button
-                    variant={mod.visible ? "default" : "outline"}
-                    size={"icon"}
-                    className="rounded-l-none border-l-0"
-                    onClick={() => {
-                      toggleVisibility(
-                        mod.moduleCode,
-                        termMap[params.termId as TermSlug],
-                      );
-                    }}
-                  >
-                    {mod.visible ? <Eye /> : <EyeOff />}
-                  </Button>
+                <div className="flex-grow">
+                  <p className="text-sm font-bold">
+                    {mod.moduleCode} - {mod.name}
+                  </p>
+                  <p className="text-sm">
+                    Exam:{" "}
+                    {mod.exam?.dateTime
+                      ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
+                      : "No exam scheduled"}
+                  </p>
+                </div>
+                <div className="w-fit">
+                  <div className="flex flex-row">
+                    <Button
+                      variant={"outline"}
+                      size={"icon"}
+                      className="rounded-r-none"
+                      onClick={() =>
+                        removeModuleFromTimetable(
+                          mod.moduleCode,
+                          termMap[params.termId as TermSlug],
+                        )
+                      }
+                    >
+                      <Trash2 />
+                    </Button>
+                    <Button
+                      variant={mod.visible ? "default" : "outline"}
+                      size={"icon"}
+                      className="rounded-l-none border-l-0"
+                      onClick={() => {
+                        toggleVisibility(
+                          mod.moduleCode,
+                          termMap[params.termId as TermSlug],
+                        );
+                      }}
+                    >
+                      {mod.visible ? <Eye /> : <EyeOff />}
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
