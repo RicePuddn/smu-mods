@@ -6,14 +6,7 @@ import { atcb_action } from "add-to-calendar-button-react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import { format } from "date-fns";
-import {
-  Calendar,
-  ChevronDown,
-  Loader2,
-  Star,
-  StarOff,
-  Trash,
-} from "lucide-react";
+import { Calendar, ChevronDown, Loader2, Star, StarOff } from "lucide-react";
 
 import EventTabs from "@/components/acad-clubs/tabs";
 import { Button } from "@/components/ui/button";
@@ -36,7 +29,7 @@ export default function BeyondStudies() {
 
   const { mutateAsync: uploadFile } = api.s3.upload.useMutation();
   const { mutateAsync: parseEvent } = api.chatgpt.parseEvent.useMutation();
-  const [starredEvents, setStarredEvents] = useState<string[]>([]);
+  // const [starredEvents, setStarredEvents] = useState<string[]>([]);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
@@ -64,15 +57,15 @@ export default function BeyondStudies() {
     });
   }
 
-  // Function to toggle the starred state of an event
-  const toggleStar = (eventId: string) => {
-    setStarredEvents(
-      (prev) =>
-        prev.includes(eventId)
-          ? prev.filter((id) => id !== eventId) // Unstar
-          : [...prev, eventId], // Star
-    );
-  };
+  // // Function to toggle the starred state of an event
+  // const toggleStar = (eventId: string) => {
+  //   setStarredEvents(
+  //     (prev) =>
+  //       prev.includes(eventId)
+  //         ? prev.filter((id) => id !== eventId) // Unstar
+  //         : [...prev, eventId], // Star
+  //   );
+  // };
 
   // Function to hash the image
   async function hashImage(file: File) {
