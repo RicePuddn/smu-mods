@@ -9,6 +9,7 @@ import jsPDF from "jspdf";
 import {
   Calendar,
   Download,
+  Eye,
   EyeOff,
   File,
   Image,
@@ -65,6 +66,7 @@ export default function TimeTablePage({
   const {
     timetableMap,
     AddModuleToTimetable,
+    toggleVisibility,
     removeModuleFromTimetable,
     showAllSections,
     selectSection,
@@ -509,6 +511,10 @@ export default function TimeTablePage({
                         >
                           {rowResultWithPadding[rowIndex]!.map(
                             (fullClass, classIndex) => {
+                              // console.log("PAGE FULLCLASS:", fullClass);
+                              if (!fullClass.isVisible) {
+                                return null;
+                              }
                               return (
                                 <div
                                   key={classIndex}
@@ -749,11 +755,17 @@ export default function TimeTablePage({
                     <Trash2 />
                   </Button>
                   <Button
-                    variant={"outline"}
+                    variant={mod.visible ? "default" : "outline"}
                     size={"icon"}
                     className="rounded-l-none border-l-0"
+                    onClick={() => {
+                      toggleVisibility(
+                        mod.moduleCode,
+                        termMap[params.termId as TermSlug],
+                      );
+                    }}
                   >
-                    <EyeOff />
+                    {mod.visible ? <Eye /> : <EyeOff />}
                   </Button>
                 </div>
               </div>
