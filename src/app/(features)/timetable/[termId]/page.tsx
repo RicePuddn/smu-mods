@@ -400,22 +400,24 @@ export default function TimeTablePage({
       <h1 className="text-2xl font-bold">Plan Your Timetable</h1>
 
       <div className="mb-5 flex justify-center gap-24">
-        <Button
-          variant={"ghost"}
+        <button
+          // variant={"ghost"}
           onClick={goToPreviousTerm}
           disabled={currentTermIdx == 0}
+          className={`${currentTermIdx == 0 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
         >
           &lt;
-        </Button>
+        </button>
 
-        <h1 className="my-1">Term {currentTermNum}</h1>
-        <Button
-          variant={"ghost"}
+        <h1 className="my-1 font-semibold">Term {currentTermNum}</h1>
+        <button
+          // variant={"ghost"}
           onClick={goToNextTerm}
           disabled={currentTermIdx == termSlug.length - 1}
+          className={`${currentTermIdx == termSlug.length - 1 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
         >
           &gt;
-        </Button>
+        </button>
       </div>
 
       <div>
