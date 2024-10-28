@@ -13396,7 +13396,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The role of this course is to provide a specialised in-depth accounting course that addresses these key notions: role of information systems within accounting; documentation of accounting information systems including data flow diagrams and flowcharts; database management, processes and modeling; exposures and risks associated with accounting information systems; evaluation of information technology internal controls and impact on internal control; impact of information technology on the audit process; relationship of accounting information systems to major processes of the business cycle; and development, design and analysis of accounting information systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13437,6 +13438,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT203"],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT223: {
     name: "Taxation",
@@ -13522,6 +13527,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT224: {
     name: "Financial Reporting and Analysis",
@@ -13530,7 +13538,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides an in-depth examination of corporate accounting issues and financial reporting standards as well as the analysis and interpretation of financial statements prepared under those standards. Particular emphasis will be given to the application and interpretation of Financial Reporting Standards (FRS) of Singapore.\nTopics covered include: financial reporting framework, presentation of financial statements, accounting standards and disclosure requirements, classification of income, quarterly reporting, segment reporting, changes in accounting policies and methods, accounting for non-current assets (including asset revaluation, assets held for sale, discontinued operations, investment property, biological assets, and intangible assets), impairment of assets, leases, provisions and contingencies, deferred tax, revenue recognition, and employee benefits.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13589,6 +13598,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT201"],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT331: {
     name: "Audit and Assurance",
@@ -13597,7 +13610,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The focus of this course is predominantly on the external financial statement audit, within the framework of assurance. However, auditing is multidisciplinary in nature, requiring and integrating knowledge of business, accounting, information systems, law and strategy.\nStudents who have yet to complete ACCT201A Corporate Reporting & Analysis of Financial Statements, ACCT203 Accounting Information Systems and ACCT206 Governance, Risk and Assurance, are strongly advised not to sign up for this course. Students without this necessary prior knowledge will be responsible for acquiring the knowledge on their own.\nThis course focuses on the audit of financial statements by the external auditor, and is designed to:\n1. provide students with an in-depth knowledge and understanding of key auditing and assurance concepts and methodologies;\n2. develop the skills and attitudes necessary for providing financial statement audits and other assurance services, including problem-solving and decision making, critical thinking, communication, teamwork, interpersonal skills and professional values and ethics;\n3. develop analytical, strategic and systems thinking through the merging and melding of information from related disciplines;\n4. inculcate in students an attitude of active learning at both individual and team level, through students’ pre-seminar preparation, involvement in seminar discussions, seminar activities and project work; and\n5. develop the mindset and values required to succeed in the profession.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13674,6 +13688,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT202"],
+    preReq: {
+      or: ["ACCT221", { and: ["ACCT201", "ACCT224"] }],
+    },
   },
   ACCT332: {
     name: "Accounting Thought and Governance",
@@ -13682,7 +13700,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course presents a review and analysis of the theoretical foundations of corporate financial reporting and its applications in corporate governance and sustainability. The course will focus on the economic theories underlying financial reporting, agency problems that arise in organizations, governance and risk management guidelines, and sustainability development goals. Topics that will be covered include: the development of accounting thought, adverse selection and moral hazard, contract design, stakeholder-oriented governance practices, sustainability-linked remuneration, concepts and principles of risk management including climate risk, and internal controls & corruption.\nIn relation to the Singapore Chartered Accountants Qualification Program (SCAQ),governance and risk management is recognized as a core knowledge and competency in one ofits technical modules. The course examines the concepts, frameworks, principles, and practices of governance and internal risk management. In relation to the United Nations (UN) sustainable development goals, various goals such as gender equality (Goal 5), sustainable economic growth (Goal 8), responsible consumption and production (Goal 12), climate action (Goal 13), peace, justice, and strong institutions (Goal 16), and partnerships for the goals (Goal 17) are integrated into the course. The course examines multi-stakeholder oriented corporate governance, gender diversity among board members, sustainability-linked executive remuneration, climate risk, and corporate corruption.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13777,6 +13796,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["CS203"],
+    preReq: {
+      and: ["ACCT221", { or: ["ACCT224", "ACCT201"] }],
+    },
   },
   ACCT334: {
     name: "Intermediate Financial Accounting",
@@ -13785,7 +13808,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In today’s volatile, uncertain, complex and ambiguous (VUCA) world, corporations face increasing dimensions of risks in their businesses. Volatility in financial and physical markets, the failure of systemically important financial intermediaries, global climate and health crises, shifting social expectations and corporate governance concerns can directly or indirectly impair the financial, manufactured, natural, human, intellectual and social capitals of corporations. The ability to recognize, measure, manage and communicate such risks becomes critical to the long-term sustainability of corporations.\nThis course examines recognition, measurement, reporting and disclosure requirements for corporations in relation to financial and non-financial risks under the frameworks of the International Financial Reporting Standards (IFRS), the International Sustainability Standards Board (ISSB) and other related bodies. Concepts, principles, and applications—with respect to market, counterparty, and sustainability risks—will be discussed from the perspectives of different stakeholders. While the focus of the course will be primarily on accounting and financial reporting, an integrated approach will be adopted.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13862,6 +13886,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["CS203"],
+    preReq: {
+      and: [{ or: ["ACCT224", "ACCT201"] }, { or: ["FNCE101", "FNCE103"] }],
+    },
   },
   ACCT335: {
     name: "Advanced Financial Accounting",
@@ -13870,7 +13898,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course focuses on the accounting requirements of complex arrangements and transactions with the primary theme of accounting for group entities. Specific topics include accounting for business combinations involving a group structure, consolidation principles and processes, consolidation of multilevel group structures, changes in ownership interests, consolidated cash flow statements, equity accounting and translation of foreign operations. This course builds upon and also reinforces the prerequisite knowledge covered in earlier financial accounting courses, primarily Intermediate Financial Accounting.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13965,6 +13994,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT301", "ACCT333", "ACCT335"],
+    preReq: {
+      or: ["ACCT334"],
+    },
   },
   ACCT336: {
     name: "Valuation",
@@ -13973,7 +14006,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course covers valuation and analysis of financial statements, and will include the valuation of businesses and entities, and various components. The focus will be primarily on valuation from the perspective of corporate managers and for business entities rather than from the view of assigning value to individual assets and/or portfolio analysis. An examination of certain critical steps in the valuation process will all be covered. This includes examination of: key accounting policies, accounting adjustments, financial statement analysis, forecasting and discount rate estimation. Special topics for application will include: (a) analysis of different valuation models and (b) valuation for intangible assets.\nThe objective of this course is to equip students with tools and techniques to be able to (a) identify accounting issues in, (b) understand and evaluate financial statements as well as (c) value companies and some intangible assets. First, students need to be able to understand the information provided in financial reports and the various complexity of accounting treatments under International Financial Reporting Standards (IFRS). Second, the course will emphasize the role of accounting in both the financial analysis and valuation processes. Third, the application of valuation of business entities is important in many areas. All of these tools and techniques will be useful for students intending on pursuing a professional careers in any of ACCT336 Valuation (Prof Cheng Nam Sang) Course Outline the areas of: financial analysis, investments, asset management, management consulting, corporate advisory services as well as mergers and acquisitions.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14050,6 +14084,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT408"],
+    preReq: {
+      and: [{ or: ["FNCE101", "FNCE103"] }, { or: ["ACCT201", "ACCT224"] }],
+    },
   },
   ACCT337: {
     name: "Statistical Programming",
@@ -14058,7 +14096,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In Data Analytics for Accountants, Richardson et al. (2021) define Data Analytics (DA) as “the process of evaluating data with the purpose of drawing conclusions to address business questions”. Increasingly, accountants are expected to create value for businesses through the use of technology and DA tools are often regarded as the first step in transforming raw data into knowledge that can be acted upon by decision makers.\nGiven the heavy use of statistics in applying analytics to accounting data, this course aims to provide students with the foundation in statistical analysis of accounting data and information. This course will focus on the use of R Programming to develop students’ statistical knowledge and provide a foundational framework of using DA to solve problems in the accounting context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14135,6 +14174,14 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    coRequisite: [
+      {
+        or: ["ACCT221", "IS210"],
+      },
+    ],
+    preReq: {
+      or: ["STAT101", "COR-STAT1202", "STAT151"],
+    },
   },
   ACCT403: {
     name: "Advanced Taxation",
@@ -14143,7 +14190,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims to provide students with additional taxation knowledge and understanding and builds upon the foundation in taxation built in the first taxation course - ACCT 223.\nThis Advanced Taxation course reinforce the knowledge and understanding in the workings and basic principles of income tax and GST in Singapore covered in ACCT223 and incorporates advance taxation topics not covered in ACCT223.\nThese advance topics include the taxation of overseas income, the granting of double taxation reliefs, unilateral tax relief, foreign income exemption, the interpretation of articles in double taxation agreements and application thereof, transfer pricing methods and issues, BEPS and other current and evolving tax issues.\nThe tax implications of outbound and inbound investments will also be addressed, including potential tax exposures and how such investments can be structured in a tax efficient manner.\nCase studies will be used extensively to enable students to evaluate tax issues in selected commercial transactions, understand and apply the knowledge gained in ACCT223 to real life cases.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14184,11 +14232,16 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT305"],
+    preReq: {
+      or: ["ACCT204", "ACCT223"],
+    },
   },
   ACCT410: {
     name: "Internal Audit",
     moduleCode: "ACCT410",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Today's business environment is characterized by growing uncertainties and increasing stakeholders' demands for more effective governance in the wake of spectacular corporate failures. Internal audit is an important mechanism in providing internal assurance on the tenacity of governance and risk management practices. Its significance is re-inforced in the recommendations by the Committee to Develop the Accountancy Sector (CDAS) in 2010. The CDAS' report, titled “Transforming Singapore into a Leading Global Accountancy Hub” identified and recommended internal audit as a niche pathway toward accountancy excellence for Singapore. Internal audit is an essential pillar of a resilient organization. This course provides participants with a sound foundation of internal concepts and practices. It provides an overview of internal audit in support on sound governance and risk management. The course content covers essential standards and guidance articulated by the Institute of Internal Auditors. These include the attributes of internal audit, planning, execution and internal audit reporting. The course also aims to enhance participants' understanding and application of assurance methodologies that are crucial in building a culture of doing the right thing.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14211,11 +14264,15 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT221"],
+    },
   },
   ACCT414: {
     name: "Accounting Analytics Capstone",
     moduleCode: "ACCT414",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Traditionally, the accounting function’s role is always viewed as that of a steward, the control centre for the organisation, rather than the catalyst for enterprise growth. The term ‘back office’ is often used to describe the operating nature of accounting function. So in today’s volatile global business environment, the key challenge for accounting function is how to lead the enterprise in its growth strategies while ensuring effective risk management and stewardship of the enterprise. With complexity and data proliferation, increasingly the CEO and the board turn to accountants to help make sense of all the data, to help cut through this complexity, and to provide more informed analysis on the business and its operation. The opportunity for accounting function is if it can generate the insights that help make better corporate decision making, while continuing to ensure effective control of the enterprise, its reputation as a catalyst for growth will be guaranteed. To do so, traditional accounting departments may have to transform themselves into ‘intelligent accounting functions’. Intelligent accounting functions run their operations as cost effectively as possible, leveraging technology to reduce finance operating costs; strengthen stewardship and control so as to establish a solid foundation to support growth. The biggest challenges, however, lie in creating the efficiencies needed to gather and process basic financial data and continue to deliver traditional finance outputs while at the same time redeploying their limited resources to enable higher-value business decision support activities. This accounting analytics practicum which adopts SMU-X approach, focuses on a few key topics that are vital to establishing an intelligent accounting function (refer to the diagram below): finance strategy and transformation, lean finance and finance shared services, business intelligence analytics, and enterprise process management. In this experiential learning course, students from various disciplines learn what comprises a highly optimised accounting process, design an end-to-end process management and explore the underlying accounting IT systems and advanced data analytical applications. By working closely with instructors from accounting and information systems disciplines, together with an industry partner, students are expected to carry out design and development of an intelligent accounting function solution. The whole idea is to engage students in real-life application and to encourage students to creatively apply concepts to practical problems in their pursuit of solving real-world problems. Students will apply the concepts in real projects.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14256,6 +14313,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT337", "IS217"],
+    },
   },
   ACCT417: {
     name: "Insolvency and Restructuring",
@@ -14264,7 +14324,14 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to expose students to the world of restructuring and insolvency work. Students will be exposed to a wide range of guest lecturers who are experienced and eminent restructuring and insolvency practitioners. Students will learn the full spectrum of the restructuring and insolvency regimes available in Singapore and the application of these regimes in situations of various degrees of distress, through the use of case studies and practical examples.
+
+    Students will also learn the different types of restructuring and insolvency procedures most suited to
+    each situation, the legal implications and effects on the business entities and various stakeholders, the roles, responsibilities and powers of insolvency practitioners under each procedure, and the practical / commercial issues to consider when business entities enter into the restructuring or insolvency mode. This course aims to equip students with the basic knowledge in detecting the early warning signs, understanding financial issues faced by business entities and financial impact of key decisions in addressing the situation.
+
+    The course is not only designed to be relevant for students who are specifically seeking a career in
+    insolvency practice but also for those who are interested in business rescue and business failure
+    generally.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14287,11 +14354,18 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    coRequisite: [
+      {
+        or: ["LGST201", "LAW205"],
+      },
+    ],
+    mutuallyExclusive: ["LAW429"],
   },
   ACCT418: {
     name: "Data Modelling and Visualisation",
     moduleCode: "ACCT418",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Accountants regularly work with large amounts of financial and non-financial data. Data modelling is an important means through which accountants can analyse such data for trends, patterns, relationships, and other useful information for decision making. This course will introduce a variety of quantitative techniques used in the development, implementation, and utilization of analytical data models that accountants regularly use in decision making. It will cover techniques including trend analysis, optimization, and simulation.\n\nVisualization provides an important means through which accountants can communicate insights obtained via data modelling to their intended recipients. Well-designed visualisations can improve the memory, comprehension, and decision making of intended recipients of this information. This course will introduce students to key principles and techniques for data visualization. Students will create visuals including dashboards and interactive visualisations for decision making in the accounting context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14332,11 +14406,15 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT420: {
     name: "Forecasting and Forensic Analytics",
     moduleCode: "ACCT420",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course explores how data can be used to solve accounting problems across financial accounting, managerial accounting, and audit contexts. Students will gain exposure to techniques to explore how financial and non-financial data is used to forecast events, detect financial discrepancies and frauds, predict corporate default, optimize operations, and determine business strategy. The emphasis of this class will be on problem solving, theory, and application, with additional emphasis on interpretation and communication. Some programming will be required, but programming help will be provided at the start of the semester via online tutorial and through instructor-provided code. Some advanced analytics methods such as text analytics, neural networks and deep learning will also be introduced. This course has been designed to equip students with an analytics mindset to develop analytics strategies and make better business decisions.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14359,6 +14437,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT337", "DSA211"],
+    },
   },
   ACCT421: {
     name: "Analytics for Value Investing",
@@ -14367,7 +14448,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines quantitative models and techniques used by securities analysts and investment managers to identify and interpret patterns in accounting and other financial data for making value-based fundamental investing decisions. The course will discuss extant research evidence on value investing strategies over the past decades. Students will then learn to develop their own quantitative strategies, in the context of a value-based investing framework, to predict financial performance and distress risk of companies as well as to uncover securities that can potentially generate superior investment returns.\n\nThe course will involve developing algorithmic models to analyze large-scale financial data, drawing inferences from statistical results, and back-testing the models for their predictive power. The advantages and pitfalls of such models—including issues of data selection, and behavioral and institutional biases— will also be discussed. The skills taught would be useful for students intending to pursue a career in securities analysis, investment management, or corporate finance.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14390,11 +14472,20 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["CS203"],
+    preReq: {
+      and: [
+        { or: ["STAT101", "COR-STAT1202", "STAT151", "COR-STAT1203"] },
+        { or: ["FNCE101", "FNCE103"] },
+        { or: ["ACCT224", "ACCT201"] },
+      ],
+    },
   },
   ACCT424: {
     name: "Auditing Information Systems",
     moduleCode: "ACCT424",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines IT systems and environment used to support the business processes common across various industries. The course helps to recognize how IT affects flows of business transactions, identify relevant technology elements, and assess risks arising from IT elements. Topics in the course will include the understanding, identifying and testing relevant to GITC (General IT Controls) and evaluate deficiencies in GITCs and assess the impact of GITC deficiencies on the audit.\n\nMoreover this course will also touch upon ways in which IT audit report documentation is done and audit observations are assessed, handled and addressed. Lastly the course will also give a quick overview of regulatory guidelines in place like technology risk management, outsourcing risk or business continuity management stipulated by Monetary Authority of Singapore (MAS).\n\nThe course will use class activities, case study, simulations, real world examples and group discussions to increase the practicality of the knowledge content. Course is a perfect blend for individuals who are willing to learn about the IT elements considered in audit and compliance assessments.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14417,6 +14508,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT221", "IS304", "IS210"],
+    },
   },
   ACCT425: {
     name: "Forensic Accounting and Investigation",
@@ -14425,7 +14519,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will equip students with the fundamental knowledge on how to investigate financial fraud. Students will not only learn the difference between accounting, auditing and forensics accounting, but towards the end of the course they will be able to apply proven methodologies to conduct financial fraud investigations. The module will begin with identifying what is fraud, the types of fraud schemes, evidence collection and the use of technology for forensic investigations. It will further develop and lay the foundations for forensics analytics, planning for an investigation, conducting interviews and reporting. At the end of the course, students will be ready to take up roles in the field of forensic accounting and investigations. ",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14448,6 +14543,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT221"],
+    },
   },
   COMM102: {
     name: "Foundations in Strategic Communication",
@@ -14456,7 +14554,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "COMM102 is the core course of the communication management major. It lays the foundations for managing corporate communication and external relations and connects all other electives via a common structure and understanding. In this course, students examine communicative practices in the corporate environment, including internal communication, reputation and image management, crisis communication, public relations, corporate social responsibility, and new communication technologies. Through discussions of corporate communication theories, case studies, and practical applications, this course introduces students to the perspective that the organization is the sum of its stakeholder perceptions and relationships. Students with a communication management major are thus enabled to choose a focus for their curriculum and/or career.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14501,7 +14600,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   COMM121: {
     name: "Fundamentals of Media Engagement",
     moduleCode: "COMM121",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Engaging the media has become important. This can be mainstream media or online media. Many organizations and organizational leaders still regard engaging the mainstream media as paramount priority. Latest studies by the Reuters Institute at Oxford University found the increasingly importance of mainstream media. Increasingly, organizations also want to increase their engagement with key opinion leaders like social media influencers and understand how tools like TikTok can help them disseminate organizational messages. The course equips students with the knowledge of how to engage the Tier 1 mainstream media (otherwise known as earned media) drawing on Pang's (2010) Mediating the Media model. It also equips students on how to complement this with the organization's owned and shared media. As leaders of the future, regardless of which industry you are in, it is important to understand how the Tier 1 media work. It is a useful course for students of all disciplines - in your roles as domain experts in the respective fields, consultants, organizational leaders or communication professionals as you would need to engage the media. It also prepares you for work in all sectors - be it corporate, public, not-for-profit, or for those who want to work in overseas markets.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14524,11 +14624,13 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["COMM345"],
   },
   COMM246: {
     name: "Crisis Management and Communication",
     moduleCode: "COMM246",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Organizations are battling crises of some form or other every day. This can be internal crises like organizational miscommunication, personality clashes; or external crises, for instance, arising from policy mismanagement to terrorism. Due to the vulnerability of the organization to both internal and external uncertainties, no organization is immune from crises. Even as we speak, we have just emerged from a global crisis, Covid-19, that has engulfed the world.\n\nThis course equips students with the necessary skills and abilities to prepare for organizational crises, diagnose the nature of the crises, how to communicate during crises, and how to recover and learn from crises.\n\nAs leaders of the future, it is important to understand how crises can impact the organization. It is a useful course for students of all disciplines: Some of you will be leading crisis management and communication in your roles as domain experts in the respective fields or as organizational leaders, others may become consultants or communication professionals who work with C-suites to navigate through crises.\n\nIt also prepares you for work in all sectors - be it corporate, public, not-for-profit, or for those who want to work in overseas markets.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14573,7 +14675,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   COMM255: {
     name: "User Experience and Digital Product Design",
     moduleCode: "COMM255",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides an introduction to user experience (UX) practices, theories, and real-world approaches that can help you prepare for work at some of the most innovative technology companies of today that obsess over their users' needs, feedback, and satisfaction. With focus on communicating human-centered design across stakeholders in digital technology product organizations, you can learn how to create user experiences that enhance and augment the ways people work, communicate, and interact. Through a series of lectures, hands-on tutorials, and project-based assignments, you will acquire skills in all four basic activities of interaction design: discovery, design, prototyping, and evaluation. You and your project group will design an interactive digital app prototype based on the research findings of real human needs.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14614,11 +14717,13 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["IS211"],
   },
   COMM256: {
     name: "Design Thinking and Communication",
     moduleCode: "COMM256",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Design Thinking is an open-ended, open-minded, and iterative approach to finding solutions for difficult business problems. It uses technology and a designer's toolkit, while focusing on human needs. You don't need to be a designer to become a design thinker. This course is your opportunity to learn to apply creative and collaborative tools, such as brainstorming and prototypes, to real-life challenges with a particular focus on how to communicate (i.e., pitch) innovative solutions. As we will discuss design thinking case studies at many Fortune 500 companies, you will be first introduced (in the form of interactive lectures) then practice (through hands-on workshops) the design thinking process. Designs go through many iterations and you will also refine your project multiple times. The course culminates in a group project pitch in front of external judges, who are ready to mentor (and sometimes even invest in) students to turn their entrepreneurial ideas into the next unicorn start-up.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14645,7 +14750,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   COMM301: {
     name: "Visual Analytics for Decision Making",
     moduleCode: "COMM301",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The course is designed for students majoring in Communication Management, specifically within the Data, Design, and Communication (DDC) Track. It aims to equip students with the skills necessary for understanding and implementing data-driven decision-making in business contexts. The curriculum provides a step-by-step tutorial on constructing and applying machine learning algorithms for business problem-solving using Python programming. Central to the learning process, students will learn how to report and draw insights from analytics using advanced visualization frameworks and Python toolkits.\n\nThroughout the course, students will develop a comprehensive understanding of machine learning techniques. The real-world applications of the course cover a variety of business queries including market segmentation, personalization, algorithmic trading, sentiment analysis, and topic modeling of text data. The course strives to make machine learning (ML) and artificial intelligence (AI) accessible, actionable, and interpretable (AAI), transforming these concepts into powerful tools for business problem-solving through effective visualization and data storytelling with Python.\n\nThe course employs an interactive lecture format to explore the principles and applications of machine learning, paired with a hands-on programming approach. Students engage directly with the material by completing parts of provided script templates. This blend of conceptual and technical learning is crucial for the experiential aspect of the course, which is strongly emphasized to encourage students to learn by doing. Such an approach is essential for understanding and applying course material in real-world scenarios, enabling students to effectively collaborate with data science teams within their organizations.\n\nThis course is specifically tailored for DDC-track students who aim to build analytical rigor with a strong emphasis on using the Python programming language for machine learning applications. Consistent practice in Python is vital for mastering the programming skills being taught, akin to the persistent practice required to learn to play the piano.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14668,11 +14774,15 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["COMM302"],
+    },
   },
   COMM302: {
     name: "Designing Communication for Behavioural Change",
     moduleCode: "COMM302",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "What makes people notice certain messages (commercials or news) and not others? How can a campaign for cognitive, affective, and behavioral changes be catchy, convincing, and contagious? When addressing such questions in organizational settings, communications managers often rely on what they know from executive experience and/or conventional wisdom, executing a number of communication strategies aiming at having a desired impact. This course will show how strategies that may hold intuitive appeal can be challenged and better informed by psychological principles underlying human judgment and decision-making. Students will learn the key psychological principles about how people process information in a given context and how to assess the conditions under which intended and/or unintended consequences arise. The learning, in turn, can be transformed to exert a competitive edge by identifying contributing and constraining factors of strategic communication to make an impact",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14717,7 +14827,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   COMM360: {
     name: "Investor Relations",
     moduleCode: "COMM360",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Investor Relations (IR), sometimes referred to as financial communications or financial public relations, is the strategic management responsibility which integrates finance, communication, marketing and securities law compliance to deliver effective two-way communication between a company and its stakeholders, ultimately contributing to a company's securities achieving fair valuation. This course introduces students to the essentials of effective IR and covers the various methods that publicly-listed companies can employ to successfully communicate with the global investment community, including institutional investors, retail investors, analysts, financial media, financial bloggers and regulators. The course will look into the development of a company's investor communication strategy and investment narrative. Groups of students will role-play as Investor Relations practitioners to plan, develop and execute investor relations communications for a company through its life cycle. Three real-world scenarios will be introduced to provide students with insights into how a company can respond to an investor relations crisis, a merger & acquisition transaction, and a change in corporate strategy. Groups will work through the investor communications for these scenarios with the objective of developing appropriate narratives to secure buy-in from the financial community and protect the reputation and valuation of the company. Students will also examine the digital and mainstream building blocks of IR tools, which are integral parts of a sound IR programme, and understand how data analytics can be used to enhance shareholder identification and targeting. As part of the course, students will also develop a 12-month investor communications programme to engage IR stakeholders.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14744,7 +14855,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   COR1001: {
     name: "Internship",
     moduleCode: "COR1001",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Internship is a credit-bearing graduation requirement under the Capabilities pillar of the SMU Core Curriculum. The internship experience is an integral part of career readiness and serves as a unique experiential learning opportunity for students to undergo training in a professional setting. To further integrate our co-curriculum with the academic curriculum, one course unit (1 CU) will be awarded for internships for students matriculated from AY2019-20 onwards. The internship programme with its rigorous preparation through a Reflective Practice Unit and online Foundational Finishing Touch (Internship Readiness Modules) is enhanced to provide students with an opportunity to apply their disciplinary knowledge and enhance their employability skills at the workplace preparing them for their future careers. Internships with a strong focus on learning outcomes aligned with careers of their choice and the reflections activity will guide students in their career planning. Students matriculated from AY2019-20 onwards (excluding students in the Bachelor of Laws programme) will be awarded 1 CU, upon successful completion of the Internship requirements. For students in the Bachelor of Laws programme, internship is a non-credit bearing graduation requirement.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14765,7 +14877,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   COR2001: {
     name: "Community Service",
     moduleCode: "COR2001",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Community Service is a credit-bearing graduation requirement under the Communities pillar of the SMU Core Curriculum. The Community Service experience serves as a unique experiential learning opportunity for students to undergo development in personal mastery, global citizenry, collaboration and project management skills. To further integrate our co-curriculum with the academic curriculum, one course unit (1 CU) will be awarded for community service for students matriculated from AY2019-20 onwards. The Community Service programme is enhanced to focus more on learning outcomes and help students to better understand and apply their learning. The enhanced credit-bearing Community Service programme will impart service learning knowledge and equip students with skills to conduct critical needs analysis and asset mapping, so as to help them provide more impactful and sustainable service to the community. The programme will also include a Reflective Practice unit to equip students with the skills for deeper and more meaningful reflection. Students matriculated from AY2019-20 onwards (excluding students in the Bachelor of Laws programme) will be awarded 1 CU, upon successful completion of the Community Service requirements. For students in the Bachelor of Laws programme, Community Service is a non-credit bearing graduation requirement.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14790,7 +14903,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The purpose of this course is to introduce students to formal statistical reasoning. Its focus is on the analysis of data. The theory is motivated by examining real-world problems with real-world data. Emphasis is placed on the central role played by computers in modern statistics. The Python programming language is used for the labs. No prior knowledge of Python is required to enroll.\n\nTopics covered include: Random sampling, sampling distribution, the bootstrap, the LLN, the CLT, point estimation (MM, ML, etc.), Fisher information, score function, the CRLB, properties of point estimators (unbiasedness, consistency, efficiency, etc.), MVUE, Monte Carlo simulation, numerical optimization, the EM algorithm,A/B testing, hypothesis testing, power function, ML based tests (likelihood ratio, Waldtype, score), the Neyman-Pearson lemma, CLT based tests, confidence interval estimation, chi-square goodness-of-fit test, contingency table, chi-square independence test, nonparametric/robust methods (histogram, empirical cdf, Kendall's tau, etc.), Bayesian methods.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14831,6 +14945,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["STAT201"],
+    },
   },
   DSA211: {
     name: "Statistical Learning with R",
@@ -14839,7 +14956,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims at introducing the concepts of statistics methodologies for searching analytical solutions to problems related in business with the practical use of big data. The use of statistical software R is integrated into most topics of the course. Topics include R-programming, Statistical Modelling, Linear Regression, Resampling Methods, Linear Model Selection and Regularization, and Tree-based methods",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14880,6 +14998,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT337"],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    },
   },
   DSA212: {
     name: "Data Analytics with R",
@@ -14888,7 +15010,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces students to statistical and computational thinking to solve real-world problems with data. It explores some of the theory, programming languages and concepts of the booming field of data science. Students will discover how programming in the state-ofthe art R/RStudio computing environment can be leveraged to extract meaningful information from a variety of real-world data. Students will also explore SQL (structured query language), a language used to access and manipulate data in databases. No prior programming knowledge is required. Topics include: Data visualization, data wrangling, interactive data graphics, interactive web apps, R and RStudio (an integrated development environment for R), SQL (database querying, administration, set up), spatial data, network science.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14929,6 +15052,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    },
   },
   DSA301: {
     name: "Time Series Data Analysis",
@@ -14937,7 +15063,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course covers predictive models, including stationary and non-stationary autoregressive moving average models, vector autoregressions, and vector error correction models with applications to Singapore data. It also covers important ideas in forecasting, such as loss functions, forecast uncertainty, and forecast evaluation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14960,6 +15087,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["DSA211", "ACCT337"],
+    },
   },
   DSA303: {
     name: "Spatial Data Analysis",
@@ -14968,7 +15098,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces statistical concepts and basic tools used in modelling and analysing spatial data: data on variables that are correlated in ‘space/location’ (geo-tagged data). Spatial data are commonly used in regional science and urban economics (related to property prices, crime, household income, etc.), epidemiology and public health (such as disease clusters, etc.), environmental science (air pollution, ozone density, etc.), ecology, biology, geology and other disciplines.\n\nWe start by looking at the practical aspects of organising and visualising spatial data where we will discuss methods available to organise and visualise (i) vector data and (ii) raster data using the R programming language. These are the two main ways in which spatial data are maintained. We also discuss how to use a coordinate reference system to give spatial awareness to a dataset and make meaningful maps including animated and interactive maps using OpenStreetMap and others.\n\nWe then consider the statistical aspects behind spatial data analysis with a special focus on how to re-align classical statistical methods towards spatial data. An outline is given to the three broad types of spatial data in spatial statistical analysis: (i) geostatistical data, (ii) areal data and (iii) point patterns. Standard spatial regression techniques are used to build models to explain attributes that are spatially correlated such as the number of COVID cases. These techniques are fully implemented using R throughout the course. You may follow the links to get a flavour of the applications in this course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14991,6 +15122,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["STAT201"],
+    },
   },
   DSA311: {
     name: "Machine Learning with Applications in Economics",
@@ -14999,7 +15133,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Recently, state-of-the-art packages for the open-source R language have facilitated the use of key statistical and machine learning (ML) methods, with applications in diverse fields such as genetics, business, social sciences, economics, and actuarial science. This R-centric course aims at introducing more advanced ML methods, which are not covered in the prerequisite course DSA211 Statistical Learning with R. With the background of the other prerequisite STAT201 Probability Theory and Applications, students will learn more advance statistical techniques of how to apply these ML methods with R programming to real-life applications on economics, risk management, actuarial science, etc. Topics include Classification, generalized additive models (GAMs), boosting, Bayesian additive regression trees, tree ensemble methods, support vector machines (SVMs), survival analysis, principal components analysis (PCA), and more. The course is designed to cater to the background and needs of Actuarial Science second major students and Data Science and Analytics second major students.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15022,6 +15157,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: [{ or: ["ACCT337", "DSA211"] }, "STAT201"],
+    },
   },
   ECON104: {
     name: "Mathematics for Economics",
@@ -15030,7 +15168,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces students to the rigorous mathematical foundations of economics. It offers students the necessary tools upon which modern economic analysis and modeling is based. This course emphasizes training in mathematics used in economics through the many economic applications in which mathematical tools are needed.\n\nThe course covers five main topics. The first part covers the basics, such as functions and set theory. The second part teaches matrix algebra in relations to equilibrium analysis, while the third part introduces the concept of comparative statics and the tools needed, derivatives. The fourth topic again uses derivatives to do a rigorous exposition on the most important skill in economics: optimization. Part five introduces integrals and how they are used in dynamic analysis. In each part, there will be many economic applications to let students familiarize with the mathematical concepts in an economic context and learn their real-world usefulness.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15089,6 +15228,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["COR1201"],
+    },
   },
   ECON107: {
     name: "Introduction to Econometrics",
@@ -15097,7 +15239,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This is an introductory econometrics course which provides students with the tools and techniques to analyze economic and financial data. We will emphasize the use and interpretation of single-equation regression techniques in formulating and testing various economic hypotheses. In particular, we will discuss model specification, diagnostics, multicollinearity, serial correlation, heteroskedastictiy, quantitative and qualitative variables, and cross-sectional and time series data modeling. A practical orientation will be adopted focusing on identification of appropriate techniques, execution of analysis, and sound interpretation of results. Concepts will be discussed via examples and illustrations with datasets using the software EViews on the computer. (This is a hands-on course so everyone must have a laptop in class).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15156,6 +15299,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    },
   },
   ECON111: {
     name: "Microeconomics 1",
@@ -15164,7 +15310,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides students with a foundational study of the concepts and theories underlying individual choice, and price formation and government intervention in perfectly competitive markets. The approach combines economic intuition with a rigorous treatment of the concepts taught. Students will learn the micro foundations of individual and market demand, individual and market supply, price elasticities. about the price formation under perfect competition in one market and in all markets (general equilibrium), as well as the two Welfare Theorems of Economics and the scope for government intervention. Finally, they will also learn marginal analysis as a powerful tool for problem solving. During the course, the applicability of these concepts to practical situations and their linkages to various economic electives will be discussed.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15223,6 +15370,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ECON104", "COR1201", "COR1202"],
+    },
+    mutuallyExclusive: ["ECON101"],
   },
   ECON112: {
     name: "Macroeconomics 1",
@@ -15231,7 +15382,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is the first part of a two-course Macroeconomics sequence. The aim of the sequence is twofold. First, it is to introduce students to modern macroeconomic theory, in particular formal macroeconomic models built on micro-foundations. Second, it is to develop a deep understanding of macroeconomic phenomena such as business cycles, long-term economic growth, and the process of economic development, as well as macroeconomic policy issues, such as the impact of fiscal and monetary policy on the economy and the design of a social security system or an unemployment insurance scheme.\n\nThis first part of the sequence first covers the topic of measurement of macroeconomic variables, before easing students into micro-founded macroeconomics by developing a static general equilibrium model with production and using it to analyze a number of fiscal policy issues. The course then moves on to a dynamic framework and covers the mechanics of long-term economic growth and the role of policy in economic development. Students are then introduced to dynamic decision problems when considering consumption and savings decisions of households and investment decisions of firms, and these building blocks are combined with a Walrasian approach to the labor market to complete the development of a dynamic macroeconomic model, which is then used to consider fiscal policy questions like the role of the timing in taxes and government expenditures. The course ends with an in-depth analysis of the data and mechanics of long-term economic growth and the role of policy in economic development.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15308,6 +15460,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: ["ECON104", "ECON111"],
+    },
+    mutuallyExclusive: ["ECON101"],
   },
   ECON113: {
     name: "Economics of Globalisation",
@@ -15316,7 +15472,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course focuses on the interaction and integration among the peoples, corporations, and governments of different nations, involving international trade [goods & services] and finance. Students will learn how technology and geopolitics affect the economic interdependence of nations. They will appreciate how economic policies are shaped and constrained by the interdependence of nations. Savings and investments, taxation, trade, fiscal, monetary, and exchange rate policies cannot be considered in isolation. Regional, trans-regional and multilateral financial and economic institutions impact everyday lives. Jobs, wages, and standards of living are impacted by the forces of globalisation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15357,6 +15514,7 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["ECON113S"],
   },
   ECON118: {
     name: "Economic Development in Asia",
@@ -15365,7 +15523,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides an introduction to the development economics in Asian countries. The goals of this courses are i) to understand key questions and findings in poverty research and ii) to discuss intended and unintended consequences of proposed policies. In particular, we investigate whether and to what extent nutrition, health, education, credit, and insurance explain the poverty trap. We pay close attention to behaviors of the poor and the incentives created by institutions and policies to get a deeper understanding of the challenges of poverty. We discuss issues of current interest to policy makers based on the analytic tools we develop throughout the course",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15432,7 +15591,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces students to data analytics and the particular features of health data and its potential impact on the healthcare industry. Health-related data may be collected from different sources, including patients, hospitals, insurance companies, households, and government. Students will learn how to visualise and analyse the data to extract useful information for better provision of healthcare services. The course will include hands-on analysis of health data and will examine how data analytics can help to improve different aspects of healthcare practices and policies.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15463,7 +15623,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is part of the Health Economics & Management major to equip graduates for a role in healthcare management. The course will start with a discussion of quality and efficiency of healthcare service delivery. Topics covered will include the definition, measurement, management and strategic planning of the quality of healthcare services and approaches to paying for healthcare. There will be an investigation of ways to make service delivery more efficient by improving systems and controls and utilising advanced IT systems. The course will also cover the key management principles for preparedness in the event of major disease outbreaks and their control. Besides health risk management in crisis, students will learn strategies and methods for managing public media and containing the level of public anxiety until the situation returns to normalcy.\n\n *** This class will also be taught by staff and faculty from Singhealth and/or Singhealth Academy and students will have to attend site visit and classes as listed in the Weekly Lesson Plan below. Note that for Week 09, students will be required to be in a Singhealth facility for the lesson. As such, DO NOT bid or register for the course if you intend to take classes in SMU campus before or after that time slot as you will need time to travel to and from the Singhealth facility. ***",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15494,7 +15655,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The course is structured into two parts: international trade and international finance. The first part of the course introduces the theory and policy of international trade. The issues involved include the bases for trade, the determinants of trade pattern (direction, terms, and volume), the effects of trade on income redistribution, as well as the various types of frequently-used trade policies, and their welfare consequences. The second part of the course introduces the theory and policy of international finance. The topics discussed include the balance of payment, the international monetary systems, the stabilisation policies of governments to adjust internal and external imbalances, and their effectiveness under alternative exchange rate regimes and different degrees of international financial market integration.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15558,6 +15720,13 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: [
+        { and: ["ECON101", "ECON102"] },
+        { and: ["ECON111", "ECON112", "ECON251"] },
+      ],
+    },
+    mutuallyExclusive: ["ECON203", "ECON103"],
   },
   ECON204: {
     name: "Development Economics",

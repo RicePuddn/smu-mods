@@ -405,7 +405,7 @@ export default function TimeTablePage({
           // variant={"ghost"}
           onClick={goToPreviousTerm}
           disabled={currentTermIdx == 0}
-          className={`${currentTermIdx == 0 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
+          className={`${currentTermIdx == 0 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
         >
           &lt;
         </button>
@@ -415,7 +415,7 @@ export default function TimeTablePage({
           // variant={"ghost"}
           onClick={goToNextTerm}
           disabled={currentTermIdx == termSlug.length - 1}
-          className={`${currentTermIdx == termSlug.length - 1 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
+          className={`${currentTermIdx == termSlug.length - 1 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
         >
           &gt;
         </button>
