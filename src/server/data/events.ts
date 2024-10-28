@@ -1,8 +1,9 @@
-import type { SchoolEvent } from "@/types/primitives/event";
+import { ExtendedSchoolEvent } from "@/stores/event";
 
-export const eventsData: Record<string, SchoolEvent[]> = {
+export const eventsData: Record<string, ExtendedSchoolEvent[]> = {
   clubs: [
     {
+      id: "Ellipsis SCIS Day",
       name: "Ellipsis",
       title: "SCIS Day",
       description:
@@ -14,6 +15,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
       deadline: new Date("2024-10-19T23:59:59+08:00"),
     },
     {
+      id: "BIA DAP",
       name: "Business Intelligence & Analytics",
       title: "DAP Workshop",
       description:
@@ -25,6 +27,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
       deadline: new Date("2024-10-19T23:59:59+08:00"),
     },
     {
+      id: ".Hack HEAP",
       name: ".Hack",
       title: "HEAP",
       description:
@@ -36,6 +39,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
       venue: "B1 Computer Labs",
     },
     {
+      id: "The Mentoring Circle Networking Night",
       name: "The Mentoring Circle",
       title: "Networking Night",
       description: `At The Mentoring Circle (TMC), we aim to transform outstanding individuals into strong people builders. Founded on the principles of giving and professional excellence, our club envisions an SMU where future generations are consistently better than the last. In each circle, each mentee will be able to grow under the guidance of a mentor, seeking advice in areas such as academics and career. This mentorship journey will be the start of a long lasting and symbiotic friendship, where both the mentor and mentee will learn together. Mentees and mentors will also have the opportunity to interact with other members from the Circle and as well as our alumni. With each Circle, our mentoring reach expands and new bonds are formed. We hope that through this endeavour, SMU can become a nexus for mentorship. The Mentoring Circle is proudly supported by the SMU Office of Alumni Relations.`,
@@ -46,6 +50,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
       venue: "SMU Underground",
     },
     {
+      id: "ISC Alumni Networking Night",
       name: "SMU's Indian Cultural Society",
       title: "Alumni Networking Night",
       description:
@@ -59,6 +64,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
   ],
   csp: [
     {
+      id: "Project Moolah",
       name: "Project Moolah",
       title: "Recruitment Drive",
       description: `Financial Literacy for Secondary School Students`,
@@ -69,6 +75,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
       venue: "SMU Underground",
     },
     {
+      id: "Project Luminaire",
       name: "Project Luminaire",
       title: "CSP for Vietnam",
       description: "Look out for the kids",
@@ -81,6 +88,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
   ],
   others: [
     {
+      id: "Global Innovation Immersion ",
       name: "Global Innovation Immersion ",
       title: "Early Bird Application",
       description: `securing an internship of a lifetime PLUS an eye-opening sponsored trip to the hottest innovation hubs in China or Southeast Asia!`,
@@ -91,6 +99,7 @@ export const eventsData: Record<string, SchoolEvent[]> = {
       venue: "SMU Underground",
     },
     {
+      id: "Overseas Exchange Student Programme",
       name: "Overseas Exchange Student Programme",
       title: "Applications",
       description: "Sign up for SMU's Overseas Exchange Programme",

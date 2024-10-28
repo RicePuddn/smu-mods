@@ -44,11 +44,9 @@ export function Banners() {
   };
 
   const activeBanners = banners.filter((banner) => !banner.dismissed);
-
   if (!isClient) {
     return null;
   }
-
   return (
     <>
       {activeBanners.length > 0 && (

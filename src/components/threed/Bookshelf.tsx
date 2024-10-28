@@ -104,7 +104,7 @@ export function Bookshelf(props: JSX.IntrinsicElements["group"]) {
       dispose={null}
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
-      onClick={handleClick}
+      onPointerUp={handleClick}
     >
       {hovered && (
         <Html position={[-2.1, 2.4, -2.857]}>
