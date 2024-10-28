@@ -397,7 +397,7 @@ export default function TimeTablePage({
         padding: PADDING,
       }}
     >
-        <h1 className="text-2xl font-bold">Plan Your Timetable</h1>
+      <h1 className="text-2xl font-bold">Plan Your Timetable</h1>
 
       <div className="mb-5 flex justify-center gap-24">
         <Button
@@ -407,7 +407,7 @@ export default function TimeTablePage({
         >
           &lt;
         </Button>
-        
+
         <h1 className="my-1">Term {currentTermNum}</h1>
         <Button
           variant={"ghost"}
@@ -605,8 +605,7 @@ export default function TimeTablePage({
                                   <p className="text-xs">
                                     {`${fullClass.classTime.startTime} (${fullClass.classTime.duration} hrs)`}
                                   </p>
-                                  <br />
-                                  <span className="text-xs">
+                                  <p className="text-xs">
                                     {
                                       modules[
                                         fullClass.moduleCode
@@ -615,7 +614,7 @@ export default function TimeTablePage({
                                           section.code === fullClass.section,
                                       )?.professor.name
                                     }
-                                  </span>
+                                  </p>
                                 </div>
                               );
                             },
@@ -704,7 +703,7 @@ export default function TimeTablePage({
         />
       </div>
       {timetable.modules.length > 0 && (
-        <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {timetable.modules.map((mod, index) => (
             <div
               className="flex w-full rounded bg-background p-4 shadow-sm"
@@ -743,46 +742,44 @@ export default function TimeTablePage({
                 </Popover>
               </div>
               <div className="flex-grow">
-                <div className="flex-grow">
-                  <p className="text-sm font-bold">
-                    {mod.moduleCode} - {mod.name}
-                  </p>
-                  <p className="text-sm">
-                    Exam:{" "}
-                    {mod.exam?.dateTime
-                      ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
-                      : "No exam scheduled"}
-                  </p>
-                </div>
-                <div className="w-fit">
-                  <div className="flex flex-row">
-                    <Button
-                      variant={"outline"}
-                      size={"icon"}
-                      className="rounded-r-none"
-                      onClick={() =>
-                        removeModuleFromTimetable(
-                          mod.moduleCode,
-                          termMap[params.termId as TermSlug],
-                        )
-                      }
-                    >
-                      <Trash2 />
-                    </Button>
-                    <Button
-                      variant={mod.visible ? "default" : "outline"}
-                      size={"icon"}
-                      className="rounded-l-none border-l-0"
-                      onClick={() => {
-                        toggleVisibility(
-                          mod.moduleCode,
-                          termMap[params.termId as TermSlug],
-                        );
-                      }}
-                    >
-                      {mod.visible ? <Eye /> : <EyeOff />}
-                    </Button>
-                  </div>
+                <p className="text-sm font-bold">
+                  {mod.moduleCode} - {mod.name}
+                </p>
+                <p className="text-sm">
+                  Exam:{" "}
+                  {mod.exam?.dateTime
+                    ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
+                    : "No exam scheduled"}
+                </p>
+              </div>
+              <div className="w-fit content-center">
+                <div className="flex flex-row">
+                  <Button
+                    variant={"outline"}
+                    size={"icon"}
+                    className="rounded-r-none"
+                    onClick={() =>
+                      removeModuleFromTimetable(
+                        mod.moduleCode,
+                        termMap[params.termId as TermSlug],
+                      )
+                    }
+                  >
+                    <Trash2 />
+                  </Button>
+                  <Button
+                    variant={mod.visible ? "default" : "outline"}
+                    size={"icon"}
+                    className="rounded-l-none border-l-0"
+                    onClick={() => {
+                      toggleVisibility(
+                        mod.moduleCode,
+                        termMap[params.termId as TermSlug],
+                      );
+                    }}
+                  >
+                    {mod.visible ? <Eye /> : <EyeOff />}
+                  </Button>
                 </div>
               </div>
             </div>

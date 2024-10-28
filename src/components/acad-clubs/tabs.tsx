@@ -27,8 +27,7 @@ export default function EventTabs({
   const tabs = Object.keys(tabsData);
 
   return (
-
-    <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value)} >
+    <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value)}>
       <TabsList>
         {tabs.map((tab) => (
           <TabsTrigger key={tab} value={tab}>
@@ -37,8 +36,8 @@ export default function EventTabs({
         ))}
       </TabsList>
       {tabs.map((tab) => (
-        <TabsContent key={tab} value={tab} >
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 ">
+        <TabsContent key={tab} value={tab}>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {tabsData[tab]?.map((event, index) => (
               <EventCard key={index} event={event} actions={addToStarred} />
             ))}
