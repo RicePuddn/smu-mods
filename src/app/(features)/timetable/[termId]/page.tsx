@@ -429,7 +429,7 @@ export default function TimeTablePage({
         >
           {/* Time Labels */}
           <div className="flex">
-            <div className="w-[5%] flex-shrink-0"></div>
+            <div className="w-[7%] flex-shrink-0 md:w-[5%]"></div>
             {timeSlots.map((time, index) => (
               <div
                 key={index}
@@ -603,10 +603,17 @@ export default function TimeTablePage({
                                   <span className="text-xs">
                                     {`${fullClass.classTime.startTime} (${fullClass.classTime.duration} hrs)`}
                                   </span>
-                                  {/* <br />
+                                  <br />
                                   <span className="text-xs">
-                                    {`${fullClass.section.}`}
-                                  </span> */}
+                                    {
+                                      modules[
+                                        fullClass.moduleCode
+                                      ]?.sections.find(
+                                        (section) =>
+                                          section.code === fullClass.section,
+                                      )?.professor.name
+                                    }
+                                  </span>
                                 </div>
                               );
                             },
@@ -695,7 +702,7 @@ export default function TimeTablePage({
         />
       </div>
       {timetable.modules.length > 0 && (
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4">
           {timetable.modules.map((mod, index) => (
             <div
               className="flex w-full rounded bg-background p-4 shadow-sm"
