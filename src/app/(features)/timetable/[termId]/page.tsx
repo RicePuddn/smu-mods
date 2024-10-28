@@ -397,6 +397,8 @@ export default function TimeTablePage({
         padding: PADDING,
       }}
     >
+        <h1 className="text-2xl font-bold">Plan Your Timetable</h1>
+
       <div className="mb-5 flex justify-center gap-24">
         <Button
           variant={"ghost"}
@@ -405,6 +407,7 @@ export default function TimeTablePage({
         >
           &lt;
         </Button>
+        
         <h1 className="my-1">Term {currentTermNum}</h1>
         <Button
           variant={"ghost"}
