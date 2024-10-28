@@ -28,6 +28,7 @@ export type ConfigAction = {
   dismissWarning: () => void;
   refreshBanners: () => void;
   changeAppVersion: (newVersion: string) => void;
+  dimissNavigationPopup: () => void;
 };
 
 export type BannerState = Banner & { dismissed: boolean };
@@ -40,6 +41,7 @@ export type ConfigStore = {
   banners: BannerState[];
   warningDismissedTime: number;
   appVersion: string | null;
+  navigationPopupDismissed: boolean;
 } & ConfigAction;
 
 export const createConfigBank = (
@@ -62,6 +64,7 @@ export const createConfigBank = (
         banners: defaultBanners,
         warningDismissedTime: Date.now() - 1000 * 60 * 60 * 24 * 7,
         appVersion: null,
+        navigationPopupDismissed: false,
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
@@ -115,6 +118,9 @@ export const createConfigBank = (
         changeAppVersion: (newVersion) => {
           Logger.log("Changing app version to", newVersion);
           set({ appVersion: newVersion });
+        },
+        dimissNavigationPopup: () => {
+          set({ navigationPopupDismissed: true });
         },
       }),
       {

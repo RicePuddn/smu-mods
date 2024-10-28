@@ -1,9 +1,9 @@
-import { type ReactNode } from "react";
 import { format } from "date-fns";
+import { type ReactNode } from "react";
 
+import { cn } from "@/lib/utils";
 import { type ExtendedSchoolEvent } from "@/stores/event";
-
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { Card } from "../ui/card";
 
 interface EventCardProps {
   event: ExtendedSchoolEvent;
@@ -15,35 +15,44 @@ interface EventCardProps {
 
 export const EventCard = ({ event, actions }: EventCardProps) => {
   return (
-    <Card className="overflow-hidden bg-accent">
-      {/* Title remains visible */}
-      <CardHeader className="bg-primary p-3 text-center text-lg font-bold text-primary-foreground">
-        {event.title}
-      </CardHeader>
+    <Card className="parent-event-card group text-center">
+      
+      {/* action button */}
+      <div className="absolute top-2 left-2 flex gap-0 z-10">
+          {actions?.map((action, index) => (
+            <div key={index} className="flex-shrink-0">
+              {action(event, index)}
+            </div>
+          ))}
+        </div>
 
-      {/* Content is positioned outside of view and moved up on hover */}
-      <CardContent className="p-4">
-        <p className="text-sm">{event.name}</p>
-        <p>{format(new Date(event.date), "MMMM d, yyyy")}</p>
-        <p className="text-sm">
-          {format(new Date(event.startTime), "HH:mm")} to{" "}
-          {format(new Date(event.endTime), "HH:mm")}
-        </p>
-        <p className="text-sm">{event.venue}</p>
-        <p className="mt-2 text-red-500">
-          <strong>
-            Registration Deadline:{" "}
-            {format(new Date(event.deadline), "MMMM d, yyyy HH:mm")}
-          </strong>
-        </p>
-        {/* <CardDescription className="mt-2 leading-relaxed text-gray-700">
-      <ReadMore id={value.description} text={value.description} />
-    </CardDescription> */}
-      </CardContent>
+        
+      {/* parent container */}
+        <div className="relative h-full w-full overflow-hidden">
 
-      <CardFooter className="gap-2">
-        {actions?.map((action, index) => action(event, index))}
-      </CardFooter>
+        {/* event title and organiser*/}
+        <div className={cn("absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:translate-y-[-27%] space-y-1 md:p-4")}>
+       
+        
+          <h3 className="text-base font-semibold">{event.title}</h3>
+          <p className="text-sm text-gray-600 dark:text-white">{event.name}</p>
+          
+        </div>
+
+        {/* more information (hidden initially) */}
+        <div className={cn( "text-left child-hidden-event-card group-hover:translate-y-9 ")}>
+            <p>{format(new Date(event.date), "MMMM d, yyyy")}</p>
+            <p className="text-sm">
+                {format(new Date(event.startTime), "HH:mm")} to{" "}
+                {format(new Date(event.endTime), "HH:mm")}
+            </p>
+            <p className="text-sm">{event.venue}</p>
+            <p className="mt-2 text-red-400 dark:text-red-500">
+                Registration Deadline:{" "} {format(new Date(event.deadline), "MMMM d, yyyy HH:mm")}
+            </p>
+
+        </div>
+    </div>
     </Card>
   );
 };

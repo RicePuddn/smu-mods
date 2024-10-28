@@ -49,6 +49,7 @@ export function toggleVisibility(moduleCode: ModuleCode, timetable: Timetable) {
             return {
               ...classItem,
               visible: newVisibility,
+              isVisible: newVisibility,
             };
           }
           return classItem;
