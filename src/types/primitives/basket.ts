@@ -50,6 +50,7 @@ export const basketCodes = [
   "COR-SSOC",
   "COR-STAT",
   "COR-THAI",
+  "CORE",
   "CS",
   "DSA",
   "ECON",
