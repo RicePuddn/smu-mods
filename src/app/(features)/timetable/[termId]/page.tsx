@@ -387,7 +387,7 @@ export default function TimeTablePage({
     return (
       <div className="flex h-[90%] w-full flex-col items-center justify-center">
         <p className="text-7xl">404</p>
-        <p className="font-semibold">Oops! This term doesn't exist.</p>
+        <p className="font-semibold">Oops! This term doesn&apos;t exist.</p>
       </div>
     );
   }
