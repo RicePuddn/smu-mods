@@ -225,11 +225,22 @@ export default function CourseCatalogue() {
                         toggleFavourites(module.moduleCode);
                       }}
                     >
-                      {favouriteModules.includes(module.moduleCode) ? (
-                        <Star className="h-6 w-6 fill-current" />
-                      ) : (
-                        <StarOff className="h-6 w-6" />
-                      )}
+                      <Star
+                        className={cn(
+                          "h-6 w-6 fill-current",
+                          favouriteModules.includes(module.moduleCode)
+                            ? "block"
+                            : "hidden",
+                        )}
+                      />
+                      <StarOff
+                        className={cn(
+                          "h-6 w-6",
+                          favouriteModules.includes(module.moduleCode)
+                            ? "hidden"
+                            : "block",
+                        )}
+                      />
                     </button>
 
                     <Button
