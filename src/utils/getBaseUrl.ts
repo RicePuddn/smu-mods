@@ -1,6 +1,7 @@
 import { env } from "@/env";
 
-const PROD_URL = `https://smumods.sg`;
+const PROD_URL = `https://smumods.johnnyknl.me`;
+
 export function getBaseUrl(getProductionUrl = false) {
   if (getProductionUrl) return PROD_URL;
   if (typeof window !== "undefined") return window.location.origin;
