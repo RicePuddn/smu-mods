@@ -519,7 +519,7 @@ export default function TimeTablePage({
                           minHeight < element?.scrollHeight
                         ) {
                           minHeight = element.scrollHeight;
-                          console.log(minHeight, slotId);
+                          Logger.log(minHeight, slotId);
                         }
                       }
                       return (
@@ -534,7 +534,7 @@ export default function TimeTablePage({
                         >
                           {rowResultWithPadding[rowIndex]!.map(
                             (fullClass, classIndex) => {
-                              // console.log("PAGE FULLCLASS:", fullClass);
+                              // Logger.log("PAGE FULLCLASS:", fullClass);
                               if (!fullClass.isVisible) {
                                 return null;
                               }
