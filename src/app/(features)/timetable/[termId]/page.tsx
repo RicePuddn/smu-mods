@@ -406,7 +406,7 @@ export default function TimeTablePage({
           // variant={"ghost"}
           onClick={goToPreviousTerm}
           disabled={currentTermIdx == 0}
-          className={`${currentTermIdx == 0 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
+          className={`${currentTermIdx == 0 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
         >
           &lt;
         </button>
@@ -416,7 +416,7 @@ export default function TimeTablePage({
           // variant={"ghost"}
           onClick={goToNextTerm}
           disabled={currentTermIdx == termSlug.length - 1}
-          className={`${currentTermIdx == termSlug.length - 1 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
+          className={`${currentTermIdx == termSlug.length - 1 ? "cursor-not-allowed text-arrow-disabled" : "text-smu-gold"} font-semibold`}
         >
           &gt;
         </button>
@@ -505,15 +505,31 @@ export default function TimeTablePage({
 
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                       const rowIndex = parseInt(rowIndexStr, 10);
-                      const minHeight = 60;
+                      const slotId = `${day}Slot${rowIndex}`;
+                      let minHeight = 60;
+                      const row = document.getElementById(slotId);
+                      for (
+                        let index = 0;
+                        index < (row?.children.length ?? 0);
+                        index++
+                      ) {
+                        const element = row?.children.item(index);
+                        if (
+                          element?.scrollHeight &&
+                          minHeight < element?.scrollHeight
+                        ) {
+                          minHeight = element.scrollHeight;
+                          console.log(minHeight, slotId);
+                        }
+                      }
                       return (
                         <div
-                          id={`Slot${rowIndex}`}
+                          id={slotId}
                           key={rowIndex}
                           className="relative flex flex-row"
                           style={{
                             position: "relative",
-                            height: `${minHeight}px`,
+                            minHeight: `${minHeight}px`,
                           }}
                         >
                           {rowResultWithPadding[rowIndex]!.map(
@@ -525,7 +541,7 @@ export default function TimeTablePage({
                               return (
                                 <div
                                   key={classIndex}
-                                  className={`absolute cursor-pointer rounded p-1 shadow-md transition-all duration-1000 ${
+                                  className={`absolute cursor-pointer content-center rounded p-1 shadow-md transition-all duration-1000 ${
                                     selectedClass?.section ===
                                       fullClass.section &&
                                     selectedClass?.moduleCode ===
@@ -536,8 +552,11 @@ export default function TimeTablePage({
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
-                                    minWidth: "fit-content",
-                                    height: "auto",
+                                    maxWidth: `${fullClass.width}%`,
+                                    // minWidth: "fit-content",
+                                    height: `${minHeight}px`,
+                                    // minHeight: "auto",
+                                    // maxHeight: "auto",
                                     backgroundColor:
                                       TIMETABLE_THEMES[timetableTheme][
                                         fullClass.colorIndex
