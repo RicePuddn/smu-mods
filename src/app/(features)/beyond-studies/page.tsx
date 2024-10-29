@@ -251,9 +251,9 @@ export default function BeyondStudies() {
             tabsData={eventsData}
             eventCardActions={[
               (event, index) => {
-                console.log(events, event);
+                Logger.log(events, event);
                 const find = events.find((e) => e.id == event.id);
-                console.log(find);
+                Logger.log(find);
                 return (
                   <Button
                     onClick={() => addEvent(event)}

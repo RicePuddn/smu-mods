@@ -12,10 +12,8 @@ export class Logger {
   }
 
   static error(...args: any[]) {
-    if (env.NEXT_PUBLIC_NODE_ENV !== "production") {
-      const formattedMessage = Logger.formatMessage("ERROR", ...args);
-      console.error(formattedMessage);
-    }
+    const formattedMessage = Logger.formatMessage("ERROR", ...args);
+    console.error(formattedMessage);
   }
 
   static warn(...args: any[]) {
