@@ -8,7 +8,7 @@ import { processModuleHtml } from "./writer";
 const args = process.argv.slice(2);
 
 if (args.length === 0) {
-  console.error("Please provide the name of the file as an argument.");
+  Logger.error("Please provide the name of the file as an argument.");
   process.exit(1);
 }
 
@@ -17,7 +17,7 @@ const fileName = args[0];
 const write = args[1] === "--write";
 
 if (!fileName) {
-  console.error("File not found.");
+  Logger.error("File not found.");
   process.exit(1);
 }
 
