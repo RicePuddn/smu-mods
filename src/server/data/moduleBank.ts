@@ -330,7 +330,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "Calculus introduces to students a set of elementary functions, their properties, various forms of analysis, and fundamental concepts in Calculus. Also introduced are the modeling methods in business and management by applying Calculus knowledge. The objective of the course is to develop the students' understanding and skills in analyzing managerial problems, creating mathematical models, and using them to solve these problems. Although the module is essentially mathematical in nature, a rigid mathematical treatment is avoided and the necessary mathematical concepts are derived from examples rather than through proofs.",
+      "Calculus introduces to students a set of elementary functions, their properties, various forms of analysis, and fundamental concepts in Calculus. Also introduced are the modeling methods in business and management by applying Calculus knowledge. The objective of the course is to develop the students’ understanding and skills in analyzing managerial problems, creating mathematical models, and using them to solve these problems. Although the module is essentially mathematical in nature, a rigid mathematical treatment is avoided and the necessary mathematical concepts are derived from examples rather than through proofs.",
     sections: [
       {
         code: "G1",
@@ -504,7 +504,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "Computational Thinking equips students to tackle complex computational problems; it trains students to design solutions to solve those problems using a computer program. It draws upon concepts from mathematics and computer science – more precisely, discrete mathematics, data structures and algorithm design. This course will hone students' analytical skills as they are challenged to think abstractly and computationally. Their minds will be open to the wonders of computing, as they go behind the scene to unravel the fundamental analytics that empower Google, consulting agencies and service companies. NOTE: To facilitate learning in this course, you are required to know and use programming. You are advised to pick up the Python programming language before the course, for instance by practising with online tutorials such as http://learnpython.org. By taking this course, students will: • discover the science of computing • model problems and learn practical problem-solving techniques to tackle complex computational problems (beyond what a spreadsheet is capable of solving) • apply problem-solving techniques to develop more elegant and efficient programs • learn to write programs to represent and manipulate with complex data objects • understand the challenge of scale, not only in dealing with large data sets, but also in appreciating the nature of computing and computability",
+      "Computational Thinking equips students to tackle complex computational problems; it trains students to design solutions to solve those problems using a computer program. It draws upon concepts from mathematics and computer science – more precisely, discrete mathematics, data structures and algorithm design. This course will hone students’ analytical skills as they are challenged to think abstractly and computationally. Their minds will be open to the wonders of computing, as they go behind the scene to unravel the fundamental analytics that empower Google, consulting agencies and service companies. NOTE: To facilitate learning in this course, you are required to know and use programming. You are advised to pick up the Python programming language before the course, for instance by practising with online tutorials such as http://learnpython.org. By taking this course, students will: • discover the science of computing • model problems and learn practical problem-solving techniques to tackle complex computational problems (beyond what a spreadsheet is capable of solving) • apply problem-solving techniques to develop more elegant and efficient programs • learn to write programs to represent and manipulate with complex data objects • understand the challenge of scale, not only in dealing with large data sets, but also in appreciating the nature of computing and computability",
     sections: [
       {
         code: "G1",
@@ -623,7 +623,7 @@ export const modules: ModuleBank = {
     name: "Critical Thinking In The Real World",
     moduleCode: "COR1701",
     description:
-      "You give reasons for what you do and think every day. You argue. You often argue about things that matter to you. For example you might argue that you are the best candidate for promotion, about whether your company should invest in China, about the best way to help a friend or about what the right thing to do is in an ethical dilemma. The list is up to you. Increasingly in the 21st job market, you will need to think straight about any issue, even those unfamiliar to you. Recent surveys indicate that the most important skills employers are looking for are critical thinking and problem solving skills. We will teach you how to get better at reasoning and arguing in a way that can be applied to any subject matter.\n                Topics covered include evaluating arguments, constructing arguments, reconstructing arguments, formalizing arguments, clarifying meaning and identifying common mistakes in argument (fallacies). At the end of the course you should be able to (1) identify the structures of real-life arguments in order to decide if they are good or bad, and (2) argue logically about things that matter to you. This course is specifically designed to improve writing, thinking and oral presentation skills that are applicable to all areas of academic study and relevant to working life. Careful application in this course will deepen your capacity to critically evaluate everyday practical scenarios and will help you 'think outside the box'.",
+      "You give reasons for what you do and think every day. You argue. You often argue about things that matter to you. For example you might argue that you are the best candidate for promotion, about whether your company should invest in China, about the best way to help a friend or about what the right thing to do is in an ethical dilemma. The list is up to you. Increasingly in the 21st job market, you will need to think straight about any issue, even those unfamiliar to you. Recent surveys indicate that the most important skills employers are looking for are critical thinking and problem solving skills. We will teach you how to get better at reasoning and arguing in a way that can be applied to any subject matter.\n                Topics covered include evaluating arguments, constructing arguments, reconstructing arguments, formalizing arguments, clarifying meaning and identifying common mistakes in argument (fallacies). At the end of the course you should be able to (1) identify the structures of real-life arguments in order to decide if they are good or bad, and (2) argue logically about things that matter to you. This course is specifically designed to improve writing, thinking and oral presentation skills that are applicable to all areas of academic study and relevant to working life. Careful application in this course will deepen your capacity to critically evaluate everyday practical scenarios and will help you ‘think outside the box’.",
     sections: [
       {
         code: "G1",
@@ -1219,7 +1219,7 @@ export const modules: ModuleBank = {
     name: "Spreadsheet Modelling and Analytics",
     moduleCode: "COR1305",
     description:
-      "Data Science has become one of the main drivers in transforming businesses and organizations. With proper data collection, preparation, analysis and modelling, insights can be achieved leading to better decision making and actions that create positive impact. Data analytics is divided into different levels namely, descriptive analytics, predictive analytics, prescriptive analytics and automated (or embedded) analytics. In this course, students will acquire practical skills in modelling and analysis to resolve business problems using software tools including Excel and Tableau. Knowing how to effectively use these tools to build models and analyse data to solve problems will add tremendous value in our students' future professional career. This course's primary focus is on using Excel spreadsheet as a platform to build mathematical models from scratch to represent business problems for detailed analysis. The use of such models to drive understanding and consensus towards generating insights and actions enhanced the assurance of execution success. With the data collected, data manipulation and transformation will be needed to prepare the data into useful forms for analysis. In terms of data analytics, this course will cover descriptive analytics, predictive analytics and prescriptive analytics, using both Excel and Tableau. In-class exercises would be used to present business problem modeling and analysis. Students would interactively develop the skills and experience to deal with open-ended questions, unclear assumptions and incomplete information. In addition to the individual assessments (take-home assignments and in-class quizzes), a group project will allow students to apply the knowledge and skills acquired to solve a business problem of their choice end-to-end where they will define the business questions, collect the necessary data, build the models, perform the data analytics, to draw insights and conclusions.",
+      "Data Science has become one of the main drivers in transforming businesses and organizations. With proper data collection, preparation, analysis and modelling, insights can be achieved leading to better decision making and actions that create positive impact. Data analytics is divided into different levels namely, descriptive analytics, predictive analytics, prescriptive analytics and automated (or embedded) analytics. In this course, students will acquire practical skills in modelling and analysis to resolve business problems using software tools including Excel and Tableau. Knowing how to effectively use these tools to build models and analyse data to solve problems will add tremendous value in our students’ future professional career. This course’s primary focus is on using Excel spreadsheet as a platform to build mathematical models from scratch to represent business problems for detailed analysis. The use of such models to drive understanding and consensus towards generating insights and actions enhanced the assurance of execution success. With the data collected, data manipulation and transformation will be needed to prepare the data into useful forms for analysis. In terms of data analytics, this course will cover descriptive analytics, predictive analytics and prescriptive analytics, using both Excel and Tableau. In-class exercises would be used to present business problem modeling and analysis. Students would interactively develop the skills and experience to deal with open-ended questions, unclear assumptions and incomplete information. In addition to the individual assessments (take-home assignments and in-class quizzes), a group project will allow students to apply the knowledge and skills acquired to solve a business problem of their choice end-to-end where they will define the business questions, collect the necessary data, build the models, perform the data analytics, to draw insights and conclusions.",
     sections: [
       {
         code: "G1",
@@ -2336,7 +2336,7 @@ export const modules: ModuleBank = {
     name: "Transformative Leadership",
     moduleCode: "COR-OBHR130",
     description:
-      "The core objective of the new SMU-X Transformative Leadership course is to nurture a new generation of young leaders motivated and capable of tackling intricate global and local challenges related to the nexus of 'digital disruption, demographic change and diversity' in an integrated, interdisciplinary fashion, providing the opportunity to integrate perceived differences between older and younger people in terms of values, communication priorities; age discrimination or the initiation of new types of social ('digital') behaviours transmitted from the plugged-in 'Generation Z' (born 1996 and after) to Baby Boomers (born 1946 to 1964). These three challenges (positioned at the interface of both current and future issues) are not only globally relevant but also have significant local implications for Singapore. Embedded in the experiential SMU-X initiative, the Transformative Leadership course provides students with a unique learning opportunity to develop and implement (socially) innovative solutions to make a positive impact on business and society in close collaboration with reputable partners in business, nonprofits and government. Learners will be paired up with an external SMU-X partner to work on relevant innovative projects with real impact. The successful completion of such transformative SMU-X projects requires learners diving deep(er) into various disciplines such as social sciences, business, political governance, public policy, demography, technology, etc. It is expected that the chosen practical challenges commissioned by SMU-X partners will 'stretch' students, forcing them to step out of their comfort zones and to explore the unknowns in order to make a 'real' difference 'out there' in both the social and business sectors. In terms of effective leader development, in particular, transformative leadership, the SMU-X course design will support learners in expanding their individual capacity to be effective in leadership roles and processes. Emphasis will be put on proximal indicators of leader development such as self-views around self-concept, including leader self-awareness, leadership self-efficacy and leader. Through their SMU-X projects, students will appreciate the importance of leadership development so that they can articulate what it takes for teams and their leaders to create strong(er) alignment and high(er) levels of commitment. The latter requires interpersonal trust, care and concern as well as shared mind-sets regarding (transformative) goals and values such as the 'real' sharing propelled by collaborative leadership approaches.",
+      "The core objective of the new SMU-X Transformative Leadership course is to nurture a new generation of young leaders motivated and capable of tackling intricate global and local challenges related to the nexus of ‘digital disruption, demographic change and diversity’ in an integrated, interdisciplinary fashion, providing the opportunity to integrate perceived differences between older and younger people in terms of values, communication priorities; age discrimination or the initiation of new types of social (‘digital’) behaviours transmitted from the plugged-in ‘Generation Z’ (born 1996 and after) to Baby Boomers (born 1946 to 1964). These three challenges (positioned at the interface of both current and future issues) are not only globally relevant but also have significant local implications for Singapore. Embedded in the experiential SMU-X initiative, the Transformative Leadership course provides students with a unique learning opportunity to develop and implement (socially) innovative solutions to make a positive impact on business and society in close collaboration with reputable partners in business, nonprofits and government. Learners will be paired up with an external SMU-X partner to work on relevant innovative projects with real impact. The successful completion of such transformative SMU-X projects requires learners diving deep(er) into various disciplines such as social sciences, business, political governance, public policy, demography, technology, etc. It is expected that the chosen practical challenges commissioned by SMU-X partners will ‘stretch’ students, forcing them to step out of their comfort zones and to explore the unknowns in order to make a ‘real’ difference ‘out there’ in both the social and business sectors. In terms of effective leader development, in particular, transformative leadership, the SMU-X course design will support learners in expanding their individual capacity to be effective in leadership roles and processes. Emphasis will be put on proximal indicators of leader development such as self-views around self-concept, including leader self-awareness, leadership self-efficacy and leader. Through their SMU-X projects, students will appreciate the importance of leadership development so that they can articulate what it takes for teams and their leaders to create strong(er) alignment and high(er) levels of commitment. The latter requires interpersonal trust, care and concern as well as shared mind-sets regarding (transformative) goals and values such as the ‘real’ sharing propelled by collaborative leadership approaches.",
     sections: [
       {
         code: "G55",
@@ -2483,7 +2483,7 @@ export const modules: ModuleBank = {
     name: "Collaborative Governance",
     moduleCode: "COR-PPPM1311",
     description:
-      "Contemporary governance illustrates a shift from a hierarchical, bureaucratic government to more collaborative, participative, and inclusive governance processes. Actors from public, private, and non-profit sectors collectively engage in policy decision-making to address complex social problems. Today's policy problems are described as 'wicked problems' that lack a set of clear definitions, causes and effects, and solutions. The wicked nature of the policy problems requires considering the perspectives of multiple stakeholders and innovative policy solutions. This course explores how governments and their stakeholders have experimented with new ideas, policies, governing processes, institutional arrangements, management tools, and technologies, to create public value and effect positive change. Using cases studies from a variety of policy areas and different countries, the course encourages students to understand the opportunities and challenges of public sector change initiatives including collaborative governance, e-governance, and coproduction. It prepares students to effectively address the multifaceted challenges of public policy and management through a variety of scholarly and practitioner publications, interactive and reflective exercises, and class discussions.",
+      "Contemporary governance illustrates a shift from a hierarchical, bureaucratic government to more collaborative, participative, and inclusive governance processes. Actors from public, private, and non-profit sectors collectively engage in policy decision-making to address complex social problems. Today's policy problems are described as ‘wicked problems’ that lack a set of clear definitions, causes and effects, and solutions. The wicked nature of the policy problems requires considering the perspectives of multiple stakeholders and innovative policy solutions. This course explores how governments and their stakeholders have experimented with new ideas, policies, governing processes, institutional arrangements, management tools, and technologies, to create public value and effect positive change. Using cases studies from a variety of policy areas and different countries, the course encourages students to understand the opportunities and challenges of public sector change initiatives including collaborative governance, e-governance, and coproduction. It prepares students to effectively address the multifaceted challenges of public policy and management through a variety of scholarly and practitioner publications, interactive and reflective exercises, and class discussions.",
     sections: [
       {
         code: "G1",
@@ -2519,7 +2519,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "This module is designed to introduce students to some key concepts within environmental history and STS studies, especially the impact and control of science and technology, with particular focus on the risks that these have posed to environmental sustainability and society in parts of Asia historically. Focusing on the history of the British Empire in Asia as a way of thinking around such issues, it uses imperial history as a lens into the development of ideas in environmental, medical and climatic science. It also considers the technological transformations that enabled and facilitated global imperial expansion. In so doing it considers imperialism's role in environmental change in Asia; the transposition of scientific thought between West and East and, the evolution of environmentalism as a movement. It also seeks to promote interdisciplinary thinking about critical contemporary challenges by thinking through the complex historical interconnections of society, environment and science.",
+      "This module is designed to introduce students to some key concepts within environmental history and STS studies, especially the impact and control of science and technology, with particular focus on the risks that these have posed to environmental sustainability and society in parts of Asia historically. Focusing on the history of the British Empire in Asia as a way of thinking around such issues, it uses imperial history as a lens into the development of ideas in environmental, medical and climatic science. It also considers the technological transformations that enabled and facilitated global imperial expansion. In so doing it considers imperialism’s role in environmental change in Asia; the transposition of scientific thought between West and East and, the evolution of environmentalism as a movement. It also seeks to promote interdisciplinary thinking about critical contemporary challenges by thinking through the complex historical interconnections of society, environment and science.",
     sections: [
       {
         code: "G1",
@@ -2657,7 +2657,7 @@ export const modules: ModuleBank = {
     name: "Harnessing Robotics, UAVs, and Digital Innovation for Business",
     moduleCode: "COR-MGMT2211",
     description:
-      "This course is a response to the increasing use of robotics, unmanned aerial vehicles (UAVs) and digital technologies in business and society. Drones are unmanned, multi-purpose tools. Their history can be traced back to World War I when the US army experimented with unmanned aerial torpedos. Nowadays, drone technology belongs to the military arsenal of many nations. Drones serve many purposes (intelligence, surveillance, reconnaissance etc.), and they can be deadly. In business and society, drones are utilised to capture images of people and/or buildings, to monitor agricultural conditions, to take pictures from (or of) hard to reach places, to assess the impact of climate change on rainforests, to film events, to deliver parcels, to survey real estate, to deliver help to heart attack victims in remote areas via a flying defibrillator or to fly life-saving kits to swimmers in emergency situations. In view of their increasing importance in terms of commercial value creation, R&D (it is estimated that about $6.4 billion is spent annually for R&D on drones), job creation, innovation (e.g. Internet of Things), new forms of warfare as well as legal/moral-ethical/regulatory concerns, it is imperative that students learn to critically appreciate the multiple and often conflicting implications and consequences of this technology for business and society. To achieve that, students will have to read widely and familiarize themselves with the various functionalities of robotics, UAVs and digital innovations in order to critically assess these technologies and to articulate informed opinions about 'the good', 'the bad', and 'the future' of these novel technological developments. The course will be taught by a multi-disciplinary team of instructors plus exposure to tech entrepreneurs and digital (corporate) innovation champions.",
+      "This course is a response to the increasing use of robotics, unmanned aerial vehicles (UAVs) and digital technologies in business and society. Drones are unmanned, multi-purpose tools. Their history can be traced back to World War I when the US army experimented with unmanned aerial torpedos. Nowadays, drone technology belongs to the military arsenal of many nations. Drones serve many purposes (intelligence, surveillance, reconnaissance etc.), and they can be deadly. In business and society, drones are utilised to capture images of people and/or buildings, to monitor agricultural conditions, to take pictures from (or of) hard to reach places, to assess the impact of climate change on rainforests, to film events, to deliver parcels, to survey real estate, to deliver help to heart attack victims in remote areas via a flying defibrillator or to fly life-saving kits to swimmers in emergency situations. In view of their increasing importance in terms of commercial value creation, R&D (it is estimated that about $6.4 billion is spent annually for R&D on drones), job creation, innovation (e.g. Internet of Things), new forms of warfare as well as legal/moral-ethical/regulatory concerns, it is imperative that students learn to critically appreciate the multiple and often conflicting implications and consequences of this technology for business and society. To achieve that, students will have to read widely and familiarize themselves with the various functionalities of robotics, UAVs and digital innovations in order to critically assess these technologies and to articulate informed opinions about ‘the good’, ‘the bad’, and ‘the future’ of these novel technological developments. The course will be taught by a multi-disciplinary team of instructors plus exposure to tech entrepreneurs and digital (corporate) innovation champions.",
     sections: [
       {
         code: "G1",
@@ -3019,7 +3019,7 @@ export const modules: ModuleBank = {
     name: "Constitutions, Cultures, and Context",
     moduleCode: "COR-LAW2610",
     description:
-      "A constitution is a country's most important text: it creates State institutions, allocates powers and recognizes rights and responsibilities for those within its territory. More than that, constitutions express a state's identity and provide the framework for all other laws and policies. This course will expose students to the challenges attendant on making constitutions work. At the same time, it will sensitise them to the extent to which the wider social, political and economic context and a country's underlying culture affect the implementation of constitutional rules and values. Evergreens like the separation of powers, constitutional enforcement and dilemmas in ensuring equality and dignity will be explored through comparative study of experiences in a diverse range of jurisdictions. Instead of exploring models and constitutional solutions in the abstract, the course invites students to explore the practical impact and outcomes particular constitutional models and ideas produce in everyday life. To that end, we will amongst others compare the constitutional responses that different countries provide to contemporary challenges such as how to ensure effective public participation in governance without encouraging populism; the pervasiveness of migration for our understanding of citizenship and its entitlements; ensuring that everyone is treated equally while respecting individual autonomy and life choices; the role of technology in public life and the implications for privacy and free speech; and the role of a constitution in fostering economic development.",
+      "A constitution is a country’s most important text: it creates State institutions, allocates powers and recognizes rights and responsibilities for those within its territory. More than that, constitutions express a state’s identity and provide the framework for all other laws and policies. This course will expose students to the challenges attendant on making constitutions work. At the same time, it will sensitise them to the extent to which the wider social, political and economic context and a country’s underlying culture affect the implementation of constitutional rules and values. Evergreens like the separation of powers, constitutional enforcement and dilemmas in ensuring equality and dignity will be explored through comparative study of experiences in a diverse range of jurisdictions. Instead of exploring models and constitutional solutions in the abstract, the course invites students to explore the practical impact and outcomes particular constitutional models and ideas produce in everyday life. To that end, we will amongst others compare the constitutional responses that different countries provide to contemporary challenges such as how to ensure effective public participation in governance without encouraging populism; the pervasiveness of migration for our understanding of citizenship and its entitlements; ensuring that everyone is treated equally while respecting individual autonomy and life choices; the role of technology in public life and the implications for privacy and free speech; and the role of a constitution in fostering economic development.",
     sections: [
       {
         code: "G1",
@@ -3079,7 +3079,7 @@ export const modules: ModuleBank = {
     name: "Fashioning a Nation",
     moduleCode: "COR2628",
     description:
-      "Nations have long sought to evoke loyalty and personal attachment, while in turn providing those living within it with a collective experience and common destiny. The potent force of the nation as a cognitive idea is at the heart of this course, which conceives of the making of a nation as an ongoing work in progress in which everyone has a stake. The central question that we will investigate concerns the reciprocal influences between the nation, its institutional manifestations and 'the people'. How do 'the people' shape institutions and fashion a nation on a daily basis and vice versa?\n\n                To explore these relationships, the course is structured around three themes: prerequisites, process and practice. The first theme provides the general conceptual framework through a series of brief discussions of what a nation is, how it relates to a state and to a 'people'. The second theme is devoted to what is often seen as the quintessential nation-building moment: the formal drafting of a constitution. We will consider the choice of language in that text to harness the people's fidelity to the budding nation as well as the respective roles played by the elites and ordinary citizens during the constitution-process. For the third theme, we will probe the lived reality of how the nation constitutes itself every day through its people, from the elites who claim to speak on behalf of the nation in formal rule-making to the personification of the nation in image, song and icon to the architectural design of state institutions and public spaces and the wearing of folk costumes or traditional outfits that seek to give expression to the identity of the nation.\n\n                Our explorations will feature the experiences of a diverse range of nations located within and outside Asia. These will provide the backdrop against which the Singapore story will be considered, thereby allowing students to interrogate the familiar domestic narrative of nation-building from a comparative angle. The approach taken will be practically grounded and interdisciplinary, drawing on insights from law, political theory, history, linguistics, architecture and the arts. To do so effectively, the course will be team-taught by two instructors with complementary disciplinary backgrounds.\n                ",
+      "Nations have long sought to evoke loyalty and personal attachment, while in turn providing those living within it with a collective experience and common destiny. The potent force of the nation as a cognitive idea is at the heart of this course, which conceives of the making of a nation as an ongoing work in progress in which everyone has a stake. The central question that we will investigate concerns the reciprocal influences between the nation, its institutional manifestations and ‘the people’. How do ‘the people’ shape institutions and fashion a nation on a daily basis and vice versa?\n\n                To explore these relationships, the course is structured around three themes: prerequisites, process and practice. The first theme provides the general conceptual framework through a series of brief discussions of what a nation is, how it relates to a state and to a ‘people’. The second theme is devoted to what is often seen as the quintessential nation-building moment: the formal drafting of a constitution. We will consider the choice of language in that text to harness the people’s fidelity to the budding nation as well as the respective roles played by the elites and ordinary citizens during the constitution-process. For the third theme, we will probe the lived reality of how the nation constitutes itself every day through its people, from the elites who claim to speak on behalf of the nation in formal rule-making to the personification of the nation in image, song and icon to the architectural design of state institutions and public spaces and the wearing of folk costumes or traditional outfits that seek to give expression to the identity of the nation.\n\n                Our explorations will feature the experiences of a diverse range of nations located within and outside Asia. These will provide the backdrop against which the Singapore story will be considered, thereby allowing students to interrogate the familiar domestic narrative of nation-building from a comparative angle. The approach taken will be practically grounded and interdisciplinary, drawing on insights from law, political theory, history, linguistics, architecture and the arts. To do so effectively, the course will be team-taught by two instructors with complementary disciplinary backgrounds.\n                ",
     sections: [
       {
         code: "G1",
@@ -3143,7 +3143,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "The contemporary world is usually described as 'globalized.' Although some claim that this 'global village' can be our home and that human life is improved by globalization, others complain that the local sense of groundedness that they argue is essential to human flourishing is becoming harder to attain. In this course, we explore the big question of whether these two concepts – the global and the local – are really opposites and whether it is possible to find a home in a world that is global. These explorations will transpire through analysis and discussion of readings drawn from business, scientific, legal, philosophical, and aesthetic sources illuminating the intersections of the global and local. By the end of the course, students will be expected to able to articulate their responses to whether they can find home in a globalized world by integrating the course material with their own personal experiences. This course should be of special interest to students embarking on endeavours that will take them far from home, as one objective will be for them to articulate what 'home' is.",
+      "The contemporary world is usually described as ‘globalized.’ Although some claim that this ‘global village’ can be our home and that human life is improved by globalization, others complain that the local sense of groundedness that they argue is essential to human flourishing is becoming harder to attain. In this course, we explore the big question of whether these two concepts – the global and the local – are really opposites and whether it is possible to find a home in a world that is global. These explorations will transpire through analysis and discussion of readings drawn from business, scientific, legal, philosophical, and aesthetic sources illuminating the intersections of the global and local. By the end of the course, students will be expected to able to articulate their responses to whether they can find home in a globalized world by integrating the course material with their own personal experiences. This course should be of special interest to students embarking on endeavours that will take them far from home, as one objective will be for them to articulate what ‘home’ is.",
     sections: [
       {
         code: "G1",
@@ -3263,7 +3263,7 @@ export const modules: ModuleBank = {
     name: "Introduction to Chinese History, Culture, Economy, Politics and Law",
     moduleCode: "COR2634",
     description:
-      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students' understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
+      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students’ understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
     sections: [
       {
         code: "G1",
@@ -3351,7 +3351,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "Law and legal systems are ubiquitous in modern societies. As Kant noted, law takes away man's “savage (lawless) freedom” to return to him a more limited freedom under the law. But what exactly is law? How is law related to justice? Is law merely a power phenomenon? Is law merely politics? Is the monopolization of coercive force by the state justified?\n\n                This course provides students with the opportunity to think about law's nature and its role in society. We will examine these questions through accounts of law offered by legal positivists and natural law theorists, and challenges posed by alternative critical accounts of American legal realism and critical legal studies. How do modern and critical accounts of law shape our thinking about the nature and purpose of law? Are the accounts rooted in particular historical contexts or cultures, or are they as relevant today or within our society? How does adopting a particular account of law impact the present practice of law? Do the accounts have something to say about how we, as lawyers or citizenry, can harness law's potential as a tool for transforming society?\n\n                Through this course, students will have a unique opportunity to engage their hearts and minds in relation to the concepts of law and justice. Students will also be encouraged to relate the theories studied to current contexts. The course's focus is on critique of ideas and not mere description of doctrine. The methods of assessment will be intentionally geared towards facilitating critical thought. This course encourages students to formulate their own theses about law and justice, and meaningfully understand the role they can play – as lawyers and as citizens – in the legal process.",
+      "Law and legal systems are ubiquitous in modern societies. As Kant noted, law takes away man’s “savage (lawless) freedom” to return to him a more limited freedom under the law. But what exactly is law? How is law related to justice? Is law merely a power phenomenon? Is law merely politics? Is the monopolization of coercive force by the state justified?\n\n                This course provides students with the opportunity to think about law’s nature and its role in society. We will examine these questions through accounts of law offered by legal positivists and natural law theorists, and challenges posed by alternative critical accounts of American legal realism and critical legal studies. How do modern and critical accounts of law shape our thinking about the nature and purpose of law? Are the accounts rooted in particular historical contexts or cultures, or are they as relevant today or within our society? How does adopting a particular account of law impact the present practice of law? Do the accounts have something to say about how we, as lawyers or citizenry, can harness law’s potential as a tool for transforming society?\n\n                Through this course, students will have a unique opportunity to engage their hearts and minds in relation to the concepts of law and justice. Students will also be encouraged to relate the theories studied to current contexts. The course's focus is on critique of ideas and not mere description of doctrine. The methods of assessment will be intentionally geared towards facilitating critical thought. This course encourages students to formulate their own theses about law and justice, and meaningfully understand the role they can play – as lawyers and as citizens – in the legal process.",
     sections: [
       {
         code: "G1",
@@ -6447,7 +6447,7 @@ export const modules: ModuleBank = {
     name: "Software Project Management",
     moduleCode: "IS212",
     description:
-      "In IS212 (Software Project Management), students will learn about modern frameworks and tools for software project management. In particular, students will gain hands-on experience with the 'scrum' framework and several other agile techniques (e.g. test-driven development, pair programming, continuous integration) as they design and build the first release of a software system. Students will gain an appreciation for how these methods help to manage the inherent uncertainty of software projects, as well as how they ensure that developers work towards a common goal at a sustainable pace.",
+      "In IS212 (Software Project Management), students will learn about modern frameworks and tools for software project management. In particular, students will gain hands-on experience with the ‘scrum’ framework and several other agile techniques (e.g. test-driven development, pair programming, continuous integration) as they design and build the first release of a software system. Students will gain an appreciation for how these methods help to manage the inherent uncertainty of software projects, as well as how they ensure that developers work towards a common goal at a sustainable pace.",
     sections: [
       {
         code: "G1",
@@ -17961,7 +17961,7 @@ This course couples established and emerging theory on how finance can be used t
     name: "Legal Research and Writing II",
     moduleCode: "LAW107_607",
     description:
-      "The objective of this course is to develop skills in practical legal research, writing and drafting, interviewing and advising and advocacy in first-year students. These skills will be taught in the context of legal problems in contract law, criminal law, and the law of torts, previously covered or concurrently taught in the first year.",
+      "The objective of           this course is to develop skills in practical legal research, writing and drafting, interviewing and advising and advocacy in first-year students. These skills will be taught in the context of legal problems in contract law, criminal law, and the law of torts, previously covered or concurrently taught in the first year.",
     credit: 0,
     terms: ["Term 2"],
     sections: [
@@ -18230,8 +18230,8 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    mutuallyExclusive: ["LGST201", "LAW101"],
-    preReq: {or: ["LGST101", ]}
+    mutuallyExclusive: ["LGST201", ],
+    preReq: {or: ["LGST101", "LAW101"]}
   },
   LAW204_624: {
     name: "Constitutional & Administrative Law",
@@ -18240,7 +18240,16 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course introduces principles of Singapore constitutional law and administrative law.
+                  Constitutional law is concerned with the organisation of the state and the relationship between the
+                  government, civil society, and the individual. Administrative law is about the governance of public
+                  bodies exercising statutory or other powers or performing public duties.
+                  In this course, we will be concerned with how law, institutions and norms promote good governance,
+                  how political power and public law functions are legitimated, how abuses of public power are
+                  prevented or remedied, and how to understand the proper relationship between the individual and
+                  the state.
+                  NB: This is a reading-intensive 1.5 cu course. This means that, as a general guideline, you should put it
+                  at least 11/2 times the amount of time and effort that you do for your other 1.0 cu modules. `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18368,7 +18377,17 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides an overview of the fundamental principles and methodologies of the conflict of
+                  laws (also known as private international law), with focus on their application in commercial
+                  transactions. Cross-border commercial transactions are common in a modern globalised era. The
+                  conflict of laws addresses three large questions: (1) in which country should the case be tried? (2)
+                  which country's law should be applied to resolve the dispute? (3) What should be the legal effect in
+                  one country of a judgment given in another? From the perspective of Singapore law, the questions
+                  translate into: (1) When would or should a Singapore court hear the case (and sometimes try to stop
+                  it from being heard in another country)? (2) Which country's law would or should the Singapore court
+                  apply to resolve the issue before it? And (3) What legal effect would or should a foreign judgment
+                  have in Singapore? This is a course on Singapore conflict of laws, but comparisons will be made from
+                  time to time to the laws of other countries.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18445,6 +18464,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or:["LGST101", "LGST201", "LAW101" ]}
   },
   LAW303_633: {
     name: "Law of Equity & Trusts",
@@ -18453,7 +18473,12 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The objective of this course is to introduce students to the principles of equity and trusts. To acquire
+                  a fundamental understanding of the subject, the history of equity and its evolution to the present day
+                  will be considered. In this course, the law of trusts will be examined in depth. The trust is considered
+                  to be the most significant contribution by equity and is applied in various areas of daily life. Through
+                  the study of the course, students will come to appreciate the interrelationship of the different areas
+                  of the law and how the trust is used in the business world. `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18550,6 +18575,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {and:["LAW101", "LAW202", "LAW105" ]}
   },
   LAW401: {
     name: "Intellectual Property Law",
@@ -18558,7 +18584,30 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course does not, in today's context, require a detailed and lengthy introduction.
+                  Whereas the subject was once only encountered occasionally by students, the law of
+                  intellectual property (IP) is now widely taught and studied. It is perhaps fair to say that
+                  few branches of the law have, in recent times, developed as swiftly and explosively
+                  across jurisdictions as the law of IP and its associated laws of information and
+                  communications technology and electronic commerce. This is especially evidenced in
+                  Singapore by, inter alia, the Government's push for a sound and comprehensive legal
+                  framework for the promotion and protection of IP, and by the setting up of the
+                  Intellectual Property Office of Singapore. Several amendments have also been made to
+                  Singapore's IP legislation in order to implement the country's obligations under the
+                  United States – Singapore Free Trade Agreement (which was concluded in May 2003).
+                  More recently, the Copyright Act 1987 was repealed by Parliament and replaced by the
+                  (new) Copyright Act 2021.
+                  You will in this course be introduced to the different types of IP rights and the various
+                  branches of IP law. Some of these rights include copyright, patent and trade mark rights.
+                  We will also have the opportunity to explore, in some detail, the common law actions of
+                  passing off and breach of confidence. Obviously, a course on IP extends beyond a prosaic 
+                  2
+                  examination of our domestic legal infrastructure and it is a subject that will also aid in
+                  understanding entrepreneurial development in information technology.
+                  The study of IP was, at one point, a somewhat esoteric specialisation. Today, IP occupies
+                  a central position in the global, knowledge-based economy and this course should
+                  therefore appeal to those who wish to equip themselves with knowledge of a burgeoning
+                  and highly relevant area of the law.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18603,7 +18652,18 @@ This course couples established and emerging theory on how finance can be used t
   LAW4013: {
     name: "Commercial Remedies in Litigation",
     moduleCode: "LAW4013",
-    description: "DESCRIPTION_NEEDED",
+    description: `Remedies are what a commercial litigation client ultimately asks for. This course will guide students in
+                  practical aspects of remedies by reference to actual litigation cases.
+                  Students will study and compare the different remedies used in different cases and learn to assess
+                  why they were selected. When is a freezing Mareva Injunction available as a pre-emptive strike?
+                  When can you obtain an injunction for breach of restrictive covenants? Why would a Plaintiff claim
+                  Wrotham Park damages instead of normal damages? What if a defendant is insolvent? These are
+                  some of the questions which a litigant may ask counsel, and which students will explore.
+                  Through case studies, students will assume the role of counsel to understand the tactical advantages
+                  and strategic considerations that counsel face - including evidential issues, assessment of damages,
+                  burden of proof, selection of defendants and impact of the defendants' insolvency.
+                  Effective remedies are the bedrock of any litigation practice. Students will gain practical knowledge
+                  for a head start in a litigation career.`,
     credit: 0,
     terms: ["Term 2"],
     sections: [
@@ -18626,11 +18686,21 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {and: ["LAW101", "LAW102", "LAW105","LAW202", "LGST201"]}
   },
   LAW4018: {
     name: "Dispute Resolution Advocacy",
     moduleCode: "LAW4018",
-    description: "DESCRIPTION_NEEDED",
+    description: `The proliferation of cross-border business activity has generated an increased
+                  demand for international commercial dispute resolution. As alternatives to
+                  litigation, arbitration and mediation have emerged as viable routes to the timely
+                  and cost-effective settlement of disputes, particularly in Singapore. This course
+                  will provide an interdisciplinary perspective to the role of the dispute resolution
+                  advocate within these processes, the legal framework governing their procedure
+                  and enforcement, and practical issues of cost and speed across different
+                  mechanisms. Written submissions, oral presentations and groupwork will give
+                  participants a sound understanding of how an effective advocate must adopt a
+                  tailored approach to different processes of dispute resolution.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18657,7 +18727,9 @@ This course couples established and emerging theory on how finance can be used t
   LAW4022: {
     name: "Digital Innovation for Access to Justice",
     moduleCode: "LAW4022",
-    description: "DESCRIPTION_NEEDED",
+    description: `In this course, students will be introduced via seminars to topics on “equal access to
+                  justice” and how digital technology can assist to bridge the gap for those who lack access to the
+                  resources that could help meet their legal needs`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18684,7 +18756,29 @@ This course couples established and emerging theory on how finance can be used t
   LAW4025: {
     name: "Overseas Project Experience (Law in Asia)",
     moduleCode: "LAW4025",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will explore the legal system of Taiwan, officially known as the Republic of China (ROC).
+                  Taiwan was ceded to Japan by the Qing Dynasty under the Treaty of Shimonoseki in 1895. The
+                  ROC was established in 1912 after overthrowing the Qing Dynasty. According to the Cairo
+                  Declaration, the ROC assumed control of Taiwan after World War II. In 1949, following its defeat
+                  in the civil war to the Chinese Communist Party, which established the People's Republic of China
+                  (PRC), the ROC government relocated to Taipei. In 1971, United Nations General Assembly
+                  Resolution 2758 transferred China's seat from the ROC to the PRC, leading to Taiwan's unique
+                  status under international law.
+                  Taiwan's legal system is based on the ROC Constitution promulgated in 1947. The ROC adopted
+                  the Chinese legal system in Taiwan, influenced by Japan during its administration. Germany and
+                  the United States have significantly influenced Taiwan's legal development in constitutional, civil,
+                  and commercial law. The Legislative Yuan (Parliament) is Taiwan's unicameral legislature. The
+                  Council of Grand Justices (Constitutional Court) of the Judicial Yuan holds the power to interpret
+                  the Constitution. The Executive Yuan serves as the executive branch, with the Premier appointed
+                  by the President, who is elected every four years by universal suffrage.
+                  Today, Taiwan ranks among the largest Asian economies and operates as a vibrant democracy
+                  under a two-party system since the lifting of Martial Law. In this course (under the Overseas
+                  Project Experience (Law in Asia) model), students will examine various aspects of Taiwanese law
+                  and explore Taiwan's legal relationships with the United States, China, and Singapore. They will
+                  gain practical experience working with lawyers and legal counsels to address real-world legal
+                  challenges.
+                  This course is supported by the Taiwan Studies Project Grant from the ROC Ministry of Education.
+                  Some sessions may be conducted online, and a one-week field trip to Taipei, Taiwan, is planned.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18711,7 +18805,27 @@ This course couples established and emerging theory on how finance can be used t
   LAW4043: {
     name: "The Singapore International Arbitration Centre and Institutional Arbitration: Law and Practice",
     moduleCode: "LAW4043",
-    description: "DESCRIPTION_NEEDED",
+    description: `Arbitral institutions are important stakeholders in the field of international arbitration, but
+                  the nature and importance of their role have often been overlooked. The course seeks to
+                  introduce participants to the role and function of arbitral institutions in guiding and shaping
+                  the practice and development of international arbitration, and to the complex issues that
+                  arbitral institutions face in the administration of arbitrations, including, among others, the
+                  appointment of arbitrators and the issuance of arbitral rules and practice notes.
+                  In this connection, SIAC has grown to be one of the most popular arbitral institutions not
+                  just in Asia, but the world. The course involves a study of SIAC processes as well as related
+                  case law emanating therefrom. Participants will learn not just what the relevant rules,
+                  procedures and processes are, but more importantly, participants will gain insight into why
+                  those rules exist, and how those rules are implemented in practice.
+                  In addition to commercial arbitration, this course will also look at arb-med-arb protocols
+                  and investor-state dispute settlement.
+                  The course will be taught by experienced guest instructors from the Singapore International
+                  Arbitration Centre (SIAC) and by other leading arbitration practitioners, who will share
+                  their unique, practical perspectives on administering or advancing a particular case.
+                  Participants keen on developing a practice in international dispute settlement will find this
+                  course of direct relevance.
+                  
+                  Strongly recommended that students complement this course with the
+                  course in international commercial arbitration (LAW406).`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18734,6 +18848,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    mutuallyExclusive: ["LAW4020"]
   },
   LAW4045: {
     name: "FinTech: Law and Policy",
@@ -18742,7 +18857,21 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides an overview of the foundations, evolution, and regulatory challenges of financial
+                  technologies (“FinTech”). The course begins by analyzing different regulatory strategies to promote
+                  financial innovation and explores how countries are competing to become FinTech hubs. The course
+                  then examines regulatory developments aimed at mitigating the risks posed by the cryptoasset
+                  industry to the financial system, investors, and consumers, as well as addressing the remaining gaps
+                  in global regulatory discussions. Another key component of the course focuses on the future of money
+                  and payment systems, analyzing different regulatory strategies to modernize the digital payments
+                  ecosystem by fostering innovation, enhancing competition, and regulating the entry of payment
+                  service providers beyond traditional banking methods. Additionally, the course explores how FinTech
+                  is expanding access to finance for individuals and firms through new fundraising methods such as
+                  crowdfunding and Token Offerings. Furthermore, the course addresses the use and regulatory
+                  challenges of artificial intelligence in the financial sector, examining the present and future of the
+                  financial services industry in a data-driven world. Finally, the course offers a critical and comparative
+                  perspective on the challenges and benefits of regulatory technology (RegTech) and supervisory
+                  technology (SupTech) in the financial sector.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18769,7 +18898,18 @@ This course couples established and emerging theory on how finance can be used t
   LAW4048: {
     name: "Comparative Secured Transactions Law",
     moduleCode: "LAW4048",
-    description: "DESCRIPTION_NEEDED",
+    description: `This is an intensive module taught online over 6 weeks. It will provide a comparative
+                  analysis of the law of secured transactions in common and civil law jurisdictions with
+                  international instruments aiming to modernise secured transactions laws. The module
+                  will be divided into three parts. The first part will be introduction. The second part will
+                  focus on the principles of the law of secured credit and title financing under common law
+                  (English law, UCC Article 9 and PPSAs) and civil law. The third part will focus on the
+                  reform of secured transactions law around the world, particularly, in light of the
+                  principles of the UNCITRAL Legislative Guide on Secured Transactions Law and the
+                  UNCITRAL Model Law on Secured Transactions. Comparisons will be made with the
+                  EBRD Model Law on Secured Transactions, OAS Inter-American Model Law on Secured
+                  Transactions and the recent legislative activities by the Unidroit on Private Law and
+                  Digital Assets, and the Factoring Model Law.`,
     credit: 0,
     terms: ["Term 2"],
     sections: [
@@ -18800,7 +18940,18 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course seeks to provide a comprehensive understanding of the legal, economic and financial
+                  aspects of corporate transactions, with a particular focus on Initial Public Offerings (IPOs),
+                  mergers and acquisitions, private equity, venture capital, and corporate restructuring. It will also
+                  analyse the role of transactional lawyers when advising lenders, private companies and different
+                  actors in capital markets, including listed companies, hedge funds, institutional investors and
+                  boards of directors. The course seeks to provide students with the background and skillset that
+                  transactional lawyers need to possess to effectively advise clients in an increasingly complex,
+                  changing and global world. To achieve this goal, students will be exposed to a variety of corporate
+                  transactions that will be analysed from an interdisciplinary perspective and taking into account
+                  the different actors and interests involved in a corporate transaction. They will also be exposed
+                  to the law and practice of different jurisdictions including both advanced economies and
+                  emerging markets. `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18823,11 +18974,30 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or: [{and: ["LAW201", "LAW101", "LAW102"]}, {and: ["LGST101", "LGST102"]}]},
+    mutuallyExclusive: ["LAW4050", "LAW4058"],
   },
   LAW4055: {
     name: "Introduction to Large Language Models, GPT and Legal Technology",
     moduleCode: "LAW4055",
-    description: "DESCRIPTION_NEEDED",
+    description: `Large language models (LLMs) are the driving-force behind some of the latest technology
+                  advancements such as OpenAI's ChatGPT, Microsoft Bing's chat search, and Google's Bard. These
+                  LLM-powered applications have demonstrated the impressive ability to produce natural, fluent text
+                  in response to user inputs on a diverse range of topics, leading to claims that this will herald another
+                  breakthrough in artificial intelligence and change how we work in ways we did not think possible.
+                  In this course, we will study these LLMs in detail by exploring the way they are trained and
+                  evaluating their capabilities through reviewing research papers and hands-on testing. We will also
+                  discuss the risks and concerns associated with the use of LLMs as they are being deployed into an
+                  increasing number of applications, driven largely by a combination of ease-of-use and impressive
+                  performance. We will explore how these LLMs are currently being used in legal technology and
+                  consider how they could impact the future direction of the legal profession.
+                  While some of the topics in the course may come across as being technical, prior knowledge is not
+                  required. Any experience in using or experimenting with applications such as OpenAI's ChatGPT
+                  will likely be helpful. For the group project, students will form their own groups of 2 (or 3) and
+                  evaluate OpenAI's GPT models or other open models.
+                  This course will satisfy the Digital Technology/Data Analytics (D/D) requirements for AY2024-25
+                  students.
+`,
     credit: 0,
     terms: ["Term 2"],
     sections: [
@@ -18854,7 +19024,25 @@ This course couples established and emerging theory on how finance can be used t
   LAW4062: {
     name: "International Energy Disputes",
     moduleCode: "LAW4062",
-    description: "DESCRIPTION_NEEDED",
+    description: `The energy industry is a significant player in the international dispute resolution sphere,
+                  spanning across investor-state, public international law, commercial and constructionrelated disputes. 
+                  The course seeks to equip students with a broad understanding of issues
+                  relating to energy contracts and disputes, from both a substantive and practical perspective,
+                  viewed through the lifecycle of typical energy projects. This course will therefore be highly
+                  relevant to both aspiring transactional and dispute resolution lawyers, and qualifies as a
+                  capstone course for the Dispute Resolution track at the School of Law.
+                  Participants will be introduced to the key features of energy projects and investments, the
+                  parties involved, and some of the unique characteristics of disputes arising in the energy
+                  sector. On disputes, the course also involves a study of both commercial and investor-state
+                  arbitration, investment protection treaties and instruments in the energy sector, and related
+                  case law in international arbitration arising therefrom. Participants will then gain an
+                  understanding of the various strategic considerations on handling cross-border energy
+                  disputes, including how to prevent them from the outset, and managing a dispute across
+                  each stage of the dispute resolution process.
+                  The course will involve two leading practitioners who will share practical perspectives on
+                  the intersection between commercial and legal considerations. Participants will apply their
+                  knowledge through class presentations and group discussions. Strongly recommended that students complement this course with the
+                  course in international commercial arbitration (LAW406). `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18881,7 +19069,22 @@ This course couples established and emerging theory on how finance can be used t
   LAW4071: {
     name: "Banking and Finance in Legal Practice",
     moduleCode: "LAW4071",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to provide students with an introduction to the legal practice of banking and
+                  finance. In particular, this course is designed to give students a flavour of what life is like as a
+                  transactional lawyer working on a general banking transaction.
+                  Over the weeks, students will be walked through the lifecycle of a fictitious watered-down financing
+                  transaction. As the transaction progresses, students will gradually be introduced to the various
+                  financing legal documents (eg, term sheets, loan facility agreements, corporate authorisations) and
+                  their key clauses. Crucially, students will also step into the shoes of transactional counsel and be
+                  given several opportunities to “hold the pen” - students will be tasked to take instructions from their
+                  clients and draft/review certain financing legal documents. Finally, students will participate in a
+                  mock negotiation to iron out outstanding issues blocking the transaction from closing.
+                  Through this course, students will have the opportunity to both gain insights on transactional
+                  lawyering, as well as learn practical skills that will better prepare students to transition to their
+                  upcoming lives as practice trainees and junior associates. Moreover, while this course is conducted
+                  in the context of banking and finance, the practical skills taught in this course will nonetheless be
+                  largely applicable to other fields of transactional law, including but not limited to mergers and
+                  acquisitions, investment funds, capital markets etc.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18904,11 +19107,23 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or: [{and:["LAW101", "LAW102", "LAW201_621"]}, {and:["LGST101", "LGST201"]}]}
   },
   LAW4076: {
     name: "The Death of Law",
     moduleCode: "LAW4076",
-    description: "DESCRIPTION_NEEDED",
+    description: `The module has two general aims. First, to develop an understanding of two
+                  apparently competing regulatory paradigms (law, on the one hand, and technological
+                  management, on the other); and second, to consider some possible consequences of
+                  a transition from the legal regulatory paradigm to the technological management
+                  paradigm. This transition is claimed already to be in train in many common law
+                  jurisdictions - it is the direction of regulatory travel - and the technological
+                  management regulatory paradigm now seems particularly salient in light of myriad
+                  advances in computation and AI. Drawing and interrogating the contrast between the
+                  two paradigms will allow us to see and evaluate the assumptions and benefits of each
+                  as well as their disadvantages. We will examine the contrast both in general terms, in
+                  our early classes, and then in particular contexts, such as private law and the practice
+                  of adjudication, in later classes.`,
     credit: 0,
     terms: ["Term 2"],
     sections: [
@@ -18935,7 +19150,24 @@ This course couples established and emerging theory on how finance can be used t
   LAW410: {
     name: "World Trade Organization: Law and Policy",
     moduleCode: "LAW410",
-    description: "DESCRIPTION_NEEDED",
+    description: `As business firms expand across the globe, trade regulations also move beyond national
+                  borders. The most comprehensive rules on international trade are contained in the
+                  Agreements of the World Trade Organization (WTO), which now cover issues including
+                  trade in both industrial and agricultural products, trade in services, labor mobility,
+                  investment, free trade agreements, health and food safety, and a wide variety of domestic
+                  regulatory regimes. Thus, it is important that lawyers advising business firms understand
+                  these rules so they may help the clients to structure their transactions to maximize their
+                  benefits and minimize the costs.
+                  This course will help the students to study the legal rules of the WTO and free trade
+                  agreements, which cover tariff measures, antidumping and safeguard measures, food safety
+                  regulations, as well as domestic regulations of key WTO Members like the US & China.
+                  Using real WTO cases decided by the WTO tribunals as examples, the students will be able
+                  to critically examine how these rules are made, what are the impacts on business firms, how
+                  to argue the best case for their clients, and how these rules could be improved in the future.
+                  The knowledge and skills learnt in this course will be helpful for students to participate in
+                  various WTO moot courts around the world, and explore a wide range of career options,
+                  including private law firms, government agencies (MFA, MTI), multinational companies,
+                  and international organizations (WTO, World Bank).`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18962,7 +19194,21 @@ This course couples established and emerging theory on how finance can be used t
   LAW417: {
     name: "Law of Mergers and Acquisitions",
     moduleCode: "LAW417",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will introduce students to the world of Mergers and Acquisitions (M&A) in legal
+                  practice. The focus will be on the practicalities of conducting a deal, particularly the lawyer's
+                  role in these transactions.
+                  To start off, we will discuss the general regulatory framework for such deals, with focus on the
+                  Singapore/UK vs the US approach. We will then discuss key considerations in structuring a
+                  deal (both public and private), how to run a deal, and common practice issues. Case studies
+                  from Singapore and other jurisdictions will be used.
+                  There will also be a number of workshops with a partner law firm, which will cover certain
+                  key M&A issues in practice. These issues will be further discussed in later class sessions as
+                  well.
+                  Students will also engage in hands-on practice, simulating assignments that junior M&A
+                  lawyers will work on (including due diligence and redlining). At the end of the course, students
+                  will engage in a mock M&A negotiation. This will require use of the skills and discussion of
+                  the issues learnt during the course, including creating the appropriate documentation for a deal
+                  and negotiating the concerns raised.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19003,6 +19249,8 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {and:["LAW101", "LAW205"]},
+    mutuallyExclusive: ["LAW4058", "LAW610"],
   },
   LAW423: {
     name: "Maritime and Admiralty Law in International Commerce",
@@ -19011,7 +19259,31 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `In addition to being the lifeblood of the global economy, the maritime and commodities
+                  trading sectors are a major pillar of the Singapore economy, contributing to around 25% of
+                  Singapore's GDP in 2021 and 450,000 jobs. Participants in these sectors are highly
+                  international and varied: they include shipping and logistics companies, insurers,
+                  commodities trading houses, oil majors, financial institutions providing trade and supply
+                  chain finance, as well as Singapore and international law firms.
+                  This course aims to give students a foundational knowledge and understanding of the legal
+                  principles, commercial context and policies underpinning the law on carriage of goods by
+                  sea and Admiralty law practice. It also explains the pivotal role of these areas of practice
+                  within modern commercial law, particularly in trade finance, international sale of goods,
+                  and maritime arbitration. The course will benefit students seeking a deeper understanding
+                  of the myriad decisions in English and Singapore commercial law for which maritime and
+                  trade disputes form the backdrop in addition to those considering a career in the maritime
+                  and commodities trading sectors. It will be conducted in a seminar format taught by
+                  specialist maritime and international trade law practitioners. There will be a particular
+                  focus on common issues arising in these areas of practice in the context of commercial
+                  dispute resolution.
+                  The syllabus will examine the main features and the commercial significance of the
+                  different types of charterparties and bills of lading commonly used in international sea
+                  trades. Significant international shipping conventions will be examined from a practical
+                  perspective. This course also provides study of the principles and practical application of
+                  the law of obtaining security by ship arrest and maritime remedies, as well as the role of
+                  jurisdiction and arbitration clauses in dispute forum selection. The course is taught by
+                  Senior Counsel Toh Kian Sing, Kendall Tan and Ting Yong Hong who are Partners at the
+                  Shipping & International Trade Practice Group at Rajah & Tann Singapore LLP.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19034,6 +19306,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {and:["LAW101", "LAW102", "LAW105"]}
   },
   LAW428: {
     name: "Family Law",
@@ -19042,7 +19315,13 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will cover non-Muslim family law in Singapore. The emphasis in this course will be on areas that
+                  would be more commonly encountered by a lawyer practicing family law, e.g. divorce, family violence,
+                  children's issues and division of matrimonial assets. Apart from these areas, the law on marriage and
+                  maintenance as well as other types of cases dealt with by the Family Justice Courts, e.g. mental capacity,
+                  probate, adoption, child abduction and Youth Court matters will also be discussed briefly. Where the subject
+                  matter permits, both practical considerations as well as underlying theoretical and doctrinal themes will also
+                  be discussed. *Certain minimum grades required for non-law students, Check BOSS for more.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19065,6 +19344,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or:["LGST101", "LGST201", "LAW101_601"]}
   },
   LAW429: {
     name: "Corporate Insolvency Law",
@@ -19073,8 +19353,25 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
-    credit: 1,
+    description: `Insolvency law is concerned with debtors who are unable to pay their debts. This course will
+                  consider the rules, principles and processes which the law has developed to address this everpresent problem, focussing on insolvent debtors which are companies. In particular it will
+                  cover the main formal insolvency proceeding in Singapore for companies, ie, liquidation. In
+                  that context, the substantive policies and principles of the law will be addressed - e.g., the pari
+                  passu principle, the concept of set-off, the avoidance of suspect transactions entered in the runup to insolvency, and the liability of corporate officers. In addition, the law relating to
+                  company receivership will be addressed.
+                  Further, Singapore corporate insolvency law has increasingly focussed on the avoidance of
+                  liquidation through the restructuring of debts, ie, measures designed to help viable debtor
+                  companies prevent unnecessary liquidation. Thus, the course will also cover the formal
+                  restructuring procedures available in Singapore, ie, schemes of arrangement and judicial
+                  management. These processes underwent very significant legislative reforms, now contained
+                  in the Insolvency, Restructuring and Dissolution Act 2018, designed both to improve the
+                  prospects of a successful restructuring and to enhance the status of Singapore as major
+                  international debt restructuring centre. The course will also introduce another major change
+                  under the IRDA reforms, the adoption by Singapore of the UNCITRAL Model Law on CrossBorder Insolvency, as well as other measures which address the issues arising in international
+                  insolvencies. Note: Although not pre-requisites, it is recommended that students have either completed
+                  or least be enrolled in Law of Property and Law of Equity and Trusts when taking this
+                  course. Non-Law students require LGST201 Company Law with min Grade 'A' as prerequisite`,
+      credit: 1,
     terms: ["Term 2"],
     sections: [
       {
@@ -19096,6 +19393,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or:["LAW201_621", "LAW205", "LGST201"]}
   },
   LAW443: {
     name: "Law of International Trade",
@@ -19104,7 +19402,14 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to give students an understanding of the legal principles underpinning the
+                  law on the international sale of goods, and its crucial role in the international trade and
+                  commercial context. It will provide students with an overview of the main features and
+                  commercial significance of the different sale contracts commonly used in international
+                  trade, and transportation and financing aspects of international trade and dispute
+                  resolution procedures commonly used. It also explains the pivotal role of this area of
+                  practice within modern commercial law, particularly in trade finance and international sale
+                  of goods. `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19127,6 +19432,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {and: ["LAW101_601", "LAW102_602", "LAW105_605"]}
   },
   LAW463: {
     name: "Intellectual Assets and the Law in Asian Economies",
@@ -19135,7 +19441,21 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The economic significance of major Asian economies is overwhelming and driving global
+                  economic growth, and so are their intellectual property (IP) regimes. However,
+                  insufficient attention has been paid to the latter. This course sets to explore the
+                  significance of IP regimes to Asian integration and peace, the features of major Asian IP
+                  laws, their contrast with other leading IP regimes of the world, and examine their
+                  international dynamics and potentials, all against the backdrop of current geopolitics.
+                  “Can Asian IP laws hold any light to the rest of the world?” and “Can major Asian
+                  economies become IP norm-setters, rather than norm-takers?” This course will take a panAsian and integrated approach that mainly looks into IP laws and trade secrets protection
+                  law of Japan, Korea, Taiwan, the PRC (civil law jurisdictions), Singapore, and India
+                  (common law jurisdictions). It will also touch upon HK, Indonesia, Malaysia, and the
+                  Philippines when appropriate. The course will compare two Asian Giants, China with
+                  India, and study the IP struggle of a mid-sized (Taiwan) and small economy (SG)
+                  Students would be advised, not a pre-requisite, to be taking or have taken at least one IP law-related
+                  course. It is not a pre-requisite to read any one major Asian language
+                  `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19166,7 +19486,19 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Faced with an aging population in Singapore, healthcare is taking centrestage. This is
+                  moreso with the world still reeling from the unprecedented challenges in matters of
+                  public health in light of the Covid-19 pandemic. Coupled with better education and
+                  exposure, our people expect to receive nothing less than a high quality of care. Not
+                  surprisingly, litigation in this area has been on the rise. An awareness of the issues in
+                  medical law and healthcare policies will surely equip lawyers to deal with this growing
+                  trend. Areas to be covered in this course include access to healthcare, physician-patient
+                  relationship, informed consent, regulation of medical practitioners under the Medical
+                  Registration Act, regulation of TCM practitioners, Mental Capacity Act, ethics for
+                  biomedical research, advanced medical directive and health insurance. Students will be
+                  fascinated to discover that Health Law incredibly straddles across numerous traditional
+                  branches of law such as torts, contract, insurance law, criminal law and administrative
+                  law. `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19193,7 +19525,21 @@ This course couples established and emerging theory on how finance can be used t
   LAW482: {
     name: "Deal,making and Dispute Resolution: Negotiation in an Age of Disruption",
     moduleCode: "LAW482",
-    description: "DESCRIPTION_NEEDED",
+    description: `Whether you are an entrepreneur, a business consultant, or a lawyer, you will find yourself
+                  negotiating every day. Sometimes you will negotiate in a professional capacity on behalf of a client
+                  or your organisation; other times you will negotiate in your personal capacity. Your negotiations
+                  may be transactional in nature or they may be focused on resolving a problem or a dispute. In this
+                  age of disruption, negotiation skills are essential for lawyers to deal with the unprecedented
+                  challenges of complex and evolving global and local landscapes.
+                  This course offers a robust evidence-based framework to teach you practical strategies and skills
+                  required for negotiating effectively as a legal advisor in dynamic, complex, and multi-cultural
+                  settings. In this course, you will:
+                  • acquire and enhance strategies and skills for effective negotiation in a variety of deal-making
+                  and dispute resolution settings in the legal context;
+                  • understand the role of lawyers in negotiating on behalf of their clients;
+                  • understand yourself as a negotiator working in a diverse spectrum of cultural, legal and
+                  professional contexts within the legal profession;
+                  • increase your capacity to recognise, understand and incorporate changing trends in negotiation.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19224,7 +19570,22 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `One of the hottest legal topics in the knowledge economy is the tension/conflict between
+                  intellectual property law and competition law and its resolution. The fact that the patent
+                  licensing practice of Qualcomm (world no. 1 chip designer in mobile communication) has been
+                  challenged world over is an attestation in point. So are the antitrust suits against Google, Apple,
+                  Microsoft, Intel and many other tech giants around the globe. To provide a systemic
+                  understanding of this type of conflicts and prepare our students the ability to reach optimal
+                  solutions that is beyond pure contract law is the goal of this module. This module will provide a
+                  detailed general theory of IP laws (three-step-exchange) with fifteen principles applicable to all
+                  areas of IP laws. It introduces competition law (both the general competition law on cartel,
+                  abuse of dominance/monopolization and sector specific competition law from the US and the EU
+                  and major Asian economies) and unfair competition which are rarely taught at SMU. It then
+                  embarks on to establish the complementarity between competition law and the exercise of
+                  specific IP rights. When so doing, it stands out Asian context and perspectives
+                  
+                  Students are required to have taken one course on IP law or competition law or they are at least
+                  taking one such course in parallel to taking this module.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19255,7 +19616,27 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The corporation is the most important legal form for doing business around the world. The
+                  corporate form significantly impacts our daily lives, shapes our societies, and sits at the core of
+                  the world's most pressing issues from sustainability to geopolitics. And yet, conventionally, most
+                  law students learn about the corporate form solely through an examination of the company law in
+                  their home jurisdiction. While understanding company law in one's home jurisdiction provides a
+                  valuable foundation for understanding the role that companies play in our world, it is just a starting
+                  point. To more fully appreciate the implications of the corporate form in our world, it is necessary
+                  to understand how the corporate form functions in different jurisdictions taking into consideration
+                  the legal, historical, economic, political and cultural similarities and differences that impact
+                  corporate governance in different jurisdictions – which is the aim of this course. Such an
+                  understanding is valuable for practicing lawyers, policymakers and entrepreneurs in our
+                  increasingly global business environment. This course begins by examining the core legal
+                  characteristics of the corporate form across major jurisdictions. It then examines the common
+                  agency problems that are inherent in the corporate form, compares the legal strategies that each
+                  jurisdiction uses to solve these common problems, and grapples with the increasingly fraught
+                  question about what the “purpose” of the corporate form should be. The course then examines
+                  several of the most significant topics and policy debates in the burgeoning area of comparative
+                  corporate law and governance, with an emphasis on Asia and Singapore. In exceptional circumstances,
+students can be waived from the prerequisite requirement if they get the permission of the instructor. For
+that purpose, they will need to send an email to the instructor explaining why they want to enrol
+in the course`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19278,6 +19659,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or: ["LAW205", "LAW201", "LGST101", "LGST201"]}
   },
   LGST101: {
     name: "Business Law",
@@ -19286,7 +19668,14 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This is an introductory course designed to help non-law students acquaint themselves
+                  with the framework of Singapore's legal system and to understand the legal environment
+                  within which businesses operate. A substantial part of the course is dedicated to the study
+                  of contract law principles, as the making and performance of contracts form the rudiment
+                  of all businesses. Students will also be introduced to the law of torts and will, in
+                  particular, learn the essentials of the tort of negligence. Other areas of the law which will
+                  also be explored in this course include the law of agency and the law of intellectual
+                  property (if time permits).`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19533,7 +19922,16 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Should I wish to start a business, what legal structures are available to me? How do I select a
+                  legal structure that suits my needs? What is a company? What are its rights and liabilities?
+                  What does it mean to say that the company is a separate legal person? Who are the directors
+                  and what are their responsibilities? Who are the shareholders and what are their rights and
+                  vulnerabilities? What happens when the company's business fails?
+                  The corporate form, as a basic legal structure for the operation and conduct of businesses,
+                  pervades the commercial world. This is however no indication that the company is a simple
+                  structure. On the contrary, because it is effectively a web of different interests, rights and
+                  obligations, the company is a highly complex structure. As such, the corporate form is fittingly
+                  the most regulated of all business entities. `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19610,6 +20008,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or: ["LGST101", {and: ["LAW101", "LAW102"]}]}
   },
   LGST210: {
     name: "Risk and Regulations in Real Estate",
@@ -19618,7 +20017,16 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `While space and the built environment is ubiquitous, real estate remains a unique
+                  asset class. The rules relating to its current and future value, how it may be securely
+                  transferred from one party to another and its very definition all depend on law. This
+                  course focuses on the legal fundamentals of real estate practice and development in
+                  Singapore. The course is vital for students with an interest in real estate transactions,
+                  its development, investment and financing. The primary topics covered include the
+                  nature of real property, contract and property torts, interests in property, development
+                  and construction, the rules relating to securitsation and taxes affecting property. It is
+                  one of the foundational courses of the Real Estate Track offered in LKCSB and SOE
+                  in Singapore Management University.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19641,6 +20049,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    mutuallyExclusive: ["LAW202_622"],
   },
   LGST223: {
     name: "Law of International Trade",
@@ -19649,7 +20058,21 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course, Law of International Trade: ASEAN and EU Perspectives, will explain key legal issues arising
+                  from the development of international trade, which are key to the expansion of businesses and
+                  national economic growth. These issues are important for Singapore, a global trading nation that has
+                  adopted an export-oriented policy and promoted the export of goods and services in international
+                  markets. It is thus critical for business leaders and policymakers to understand the legal aspects of
+                  domestic and international transactions, as well as global trade regimes.
+                  To this end, the course will provide an overview of legal issues that apply to the sale of goods
+                  transactions, including the meanings and application of trade terms such as CIF and FOB, and methods
+                  of financing sales and transporting goods across borders. Moreover, the course will assess the
+                  resolution of commercial and investment disputes, regulatory issues involving trade barriers to foreign
+                  direct investments, and WTO principles. The major contents of “ASEAN Plus Six” trade and investment
+                  pacts, as well as EU agreements with Singapore and Vietnam, will also be discussed.
+                  This course is supported by the EU's Jean Monnet Chair program and will adopt SMU's blended
+                  learning approach, including online sessions.
+                  Exchange students must have already taken a law-related course.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19680,7 +20103,18 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will introduce students to key issues in domestic and international financial crime.
+                  It begins with the basic principles of criminal law in Singapore. Students will also learn how
+                  evidence may be obtained and used to charge and convict offenders in court. The course will
+                  then progress to cover the major types of financial crime, such as: (1) cheating, criminal breach
+                  of trust, criminal misappropriation of property, fraud, forgery, falsification of accounts and
+                  receiving stolen property; (2) corruption; (3) market misconduct: insider trading and market
+                  manipulation; (4) tax evasion; and (5) money laundering and terrorism financing. Efforts to
+                  combat international financial crime, e.g. the setting up of the Financial Action Task Force, antimoney laundering procedures, and mutual legal assistance and exchange of information
+                  regimes, will also be discussed.
+                  This course will be taught with its main audience in mind, namely, students taking a second
+                  major in Financial Forensics. Other students who have an interest in the subject are also
+                  welcome.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -19703,6 +20137,8 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
+    preReq: {or:["LGST101"]},
+    mutuallyExclusive: ["LAW411", "LAW487"],
   },
   MGMT102: {
     name: "Strategy",
@@ -19711,7 +20147,15 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course introduces students to the theoretical concepts and analytical tools required for formulating and
+                  implementing appropriate strategies that affect the enduring success of the entire organization. Topics covered
+                  include external and internal environmental analyses, business-level strategies, corporate-level strategies,
+                  competitive dynamics, and special topics such as global strategy. This course emphasizes the application of theory
+                  to the real world strategic issues. Students are encouraged to synthesize knowledge from other business courses
+                  into a comprehensive understanding of competitive advantage.
+                  Pre-Requisite: Any 2 CUs from the following: Finance / Finance for Law (for
+                  Intake AY2015 onwards); Management of People at Work; Marketing;
+                  Operations Management`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20008,7 +20452,13 @@ This course couples established and emerging theory on how finance can be used t
   MGMT104: {
     name: "Corporate Entrepreneurship and Innovation",
     moduleCode: "MGMT104",
-    description: "DESCRIPTION_NEEDED",
+    description: `Large, established corporations face fundamentally different innovation challenges than new or young small firms. The
+                  routinization of practices, obsolescence of such routines and dominant logic that may be misaligned with changes in the
+                  environment subject large firms to great difficulties in innovating. Further, revenue cannibalization with existing products
+                  and the politics of allocating scarce resources away from established, competing product divisions afflict how new
+                  ventures are created within large corporations. These issues have few parallels in new, small firms. In view of typically
+                  bureaucratic hierarchies in large corporations, it is important for students to understand how to design and manage
+                  innovation systems for large corporations, as well as how to lead corporate entrepreneurship.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20039,7 +20489,10 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course helps students understand challenges facing organizations and how elements of organization design relate
+to these challenges. This is done through a systematic review and analysis of the research on organization theory and
+design. Familiarity with this research and the insights it offers will better prepare students to both operate effectively in
+various types of organizations as members and better direct and guide these organizations as managers or leaders.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20088,7 +20541,15 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Technology enhancement has enabled the business world to produce and store very large amounts of data which
+needs to be processed, managed and analyzed to uncover its hidden value. These values have shown to be an asset to
+businesses, given its potential to improve the future performance. Companies that want to tap into this potential have
+to turn to Business Analytics, which helps to gain insights from data that improves business decisions.
+This course aims to introduce students to the fundamental skills of Analytics. Using Excel as the main software, this course
+helps students build a foundation needed for advanced analytics by introducing them to data exploration techniques,
+preparing the data for analysis, understanding how to formulate and identify the correct analytical approach to solve
+the business problem. This course also introduces the use of analytics in related business problems from the areas of
+Finance, Marketing and Operations.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20119,7 +20580,14 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `International Business is the study of the cross-border trade, investments and corporate functions by firms, and
+the role of national governments and international institutions in regulating these activities. The course examines
+the objectives and strategies by multinationals in internationalization and the strategic choices in country
+locations, market entry, product/service offerings, organisational structure & human resource
+management. Related topics include the international business environment (economic, cultural, political, legal),
+globalisation, foreign direct investments, licensing, franchising, foreign entry modes, strategic alliances, and
+regional economic integration. The course will demonstrate the challenges for business and management in an
+international environment.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20164,7 +20632,18 @@ This course couples established and emerging theory on how finance can be used t
   MGMT222: {
     name: "Family Business",
     moduleCode: "MGMT222",
-    description: "DESCRIPTION_NEEDED",
+    description: `Family businesses are the most prevalent form of business in the world. It is also an emerging and vibrant area
+of interest today among academics, practitioners and students of management. This course explores the unique
+challenges and opportunities involves in ownership and management of family businesses. Key family, ownership
+and management issues relevant to the management and continuity of these enterprises will be covered. Topics
+in this course include the uniqueness of family business, succession, governance, working with non-family
+managers, communication, strategy and continuity.
+This course will be useful to students from business-owning families. As most of the business organizations in
+Asia are family-owned, this course will also benefit students who may work for a family business in the course
+of their future career. Students who wish to enter the private banking, wealth management, corporate banking
+and consulting industry will find knowledge gained in this course helpful to their work. Anyone who thinks the
+interaction of two somewhat mutually exclusive systems - the family and the business - difficult will find this
+course fascinating.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20191,7 +20670,11 @@ This course couples established and emerging theory on how finance can be used t
   MGMT227: {
     name: "Managing Creativity in Organizations",
     moduleCode: "MGMT227",
-    description: "DESCRIPTION_NEEDED",
+    description: `While business leaders agree that creativity and innovation is key to corporate and entrepreneurial successes,
+there is little consensus on how to foster, sustain, and harness individual and team creativity in corporations. This
+course provides a survey of theories, research and practitioner insights into this issue of fostering and harnessing
+corporate creativity. Topics include: approaches to creativity, the creative individual, creative thinking processes,
+creativity techniques and programs, total systems approach, and case studies of creative organizations.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20222,7 +20705,30 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides an introduction to environmental sustainability and human development issues, and the
+means of framing, analysing and solving such problems. As environmental and social problems mount around the
+world, firms have become more attuned to the need to devise new products, services and strategies, and to
+communicate these to a variety of stakeholders, even as they cooperate with them.
+Environmental sustainability, and more generally, sustainability, has become increasingly important to developed
+and developing nations alike. Typical issues include resource scarcity and polluted environments, but more
+recently, global climate change has become the primary issue for many. In general, sustainability issues often
+consist of complex interactions between human activity and the environment. The course will apply several
+academic perspectives to characterizing these problems and their possible solutions.
+The course will focus in particular on businesses' role in causing and addressing sustainability problems and on
+how they moderate their impacts. An important part of addressing the sustainability of firms is the employment
+of various concepts and frameworks that help incorporate the sustainability perspective into firms' strategies
+and operations. To help characterize firms' sustainability and determine appropriate courses of action, the course
+will cover specific managerial tools and frameworks. The primary focus will be on strategy and business models
+that support change and its operationalization, but the course will also illustrate the role that “greening” other
+business functions play in the sustainability of the firm, including those of marketing, supply chains, and financing.
+The course will review core management frameworks to help non-business major students become familiar with
+more sustainability-specific frameworks, practices and concepts to be covered. These tools are not only means
+for improving a firm's sustainability performance, but also support its transparent and effective reporting.
+Representative examples of sustainability measurement standards will be introduced and their potential impacts
+in advancing corporate sustainability will be discussed. The course will also reflect on the general role of
+innovation in all of this. Technology issues covered include the role of information technology in addressing
+poverty, and solutions that reorganize the industrial system (e.g. renewable energy policies, and industrial
+ecosystems or industrial symbiosis, i.e., industries that incorporate recycling loops at regional levels). `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22971,7 +23477,7 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: `How did ZARA become one of the fastest growing and most profitable brands in fashion retailing? How did Wal-Mart grow to be the world's largest retailer? Largely the answer is that ZARA and Wal-Mart view their operational capabilities as an important and integral part of their competitive advantage. As do other successful companies, such as Procter & Gamble, Toyota, and Coca Cola, they invest strategically in physical plants and facilities, in process and information technology, in employees, suppliers, and distributor relationships, and perhaps most importantly, in organizational practices and know-how. The objective of this course is to provide students with a set of qualitative frameworks and quantitative tools to analyze and guide the long-term, strategic decisions for a company's operations function. This course caters to those interested in management and business consulting, general management, and operations careers. Finance specialists interested in assessing the risks, the opportunities, the competitive advantages, and ultimately the value embedded in a company's operations will benefit from the course as well.`,
+    description: `How did ZARA become one of the fastest growing and most profitable brands in fashion retailing? How did Wal-Mart grow to be the world's largest retailer? Largely the answer is that ZARA and Wal-Mart view their operational capabilities as an important and integral part of their competitive advantage. As do other successful companies, such as Procter & Gamble, Toyota, and Coca Cola, they invest strategically in physical plants and facilities, in process and information technology, in employees, suppliers, and distributor relationships, and perhaps most importantly, in organizational practices and know-how. The objective of this course is to provide students with a set of qualitative frameworks and quantitative tools to analyze and guide the long-term, strategic decisions for a company's operations function. This course caters to those interested in management and business consulting, general management, and operations careers. Finance specialists interested in assessing the risks, the opportunities, the competitive advantages, and ultimately the value embedded in a company’s operations will benefit from the course as well.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23003,7 +23509,7 @@ This course couples established and emerging theory on how finance can be used t
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: `Matching supply with demand is a primary challenge for a firm: excess supply is too costly, inadequate supply irritates customers. Matching supply to demand is easiest when a firm has a flexible supply process, but flexibility is generally expensive. In this course we will learn (1) how to assess the appropriate level of supply flexibility for a given industry and (2) explore strategies for economically increasing a firm's supply flexibility. Lastly we will study coordination and incentives across multiple firms in a supply chain. While tactical models and decisions are part of this course, the emphasis is on the qualitative insights needed by general managers or management consultants. We will demonstrate that companies can use (and have used) the principles from this course to significantly enhance their competitiveness.`,
+    description: `Matching supply with demand is a primary challenge for a firm: excess supply is too costly, inadequate supply irritates customers. Matching supply to demand is easiest when a firm has a flexible supply process, but flexibility is generally expensive. In this course we will learn (1) how to assess the appropriate level of supply flexibility for a given industry and (2) explore strategies for economically increasing a firm’s supply flexibility. Lastly we will study coordination and incentives across multiple firms in a supply chain. While tactical models and decisions are part of this course, the emphasis is on the qualitative insights needed by general managers or management consultants. We will demonstrate that companies can use (and have used) the principles from this course to significantly enhance their competitiveness.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24123,7 +24629,7 @@ This course couples established and emerging theory on how finance can be used t
   PSYC213: {
     name: "Work, Play, and Life",
     moduleCode: "PSYC213",
-    description: `Modern societies extol busyness and may even regard work as a defining aspect of one's life. Consequently, leisure is often relegated as "time off work" and sometimes leads people to construe work and leisure as opposites. This promotes the pursuit of passive and convenient leisure in contrast to their more goal-directed and effortful work activities. Unfortunately, research shows that passive leisure is not restorative nor provides important ingredients to meaningful living. In this course, we examine people's motivation to work and its reciprocal relationship with their pursuit of leisure. It aims to help students apply to their daily lives what the psychological literature advocates about quality leisure activities and living a "good" life, which will also help them flourish at work.`,
+    description: `Modern societies extol busyness and may even regard work as a defining aspect of one's life. Consequently, leisure is often relegated as "time off work" and sometimes leads people to construe work and leisure as opposites. This promotes the pursuit of passive and convenient leisure in contrast to their more goal-directed and effortful work activities. Unfortunately, research shows that passive leisure is not restorative nor provides important ingredients to meaningful living. In this course, we examine people’s motivation to work and its reciprocal relationship with their pursuit of leisure. It aims to help students apply to their daily lives what the psychological literature advocates about quality leisure activities and living a "good" life, which will also help them flourish at work.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24218,7 +24724,7 @@ This course couples established and emerging theory on how finance can be used t
   QF205: {
     name: "Computing Technology For Finance",
     moduleCode: "QF205",
-    description: `This course aims to expose students to the use and usefulness of computing technology in the realm of finance. From the collation of data, analysis of data in order to tease out relevant information, to the presentation and visualization of information, computing technology plays an important role that is increasingly essential as one faces the need to assimilate an astronomical amount of information in today's world. The course is structured in such a way as to employ topics in finance to motivate the discourse on computing technology. Equipped with the computing skills, in turn, students are motivated to handle more challenging problems in finance.`,
+    description: `This course aims to expose students to the use and usefulness of computing technology in the realm of finance. From the collation of data, analysis of data in order to tease out relevant information, to the presentation and visualization of information, computing technology plays an important role that is increasingly essential as one faces the need to assimilate an astronomical amount of information in today’s world. The course is structured in such a way as to employ topics in finance to motivate the discourse on computing technology. Equipped with the computing skills, in turn, students are motivated to handle more challenging problems in finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24920,7 +25426,7 @@ This course couples established and emerging theory on how finance can be used t
   WRIT200: {
     name: "Virtual Business Professional",
     moduleCode: "WRIT200",
-    description: `In this course, students will work in virtual global teams, with students from other universities, to develop a proposal for a corporate client. Students will develop essential skills to thrive in the modern workplace – they will explore virtual collaboration tools, hone their interpersonal and intercultural competence, and employ data storytelling principles to craft persuasive narratives for business proposals. In the first half of the course, students work in SMU teams to communicate their recommendations persuasively through corporate documents like executive summaries and Slidedocs. Through whole-class and small-group discussions, students explore theories on virtual communication and working in remote teams, and familiarize themselves with tools for cultural analysis and virtual collaboration. In the culminating capstone project in collaboration with the University of Southern California (USC), students will work in global teams comprising students from universities across Asia, Europe and America to develop a proposal for a corporate client. Past industry partners of the VBP project included companies such as Google, Starbucks, Netflix, Tesla and SpaceX. Over 6 weeks, students collaborate virtually with their global counterparts to craft a report to the client of their choice, recommending strategies to enhance the client's corporate reputation. In the course of the project, students use social and AI-driven collaboration tools, navigate cross-cultural team processes and learn to collaborate effectively across borders and time zones. The deliverables in this course can be included in students' portfolio of written and reflective work to showcase their ability to produce industry and discipline-specific communication outcomes. USC will award certificates of achievement to all participants.`,
+    description: `In this course, students will work in virtual global teams, with students from other universities, to develop a proposal for a corporate client. Students will develop essential skills to thrive in the modern workplace – they will explore virtual collaboration tools, hone their interpersonal and intercultural competence, and employ data storytelling principles to craft persuasive narratives for business proposals. In the first half of the course, students work in SMU teams to communicate their recommendations persuasively through corporate documents like executive summaries and Slidedocs. Through whole-class and small-group discussions, students explore theories on virtual communication and working in remote teams, and familiarize themselves with tools for cultural analysis and virtual collaboration. In the culminating capstone project in collaboration with the University of Southern California (USC), students will work in global teams comprising students from universities across Asia, Europe and America to develop a proposal for a corporate client. Past industry partners of the VBP project included companies such as Google, Starbucks, Netflix, Tesla and SpaceX. Over 6 weeks, students collaborate virtually with their global counterparts to craft a report to the client of their choice, recommending strategies to enhance the client’s corporate reputation. In the course of the project, students use social and AI-driven collaboration tools, navigate cross-cultural team processes and learn to collaborate effectively across borders and time zones. The deliverables in this course can be included in students’ portfolio of written and reflective work to showcase their ability to produce industry and discipline-specific communication outcomes. USC will award certificates of achievement to all participants.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
