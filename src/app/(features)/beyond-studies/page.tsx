@@ -133,26 +133,28 @@ export default function BeyondStudies() {
         <div style={{ padding: PADDING }} className="space-y-4">
         <h1 className="text-2xl font-bold">Beyond Studies</h1>
 
-        <div className=" items-start w-full gap-2">
-            <Label htmlFor="picture">Upload Image</Label>
+        <div className="flex flex-col overflow-hidden rounded-lg bg-muted shadow-md">
+            <div className="bg-gray-400 p-4 rounded-t-lg">
+                <h3 className="text-md font-semibold text-white">Upload Event Posters or Messages</h3>
+            </div>
 
-
-            <div className="flex gap-2">
-                <div className="w-1/3">
-                    <Input
+            <div className="mt-3 ml-3 text-xs text-muted-foreground dark:text-white">
+            We keep track of your upcoming events.
+            </div>
+            <div className="flex items-center gap-1 p-4 bg-muted rounded-b-lg">
+                <Input
                     id="picture"
                     type="file"
                     accept="image/*"
                     onChange={handleFileChange}
-                    />
-                </div>
+                    className="w-full bg-white border border-slate-700 dark:bg-slate-600 hover-effect hover:bg-gray-200"
+                />
                 <Button
                     onClick={handleAddCard}
-                    className="mb-4"
+                    className="ml-2"
                     disabled={isLoading || !selectedFile}
                 >
-                    {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
-                    Details
+                    {isLoading && <Loader2 className="animate-spin mr-2" />} Add Event Details
                 </Button>
             </div>
         </div>
