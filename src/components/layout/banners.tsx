@@ -44,11 +44,9 @@ export function Banners() {
   };
 
   const activeBanners = banners.filter((banner) => !banner.dismissed);
-
   if (!isClient) {
     return null;
   }
-
   return (
     <>
       {activeBanners.length > 0 && (
@@ -63,7 +61,7 @@ export function Banners() {
             <div className="w-full overflow-hidden">
               <Marquee
                 pauseOnHover
-                onCycleComplete={() =>
+                onFinish={() =>
                   setCurrentBannerIndex((orig) =>
                     orig + 1 >= activeBanners.length ? 0 : orig + 1,
                   )

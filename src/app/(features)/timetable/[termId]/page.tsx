@@ -9,6 +9,7 @@ import jsPDF from "jspdf";
 import {
   Calendar,
   Download,
+  Eye,
   EyeOff,
   File,
   Image,
@@ -20,6 +21,7 @@ import { toast } from "sonner";
 import type { Term, TermSlug, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
+import ModuleDetails from "@/components/ModuleDetails";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import {
@@ -65,6 +67,7 @@ export default function TimeTablePage({
   const {
     timetableMap,
     AddModuleToTimetable,
+    toggleVisibility,
     removeModuleFromTimetable,
     showAllSections,
     selectSection,
@@ -383,8 +386,9 @@ export default function TimeTablePage({
 
   if (!termSlug.includes(params.termId as TermSlug)) {
     return (
-      <div>
-        <p>Term not found</p>
+      <div className="flex h-[90%] w-full flex-col items-center justify-center">
+        <p className="text-7xl">404</p>
+        <p className="font-semibold">Oops! This term doesn&apos;t exist.</p>
       </div>
     );
   }
@@ -395,25 +399,27 @@ export default function TimeTablePage({
         padding: PADDING,
       }}
     >
-        <h1 className="text-2xl font-bold">Plan Your Timetable</h1>
+      <h1 className="text-2xl font-bold">Plan Your Timetable</h1>
 
-      <div className="mb-5 flex justify-center gap-24">
-        <Button
-          variant={"ghost"}
+      <div className="flex justify-center gap-24">
+        <button
+          // variant={"ghost"}
           onClick={goToPreviousTerm}
           disabled={currentTermIdx == 0}
+          className={`${currentTermIdx == 0 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
         >
           &lt;
-        </Button>
-        
-        <h1 className="my-1">Term {currentTermNum}</h1>
-        <Button
-          variant={"ghost"}
+        </button>
+
+        <h1 className="my-5 font-semibold">Term {currentTermNum}</h1>
+        <button
+          // variant={"ghost"}
           onClick={goToNextTerm}
           disabled={currentTermIdx == termSlug.length - 1}
+          className={`${currentTermIdx == termSlug.length - 1 ? "text-arrow-disabled cursor-not-allowed" : "text-smu-gold"} font-semibold`}
         >
           &gt;
-        </Button>
+        </button>
       </div>
 
       <div>
@@ -425,12 +431,12 @@ export default function TimeTablePage({
 
       <div className="my-4 max-w-full overflow-x-auto">
         <div
-          className="w-full min-w-[600px] overflow-hidden rounded-lg border border-foreground/20 bg-background lg:min-w-[1200px]"
+          className="w-full min-w-[800px] overflow-hidden rounded-lg border border-foreground/20 bg-background lg:min-w-[1200px]"
           ref={elementRef}
         >
           {/* Time Labels */}
           <div className="flex">
-            <div className="w-[5%] flex-shrink-0"></div>
+            <div className="w-[7%] flex-shrink-0 md:w-[5%]"></div>
             {timeSlots.map((time, index) => (
               <div
                 key={index}
@@ -443,7 +449,7 @@ export default function TimeTablePage({
                   width: `${100 / 14}%`,
                 }}
               >
-                <span className="text-sm">{time}</span>
+                <span className="text-sm sm:text-xs">{time}</span>
               </div>
             ))}
           </div>
@@ -458,7 +464,7 @@ export default function TimeTablePage({
               );
               return (
                 <div className="flex border-t" key={dayIndex}>
-                  <div className="flex w-[5%] items-center justify-center bg-background text-center font-medium">
+                  <div className="flex w-[7%] items-center justify-center bg-background text-center font-medium sm:text-xs md:w-[5%]">
                     {day.slice(0, 3)}
                   </div>
                   <div
@@ -512,10 +518,14 @@ export default function TimeTablePage({
                         >
                           {rowResultWithPadding[rowIndex]!.map(
                             (fullClass, classIndex) => {
+                              // console.log("PAGE FULLCLASS:", fullClass);
+                              if (!fullClass.isVisible) {
+                                return null;
+                              }
                               return (
                                 <div
                                   key={classIndex}
-                                  className={`absolute cursor-pointer rounded p-2 shadow-md transition-all duration-1000 ${
+                                  className={`absolute cursor-pointer rounded p-1 shadow-md transition-all duration-1000 ${
                                     selectedClass?.section ===
                                       fullClass.section &&
                                     selectedClass?.moduleCode ===
@@ -526,7 +536,8 @@ export default function TimeTablePage({
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
-                                    height: "100%",
+                                    minWidth: "fit-content",
+                                    height: "auto",
                                     backgroundColor:
                                       TIMETABLE_THEMES[timetableTheme][
                                         fullClass.colorIndex
@@ -592,13 +603,22 @@ export default function TimeTablePage({
                                       ]!.backgroundColor;
                                   }}
                                 >
-                                  <span className="text-sm font-semibold">
+                                  <p className="text-sm font-semibold">
                                     {`${fullClass.moduleCode} - ${fullClass.section}`}
-                                  </span>
-                                  <br />
-                                  <span className="text-xs">
+                                  </p>
+                                  <p className="text-xs">
                                     {`${fullClass.classTime.startTime} (${fullClass.classTime.duration} hrs)`}
-                                  </span>
+                                  </p>
+                                  <p className="text-xs">
+                                    {
+                                      modules[
+                                        fullClass.moduleCode
+                                      ]?.sections.find(
+                                        (section) =>
+                                          section.code === fullClass.section,
+                                      )?.professor.name
+                                    }
+                                  </p>
                                 </div>
                               );
                             },
@@ -687,17 +707,17 @@ export default function TimeTablePage({
         />
       </div>
       {timetable.modules.length > 0 && (
-        <div className="flex w-full flex-wrap gap-2">
+        <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {timetable.modules.map((mod, index) => (
             <div
-              className="flex w-[32%] justify-center rounded bg-background p-4 shadow-sm"
+              className="flex w-full rounded bg-background p-4 shadow-sm"
               key={index}
             >
-              <div className="flex w-1/12 items-start justify-end">
+              <div className="w-fit">
                 <Popover>
                   <PopoverTrigger asChild>
                     <div
-                      className="mr-2 mt-1 h-5 w-5 rounded"
+                      className="mr-2 mt-1 h-5 w-5 cursor-pointer rounded"
                       style={{
                         backgroundColor:
                           TIMETABLE_THEMES[timetableTheme][mod.colorIndex]
@@ -725,19 +745,22 @@ export default function TimeTablePage({
                   </PopoverContent>
                 </Popover>
               </div>
-              <div className="w-9/12">
-                <p className="text-sm font-bold">
-                  {mod.moduleCode} - {mod.name}
-                </p>
-                <p className="text-sm">
-                  Exam:{" "}
-                  {mod.exam?.dateTime
-                    ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
-                    : "No exam scheduled"}
-                </p>
-              </div>
-              <div className="flex w-2/12 items-center justify-center">
-                <div className="inline-flex">
+              <ModuleDetails moduleCode={mod.moduleCode}>
+                <div className="flex-grow">
+                  <p className="text-sm font-bold">
+                    {mod.moduleCode} - {mod.name}
+                  </p>
+                  <p className="text-sm">
+                    Exam:{" "}
+                    {mod.exam?.dateTime
+                      ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
+                      : "No exam scheduled"}
+                  </p>
+                </div>
+              </ModuleDetails>
+
+              <div className="w-fit content-center">
+                <div className="flex flex-row">
                   <Button
                     variant={"outline"}
                     size={"icon"}
@@ -752,11 +775,17 @@ export default function TimeTablePage({
                     <Trash2 />
                   </Button>
                   <Button
-                    variant={"outline"}
+                    variant={mod.visible ? "default" : "outline"}
                     size={"icon"}
                     className="rounded-l-none border-l-0"
+                    onClick={() => {
+                      toggleVisibility(
+                        mod.moduleCode,
+                        termMap[params.termId as TermSlug],
+                      );
+                    }}
                   >
-                    <EyeOff />
+                    {mod.visible ? <Eye /> : <EyeOff />}
                   </Button>
                 </div>
               </div>

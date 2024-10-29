@@ -89,10 +89,6 @@ export async function processModuleHtml(
           sections: module.sections ?? [],
         };
       }
-
-      // Replace dateTime fields in a structured way to avoid unterminated string issues
-
-      // Write the updated module bank to the output file
     }
   });
   const outputFilePath = path.join(
@@ -118,6 +114,6 @@ export async function processModuleHtml(
   writeStream.on("finish", () => {});
 
   writeStream.on("error", (err) => {
-    console.error("Error writing file:", err);
+    Logger.error("Error writing file:", err);
   });
 }
