@@ -57,7 +57,6 @@ export default {
         },
         "smu-blue": "hsl(var(--smu-blue))",
         "smu-gold": "hsl(var(--smu-gold))",
-        "arrow-disabled": "hsl(var(--arrow-disabled))",
       },
       keyframes: {
         "accordion-down": {

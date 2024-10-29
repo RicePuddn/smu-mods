@@ -8,7 +8,6 @@ import type { Track } from "@/types/primitives/major";
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import { baskets } from "@/server/data/basket";
 import { modules } from "@/server/data/moduleBank";
-import { Logger } from "@/utils/Logger";
 
 export type ModuleBankActions = {
   addModule: (module: Module) => void;
@@ -86,7 +85,7 @@ export const createModuleBank = (
             get().addModule(moduleData);
             return moduleData;
           } catch (error) {
-            Logger.error(`Error fetching module ${moduleCode}:`, error);
+            console.error(`Error fetching module ${moduleCode}:`, error);
             throw error;
           }
         },
@@ -102,7 +101,7 @@ export const createModuleBank = (
             });
             toast.success("Module Bank refreshed!");
           } catch (error) {
-            Logger.error(`Error fetching all modules:`, error);
+            console.error(`Error fetching all modules:`, error);
             throw error;
           }
         },
@@ -118,7 +117,7 @@ export const createModuleBank = (
             });
             toast.success("Baskets refreshed!");
           } catch (error) {
-            Logger.error(`Error fetching all baskets:`, error);
+            console.error(`Error fetching all baskets:`, error);
             throw error;
           }
         },
