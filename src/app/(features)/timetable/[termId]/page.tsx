@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import type { Term, TermSlug, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
+import ModuleDetails from "@/components/ModuleDetails";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
 import {
@@ -504,27 +505,43 @@ export default function TimeTablePage({
 
                     {Object.keys(rowResultWithPadding).map((rowIndexStr) => {
                       const rowIndex = parseInt(rowIndexStr, 10);
-                      const minHeight = 60;
+                      const slotId = `${day}Slot${rowIndex}`;
+                      let minHeight = 60;
+                      const row = document.getElementById(slotId);
+                      for (
+                        let index = 0;
+                        index < (row?.children.length ?? 0);
+                        index++
+                      ) {
+                        const element = row?.children.item(index);
+                        if (
+                          element?.scrollHeight &&
+                          minHeight < element?.scrollHeight
+                        ) {
+                          minHeight = element.scrollHeight;
+                          Logger.log(minHeight, slotId);
+                        }
+                      }
                       return (
                         <div
-                          id={`Slot${rowIndex}`}
+                          id={slotId}
                           key={rowIndex}
                           className="relative flex flex-row"
                           style={{
                             position: "relative",
-                            height: `${minHeight}px`,
+                            minHeight: `${minHeight}px`,
                           }}
                         >
                           {rowResultWithPadding[rowIndex]!.map(
                             (fullClass, classIndex) => {
-                              // console.log("PAGE FULLCLASS:", fullClass);
+                              // Logger.log("PAGE FULLCLASS:", fullClass);
                               if (!fullClass.isVisible) {
                                 return null;
                               }
                               return (
                                 <div
                                   key={classIndex}
-                                  className={`absolute cursor-pointer rounded p-1 shadow-md transition-all duration-1000 ${
+                                  className={`absolute cursor-pointer content-center rounded p-1 shadow-md transition-all duration-1000 ${
                                     selectedClass?.section ===
                                       fullClass.section &&
                                     selectedClass?.moduleCode ===
@@ -535,8 +552,11 @@ export default function TimeTablePage({
                                   style={{
                                     left: `${fullClass.paddingLeft}%`,
                                     width: `${fullClass.width}%`,
-                                    minWidth: "fit-content",
-                                    height: "auto",
+                                    maxWidth: `${fullClass.width}%`,
+                                    // minWidth: "fit-content",
+                                    height: `${minHeight}px`,
+                                    // minHeight: "auto",
+                                    // maxHeight: "auto",
                                     backgroundColor:
                                       TIMETABLE_THEMES[timetableTheme][
                                         fullClass.colorIndex
@@ -744,17 +764,20 @@ export default function TimeTablePage({
                   </PopoverContent>
                 </Popover>
               </div>
-              <div className="flex-grow">
-                <p className="text-sm font-bold">
-                  {mod.moduleCode} - {mod.name}
-                </p>
-                <p className="text-sm">
-                  Exam:{" "}
-                  {mod.exam?.dateTime
-                    ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
-                    : "No exam scheduled"}
-                </p>
-              </div>
+              <ModuleDetails moduleCode={mod.moduleCode}>
+                <div className="flex-grow">
+                  <p className="text-sm font-bold">
+                    {mod.moduleCode} - {mod.name}
+                  </p>
+                  <p className="text-sm">
+                    Exam:{" "}
+                    {mod.exam?.dateTime
+                      ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
+                      : "No exam scheduled"}
+                  </p>
+                </div>
+              </ModuleDetails>
+
               <div className="w-fit content-center">
                 <div className="flex flex-row">
                   <Button
