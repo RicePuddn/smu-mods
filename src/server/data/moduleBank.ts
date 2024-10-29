@@ -330,7 +330,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "Calculus introduces to students a set of elementary functions, their properties, various forms of analysis, and fundamental concepts in Calculus. Also introduced are the modeling methods in business and management by applying Calculus knowledge. The objective of the course is to develop the students’ understanding and skills in analyzing managerial problems, creating mathematical models, and using them to solve these problems. Although the module is essentially mathematical in nature, a rigid mathematical treatment is avoided and the necessary mathematical concepts are derived from examples rather than through proofs.",
+      "Calculus introduces to students a set of elementary functions, their properties, various forms of analysis, and fundamental concepts in Calculus. Also introduced are the modeling methods in business and management by applying Calculus knowledge. The objective of the course is to develop the students' understanding and skills in analyzing managerial problems, creating mathematical models, and using them to solve these problems. Although the module is essentially mathematical in nature, a rigid mathematical treatment is avoided and the necessary mathematical concepts are derived from examples rather than through proofs.",
     sections: [
       {
         code: "G1",
@@ -504,7 +504,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "Computational Thinking equips students to tackle complex computational problems; it trains students to design solutions to solve those problems using a computer program. It draws upon concepts from mathematics and computer science – more precisely, discrete mathematics, data structures and algorithm design. This course will hone students’ analytical skills as they are challenged to think abstractly and computationally. Their minds will be open to the wonders of computing, as they go behind the scene to unravel the fundamental analytics that empower Google, consulting agencies and service companies. NOTE: To facilitate learning in this course, you are required to know and use programming. You are advised to pick up the Python programming language before the course, for instance by practising with online tutorials such as http://learnpython.org. By taking this course, students will: • discover the science of computing • model problems and learn practical problem-solving techniques to tackle complex computational problems (beyond what a spreadsheet is capable of solving) • apply problem-solving techniques to develop more elegant and efficient programs • learn to write programs to represent and manipulate with complex data objects • understand the challenge of scale, not only in dealing with large data sets, but also in appreciating the nature of computing and computability",
+      "Computational Thinking equips students to tackle complex computational problems; it trains students to design solutions to solve those problems using a computer program. It draws upon concepts from mathematics and computer science – more precisely, discrete mathematics, data structures and algorithm design. This course will hone students' analytical skills as they are challenged to think abstractly and computationally. Their minds will be open to the wonders of computing, as they go behind the scene to unravel the fundamental analytics that empower Google, consulting agencies and service companies. NOTE: To facilitate learning in this course, you are required to know and use programming. You are advised to pick up the Python programming language before the course, for instance by practising with online tutorials such as http://learnpython.org. By taking this course, students will: • discover the science of computing • model problems and learn practical problem-solving techniques to tackle complex computational problems (beyond what a spreadsheet is capable of solving) • apply problem-solving techniques to develop more elegant and efficient programs • learn to write programs to represent and manipulate with complex data objects • understand the challenge of scale, not only in dealing with large data sets, but also in appreciating the nature of computing and computability",
     sections: [
       {
         code: "G1",
@@ -623,7 +623,7 @@ export const modules: ModuleBank = {
     name: "Critical Thinking In The Real World",
     moduleCode: "COR1701",
     description:
-      "You give reasons for what you do and think every day. You argue. You often argue about things that matter to you. For example you might argue that you are the best candidate for promotion, about whether your company should invest in China, about the best way to help a friend or about what the right thing to do is in an ethical dilemma. The list is up to you. Increasingly in the 21st job market, you will need to think straight about any issue, even those unfamiliar to you. Recent surveys indicate that the most important skills employers are looking for are critical thinking and problem solving skills. We will teach you how to get better at reasoning and arguing in a way that can be applied to any subject matter.\n                Topics covered include evaluating arguments, constructing arguments, reconstructing arguments, formalizing arguments, clarifying meaning and identifying common mistakes in argument (fallacies). At the end of the course you should be able to (1) identify the structures of real-life arguments in order to decide if they are good or bad, and (2) argue logically about things that matter to you. This course is specifically designed to improve writing, thinking and oral presentation skills that are applicable to all areas of academic study and relevant to working life. Careful application in this course will deepen your capacity to critically evaluate everyday practical scenarios and will help you ‘think outside the box’.",
+      "You give reasons for what you do and think every day. You argue. You often argue about things that matter to you. For example you might argue that you are the best candidate for promotion, about whether your company should invest in China, about the best way to help a friend or about what the right thing to do is in an ethical dilemma. The list is up to you. Increasingly in the 21st job market, you will need to think straight about any issue, even those unfamiliar to you. Recent surveys indicate that the most important skills employers are looking for are critical thinking and problem solving skills. We will teach you how to get better at reasoning and arguing in a way that can be applied to any subject matter.\n                Topics covered include evaluating arguments, constructing arguments, reconstructing arguments, formalizing arguments, clarifying meaning and identifying common mistakes in argument (fallacies). At the end of the course you should be able to (1) identify the structures of real-life arguments in order to decide if they are good or bad, and (2) argue logically about things that matter to you. This course is specifically designed to improve writing, thinking and oral presentation skills that are applicable to all areas of academic study and relevant to working life. Careful application in this course will deepen your capacity to critically evaluate everyday practical scenarios and will help you 'think outside the box'.",
     sections: [
       {
         code: "G1",
@@ -1219,7 +1219,7 @@ export const modules: ModuleBank = {
     name: "Spreadsheet Modelling and Analytics",
     moduleCode: "COR1305",
     description:
-      "Data Science has become one of the main drivers in transforming businesses and organizations. With proper data collection, preparation, analysis and modelling, insights can be achieved leading to better decision making and actions that create positive impact. Data analytics is divided into different levels namely, descriptive analytics, predictive analytics, prescriptive analytics and automated (or embedded) analytics. In this course, students will acquire practical skills in modelling and analysis to resolve business problems using software tools including Excel and Tableau. Knowing how to effectively use these tools to build models and analyse data to solve problems will add tremendous value in our students’ future professional career. This course’s primary focus is on using Excel spreadsheet as a platform to build mathematical models from scratch to represent business problems for detailed analysis. The use of such models to drive understanding and consensus towards generating insights and actions enhanced the assurance of execution success. With the data collected, data manipulation and transformation will be needed to prepare the data into useful forms for analysis. In terms of data analytics, this course will cover descriptive analytics, predictive analytics and prescriptive analytics, using both Excel and Tableau. In-class exercises would be used to present business problem modeling and analysis. Students would interactively develop the skills and experience to deal with open-ended questions, unclear assumptions and incomplete information. In addition to the individual assessments (take-home assignments and in-class quizzes), a group project will allow students to apply the knowledge and skills acquired to solve a business problem of their choice end-to-end where they will define the business questions, collect the necessary data, build the models, perform the data analytics, to draw insights and conclusions.",
+      "Data Science has become one of the main drivers in transforming businesses and organizations. With proper data collection, preparation, analysis and modelling, insights can be achieved leading to better decision making and actions that create positive impact. Data analytics is divided into different levels namely, descriptive analytics, predictive analytics, prescriptive analytics and automated (or embedded) analytics. In this course, students will acquire practical skills in modelling and analysis to resolve business problems using software tools including Excel and Tableau. Knowing how to effectively use these tools to build models and analyse data to solve problems will add tremendous value in our students' future professional career. This course's primary focus is on using Excel spreadsheet as a platform to build mathematical models from scratch to represent business problems for detailed analysis. The use of such models to drive understanding and consensus towards generating insights and actions enhanced the assurance of execution success. With the data collected, data manipulation and transformation will be needed to prepare the data into useful forms for analysis. In terms of data analytics, this course will cover descriptive analytics, predictive analytics and prescriptive analytics, using both Excel and Tableau. In-class exercises would be used to present business problem modeling and analysis. Students would interactively develop the skills and experience to deal with open-ended questions, unclear assumptions and incomplete information. In addition to the individual assessments (take-home assignments and in-class quizzes), a group project will allow students to apply the knowledge and skills acquired to solve a business problem of their choice end-to-end where they will define the business questions, collect the necessary data, build the models, perform the data analytics, to draw insights and conclusions.",
     sections: [
       {
         code: "G1",
@@ -2208,7 +2208,7 @@ export const modules: ModuleBank = {
     name: "Entrepreneurship and Business Creation",
     moduleCode: "COR-MGMT1303",
     description:
-      "This course is a core course for the Entrepreneurship track of the management concentration offered at the Lee Kong Chian School of Business. It can also be taken as a secondary elective for students majoring in Strategy and Organization.\n\n                        This course traces the steps that entrepreneurs likely encounter between a first recognition of a potential business opportunity to the nascent operation of the actual company. This course teaches students the basic ingredients of a business plan and a short ‘pitch’ for their ideas, yet shows the limitations of a static document in the changing marketplace. Through the use of real business cases, this course helps students understand various issues that require analysis and resolution before their company can be on a more financially sustainable footing.",
+      "This course is a core course for the Entrepreneurship track of the management concentration offered at the Lee Kong Chian School of Business. It can also be taken as a secondary elective for students majoring in Strategy and Organization.\n\n                        This course traces the steps that entrepreneurs likely encounter between a first recognition of a potential business opportunity to the nascent operation of the actual company. This course teaches students the basic ingredients of a business plan and a short 'pitch' for their ideas, yet shows the limitations of a static document in the changing marketplace. Through the use of real business cases, this course helps students understand various issues that require analysis and resolution before their company can be on a more financially sustainable footing.",
     sections: [
       {
         code: "G1",
@@ -2240,7 +2240,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "Since the establishment of two stock exchanges in Shanghai and Shenzhen in early 1990s, China’s capital markets have experienced amazing growth and become one of the largest capital markets in the world. The equity market is the dominant capital market and has been evolving and growing towards a more even mix of investor classes, with institutions such as investment funds, pension funds, insurance companies, corporates, sovereign wealth funds and Qualified Foreign Institutional Investors (QFIIs) playing a more prominent role. The bond and derivatives markets are emerging as well and there is huge growth potential in the near future.\n\n                    This course is designed to offer a detailed analysis of China's capital markets, ranging from the overall assessment of the macro-economic environment and political context, to the detailed micro level study of the specific players, instruments, and individual transactions. Through seminars, cases, discussions, and group projects, students explore the opportunities and challenges presented by the quickly evolving capital markets in China.",
+      "Since the establishment of two stock exchanges in Shanghai and Shenzhen in early 1990s, China's capital markets have experienced amazing growth and become one of the largest capital markets in the world. The equity market is the dominant capital market and has been evolving and growing towards a more even mix of investor classes, with institutions such as investment funds, pension funds, insurance companies, corporates, sovereign wealth funds and Qualified Foreign Institutional Investors (QFIIs) playing a more prominent role. The bond and derivatives markets are emerging as well and there is huge growth potential in the near future.\n\n                    This course is designed to offer a detailed analysis of China's capital markets, ranging from the overall assessment of the macro-economic environment and political context, to the detailed micro level study of the specific players, instruments, and individual transactions. Through seminars, cases, discussions, and group projects, students explore the opportunities and challenges presented by the quickly evolving capital markets in China.",
     sections: [
       {
         code: "G1",
@@ -2336,7 +2336,7 @@ export const modules: ModuleBank = {
     name: "Transformative Leadership",
     moduleCode: "COR-OBHR130",
     description:
-      "The core objective of the new SMU-X Transformative Leadership course is to nurture a new generation of young leaders motivated and capable of tackling intricate global and local challenges related to the nexus of ‘digital disruption, demographic change and diversity’ in an integrated, interdisciplinary fashion, providing the opportunity to integrate perceived differences between older and younger people in terms of values, communication priorities; age discrimination or the initiation of new types of social (‘digital’) behaviours transmitted from the plugged-in ‘Generation Z’ (born 1996 and after) to Baby Boomers (born 1946 to 1964). These three challenges (positioned at the interface of both current and future issues) are not only globally relevant but also have significant local implications for Singapore. Embedded in the experiential SMU-X initiative, the Transformative Leadership course provides students with a unique learning opportunity to develop and implement (socially) innovative solutions to make a positive impact on business and society in close collaboration with reputable partners in business, nonprofits and government. Learners will be paired up with an external SMU-X partner to work on relevant innovative projects with real impact. The successful completion of such transformative SMU-X projects requires learners diving deep(er) into various disciplines such as social sciences, business, political governance, public policy, demography, technology, etc. It is expected that the chosen practical challenges commissioned by SMU-X partners will ‘stretch’ students, forcing them to step out of their comfort zones and to explore the unknowns in order to make a ‘real’ difference ‘out there’ in both the social and business sectors. In terms of effective leader development, in particular, transformative leadership, the SMU-X course design will support learners in expanding their individual capacity to be effective in leadership roles and processes. Emphasis will be put on proximal indicators of leader development such as self-views around self-concept, including leader self-awareness, leadership self-efficacy and leader. Through their SMU-X projects, students will appreciate the importance of leadership development so that they can articulate what it takes for teams and their leaders to create strong(er) alignment and high(er) levels of commitment. The latter requires interpersonal trust, care and concern as well as shared mind-sets regarding (transformative) goals and values such as the ‘real’ sharing propelled by collaborative leadership approaches.",
+      "The core objective of the new SMU-X Transformative Leadership course is to nurture a new generation of young leaders motivated and capable of tackling intricate global and local challenges related to the nexus of 'digital disruption, demographic change and diversity' in an integrated, interdisciplinary fashion, providing the opportunity to integrate perceived differences between older and younger people in terms of values, communication priorities; age discrimination or the initiation of new types of social ('digital') behaviours transmitted from the plugged-in 'Generation Z' (born 1996 and after) to Baby Boomers (born 1946 to 1964). These three challenges (positioned at the interface of both current and future issues) are not only globally relevant but also have significant local implications for Singapore. Embedded in the experiential SMU-X initiative, the Transformative Leadership course provides students with a unique learning opportunity to develop and implement (socially) innovative solutions to make a positive impact on business and society in close collaboration with reputable partners in business, nonprofits and government. Learners will be paired up with an external SMU-X partner to work on relevant innovative projects with real impact. The successful completion of such transformative SMU-X projects requires learners diving deep(er) into various disciplines such as social sciences, business, political governance, public policy, demography, technology, etc. It is expected that the chosen practical challenges commissioned by SMU-X partners will 'stretch' students, forcing them to step out of their comfort zones and to explore the unknowns in order to make a 'real' difference 'out there' in both the social and business sectors. In terms of effective leader development, in particular, transformative leadership, the SMU-X course design will support learners in expanding their individual capacity to be effective in leadership roles and processes. Emphasis will be put on proximal indicators of leader development such as self-views around self-concept, including leader self-awareness, leadership self-efficacy and leader. Through their SMU-X projects, students will appreciate the importance of leadership development so that they can articulate what it takes for teams and their leaders to create strong(er) alignment and high(er) levels of commitment. The latter requires interpersonal trust, care and concern as well as shared mind-sets regarding (transformative) goals and values such as the 'real' sharing propelled by collaborative leadership approaches.",
     sections: [
       {
         code: "G55",
@@ -2483,7 +2483,7 @@ export const modules: ModuleBank = {
     name: "Collaborative Governance",
     moduleCode: "COR-PPPM1311",
     description:
-      "Contemporary governance illustrates a shift from a hierarchical, bureaucratic government to more collaborative, participative, and inclusive governance processes. Actors from public, private, and non-profit sectors collectively engage in policy decision-making to address complex social problems. Today's policy problems are described as ‘wicked problems’ that lack a set of clear definitions, causes and effects, and solutions. The wicked nature of the policy problems requires considering the perspectives of multiple stakeholders and innovative policy solutions. This course explores how governments and their stakeholders have experimented with new ideas, policies, governing processes, institutional arrangements, management tools, and technologies, to create public value and effect positive change. Using cases studies from a variety of policy areas and different countries, the course encourages students to understand the opportunities and challenges of public sector change initiatives including collaborative governance, e-governance, and coproduction. It prepares students to effectively address the multifaceted challenges of public policy and management through a variety of scholarly and practitioner publications, interactive and reflective exercises, and class discussions.",
+      "Contemporary governance illustrates a shift from a hierarchical, bureaucratic government to more collaborative, participative, and inclusive governance processes. Actors from public, private, and non-profit sectors collectively engage in policy decision-making to address complex social problems. Today's policy problems are described as 'wicked problems' that lack a set of clear definitions, causes and effects, and solutions. The wicked nature of the policy problems requires considering the perspectives of multiple stakeholders and innovative policy solutions. This course explores how governments and their stakeholders have experimented with new ideas, policies, governing processes, institutional arrangements, management tools, and technologies, to create public value and effect positive change. Using cases studies from a variety of policy areas and different countries, the course encourages students to understand the opportunities and challenges of public sector change initiatives including collaborative governance, e-governance, and coproduction. It prepares students to effectively address the multifaceted challenges of public policy and management through a variety of scholarly and practitioner publications, interactive and reflective exercises, and class discussions.",
     sections: [
       {
         code: "G1",
@@ -2519,7 +2519,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "This module is designed to introduce students to some key concepts within environmental history and STS studies, especially the impact and control of science and technology, with particular focus on the risks that these have posed to environmental sustainability and society in parts of Asia historically. Focusing on the history of the British Empire in Asia as a way of thinking around such issues, it uses imperial history as a lens into the development of ideas in environmental, medical and climatic science. It also considers the technological transformations that enabled and facilitated global imperial expansion. In so doing it considers imperialism’s role in environmental change in Asia; the transposition of scientific thought between West and East and, the evolution of environmentalism as a movement. It also seeks to promote interdisciplinary thinking about critical contemporary challenges by thinking through the complex historical interconnections of society, environment and science.",
+      "This module is designed to introduce students to some key concepts within environmental history and STS studies, especially the impact and control of science and technology, with particular focus on the risks that these have posed to environmental sustainability and society in parts of Asia historically. Focusing on the history of the British Empire in Asia as a way of thinking around such issues, it uses imperial history as a lens into the development of ideas in environmental, medical and climatic science. It also considers the technological transformations that enabled and facilitated global imperial expansion. In so doing it considers imperialism's role in environmental change in Asia; the transposition of scientific thought between West and East and, the evolution of environmentalism as a movement. It also seeks to promote interdisciplinary thinking about critical contemporary challenges by thinking through the complex historical interconnections of society, environment and science.",
     sections: [
       {
         code: "G1",
@@ -2657,7 +2657,7 @@ export const modules: ModuleBank = {
     name: "Harnessing Robotics, UAVs, and Digital Innovation for Business",
     moduleCode: "COR-MGMT2211",
     description:
-      "This course is a response to the increasing use of robotics, unmanned aerial vehicles (UAVs) and digital technologies in business and society. Drones are unmanned, multi-purpose tools. Their history can be traced back to World War I when the US army experimented with unmanned aerial torpedos. Nowadays, drone technology belongs to the military arsenal of many nations. Drones serve many purposes (intelligence, surveillance, reconnaissance etc.), and they can be deadly. In business and society, drones are utilised to capture images of people and/or buildings, to monitor agricultural conditions, to take pictures from (or of) hard to reach places, to assess the impact of climate change on rainforests, to film events, to deliver parcels, to survey real estate, to deliver help to heart attack victims in remote areas via a flying defibrillator or to fly life-saving kits to swimmers in emergency situations. In view of their increasing importance in terms of commercial value creation, R&D (it is estimated that about $6.4 billion is spent annually for R&D on drones), job creation, innovation (e.g. Internet of Things), new forms of warfare as well as legal/moral-ethical/regulatory concerns, it is imperative that students learn to critically appreciate the multiple and often conflicting implications and consequences of this technology for business and society. To achieve that, students will have to read widely and familiarize themselves with the various functionalities of robotics, UAVs and digital innovations in order to critically assess these technologies and to articulate informed opinions about ‘the good’, ‘the bad’, and ‘the future’ of these novel technological developments. The course will be taught by a multi-disciplinary team of instructors plus exposure to tech entrepreneurs and digital (corporate) innovation champions.",
+      "This course is a response to the increasing use of robotics, unmanned aerial vehicles (UAVs) and digital technologies in business and society. Drones are unmanned, multi-purpose tools. Their history can be traced back to World War I when the US army experimented with unmanned aerial torpedos. Nowadays, drone technology belongs to the military arsenal of many nations. Drones serve many purposes (intelligence, surveillance, reconnaissance etc.), and they can be deadly. In business and society, drones are utilised to capture images of people and/or buildings, to monitor agricultural conditions, to take pictures from (or of) hard to reach places, to assess the impact of climate change on rainforests, to film events, to deliver parcels, to survey real estate, to deliver help to heart attack victims in remote areas via a flying defibrillator or to fly life-saving kits to swimmers in emergency situations. In view of their increasing importance in terms of commercial value creation, R&D (it is estimated that about $6.4 billion is spent annually for R&D on drones), job creation, innovation (e.g. Internet of Things), new forms of warfare as well as legal/moral-ethical/regulatory concerns, it is imperative that students learn to critically appreciate the multiple and often conflicting implications and consequences of this technology for business and society. To achieve that, students will have to read widely and familiarize themselves with the various functionalities of robotics, UAVs and digital innovations in order to critically assess these technologies and to articulate informed opinions about 'the good', 'the bad', and 'the future' of these novel technological developments. The course will be taught by a multi-disciplinary team of instructors plus exposure to tech entrepreneurs and digital (corporate) innovation champions.",
     sections: [
       {
         code: "G1",
@@ -3019,7 +3019,7 @@ export const modules: ModuleBank = {
     name: "Constitutions, Cultures, and Context",
     moduleCode: "COR-LAW2610",
     description:
-      "A constitution is a country’s most important text: it creates State institutions, allocates powers and recognizes rights and responsibilities for those within its territory. More than that, constitutions express a state’s identity and provide the framework for all other laws and policies. This course will expose students to the challenges attendant on making constitutions work. At the same time, it will sensitise them to the extent to which the wider social, political and economic context and a country’s underlying culture affect the implementation of constitutional rules and values. Evergreens like the separation of powers, constitutional enforcement and dilemmas in ensuring equality and dignity will be explored through comparative study of experiences in a diverse range of jurisdictions. Instead of exploring models and constitutional solutions in the abstract, the course invites students to explore the practical impact and outcomes particular constitutional models and ideas produce in everyday life. To that end, we will amongst others compare the constitutional responses that different countries provide to contemporary challenges such as how to ensure effective public participation in governance without encouraging populism; the pervasiveness of migration for our understanding of citizenship and its entitlements; ensuring that everyone is treated equally while respecting individual autonomy and life choices; the role of technology in public life and the implications for privacy and free speech; and the role of a constitution in fostering economic development.",
+      "A constitution is a country's most important text: it creates State institutions, allocates powers and recognizes rights and responsibilities for those within its territory. More than that, constitutions express a state's identity and provide the framework for all other laws and policies. This course will expose students to the challenges attendant on making constitutions work. At the same time, it will sensitise them to the extent to which the wider social, political and economic context and a country's underlying culture affect the implementation of constitutional rules and values. Evergreens like the separation of powers, constitutional enforcement and dilemmas in ensuring equality and dignity will be explored through comparative study of experiences in a diverse range of jurisdictions. Instead of exploring models and constitutional solutions in the abstract, the course invites students to explore the practical impact and outcomes particular constitutional models and ideas produce in everyday life. To that end, we will amongst others compare the constitutional responses that different countries provide to contemporary challenges such as how to ensure effective public participation in governance without encouraging populism; the pervasiveness of migration for our understanding of citizenship and its entitlements; ensuring that everyone is treated equally while respecting individual autonomy and life choices; the role of technology in public life and the implications for privacy and free speech; and the role of a constitution in fostering economic development.",
     sections: [
       {
         code: "G1",
@@ -3079,7 +3079,7 @@ export const modules: ModuleBank = {
     name: "Fashioning a Nation",
     moduleCode: "COR2628",
     description:
-      "Nations have long sought to evoke loyalty and personal attachment, while in turn providing those living within it with a collective experience and common destiny. The potent force of the nation as a cognitive idea is at the heart of this course, which conceives of the making of a nation as an ongoing work in progress in which everyone has a stake. The central question that we will investigate concerns the reciprocal influences between the nation, its institutional manifestations and ‘the people’. How do ‘the people’ shape institutions and fashion a nation on a daily basis and vice versa?\n\n                To explore these relationships, the course is structured around three themes: prerequisites, process and practice. The first theme provides the general conceptual framework through a series of brief discussions of what a nation is, how it relates to a state and to a ‘people’. The second theme is devoted to what is often seen as the quintessential nation-building moment: the formal drafting of a constitution. We will consider the choice of language in that text to harness the people’s fidelity to the budding nation as well as the respective roles played by the elites and ordinary citizens during the constitution-process. For the third theme, we will probe the lived reality of how the nation constitutes itself every day through its people, from the elites who claim to speak on behalf of the nation in formal rule-making to the personification of the nation in image, song and icon to the architectural design of state institutions and public spaces and the wearing of folk costumes or traditional outfits that seek to give expression to the identity of the nation.\n\n                Our explorations will feature the experiences of a diverse range of nations located within and outside Asia. These will provide the backdrop against which the Singapore story will be considered, thereby allowing students to interrogate the familiar domestic narrative of nation-building from a comparative angle. The approach taken will be practically grounded and interdisciplinary, drawing on insights from law, political theory, history, linguistics, architecture and the arts. To do so effectively, the course will be team-taught by two instructors with complementary disciplinary backgrounds.\n                ",
+      "Nations have long sought to evoke loyalty and personal attachment, while in turn providing those living within it with a collective experience and common destiny. The potent force of the nation as a cognitive idea is at the heart of this course, which conceives of the making of a nation as an ongoing work in progress in which everyone has a stake. The central question that we will investigate concerns the reciprocal influences between the nation, its institutional manifestations and 'the people'. How do 'the people' shape institutions and fashion a nation on a daily basis and vice versa?\n\n                To explore these relationships, the course is structured around three themes: prerequisites, process and practice. The first theme provides the general conceptual framework through a series of brief discussions of what a nation is, how it relates to a state and to a 'people'. The second theme is devoted to what is often seen as the quintessential nation-building moment: the formal drafting of a constitution. We will consider the choice of language in that text to harness the people's fidelity to the budding nation as well as the respective roles played by the elites and ordinary citizens during the constitution-process. For the third theme, we will probe the lived reality of how the nation constitutes itself every day through its people, from the elites who claim to speak on behalf of the nation in formal rule-making to the personification of the nation in image, song and icon to the architectural design of state institutions and public spaces and the wearing of folk costumes or traditional outfits that seek to give expression to the identity of the nation.\n\n                Our explorations will feature the experiences of a diverse range of nations located within and outside Asia. These will provide the backdrop against which the Singapore story will be considered, thereby allowing students to interrogate the familiar domestic narrative of nation-building from a comparative angle. The approach taken will be practically grounded and interdisciplinary, drawing on insights from law, political theory, history, linguistics, architecture and the arts. To do so effectively, the course will be team-taught by two instructors with complementary disciplinary backgrounds.\n                ",
     sections: [
       {
         code: "G1",
@@ -3143,7 +3143,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "The contemporary world is usually described as ‘globalized.’ Although some claim that this ‘global village’ can be our home and that human life is improved by globalization, others complain that the local sense of groundedness that they argue is essential to human flourishing is becoming harder to attain. In this course, we explore the big question of whether these two concepts – the global and the local – are really opposites and whether it is possible to find a home in a world that is global. These explorations will transpire through analysis and discussion of readings drawn from business, scientific, legal, philosophical, and aesthetic sources illuminating the intersections of the global and local. By the end of the course, students will be expected to able to articulate their responses to whether they can find home in a globalized world by integrating the course material with their own personal experiences. This course should be of special interest to students embarking on endeavours that will take them far from home, as one objective will be for them to articulate what ‘home’ is.",
+      "The contemporary world is usually described as 'globalized.' Although some claim that this 'global village' can be our home and that human life is improved by globalization, others complain that the local sense of groundedness that they argue is essential to human flourishing is becoming harder to attain. In this course, we explore the big question of whether these two concepts – the global and the local – are really opposites and whether it is possible to find a home in a world that is global. These explorations will transpire through analysis and discussion of readings drawn from business, scientific, legal, philosophical, and aesthetic sources illuminating the intersections of the global and local. By the end of the course, students will be expected to able to articulate their responses to whether they can find home in a globalized world by integrating the course material with their own personal experiences. This course should be of special interest to students embarking on endeavours that will take them far from home, as one objective will be for them to articulate what 'home' is.",
     sections: [
       {
         code: "G1",
@@ -3263,7 +3263,7 @@ export const modules: ModuleBank = {
     name: "Introduction to Chinese History, Culture, Economy, Politics and Law",
     moduleCode: "COR2634",
     description:
-      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students’ understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
+      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students' understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
     sections: [
       {
         code: "G1",
@@ -3351,7 +3351,7 @@ export const modules: ModuleBank = {
       durationInHour: 3,
     },
     description:
-      "Law and legal systems are ubiquitous in modern societies. As Kant noted, law takes away man’s “savage (lawless) freedom” to return to him a more limited freedom under the law. But what exactly is law? How is law related to justice? Is law merely a power phenomenon? Is law merely politics? Is the monopolization of coercive force by the state justified?\n\n                This course provides students with the opportunity to think about law’s nature and its role in society. We will examine these questions through accounts of law offered by legal positivists and natural law theorists, and challenges posed by alternative critical accounts of American legal realism and critical legal studies. How do modern and critical accounts of law shape our thinking about the nature and purpose of law? Are the accounts rooted in particular historical contexts or cultures, or are they as relevant today or within our society? How does adopting a particular account of law impact the present practice of law? Do the accounts have something to say about how we, as lawyers or citizenry, can harness law’s potential as a tool for transforming society?\n\n                Through this course, students will have a unique opportunity to engage their hearts and minds in relation to the concepts of law and justice. Students will also be encouraged to relate the theories studied to current contexts. The course's focus is on critique of ideas and not mere description of doctrine. The methods of assessment will be intentionally geared towards facilitating critical thought. This course encourages students to formulate their own theses about law and justice, and meaningfully understand the role they can play – as lawyers and as citizens – in the legal process.",
+      "Law and legal systems are ubiquitous in modern societies. As Kant noted, law takes away man's “savage (lawless) freedom” to return to him a more limited freedom under the law. But what exactly is law? How is law related to justice? Is law merely a power phenomenon? Is law merely politics? Is the monopolization of coercive force by the state justified?\n\n                This course provides students with the opportunity to think about law's nature and its role in society. We will examine these questions through accounts of law offered by legal positivists and natural law theorists, and challenges posed by alternative critical accounts of American legal realism and critical legal studies. How do modern and critical accounts of law shape our thinking about the nature and purpose of law? Are the accounts rooted in particular historical contexts or cultures, or are they as relevant today or within our society? How does adopting a particular account of law impact the present practice of law? Do the accounts have something to say about how we, as lawyers or citizenry, can harness law's potential as a tool for transforming society?\n\n                Through this course, students will have a unique opportunity to engage their hearts and minds in relation to the concepts of law and justice. Students will also be encouraged to relate the theories studied to current contexts. The course's focus is on critique of ideas and not mere description of doctrine. The methods of assessment will be intentionally geared towards facilitating critical thought. This course encourages students to formulate their own theses about law and justice, and meaningfully understand the role they can play – as lawyers and as citizens – in the legal process.",
     sections: [
       {
         code: "G1",
@@ -6447,7 +6447,7 @@ export const modules: ModuleBank = {
     name: "Software Project Management",
     moduleCode: "IS212",
     description:
-      "In IS212 (Software Project Management), students will learn about modern frameworks and tools for software project management. In particular, students will gain hands-on experience with the ‘scrum’ framework and several other agile techniques (e.g. test-driven development, pair programming, continuous integration) as they design and build the first release of a software system. Students will gain an appreciation for how these methods help to manage the inherent uncertainty of software projects, as well as how they ensure that developers work towards a common goal at a sustainable pace.",
+      "In IS212 (Software Project Management), students will learn about modern frameworks and tools for software project management. In particular, students will gain hands-on experience with the 'scrum' framework and several other agile techniques (e.g. test-driven development, pair programming, continuous integration) as they design and build the first release of a software system. Students will gain an appreciation for how these methods help to manage the inherent uncertainty of software projects, as well as how they ensure that developers work towards a common goal at a sustainable pace.",
     sections: [
       {
         code: "G1",
@@ -9281,7 +9281,7 @@ export const modules: ModuleBank = {
     name: "IS Project Experience [FinTech]",
     moduleCode: "IS484",
     description:
-      "This is an SMU-X course designed in collaboration with Citibank, and has since been extended to include other banking/fintech sponsors such as OCBC, UBS, and NETS.  Sponsors will each supply 3-5 projects ideas to select from.  Students will form teams of 5 or 6, and select one of the sponsors’ project ideas to work on.  Project selections do not need to be unique, meaning multiple teams can select the same project idea. Each student project team will be assigned to a sponsor and an SMU faculty supervisor.  Sponsors will provide project scope and management for student teams to have practical industry learning experiences.  Student teams will have weekly check in meetings, either virtually or physically, with their sponsor. Student project teams will be expected to develop a working software application prototype, to be delivered to the sponsor at the end of the course.  Sponsors will specify the technologies to be used, including; development tools/languages, OS, database, 3rd party libraries, target deployment environment e.g. cloud environment. This course counts as a direct replacement for the IS483 Project Experience course.",
+      "This is an SMU-X course designed in collaboration with Citibank, and has since been extended to include other banking/fintech sponsors such as OCBC, UBS, and NETS.  Sponsors will each supply 3-5 projects ideas to select from.  Students will form teams of 5 or 6, and select one of the sponsors' project ideas to work on.  Project selections do not need to be unique, meaning multiple teams can select the same project idea. Each student project team will be assigned to a sponsor and an SMU faculty supervisor.  Sponsors will provide project scope and management for student teams to have practical industry learning experiences.  Student teams will have weekly check in meetings, either virtually or physically, with their sponsor. Student project teams will be expected to develop a working software application prototype, to be delivered to the sponsor at the end of the course.  Sponsors will specify the technologies to be used, including; development tools/languages, OS, database, 3rd party libraries, target deployment environment e.g. cloud environment. This course counts as a direct replacement for the IS483 Project Experience course.",
     credit: 1,
     terms: ["Term 1", "Term 2"],
     sections: [
@@ -10220,7 +10220,7 @@ export const modules: ModuleBank = {
     name: "Cyber Threat Intelligence",
     moduleCode: "CS445",
     description:
-      "Cyber threat intelligence can potentially be a force multiplier for organizations looking to update their cyber posture, specifically their response and detection programs to deal with increasingly sophisticated advanced persistent threats. Adversaries are constantly developing new tools, techniques, tactics and procedures to bypass security mechanisms successfully. Cyber threat intelligence empowers cyber defenders on countering those flexible and persistent threats with a good understanding of the attacker’s behaviour, motivation and playbook. During an attack, an organization needs a top-notch and cutting-edge threat hunting or incident response team armed with the threat intelligence necessary to understand how adversaries operate and to counter the threat. Cyber Threat Intelligence course will equip students with a brief understanding of various aspects of cyber threat intelligence – in the tactical, operational, and strategic level cyber threat intelligence skills and tradecraft required to make security teams better, threat hunting more accurate, incident response more effective, and organizations more aware of the evolving threat landscape.",
+      "Cyber threat intelligence can potentially be a force multiplier for organizations looking to update their cyber posture, specifically their response and detection programs to deal with increasingly sophisticated advanced persistent threats. Adversaries are constantly developing new tools, techniques, tactics and procedures to bypass security mechanisms successfully. Cyber threat intelligence empowers cyber defenders on countering those flexible and persistent threats with a good understanding of the attacker's behaviour, motivation and playbook. During an attack, an organization needs a top-notch and cutting-edge threat hunting or incident response team armed with the threat intelligence necessary to understand how adversaries operate and to counter the threat. Cyber Threat Intelligence course will equip students with a brief understanding of various aspects of cyber threat intelligence – in the tactical, operational, and strategic level cyber threat intelligence skills and tradecraft required to make security teams better, threat hunting more accurate, incident response more effective, and organizations more aware of the evolving threat landscape.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10854,7 +10854,7 @@ export const modules: ModuleBank = {
     name: "Digital Banking Enterprise Architecture",
     moduleCode: "IS444",
     description:
-      "This course examines the role of Enterprise Architecture in implementing a bank’s digital business strategy while minimising the overall technology cost for the bank.  In today’s market where the speed of doing business is rapidly increasing, and customers are becoming increasingly more sophisticated, banks are challenged to provide faster and better digital services, anytime, anywhere.  Technology, as a business enabler, has become a key consideration of any bank's strategy. The adoption of enterprise platforms such as Service-Oriented Architecture (SOA), Business Process Management (BPM), Business Rules Management System (BRMS), Master Data Management (MDM), and Enterprise Data Warehouse (EDW) will improve a bank’s competitive advantage with measurable results; increased revenue, speed to market, product & service innovation, improved agility, and reduced cost. Emphasis is placed throughout this course on analysing real-world situations using case studies, in particular large-scale change scenarios such as; core banking system replacements, and bank mergers whereby multiple vendor products need to coexist.  Hands-on lab exercises and project assignments will include the assembly of prototype banking solutions which invoke the API of SMU Teaching Bank (SMU tBank).",
+      "This course examines the role of Enterprise Architecture in implementing a bank's digital business strategy while minimising the overall technology cost for the bank.  In today's market where the speed of doing business is rapidly increasing, and customers are becoming increasingly more sophisticated, banks are challenged to provide faster and better digital services, anytime, anywhere.  Technology, as a business enabler, has become a key consideration of any bank's strategy. The adoption of enterprise platforms such as Service-Oriented Architecture (SOA), Business Process Management (BPM), Business Rules Management System (BRMS), Master Data Management (MDM), and Enterprise Data Warehouse (EDW) will improve a bank's competitive advantage with measurable results; increased revenue, speed to market, product & service innovation, improved agility, and reduced cost. Emphasis is placed throughout this course on analysing real-world situations using case studies, in particular large-scale change scenarios such as; core banking system replacements, and bank mergers whereby multiple vendor products need to coexist.  Hands-on lab exercises and project assignments will include the assembly of prototype banking solutions which invoke the API of SMU Teaching Bank (SMU tBank).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11513,7 +11513,7 @@ Like most other more developed economies, it now confronts a range of socioecono
     name: "Asia and World Literature: Beyond Orientalism",
     moduleCode: "COR2622",
     description:
-      "This course surveys the complex cultural and political relationships that exist between Asia and World Literature, exploring how canonical works of prose, poetry and drama have been used (and continue to be used) to advance divergent imperialist, nationalist and intercultural goals. We begin by tracing the formation of ‘Orientalist’ stereotypes about Asia in World Literature, illuminating the role these texts played in the Western colonial project. Next, we interrogate how Asian nationalists and creative practitioners sought to move beyond these Orientalist tropes by adapting Shakespeare’s plays to create bold, new intercultural performances. We then dive into a range of canonical Asian texts and their contemporary adaptations. We ask what these texts can tell us about the connected political, cultural and technological histories of Asia and Europe; probe how these texts play shape our perceptions of racial, religious, national and gender differences; and ponder the place Singapore writers have in world literature today.",
+      "This course surveys the complex cultural and political relationships that exist between Asia and World Literature, exploring how canonical works of prose, poetry and drama have been used (and continue to be used) to advance divergent imperialist, nationalist and intercultural goals. We begin by tracing the formation of 'Orientalist' stereotypes about Asia in World Literature, illuminating the role these texts played in the Western colonial project. Next, we interrogate how Asian nationalists and creative practitioners sought to move beyond these Orientalist tropes by adapting Shakespeare's plays to create bold, new intercultural performances. We then dive into a range of canonical Asian texts and their contemporary adaptations. We ask what these texts can tell us about the connected political, cultural and technological histories of Asia and Europe; probe how these texts play shape our perceptions of racial, religious, national and gender differences; and ponder the place Singapore writers have in world literature today.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11576,7 +11576,7 @@ Like most other more developed economies, it now confronts a range of socioecono
   "COR-ACM2629": {
     name: "ACM2629 , Art & History: Beginnings to Revolutions",
     moduleCode: "COR-ACM2629",
-    description: `Art has inspired and fascinated people all over the world since the beginning of time. Since the early cave art produced more than thirty thousand years ago, every civilisation has captured its exploits, concerns and everyday life in vases, murals, sculptures, paintings and monuments. Art has always been an enduring product of human creativity, symbolic communication, and emotional expression that exists in an intriguing intersection between past and present historical contexts. This course introduces students to major developments in art history in the Western World, which has and continues to form a key reference system in today’s art world. This course will focus on key periods and movements affecting the production of art until the 19th century, particularly Ancient Mesopotamia and Egypt, Greece, Rome, the Middle Ages and the Renaissance. Emphasis will be placed on the relationships between art and its historical, religious and socio-political contexts, and the effects on the definitions, styles, practices and communities of art.`,
+    description: `Art has inspired and fascinated people all over the world since the beginning of time. Since the early cave art produced more than thirty thousand years ago, every civilisation has captured its exploits, concerns and everyday life in vases, murals, sculptures, paintings and monuments. Art has always been an enduring product of human creativity, symbolic communication, and emotional expression that exists in an intriguing intersection between past and present historical contexts. This course introduces students to major developments in art history in the Western World, which has and continues to form a key reference system in today's art world. This course will focus on key periods and movements affecting the production of art until the 19th century, particularly Ancient Mesopotamia and Egypt, Greece, Rome, the Middle Ages and the Renaissance. Emphasis will be placed on the relationships between art and its historical, religious and socio-political contexts, and the effects on the definitions, styles, practices and communities of art.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11608,7 +11608,7 @@ Like most other more developed economies, it now confronts a range of socioecono
     name: "COMM1312 , Communication Strategies in the Digital Age",
     moduleCode: "COR-COMM1312",
     description:
-      "Management Communication equips students with strategies that will enable them to successfully communicate their solutions to organizational problems. Since the course emphasizes the importance of effective written and spoken communication within a business setting, students will be exposed to strategies that will enable them to communicate their ideas and values in a clear, persuasive and memorable way. Students will, therefore, learn the art of producing impactful business documents and delivering engaging presentations in various business contexts. By the end of the course, students will be able to function as proficient communicators who are ready to embrace the communicative challenges inherent in today’s dynamic business environment.",
+      "Management Communication equips students with strategies that will enable them to successfully communicate their solutions to organizational problems. Since the course emphasizes the importance of effective written and spoken communication within a business setting, students will be exposed to strategies that will enable them to communicate their ideas and values in a clear, persuasive and memorable way. Students will, therefore, learn the art of producing impactful business documents and delivering engaging presentations in various business contexts. By the end of the course, students will be able to function as proficient communicators who are ready to embrace the communicative challenges inherent in today's dynamic business environment.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11654,7 +11654,7 @@ Like most other more developed economies, it now confronts a range of socioecono
     name: "COMM1313 , Intercultural Communication",
     moduleCode: "COR-COMM1313",
     description:
-      "The course provides strategies on how to read a person’s culture as well as corporate culture. Features of culture such as individualism and collectivism, masculinity and femininity, power distance and issues related to intercultural adaptation, ethnocentrism, stereotyping and prejudice will be discussed. The aim of this course is to develop intercultural competencies, which will make business practices more meaningful and significant.",
+      "The course provides strategies on how to read a person's culture as well as corporate culture. Features of culture such as individualism and collectivism, masculinity and femininity, power distance and issues related to intercultural adaptation, ethnocentrism, stereotyping and prejudice will be discussed. The aim of this course is to develop intercultural competencies, which will make business practices more meaningful and significant.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11796,7 +11796,7 @@ Like most other more developed economies, it now confronts a range of socioecono
     name: "GA2635 , Contemporary Asia: Power, Diversity & Change",
     moduleCode: "COR-GA2635",
     description:
-      "Home to around forty percent of the world's population, Asia is a region of extraordinary natural, cultural, economic, and socio-political diversity. It is characterised by both patterns of continuity across time and space, as well as far-reaching and rapid social and physical change. This course surveys a variety of contemporary trends and challenges found across Asia. By exploring weekly themes such as urbanisation, transnational migration, civil society and social movements, religious politics, security issues, environmental degradation, geopolitics and the role of China, economic growth and disparity, and regional structures like ASEAN and SAARC, students will gain a deeper understanding of the complex dynamics of contemporary Asian societies. At some points in this course we will approach ‘Asia’ with a wide-lens, taking global, transnational, and regional perspectives, while at other times we will zoom in to particular experiences at a national or sub-national level. This is a survey course, and while students will be exposed to a wide range of issues relevant to contemporary Asia, they will also be encouraged to delve deeper into one or two select topics that are of particular interest to them.",
+      "Home to around forty percent of the world's population, Asia is a region of extraordinary natural, cultural, economic, and socio-political diversity. It is characterised by both patterns of continuity across time and space, as well as far-reaching and rapid social and physical change. This course surveys a variety of contemporary trends and challenges found across Asia. By exploring weekly themes such as urbanisation, transnational migration, civil society and social movements, religious politics, security issues, environmental degradation, geopolitics and the role of China, economic growth and disparity, and regional structures like ASEAN and SAARC, students will gain a deeper understanding of the complex dynamics of contemporary Asian societies. At some points in this course we will approach 'Asia' with a wide-lens, taking global, transnational, and regional perspectives, while at other times we will zoom in to particular experiences at a national or sub-national level. This is a survey course, and while students will be exposed to a wide range of issues relevant to contemporary Asia, they will also be encouraged to delve deeper into one or two select topics that are of particular interest to them.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11828,7 +11828,7 @@ Like most other more developed economies, it now confronts a range of socioecono
     name: "GA2636 , Managing Diversity in Asia",
     moduleCode: "COR-GA2636",
     description:
-      "This course explores various models in managing diversity in Asia. It examines forms of ‘difference’ such as ethnicity, religion and sexuality, and policy frameworks are important for multicultural societies. The course critically engages with the debates within scholarship of multiculturalism that encourages a theoretically-informed approach towards a range of empirical examples from Europe, North America and Asia. The analysis of empirical examples enables the consideration of demographic, cultural and ideological particularities, as well as nation-building efforts that vary across historical and geographical environments. This context-driven approach will also be taken towards the analysis of contemporary policy issues including citizenship, education and employment, including current debates such as disability in education and the ‘headscarf affair’. The course also includes an applied component which allows students to put the theories to use and to experience how to deal with diversity through three dialogue sessions outside the campus.",
+      "This course explores various models in managing diversity in Asia. It examines forms of 'difference' such as ethnicity, religion and sexuality, and policy frameworks are important for multicultural societies. The course critically engages with the debates within scholarship of multiculturalism that encourages a theoretically-informed approach towards a range of empirical examples from Europe, North America and Asia. The analysis of empirical examples enables the consideration of demographic, cultural and ideological particularities, as well as nation-building efforts that vary across historical and geographical environments. This context-driven approach will also be taken towards the analysis of contemporary policy issues including citizenship, education and employment, including current debates such as disability in education and the 'headscarf affair'. The course also includes an applied component which allows students to put the theories to use and to experience how to deal with diversity through three dialogue sessions outside the campus.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11856,7 +11856,7 @@ Like most other more developed economies, it now confronts a range of socioecono
     name: "GA2641 , India in the World: Traditions and Transitions",
     moduleCode: "COR-GA2641",
     description:
-      "The flow of, products, practices and ideas, and into India from the rest of the world, and from India into Asia, especially, and around the world have contributed considerably to the country’s current economic and political state and its position in the world. This course introduces students to Indian beliefs and cultural traditions in the context of the global forces that have shaped the country over millennia. Religious and philosophical traditions, visual and performing art theory and practice, culinary methods, language and literature, film and television trends of the diverse subcontinent are examined in the context of a globalized world. The course also looks at 21st century India and its soft power globally.",
+      "The flow of, products, practices and ideas, and into India from the rest of the world, and from India into Asia, especially, and around the world have contributed considerably to the country's current economic and political state and its position in the world. This course introduces students to Indian beliefs and cultural traditions in the context of the global forces that have shaped the country over millennia. Religious and philosophical traditions, visual and performing art theory and practice, culinary methods, language and literature, film and television trends of the diverse subcontinent are examined in the context of a globalized world. The course also looks at 21st century India and its soft power globally.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11931,7 +11931,7 @@ Like most other more developed economies, it now confronts a range of socioecono
     moduleCode: "COR-JPAN2401",
     description: `Japanese is designed for students with no previous background in Japanese. This course provides an introduction to the four skills of language: speaking, listening, reading and writing, as well as Japanese culture. Our emphasis is on oral communication skills in basic survival situations in a Japanese speaking environment. Hiragana, Katakana (Japanese scripts) and approximately 50 Kanji (Chinese Characters) to enhance reading and writing skills will also be introduced.
 
-IMPORTANT: You must be a complete beginner. Please contact the instructor if you have any background in Japanese. You will be required to sign a form to declare that you are a complete beginner, and any false statement will lead to ‘F’ grade.
+IMPORTANT: You must be a complete beginner. Please contact the instructor if you have any background in Japanese. You will be required to sign a form to declare that you are a complete beginner, and any false statement will lead to 'F' grade.
 `,
     credit: 1,
     terms: ["Term 2"],
@@ -12123,7 +12123,7 @@ We live in a hyperconnected world – ecosystems and societies are linked like n
     name: "LAW2235 , Sustainable Ocean Law and Governance",
     moduleCode: "COR-LAW2235",
     description:
-      "The aim of this course is to introduce students to law, policy and institutions on sustainable management of the world’s oceans. It first introduces the UN Sustainable Development Goals and its relevance with the ocean. The course then provides a comprehensive study of international law regulating major human activities at sea, such as shipping, fisheries, marine energy, mining and marine scientific research. The course will lay foundations for students to imagine a future governance regime that could secure a healthy ocean for humanity.",
+      "The aim of this course is to introduce students to law, policy and institutions on sustainable management of the world's oceans. It first introduces the UN Sustainable Development Goals and its relevance with the ocean. The course then provides a comprehensive study of international law regulating major human activities at sea, such as shipping, fisheries, marine energy, mining and marine scientific research. The course will lay foundations for students to imagine a future governance regime that could secure a healthy ocean for humanity.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12251,7 +12251,7 @@ We live in a hyperconnected world – ecosystems and societies are linked like n
     name: "LAW2630 , Introduction to Chinese History, Culture, Economy, Politics and Law",
     moduleCode: "COR-LAW2630",
     description:
-      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students’ understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
+      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students' understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12279,7 +12279,7 @@ We live in a hyperconnected world – ecosystems and societies are linked like n
     name: "LAW2640 , EU,ASEAN Law and Relations",
     moduleCode: "COR-LAW2640",
     description:
-      "This course will explore interdisciplinary issues in EU-ASEAN law and relations. The EU and ASEAN are among the world’s most advanced regional structures, representing distinct models of integration. Since the 1980s, the evolution of EU-ASEAN relations has offered valuable insights into the multifaceted concept of interregionalism in international law and relations. ASEAN became a priority in the EU’s Asia policy agenda following the Treaty of Lisbon, and the European Commission’s 2015 “Trade for All” strategy articulated an ASEAN approach based on individual agreements, culminating in a region-to-region framework. The recent conclusion of the EU’s trade and investment agreements with Singapore and Vietnam reinforces this incremental approach towards realising the EU-ASEAN free trade agreement. Amidst China’s changing status, the impasse in WTO negotiations, and the COVID-19 pandemic, EU-ASEAN legal frameworks and relations have gained prominence on the global stage. In 2020, the two blocs upgraded their “Dialogue Partnership” to a “Strategic Partnership,” which aimed at enhancing economic and security cooperation, sustainable connectivity, and development. In 2021, the EU’s Indo-Pacific strategy underscored its engagement with the ASEAN-led regional architecture, particularly in light of the economic and political impact of the CPTPP and RCEP. In this SMU-X course, students will explore EU and ASEAN institutions and examine the EU’s new Indo-Pacific strategy from legal and political perspectives. The course will specifically evaluate EU-ASEAN economic agreements and focus on cutting-edge areas such as trade and investment liberalisation, AI and digital trade, and sustainable development. Students will gain practical experience by collaborating with legal and policy experts to tackle real-world challenges. Please note: This course does not include an overseas trip and does not meet SMU’s global exposure requirement. However, students will visit EU and/or ASEAN institutions in Singapore and engage in projects with legal and policy experts specialising in EU-ASEAN law and relations. The course will also incorporate SMU’s blended learning approach, which may include some online sessions. The grade will be on a pass/fail basis.",
+      "This course will explore interdisciplinary issues in EU-ASEAN law and relations. The EU and ASEAN are among the world's most advanced regional structures, representing distinct models of integration. Since the 1980s, the evolution of EU-ASEAN relations has offered valuable insights into the multifaceted concept of interregionalism in international law and relations. ASEAN became a priority in the EU's Asia policy agenda following the Treaty of Lisbon, and the European Commission's 2015 “Trade for All” strategy articulated an ASEAN approach based on individual agreements, culminating in a region-to-region framework. The recent conclusion of the EU's trade and investment agreements with Singapore and Vietnam reinforces this incremental approach towards realising the EU-ASEAN free trade agreement. Amidst China's changing status, the impasse in WTO negotiations, and the COVID-19 pandemic, EU-ASEAN legal frameworks and relations have gained prominence on the global stage. In 2020, the two blocs upgraded their “Dialogue Partnership” to a “Strategic Partnership,” which aimed at enhancing economic and security cooperation, sustainable connectivity, and development. In 2021, the EU's Indo-Pacific strategy underscored its engagement with the ASEAN-led regional architecture, particularly in light of the economic and political impact of the CPTPP and RCEP. In this SMU-X course, students will explore EU and ASEAN institutions and examine the EU's new Indo-Pacific strategy from legal and political perspectives. The course will specifically evaluate EU-ASEAN economic agreements and focus on cutting-edge areas such as trade and investment liberalisation, AI and digital trade, and sustainable development. Students will gain practical experience by collaborating with legal and policy experts to tackle real-world challenges. Please note: This course does not include an overseas trip and does not meet SMU's global exposure requirement. However, students will visit EU and/or ASEAN institutions in Singapore and engage in projects with legal and policy experts specialising in EU-ASEAN law and relations. The course will also incorporate SMU's blended learning approach, which may include some online sessions. The grade will be on a pass/fail basis.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12332,13 +12332,13 @@ We live in a hyperconnected world – ecosystems and societies are linked like n
     ],
   },
   "COR-MGMT2207": {
-    name: "MGMT2207 , Innovations for Asia’s Smart Cities",
+    name: "MGMT2207 , Innovations for Asia's Smart Cities",
     moduleCode: "COR-MGMT2207",
-    description: `The world is rapidly urbanizing. More and more cities around the world are becoming increasingly popular as economic powerhouses and magnets for migrants from the countryside, suburban areas and other parts of the world. All big cities in both First and Third World countries as well as emerging markets such as New York, London, Tokyo, Paris, Shanghai, Hong Kong, Singapore, New Dehli, Jakarta etc. have to cope with high population density and serious challenges such as air pollution or traffic congestion. How do we pack more people into big cities and yet continue to achieve a high quality of life? How do we create and manage ‘good cities’ which are safe, spacious, green, connected, fair and resilient? How can cities create economic wealth while still fulfilling the CSR responsibilities of sustaining a “Green Planet”? What are the best practice designs and technical smart city solutions which could be leveraged to tackle these challenges and how can they be successfully commercialised? This course will provide answers to these questions with special emphasis on the managerial and commercial aspects of smart city concepts.
+    description: `The world is rapidly urbanizing. More and more cities around the world are becoming increasingly popular as economic powerhouses and magnets for migrants from the countryside, suburban areas and other parts of the world. All big cities in both First and Third World countries as well as emerging markets such as New York, London, Tokyo, Paris, Shanghai, Hong Kong, Singapore, New Dehli, Jakarta etc. have to cope with high population density and serious challenges such as air pollution or traffic congestion. How do we pack more people into big cities and yet continue to achieve a high quality of life? How do we create and manage 'good cities' which are safe, spacious, green, connected, fair and resilient? How can cities create economic wealth while still fulfilling the CSR responsibilities of sustaining a “Green Planet”? What are the best practice designs and technical smart city solutions which could be leveraged to tackle these challenges and how can they be successfully commercialised? This course will provide answers to these questions with special emphasis on the managerial and commercial aspects of smart city concepts.
 
-The key lies in creating and effectively managing innovative and sustainable, smart cities able to leverage on new technologies such as smart grids or sensor networks to create a place where people can live, play and work well. Starting from the stakeholder requirements of citizens and planners of innovative cities, the course will introduce students to urban design concepts as well as commercialization, management challenges and implementation issues of the smart city model. There will also be a focus on how good governance and enabling technologies such as sensor networks can facilitate the creation, management and sustainability of ‘good’ cities.
+The key lies in creating and effectively managing innovative and sustainable, smart cities able to leverage on new technologies such as smart grids or sensor networks to create a place where people can live, play and work well. Starting from the stakeholder requirements of citizens and planners of innovative cities, the course will introduce students to urban design concepts as well as commercialization, management challenges and implementation issues of the smart city model. There will also be a focus on how good governance and enabling technologies such as sensor networks can facilitate the creation, management and sustainability of 'good' cities.
 
-With the help of case studies and resource persons such as industry leaders, innovative city designers, tech experts and business development experts from local and int. companies such as ST Electronics, JTC, Jurong Consultants, Frost & Sullivan, IDA International, Urban Redevelopment Authority (URA) etc., students will be familiarized with the opportunities and challenges of the ‘smart city business’ which represents a key element in the value creation and extraction strategy of the Singapore Government and related businesses.`,
+With the help of case studies and resource persons such as industry leaders, innovative city designers, tech experts and business development experts from local and int. companies such as ST Electronics, JTC, Jurong Consultants, Frost & Sullivan, IDA International, Urban Redevelopment Authority (URA) etc., students will be familiarized with the opportunities and challenges of the 'smart city business' which represents a key element in the value creation and extraction strategy of the Singapore Government and related businesses.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12366,7 +12366,7 @@ With the help of case studies and resource persons such as industry leaders, inn
     name: "MGMT2238 , Doing Business with Artificial Intelligence",
     moduleCode: "COR-MGMT2238",
     description:
-      "More and more business organizations are using A.I. technologies such as predictive analytics, deep learning or sentiment / image analysis to identify patterns and trends in vast reams of (big) data, allowing them to make ‘smarter’ decisions (e.g. about loss of customers or the necessary service inspection of equipment) and potentially to become more competitive in real-time. As A.I. technology is already surpassing human decision-making in certain instances, there is growing concern about ‘uncontrolled A.I.’ in business and society, incl. regulatory and ethical-legal challenges. Against this background, this new course aims to equip students with foundational, theoretical and practical knowledge about A.I. driven business applications in selected private and public sector organizations. Besides reconstructing the history of artificial intelligence from the 1960s to the current era (as well as a refresher about the basics of computer science algorithms such as audio and video compression algorithms), we will put emphasis on explaining the A.I. driven business models of several top international and local organizations. In order to appreciate the power of A.I. technology, we will take a closer look ‘under the A.I. hood’ to understand what makes machine learning, deep learning, neural networks and image analysis tick. Visits to A.I. powered business organizations engaged in customer service management, finance, marketing, supply chain management or manufacturing will be organised aimed at appreciating both the benefits and downside of A.I. Students graduating from this course will be equipped with critical competencies to solve real-world business problems using A.I. technology while simultaneously casting a critical eye on the morality and ethics of commercialising A.I.",
+      "More and more business organizations are using A.I. technologies such as predictive analytics, deep learning or sentiment / image analysis to identify patterns and trends in vast reams of (big) data, allowing them to make 'smarter' decisions (e.g. about loss of customers or the necessary service inspection of equipment) and potentially to become more competitive in real-time. As A.I. technology is already surpassing human decision-making in certain instances, there is growing concern about 'uncontrolled A.I.' in business and society, incl. regulatory and ethical-legal challenges. Against this background, this new course aims to equip students with foundational, theoretical and practical knowledge about A.I. driven business applications in selected private and public sector organizations. Besides reconstructing the history of artificial intelligence from the 1960s to the current era (as well as a refresher about the basics of computer science algorithms such as audio and video compression algorithms), we will put emphasis on explaining the A.I. driven business models of several top international and local organizations. In order to appreciate the power of A.I. technology, we will take a closer look 'under the A.I. hood' to understand what makes machine learning, deep learning, neural networks and image analysis tick. Visits to A.I. powered business organizations engaged in customer service management, finance, marketing, supply chain management or manufacturing will be organised aimed at appreciating both the benefits and downside of A.I. Students graduating from this course will be equipped with critical competencies to solve real-world business problems using A.I. technology while simultaneously casting a critical eye on the morality and ethics of commercialising A.I.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12394,7 +12394,7 @@ With the help of case studies and resource persons such as industry leaders, inn
     name: "OBHR2247 , The Science and Practice of Mindfulness at Work",
     moduleCode: "COR-OBHR2247",
     description:
-      "Our world is characterized by the phenomena of VUCA (volatility, uncertainty, complexity, ambiguity) and overload (of attention, information, stimulation, and work). This affects our attention, emotions, cognitions, well-being, functioning, and performance. It challenges our ability to flourish, to both feel well and do well. In this course, we explore the science and practice of mindfulness as a way of flourishing at work and in life. Mindfulness-based practices are rooted in Eastern contemplative traditions but have been adapted to a secular, modern context. A large amount of research has accumulated, showing that such mindfulness-based practices confer numerous benefits both for well-being and functioning, including at the workplace. “Mindfulness at work” has two meanings in this course: First, we will focus on mindfulness in the context of work and organizations. Second, we will incorporate mindfulness practices such as mindfulness meditations into the course itself. Thus, in this course, we will examine both the science as well as the practice of mindfulness. For the science aspect, we will read and discuss scientific research studies on mindfulness related to each of the course topics. For the practice aspect, we will engage in mindfulness practices based on established and carefully designed secular mindfulness trainings. The practice aspect is integral to this course and students will be required to commit about 20-45 minutes daily to these practices. Evidence suggests that the practices can help individuals feel and function better and are a good investment of the students’ time.",
+      "Our world is characterized by the phenomena of VUCA (volatility, uncertainty, complexity, ambiguity) and overload (of attention, information, stimulation, and work). This affects our attention, emotions, cognitions, well-being, functioning, and performance. It challenges our ability to flourish, to both feel well and do well. In this course, we explore the science and practice of mindfulness as a way of flourishing at work and in life. Mindfulness-based practices are rooted in Eastern contemplative traditions but have been adapted to a secular, modern context. A large amount of research has accumulated, showing that such mindfulness-based practices confer numerous benefits both for well-being and functioning, including at the workplace. “Mindfulness at work” has two meanings in this course: First, we will focus on mindfulness in the context of work and organizations. Second, we will incorporate mindfulness practices such as mindfulness meditations into the course itself. Thus, in this course, we will examine both the science as well as the practice of mindfulness. For the science aspect, we will read and discuss scientific research studies on mindfulness related to each of the course topics. For the practice aspect, we will engage in mindfulness practices based on established and carefully designed secular mindfulness trainings. The practice aspect is integral to this course and students will be required to commit about 20-45 minutes daily to these practices. Evidence suggests that the practices can help individuals feel and function better and are a good investment of the students' time.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12504,7 +12504,7 @@ With the help of case studies and resource persons such as industry leaders, inn
     name: "PSYC2638 , Subjective Well,Being",
     moduleCode: "COR-PSYC2638",
     description:
-      "Subjective well-being (SWB) refers to individuals’ evaluations and experiences of the quality of their lives in terms of how they think and feel, so it involves both cognitions and emotions. At the general level, we can construe SWB as the relative presence of positives and absence of negatives. However, what are these positives and negatives, how do they combine and inter-relate, and why and how do they matter? The psychological study of subjective well-being attempts to address these questions using an evidence-based approach grounded in the scientific method and the empirical research on the constructs, causes, correlates, and consequences of SWB. The goal of this course is to introduce students to the scientific literature and psychological study of SWB. Although the primary focus is on SWB at the individual level due to the inherently subjective nature of the construct, we will also discuss issues and implications in the contexts and levels beyond the individual such as the team, organizational or national levels.",
+      "Subjective well-being (SWB) refers to individuals' evaluations and experiences of the quality of their lives in terms of how they think and feel, so it involves both cognitions and emotions. At the general level, we can construe SWB as the relative presence of positives and absence of negatives. However, what are these positives and negatives, how do they combine and inter-relate, and why and how do they matter? The psychological study of subjective well-being attempts to address these questions using an evidence-based approach grounded in the scientific method and the empirical research on the constructs, causes, correlates, and consequences of SWB. The goal of this course is to introduce students to the scientific literature and psychological study of SWB. Although the primary focus is on SWB at the individual level due to the inherently subjective nature of the construct, we will also discuss issues and implications in the contexts and levels beyond the individual such as the team, organizational or national levels.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12536,7 +12536,7 @@ With the help of case studies and resource persons such as industry leaders, inn
     name: "SOCG2637 , Deconstructing Singapore Society",
     moduleCode: "COR-SOCG2637",
     description:
-      "Singapore is a fascinating subject of sociological inquiry. Constructing Singapore’s history remains a struggle against competing notions of the state as a tool of British colonialism, an adjunct of Malaysia before its untimely expulsion, immigrants’ lay-over and Lee Kuan Yew’s political success. Since independence, Singapore’s leaders lament its lacking natural resources to justify their “pragmatic” management of the everyday lives of Singaporeans, including speech, educational environment, sexuality, religious expressions, ethnic identity and political culture, at the expense of citizens’ rights. Populated dominantly by ethnic Chinese with Malays and Indians as minorities, yet geographically surrounded by Muslim-majority nations have made the ruling PAP reluctant to observe multiracialism in governance policies which compromises the nation-building project. Presently, forces of globalisation threaten the state’s monopoly over political space and ideologies. This module targets students interested in developing a critical appreciation of the socio-economic and political contexts that structure Singaporeans’ daily lives. It highlights critical historical circumstances that shape Singapore’s post-independent governance policies, political discourses and contemporary development as a nation-state. It sharpens students’ sociological imagination as they deconstruct political ideologies to grasp alternative interpretations of the development of Singapore society and make sense of contemporary issues of importance in Singapore and to Singaporeans.",
+      "Singapore is a fascinating subject of sociological inquiry. Constructing Singapore's history remains a struggle against competing notions of the state as a tool of British colonialism, an adjunct of Malaysia before its untimely expulsion, immigrants' lay-over and Lee Kuan Yew's political success. Since independence, Singapore's leaders lament its lacking natural resources to justify their “pragmatic” management of the everyday lives of Singaporeans, including speech, educational environment, sexuality, religious expressions, ethnic identity and political culture, at the expense of citizens' rights. Populated dominantly by ethnic Chinese with Malays and Indians as minorities, yet geographically surrounded by Muslim-majority nations have made the ruling PAP reluctant to observe multiracialism in governance policies which compromises the nation-building project. Presently, forces of globalisation threaten the state's monopoly over political space and ideologies. This module targets students interested in developing a critical appreciation of the socio-economic and political contexts that structure Singaporeans' daily lives. It highlights critical historical circumstances that shape Singapore's post-independent governance policies, political discourses and contemporary development as a nation-state. It sharpens students' sociological imagination as they deconstruct political ideologies to grasp alternative interpretations of the development of Singapore society and make sense of contemporary issues of importance in Singapore and to Singaporeans.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12712,7 +12712,7 @@ With the help of case studies and resource persons such as industry leaders, inn
     name: "Digital Law and Technological Innovations",
     moduleCode: "COR2220",
     description:
-      "This course is dedicated to curious laypersons. In your professional life after graduation, whatever your chosen field, you will face two certainties. First, a professional matter which involves machine learning or the Blockchain. Second, you will work with a lawyer! This course gives you a toolkit, a shorthand for constructive dialogue with a lawyer’s concerns, to solve your problems within your domain expertise. Consider this example: what is your understanding of a “token”? A banker might think about asset ownership records, and link a “token” to “accounts”. To a programmer, a “token” could be a technical standard for a fungible unit of value on the Blockchain. In contrast, a lawyer understands a “token” based on legislation or judge-made law. Significantly, lawyers have an exclusive right to advocate for all your professional interests in a court of law. This course will cover legal reactions to technological innovations in the Fourth Industrial Revolution. We will examine case studies in Artificial Intelligence and Blockchain concerning, for instance, autonomous vehicles and smart contracts, which are dumb contracts. Lawyers are trained to shape these realities with words by manipulating natural language. You will understand how – and why - lawyers convert the realities of algorithms and codes into legalese to mitigate harm against persons, to aid commercial growth and resolve its disputes.",
+      "This course is dedicated to curious laypersons. In your professional life after graduation, whatever your chosen field, you will face two certainties. First, a professional matter which involves machine learning or the Blockchain. Second, you will work with a lawyer! This course gives you a toolkit, a shorthand for constructive dialogue with a lawyer's concerns, to solve your problems within your domain expertise. Consider this example: what is your understanding of a “token”? A banker might think about asset ownership records, and link a “token” to “accounts”. To a programmer, a “token” could be a technical standard for a fungible unit of value on the Blockchain. In contrast, a lawyer understands a “token” based on legislation or judge-made law. Significantly, lawyers have an exclusive right to advocate for all your professional interests in a court of law. This course will cover legal reactions to technological innovations in the Fourth Industrial Revolution. We will examine case studies in Artificial Intelligence and Blockchain concerning, for instance, autonomous vehicles and smart contracts, which are dumb contracts. Lawyers are trained to shape these realities with words by manipulating natural language. You will understand how – and why - lawyers convert the realities of algorithms and codes into legalese to mitigate harm against persons, to aid commercial growth and resolve its disputes.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13611,7 +13611,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       durationInHour: 3,
     },
     description:
-      "The focus of this course is predominantly on the external financial statement audit, within the framework of assurance. However, auditing is multidisciplinary in nature, requiring and integrating knowledge of business, accounting, information systems, law and strategy.\nStudents who have yet to complete ACCT201A Corporate Reporting & Analysis of Financial Statements, ACCT203 Accounting Information Systems and ACCT206 Governance, Risk and Assurance, are strongly advised not to sign up for this course. Students without this necessary prior knowledge will be responsible for acquiring the knowledge on their own.\nThis course focuses on the audit of financial statements by the external auditor, and is designed to:\n1. provide students with an in-depth knowledge and understanding of key auditing and assurance concepts and methodologies;\n2. develop the skills and attitudes necessary for providing financial statement audits and other assurance services, including problem-solving and decision making, critical thinking, communication, teamwork, interpersonal skills and professional values and ethics;\n3. develop analytical, strategic and systems thinking through the merging and melding of information from related disciplines;\n4. inculcate in students an attitude of active learning at both individual and team level, through students’ pre-seminar preparation, involvement in seminar discussions, seminar activities and project work; and\n5. develop the mindset and values required to succeed in the profession.",
+      "The focus of this course is predominantly on the external financial statement audit, within the framework of assurance. However, auditing is multidisciplinary in nature, requiring and integrating knowledge of business, accounting, information systems, law and strategy.\nStudents who have yet to complete ACCT201A Corporate Reporting & Analysis of Financial Statements, ACCT203 Accounting Information Systems and ACCT206 Governance, Risk and Assurance, are strongly advised not to sign up for this course. Students without this necessary prior knowledge will be responsible for acquiring the knowledge on their own.\nThis course focuses on the audit of financial statements by the external auditor, and is designed to:\n1. provide students with an in-depth knowledge and understanding of key auditing and assurance concepts and methodologies;\n2. develop the skills and attitudes necessary for providing financial statement audits and other assurance services, including problem-solving and decision making, critical thinking, communication, teamwork, interpersonal skills and professional values and ethics;\n3. develop analytical, strategic and systems thinking through the merging and melding of information from related disciplines;\n4. inculcate in students an attitude of active learning at both individual and team level, through students' pre-seminar preparation, involvement in seminar discussions, seminar activities and project work; and\n5. develop the mindset and values required to succeed in the profession.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13809,7 +13809,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       durationInHour: 3,
     },
     description:
-      "In today’s volatile, uncertain, complex and ambiguous (VUCA) world, corporations face increasing dimensions of risks in their businesses. Volatility in financial and physical markets, the failure of systemically important financial intermediaries, global climate and health crises, shifting social expectations and corporate governance concerns can directly or indirectly impair the financial, manufactured, natural, human, intellectual and social capitals of corporations. The ability to recognize, measure, manage and communicate such risks becomes critical to the long-term sustainability of corporations.\nThis course examines recognition, measurement, reporting and disclosure requirements for corporations in relation to financial and non-financial risks under the frameworks of the International Financial Reporting Standards (IFRS), the International Sustainability Standards Board (ISSB) and other related bodies. Concepts, principles, and applications—with respect to market, counterparty, and sustainability risks—will be discussed from the perspectives of different stakeholders. While the focus of the course will be primarily on accounting and financial reporting, an integrated approach will be adopted.",
+      "In today's volatile, uncertain, complex and ambiguous (VUCA) world, corporations face increasing dimensions of risks in their businesses. Volatility in financial and physical markets, the failure of systemically important financial intermediaries, global climate and health crises, shifting social expectations and corporate governance concerns can directly or indirectly impair the financial, manufactured, natural, human, intellectual and social capitals of corporations. The ability to recognize, measure, manage and communicate such risks becomes critical to the long-term sustainability of corporations.\nThis course examines recognition, measurement, reporting and disclosure requirements for corporations in relation to financial and non-financial risks under the frameworks of the International Financial Reporting Standards (IFRS), the International Sustainability Standards Board (ISSB) and other related bodies. Concepts, principles, and applications—with respect to market, counterparty, and sustainability risks—will be discussed from the perspectives of different stakeholders. While the focus of the course will be primarily on accounting and financial reporting, an integrated approach will be adopted.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14097,7 +14097,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       durationInHour: 2,
     },
     description:
-      "In Data Analytics for Accountants, Richardson et al. (2021) define Data Analytics (DA) as “the process of evaluating data with the purpose of drawing conclusions to address business questions”. Increasingly, accountants are expected to create value for businesses through the use of technology and DA tools are often regarded as the first step in transforming raw data into knowledge that can be acted upon by decision makers.\nGiven the heavy use of statistics in applying analytics to accounting data, this course aims to provide students with the foundation in statistical analysis of accounting data and information. This course will focus on the use of R Programming to develop students’ statistical knowledge and provide a foundational framework of using DA to solve problems in the accounting context.",
+      "In Data Analytics for Accountants, Richardson et al. (2021) define Data Analytics (DA) as “the process of evaluating data with the purpose of drawing conclusions to address business questions”. Increasingly, accountants are expected to create value for businesses through the use of technology and DA tools are often regarded as the first step in transforming raw data into knowledge that can be acted upon by decision makers.\nGiven the heavy use of statistics in applying analytics to accounting data, this course aims to provide students with the foundation in statistical analysis of accounting data and information. This course will focus on the use of R Programming to develop students' statistical knowledge and provide a foundational framework of using DA to solve problems in the accounting context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14272,7 +14272,7 @@ With the help of case studies and resource persons such as industry leaders, inn
     name: "Accounting Analytics Capstone",
     moduleCode: "ACCT414",
     description:
-      "Traditionally, the accounting function’s role is always viewed as that of a steward, the control centre for the organisation, rather than the catalyst for enterprise growth. The term ‘back office’ is often used to describe the operating nature of accounting function. So in today’s volatile global business environment, the key challenge for accounting function is how to lead the enterprise in its growth strategies while ensuring effective risk management and stewardship of the enterprise. With complexity and data proliferation, increasingly the CEO and the board turn to accountants to help make sense of all the data, to help cut through this complexity, and to provide more informed analysis on the business and its operation. The opportunity for accounting function is if it can generate the insights that help make better corporate decision making, while continuing to ensure effective control of the enterprise, its reputation as a catalyst for growth will be guaranteed. To do so, traditional accounting departments may have to transform themselves into ‘intelligent accounting functions’. Intelligent accounting functions run their operations as cost effectively as possible, leveraging technology to reduce finance operating costs; strengthen stewardship and control so as to establish a solid foundation to support growth. The biggest challenges, however, lie in creating the efficiencies needed to gather and process basic financial data and continue to deliver traditional finance outputs while at the same time redeploying their limited resources to enable higher-value business decision support activities. This accounting analytics practicum which adopts SMU-X approach, focuses on a few key topics that are vital to establishing an intelligent accounting function (refer to the diagram below): finance strategy and transformation, lean finance and finance shared services, business intelligence analytics, and enterprise process management. In this experiential learning course, students from various disciplines learn what comprises a highly optimised accounting process, design an end-to-end process management and explore the underlying accounting IT systems and advanced data analytical applications. By working closely with instructors from accounting and information systems disciplines, together with an industry partner, students are expected to carry out design and development of an intelligent accounting function solution. The whole idea is to engage students in real-life application and to encourage students to creatively apply concepts to practical problems in their pursuit of solving real-world problems. Students will apply the concepts in real projects.",
+      "Traditionally, the accounting function's role is always viewed as that of a steward, the control centre for the organisation, rather than the catalyst for enterprise growth. The term 'back office' is often used to describe the operating nature of accounting function. So in today's volatile global business environment, the key challenge for accounting function is how to lead the enterprise in its growth strategies while ensuring effective risk management and stewardship of the enterprise. With complexity and data proliferation, increasingly the CEO and the board turn to accountants to help make sense of all the data, to help cut through this complexity, and to provide more informed analysis on the business and its operation. The opportunity for accounting function is if it can generate the insights that help make better corporate decision making, while continuing to ensure effective control of the enterprise, its reputation as a catalyst for growth will be guaranteed. To do so, traditional accounting departments may have to transform themselves into 'intelligent accounting functions'. Intelligent accounting functions run their operations as cost effectively as possible, leveraging technology to reduce finance operating costs; strengthen stewardship and control so as to establish a solid foundation to support growth. The biggest challenges, however, lie in creating the efficiencies needed to gather and process basic financial data and continue to deliver traditional finance outputs while at the same time redeploying their limited resources to enable higher-value business decision support activities. This accounting analytics practicum which adopts SMU-X approach, focuses on a few key topics that are vital to establishing an intelligent accounting function (refer to the diagram below): finance strategy and transformation, lean finance and finance shared services, business intelligence analytics, and enterprise process management. In this experiential learning course, students from various disciplines learn what comprises a highly optimised accounting process, design an end-to-end process management and explore the underlying accounting IT systems and advanced data analytical applications. By working closely with instructors from accounting and information systems disciplines, together with an industry partner, students are expected to carry out design and development of an intelligent accounting function solution. The whole idea is to engage students in real-life application and to encourage students to creatively apply concepts to practical problems in their pursuit of solving real-world problems. Students will apply the concepts in real projects.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15099,7 +15099,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       durationInHour: 3,
     },
     description:
-      "This course introduces statistical concepts and basic tools used in modelling and analysing spatial data: data on variables that are correlated in ‘space/location’ (geo-tagged data). Spatial data are commonly used in regional science and urban economics (related to property prices, crime, household income, etc.), epidemiology and public health (such as disease clusters, etc.), environmental science (air pollution, ozone density, etc.), ecology, biology, geology and other disciplines.\n\nWe start by looking at the practical aspects of organising and visualising spatial data where we will discuss methods available to organise and visualise (i) vector data and (ii) raster data using the R programming language. These are the two main ways in which spatial data are maintained. We also discuss how to use a coordinate reference system to give spatial awareness to a dataset and make meaningful maps including animated and interactive maps using OpenStreetMap and others.\n\nWe then consider the statistical aspects behind spatial data analysis with a special focus on how to re-align classical statistical methods towards spatial data. An outline is given to the three broad types of spatial data in spatial statistical analysis: (i) geostatistical data, (ii) areal data and (iii) point patterns. Standard spatial regression techniques are used to build models to explain attributes that are spatially correlated such as the number of COVID cases. These techniques are fully implemented using R throughout the course. You may follow the links to get a flavour of the applications in this course.",
+      "This course introduces statistical concepts and basic tools used in modelling and analysing spatial data: data on variables that are correlated in 'space/location' (geo-tagged data). Spatial data are commonly used in regional science and urban economics (related to property prices, crime, household income, etc.), epidemiology and public health (such as disease clusters, etc.), environmental science (air pollution, ozone density, etc.), ecology, biology, geology and other disciplines.\n\nWe start by looking at the practical aspects of organising and visualising spatial data where we will discuss methods available to organise and visualise (i) vector data and (ii) raster data using the R programming language. These are the two main ways in which spatial data are maintained. We also discuss how to use a coordinate reference system to give spatial awareness to a dataset and make meaningful maps including animated and interactive maps using OpenStreetMap and others.\n\nWe then consider the statistical aspects behind spatial data analysis with a special focus on how to re-align classical statistical methods towards spatial data. An outline is given to the three broad types of spatial data in spatial statistical analysis: (i) geostatistical data, (ii) areal data and (iii) point patterns. Standard spatial regression techniques are used to build models to explain attributes that are spatially correlated such as the number of COVID cases. These techniques are fully implemented using R throughout the course. You may follow the links to get a flavour of the applications in this course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15735,7 +15735,20 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will provide an introduction to development economics with a blend
+of both theory and empirics. The course will begin with distinguishing between
+the concepts of growth and development and motivating the study of economic
+growth. The neo-classical growth model will be introduced as a framework for
+understanding how growth occurs. The course will then unpack the model part
+by part, both theoretically and empirically, for a more nuanced understanding
+of growth. Its ingredients such as human capital formation will be studied. Its
+assumption of perfect institutions will be examined with a particular focus on
+property rights, corruption, and financial development. The causal impact of
+institutions on growth will be explored. Finally growth theory will be revisited
+to see how poverty traps arise as a result of imperfect institutions leading to
+emergence and persistence of poor economic outcomes. The course will end
+with an introduction to political economy of development where we will explore
+reasons why inefficient policies are often chosen.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15758,6 +15771,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ECON107"],
+    },
   },
   ECON212: {
     name: "Real Estate Economics",
@@ -15766,7 +15782,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is designed as an introductory course to study housing finance systems and housing market outcomes. It provides an overview of real estate markets, including both residential properties and commercial real estate, as well as public policies that affect these markets. The beginning of the course will focus on what determines house price movements (captured by house price indices) and the role of real estate cycles (including bubbles) in mortgage default. The course will then be devoted to analyzing mortgage instruments used to finance investments in real estate. This includes calculations of payment streams for different types of mortgages, consideration of different types of mortgage contracts that shift interest rate and default risk between lenders and borrowers, and the role of the secondary market for mortgage securities. The last portion of the course will be devoted to evaluating pricing and risk in commercial real estate markets (REIT structures). Equipped with aforementioned skills, this course helps students to develop an eye towards the role of housing and mortgage markets in the recent financial crisis as highlighted in the United States and potential policy implications for the local market.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15807,6 +15824,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    },
   },
   ECON215: {
     name: "Health Economics",
@@ -15815,7 +15835,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Health economics is a rapidly growing field of applied economics. The objective of this course is to gain understanding of basic concepts of economics of health and health care. Economic concepts such as scarcity, incentives, marginal analysis, dead-weight loss, profit-maximization and cost-minimization will be used throughout this course. It first begins with demand-and-supply analysis of health and medical care and production of health. It then discusses the importance of asymmetric information (adverse selection, moral hazard) in insurance markets. Other topics covered include behaviors of key players (physicians, hospitals, pharmaceuticals) in the health care sector, the role of government in the provision of health care, and issues in health care system reform. Finally, this course discusses health policy debates in developing countries. By the end of the course, students will be equipped to evaluate current health care policy issues from an economic perspective.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15874,7 +15894,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to enhance students' understanding of population ageing and its economic effects. The challenges and opportunities faced by ageing economies, along with the implications for policies will be examined. The course begins with the concepts of population ageing and examines the current ageing trends across countries. It introduces the demographic transition model and identifies the main drivers of population ageing. The economic effects will be discussed next, which includes labour supply and productivity effects; implications for consumption and savings; changes in capital accumulation, investment and economic growth; effects on fiscal pressures and budget sustainability; the problem of retirement adequacy; and influences on trade balances and current account balances, etc. This course will also examine the policy options available to governments to mitigate the effects of population ageing, and discusses the trade-offs amongst these policies. References and discussions will be based on the experiences of various ageing economies and Singapore.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15897,6 +15917,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: [{ or: ["COR-STAT1202", "COR-STAT1203"] }, { or: ["ECON111"] }],
+    },
   },
   ECON225: {
     name: "Health Systems and Policy",
@@ -15936,7 +15959,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will cover basic concepts, tools and facts needed to understand the functioning of the global economy and international financial markets. We develop a theoretical framework for the analysis of the determinants of current account deficits, international capital movements, real and nominal exchange rates. We also examine the relationship between interest rates and exchange rates, and discuss various measures of global capital market integration. This framework is then used to discuss relevant policy issues such as the emergence of the US as a foreign debtor, the developing country external debt crises and balance-of-payment crises. Economics first major students who do this course must do International Trade as well to replace International Economics.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15959,6 +15982,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: ["ECON111", "ECON112"],
+    },
+    mutuallyExclusive: ["ECON235"],
   },
   ECON241: {
     name: "Strategic Thinking",
@@ -15967,7 +15994,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides rigorous analyses on (1) how intelligent agents, when participating in interactive activities, make choices anticipating the behavior of other intelligent agents, and (2) how a social planner can design rules and institutions to achieve desirable social outcomes, taking into account sophisticated reactions of intelligent agents. Tools in both cooperative and non-cooperative game theories are introduced. More focus is given to applications in political, legal, and economic issues, e.g., choices of voting rules, marriage market, kidney exchange, accident law, and etc.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16008,11 +16035,15 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ECON111"],
+    },
   },
   ECON247: {
     name: "Overseas Project Experience (Economics of a Green Economy: An Introduction)",
     moduleCode: "ECON247",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides a comprehensive understanding of the principles and practices of creating an inclusive green economy (IGE). Students can gain insight into the economic principles of green economies, which strive for a balance of economic growth, environmental sustainability, and social equity, ultimately leading to long-term sustainable economic growth. The course explores ideas that examine the interconnected relationship between people and the environment in economic processes. In the context of the SMU-XO course, students will be afforded the opportunity to engage in hands-on projects facilitated by our project partners. These projects are centered on sustainable development and the green economy, necessitating students to rigorously analyze, deliberate, and contribute to the formulation of sustainable economic policies and strategies.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16035,6 +16066,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["ECON112"],
+    },
   },
   ECON252: {
     name: "Macroeconomics 2",
@@ -16043,7 +16077,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is the second part of a two-course Macroeconomics sequence. The aim of the sequence is twofold. First, it is to introduce students to modern macroeconomic theory, in particular formal macroeconomic models built on microfoundations. Second, it is to develop a deep understanding of macroeconomic phenomena such as business cycles, long-term economic growth, and the process of economic development, as well as macroeconomic policy issues, such as the impact of fiscal and monetary policy on the economy and the design of a social security system or an unemployment insurance scheme. This second part of the sequence first reviews the topics of consumption and savings, investment, and the labor market covered in ECON 112 (Macroeconomics 1) and enriches the analysis by considering the impact on consumption and investment decisions of (a) imperfections of the financial sector, for instance leading to the existence of credit constraints, (b) uncertainty, and (c) adjustment costs, as well as by introducing the flow approach to the labor market and using the search and matching framework to understand labor market data and policies. The course then introduces the notion of money and considers the role of financial intermediaries, which are then used to study the long-term impact of monetary policy as well as the role of banking supervision and macro-prudential regulation. The course finally studies business cycles and covers the measurement of cycles, reviews the main existing theories and their policy prescriptions, with a particular emphasis being put on severe recessions or depressions.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16102,6 +16136,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: ["ECON104", "ECON111", "ECON112"],
+    },
   },
   ECON302: {
     name: "Advanced Macroeconomics",
@@ -16110,7 +16147,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The aim of this course is to twofold. First, it is to expose students to a more in depth analysis of topics they would already have touched on in Intermediate Macroeconomics. Moreover, students will get to learn new techniques and concepts that will enable them to learn about recent advances in research in Economics. The set of topics to be covered in the course is not completely fixed and may therefore vary from year to year.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16133,6 +16170,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: ["ECON111", "ECON112", "ECON252"],
+    },
   },
   FNCE101: {
     name: "Finance",
@@ -16141,7 +16181,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The course helps students understand the various financial activities undertaken by a firm to create value for its shareholders. Students will be taught key financial tools and concepts commonly used by managers and investors to make sound financial decisions. The topics covered include time value of money, investment appraisal techniques, working capital management, cost of capital, risk-return tradeoff, diversification, asset pricing, capital raising, and options. The foundational knowledge acquired here will enable students to understand finance from the perspective of company managers as well as finance from the perspective of investors.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16326,6 +16366,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      and: ["COR-STAT1202", "ACCT101"],
+    },
   },
   FNCE102: {
     name: "Financial Markets and Investments",
@@ -16334,7 +16377,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course describes the role of financial markets in facilitating the flow of funds and how investors can evaluate and price investments. The course will describe institutional features of equity, debt, foreign exchange, and derivative markets. Students will be grounded in investment principles and their applications, including topics on risk and return, diversification, single and multi-factor models, asset-pricing anomalies, bond portfolios, and performance evaluation tools. The course also examines the role of financial institutions such as mutual funds and hedge funds, and the use of risk management tools for hedging. This course builds on the foundations provided by FNCE101 Finance and focuses on learning how the fundamental principles in finance can be applied to financial markets and investments.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16537,6 +16580,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE201: {
     name: "Corporate Finance",
@@ -16545,7 +16591,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course continues to develop the analytical skills for making corporate financial decisions as introduced in FNCE101. The main objective of this course is to help students gain an in-depth knowledge of the major theories in corporate finance and their practical implications for thinking about real world issues. The main topics covered are capital structure policy, corporate payout policy, advanced cost of capital and investment decisions, as well as various special topics, such as Mergers & Acquisitions. The course also discusses empirical research and relevant case studies and real world examples to enable students to develop a further appreciation of the field of corporate finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16676,6 +16722,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE203: {
     name: "Analysis of Equity Securities",
@@ -16684,7 +16733,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course seeks to provide the student with a comprehensive and in-depth understanding of the main aspects of valuing equity securities. The first portion of the course lays a foundation for equity valuation by discussing in detail equity return concepts and factors driving firm performance. Then, we cover discounted cash flow (DCF) valuation, which derives the price of equity as the discounted value of future cash flows. In addition, the course describes relative valuation methods, which uses appropriate characteristics (such as the price-to-earnings ratio) to identify over-valued and under-valued stocks. Besides traditional approaches, this course also discusses how unstructured data such as news can be associated with stock valuation.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16707,15 +16756,18 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE204: {
-    name: "Analysis of Fixed,Income Securities",
+    name: "Analysis of Fixed-Income Securities",
     moduleCode: "FNCE204",
     exam: {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Fixed-income securities deliver cash flows, whose value and risk are strongly influenced by interest rates movements as well as coupon & principal repayment risk. This course will cover the pricing, valuation, and management of fixed-income securities, portfolios, and derivatives. This would involve understanding the drivers of the pricing of different fixed-income security types (e.g. bullet bonds, bonds with embedded options, credit default swaps). Students will also be taught on how bond derivatives are used to manage fixed-income portfolio risk. Where relevant, practical cases will be discussed to deepen understanding. The course aims to equip students with a strong understanding of fixed-income instruments and how to apply them in investment and business decisions.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16738,6 +16790,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE210: {
     name: "International Finance",
@@ -16746,7 +16801,13 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course introduces the principles of finance in an international context. In a globalized environment, investors and corporations embrace an expanded set of investment opportunities, yet they also face additional risks. The course gives an overview of the international financial environment, and covers issues including currency exposure, international parity conditions, foreign exchange risk management, international asset pricing, international investment strategies, and currency hedging for international stock markets.
+
+This course is a blend of theory and practice where the focus is on:
+1.Understanding the basics of financial decision making
+2.Appreciating the international financial landscape that an investor or firm operates in
+3.Evaluating the instruments available to navigate the international financial environment
+4.Discussing real world global financial events`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16805,6 +16866,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE213: {
     name: "Entrepreneurial Finance",
@@ -16813,7 +16877,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The primary objective of this course is to provide an understanding of a wide variety of issues related to the financing of entrepreneurial firms. The approach will be based on the economics and finance of entrepreneurial firms and financial intermediation – tracking the corporate life cycle and concomitant financing pathways available to an entrepreneur at various stages from start-up to growth, IPO, and finally cashing out via LBO. This 'Corporate Life Cycle' approach provides a critical building block for those interested in how Private Equity works. The course has an analytical nature, not an institutional nor a descriptive one. Students will learn how to understand rigorous theoretical arguments, perform simple valuation modelling techniques, analyse and evaluate practical frameworks in order to formulate or make critical decisions and recommendations, through case study discussions and group exercises. The course will require both individual and teamwork. Individual work will be necessary to prepare for class discussions, assigned readings and case studies required for the exam. Teamwork in the valuation exercise and case studies will lead students to a unique opportunity to experience the discussion and management of complex, real-world problems.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16836,6 +16900,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE217: {
     name: "Wealth Management and Advisory",
@@ -16844,7 +16911,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The objective of this course is to introduce wealth management and advisory needs/focuses across client segments spanning from the mass-affluent space to the private high net-worth individual (HNWI) space. Wealth management is to grow, preserve, and transfer wealth to future generations. The traditional focus in investment management has primarily been on institutions. However, with the large growth in private wealth globally and particularly in Asia, wealth management for HNWIs is fast emerging. The course begins with a macro view on the wealth management landscape before advancing to understand the similarities and differences between managing wealth for institutions versus for individuals. With individuals, we will appreciate the need for different investment products and wealth solutions across client segments based on needs and suitability. Students will learn how to risk profile a client using behavioural finance knowledge and models, prepare an investment policy statement (IPS) for a particular client's profile and be able to suggest an asset allocation based on the IPS. As the life cycle stages of a client progresses, the wealth advisory approach must incorporate retirement planning. Students will learn the iterative wealth management and advisory process where client profiling, monitoring and review of investment portfolios, implementation and executions of the investment plans are conducted regularly and dynamically across the life cycle stages of a client. Ethical behaviour builds trust. We will examine ethical conduct in the investment advisory process and the corporate governance process of banks to encourage ethical behaviour of client advisors. Last but not least, we will introduce sustainability investing as a preference in client's IPS and how to approach ESG requirements of the client.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16867,6 +16935,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE221: {
     name: "Investment Banking",
@@ -16875,7 +16946,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides students with insights into the role of investment banks in the economy, specifically in the facilitation of capital raising through both equity and debt, origination, and execution of mergers & acquisitions (M&A), investment and risk management, research, and trading in structured products. The course will cover the history and regulation of investment banks and describe how the various divisions of an investment bank work together to bring eventual solutions to clients. Such divisions include Corporate Finance, ECM, DCM, Sales & Trading, Research and Global Markets. Participants will learn about key processes in primary market transactions of equity and debt, understand the best practice approach to an M&A process, overview of investment and risk management including research and trading of structure products. Participants will also be introduced to the approaches of due diligence, valuation, and fundraising, which form the core skillsets in investment banking. This course is targeted at students with aspirations to pursue an investment banking career but will equally be relevant to any student curious about the functioning of the capital markets and investments. Where possible, the perspective of a practitioner will be emphasized by drawing on real life experiences. Guest speakers may also be introduced where appropriate.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16898,6 +16970,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE225: {
     name: "Retail Banking",
@@ -16906,7 +16981,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is designed to provide students with the essential knowledge and skills needed in the retail banking industry. You will gain a general understanding of key businesses in a retail bank, its deposit taking, loan making, payments services, and other services. Topics covered include products offerings, risk profiling and scoring, digitization/analytics, wealth management, portfolio management, risk management, regulations, etc. The foundational knowledge acquired here will enable students to understand how retail banking portfolios are managed and equip students with the essential skills for a consumer banking career.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16929,6 +17005,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE231: {
     name: "Real Estate Investments and Finance",
@@ -16937,7 +17016,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course focuses on real estate investments and financing from a commercial perspective. It discusses the four quadrants for investments and financing – public debt, private debt, public equity and private equity employed by institutional investors. The course will evaluate real estate investments and financing in each of the four quadrants using a variety of techniques including discounted cash flows and capitalization rates. The course will also cover real estate investment trusts (REITs) and private equity real estate funds.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16960,6 +17040,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE234: {
     name: "Real Estate Valuation and Taxation",
@@ -16968,7 +17051,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces students to the theory and practice of real estate appraisal and valuation for commercial and statutory/taxation purposes. It integrates the knowledge and methods from several real estate-related disciplines such as land law, urban economics, urban planning, finance, investment, accounting, and government fiscal and taxation policies, into a specialized field of study that supports the real estate industry and prepares the students for a career in real estate in both the private and public sectors. Students will learn about the unique characteristics of real estate, the distinct features and workings of the dynamic real estate market and most importantly learn and apply the universal valuation principles and appropriate valuation techniques in evaluating commercial real estate decisions. The training focuses on knowledge application and includes the use of many realistic examples and case studies to help students relate to the real-world problems and issues which they are likely to encounter in their professional practice. With the evolving built environment brought about by disruptive technologies and social and environmental changes, this course aims to equip students with sound valuation methodologies and well-reasoned conceptual framework which they can readily access when solving real estate problems and dealing with new and emerging issues and challenges.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -16991,6 +17075,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE235: {
     name: "Real Estate Development",
@@ -16999,7 +17086,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course focuses on the real estate development cycle. The main stages of real estate development are (a) pre-development planning, (b) project inception and roll-out, and (c) post-project management. The first stage consists of activities centred on a feasibility study and due diligence, which will include site planning and development parameters. The next stage is to commence the development, which will include site selection, investigation and evaluation, market study, project management, procurement and regulatory issues. The last stage involves implementing post-project activities including leasing or selling the property, post-construction management and yield enhancement. Each stage has business, financial and operational risks. The course will discuss the embedded activities in the value chain of real estate development for the various sectors, namely, residential, offices, industrial and commercial properties. This course will also impart knowledge about the fundamental elements of a building.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17022,6 +17110,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE305: {
     name: "Analysis of Derivative Securities",
@@ -17030,7 +17121,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Financial derivatives have applications across many areas of finance, such as hedging, swaps, convertible claims, and corporate decision making. The course objective is for students to understand the valuation of forwards, futures, options and other derivative securities, and their use in hedging risk exposures, such as commodity price risk, currency risk, interest rate risk, stock portfolio risk, and so on. In addition, students will be given the opportunity to explore a comprehensive online financial markets simulation system to obtain hands-on experience (of a fund manager) in trading in the market. For instance, students can trade futures and options on commodities such as gold, silver, corn, oil, etc. at market prices.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17071,6 +17163,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE307: {
     name: "Advanced Portfolio Management",
@@ -17079,7 +17174,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Modern theory and practice of investment have extended beyond the traditional mean–variance analysis proposed by Harry Markowitz's Modern Portfolio Theory in 1952. This course provides a conceptual framework for the implementation and analysis of strategies for various investment vehicles. It aims to provide students with exposure to the process of investment management including identification of investment objectives and constraints, determining asset allocations, and measuring portfolio performance. It will also cover some traditional and advanced concepts of investments, including risk and return, portfolio diversification, factor models, behavioural finance and empirical tests of asset pricing models. The coverage will include applications, implementation and evaluation of strategies of institutional investors like mutual funds, exchange traded funds, pensions funds besides alternative investments like hedge funds, private equity funds, real estate funds (REITS), cryptocurrencies etc. This course will also delve into long term asset management, international diversification and will include extended and interactive discussions and analyses of the contemporary investing scene and global capital markets.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17102,6 +17198,10 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
+    coRequisite: ["FNCE102"],
   },
   FNCE310: {
     name: "Trade Finance",
@@ -17110,7 +17210,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The course will provide students with the basic theory and definition of the various payment /financing mechanisms applicable in international trade finance. This followed by an in-depth analysis and application of these mechanisms in structuring short-term trade and commodity financing.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17133,11 +17234,15 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE313: {
     name: "Financial Innovation, Blockchains and Decentralised Finance",
     moduleCode: "FNCE313",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces current disruptive innovations in financial markets to prepare students for the evolving financial industry of the future. The course will cover the main areas of financial innovation with an emphasis on Decentralised Finance and Blockchains. The industry applications include Digital Money, Payment Services, Smart Contracts, Digital Assets Trading, Lending, Capital Raising for Entrepreneurs, and Investments. The course will shed light on the current industry demand for young talent. It will also serve as a guideline for needed skills to navigate and disrupt financial markets in the coming years.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17214,6 +17319,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE314: {
     name: "Sustainable Finance",
@@ -17222,7 +17330,9 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Today's businesses and investors are increasingly dealing with the risks and opportunities of environmental, social and governance (ESG) issues, due to the scarcity of resources, conflicts in community and labor relations, and climate change. Meanwhile, more and more investment managers have stepped in to offer impact products in their portfolios as investors begin to evaluate how they can invest in ways that can meet financial goals and support social and environmental change. Bridging the gap between traditional capitalism and a new context of shared economic and social value, sustainable finance is quickly becoming a core part of the mission of financial institutions and companies.
+
+This course couples established and emerging theory on how finance can be used to address sustainability challenges. It covers diverse aspects of sustainable finance, including ESG measurement, socially responsible and impact investing, integrated reporting, risk management, product market competition, and ESG issues along the supply chain to provide sophisticated and rigorous training at the nexus of sustainability and financial management. The course will also explore the meaning and importance of sustainable business practices that respect and adhere to ethical social responsibility standards through several case studies and simple econometric analyses. By the end of this course, students will gain a foundation in the understanding of how regulations and market forces provide incentives that encourage desired corporate and investor behaviors.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17263,6 +17373,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE319: {
     name: "Sustainability Risk Management",
@@ -17271,7 +17384,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Today's businesses and investors are increasingly dealing with the risks and opportunities of environmental, social and governance (ESG) issues, due to the scarcity of resources, conflicts in community and labor relations, and climate change. ESG risk management is increasingly vital for companies due to several compelling reasons: 1. Reputation and Brand Value: Companies with strong ESG practices are perceived more positively by consumers, investors, and other stakeholders. Managing ESG risks helps protect and enhance a company's reputation and brand value, reducing the risk of negative publicity and boycotts. 2. Regulatory Compliance: Governments and regulatory bodies are imposing stricter ESG-related regulations. Effective ESG risk management ensures compliance with these regulations, avoiding fines, legal action, and operational disruptions. 3. Investor Demand: Investors are increasingly considering ESG factors in their investment decisions. Companies that manage ESG risks well attract more investment and often benefit from lower capital costs. ESG performance is now a key metric for many institutional investors and funds. 4. Operational Efficiency and Cost Savings: Managing environmental risks can lead to more efficient resource use, waste reduction, and energy savings. Social and governance improvements can enhance employee satisfaction and productivity, reducing turnover and associated costs. 5. Risk Mitigation: ESG risks, such as climate change impacts, social unrest, and governance failures, can have significant financial and operational impacts. Proactively managing these risks helps companies avoid or mitigate potential losses and disruptions. 6. Competitive Advantage: Companies that excel in ESG risk management often have a competitive edge. They are better positioned to anticipate and adapt to market changes, meet stakeholder expectations, and capitalize on new business opportunities related to sustainability and ethical practices. 7. Long-Term Sustainability: ESG risk management supports the long-term sustainability of a company by addressing the broader impacts of its operations on the environment, society, and its governance structure. This holistic approach ensures the company can thrive in the future while contributing positively to the world. This course will investigate how ESG risk considerations can be integrated into a company's wider Enterprise Risk Management Frameworks. Focus here will be on Environmental Risk considerations (Climate Change and Nature/Biodiversity), given the importance and regulatory focus that these attract.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17294,6 +17408,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE320: {
     name: "Sectoral Decarbonisation Knowledge",
@@ -17302,7 +17419,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Climate science indicates that to keep global warming within the 1.5°C threshold above preindustrial levels, we must reduce global emissions to reach net zero by 2050. Despite growing recognition of this imperative and increasing corporate commitments to decarbonisation, most of these commitments lack detailed and credible plans. Achieving net zero emissions by 2050 will require a fundamental transformation of the global economy, particularly in the energy and hard-to-abate sectors that contribute the most to global emissions. This transition demands significant investment, estimated at US$3-4 trillion per year, necessitating substantial scaling and deployment of both private and public sector capital. This course delves into decarbonisation pathways and key climate transition strategies within the energy and hard-to-abate sectors, equipping students with the knowledge and skills to assess credible transition planning and articulate key decarbonisation challenges and growth opportunities in the emergence of new clean technologies. The course also highlights the wider policy landscape and how significant government policies can influence the development of low-carbon products and their supply chains. Additionally, it explores various funding structures to finance companies' decarbonisation strategies, the meaning of sustainable business, and the need for companies to transition in a financially sustainable manner. By the end of this course, students will understand the challenges and opportunities associated with reducing carbon emissions in traditionally difficult-to-decarbonise sectors such as cement, steel, fossil fuel energy, and transport. They will gain foundational knowledge necessary for finance professionals to assess the viability and impact of decarbonisation and climate transition strategies. Students will learn about the technical processes and commercial viability of decarbonisation technologies, such as carbon capture and storage, energy efficiency improvements, and alternative fuels like hydrogen, as well as geographical considerations, national circumstances, and geopolitical factors. The course will also cover the role of international cooperation, government policies, and private sector initiatives in driving decarbonisation. By the end of the course, students will be equipped to contribute to the development and implementation of effective decarbonisation strategies, fostering a low-carbon future for Asia's most challenging sectors. The course is structured to provide a comprehensive understanding of the various aspects of decarbonisation and climate transition strategies. This includes analysis of viable pathways to achieve net zero emissions by 2050, focusing on the energy and hard-to-abate sectors; exploration of technologies such as carbon capture and storage, energy efficiency improvements, and alternative fuels; examination of significant government policies and their impact on the development of low-carbon products and supply chains; an overview of different funding mechanisms to support decarbonisation efforts; discussion on the importance of financially sustainable transitions for businesses; and practical examples and case studies to illustrate successful decarbonisation strategies and initiatives. This course is designed to provide students with a well-rounded understanding of the critical issues and innovative solutions in the quest to reduce carbon emissions and transition to a low-carbon economy.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17325,6 +17443,9 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   FNCE322: {
     name: "Sustainable and Impact Investing",
@@ -17333,7 +17454,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In today's world, the interest for investments that generate measurable positive impact on society and the environment is growing rapidly. Clients, consumers, regulatory bodies, and even employees are increasingly requiring that Environmental, Social, and Governance (ESG) considerations be integrated into every stage of the investment process, including deal sourcing, due diligence, and portfolio management. More than just a means to mitigate risks, the incorporation of ESG is now seen as essential for enhancing the value of portfolios. Through this course, participants will delve into the intricacies of sustainable and impact investing, exploring its development, its global landscape, methodologies for measuring impact, and reporting frameworks. This course is designed to equip students with the knowledge and skills necessary to engage in investment strategies that generate social and environmental impact alongside financial returns. Students will engage in a variety of interactive and practical activities, including case studies, guest lectures from industry experts, and a group project. These activities are designed to provide a real-world perspective and hands-on experience in sustainable and impact investing, so that students can learn how to integrate impact considerations into investment strategies.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17356,11 +17478,15 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    preReq: {
+      or: ["FNCE101"],
+    },
   },
   IDIS010: {
     name: "Southeast Asia: Past and Present",
     moduleCode: "IDIS010",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This is an interdisciplinary survey course on the regional grouping that is today called Southeast Asia, with an emphasis on the modern era (post-World War Two). The class materials are designed to provide students foundational knowledge regarding the origins of Southeast Asia as a geopolitical entity as well as background on some of the major countries in the region. We examine the cultural traditions that have shaped the region as well as the political influences and events that shape Southeast Asian countries today. In doing so, we study how the past has shaped the present. Thus, the course engages in a broad historical overview, but it is not designed to be a strictly history course. Rather, it is intended to equip students with a general knowledge of Southeast Asian cultures, histories, and politics. By the end of the course, students will have a better appreciation of the challenges that face Southeast Asia today as well as an understanding of Singapore's position in the region.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17409,7 +17535,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   IDIS100: {
     name: "Research Methods in Sociology and Political Science",
     moduleCode: "IDIS100",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "How do we transform our everyday observations of the world into social scientific knowledge? At its core, this is a question about research design, particularly reviewing the literature, formulating questions, hypothesis testing, data collection, and data analysis. This course will provide a brief introduction to all the major social science research methods, particularly experiments, quasi-experiments (observational), surveys, fieldwork/ethnography, and use of historical/documentary sources. Basic principles of ethical research design will also be covered.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17441,11 +17568,15 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      or: ["COR-STAT1202"],
+    },
   },
   IDIS110: {
     name: "Social Science Practicum",
     moduleCode: "IDIS110",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The Social Science Practicum (SSP) is a compulsory module for all BSocSc students. The goal of the SSP is to encourage the development of students as creative and curious learners ready to adapt to the challenges of a complex world. Every SSP section will be organized around a specific real-world question or problem. Within this issue, students will have license to shape a team project around what they think is interesting and important. The SSP will culminate in a showcase where student teams share their findings with the SOSS community.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17526,7 +17657,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   INTS101: {
     name: "Methods Across Majors: An Interdisciplinary Introduction to Research",
     moduleCode: "INTS101",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is not a typical introductory research methods course. The primary objective of this course is to empower students to critically engage with research findings across multiple disciplines by understanding the methods used, their strengths and limitations, and whether said methods have been used correctly. To do so, students will begin by interrogating the 'objectivity' of scientific evidence. Students will then be introduced (intuitively) to three fundamental statistical approaches: hypothesis testing, linear regression, and experimental methods. The use of these three fundamental approaches will be critiqued by examining how statistics are often done wrong and replicating existing studies. The second part of the course will highlight the interdisciplinarity of research methods and showcase the main research methods used in economics, politics, geography, and the behavioural sciences, with a focus on understanding the strengths and limitations of different research approaches and methods. The course will conclude with sessions focusing on fieldwork and research ethics.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17553,7 +17685,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   INTS302: {
     name: "Modern Challenges",
     moduleCode: "INTS302",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Contemporary society faces a range of challenges and problems that are distinct from previous epochs of time. These 'modern problems' are central issues that plague communities across the globe and threaten the stability and sustainability of the societies where they are left un(der)addressed. Nonetheless, to identify these challenges (and the associated 'solutions') requires a scholarly lens that is best informed by an interdisciplinary and integrative approach which recognises the complexity of these problems. In this course, students will be exposed to a range of these 'modern problems', and be guided through approaches to them, drawing from insights from the fields of economics, geography, philosophy, political economy, and urban studies. By adopting a multi-perspectival approach to analysing problems, and solutions, students will be exposed to, and gain a deeper appreciation for the value of a multidisciplinary approach to problem-solving, and also have an opportunity to acquire skills to be adroit thinkers who are able to draw on multiple disciplinary traditions to inform their viewpoints and decisions..",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17584,7 +17717,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course builds on the foundational knowledge in LAW101 Contract Law 1 and aims to equip students with a firm appreciation of the unique character of contracts as a form of voluntary undertaking. By examining the concepts relating to mistake, misrepresentation, non-disclosure, duress, undue influence, unconscionability, illegality, formalities, capacity, privity, and remedies for breach of contract, the student will be sensitized to the role of the law in facilitating commerce, respecting legitimate expectations, and guarding against unfair exploitation of economic or social weakness, in the context of paper-based as well as electronic commerce contracts. It will, in particular, introduce students to the use of technology which impacts business and consumer contracts, and the applicability of contract law rules in such situations. The study of the subject will provide students with an excellent opportunity to observe, evaluate and critique developments in the law in response to the dynamic environment of commerce.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17687,7 +17821,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will introduce students to the basic principles and various aspects of criminal law. The criminal law in Singapore is contained in the Penal Code (Cap. 224) and provisions in other statutes. Case law interpreting and applying the elements and provisions of the various offences will also be examined. The student will first approach criminal law from a jurisprudential viewpoint and consider its objectives, functions and theoretical basis. A greater part of the course will be spent examining the various substantive areas of criminal law.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17723,7 +17858,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will discuss general principles of tort law as well as covering a selected number of torts in greater depth. The goals and objectives of tort law will be examined in the context of the relationship between torts, contract, criminal law and property law. There will be emphasis placed on the different range of interests protected by torts (property, economic, personal etc) and the need to achieve a proper balance between competing interests. Different classification systems for torts will be examined: by interest, by the nature of the interference (intention, recklessness, carelessness, strict liability) and by whether consequential harm is needed (torts actionable per se). One goal will be to demonstrate the dynamic nature of law and its development to meet changing social and economic conditions. Before an examination of the various torts, the students will learn about the internal classification of torts and the relationship of the law of torts to other legal obligations.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -17824,7 +17960,8 @@ With the help of case studies and resource persons such as industry leaders, inn
   LAW107_607: {
     name: "Legal Research and Writing II",
     moduleCode: "LAW107_607",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The objective of this course is to develop skills in practical legal research, writing and drafting, interviewing and advising and advocacy in first-year students. These skills will be taught in the context of legal problems in contract law, criminal law, and the law of torts, previously covered or concurrently taught in the first year.",
     credit: 0,
     terms: ["Term 2"],
     sections: [
@@ -22822,7 +22959,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: `How did ZARA become one of the fastest growing and most profitable brands in fashion retailing? How did Wal-Mart grow to be the world’s largest retailer? Largely the answer is that ZARA and Wal-Mart view their operational capabilities as an important and integral part of their competitive advantage. As do other successful companies, such as Procter & Gamble, Toyota, and Coca Cola, they invest strategically in physical plants and facilities, in process and information technology, in employees, suppliers, and distributor relationships, and perhaps most importantly, in organizational practices and know-how. The objective of this course is to provide students with a set of qualitative frameworks and quantitative tools to analyze and guide the long-term, strategic decisions for a company’s operations function. This course caters to those interested in management and business consulting, general management, and operations careers. Finance specialists interested in assessing the risks, the opportunities, the competitive advantages, and ultimately the value embedded in a company’s operations will benefit from the course as well.`,
+    description: `How did ZARA become one of the fastest growing and most profitable brands in fashion retailing? How did Wal-Mart grow to be the world's largest retailer? Largely the answer is that ZARA and Wal-Mart view their operational capabilities as an important and integral part of their competitive advantage. As do other successful companies, such as Procter & Gamble, Toyota, and Coca Cola, they invest strategically in physical plants and facilities, in process and information technology, in employees, suppliers, and distributor relationships, and perhaps most importantly, in organizational practices and know-how. The objective of this course is to provide students with a set of qualitative frameworks and quantitative tools to analyze and guide the long-term, strategic decisions for a company's operations function. This course caters to those interested in management and business consulting, general management, and operations careers. Finance specialists interested in assessing the risks, the opportunities, the competitive advantages, and ultimately the value embedded in a company's operations will benefit from the course as well.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22854,7 +22991,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: `Matching supply with demand is a primary challenge for a firm: excess supply is too costly, inadequate supply irritates customers. Matching supply to demand is easiest when a firm has a flexible supply process, but flexibility is generally expensive. In this course we will learn (1) how to assess the appropriate level of supply flexibility for a given industry and (2) explore strategies for economically increasing a firm’s supply flexibility. Lastly we will study coordination and incentives across multiple firms in a supply chain. While tactical models and decisions are part of this course, the emphasis is on the qualitative insights needed by general managers or management consultants. We will demonstrate that companies can use (and have used) the principles from this course to significantly enhance their competitiveness.`,
+    description: `Matching supply with demand is a primary challenge for a firm: excess supply is too costly, inadequate supply irritates customers. Matching supply to demand is easiest when a firm has a flexible supply process, but flexibility is generally expensive. In this course we will learn (1) how to assess the appropriate level of supply flexibility for a given industry and (2) explore strategies for economically increasing a firm's supply flexibility. Lastly we will study coordination and incentives across multiple firms in a supply chain. While tactical models and decisions are part of this course, the emphasis is on the qualitative insights needed by general managers or management consultants. We will demonstrate that companies can use (and have used) the principles from this course to significantly enhance their competitiveness.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22968,7 +23105,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: `As much as 90% of world trade is carried via maritime transportation. A wide range of cargoes, each with their own specific handling and storage requirements, pass through the world’s ports and terminals every day. Port operations is a complicated business dealing with a number of disparate activities such as the movement of ships, containers, and other cargo, the loading and unloading of ships and containers, and customs activities. Efficient port operations are important to ensure the smooth transition of cargoes, so that these cargoes reach their destination on time. This course introduces the functions of ports and their roles in contemporary logistics. With the intermodal advancements that lead to expanded but overlapping hinterlands, ports face competitive pressure. This course equips students with knowledge on port operations and how ports can provide value in the modern supply chain. The inter-related relationship among shipping lines, stevedores, port operators and the regulatory environment is discussed.`,
+    description: `As much as 90% of world trade is carried via maritime transportation. A wide range of cargoes, each with their own specific handling and storage requirements, pass through the world's ports and terminals every day. Port operations is a complicated business dealing with a number of disparate activities such as the movement of ships, containers, and other cargo, the loading and unloading of ships and containers, and customs activities. Efficient port operations are important to ensure the smooth transition of cargoes, so that these cargoes reach their destination on time. This course introduces the functions of ports and their roles in contemporary logistics. With the intermodal advancements that lead to expanded but overlapping hinterlands, ports face competitive pressure. This course equips students with knowledge on port operations and how ports can provide value in the modern supply chain. The inter-related relationship among shipping lines, stevedores, port operators and the regulatory environment is discussed.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23161,7 +23298,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC103: {
     name: "World Politics",
     moduleCode: "POSC103",
-    description: `The objective of the course is twofold. The course aims to provide students with a broad understanding of the major schools of international relations and to place these theories into the larger historical context. Building on this, also provides a brief survey of the major international state and non-state ‘practices’ (structures, processes, and agents) before moving on to the discussion of some of the most salient international issues of today and the future.`,
+    description: `The objective of the course is twofold. The course aims to provide students with a broad understanding of the major schools of international relations and to place these theories into the larger historical context. Building on this, also provides a brief survey of the major international state and non-state 'practices' (structures, processes, and agents) before moving on to the discussion of some of the most salient international issues of today and the future.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23295,7 +23432,7 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: `This course offers a historical overview of the debates over cardinal political categories, such as power, authority, rule, legitimacy, freedom, equality, and justice. We will survey the history of political thinking in Europe, mainly because a global capitalist economy and the dissemination of the modern state form in the postwar period beyond Europe makes the political and social categories articulated in the Western tradition applicable to non-European contexts. Each week, we will concentrate on primary texts by canonical thinkers ranging from Plato to Foucault. In discussing the works of individual political philosophers, our objective is not to study each thinker’s thought for its own sake but to investigate the fundamental concepts and questions they brought to the fore. We will regularly ground the abstract ideas we examine in empirical phenomena, both past and present. This enterprise will involve textual interpretation and critical reflection in order to systematically scrutinize what we mean by “politics,” where we draw the boundaries of the “political,” and how we interrelate different political concepts and schemes.`,
+    description: `This course offers a historical overview of the debates over cardinal political categories, such as power, authority, rule, legitimacy, freedom, equality, and justice. We will survey the history of political thinking in Europe, mainly because a global capitalist economy and the dissemination of the modern state form in the postwar period beyond Europe makes the political and social categories articulated in the Western tradition applicable to non-European contexts. Each week, we will concentrate on primary texts by canonical thinkers ranging from Plato to Foucault. In discussing the works of individual political philosophers, our objective is not to study each thinker's thought for its own sake but to investigate the fundamental concepts and questions they brought to the fore. We will regularly ground the abstract ideas we examine in empirical phenomena, both past and present. This enterprise will involve textual interpretation and critical reflection in order to systematically scrutinize what we mean by “politics,” where we draw the boundaries of the “political,” and how we interrelate different political concepts and schemes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23322,7 +23459,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC222: {
     name: "Chinese Foreign Policy",
     moduleCode: "POSC222",
-    description: `This course provides a comprehensive introduction to Chinese foreign policy. We analyze important historical periods in Chinese foreign relations, the sources, actors, and processes in Chinese foreign policy making, China’s relations with various countries and regions, Chinese policy toward key functional issues in international affairs, how the rise of China is affecting global power relations, and how other actors are responding. The course pays attention to the application of international relations theories, and also takes an interest in policy issues facing decision-makers in China and other countries who deal with China.`,
+    description: `This course provides a comprehensive introduction to Chinese foreign policy. We analyze important historical periods in Chinese foreign relations, the sources, actors, and processes in Chinese foreign policy making, China's relations with various countries and regions, Chinese policy toward key functional issues in international affairs, how the rise of China is affecting global power relations, and how other actors are responding. The course pays attention to the application of international relations theories, and also takes an interest in policy issues facing decision-makers in China and other countries who deal with China.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23354,7 +23491,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   POSC304: {
     name: "Social Movements in Asia",
     moduleCode: "POSC304",
-    description: `This course examines contemporary social movements in Asia. Following the surge in political activism in recent years, particularly among young people, students will explore the origins, dynamics, and impacts of social movements across diverse Asian societies. Through contemporary case studies, documentary screenings, and theories of social movements, students will delve into the complexities of collective action and the reciprocal relationship between social movements and their environments. Key questions addressed include the drivers of mobilization, the role of political, social, and cultural factors, and the challenges faced by activists. By engaging with diverse case studies and theoretical frameworks, students will gain analytical tools to understand and engage with activism in Asia. Specifically, the course will cover pro-democracy movements in Hong Kong, Thailand, and Myanmar; farming movements in India; environmental movements in the Philippines and Indonesia; women’s movements in China; and human rights movements across the Southeast Asia region. The course takes an interdisciplinary approach, drawing on works from sociology, anthropology, political science, communications, and Asian studies.`,
+    description: `This course examines contemporary social movements in Asia. Following the surge in political activism in recent years, particularly among young people, students will explore the origins, dynamics, and impacts of social movements across diverse Asian societies. Through contemporary case studies, documentary screenings, and theories of social movements, students will delve into the complexities of collective action and the reciprocal relationship between social movements and their environments. Key questions addressed include the drivers of mobilization, the role of political, social, and cultural factors, and the challenges faced by activists. By engaging with diverse case studies and theoretical frameworks, students will gain analytical tools to understand and engage with activism in Asia. Specifically, the course will cover pro-democracy movements in Hong Kong, Thailand, and Myanmar; farming movements in India; environmental movements in the Philippines and Indonesia; women's movements in China; and human rights movements across the Southeast Asia region. The course takes an interdisciplinary approach, drawing on works from sociology, anthropology, political science, communications, and Asian studies.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23472,7 +23609,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   PPPM106: {
     name: "Policy Design and Analysis",
     moduleCode: "PPPM106",
-    description: `This course critically analyses public policy designs and how governments pursue the process of designing. With an overarching focus on contemporary environmental sustainability topics, the course allows students to explore questions about how different categories of policy instruments or tools that are part of governments’ public policy ‘toolkits’ are formulated, how they work and how they can be combined in order to address multifaceted problems of the environment. The course allows an examination the craft of policy design from a policy process perspective, namely: how public policy problems get framed and raised on government agendas, how different instruments are analysed, combined and chosen as solutions to these problems, how these instruments mixes are implemented and how their success at addressing policy goals gets evaluated. Students of the course will have the opportunity to analyse contemporary environmental policy cases and learn about the policy design experience from experts of the field who will be invited as guest speakers to the classroom. Some topics that are covered in the course include: policy cycles; policy tool classifications; simple vs. complex tool mixes; policy instrument calibrations; procedural instruments; nudges and nodality tools; regulations and authority-based instruments; organizational tools and tools for co-production and collaborative government.`,
+    description: `This course critically analyses public policy designs and how governments pursue the process of designing. With an overarching focus on contemporary environmental sustainability topics, the course allows students to explore questions about how different categories of policy instruments or tools that are part of governments' public policy 'toolkits' are formulated, how they work and how they can be combined in order to address multifaceted problems of the environment. The course allows an examination the craft of policy design from a policy process perspective, namely: how public policy problems get framed and raised on government agendas, how different instruments are analysed, combined and chosen as solutions to these problems, how these instruments mixes are implemented and how their success at addressing policy goals gets evaluated. Students of the course will have the opportunity to analyse contemporary environmental policy cases and learn about the policy design experience from experts of the field who will be invited as guest speakers to the classroom. Some topics that are covered in the course include: policy cycles; policy tool classifications; simple vs. complex tool mixes; policy instrument calibrations; procedural instruments; nudges and nodality tools; regulations and authority-based instruments; organizational tools and tools for co-production and collaborative government.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23974,7 +24111,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   PSYC213: {
     name: "Work, Play, and Life",
     moduleCode: "PSYC213",
-    description: `Modern societies extol busyness and may even regard work as a defining aspect of one's life. Consequently, leisure is often relegated as "time off work" and sometimes leads people to construe work and leisure as opposites. This promotes the pursuit of passive and convenient leisure in contrast to their more goal-directed and effortful work activities. Unfortunately, research shows that passive leisure is not restorative nor provides important ingredients to meaningful living. In this course, we examine people’s motivation to work and its reciprocal relationship with their pursuit of leisure. It aims to help students apply to their daily lives what the psychological literature advocates about quality leisure activities and living a "good" life, which will also help them flourish at work.`,
+    description: `Modern societies extol busyness and may even regard work as a defining aspect of one's life. Consequently, leisure is often relegated as "time off work" and sometimes leads people to construe work and leisure as opposites. This promotes the pursuit of passive and convenient leisure in contrast to their more goal-directed and effortful work activities. Unfortunately, research shows that passive leisure is not restorative nor provides important ingredients to meaningful living. In this course, we examine people's motivation to work and its reciprocal relationship with their pursuit of leisure. It aims to help students apply to their daily lives what the psychological literature advocates about quality leisure activities and living a "good" life, which will also help them flourish at work.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24069,7 +24206,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   QF205: {
     name: "Computing Technology For Finance",
     moduleCode: "QF205",
-    description: `This course aims to expose students to the use and usefulness of computing technology in the realm of finance. From the collation of data, analysis of data in order to tease out relevant information, to the presentation and visualization of information, computing technology plays an important role that is increasingly essential as one faces the need to assimilate an astronomical amount of information in today’s world. The course is structured in such a way as to employ topics in finance to motivate the discourse on computing technology. Equipped with the computing skills, in turn, students are motivated to handle more challenging problems in finance.`,
+    description: `This course aims to expose students to the use and usefulness of computing technology in the realm of finance. From the collation of data, analysis of data in order to tease out relevant information, to the presentation and visualization of information, computing technology plays an important role that is increasingly essential as one faces the need to assimilate an astronomical amount of information in today's world. The course is structured in such a way as to employ topics in finance to motivate the discourse on computing technology. Equipped with the computing skills, in turn, students are motivated to handle more challenging problems in finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24771,7 +24908,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   WRIT200: {
     name: "Virtual Business Professional",
     moduleCode: "WRIT200",
-    description: `In this course, students will work in virtual global teams, with students from other universities, to develop a proposal for a corporate client. Students will develop essential skills to thrive in the modern workplace – they will explore virtual collaboration tools, hone their interpersonal and intercultural competence, and employ data storytelling principles to craft persuasive narratives for business proposals. In the first half of the course, students work in SMU teams to communicate their recommendations persuasively through corporate documents like executive summaries and Slidedocs. Through whole-class and small-group discussions, students explore theories on virtual communication and working in remote teams, and familiarize themselves with tools for cultural analysis and virtual collaboration. In the culminating capstone project in collaboration with the University of Southern California (USC), students will work in global teams comprising students from universities across Asia, Europe and America to develop a proposal for a corporate client. Past industry partners of the VBP project included companies such as Google, Starbucks, Netflix, Tesla and SpaceX. Over 6 weeks, students collaborate virtually with their global counterparts to craft a report to the client of their choice, recommending strategies to enhance the client’s corporate reputation. In the course of the project, students use social and AI-driven collaboration tools, navigate cross-cultural team processes and learn to collaborate effectively across borders and time zones. The deliverables in this course can be included in students’ portfolio of written and reflective work to showcase their ability to produce industry and discipline-specific communication outcomes. USC will award certificates of achievement to all participants.`,
+    description: `In this course, students will work in virtual global teams, with students from other universities, to develop a proposal for a corporate client. Students will develop essential skills to thrive in the modern workplace – they will explore virtual collaboration tools, hone their interpersonal and intercultural competence, and employ data storytelling principles to craft persuasive narratives for business proposals. In the first half of the course, students work in SMU teams to communicate their recommendations persuasively through corporate documents like executive summaries and Slidedocs. Through whole-class and small-group discussions, students explore theories on virtual communication and working in remote teams, and familiarize themselves with tools for cultural analysis and virtual collaboration. In the culminating capstone project in collaboration with the University of Southern California (USC), students will work in global teams comprising students from universities across Asia, Europe and America to develop a proposal for a corporate client. Past industry partners of the VBP project included companies such as Google, Starbucks, Netflix, Tesla and SpaceX. Over 6 weeks, students collaborate virtually with their global counterparts to craft a report to the client of their choice, recommending strategies to enhance the client's corporate reputation. In the course of the project, students use social and AI-driven collaboration tools, navigate cross-cultural team processes and learn to collaborate effectively across borders and time zones. The deliverables in this course can be included in students' portfolio of written and reflective work to showcase their ability to produce industry and discipline-specific communication outcomes. USC will award certificates of achievement to all participants.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24799,7 +24936,7 @@ With the help of case studies and resource persons such as industry leaders, inn
   WRIT300: {
     name: "Professional Writing",
     moduleCode: "WRIT300",
-    description: `Professional Writing will expand and deepen students’ ability to write effectively in civic and corporate contexts. Such writing skills emerge in leaders who not only know how to analyze and articulate complex problems but also know how to envision and express written solutions that reveal solid decision-making on public policy, and business and societal trends. While the Writing & Reasoning course, taken by most SMU students in their first year, focuses on breadth, here the students will be deepening their skills by exploring and writing about more complex issues in society and business. Students will engage with the need for deeper research, better audience analysis, and more structured writing, with a more nuanced adaptation to the context appropriate to their intended publications. Students will consider and respond to meaningful real-world issues and situations in each of the three written projects. They will explore not only what other people have said about the issues that they confront, but also develop and communicate their own responses. The finished pieces will form the basis of a portfolio of written work to showcase their ability to think critically, conduct appropriate literature research, analyse their findings, argue their case, and produce professional communication outcomes. This portfolio will be a valuable addition to their resumes when they graduate. The final project will be an in-depth feature piece written for either Rice Media (https://www.ricemedia.co/) or the Skeptic Magazine (https://www.skeptic.org.uk/). Rice Media, and Skeptic Magazine editors advise the students during the Week 10 presentations, and students will have the chance to have their work published by the media outlet that they write for after the term finishes.`,
+    description: `Professional Writing will expand and deepen students' ability to write effectively in civic and corporate contexts. Such writing skills emerge in leaders who not only know how to analyze and articulate complex problems but also know how to envision and express written solutions that reveal solid decision-making on public policy, and business and societal trends. While the Writing & Reasoning course, taken by most SMU students in their first year, focuses on breadth, here the students will be deepening their skills by exploring and writing about more complex issues in society and business. Students will engage with the need for deeper research, better audience analysis, and more structured writing, with a more nuanced adaptation to the context appropriate to their intended publications. Students will consider and respond to meaningful real-world issues and situations in each of the three written projects. They will explore not only what other people have said about the issues that they confront, but also develop and communicate their own responses. The finished pieces will form the basis of a portfolio of written work to showcase their ability to think critically, conduct appropriate literature research, analyse their findings, argue their case, and produce professional communication outcomes. This portfolio will be a valuable addition to their resumes when they graduate. The final project will be an in-depth feature piece written for either Rice Media (https://www.ricemedia.co/) or the Skeptic Magazine (https://www.skeptic.org.uk/). Rice Media, and Skeptic Magazine editors advise the students during the Week 10 presentations, and students will have the chance to have their work published by the media outlet that they write for after the term finishes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
