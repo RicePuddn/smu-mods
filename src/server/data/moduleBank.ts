@@ -17963,7 +17963,17 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Under Singapore law, there are different ways in which businesspeople may organise commercial
+                  activities with a view to maximising operational efficiency and minimising exposure to personal
+                  risk. Most, however, will opt to incorporate a company for the purpose. This is however no indication
+                  that the company is a simple structure. On the contrary, as the company is effectively a web of
+                  different interests, rights and obligations, it is a highly complex structure. As such, the corporate form
+                  is fittingly the most regulated of all business entities. In this course, we will examine how a company
+                  is formed, the consequences of incorporation, how it is managed and controlled, what responsibilities
+                  are visited upon those who exercise control over a company's assets, how a company transacts with
+                  third parties, and how it raises capital. The course will also expose the student to issues relating to
+                  shareholder rights and to creditor protection mechanisms. In addition, the student will be introduced
+                  to corporate rescue and insolvency laws, as well as to corporate finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -18083,6 +18093,8 @@ With the help of case studies and resource persons such as industry leaders, inn
         ],
       },
     ],
+    mutuallyExclusive: ["LGST201", "LAW101"],
+    preReq: {or: ["LGST101", ]}
   },
   LAW204_624: {
     name: "Constitutional & Administrative Law",
