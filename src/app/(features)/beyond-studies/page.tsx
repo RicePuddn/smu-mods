@@ -130,7 +130,7 @@ export default function BeyondStudies() {
     };
 
     return (
-        <div style={{ padding: PADDING }} className="space-y-4">
+        <div style={{ padding: PADDING }} className="space-y-6">
         <h1 className="text-2xl font-bold">Beyond Studies</h1>
 
         <div className="flex flex-col overflow-hidden rounded-lg bg-muted shadow-md">
