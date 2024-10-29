@@ -4,7 +4,6 @@ import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { env } from "@/env";
 import { appRouter } from "@/server/api/root";
 import { createTRPCContext } from "@/server/api/trpc";
-import { Logger } from "@/utils/Logger";
 
 /**
  * This wraps the `createTRPCContext` helper and provides the required context for the tRPC API when
@@ -25,7 +24,7 @@ const handler = (req: NextRequest) =>
     onError:
       env.NEXT_PUBLIC_NODE_ENV === "development"
         ? ({ path, error }) => {
-            Logger.error(
+            console.error(
               `❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`,
             );
           }

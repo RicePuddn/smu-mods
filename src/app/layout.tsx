@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
 
 import MainProviders from "@/providers";
@@ -23,7 +22,6 @@ export default function RootLayout({
       className={`${GeistSans.variable}`}
       suppressHydrationWarning
     >
-      <GoogleAnalytics gaId="G-J3GN6BMKJC" />
       <head>
         <meta
           name="viewport"

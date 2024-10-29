@@ -100,7 +100,7 @@ export function Monitor(props: JSX.IntrinsicElements["group"]) {
       dispose={null}
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
-      onPointerUp={handleClick}
+      onClick={handleClick}
     >
       {hovered && (
         <Html position={[-2.313, 2.3, -2.496]}>

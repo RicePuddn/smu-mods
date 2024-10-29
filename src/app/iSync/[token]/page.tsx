@@ -8,7 +8,6 @@ import { useConfigStore } from "@/stores/config/provider";
 import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";
-import { Logger } from "@/utils/Logger";
 
 export default function Page({ params }: { params: { token: string } }) {
   const { mutateAsync: getToken } = api.iSync.getContent.useMutation();
@@ -32,7 +31,7 @@ export default function Page({ params }: { params: { token: string } }) {
         );
         await deleteToken({ token: params.token });
       } catch (e) {
-        Logger.error(e);
+        console.error(e);
       }
       router.push(`/timetable/${APP_CONFIG.currentTerm}`);
     };

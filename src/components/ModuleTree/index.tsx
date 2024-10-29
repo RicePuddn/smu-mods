@@ -136,7 +136,7 @@ const Tree: React.FC<TreeDisplay> = (props) => {
 
 export const ModuleTreeComponent: React.FC<Props> = (props) => {
   const { fulfillRequirements, prereqTree, moduleCode } = props;
-  if (!prereqTree || Object.keys(prereqTree).length === 0) {
+  if (!prereqTree) {
     return <></>;
   }
 

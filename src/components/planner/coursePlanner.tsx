@@ -159,7 +159,7 @@ const CoursePlanner: React.FC = () => {
           className={cn(
             "mb-6",
             isMobile
-              ? "sticky top-12 z-20 grid grid-cols-1 gap-6"
+              ? "sticky top-12 grid grid-cols-1 gap-6"
               : "flex flex-wrap px-1",
           )}
           style={{

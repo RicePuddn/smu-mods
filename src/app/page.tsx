@@ -8,7 +8,6 @@ import * as THREE from "three";
 
 import Banner from "@/components/Banner";
 import Fallback from "@/components/Fallback";
-import NavigationPopup from "@/components/MobilePopUp";
 import { Bookshelf } from "@/components/threed/Bookshelf";
 import { Calendar } from "@/components/threed/Calendar";
 import { Monitor } from "@/components/threed/Monitor";
@@ -42,7 +41,7 @@ function isMobileDevice() {
 
 function Scene() {
   const { theme = "light" } = useTheme();
-  const { roomTheme } = useConfigStore((state) => state);
+  const { roomTheme = "johnny" } = useConfigStore((state) => state);
   const cameraRef = useRef<THREE.PerspectiveCamera>(null!);
   const { camera } = useThree();
 
@@ -64,12 +63,12 @@ function Scene() {
   useFrame((state) => {
     const { pointer } = state;
 
-    const PointerX = pointer.x;
+    const invertedPointerX = isMobile ? -pointer.x : pointer.x;
 
     const rotationY = THREE.MathUtils.lerp(
       -Math.PI / 4,
       Math.PI / 3,
-      (PointerX + 1) / 2,
+      (invertedPointerX + 1) / 2,
     );
 
     const targetX =
@@ -129,7 +128,6 @@ export default function Home() {
     <div className="relative h-screen w-full">
       <Suspense fallback={<Fallback />}>
         <Banner />
-        <NavigationPopup />
         <Canvas style={canvasStyle}>
           <Scene />
         </Canvas>

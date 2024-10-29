@@ -33,7 +33,6 @@ export type TimetableActions = {
     theme: TimetableThemeName,
     currentSectionCode?: Section["code"],
   ) => void;
-  toggleVisibility: (moduleCode: ModuleCode, term: Term) => void;
   iSync: (data: TimetableMap) => void;
   changeColorOfModule: (
     term: Term,
