@@ -55,16 +55,6 @@ export function SearchModule({
                 setFocused(false);
               }
             }}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") {
-                setInputValue("");
-              } else if (e.key === "Enter") {
-                if (searchResults[0]) {
-                  handleModSelect(searchResults[0]);
-                  setInputValue("");
-                }
-              }
-            }}
           />
         </div>
         {!showResults ? (
@@ -73,7 +63,7 @@ export function SearchModule({
           inputValue != "" &&
           focused && (
             <ul
-              className="md absolute left-0 right-0 z-30 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg"
+              className="md absolute left-0 right-0 z-10 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg"
               onMouseEnter={() => setHovering(true)}
               onMouseLeave={() => setHovering(false)}
             >

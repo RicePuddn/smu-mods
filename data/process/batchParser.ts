@@ -18,7 +18,7 @@ import { getClassDuration } from "@/utils/getClassDuration";
 
 export function parseModulesHtml(html: string): Partial<Module>[] {
   const dom = new JSDOM(html);
-  const document = new dom.window.Document();
+  const document = dom.window.document;
 
   const groupHeaders = document.querySelectorAll(".rgGroupHeader");
 

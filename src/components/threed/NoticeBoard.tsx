@@ -125,7 +125,7 @@ export function NoticeBoard(props: JSX.IntrinsicElements["group"]) {
       dispose={null}
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
-      onPointerUp={handleClick}
+      onClick={handleClick}
     >
       {hovered && (
         <Html position={[1.3, 1.35, -3.166]}>

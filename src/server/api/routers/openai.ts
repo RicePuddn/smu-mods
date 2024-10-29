@@ -3,7 +3,6 @@ import { OpenAI } from "openai";
 import { z } from "zod";
 
 import { env } from "@/env";
-import { Logger } from "@/utils/Logger";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { deleteImage } from "./s3";
@@ -107,7 +106,7 @@ export const openaiRouter = createTRPCRouter({
 
         return content;
       } catch (error) {
-        Logger.error("Error fetching completion:", error);
+        console.error("Error fetching completion:", error);
         throw new TRPCError({
           message: "No content returned from OpenAI.",
           code: "BAD_REQUEST",

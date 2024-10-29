@@ -12,7 +12,10 @@ export class Logger {
   }
 
   static error(...args: any[]) {
-    if (env.NEXT_PUBLIC_NODE_ENV !== "production") {
+    const bypassEnvCheck =
+      typeof args[args.length - 1] === "boolean" ? args.pop() : false;
+
+    if (env.NEXT_PUBLIC_NODE_ENV !== "production" || bypassEnvCheck) {
       const formattedMessage = Logger.formatMessage("ERROR", ...args);
       console.error(formattedMessage);
     }
