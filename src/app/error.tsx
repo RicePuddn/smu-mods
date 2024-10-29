@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
+import { Logger } from "@/utils/Logger";
 
 export const dynamic = "error";
 
@@ -17,7 +18,7 @@ export default function Error({
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error);
+    Logger.error(error);
   }, [error]);
 
   const pathname = usePathname();
