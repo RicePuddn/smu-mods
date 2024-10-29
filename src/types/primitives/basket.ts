@@ -27,6 +27,7 @@ export const baskets = [
 export type BasketType = (typeof baskets)[number];
 
 export const basketCodes = [
+  "ARTS",
   "ACCT",
   "ACM",
   "COMM",
@@ -50,6 +51,7 @@ export const basketCodes = [
   "COR-SSOC",
   "COR-STAT",
   "COR-THAI",
+  "CORE",
   "CS",
   "DSA",
   "ECON",

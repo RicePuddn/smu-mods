@@ -175,7 +175,7 @@ export function Calendar(props: JSX.IntrinsicElements["group"]) {
       dispose={null}
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
-      onClick={handleClick}
+      onPointerUp={handleClick}
     >
       {hovered && (
         <Html position={[-0.6, 1.45, -2.5]}>

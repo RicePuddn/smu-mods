@@ -6,6 +6,7 @@ import type { AcademicYear, Banner } from "@/config";
 import type { TimetableThemeName } from "@/utils/timetable/colours";
 import { roomKeys } from "@/components/threed/rooms";
 import { APP_CONFIG } from "@/config";
+import { env } from "@/env";
 import { Logger } from "@/utils/Logger";
 
 export type ISyncRecord = {
@@ -28,6 +29,7 @@ export type ConfigAction = {
   dismissWarning: () => void;
   refreshBanners: () => void;
   changeAppVersion: (newVersion: string) => void;
+  dimissNavigationPopup: () => void;
 };
 
 export type BannerState = Banner & { dismissed: boolean };
@@ -39,7 +41,8 @@ export type ConfigStore = {
   matriculationYear: AcademicYear;
   banners: BannerState[];
   warningDismissedTime: number;
-  appVersion: string | null;
+  appVersion: string;
+  navigationPopupDismissed: boolean;
 } & ConfigAction;
 
 export const createConfigBank = (
@@ -61,7 +64,8 @@ export const createConfigBank = (
         matriculationYear: defaultAcademicYear,
         banners: defaultBanners,
         warningDismissedTime: Date.now() - 1000 * 60 * 60 * 24 * 7,
-        appVersion: null,
+        appVersion: env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
+        navigationPopupDismissed: false,
         changeISyncLatestRecord: (newRecord) => {
           set({ iSyncLatestRecord: newRecord });
         },
@@ -115,6 +119,9 @@ export const createConfigBank = (
         changeAppVersion: (newVersion) => {
           Logger.log("Changing app version to", newVersion);
           set({ appVersion: newVersion });
+        },
+        dimissNavigationPopup: () => {
+          set({ navigationPopupDismissed: true });
         },
       }),
       {
