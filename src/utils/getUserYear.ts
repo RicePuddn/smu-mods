@@ -2,6 +2,8 @@ import type { AcademicYear } from "@/config";
 import type { Year } from "@/types/planner";
 import { years } from "@/types/planner";
 
+import { Logger } from "./Logger";
+
 export function getUserYear(
   matriculationYear: AcademicYear,
   currentAcademicYear: AcademicYear,
@@ -18,7 +20,7 @@ export function getUserYear(
   if (userYear >= 1 && userYear <= parseInt(years.at(-1)!)) {
     return String(userYear) as Year;
   } else {
-    console.warn("Invalid user year calculation");
+    Logger.warn("Invalid user year calculation");
     return "1";
   }
 }

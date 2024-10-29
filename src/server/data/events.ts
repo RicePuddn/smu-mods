@@ -1,4 +1,4 @@
-import { ExtendedSchoolEvent } from "@/stores/event";
+import type { ExtendedSchoolEvent } from "@/stores/event";
 
 export const eventsData: Record<string, ExtendedSchoolEvent[]> = {
   clubs: [

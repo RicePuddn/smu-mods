@@ -491,9 +491,6 @@ export const modules: ModuleBank = {
     mutuallyExclusive: ["COR-STAT1202"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      and: ["COR1202"],
-    },
     exam: {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
@@ -621,9 +618,6 @@ export const modules: ModuleBank = {
     mutuallyExclusive: ["COR-IS1704", "IS115"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   COR1701: {
     name: "Critical Thinking In The Real World",
@@ -830,12 +824,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    mutuallyExclusive: ["COR-STAT1202", "COR-STAT1203"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      and: ["COR1202"],
-    },
   },
   COR1703: {
     name: "Managing in a Volatile, Uncertain, Complex and Ambiguous Context",
@@ -5831,12 +5821,8 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   IS114: {
     name: "Computing Fundamentals",
@@ -6453,6 +6439,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IS303"],
     credit: 1,
     terms: ["Term 2"],
   },
@@ -6625,16 +6612,11 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: ["CS203", "IS212", "IS105"],
+    mutuallyExclusive: ["CS203"],
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      and: ["IS113", "IS112"],
+      or: [{ and: ["IS113", "IS112"] }, { and: ["IS113", "IS105"] }],
     },
   },
   IS215: {
@@ -7164,7 +7146,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    mutuallyExclusive: ["IS105"],
+    mutuallyExclusive: ["IS105", "DSA308"],
     credit: 1,
     terms: ["Term 2"],
   },
@@ -7706,7 +7688,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 2"],
     preReq: {
-      or: ["IS111"],
+      or: ["IS111", "SMT111", "CS101", "COR-IS704"],
     },
   },
   IS216: {
@@ -8105,15 +8087,12 @@ export const modules: ModuleBank = {
     ],
     coRequisite: [
       {
-        or: [],
+        and: ["IS113", "IS112"],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["IS301", "CS302"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   IS442: {
     name: "Object Oriented Programming",
@@ -8303,11 +8282,11 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["CS102"],
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      or: [],
+      or: ["IS111", "SMT111", "CS101"],
     },
   },
   IS458: {
@@ -8353,16 +8332,11 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
     mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: [{ and: ["IS213", "IS214"] }, { and: ["CS203", "IS112"] }],
     },
     exam: {
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
@@ -8384,7 +8358,7 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      or: [],
+      and: [{ or: ["IS213", "CS302"] }, { or: ["IS458", "CS301"] }],
     },
   },
   IS412: {
@@ -8412,16 +8386,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1"],
     preReq: {
-      or: [],
+      or: ["IS213", "CS302"],
     },
   },
   CS440: {
@@ -8512,11 +8480,11 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["IS302"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS111", "SMT111", "CS101"],
     },
   },
   CS301: {
@@ -8589,11 +8557,11 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
+    mutuallyExclusive: ["IS303", "IS458"],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS213", "IS301", "SMT203", "CS204"],
     },
   },
   CS462: {
@@ -8652,7 +8620,14 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: [
+        { and: ["CS201", "CS204"] },
+        "CS460",
+        "SMT203",
+        {
+          and: ["IS111", { or: ["IS112", "IS105"] }, "IS210", "IS212", "IS213"],
+        },
+      ],
     },
   },
   IS446: {
@@ -8721,12 +8696,8 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   CS461: {
     name: "Mobile & Pervasive Computing and Applications",
@@ -8753,16 +8724,11 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
     mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS203", "IS212", "CS203", { and: ["CS201", "CS205"] }],
     },
     exam: {
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
@@ -8817,11 +8783,10 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      or: ["IS200", "IS111", "SMT111", "CS101"],
     },
   },
   CS206: {
@@ -8912,11 +8877,10 @@ export const modules: ModuleBank = {
         or: [],
       },
     ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [],
+      and: ["IS211", { or: ["IS113", "CS203"] }],
     },
   },
   COR2201: {
@@ -9034,17 +8998,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
     exam: {
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
@@ -9129,17 +9084,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   COR2210: {
     name: "Technological Innovations Enhancing Urban Sustainability",
@@ -9166,17 +9112,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1"],
-    preReq: {
-      or: [],
-    },
   },
   COR2406: {
     name: "French",
@@ -9203,17 +9140,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
     exam: {
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
@@ -9290,17 +9218,8 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   COR2408: {
     name: "Spanish",
@@ -9355,22 +9274,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
-    coRequisite: [
-      {
-        or: [],
-      },
-    ],
-    mutuallyExclusive: [],
     credit: 1,
     terms: ["Term 1", "Term 2"],
-    preReq: {
-      or: [],
-    },
   },
   IS484: {
     name: "IS Project Experience [FinTech]",
     moduleCode: "IS484",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This is an SMU-X course designed in collaboration with Citibank, and has since been extended to include other banking/fintech sponsors such as OCBC, UBS, and NETS.  Sponsors will each supply 3-5 projects ideas to select from.  Students will form teams of 5 or 6, and select one of the sponsors’ project ideas to work on.  Project selections do not need to be unique, meaning multiple teams can select the same project idea. Each student project team will be assigned to a sponsor and an SMU faculty supervisor.  Sponsors will provide project scope and management for student teams to have practical industry learning experiences.  Student teams will have weekly check in meetings, either virtually or physically, with their sponsor. Student project teams will be expected to develop a working software application prototype, to be delivered to the sponsor at the end of the course.  Sponsors will specify the technologies to be used, including; development tools/languages, OS, database, 3rd party libraries, target deployment environment e.g. cloud environment. This course counts as a direct replacement for the IS483 Project Experience course.",
     credit: 1,
     terms: ["Term 1", "Term 2"],
     sections: [
@@ -9399,6 +9310,9 @@ export const modules: ModuleBank = {
         classes: [],
       },
     ],
+    preReq: {
+      or: ["IS212", "CS203"],
+    },
   },
   CS202: {
     name: "Design and Analysis of Algorithms",
@@ -9407,7 +9321,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course teaches students how to solve problems by designing efficient algorithms, and how to analyze the efficiency of algorithms. Students' earlier programming experiences, mathematics (discrete maths and linear algebra), and the mastery of data structures are necessary for this course.  The materials as well as the assignments expect students to have proficient programming skills in Python. Students will learn: The different paradigms of algorithm design such as divide and conquer, dynamic programming and greedy algorithms. The analysis on the complexity of algorithms. Limits of algorithm design via the study of intractability including the reductions of given problems to known problems and the knowledge of NP completeness and NP hardness. More modern algorithm design concepts such as approximation to achieve more effective problem solving and more efficient solutions. This course will go into the theoretical underpinnings of efficiency, algorithm correctness, and how algorithm design has a basis in identifying mathematical properties of the problem.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9484,11 +9399,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["CS201", "IS115"],
+    },
   },
   "COR-IS1704": {
-    name: "IS1704",
+    name: "Computational Thinking and Programming",
     moduleCode: "COR-IS1704",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course equips students with both foundational computer programming skills and computational thinking skills, through the use of Python, a widely-used programming language. Upon successful completion of this course, students will understand and be able to appropriately apply fundamental programming concepts including variables, functions, parameters, loops and conditions to solve computational problems. The students will also be introduced to basic data structures including arrays (lists in Python) and hash tables (dictionaries in Python). In addition, students will receive a gentle introduction to computational complexity and apply the notion of complexity to analyse simple algorithms.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9569,6 +9488,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
+    mutuallyExclusive: ["IS111", "CS101", "COR-IS1702"],
   },
   CS427: {
     name: "AI Safety",
@@ -9577,7 +9497,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "With the advancement of systems like GPT, artificial intelligence (AI) techniques are anticipated to significantly impact various aspects of individuals' lives. While these AI techniques have demonstrated remarkable, occasionally superhuman, performance across numerous applications, there is a growing concern regarding their safety and security. It has been shown AI systems are subject to a range of attacks, ranging from adversarial attacks (i.e., perturbing an input slightly causes an AI to make completely wrong predictions), backdoor attacks (i.e., backdoors can be easily embedded in neural networks), and privacy-violating attacks such as membership inference attacks (i.e., an adversary may reliably infer whether a certain sample is used during training or not). In addition, AI systems can inherit or amplify biases present in their training data, potentially leading to unfair or discriminatory outcomes. Furthermore, many AI models, including GPT, are complex and not easily interpretable. It makes understanding how these models make decisions highly nontrivial, even though it is crucial for trust and accountability. This course aims to present a systematic view on the range of AI safety problems that have been identified, analyse their root causes, and study potential approaches to mitigate the safety and security risks. In particular, we will focus on answering two key questions. First, given an AI system, how do we systematically evaluate its safety risk? Second, given an AI system that potentially has safety issues, how do we systematically mitigate the risks? This course will feature real-life AI safety issues on popular AI systems such as ImageNet, GPT and so on.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9618,11 +9539,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: [{ or: ["IS111", "CS101"] }, { or: ["CS420", "CS421", "IS460"] }],
+    },
   },
   COR1201: {
     name: "Calculus",
     moduleCode: "COR1201",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Calculus introduces to students a set of elementary functions, their properties, various forms of analysis, and fundamental concepts in Calculus. Also introduced are the modeling methods in business and management by applying Calculus knowledge. The objective of the course is to develop the students' understanding and skills in analyzing managerial problems, creating mathematical models, and using them to solve these problems. Although the module is essentially mathematical in nature, a rigid mathematical treatment is avoided and the necessary mathematical concepts are derived from examples rather than through proofs.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9657,7 +9582,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This is a first course in probability and statistics. It will teach fundamental concepts and techniques, and demonstrate their relevance to computer science and related disciplines particularly to data science, machine learning and artificial intelligence. In particular, some topics such as Bayesian inference, is crucial to AI-related courses (CS420, CS421, CS422, CS424, CS425). Thus, the course will require not only the understanding and development of some theoretical results with mathematical rigour, but also hands-on programming skills for practical applications. Knowledge in basic calculus is required. Some concepts in discrete mathematics (CS104) are useful, such as counting, sets and functions. While the course will use Python and its packages to illustrate and practice class work, prior knowledge of Python is not required. However, previous experience in any programming language such as C/C++ and Java is expected.  Good programming etiquettes such as code readability, reusability, efficiency and reproducibility are also expected at a level adequate for most computer science courses.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9752,6 +9678,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["COR1201", "COR1202"],
+    },
   },
   CS106: {
     name: "Computer Architecture",
@@ -9760,14 +9689,15 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "CS106 is an introductory course in computer architecture. It aims to develop an understanding of the hardware environment upon which computing is based, and the interface it provides to higher software layers. The course also introduces basic architectures and hardware-software interfaces of computer systems. Students will understand a computer system's functional components, their characteristics, and interactions. Previously titled CS106 Computer Hardware and Embedded Systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
       {
         code: "G1",
         professor: {
-          name: "TONY TANG",
+          name: "TONY TANG",
         },
         location: {
           building: "SCIS1",
@@ -9837,6 +9767,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["CS101"],
+    },
   },
   CS201: {
     name: "Data Structures and Algorithms",
@@ -9845,7 +9778,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course builds on students' earlier programming experiences, moving beyond syntax and logic, to the question of how to build “better” programs focusing on organizing data and designing algorithms for efficiency. The materials as well as the assignments rely heavily on proficiency with Java programming language. Students will learn: - the concept of efficiency, why it is important for programs to be efficient and scalable, how to manage the trade-offs of computational time as well as resources such as memory, and how to compare the efficiency of various algorithms, - problem-solving through judicious organization of data, how abstract data types allow encapsulation and localization, as well as how their concrete implementations in the form of various data structures allow for efficient access and modification of data. This course is different from Computational Thinking, as it goes into the theoretical underpinnings of efficiency, covers more data structures, and delves deeply into the implementations of those data structures.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9868,6 +9802,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IS115"],
+    preReq: {
+      or: ["CS102", "IS442"],
+    },
   },
   CS205: {
     name: "Operating Systems",
@@ -9876,7 +9814,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims to introduce the concepts, design principles and architectures of modern operating systems. The topics will focus on the management of computing resources, including process, memory, storage and file system. Various algorithms for resource scheduling, synchronization, caching and failure recovery will be discussed. The Android operating system will be used as the platform for system programming.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -9953,6 +9892,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: ["CS102", "CS106"],
+    },
   },
   CS420: {
     name: "Introduction to Artificial Intelligence",
@@ -9961,7 +9903,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Artificial Intelligence (Artificial Intelligence) aims to augment or substitute human intelligence in solving complex real world decision making problems. This is a breadth course that will equip students with core concepts and practical know-how to build basic AI applications that impact business and society. Specifically, we will cover search (e.g., to schedule meetings between different people with different preferences), probabilistic graphical models (e.g. to build an AI bot that evaluates whether credit card fraud has happened based on transactions), planning and learning under uncertainty (e.g., to build AI systems that guide doctors in recommending medicines for patients or taxi drivers to 'right' places at the 'right' times to earn more revenue), multi-agent systems (e.g., to build next generation patrolling systems for critical infrastructure security), image processing (e.g. to build systems that track and/or recognize suspicious people) and natural language processing (e.g., to build chat bots that can automatically and intelligently interact with customers in different service industries).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10020,6 +9963,12 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: [
+        { or: [{ or: ["IS111", "IS200"] }, "SMT111"] },
+        { and: ["CS101", "CS201"] },
+      ],
+    },
   },
   CS421: {
     name: "Principles of Machine Learning",
@@ -10028,7 +9977,18 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Machine Learning is one of the fundamental subjects in the field of Artificial Intelligence. Machine Learning is concerned with computer programs that automatically improve their performance through experience (e.g., learning to recognize images, classify text documents, detect fraudulent credit card transactions, or drive autonomous vehicles). This course covers both fundamental principles and practical algorithms for machine learning. It includes in-depth introduction of the techniques and algorithms in two major machine learning paradigms – supervised learning and unsupervised learning. For supervised learning, it covers both linear and non-linear models for two supervised tasks: classification and regression. For unsupervised learning, it covers three major unsupervised tasks: clustering, dimension reduction, and anomaly detection. The course also includes deep learning approaches for each of the aforementioned five tasks, highlighting the principles of making different “shallow” models “deeper”.
+      The course is intended to prepare students for a good understanding of principles, challenges, and opportunities in ML. It aims to equip students with the capability of applying machine learning techniques to address real-world applications and building the foundations of doing research in machine learning. To this end, the course highlights the following five key features:
+      ·   	Systematic treatment of ML techniques. It covers shallow and deep algorithms and techniques for five popular ML tasks.
+      ·   	Understanding of commonly used mathematical foundations in ML. The course introduces principled mathematical foundations behind diverse ML techniques, such as least squares optimization, Lp regularization, maximum likelihood estimation, gradient descent optimization, and backpropagation.
+      ·   	Introduction to emerging topics and current ML challenges. The course includes an overview of emerging topics including semi-supervised learning, self-supervised learning, and interpretability, security, privacy, and safety in ML.
+      ·   	Progressive ML model development. CS421 includes a Kaggle-competition-style group project to shape the capability of developing effective models to address a real problem with data progressively made available.
+      ·   	Model implementation. One assignment and diverse lab sessions are designed to support the development of capability in implementing different ML models using existing libraries.
+      It is a course recommended for those who have some ML experience/skill and want to achieve a more systematic and comprehensive understanding of ML, as well as for beginners who are not familiar with ML but have very strong curiosity to explore. Extensive coding is expected for this course.
+      Students are strongly encouraged to have proficiency in IS103 Computational Thinking prior to reading this course.
+      NOTE: While this is an introduction course, it is a technical course and it is highly recommended that students are proficient in programming, probability, statistics and linear algebra (e.g., CS103 Linear Algebra for Computing Applications, CS105 Statistical Thinking for Data Science, CS201 Data Structures and Algorithms and CS202 Design and Analysis of Algorithms).
+      Previous course code & title: IS449 Introduction to Machine Learning
+      `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10051,6 +10011,13 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: [
+        { and: ["IS103", { or: ["IS217", "MGMT108"] }] },
+        { and: ["CS103", "CS105", "CS201"] },
+      ],
+    },
+    mutuallyExclusive: ["IS460"],
   },
   CS423: {
     name: "Heuristic Search and Optimisation",
@@ -10059,7 +10026,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Search and optimization are the fundamental building blocks of AI. Almost all problems in AI (including machine learning) involve some sort of search or optimization. This course will cover the basics of search and optimization. Broadly, the course will be split along two axes: one is discrete vs continuous optimization, and another is heuristic methods vs exact techniques. The applications of the topics covered in class is immediate, for example, shortest path problems are used by all mapping services such as Google Maps. Travelling salesman problems are used to design routes for parcel delivery. Fundamental topics such linear and convex programming with gradient descent will help in understanding techniques in deep learning which will be useful for other AI courses. Recent applications of linear programs such as in designing security of critical infrastructure will be discussed in class.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10100,11 +10068,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["CS201", "CS420"],
+    },
   },
   CS424: {
     name: "Generative AI for Vision",
     moduleCode: "CS424",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "When we see a table, we vividly perceive it as an object in the class of tables.  However, computers only see a bunch of pixels. Image perception is the task of getting computers to see in a human like manner. To achieve this, researchers have pooled techniques and results from a large variety of different fields. This course introduces the mathematical tools and concepts underlying image perception. These include deep learning, linear algebra, statistics and multi-view geometry. The goal is to get students comfortable with utilizing and interpreting the results of state-of-art machine learning techniques. At the end of the course, students should be aware of what can be achieved by current visual perception techniques, how to achieve it and what the limitations of these techniques are. Students are expected to have a good mathematical foundation and programing skills. Foundational Mathematical Courses (i.e., CS103 or CS105) will be an advantage but are not insisted on. The primary programing language of the course is python. Having a good GPU at home will help with course work. Previously titled as CS424 Image Perception.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10145,6 +10117,16 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: [
+        // For non-CS students
+        { or: ["IS200", "IS111", "SMT111"] },
+        // For CS students
+        {
+          and: ["CS101", "CS103"],
+        },
+      ],
+    },
   },
   CS441: {
     name: "Network Security",
@@ -10153,7 +10135,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Built on the foundation of the information security and trust course, the Network Security course draws on hard-won experience to explain the latest developments in security protocols, network security, web security, and industrial standards. Classroom instruction and discussion will closely integrate technical principles with real world applications such as secure e-banking, secure corporate networking, secure messaging in healthcare environment and multimedia system security. In addition, case studies will be used to demonstrate that security and trust are not only for protection of information assets, but also means of improving business operation or even starting new businesses. Besides the textbook knowledge, CS441 may host guest lectures from security practitioners/researchers in government agencies, industry and research labs. Previous course code & title: IS403 Network Security",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10194,6 +10177,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS302", "IS443", "CS440"],
+    },
   },
   CS444: {
     name: "Strategic Cybersecurity Management",
@@ -10202,7 +10188,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Cybersecurity is not just a technical issue but a critical policy and business issue. The purpose of this course is to help students acquire the knowledge and build up the capability to understand and analyse the key policy and business issues pertaining to cybersecurity threats and countermeasures, based on a solid understanding of the cybersecurity ecosystem along with the dynamics of technology innovation and in the context of digital transformation.  We approach this purpose by integrating five learning components and class activities, which include i) introducing cybersecurity risk management methodology following an up-to-date agenda, ii) introducing economic, social psychology theories and law issues as the theoretical foundation to design and implement cybersecurity policy and regulation, iii) discussing cases focused on the critical issues in government and industry practices, iv) playing games to experiment strategic decision and v) playing with real data.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10225,11 +10212,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: [{ or: ["IS302", "IS443", "CS440"] }, { and: ["IS112", "IS105"] }],
+    },
   },
   CS445: {
     name: "Cyber Threat Intelligence",
     moduleCode: "CS445",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Cyber threat intelligence can potentially be a force multiplier for organizations looking to update their cyber posture, specifically their response and detection programs to deal with increasingly sophisticated advanced persistent threats. Adversaries are constantly developing new tools, techniques, tactics and procedures to bypass security mechanisms successfully. Cyber threat intelligence empowers cyber defenders on countering those flexible and persistent threats with a good understanding of the attacker’s behaviour, motivation and playbook. During an attack, an organization needs a top-notch and cutting-edge threat hunting or incident response team armed with the threat intelligence necessary to understand how adversaries operate and to counter the threat. Cyber Threat Intelligence course will equip students with a brief understanding of various aspects of cyber threat intelligence – in the tactical, operational, and strategic level cyber threat intelligence skills and tradecraft required to make security teams better, threat hunting more accurate, incident response more effective, and organizations more aware of the evolving threat landscape.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10252,15 +10243,19 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: ["IS112", "CS440"],
+    },
   },
   CS460: {
-    name: "Foundations of Cyber",
+    name: "Foundations of Cyber-Physical Systems",
     moduleCode: "CS460",
     exam: {
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Cyber-Physical Systems infuse sensing, control, networking, and computation capabilities into physical objects, breathing into them new life, new purpose, and new meaning. In this course, we embark on an adventure; sometimes challenging, always exciting. We discover the essential elements of Cyber-Physical Systems. We explore the hardware and software interfaces fusing the cyber and physical realms. We unleash our creative energies, our youthful idealism, and our capacity to dream, by creating visionary technology to conquer a real-world societal challenge. The adventure reaches its peak at the project showcase, where we witness the work of human hands come to fruition, leaving us inspired to reflect deeply and broadly about how we, as global citizens, can harness the power of Cyber-Physical Systems as a potent force in the service of humanity. This is a journey into the unknown. Yet, a still, small voice deep within us compels us: Courage! Do not be afraid! Put out into the deepest oceans and brave the stormiest seas! Let down your nets for an awesome catch! This course may be conducted using Flipped Learning and/or Blended Learning modes. All lessons are on-site. Students spend 2-3 hours weekly on flipped and/or blended learning activities such as readings, meetups in small groups, etc.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10283,11 +10278,24 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: [{ or: ["CS101", "IS111", "SMT111"] }, "IS112"],
+    },
   },
   CS463: {
     name: "Computer Graphics and Virtual Reality",
     moduleCode: "CS463",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will provide an introduction to the principles and techniques of computer graphics and virtual reality, with an emphasis on interactive 3D applications. The course will cover topics such as:
+                • Introduction to computer graphics
+                • The graphics pipeline
+                • 3D modeling, rendering, and animation
+                • Ray Tracing and Illumination
+                • Interactive Graphics
+                • Stereoscopic perception and display systems
+                • Human perception and multimodal interaction
+                • Virtual and augmented reality environments and applications
+                The course will include lectures, labs, assignments, and final projects. The students will learn how to use various tools and frameworks for developing 3D graphics and VR applications. The students will also gain hands-on experience with building their own CG and VR applications. The course will also expose the students to current research and trends in computer graphics and virtual reality.
+              `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10310,6 +10318,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IS462"],
+    preReq: {
+      and: [{ or: ["CS101", "IS111"] }, "CS103"],
+    },
   },
   CS464: {
     name: "Full Stack Development",
@@ -10318,7 +10330,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course exposes students to full stack development. It is designed to equip students with the skills and knowledge to build robust full stack applications using modern technologies. From backend development in Golang, to frontend user interactions with HTMX, and managing data using both SQL and NoSQL, as well as object storage, to deploying applications on the cloud using containers. Students will gain hands-on development that spans the full spectrum of web development.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10341,11 +10354,20 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["CS203", "IS213"],
+    },
   },
   CS470: {
     name: "Guided Research in Computer Science",
     moduleCode: "CS470",
-    description: "DESCRIPTION_NEEDED",
+    description: `CS470 aims to introduce students to academic research in Computer Science. It allows students to experience first-hand the challenges and exhilaration of research, discovery and innovation, and enriches their academic experience by working at/near the frontiers of research in computer science. 
+                  Additional Requirements:
+                  - GPA of >= 3.40
+                  - 3rd or 4th year
+                  - Students must get the approval of C470/CS471 Course Coordinator
+                  - Students must find a SCIS faculty member who agrees to serve as his/her project supervisor
+                  - Students who do not meet the GPA requirement will need to seek special permission from the Course Coordinator.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10362,11 +10384,45 @@ export const modules: ModuleBank = {
         classes: [],
       },
     ],
+    preReq: {
+      or: ["CS202", "CS203"],
+    },
+  },
+  CS471: {
+    name: "Guided Research in Computer Science II",
+    moduleCode: "CS471",
+    description: `CS471 is to allow students to continue with the research project done during CS470 OR to embark on a new research project (and there should not be any significant overlap with your CS470 research project). 
+                  Additional Requirements:
+                  - GPA of >= 3.40
+                  - 3rd or 4th year
+                  - Students must get the approval of C470/CS471 Course Coordinator
+                  - Students must find a SCIS faculty member who agrees to serve as his/her project supervisor
+                  - Students who do not meet the GPA requirement will need to seek special permission from the Course Coordinator.`,
+    credit: 1,
+    terms: ["Term 2"],
+    sections: [
+      {
+        code: "G1",
+        professor: {
+          name: "SUN JUN",
+        },
+        location: {
+          building: "",
+          room: "",
+          level: 0,
+        },
+        classes: [],
+      },
+    ],
+    preReq: {
+      or: ["CS470"],
+    },
   },
   CS472: {
     name: "Guided Advanced Research in Computer Science",
     moduleCode: "CS472",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "CS472 aims to train students to conduct scientific research in a specific area and prepare students for postgraduate study. The students will be guided to formulate research problems, propose research methods, develop experiment design for research validation and write scientific publication (in the form of a conference proceeding paper or journal article). Only students who are undertaking the Computing Research Programme are eligible to take this course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10383,11 +10439,16 @@ export const modules: ModuleBank = {
         classes: [],
       },
     ],
+    preReq: {
+      or: ["CS470"],
+    },
+    coRequisite: [],
   },
   CS480: {
     name: "Computer Science Project Experience",
     moduleCode: "CS480",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will provide opportunity for BSc (CS) students to:- Develop a proof of concept software application or system that satisfies a list of functional and quality requirements. Students will work with a team and practice their requirement analysis, design, implementation, testing, deployment and project management skills. Build the professional knowledge depth required to become a software developer or research engineer. This includes building up competence in the student's selected track, applying their learning domain knowledge and technology to the relevant industry sectors or research areas. A CS project does not have to be tied to a specific track, i.e., it can be multidisciplinary. The project's nature and scope are set by the project sponsor. Students can work on an application development or a research project. Co-requisite of PhD Course related to research project",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10420,7 +10481,8 @@ export const modules: ModuleBank = {
   IS105: {
     name: "Business Data Management",
     moduleCode: "IS105",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will cover the fundamentals of relational database theory, important data management concepts such as data modelling, database design, database implementation in current business information systems for non-SCIS students. Students are expected to apply knowledge learned in the classroom to solve many problems based upon real-life business scenarios, while gaining hands-on experiences in designing, implementing, and managing database systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10465,6 +10527,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 2,
     },
+    mutuallyExclusive: ["IS112", "DSA308"],
   },
   IS115: {
     name: "Algorithms and Programming",
@@ -10473,7 +10536,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "A&P can be viewed as a first course in algorithms. Students will be trained to compute the time complexity of algorithms and compare algorithms using their Big-O time complexity. Besides coming up with the pseudocode of an algorithm to solve a given problem, students are expected to implement the pseudocode in Python for the project assignments. Common data structures such as stacks, queues, trees, graphs, heaps and hash maps will be covered. After students have gained a strong foundation in complexity and data structures, students will be introduced to heuristic approaches – specifically greedy and local search algorithms – that can be used to tackle computationally intractable problems. Emphasis will be placed on tackling technical algo-related `interview questions` commonly given to students applying for internships or jobs as software engineers.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10604,6 +10668,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["COR-IS1702", "CS201"],
   },
   IS217: {
     name: "Analytics Foundation",
@@ -10612,7 +10677,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The term “Analytics” has been around in the business settings for a while now, where past results have been used to guide and improve future performance of business. More recently, enhancements in technology have enabled the business world to produce and store very large amounts of data which needs to be processed, managed and analysed in order to uncover its hidden value. There is a real dearth of analytical talent needed to perform this task. This course aims to introduce students to the fundamental skills needed to get started with analytics. This course will help them build a foundation needed for advanced analytics by introducing them to data exploration techniques, data preparation methodologies, applying key analytics techniques and use them in formulating a business problem and identifying the correct analytical approach to solve it.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10671,11 +10737,16 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS111", "SMT111", "CS101"],
+    },
+    coRequisite: ["STAT101", "COR-STAT1202", "CS105"],
   },
   IS419: {
     name: "Retail Banking and Mobile Technology",
     moduleCode: "IS419",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The Financial Services Industry was among the early adopters of IT in delivering banking products and services, and in achieving operation efficiencies and increased revenues through new opportunities enabled by IT. This course introduces the retail banking environment and architecture. It delves into some of the key processes that span the front and back office of a bank and the associated banking products that require IT solutions to enable these processes. The curriculum also includes core banking as well as delivery channels such as ATM, internet and IVRS.  Emphasis will be placed on Mobile Technology due to the FINTECH focus of the upcoming revamped course for AY 2017-2018. Topics such as FINTECH, banking security, customer and credit analytics, emerging technologies and industry trends will also be covered.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10698,11 +10769,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS213", "SMT203", "CS302"],
+    },
   },
   IS424: {
     name: "Data Mining and Business Analytics",
     moduleCode: "IS424",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Data mining consists of a wide range of data analysis techniques that can be applied to large datasets to discover patterns, trends and other forms of knowledge embedded in the data.  In the commercial world, data mining is often conducted on enterprise data stored in relational databases to help managers make informed decisions so as to keep businesses competitive and attuned to changing market conditions. With the recent advances in big data generation and collection, new data types such as text, Web, spatial, and temporal data have emerged creating new opportunities for mining knowledge from data for business intelligence. This course provides an introduction to the fundamental issues and basic techniques of data mining. The topics covered include data mining process, data preprocessing, data mining techniques and data mining evaluation.  In particular, the use of data mining in supporting business intelligence and decision making will be covered through labs, projects and case studies. Students are expected to learn data mining and its use in business intelligence through acquiring the basic data mining concepts and techniques, using them to explore data, and deriving useful knowledge patterns from the data through hands-on programming and experimentation that involve some industry strength data mining software packages.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10725,11 +10800,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS105", "IS112", "IS217", "CS105"],
+    },
   },
   IS428: {
     name: "Visual Analytics for Business Intelligence",
     moduleCode: "IS428",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Data analysis and communications can be fun! With visual analytics techniques and tools, everyday data analysts from various disciplines such business, economic, sociology, political science and public policy can now synthesize information and derive insight from massive, dynamic, ambiguous, and often conflicting data without having to deal with complex statistical formulas and programming. Many companies and organization took notice when Gartner cited visual analytics as one of the top five trends transforming business intelligence. In this course, students learn how to use data visualization and interactive analytic tools and techniques to interact with data of different formats from various sources, explore the expected relationships and discover unexpected correlations and patterns. You will also acquire the skills for building cutting edge visual analytics application based on principles and best practices from graphic design, visual arts, perceptual psychology, cognitive science and interfaces design.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10774,7 +10853,8 @@ export const modules: ModuleBank = {
   IS444: {
     name: "Digital Banking Enterprise Architecture",
     moduleCode: "IS444",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines the role of Enterprise Architecture in implementing a bank’s digital business strategy while minimising the overall technology cost for the bank.  In today’s market where the speed of doing business is rapidly increasing, and customers are becoming increasingly more sophisticated, banks are challenged to provide faster and better digital services, anytime, anywhere.  Technology, as a business enabler, has become a key consideration of any bank's strategy. The adoption of enterprise platforms such as Service-Oriented Architecture (SOA), Business Process Management (BPM), Business Rules Management System (BRMS), Master Data Management (MDM), and Enterprise Data Warehouse (EDW) will improve a bank’s competitive advantage with measurable results; increased revenue, speed to market, product & service innovation, improved agility, and reduced cost. Emphasis is placed throughout this course on analysing real-world situations using case studies, in particular large-scale change scenarios such as; core banking system replacements, and bank mergers whereby multiple vendor products need to coexist.  Hands-on lab exercises and project assignments will include the assembly of prototype banking solutions which invoke the API of SMU Teaching Bank (SMU tBank).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10801,11 +10881,15 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
+    preReq: {
+      or: ["IS213", "SMT203", "CS302"],
+    },
   },
   IS447: {
     name: "Smart Healthcare in Asia",
     moduleCode: "IS447",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The importance of healthcare was never felt so keenly as during the COVID-19 pandemic. In its aftermath, there is a greater appreciation of the need to proactively build resilient and high-quality health systems, and to explore new innovations. With a rapidly ageing population, the burden of disease will increase even as the pool of potential care providers decreases. At the same time, the cost of healthcare needs to be contained, while meeting patient needs and keeping providers motivated. This calls for radical increases in the productivity of the healthcare sector. In this scenario, there is a need to understand complex systems concepts in assessing the impact of interventions. This technology-agnostic course will explore the context of the healthcare industry, with a particular focus on Singapore and Asia. Students will understand and apply the concepts of systems thinking and gain hands-on experience in both qualitative and quantitative simulation of health systems through the techniques of system dynamics, discrete event simulation, and agent-based modelling. The course will utilise cases and educational games, but also encourage students to build system simulation models. It will help students to broaden their horizons and develop critical thinking, while gaining practical skills in simulation and understanding the concepts of Digital Twins in social systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10832,7 +10916,8 @@ export const modules: ModuleBank = {
   IS450: {
     name: "Text Mining and Language Processing",
     moduleCode: "IS450",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Given the dominance of text information over the Internet, mining high-quality information from text becomes increasingly critical. The actionable knowledge extracted from text data facilitates our life in a broad spectrum of areas, including business intelligence, information acquisition, behavior analysis and decision making process. In this course, we will cover important topics in text mining including: document representation, text categorization and clustering, sentiment analysis, probabilistic topic models and text visualization. Text mining techniques adopt the models from research areas such as Statistics, NLP and Linguistics. We will also focus on basic natural language processing techniques, language parsing and analysis and evaluation techniques.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10877,11 +10962,15 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      or: ["IS111", "SMT111", "CS101"],
+    },
   },
   IS453: {
     name: "Financial Analytics",
     moduleCode: "IS453",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Financial analytics helps to identify insights from vast amounts of data that financial institutions have to help them to answer specific business questions and to forecast possible future scenarios.  Financial firms are investing significant sums in data analytics to facilitate market trading activities and to improve business processes that range from customer acquisition to fraud detection.  With large amounts of data available and great potential value for providing competitive edge to businesses, the demand for analytics professionals is also increasing. Analytics professionals in the banks require a broad array of skills such as data management, analysis, statistics, and an understanding of the financial services domain. The module helps students understand how analytics techniques are applied in financial institutions. Through hands-on application of analytics techniques in financial services contexts, together with class discussion and labs, students will learn how business objectives and constraints can be supported by data analytics.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10922,11 +11011,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS111", "CS105"],
+    },
   },
   IS455: {
     name: "Overseas Project Experience (Data Analytics in Asia)",
     moduleCode: "IS455",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides students with an overview of the many concepts, techniques and algorithms in data analytics and machine learning. Students will acquire knowledge on classification and regression models such as support vector machines and linear regression e.t.c. The emphasis in this course will be on the application side of data analytics which includes not only creating the predictive model but also deploying and visualizing the output from the models. More importantly, this course allows students to apply cross-disciplinary and project management approaches while learning and applying machine learning techniques to help Thai companies to effectively and efficiently apply data analytics and machine learning to improve their competitiveness and business efficiency. It hones students' problem-solving skills and prepares them for the complex regional business environment today. Thailand, as part of ASEAN, is rich in natural resources eg. gems and precious metals and is considered to be one of the vital exporters of resources globally. Other than the 2 traditional sectors of agriculture and tourism, it is also a prime manufacturing hub for investors in vehicles, electronics and medical equipment. In recent years, Covid-19 has become a key accelerator for digital transformation globally and the Thai government has also been relentlessly encouraging its businesses to adopt digital technologies and the use of data analytics. This course is not biddable. Students will be shortlisted for interviews and selected students will be enrolled via offline enrolment (e$20 will be deducted).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10949,11 +11042,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS217", "MGMT108"],
+    },
   },
   IS459: {
     name: "Big Data Architecture",
     moduleCode: "IS459",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Big data has become an essential part of our digital world in the last decade. Governments, e-commerce websites, even short video platforms, are now relying on big data technologies to gain business insight and design their strategies. Different from the traditional data analytics industry, the infrastructure of big data is mostly built on top of cheap commodity PCs and open source software.  This trend has successfully lowered the deployment as well as operational cost of such big data platforms. On the other hand, it raises new challenges to data engineers and scientists when building their own system with such infrastructure. This course aims to bridge the gap between the big data practice and the skills of undergraduate students in data infrastructure. It will provide an overview of big data infrastructure, which enables the student to build their own system based on the data characteristics and processing demands. It will get the students involved in the whole process of big data system building, i.e., the design, planning and implementation. It will also cover additional tools and techniques crucial to the success of big data, including data visualization, and monitoring. Students are expected to learn skills of 1) software development infrastructure in mainstream data-driven IT products; 2) data crawling and extraction frameworks for web-based data collection; 3) data storage architecture for highly variant data in big data systems; 4) massive data processing frameworks; 5) real-time and streaming data processing frameworks; 6) data visualization tools for big data analytics; 7) orchestration of the open source systems with high-level data interface.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -10976,11 +11073,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS112", "IS105", "IS217", "MGMT108"],
+    },
   },
   IS460: {
     name: "Machine Learning & Applications",
     moduleCode: "IS460",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Machine Learning is one of the fundamental subjects in the field of Artificial Intelligence. Machine Learning is concerned with computer programs that automatically improve their performance through experience (e.g., learning to recognize images or speech, classifying text documents, detecting credit card frauds, or driving autonomous vehicles).  This course covers both fundamental theory, practical algorithms and the applications for machine learning from a variety of perspectives. It includes a range of topics, from supervised learning (such as Naïve Bayes Classifier, Linear Regression, Logistic Regression, and Neural Networks) and their applications, to unsupervised learning (such as Principal Component Analysis (PCA) and Singular Value Decomposition (SVD)) and their applications, and from traditional (shallow) learning (such as Support Vector Machine (SVM)) to recent state-of-the-art deep learning methods (such as Recurrent Neural Networks (RNN) and Convolutional Neural Network (CNN)). The course is intended to prepare students for basic understanding of machine learning fundamentals and equip students with the capability to apply machine learning techniques through real world business applications (to solve real world problems). NOTE: This is an algorithm and technical course with applications. It is highly recommended that students are proficient in programming, and have learnt probabilities and statistics. Solid math background, such as linear algebra and calculus, will be very useful and helpful for your learning journey as well. Previous course code & title: This course is a new version of a previous course CS421 Introduction to Machine Learning (the version prepared by Prof. WANG Zhaoxia)",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11007,11 +11108,15 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      or: ["IS217", "MGMT108", "CS105", "COR-STAT1202", "COR-STAT1203"],
+    },
+    mutuallyExclusive: ["IS449", "CS421"],
   },
   IS462: {
     name: "Virtual Reality for Business",
     moduleCode: "IS462",
-    description: "DESCRIPTION_NEEDED",
+    description: `Technology continues to transform businesses around the world in the 21st century. Digital platforms are revolutionizing the way businesses communicate with their customers and offer products and services. In recent years, there has been a rising interest in XR (extended reality – including virtual, augmented, and mixed reality) technology and applications in consumer, commercial, and industrial markets. In the coming years, advanced 5G network technology and edge computing will enable the rapid progress of XR towards mainstream adoption in many areas of our work and life. With many new developments happening in XR technology, now is the perfect time for businesses to consider incorporating XR with their enterprise solutions. The objective of this course is to cultivate a broad and comprehensive understanding of XR and prepare students for participating in the ideation, development, and integration of highly integrative and immersive applications in businesses. In particular, through the SMU-X course project, students will learn how to develop a Virtual Reality application for e-commerce businesses. The course curriculum covers a wide range of business cases (from Industrial, Manufacturing, Medical, R&D, Entertainment, Educatio, etc.), literature, and practice including: Computer Science Human-Computer Interaction (HCI) concepts, evolution of visual displays for VR, motion tracking, interactive 3D graphics, multi-modal sensory integration, user interfaces, experience design, psychology of VR, and challenges of VR as a communication and collaboration medium. This course will include lectures, readings, case discussions, guest speakers, hands-on labs, and exploration of VR platforms. The course project will require students to render e-commerce business scenarios in a VR environment.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11038,7 +11143,14 @@ export const modules: ModuleBank = {
   IS463: {
     name: "Digital Technologies for Environmental Sustainability",
     moduleCode: "IS463",
-    description: "DESCRIPTION_NEEDED",
+    description: `The efficient management of our shared resources and the way we dispose of waste and pollutants are crucial to achieving responsible consumption and production. Encouraging industries, businesses and consumers to recycle and reduce waste is necessary, as is supporting consumers to move towards a more sustainable pattern of consumption. This forms the basis of SDG12: Responsible consumption and production, which includes the following targets1
+
+1.	Substantially reducing waste generation through prevention, reduction, recycling and reuse
+2.	Reduce food waste along the supply chains, retail and consumer levels
+3.	Ensure that people have the relevant information and awareness for sustainable development.
+
+Digital Technologies for Environmental Sustainability (in the Singapore context) is a hands on module which allows students to employ problem solving and prototyping skills using digital technologies to address the above targets. In addition to case studies of how the issue of Responsible consumption and production is tackled by various Singapore organizations, communities and businesses, they will also be exposed to design thinking, hardware and software prototyping, prototyping tools and technologes (IoT, Microcontrollers, App development, Artificial Intelligence) and will gain first hand experience in using these tools to prototype a solution to address a challenge statement around environmental sustainability.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11065,7 +11177,20 @@ export const modules: ModuleBank = {
   IS464: {
     name: "Data Analytics and Technology Guided External Course",
     moduleCode: "IS464",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is structured as a guided-by-instructor course with content provided by Google through the Google Career Certificates (hosted on online learning platform, Coursera) together with guidance and assessments by SMU. It incorporates industry or career certification in the undergraduate study to equip students with professional and technical skills.
+
+Data Analytics and Technology Guided External Course is part of the SMU-KPMG Analytics and Cloud Technology Work Study Program in partnership with Google. Students need to clear this course and its corresponding Google Career Certificate before embarking on a six-month work-study with KPMG. There are two certificates:
+1) Google Advanced Data Analytics Professional Certificate aims to give students the skillsets on translating data for insights, applying statistics, regression analysis and machine learning on complex data in order to draw conclusions and drive informed decision making; 
+2) Google IT Automation with Python Professional Certificate focuses on equipping students to use Python in automating common system administration tasks, troubleshoot, debug complex problems, and apply automation at scale using configuration management and the Cloud.
+
+NOTE! 
+This course is only open to students accepted into the SMU-KPMG Analytics and Cloud Technology Work Study Program in partnership with Google and enrollment will be done offline with e$20 deduction.
+All students accepted and enrolled in the Program will be awarded with Google Skills Ignition SG Scholarship to complete the Google Career Certificate.
+This is a Pass/Fail course and if F grade is awarded, it will be counted towards your GPA.
+
+For students taking Google Advanced Data Analytics Professional Certificate, IS217 Analytics Foundation is required as a co-requisite. 
+For students taking Google IT Automation with Python Professional Certificate, there is no pre-requisite.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11088,11 +11213,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["IS217"],
+    },
   },
   IS465: {
     name: "Quantum Computing in Financial Services",
     moduleCode: "IS465",
-    description: "DESCRIPTION_NEEDED",
+    description: `Quantum computing is now being realised at an ever-increasing pace. “Quantum advantage” has been demonstrated and the underlying technology continues to advance weekly. While everyone talks about the speed of quantum computers, the power of this technology is not just in how fast calculations can be performed but also how accurate. The overall objective of the course is to understand quantum computing, how it differs from classical computing and what the main applications are, now and in the future. Emphasis is placed on FinTech/Banking applications, e.g., trade, investments. Furthermore, you can experience programming real quantum computers and explore the quantum world.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11123,7 +11252,17 @@ export const modules: ModuleBank = {
   IS466: {
     name: "Digital Ethics for Responsible Computing",
     moduleCode: "IS466",
-    description: "DESCRIPTION_NEEDED",
+    description: `In a world where digital technologies are not just tools but extensions of our daily lives, their societal impacts are far-reaching yet still emerging. Past slogans like "move fast and break things" led tech companies to overlook harms, as evidenced by scandals involving user data misuse and workplace culture issues.
+There is now broader recognition that responsible innovation requires understanding potential risks and aligning with human values. But how can we ensure that technology advances in a manner that's ethical, sustainable, and beneficial for all?
+This timely course explores ethics in computing. Through case studies and frameworks, students will develop skills in critical and nuanced thinking about complex issues at the intersection of technology and society.
+What you will find in this course:
+Embracing Complexity: We won't seek single "right" answers. Instead, we'll foster a space for exploring multidimensional problems with interconnected tradeoffs, encouraging students to understand, appreciate, and engage with differing viewpoints.
+Skill Development: Students will practise not just theory but systematic analysis of real-world impacts, preparing them for the consequential decisions they may face in their future careers.
+Structured Exploration: The course is divided into two engaging parts. The first introduces fundamental concepts, while the second dives into contemporary dilemmas, exposing the tensions between responsible development and disruptive innovation.
+Respectful Discourse: A commitment to respectful dialogue is central to this course. We recognise the intricate and "messy" nature of real-world problems, with ramifications extending far into a dynamic and uncertain technological future.
+Distinct Focus on Technology: While courses like "COR3301 Ethics and Social Responsibility" provide a broad understanding of ethical conduct across various professions, this course specialises in the intersection of technology and ethics. This course targets the unique challenges of the digital age, equipping tech professionals with the nuanced understanding needed to navigate ethical dilemmas specific to computing, AI, and digital human rights. It's a tailored exploration for those aiming to align technological advancements with responsible decision-making.
+Empowering Future Leaders: By attuning students to ethical imperatives and responsible decision-making processes, this course prepares the next generation of tech professionals to navigate and guide technological progress in a manner that honours human values and serves the greater good.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11150,7 +11289,31 @@ export const modules: ModuleBank = {
   IS483: {
     name: "IS/SMT/C&L Project Experience (Applications)",
     moduleCode: "IS483",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will provide opportunity for BSc(IS) student to:
+
+Develop an IT system or proof of concept application that satisfies a list of functional and quality requirements. Student will work with a team and practice their requirements gatherings, analysis, design, implementation, testing, deployment and project management skills.
+Build the additional depth required to become a Business IT professional. This includes building up competence in the student's selected track, applying their learning domain knowledge and technology to the relevant track domain industry sector.
+Upon completion of the course, student will be able to:
+
+Showcase expertise in executing a project using knowledge acquired from the courses taken from the IS curriculum
+Experience developing of some technology deliverable for an IT system or proof of concept
+Experience working in a team environment with a sponsored project (internal, external or self-proposed) using project management skills experience throughout the courses taken in IS
+Learn about an industry or technology that is related to his selected track not otherwise available in the course curriculum.
+Work on complex and real project used by the project sponsor
+
+Details on the course are available in the course MS Teams sharepoint site. Please join by following the instructions below: 
+Visit https://teams.microsoft.com/_#/discover  and enter the invitation code 2f33cau under "Join a team with a code", and click "Join team"
+
+Prerequisites:
+- Be a year 3 or year 4 student . As you need sufficient coursework exposure to do a good job in your IS483, it is best to take it later in your curriculum. Taking IS485/IS483 in the first term of year 3 is discouraged.
+- A maximum of 4 (four) additional courses at SMU can be taken by a student in a term along with IS485/IS483/IS484.
+- You must work on one of the tracks declared for your first major. If you are taking dual track, you can align to either of the two tracks. You cannot drop the track to which you have aligned your IS483/ IS484/ IS485 project as it will affect your graduation pre-requisites.
+- IS483 projects can only be aligned to IS tracks and cannot involve tracks from other majors.
+- For BA / DCS / FT / SMT track students, you need to pass the following courses
+    - Software Project Management (IS212) is a co-requisite
+    - Any two (2) track courses. One of these courses can be a co-requisite.
+    - If the student drops the co-requisite courses in the same term that IS Project experience is being taken, the student will get an F for IS project experience.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11231,7 +11394,8 @@ export const modules: ModuleBank = {
   COR2415: {
     name: "Vietnamese",
     moduleCode: "COR2415",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This is an elementary language course designed for beginners who do not have an experience in the language, focusing on intensive oral communication practice, with the aim to develop basic oral expression, listening, comprehension and elementary reading and writing skills. The course is conducted in Vietnamese, comprising a series of activities, which includes: individual and group presentations, discussions, role-play and other class activities.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11263,7 +11427,11 @@ export const modules: ModuleBank = {
   COR2603: {
     name: "Singapore: Imagining The Next Fifty Years",
     moduleCode: "COR2603",
-    description: "DESCRIPTION_NEEDED",
+    description: `The course content is jointly developed by professors from the six local universities and will be delivered using a blended learning approach.
+
+Singapore is both a city and a country contained in a small geographical space located in Southeast Asia. It houses a diverse population in terms of race, language, religion, class and nationality. It possesses no natural resources, but has a highly educated labour force. Its economy has experienced significant growth rates, particularly in the late 70s and early 80s, coupled with low unemployment.
+
+Like most other more developed economies, it now confronts a range of socioeconomic issues (rapidly ageing population, declining fertility rates, widening income inequality, rising costs of living) amidst increasing global competition, technological advancements, and security threats. At the same time, Singaporeans have become more of a people with a stronger national identity, a greater propensity to participate in the decisions that affect the destiny of the country, and a wider range of views and voices on the future direction of Singapore, the challenges it confronts, and the strategies and means by which to achieve their preferred goal(s) for themselves, their children, and the country.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11344,7 +11512,8 @@ export const modules: ModuleBank = {
   COR2622: {
     name: "Asia and World Literature: Beyond Orientalism",
     moduleCode: "COR2622",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course surveys the complex cultural and political relationships that exist between Asia and World Literature, exploring how canonical works of prose, poetry and drama have been used (and continue to be used) to advance divergent imperialist, nationalist and intercultural goals. We begin by tracing the formation of ‘Orientalist’ stereotypes about Asia in World Literature, illuminating the role these texts played in the Western colonial project. Next, we interrogate how Asian nationalists and creative practitioners sought to move beyond these Orientalist tropes by adapting Shakespeare’s plays to create bold, new intercultural performances. We then dive into a range of canonical Asian texts and their contemporary adaptations. We ask what these texts can tell us about the connected political, cultural and technological histories of Asia and Europe; probe how these texts play shape our perceptions of racial, religious, national and gender differences; and ponder the place Singapore writers have in world literature today.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11407,7 +11576,7 @@ export const modules: ModuleBank = {
   "COR-ACM2629": {
     name: "ACM2629 , Art & History: Beginnings to Revolutions",
     moduleCode: "COR-ACM2629",
-    description: "DESCRIPTION_NEEDED",
+    description: `Art has inspired and fascinated people all over the world since the beginning of time. Since the early cave art produced more than thirty thousand years ago, every civilisation has captured its exploits, concerns and everyday life in vases, murals, sculptures, paintings and monuments. Art has always been an enduring product of human creativity, symbolic communication, and emotional expression that exists in an intriguing intersection between past and present historical contexts. This course introduces students to major developments in art history in the Western World, which has and continues to form a key reference system in today’s art world. This course will focus on key periods and movements affecting the production of art until the 19th century, particularly Ancient Mesopotamia and Egypt, Greece, Rome, the Middle Ages and the Renaissance. Emphasis will be placed on the relationships between art and its historical, religious and socio-political contexts, and the effects on the definitions, styles, practices and communities of art.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11438,7 +11607,8 @@ export const modules: ModuleBank = {
   "COR-COMM1312": {
     name: "COMM1312 , Communication Strategies in the Digital Age",
     moduleCode: "COR-COMM1312",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Management Communication equips students with strategies that will enable them to successfully communicate their solutions to organizational problems. Since the course emphasizes the importance of effective written and spoken communication within a business setting, students will be exposed to strategies that will enable them to communicate their ideas and values in a clear, persuasive and memorable way. Students will, therefore, learn the art of producing impactful business documents and delivering engaging presentations in various business contexts. By the end of the course, students will be able to function as proficient communicators who are ready to embrace the communicative challenges inherent in today’s dynamic business environment.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11483,7 +11653,8 @@ export const modules: ModuleBank = {
   "COR-COMM1313": {
     name: "COMM1313 , Intercultural Communication",
     moduleCode: "COR-COMM1313",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The course provides strategies on how to read a person’s culture as well as corporate culture. Features of culture such as individualism and collectivism, masculinity and femininity, power distance and issues related to intercultural adaptation, ethnocentrism, stereotyping and prejudice will be discussed. The aim of this course is to develop intercultural competencies, which will make business practices more meaningful and significant.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11546,7 +11717,8 @@ export const modules: ModuleBank = {
   "COR-COMM2246": {
     name: "COMM2246 , Storytelling with AI",
     moduleCode: "COR-COMM2246",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Human beings have been telling stories for centuries. But now, Generative AI is making it possible for people to seamlessly bridge the gap between a story idea and its execution. This course will teach you how to combine the science of storytelling with Generative AI tools to create compelling and impactful stories for organizations and brands, so as to engage, persuade, and inspire audiences. In addition, you will have the opportunity to apply what you have learnt to a real-time, real-world client project.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11591,7 +11763,7 @@ export const modules: ModuleBank = {
   "COR-GA2248": {
     name: "GA2248 , Anthropocene Asia",
     moduleCode: "COR-GA2248",
-    description: "DESCRIPTION_NEEDED",
+    description: `The Anthropocene, derived from the Ancient Greek terms for human "anthropo" and new "-cene," has gained widespread interest through assessing the irrefutable characteristics and impact of human activities on global ecology. This interdisciplinary course seeks to situate the Anthropocene in Asia by exploring its impact on the region's politics, markets, societies, and selves. We will primarily draw on the fields of environmental studies, anthropology, cultural studies, history, geography, and sociology to critically examine the multifaceted dimensions of the Anthropocene in the region. In this course, we will explore contemporary debates around climate change, capitalism, biodiversity, and political and cultural ecology to understand the complex and interrelated challenges posed by these issues. In doing so, it will challenge us to rethink what it means to live, be, and thrive in the Anthropocene Asia. This course invites students to go beyond disciplinary paradigms and consider how emerging issues in the Anthropocene demand new ways of thinking, learning, and acting. Ultimately, we aim to foster a critical awareness of the Anthropocene and its impact on Asia, and to explore possibilities for sustainable and equitable futures.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11623,7 +11795,8 @@ export const modules: ModuleBank = {
   "COR-GA2635": {
     name: "GA2635 , Contemporary Asia: Power, Diversity & Change",
     moduleCode: "COR-GA2635",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Home to around forty percent of the world's population, Asia is a region of extraordinary natural, cultural, economic, and socio-political diversity. It is characterised by both patterns of continuity across time and space, as well as far-reaching and rapid social and physical change. This course surveys a variety of contemporary trends and challenges found across Asia. By exploring weekly themes such as urbanisation, transnational migration, civil society and social movements, religious politics, security issues, environmental degradation, geopolitics and the role of China, economic growth and disparity, and regional structures like ASEAN and SAARC, students will gain a deeper understanding of the complex dynamics of contemporary Asian societies. At some points in this course we will approach ‘Asia’ with a wide-lens, taking global, transnational, and regional perspectives, while at other times we will zoom in to particular experiences at a national or sub-national level. This is a survey course, and while students will be exposed to a wide range of issues relevant to contemporary Asia, they will also be encouraged to delve deeper into one or two select topics that are of particular interest to them.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11654,7 +11827,8 @@ export const modules: ModuleBank = {
   "COR-GA2636": {
     name: "GA2636 , Managing Diversity in Asia",
     moduleCode: "COR-GA2636",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course explores various models in managing diversity in Asia. It examines forms of ‘difference’ such as ethnicity, religion and sexuality, and policy frameworks are important for multicultural societies. The course critically engages with the debates within scholarship of multiculturalism that encourages a theoretically-informed approach towards a range of empirical examples from Europe, North America and Asia. The analysis of empirical examples enables the consideration of demographic, cultural and ideological particularities, as well as nation-building efforts that vary across historical and geographical environments. This context-driven approach will also be taken towards the analysis of contemporary policy issues including citizenship, education and employment, including current debates such as disability in education and the ‘headscarf affair’. The course also includes an applied component which allows students to put the theories to use and to experience how to deal with diversity through three dialogue sessions outside the campus.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11681,7 +11855,8 @@ export const modules: ModuleBank = {
   "COR-GA2641": {
     name: "GA2641 , India in the World: Traditions and Transitions",
     moduleCode: "COR-GA2641",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The flow of, products, practices and ideas, and into India from the rest of the world, and from India into Asia, especially, and around the world have contributed considerably to the country’s current economic and political state and its position in the world. This course introduces students to Indian beliefs and cultural traditions in the context of the global forces that have shaped the country over millennia. Religious and philosophical traditions, visual and performing art theory and practice, culinary methods, language and literature, film and television trends of the diverse subcontinent are examined in the context of a globalized world. The course also looks at 21st century India and its soft power globally.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11708,7 +11883,8 @@ export const modules: ModuleBank = {
   "COR-INTS2240": {
     name: "INTS2240 , Climate Change: Past, Present and Future",
     moduleCode: "COR-INTS2240",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This multi-disciplinary course offers critical perspectives into the subject of climate change. Co-taught by experts in the fields of climate science, social science, and the humanities, it provides critical insights into the deep contexts of modern climate change, the complex relationship between climatic changes and humanity and, will introduce students to how different disciplinary perspectives can be utilised for understanding complex modern problems. Subjects include the history of climate science, understanding climate change as a complex problem, the role and efficacy of modern-day organisations in tackling climate change, and specific climate-induced challenges facing humanity, such as urban heat and extreme weathers. The multidisciplinary approach will demonstrate how each individual discipline offers powerful frameworks and tools to understand and engage with climate change in all its complexity.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11753,7 +11929,10 @@ export const modules: ModuleBank = {
   "COR-JPAN2401": {
     name: "JPAN2401 , Japanese",
     moduleCode: "COR-JPAN2401",
-    description: "DESCRIPTION_NEEDED",
+    description: `Japanese is designed for students with no previous background in Japanese. This course provides an introduction to the four skills of language: speaking, listening, reading and writing, as well as Japanese culture. Our emphasis is on oral communication skills in basic survival situations in a Japanese speaking environment. Hiragana, Katakana (Japanese scripts) and approximately 50 Kanji (Chinese Characters) to enhance reading and writing skills will also be introduced.
+
+IMPORTANT: You must be a complete beginner. Please contact the instructor if you have any background in Japanese. You will be required to sign a form to declare that you are a complete beginner, and any false statement will lead to ‘F’ grade.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11831,7 +12010,8 @@ export const modules: ModuleBank = {
   "COR-KREA2402": {
     name: "KREA2402 , Korean",
     moduleCode: "COR-KREA2402",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides participants with Korean speaking, listening, reading and writing skills necessary to communicate and integrate confidently in a Korean speaking environment. In particular, participants will be able to understand and carry out basic Korean conversation such as greetings, making and answering basic queries, exchanging information on everyday life and discussing topics of general interest. In addition, participants will be provided many opportunities to experience Korean culture first hand.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11909,7 +12089,9 @@ export const modules: ModuleBank = {
   "COR-LAW2225": {
     name: "LAW2225 , Governing for Sustainable Futures",
     moduleCode: "COR-LAW2225",
-    description: "DESCRIPTION_NEEDED",
+    description: `
+We live in a hyperconnected world – ecosystems and societies are linked like never before. This occurs through the movement of people, goods and products and the transfer of capital and information. At the same time, there is mounting appreciation of the need to address issues of equity and sustainability concurrently. To adequately understand, and ultimately to govern and regulate, for equitable-sustainability there is the need to identify and appreciate the complex feedbacks across activities of multiple individual, government and corporate actors across scales from the global to the local. This interdisciplinary course equips students with a grounding in concepts from the biophysical sciences, social sciences, law and governance. It focuses on key social, ecological and economic concerns in the context of biodiversity and climate change. By introducing students to systems and futures approaches it enables students to engage in sustainable and equitable governance for more desirable tomorrows.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11940,7 +12122,8 @@ export const modules: ModuleBank = {
   "COR-LAW2235": {
     name: "LAW2235 , Sustainable Ocean Law and Governance",
     moduleCode: "COR-LAW2235",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The aim of this course is to introduce students to law, policy and institutions on sustainable management of the world’s oceans. It first introduces the UN Sustainable Development Goals and its relevance with the ocean. The course then provides a comprehensive study of international law regulating major human activities at sea, such as shipping, fisheries, marine energy, mining and marine scientific research. The course will lay foundations for students to imagine a future governance regime that could secure a healthy ocean for humanity.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -11971,7 +12154,8 @@ export const modules: ModuleBank = {
   "COR-LAW2237": {
     name: "LAW2237 , Introduction to Sustainability Law",
     moduleCode: "COR-LAW2237",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In recent years, sustainability has become a popular buzzword in society. The need for sustainable development is quickly emerging as an area of focus among businesses, organisations, governments and the media. This course will introduce students to the fascinating environmental, economic and social dimensions and intersections for sustainability and various streams of law and policy. Students will gain exposure to a range of current developments involving sustainability locally and globally, while reflecting on current laws and policies that address them. This course serves as a good stepping stone to the more in-depth exploration of selected sustainability issues in other electives, such as LAW4052 Sustainable Ocean Law and Governance and COR-LAW2225 Governing for Sustainable Futures.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12002,7 +12186,8 @@ export const modules: ModuleBank = {
   "COR-LAW2242": {
     name: "LAW2242 , Digital Media Governance: Law, Policy and Practice",
     moduleCode: "COR-LAW2242",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In recent years, sustainability has become a popular buzzword in society. The need for sustainable development is quickly emerging as an area of focus among businesses, organisations, governments and the media. This course will introduce students to the fascinating environmental, economic and social dimensions and intersections for sustainability and various streams of law and policy. Students will gain exposure to a range of current developments involving sustainability locally and globally, while reflecting on current laws and policies that address them. This course serves as a good stepping stone to the more in-depth exploration of selected sustainability issues in other electives, such as LAW4052 Sustainable Ocean Law and Governance and COR-LAW2225 Governing for Sustainable Futures.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12033,7 +12218,8 @@ export const modules: ModuleBank = {
   "COR-LAW2243": {
     name: "LAW2243 , Legal Technology, Operations and Digital Justice",
     moduleCode: "COR-LAW2243",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Legal technology, operations, and artificial intelligence are not just future trends; they are currently being utilised by organisations across the legal industry to enhance efficiency, effectiveness, and service quality. This course introduces students to the intersection of law and technology, emphasising the integration of digital tools in legal practice, operations, and the pursuit of digital justice. Students will examine the market forces driving innovation and explore use cases from law firms, in‐house legal departments, the judiciary, and legal technology startups. They will investigate how artificial intelligence and automation are transforming legal processes, access to justice, and the regulatory frameworks governing these changes. Through practical case studies, interactive projects, and comprehensive instruction, participants will gain insights into the business context and regulatory environment for developing digital legal services.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12064,7 +12250,8 @@ export const modules: ModuleBank = {
   "COR-LAW2630": {
     name: "LAW2630 , Introduction to Chinese History, Culture, Economy, Politics and Law",
     moduleCode: "COR-LAW2630",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "With the rise of China as an economic superpower, foreign businesses have been rushing to do business in or with China. However, many businesses encounter various problems in China. This is mostly due to their limited knowledge and understanding of China, even if they can speak Chinese. This course aims to address this problem by enhancing the students’ understating of the unique history, culture, economy, politics and law in China. To help the students understand the nuances of doing business in/with China, interesting cases and events will be used to illustrate how things work in China in real life. With the knowledge acquired in the course, the students will gain a better understanding of how business is conducted in China; the interaction between business on the one hand, and culture, politics and law on the other hand; as well as how foreign firms may survive and prosper in China.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12091,7 +12278,8 @@ export const modules: ModuleBank = {
   "COR-LAW2640": {
     name: "LAW2640 , EU,ASEAN Law and Relations",
     moduleCode: "COR-LAW2640",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will explore interdisciplinary issues in EU-ASEAN law and relations. The EU and ASEAN are among the world’s most advanced regional structures, representing distinct models of integration. Since the 1980s, the evolution of EU-ASEAN relations has offered valuable insights into the multifaceted concept of interregionalism in international law and relations. ASEAN became a priority in the EU’s Asia policy agenda following the Treaty of Lisbon, and the European Commission’s 2015 “Trade for All” strategy articulated an ASEAN approach based on individual agreements, culminating in a region-to-region framework. The recent conclusion of the EU’s trade and investment agreements with Singapore and Vietnam reinforces this incremental approach towards realising the EU-ASEAN free trade agreement. Amidst China’s changing status, the impasse in WTO negotiations, and the COVID-19 pandemic, EU-ASEAN legal frameworks and relations have gained prominence on the global stage. In 2020, the two blocs upgraded their “Dialogue Partnership” to a “Strategic Partnership,” which aimed at enhancing economic and security cooperation, sustainable connectivity, and development. In 2021, the EU’s Indo-Pacific strategy underscored its engagement with the ASEAN-led regional architecture, particularly in light of the economic and political impact of the CPTPP and RCEP. In this SMU-X course, students will explore EU and ASEAN institutions and examine the EU’s new Indo-Pacific strategy from legal and political perspectives. The course will specifically evaluate EU-ASEAN economic agreements and focus on cutting-edge areas such as trade and investment liberalisation, AI and digital trade, and sustainable development. Students will gain practical experience by collaborating with legal and policy experts to tackle real-world challenges. Please note: This course does not include an overseas trip and does not meet SMU’s global exposure requirement. However, students will visit EU and/or ASEAN institutions in Singapore and engage in projects with legal and policy experts specialising in EU-ASEAN law and relations. The course will also incorporate SMU’s blended learning approach, which may include some online sessions. The grade will be on a pass/fail basis.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12118,7 +12306,8 @@ export const modules: ModuleBank = {
   "COR-MAND2404": {
     name: "MAND2404 , Mandarin",
     moduleCode: "COR-MAND2404",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is design to equip you with elementary knowledge of the structure of Han Yu Pin Yin and the correct usage of vocabulary and grammar in daily conversation. Empowered with this knowledge and with the help of Chinese dictionary, you will be able to read all Chinese characters and pronounce them accurately. These skills provide a foundation in the usage of computer to enter Chinese characters.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12145,7 +12334,11 @@ export const modules: ModuleBank = {
   "COR-MGMT2207": {
     name: "MGMT2207 , Innovations for Asia’s Smart Cities",
     moduleCode: "COR-MGMT2207",
-    description: "DESCRIPTION_NEEDED",
+    description: `The world is rapidly urbanizing. More and more cities around the world are becoming increasingly popular as economic powerhouses and magnets for migrants from the countryside, suburban areas and other parts of the world. All big cities in both First and Third World countries as well as emerging markets such as New York, London, Tokyo, Paris, Shanghai, Hong Kong, Singapore, New Dehli, Jakarta etc. have to cope with high population density and serious challenges such as air pollution or traffic congestion. How do we pack more people into big cities and yet continue to achieve a high quality of life? How do we create and manage ‘good cities’ which are safe, spacious, green, connected, fair and resilient? How can cities create economic wealth while still fulfilling the CSR responsibilities of sustaining a “Green Planet”? What are the best practice designs and technical smart city solutions which could be leveraged to tackle these challenges and how can they be successfully commercialised? This course will provide answers to these questions with special emphasis on the managerial and commercial aspects of smart city concepts.
+
+The key lies in creating and effectively managing innovative and sustainable, smart cities able to leverage on new technologies such as smart grids or sensor networks to create a place where people can live, play and work well. Starting from the stakeholder requirements of citizens and planners of innovative cities, the course will introduce students to urban design concepts as well as commercialization, management challenges and implementation issues of the smart city model. There will also be a focus on how good governance and enabling technologies such as sensor networks can facilitate the creation, management and sustainability of ‘good’ cities.
+
+With the help of case studies and resource persons such as industry leaders, innovative city designers, tech experts and business development experts from local and int. companies such as ST Electronics, JTC, Jurong Consultants, Frost & Sullivan, IDA International, Urban Redevelopment Authority (URA) etc., students will be familiarized with the opportunities and challenges of the ‘smart city business’ which represents a key element in the value creation and extraction strategy of the Singapore Government and related businesses.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12172,7 +12365,8 @@ export const modules: ModuleBank = {
   "COR-MGMT2238": {
     name: "MGMT2238 , Doing Business with Artificial Intelligence",
     moduleCode: "COR-MGMT2238",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "More and more business organizations are using A.I. technologies such as predictive analytics, deep learning or sentiment / image analysis to identify patterns and trends in vast reams of (big) data, allowing them to make ‘smarter’ decisions (e.g. about loss of customers or the necessary service inspection of equipment) and potentially to become more competitive in real-time. As A.I. technology is already surpassing human decision-making in certain instances, there is growing concern about ‘uncontrolled A.I.’ in business and society, incl. regulatory and ethical-legal challenges. Against this background, this new course aims to equip students with foundational, theoretical and practical knowledge about A.I. driven business applications in selected private and public sector organizations. Besides reconstructing the history of artificial intelligence from the 1960s to the current era (as well as a refresher about the basics of computer science algorithms such as audio and video compression algorithms), we will put emphasis on explaining the A.I. driven business models of several top international and local organizations. In order to appreciate the power of A.I. technology, we will take a closer look ‘under the A.I. hood’ to understand what makes machine learning, deep learning, neural networks and image analysis tick. Visits to A.I. powered business organizations engaged in customer service management, finance, marketing, supply chain management or manufacturing will be organised aimed at appreciating both the benefits and downside of A.I. Students graduating from this course will be equipped with critical competencies to solve real-world business problems using A.I. technology while simultaneously casting a critical eye on the morality and ethics of commercialising A.I.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12199,7 +12393,8 @@ export const modules: ModuleBank = {
   "COR-OBHR2247": {
     name: "OBHR2247 , The Science and Practice of Mindfulness at Work",
     moduleCode: "COR-OBHR2247",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Our world is characterized by the phenomena of VUCA (volatility, uncertainty, complexity, ambiguity) and overload (of attention, information, stimulation, and work). This affects our attention, emotions, cognitions, well-being, functioning, and performance. It challenges our ability to flourish, to both feel well and do well. In this course, we explore the science and practice of mindfulness as a way of flourishing at work and in life. Mindfulness-based practices are rooted in Eastern contemplative traditions but have been adapted to a secular, modern context. A large amount of research has accumulated, showing that such mindfulness-based practices confer numerous benefits both for well-being and functioning, including at the workplace. “Mindfulness at work” has two meanings in this course: First, we will focus on mindfulness in the context of work and organizations. Second, we will incorporate mindfulness practices such as mindfulness meditations into the course itself. Thus, in this course, we will examine both the science as well as the practice of mindfulness. For the science aspect, we will read and discuss scientific research studies on mindfulness related to each of the course topics. For the practice aspect, we will engage in mindfulness practices based on established and carefully designed secular mindfulness trainings. The practice aspect is integral to this course and students will be required to commit about 20-45 minutes daily to these practices. Evidence suggests that the practices can help individuals feel and function better and are a good investment of the students’ time.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12226,7 +12421,8 @@ export const modules: ModuleBank = {
   "COR-POSC2604": {
     name: "POSC2604 , Politics of South East Asia",
     moduleCode: "COR-POSC2604",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines contemporary politics in Southeast Asia, with a focus on events since 1970. The course begins by reviewing the impact of colonialism and historical trajectories on contemporary politics. We then move to a focus on the specific eleven countries in the region, tracing key political events, outlining the impact of leaders, reviewing the patterns of political contestation and providing a foundation of the structure of governments. In the final part of the course we focus on specific issues and challenges, including the role of leaders, dynamics within political institutions, development, civil society, conflict and human rights, ASEAN, foreign policy and regional security. This course provides a valuable foundation for understanding Southeast Asia and is recommended for any student interested in learning about the region.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12275,7 +12471,8 @@ export const modules: ModuleBank = {
   "COR-PPPM2233": {
     name: "PPPM2233 , From Numbers to Narratives: Evidence in Modern Policy,making",
     moduleCode: "COR-PPPM2233",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In today's fast-paced and interconnected world, policy challenges are multifaceted and often transcend traditional boundaries. Governments worldwide are tasked with navigating this complexity, requiring an evolved approach to policy-making and the incorporation of diverse forms of evidence. This course adopts an interdisciplinary, practitioner-focused perspective, exploring the diverse landscape of evidence and its role in innovative policy-making. Through an examination of case studies from various policy areas and different countries, we delve into how governments and public organizations use multiple types of evidence, from traditional statistical data to intuition and experiential insights, to formulate impactful policies. Our exploration encompasses both technical tools like Python and Tableau, as well as thought frameworks like scenario thinking and futures thinking, providing a holistic view of the evidence-policy nexus. We will investigate the role of different stakeholders in the policy-making process, emphasizing the concept of co-creation within the Singapore context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12306,7 +12503,8 @@ export const modules: ModuleBank = {
   "COR-PSYC2638": {
     name: "PSYC2638 , Subjective Well,Being",
     moduleCode: "COR-PSYC2638",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Subjective well-being (SWB) refers to individuals’ evaluations and experiences of the quality of their lives in terms of how they think and feel, so it involves both cognitions and emotions. At the general level, we can construe SWB as the relative presence of positives and absence of negatives. However, what are these positives and negatives, how do they combine and inter-relate, and why and how do they matter? The psychological study of subjective well-being attempts to address these questions using an evidence-based approach grounded in the scientific method and the empirical research on the constructs, causes, correlates, and consequences of SWB. The goal of this course is to introduce students to the scientific literature and psychological study of SWB. Although the primary focus is on SWB at the individual level due to the inherently subjective nature of the construct, we will also discuss issues and implications in the contexts and levels beyond the individual such as the team, organizational or national levels.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12337,7 +12535,8 @@ export const modules: ModuleBank = {
   "COR-SOCG2637": {
     name: "SOCG2637 , Deconstructing Singapore Society",
     moduleCode: "COR-SOCG2637",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Singapore is a fascinating subject of sociological inquiry. Constructing Singapore’s history remains a struggle against competing notions of the state as a tool of British colonialism, an adjunct of Malaysia before its untimely expulsion, immigrants’ lay-over and Lee Kuan Yew’s political success. Since independence, Singapore’s leaders lament its lacking natural resources to justify their “pragmatic” management of the everyday lives of Singaporeans, including speech, educational environment, sexuality, religious expressions, ethnic identity and political culture, at the expense of citizens’ rights. Populated dominantly by ethnic Chinese with Malays and Indians as minorities, yet geographically surrounded by Muslim-majority nations have made the ruling PAP reluctant to observe multiracialism in governance policies which compromises the nation-building project. Presently, forces of globalisation threaten the state’s monopoly over political space and ideologies. This module targets students interested in developing a critical appreciation of the socio-economic and political contexts that structure Singaporeans’ daily lives. It highlights critical historical circumstances that shape Singapore’s post-independent governance policies, political discourses and contemporary development as a nation-state. It sharpens students’ sociological imagination as they deconstruct political ideologies to grasp alternative interpretations of the development of Singapore society and make sense of contemporary issues of importance in Singapore and to Singaporeans.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12369,7 +12568,8 @@ export const modules: ModuleBank = {
   "COR-SSOC2227": {
     name: "SSOC2227 , Sustainability and Society",
     moduleCode: "COR-SSOC2227",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This core module focuses on providing students with fundamental proficiency of concepts and key frameworks of sustainability and how they apply to the multifaceted issues linking climate change, environment and society. The course will introduce students to key frameworks such as the UN Sustainable Development Goals (SDGs), the UN Sustainable Development Agenda 2030, the Paris Agreement and relevant developments concerning net zero principles in the public and private sector. Beyond this overview, the course will focus on specifically on 6 SDGs and their interlinkages reflecting the sustainability research and pedagogy emphases at SOSS. Namely, these are Climate Action, No Poverty, Good Health & Wellbeing, Reduced Inequalities, Zero Hunger and SDG Partnershps. Furthermore, the course will use case studies and key examples from whole-of-nation sustainability policies such as the SG Green Plan 2030 and energy transitions in Asia, which directly reflect the adoption of these frameworks. As part of the instruction on key climate-literacy concepts such as mitigation, adaptation and resilience, the course will emphasize topics reflecting the social dimensions of environmental sustainability related to access to water, food, energy, social vulnerabilities and disaster risk. Practical knowledge of social enterprises and triple bottom line approaches will be covered through key readings and examples discussed in class.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12401,7 +12601,8 @@ export const modules: ModuleBank = {
   "COR-THAI2403": {
     name: "THAI2403 , Thai",
     moduleCode: "COR-THAI2403",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The basic Thai language course aims to provide students with a good foundation of Thai pronunciation, grammar and vocabulary. This course will introduce students to Thai alphabet, vowels and tones, and teach students to construct sentences using basic vocabulary and expressions commonly used in daily communication situation. The students will develop the four language skills of listening, speaking, reading and writing.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12446,7 +12647,8 @@ export const modules: ModuleBank = {
   COR2212: {
     name: "Epidemics , Biomedicine and Global Health",
     moduleCode: "COR2212",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The past 20 years have seen several epidemics and pandemics: 2003 SARS, 2009 Flu Pandemic, the continuing Ebola outbreaks since 2014, and now, COVID-19. Discussions about preparedness for an outbreak abound and systems of biological research, biomedical interventions, and global health measures are implemented to contain and resolve an outbreak. Governments and communities respond by suspending some privileges as scientists and institutions fast-track therapeutic solutions. While these events may feel “unprecedented,” epidemics have occurred in the past. The key is to understand what has changed and what has remained similar. This course examines epidemics from the perspectives of history of biomedicine, global health, and the life sciences. Understanding the history of epidemics will help us attain a comprehensive understanding about what epidemics actually are. This knowledge will also aid in our social responses to COVID-19 in our everyday lives, chart informed biomedical interventions and potential socio-political actions. We will explore questions such as, How have epidemics shaped society? How did the biomedical practices around epidemics arise? Are vaccines really the “magic bullet” to solve all of our problems?",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12509,7 +12711,8 @@ export const modules: ModuleBank = {
   COR2220: {
     name: "Digital Law and Technological Innovations",
     moduleCode: "COR2220",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is dedicated to curious laypersons. In your professional life after graduation, whatever your chosen field, you will face two certainties. First, a professional matter which involves machine learning or the Blockchain. Second, you will work with a lawyer! This course gives you a toolkit, a shorthand for constructive dialogue with a lawyer’s concerns, to solve your problems within your domain expertise. Consider this example: what is your understanding of a “token”? A banker might think about asset ownership records, and link a “token” to “accounts”. To a programmer, a “token” could be a technical standard for a fungible unit of value on the Blockchain. In contrast, a lawyer understands a “token” based on legislation or judge-made law. Significantly, lawyers have an exclusive right to advocate for all your professional interests in a court of law. This course will cover legal reactions to technological innovations in the Fourth Industrial Revolution. We will examine case studies in Artificial Intelligence and Blockchain concerning, for instance, autonomous vehicles and smart contracts, which are dumb contracts. Lawyers are trained to shape these realities with words by manipulating natural language. You will understand how – and why - lawyers convert the realities of algorithms and codes into legalese to mitigate harm against persons, to aid commercial growth and resolve its disputes.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12540,7 +12743,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides the student with a basic understanding of accounting as "the language of business". It introduces students to the basic concepts, principles, procedures and approaches underlying the accounting process. This basic understanding facilitates the interpretation of financial information, which is necessary for making business decisions.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12769,7 +12973,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces cost and management accounting topics to enable students to understand how accounting information is used to manage an organisation. It focuses on the factors that differentiate one company from another. The course will look at various functional areas within the firm, ranging from manufacturing to marketing, and from accounting to human relations. In addition, the concept of management, how senior managers plan, implement and control those plans through people will be briefly discussed. The course will enhance students' personal skills in preparation for more advanced courses at the university in the following ways: working in groups, analysing cases, writing reports, and making presentations.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -12944,7 +13149,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces cost and management accounting topics to enable students to understand how accounting information is used to manage an organisation. It focuses on the factors that differentiate one company from another. The course will look at various functional areas within the firm, ranging from manufacturing to marketing, and from accounting to human relations. In addition, the concept of management, how senior managers plan, implement and control those plans through people will be briefly discussed. The course will enhance students' personal skills in preparation for more advanced courses at the university in the following ways: working in groups, analysing cases, writing reports, and making presentations.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13083,9 +13289,13 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines corporate reporting issues and accounting standards as well as the analysis and interpretation of financial statements and reports prepared under those standards. The objective is to attain technical and analytical proficiency in preparing and using financial reports of companies, whether as accountants, auditors, managers, financial analysts or investors. Topics covered include: financial reporting framework and environment, accounting standards and disclosure requirements, quarterly reporting, accounting changes, classification of income, introduction to consolidated statements and accounting for investments in associates and joint ventures, financial statement analysis, credit risk analysis and bankruptcy prediction, equity valuation, leases and other off-balance sheet financing, capitalisation of borrowing costs, revenue recognition, intangible assets, impairment of assets, segment reporting, events after balance sheet date, provisions and contingencies.",
     credit: 1,
     terms: ["Term 2"],
+    preReq: {
+      or: ["ACCT101"],
+    },
     sections: [
       {
         code: "G1",
@@ -13186,7 +13396,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The role of this course is to provide a specialised in-depth accounting course that addresses these key notions: role of information systems within accounting; documentation of accounting information systems including data flow diagrams and flowcharts; database management, processes and modeling; exposures and risks associated with accounting information systems; evaluation of information technology internal controls and impact on internal control; impact of information technology on the audit process; relationship of accounting information systems to major processes of the business cycle; and development, design and analysis of accounting information systems.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13227,6 +13438,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT203"],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT223: {
     name: "Taxation",
@@ -13312,6 +13527,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT224: {
     name: "Financial Reporting and Analysis",
@@ -13320,7 +13538,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides an in-depth examination of corporate accounting issues and financial reporting standards as well as the analysis and interpretation of financial statements prepared under those standards. Particular emphasis will be given to the application and interpretation of Financial Reporting Standards (FRS) of Singapore.\nTopics covered include: financial reporting framework, presentation of financial statements, accounting standards and disclosure requirements, classification of income, quarterly reporting, segment reporting, changes in accounting policies and methods, accounting for non-current assets (including asset revaluation, assets held for sale, discontinued operations, investment property, biological assets, and intangible assets), impairment of assets, leases, provisions and contingencies, deferred tax, revenue recognition, and employee benefits.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13379,6 +13598,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT201"],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT331: {
     name: "Audit and Assurance",
@@ -13387,7 +13610,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The focus of this course is predominantly on the external financial statement audit, within the framework of assurance. However, auditing is multidisciplinary in nature, requiring and integrating knowledge of business, accounting, information systems, law and strategy.\nStudents who have yet to complete ACCT201A Corporate Reporting & Analysis of Financial Statements, ACCT203 Accounting Information Systems and ACCT206 Governance, Risk and Assurance, are strongly advised not to sign up for this course. Students without this necessary prior knowledge will be responsible for acquiring the knowledge on their own.\nThis course focuses on the audit of financial statements by the external auditor, and is designed to:\n1. provide students with an in-depth knowledge and understanding of key auditing and assurance concepts and methodologies;\n2. develop the skills and attitudes necessary for providing financial statement audits and other assurance services, including problem-solving and decision making, critical thinking, communication, teamwork, interpersonal skills and professional values and ethics;\n3. develop analytical, strategic and systems thinking through the merging and melding of information from related disciplines;\n4. inculcate in students an attitude of active learning at both individual and team level, through students’ pre-seminar preparation, involvement in seminar discussions, seminar activities and project work; and\n5. develop the mindset and values required to succeed in the profession.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13464,6 +13688,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT202"],
+    preReq: {
+      or: ["ACCT221", { and: ["ACCT201", "ACCT224"] }],
+    },
   },
   ACCT332: {
     name: "Accounting Thought and Governance",
@@ -13472,7 +13700,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course presents a review and analysis of the theoretical foundations of corporate financial reporting and its applications in corporate governance and sustainability. The course will focus on the economic theories underlying financial reporting, agency problems that arise in organizations, governance and risk management guidelines, and sustainability development goals. Topics that will be covered include: the development of accounting thought, adverse selection and moral hazard, contract design, stakeholder-oriented governance practices, sustainability-linked remuneration, concepts and principles of risk management including climate risk, and internal controls & corruption.\nIn relation to the Singapore Chartered Accountants Qualification Program (SCAQ),governance and risk management is recognized as a core knowledge and competency in one ofits technical modules. The course examines the concepts, frameworks, principles, and practices of governance and internal risk management. In relation to the United Nations (UN) sustainable development goals, various goals such as gender equality (Goal 5), sustainable economic growth (Goal 8), responsible consumption and production (Goal 12), climate action (Goal 13), peace, justice, and strong institutions (Goal 16), and partnerships for the goals (Goal 17) are integrated into the course. The course examines multi-stakeholder oriented corporate governance, gender diversity among board members, sustainability-linked executive remuneration, climate risk, and corporate corruption.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13567,6 +13796,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["CS203"],
+    preReq: {
+      and: ["ACCT221", { or: ["ACCT224", "ACCT201"] }],
+    },
   },
   ACCT334: {
     name: "Intermediate Financial Accounting",
@@ -13575,7 +13808,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In today’s volatile, uncertain, complex and ambiguous (VUCA) world, corporations face increasing dimensions of risks in their businesses. Volatility in financial and physical markets, the failure of systemically important financial intermediaries, global climate and health crises, shifting social expectations and corporate governance concerns can directly or indirectly impair the financial, manufactured, natural, human, intellectual and social capitals of corporations. The ability to recognize, measure, manage and communicate such risks becomes critical to the long-term sustainability of corporations.\nThis course examines recognition, measurement, reporting and disclosure requirements for corporations in relation to financial and non-financial risks under the frameworks of the International Financial Reporting Standards (IFRS), the International Sustainability Standards Board (ISSB) and other related bodies. Concepts, principles, and applications—with respect to market, counterparty, and sustainability risks—will be discussed from the perspectives of different stakeholders. While the focus of the course will be primarily on accounting and financial reporting, an integrated approach will be adopted.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13652,6 +13886,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["CS203"],
+    preReq: {
+      and: [{ or: ["ACCT224", "ACCT201"] }, { or: ["FNCE101", "FNCE103"] }],
+    },
   },
   ACCT335: {
     name: "Advanced Financial Accounting",
@@ -13660,7 +13898,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course focuses on the accounting requirements of complex arrangements and transactions with the primary theme of accounting for group entities. Specific topics include accounting for business combinations involving a group structure, consolidation principles and processes, consolidation of multilevel group structures, changes in ownership interests, consolidated cash flow statements, equity accounting and translation of foreign operations. This course builds upon and also reinforces the prerequisite knowledge covered in earlier financial accounting courses, primarily Intermediate Financial Accounting.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13755,6 +13994,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT301", "ACCT333", "ACCT335"],
+    preReq: {
+      or: ["ACCT334"],
+    },
   },
   ACCT336: {
     name: "Valuation",
@@ -13763,7 +14006,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course covers valuation and analysis of financial statements, and will include the valuation of businesses and entities, and various components. The focus will be primarily on valuation from the perspective of corporate managers and for business entities rather than from the view of assigning value to individual assets and/or portfolio analysis. An examination of certain critical steps in the valuation process will all be covered. This includes examination of: key accounting policies, accounting adjustments, financial statement analysis, forecasting and discount rate estimation. Special topics for application will include: (a) analysis of different valuation models and (b) valuation for intangible assets.\nThe objective of this course is to equip students with tools and techniques to be able to (a) identify accounting issues in, (b) understand and evaluate financial statements as well as (c) value companies and some intangible assets. First, students need to be able to understand the information provided in financial reports and the various complexity of accounting treatments under International Financial Reporting Standards (IFRS). Second, the course will emphasize the role of accounting in both the financial analysis and valuation processes. Third, the application of valuation of business entities is important in many areas. All of these tools and techniques will be useful for students intending on pursuing a professional careers in any of ACCT336 Valuation (Prof Cheng Nam Sang) Course Outline the areas of: financial analysis, investments, asset management, management consulting, corporate advisory services as well as mergers and acquisitions.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13840,6 +14084,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT408"],
+    preReq: {
+      and: [{ or: ["FNCE101", "FNCE103"] }, { or: ["ACCT201", "ACCT224"] }],
+    },
   },
   ACCT337: {
     name: "Statistical Programming",
@@ -13848,7 +14096,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "In Data Analytics for Accountants, Richardson et al. (2021) define Data Analytics (DA) as “the process of evaluating data with the purpose of drawing conclusions to address business questions”. Increasingly, accountants are expected to create value for businesses through the use of technology and DA tools are often regarded as the first step in transforming raw data into knowledge that can be acted upon by decision makers.\nGiven the heavy use of statistics in applying analytics to accounting data, this course aims to provide students with the foundation in statistical analysis of accounting data and information. This course will focus on the use of R Programming to develop students’ statistical knowledge and provide a foundational framework of using DA to solve problems in the accounting context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13925,6 +14174,14 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    coRequisite: [
+      {
+        or: ["ACCT221", "IS210"],
+      },
+    ],
+    preReq: {
+      or: ["STAT101", "COR-STAT1202", "STAT151"],
+    },
   },
   ACCT403: {
     name: "Advanced Taxation",
@@ -13933,7 +14190,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims to provide students with additional taxation knowledge and understanding and builds upon the foundation in taxation built in the first taxation course - ACCT 223.\nThis Advanced Taxation course reinforce the knowledge and understanding in the workings and basic principles of income tax and GST in Singapore covered in ACCT223 and incorporates advance taxation topics not covered in ACCT223.\nThese advance topics include the taxation of overseas income, the granting of double taxation reliefs, unilateral tax relief, foreign income exemption, the interpretation of articles in double taxation agreements and application thereof, transfer pricing methods and issues, BEPS and other current and evolving tax issues.\nThe tax implications of outbound and inbound investments will also be addressed, including potential tax exposures and how such investments can be structured in a tax efficient manner.\nCase studies will be used extensively to enable students to evaluate tax issues in selected commercial transactions, understand and apply the knowledge gained in ACCT223 to real life cases.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -13974,11 +14232,16 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT305"],
+    preReq: {
+      or: ["ACCT204", "ACCT223"],
+    },
   },
   ACCT410: {
     name: "Internal Audit",
     moduleCode: "ACCT410",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Today's business environment is characterized by growing uncertainties and increasing stakeholders' demands for more effective governance in the wake of spectacular corporate failures. Internal audit is an important mechanism in providing internal assurance on the tenacity of governance and risk management practices. Its significance is re-inforced in the recommendations by the Committee to Develop the Accountancy Sector (CDAS) in 2010. The CDAS' report, titled “Transforming Singapore into a Leading Global Accountancy Hub” identified and recommended internal audit as a niche pathway toward accountancy excellence for Singapore. Internal audit is an essential pillar of a resilient organization. This course provides participants with a sound foundation of internal concepts and practices. It provides an overview of internal audit in support on sound governance and risk management. The course content covers essential standards and guidance articulated by the Institute of Internal Auditors. These include the attributes of internal audit, planning, execution and internal audit reporting. The course also aims to enhance participants' understanding and application of assurance methodologies that are crucial in building a culture of doing the right thing.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14001,11 +14264,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT221"],
+    },
   },
   ACCT414: {
     name: "Accounting Analytics Capstone",
     moduleCode: "ACCT414",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Traditionally, the accounting function’s role is always viewed as that of a steward, the control centre for the organisation, rather than the catalyst for enterprise growth. The term ‘back office’ is often used to describe the operating nature of accounting function. So in today’s volatile global business environment, the key challenge for accounting function is how to lead the enterprise in its growth strategies while ensuring effective risk management and stewardship of the enterprise. With complexity and data proliferation, increasingly the CEO and the board turn to accountants to help make sense of all the data, to help cut through this complexity, and to provide more informed analysis on the business and its operation. The opportunity for accounting function is if it can generate the insights that help make better corporate decision making, while continuing to ensure effective control of the enterprise, its reputation as a catalyst for growth will be guaranteed. To do so, traditional accounting departments may have to transform themselves into ‘intelligent accounting functions’. Intelligent accounting functions run their operations as cost effectively as possible, leveraging technology to reduce finance operating costs; strengthen stewardship and control so as to establish a solid foundation to support growth. The biggest challenges, however, lie in creating the efficiencies needed to gather and process basic financial data and continue to deliver traditional finance outputs while at the same time redeploying their limited resources to enable higher-value business decision support activities. This accounting analytics practicum which adopts SMU-X approach, focuses on a few key topics that are vital to establishing an intelligent accounting function (refer to the diagram below): finance strategy and transformation, lean finance and finance shared services, business intelligence analytics, and enterprise process management. In this experiential learning course, students from various disciplines learn what comprises a highly optimised accounting process, design an end-to-end process management and explore the underlying accounting IT systems and advanced data analytical applications. By working closely with instructors from accounting and information systems disciplines, together with an industry partner, students are expected to carry out design and development of an intelligent accounting function solution. The whole idea is to engage students in real-life application and to encourage students to creatively apply concepts to practical problems in their pursuit of solving real-world problems. Students will apply the concepts in real projects.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14046,6 +14313,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT337", "IS217"],
+    },
   },
   ACCT417: {
     name: "Insolvency and Restructuring",
@@ -14054,7 +14324,14 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to expose students to the world of restructuring and insolvency work. Students will be exposed to a wide range of guest lecturers who are experienced and eminent restructuring and insolvency practitioners. Students will learn the full spectrum of the restructuring and insolvency regimes available in Singapore and the application of these regimes in situations of various degrees of distress, through the use of case studies and practical examples.
+
+    Students will also learn the different types of restructuring and insolvency procedures most suited to
+    each situation, the legal implications and effects on the business entities and various stakeholders, the roles, responsibilities and powers of insolvency practitioners under each procedure, and the practical / commercial issues to consider when business entities enter into the restructuring or insolvency mode. This course aims to equip students with the basic knowledge in detecting the early warning signs, understanding financial issues faced by business entities and financial impact of key decisions in addressing the situation.
+
+    The course is not only designed to be relevant for students who are specifically seeking a career in
+    insolvency practice but also for those who are interested in business rescue and business failure
+    generally.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14077,11 +14354,18 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    coRequisite: [
+      {
+        or: ["LGST201", "LAW205"],
+      },
+    ],
+    mutuallyExclusive: ["LAW429"],
   },
   ACCT418: {
     name: "Data Modelling and Visualisation",
     moduleCode: "ACCT418",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Accountants regularly work with large amounts of financial and non-financial data. Data modelling is an important means through which accountants can analyse such data for trends, patterns, relationships, and other useful information for decision making. This course will introduce a variety of quantitative techniques used in the development, implementation, and utilization of analytical data models that accountants regularly use in decision making. It will cover techniques including trend analysis, optimization, and simulation.\n\nVisualization provides an important means through which accountants can communicate insights obtained via data modelling to their intended recipients. Well-designed visualisations can improve the memory, comprehension, and decision making of intended recipients of this information. This course will introduce students to key principles and techniques for data visualization. Students will create visuals including dashboards and interactive visualisations for decision making in the accounting context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14122,11 +14406,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT101", "ACCT111", "ACCT105"],
+    },
   },
   ACCT420: {
     name: "Forecasting and Forensic Analytics",
     moduleCode: "ACCT420",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course explores how data can be used to solve accounting problems across financial accounting, managerial accounting, and audit contexts. Students will gain exposure to techniques to explore how financial and non-financial data is used to forecast events, detect financial discrepancies and frauds, predict corporate default, optimize operations, and determine business strategy. The emphasis of this class will be on problem solving, theory, and application, with additional emphasis on interpretation and communication. Some programming will be required, but programming help will be provided at the start of the semester via online tutorial and through instructor-provided code. Some advanced analytics methods such as text analytics, neural networks and deep learning will also be introduced. This course has been designed to equip students with an analytics mindset to develop analytics strategies and make better business decisions.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14149,6 +14437,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT337", "DSA211"],
+    },
   },
   ACCT421: {
     name: "Analytics for Value Investing",
@@ -14157,7 +14448,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines quantitative models and techniques used by securities analysts and investment managers to identify and interpret patterns in accounting and other financial data for making value-based fundamental investing decisions. The course will discuss extant research evidence on value investing strategies over the past decades. Students will then learn to develop their own quantitative strategies, in the context of a value-based investing framework, to predict financial performance and distress risk of companies as well as to uncover securities that can potentially generate superior investment returns.\n\nThe course will involve developing algorithmic models to analyze large-scale financial data, drawing inferences from statistical results, and back-testing the models for their predictive power. The advantages and pitfalls of such models—including issues of data selection, and behavioral and institutional biases— will also be discussed. The skills taught would be useful for students intending to pursue a career in securities analysis, investment management, or corporate finance.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14180,11 +14472,20 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["CS203"],
+    preReq: {
+      and: [
+        { or: ["STAT101", "COR-STAT1202", "STAT151", "COR-STAT1203"] },
+        { or: ["FNCE101", "FNCE103"] },
+        { or: ["ACCT224", "ACCT201"] },
+      ],
+    },
   },
   ACCT424: {
     name: "Auditing Information Systems",
     moduleCode: "ACCT424",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course examines IT systems and environment used to support the business processes common across various industries. The course helps to recognize how IT affects flows of business transactions, identify relevant technology elements, and assess risks arising from IT elements. Topics in the course will include the understanding, identifying and testing relevant to GITC (General IT Controls) and evaluate deficiencies in GITCs and assess the impact of GITC deficiencies on the audit.\n\nMoreover this course will also touch upon ways in which IT audit report documentation is done and audit observations are assessed, handled and addressed. Lastly the course will also give a quick overview of regulatory guidelines in place like technology risk management, outsourcing risk or business continuity management stipulated by Monetary Authority of Singapore (MAS).\n\nThe course will use class activities, case study, simulations, real world examples and group discussions to increase the practicality of the knowledge content. Course is a perfect blend for individuals who are willing to learn about the IT elements considered in audit and compliance assessments.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14207,6 +14508,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT221", "IS304", "IS210"],
+    },
   },
   ACCT425: {
     name: "Forensic Accounting and Investigation",
@@ -14215,7 +14519,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course will equip students with the fundamental knowledge on how to investigate financial fraud. Students will not only learn the difference between accounting, auditing and forensics accounting, but towards the end of the course they will be able to apply proven methodologies to conduct financial fraud investigations. The module will begin with identifying what is fraud, the types of fraud schemes, evidence collection and the use of technology for forensic investigations. It will further develop and lay the foundations for forensics analytics, planning for an investigation, conducting interviews and reporting. At the end of the course, students will be ready to take up roles in the field of forensic accounting and investigations. ",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14238,6 +14543,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ACCT221"],
+    },
   },
   COMM102: {
     name: "Foundations in Strategic Communication",
@@ -14246,7 +14554,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "COMM102 is the core course of the communication management major. It lays the foundations for managing corporate communication and external relations and connects all other electives via a common structure and understanding. In this course, students examine communicative practices in the corporate environment, including internal communication, reputation and image management, crisis communication, public relations, corporate social responsibility, and new communication technologies. Through discussions of corporate communication theories, case studies, and practical applications, this course introduces students to the perspective that the organization is the sum of its stakeholder perceptions and relationships. Students with a communication management major are thus enabled to choose a focus for their curriculum and/or career.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14291,7 +14600,8 @@ export const modules: ModuleBank = {
   COMM121: {
     name: "Fundamentals of Media Engagement",
     moduleCode: "COMM121",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Engaging the media has become important. This can be mainstream media or online media. Many organizations and organizational leaders still regard engaging the mainstream media as paramount priority. Latest studies by the Reuters Institute at Oxford University found the increasingly importance of mainstream media. Increasingly, organizations also want to increase their engagement with key opinion leaders like social media influencers and understand how tools like TikTok can help them disseminate organizational messages. The course equips students with the knowledge of how to engage the Tier 1 mainstream media (otherwise known as earned media) drawing on Pang's (2010) Mediating the Media model. It also equips students on how to complement this with the organization's owned and shared media. As leaders of the future, regardless of which industry you are in, it is important to understand how the Tier 1 media work. It is a useful course for students of all disciplines - in your roles as domain experts in the respective fields, consultants, organizational leaders or communication professionals as you would need to engage the media. It also prepares you for work in all sectors - be it corporate, public, not-for-profit, or for those who want to work in overseas markets.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14314,11 +14624,13 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["COMM345"],
   },
   COMM246: {
     name: "Crisis Management and Communication",
     moduleCode: "COMM246",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Organizations are battling crises of some form or other every day. This can be internal crises like organizational miscommunication, personality clashes; or external crises, for instance, arising from policy mismanagement to terrorism. Due to the vulnerability of the organization to both internal and external uncertainties, no organization is immune from crises. Even as we speak, we have just emerged from a global crisis, Covid-19, that has engulfed the world.\n\nThis course equips students with the necessary skills and abilities to prepare for organizational crises, diagnose the nature of the crises, how to communicate during crises, and how to recover and learn from crises.\n\nAs leaders of the future, it is important to understand how crises can impact the organization. It is a useful course for students of all disciplines: Some of you will be leading crisis management and communication in your roles as domain experts in the respective fields or as organizational leaders, others may become consultants or communication professionals who work with C-suites to navigate through crises.\n\nIt also prepares you for work in all sectors - be it corporate, public, not-for-profit, or for those who want to work in overseas markets.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14363,7 +14675,8 @@ export const modules: ModuleBank = {
   COMM255: {
     name: "User Experience and Digital Product Design",
     moduleCode: "COMM255",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides an introduction to user experience (UX) practices, theories, and real-world approaches that can help you prepare for work at some of the most innovative technology companies of today that obsess over their users' needs, feedback, and satisfaction. With focus on communicating human-centered design across stakeholders in digital technology product organizations, you can learn how to create user experiences that enhance and augment the ways people work, communicate, and interact. Through a series of lectures, hands-on tutorials, and project-based assignments, you will acquire skills in all four basic activities of interaction design: discovery, design, prototyping, and evaluation. You and your project group will design an interactive digital app prototype based on the research findings of real human needs.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14404,11 +14717,13 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IS211"],
   },
   COMM256: {
     name: "Design Thinking and Communication",
     moduleCode: "COMM256",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Design Thinking is an open-ended, open-minded, and iterative approach to finding solutions for difficult business problems. It uses technology and a designer's toolkit, while focusing on human needs. You don't need to be a designer to become a design thinker. This course is your opportunity to learn to apply creative and collaborative tools, such as brainstorming and prototypes, to real-life challenges with a particular focus on how to communicate (i.e., pitch) innovative solutions. As we will discuss design thinking case studies at many Fortune 500 companies, you will be first introduced (in the form of interactive lectures) then practice (through hands-on workshops) the design thinking process. Designs go through many iterations and you will also refine your project multiple times. The course culminates in a group project pitch in front of external judges, who are ready to mentor (and sometimes even invest in) students to turn their entrepreneurial ideas into the next unicorn start-up.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14435,7 +14750,8 @@ export const modules: ModuleBank = {
   COMM301: {
     name: "Visual Analytics for Decision Making",
     moduleCode: "COMM301",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The course is designed for students majoring in Communication Management, specifically within the Data, Design, and Communication (DDC) Track. It aims to equip students with the skills necessary for understanding and implementing data-driven decision-making in business contexts. The curriculum provides a step-by-step tutorial on constructing and applying machine learning algorithms for business problem-solving using Python programming. Central to the learning process, students will learn how to report and draw insights from analytics using advanced visualization frameworks and Python toolkits.\n\nThroughout the course, students will develop a comprehensive understanding of machine learning techniques. The real-world applications of the course cover a variety of business queries including market segmentation, personalization, algorithmic trading, sentiment analysis, and topic modeling of text data. The course strives to make machine learning (ML) and artificial intelligence (AI) accessible, actionable, and interpretable (AAI), transforming these concepts into powerful tools for business problem-solving through effective visualization and data storytelling with Python.\n\nThe course employs an interactive lecture format to explore the principles and applications of machine learning, paired with a hands-on programming approach. Students engage directly with the material by completing parts of provided script templates. This blend of conceptual and technical learning is crucial for the experiential aspect of the course, which is strongly emphasized to encourage students to learn by doing. Such an approach is essential for understanding and applying course material in real-world scenarios, enabling students to effectively collaborate with data science teams within their organizations.\n\nThis course is specifically tailored for DDC-track students who aim to build analytical rigor with a strong emphasis on using the Python programming language for machine learning applications. Consistent practice in Python is vital for mastering the programming skills being taught, akin to the persistent practice required to learn to play the piano.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14458,11 +14774,15 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["COMM302"],
+    },
   },
   COMM302: {
     name: "Designing Communication for Behavioural Change",
     moduleCode: "COMM302",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "What makes people notice certain messages (commercials or news) and not others? How can a campaign for cognitive, affective, and behavioral changes be catchy, convincing, and contagious? When addressing such questions in organizational settings, communications managers often rely on what they know from executive experience and/or conventional wisdom, executing a number of communication strategies aiming at having a desired impact. This course will show how strategies that may hold intuitive appeal can be challenged and better informed by psychological principles underlying human judgment and decision-making. Students will learn the key psychological principles about how people process information in a given context and how to assess the conditions under which intended and/or unintended consequences arise. The learning, in turn, can be transformed to exert a competitive edge by identifying contributing and constraining factors of strategic communication to make an impact",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14507,7 +14827,8 @@ export const modules: ModuleBank = {
   COMM360: {
     name: "Investor Relations",
     moduleCode: "COMM360",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Investor Relations (IR), sometimes referred to as financial communications or financial public relations, is the strategic management responsibility which integrates finance, communication, marketing and securities law compliance to deliver effective two-way communication between a company and its stakeholders, ultimately contributing to a company's securities achieving fair valuation. This course introduces students to the essentials of effective IR and covers the various methods that publicly-listed companies can employ to successfully communicate with the global investment community, including institutional investors, retail investors, analysts, financial media, financial bloggers and regulators. The course will look into the development of a company's investor communication strategy and investment narrative. Groups of students will role-play as Investor Relations practitioners to plan, develop and execute investor relations communications for a company through its life cycle. Three real-world scenarios will be introduced to provide students with insights into how a company can respond to an investor relations crisis, a merger & acquisition transaction, and a change in corporate strategy. Groups will work through the investor communications for these scenarios with the objective of developing appropriate narratives to secure buy-in from the financial community and protect the reputation and valuation of the company. Students will also examine the digital and mainstream building blocks of IR tools, which are integral parts of a sound IR programme, and understand how data analytics can be used to enhance shareholder identification and targeting. As part of the course, students will also develop a 12-month investor communications programme to engage IR stakeholders.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14534,7 +14855,8 @@ export const modules: ModuleBank = {
   COR1001: {
     name: "Internship",
     moduleCode: "COR1001",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Internship is a credit-bearing graduation requirement under the Capabilities pillar of the SMU Core Curriculum. The internship experience is an integral part of career readiness and serves as a unique experiential learning opportunity for students to undergo training in a professional setting. To further integrate our co-curriculum with the academic curriculum, one course unit (1 CU) will be awarded for internships for students matriculated from AY2019-20 onwards. The internship programme with its rigorous preparation through a Reflective Practice Unit and online Foundational Finishing Touch (Internship Readiness Modules) is enhanced to provide students with an opportunity to apply their disciplinary knowledge and enhance their employability skills at the workplace preparing them for their future careers. Internships with a strong focus on learning outcomes aligned with careers of their choice and the reflections activity will guide students in their career planning. Students matriculated from AY2019-20 onwards (excluding students in the Bachelor of Laws programme) will be awarded 1 CU, upon successful completion of the Internship requirements. For students in the Bachelor of Laws programme, internship is a non-credit bearing graduation requirement.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14555,7 +14877,8 @@ export const modules: ModuleBank = {
   COR2001: {
     name: "Community Service",
     moduleCode: "COR2001",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Community Service is a credit-bearing graduation requirement under the Communities pillar of the SMU Core Curriculum. The Community Service experience serves as a unique experiential learning opportunity for students to undergo development in personal mastery, global citizenry, collaboration and project management skills. To further integrate our co-curriculum with the academic curriculum, one course unit (1 CU) will be awarded for community service for students matriculated from AY2019-20 onwards. The Community Service programme is enhanced to focus more on learning outcomes and help students to better understand and apply their learning. The enhanced credit-bearing Community Service programme will impart service learning knowledge and equip students with skills to conduct critical needs analysis and asset mapping, so as to help them provide more impactful and sustainable service to the community. The programme will also include a Reflective Practice unit to equip students with the skills for deeper and more meaningful reflection. Students matriculated from AY2019-20 onwards (excluding students in the Bachelor of Laws programme) will be awarded 1 CU, upon successful completion of the Community Service requirements. For students in the Bachelor of Laws programme, Community Service is a non-credit bearing graduation requirement.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14580,7 +14903,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The purpose of this course is to introduce students to formal statistical reasoning. Its focus is on the analysis of data. The theory is motivated by examining real-world problems with real-world data. Emphasis is placed on the central role played by computers in modern statistics. The Python programming language is used for the labs. No prior knowledge of Python is required to enroll.\n\nTopics covered include: Random sampling, sampling distribution, the bootstrap, the LLN, the CLT, point estimation (MM, ML, etc.), Fisher information, score function, the CRLB, properties of point estimators (unbiasedness, consistency, efficiency, etc.), MVUE, Monte Carlo simulation, numerical optimization, the EM algorithm,A/B testing, hypothesis testing, power function, ML based tests (likelihood ratio, Waldtype, score), the Neyman-Pearson lemma, CLT based tests, confidence interval estimation, chi-square goodness-of-fit test, contingency table, chi-square independence test, nonparametric/robust methods (histogram, empirical cdf, Kendall's tau, etc.), Bayesian methods.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14621,6 +14945,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["STAT201"],
+    },
   },
   DSA211: {
     name: "Statistical Learning with R",
@@ -14629,7 +14956,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims at introducing the concepts of statistics methodologies for searching analytical solutions to problems related in business with the practical use of big data. The use of statistical software R is integrated into most topics of the course. Topics include R-programming, Statistical Modelling, Linear Regression, Resampling Methods, Linear Model Selection and Regularization, and Tree-based methods",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14670,6 +14998,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ACCT337"],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    },
   },
   DSA212: {
     name: "Data Analytics with R",
@@ -14678,7 +15010,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces students to statistical and computational thinking to solve real-world problems with data. It explores some of the theory, programming languages and concepts of the booming field of data science. Students will discover how programming in the state-ofthe art R/RStudio computing environment can be leveraged to extract meaningful information from a variety of real-world data. Students will also explore SQL (structured query language), a language used to access and manipulate data in databases. No prior programming knowledge is required. Topics include: Data visualization, data wrangling, interactive data graphics, interactive web apps, R and RStudio (an integrated development environment for R), SQL (database querying, administration, set up), spatial data, network science.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14719,6 +15052,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    },
   },
   DSA301: {
     name: "Time Series Data Analysis",
@@ -14727,7 +15063,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course covers predictive models, including stationary and non-stationary autoregressive moving average models, vector autoregressions, and vector error correction models with applications to Singapore data. It also covers important ideas in forecasting, such as loss functions, forecast uncertainty, and forecast evaluation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14750,6 +15087,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["DSA211", "ACCT337"],
+    },
   },
   DSA303: {
     name: "Spatial Data Analysis",
@@ -14758,7 +15098,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces statistical concepts and basic tools used in modelling and analysing spatial data: data on variables that are correlated in ‘space/location’ (geo-tagged data). Spatial data are commonly used in regional science and urban economics (related to property prices, crime, household income, etc.), epidemiology and public health (such as disease clusters, etc.), environmental science (air pollution, ozone density, etc.), ecology, biology, geology and other disciplines.\n\nWe start by looking at the practical aspects of organising and visualising spatial data where we will discuss methods available to organise and visualise (i) vector data and (ii) raster data using the R programming language. These are the two main ways in which spatial data are maintained. We also discuss how to use a coordinate reference system to give spatial awareness to a dataset and make meaningful maps including animated and interactive maps using OpenStreetMap and others.\n\nWe then consider the statistical aspects behind spatial data analysis with a special focus on how to re-align classical statistical methods towards spatial data. An outline is given to the three broad types of spatial data in spatial statistical analysis: (i) geostatistical data, (ii) areal data and (iii) point patterns. Standard spatial regression techniques are used to build models to explain attributes that are spatially correlated such as the number of COVID cases. These techniques are fully implemented using R throughout the course. You may follow the links to get a flavour of the applications in this course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14781,6 +15122,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["STAT201"],
+    },
   },
   DSA311: {
     name: "Machine Learning with Applications in Economics",
@@ -14789,7 +15133,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "Recently, state-of-the-art packages for the open-source R language have facilitated the use of key statistical and machine learning (ML) methods, with applications in diverse fields such as genetics, business, social sciences, economics, and actuarial science. This R-centric course aims at introducing more advanced ML methods, which are not covered in the prerequisite course DSA211 Statistical Learning with R. With the background of the other prerequisite STAT201 Probability Theory and Applications, students will learn more advance statistical techniques of how to apply these ML methods with R programming to real-life applications on economics, risk management, actuarial science, etc. Topics include Classification, generalized additive models (GAMs), boosting, Bayesian additive regression trees, tree ensemble methods, support vector machines (SVMs), survival analysis, principal components analysis (PCA), and more. The course is designed to cater to the background and needs of Actuarial Science second major students and Data Science and Analytics second major students.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14812,6 +15157,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: [{ or: ["ACCT337", "DSA211"] }, "STAT201"],
+    },
   },
   ECON104: {
     name: "Mathematics for Economics",
@@ -14820,7 +15168,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces students to the rigorous mathematical foundations of economics. It offers students the necessary tools upon which modern economic analysis and modeling is based. This course emphasizes training in mathematics used in economics through the many economic applications in which mathematical tools are needed.\n\nThe course covers five main topics. The first part covers the basics, such as functions and set theory. The second part teaches matrix algebra in relations to equilibrium analysis, while the third part introduces the concept of comparative statics and the tools needed, derivatives. The fourth topic again uses derivatives to do a rigorous exposition on the most important skill in economics: optimization. Part five introduces integrals and how they are used in dynamic analysis. In each part, there will be many economic applications to let students familiarize with the mathematical concepts in an economic context and learn their real-world usefulness.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14879,6 +15228,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["COR1201", "COR1202"],
+    },
   },
   ECON107: {
     name: "Introduction to Econometrics",
@@ -14887,7 +15239,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This is an introductory econometrics course which provides students with the tools and techniques to analyze economic and financial data. We will emphasize the use and interpretation of single-equation regression techniques in formulating and testing various economic hypotheses. In particular, we will discuss model specification, diagnostics, multicollinearity, serial correlation, heteroskedastictiy, quantitative and qualitative variables, and cross-sectional and time series data modeling. A practical orientation will be adopted focusing on identification of appropriate techniques, execution of analysis, and sound interpretation of results. Concepts will be discussed via examples and illustrations with datasets using the software EViews on the computer. (This is a hands-on course so everyone must have a laptop in class).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -14946,6 +15299,9 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    },
   },
   ECON111: {
     name: "Microeconomics 1",
@@ -14954,7 +15310,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides students with a foundational study of the concepts and theories underlying individual choice, and price formation and government intervention in perfectly competitive markets. The approach combines economic intuition with a rigorous treatment of the concepts taught. Students will learn the micro foundations of individual and market demand, individual and market supply, price elasticities. about the price formation under perfect competition in one market and in all markets (general equilibrium), as well as the two Welfare Theorems of Economics and the scope for government intervention. Finally, they will also learn marginal analysis as a powerful tool for problem solving. During the course, the applicability of these concepts to practical situations and their linkages to various economic electives will be discussed.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15013,6 +15370,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: ["ECON104", "COR1201", "COR1202"],
+    },
+    mutuallyExclusive: ["ECON101"],
   },
   ECON112: {
     name: "Macroeconomics 1",
@@ -15021,7 +15382,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is the first part of a two-course Macroeconomics sequence. The aim of the sequence is twofold. First, it is to introduce students to modern macroeconomic theory, in particular formal macroeconomic models built on micro-foundations. Second, it is to develop a deep understanding of macroeconomic phenomena such as business cycles, long-term economic growth, and the process of economic development, as well as macroeconomic policy issues, such as the impact of fiscal and monetary policy on the economy and the design of a social security system or an unemployment insurance scheme.\n\nThis first part of the sequence first covers the topic of measurement of macroeconomic variables, before easing students into micro-founded macroeconomics by developing a static general equilibrium model with production and using it to analyze a number of fiscal policy issues. The course then moves on to a dynamic framework and covers the mechanics of long-term economic growth and the role of policy in economic development. Students are then introduced to dynamic decision problems when considering consumption and savings decisions of households and investment decisions of firms, and these building blocks are combined with a Walrasian approach to the labor market to complete the development of a dynamic macroeconomic model, which is then used to consider fiscal policy questions like the role of the timing in taxes and government expenditures. The course ends with an in-depth analysis of the data and mechanics of long-term economic growth and the role of policy in economic development.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15098,6 +15460,10 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: ["ECON104", "ECON111"],
+    },
+    mutuallyExclusive: ["ECON101"],
   },
   ECON113: {
     name: "Economics of Globalisation",
@@ -15106,7 +15472,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course focuses on the interaction and integration among the peoples, corporations, and governments of different nations, involving international trade [goods & services] and finance. Students will learn how technology and geopolitics affect the economic interdependence of nations. They will appreciate how economic policies are shaped and constrained by the interdependence of nations. Savings and investments, taxation, trade, fiscal, monetary, and exchange rate policies cannot be considered in isolation. Regional, trans-regional and multilateral financial and economic institutions impact everyday lives. Jobs, wages, and standards of living are impacted by the forces of globalisation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15147,6 +15514,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ECON113S"],
   },
   ECON118: {
     name: "Economic Development in Asia",
@@ -15155,7 +15523,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course provides an introduction to the development economics in Asian countries. The goals of this courses are i) to understand key questions and findings in poverty research and ii) to discuss intended and unintended consequences of proposed policies. In particular, we investigate whether and to what extent nutrition, health, education, credit, and insurance explain the poverty trap. We pay close attention to behaviors of the poor and the incentives created by institutions and policies to get a deeper understanding of the challenges of poverty. We discuss issues of current interest to policy makers based on the analytic tools we develop throughout the course",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15222,7 +15591,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course introduces students to data analytics and the particular features of health data and its potential impact on the healthcare industry. Health-related data may be collected from different sources, including patients, hospitals, insurance companies, households, and government. Students will learn how to visualise and analyse the data to extract useful information for better provision of healthcare services. The course will include hands-on analysis of health data and will examine how data analytics can help to improve different aspects of healthcare practices and policies.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15253,7 +15623,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course is part of the Health Economics & Management major to equip graduates for a role in healthcare management. The course will start with a discussion of quality and efficiency of healthcare service delivery. Topics covered will include the definition, measurement, management and strategic planning of the quality of healthcare services and approaches to paying for healthcare. There will be an investigation of ways to make service delivery more efficient by improving systems and controls and utilising advanced IT systems. The course will also cover the key management principles for preparedness in the event of major disease outbreaks and their control. Besides health risk management in crisis, students will learn strategies and methods for managing public media and containing the level of public anxiety until the situation returns to normalcy.\n\n *** This class will also be taught by staff and faculty from Singhealth and/or Singhealth Academy and students will have to attend site visit and classes as listed in the Weekly Lesson Plan below. Note that for Week 09, students will be required to be in a Singhealth facility for the lesson. As such, DO NOT bid or register for the course if you intend to take classes in SMU campus before or after that time slot as you will need time to travel to and from the Singhealth facility. ***",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15284,7 +15655,8 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "The course is structured into two parts: international trade and international finance. The first part of the course introduces the theory and policy of international trade. The issues involved include the bases for trade, the determinants of trade pattern (direction, terms, and volume), the effects of trade on income redistribution, as well as the various types of frequently-used trade policies, and their welfare consequences. The second part of the course introduces the theory and policy of international finance. The topics discussed include the balance of payment, the international monetary systems, the stabilisation policies of governments to adjust internal and external imbalances, and their effectiveness under alternative exchange rate regimes and different degrees of international financial market integration.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -15348,6 +15720,13 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      or: [
+        { and: ["ECON101", "ECON102"] },
+        { and: ["ECON111", "ECON112", "ECON251"] },
+      ],
+    },
+    mutuallyExclusive: ["ECON203", "ECON103"],
   },
   ECON204: {
     name: "Development Economics",
@@ -22089,7 +22468,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Companies produce and deliver goods or services to meet customer demand through various operations. In this course, students discover how the operations of any organization can be designed, analyzed and improved to lift its performance, whether the organization is a bank, a hospital, a resort, a manufacturing plant, or a fashion retailer. The course reveals how operations management skills can be used to reduce costs, lower inventories, cut waiting times, improve quality, enhance service levels, increase revenues and company profits, and potentially improve the environmental and social sustainability performances. Specifically, students will gain practical knowledge of process analysis and design, demand forecasting, capacity planning, workflow planning and control, inventory management, quality management, and lean operations. With a focus on the basic concepts that govern operations management, the course also provides the necessary foundation to pursue further development in business management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22300,7 +22679,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the dimensions of successful service firms through the use of case studies and lectures. It prepares students for enlightened management and suggests creative entrepreneurial opportunities. Outstanding service organizations are managed differently than their "merely good" competitors. Actions are based on totally different assumptions about the way success is achieved. The results show not only in terms of conventional measures of performance but also in the enthusiasm of the employees and quality of customer satisfaction. Beginning with the service encounter, service managers must blend marketing, technology, people, and information to achieve a distinctive competitive advantage. As the service sector is the fastest-growing sector of the economy, this course is also intended to help students discover entrepreneurial opportunities.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22341,11 +22720,13 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM313: {
     name: "Project Management",
     moduleCode: "OPIM313",
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims to provide students with a sound understanding and knowledge of basic concepts and analytical skills critical to effective project management in any industry. The students will acquire a range of “soft” skills (behavioral) and “hard” (analytical) tools and techniques, and learn how to link theory to real-world projects. Topics covered include project proposal, selection, initiation, planning, implementation, control and evaluation. With the project life cycle in mind, topics such as the role of the project manager and organization, scheduling and resources allocation will also be covered.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22368,6 +22749,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { and: ["OPIM101", "OPIM201"] },
   },
   OPIM314: {
     name: "Logistics and Transportation Management",
@@ -22376,7 +22758,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Transportation is an integral part of the global supply chain system. Goods cannot move on their own from supply points to demand locations, conferring transportation a central role in the global distribution of freight. Transportation creates value-add in a supply chain by performing the "moving" function in the physical distribution of products and it facilitates international trade and hence globalisation. In broader terms, transport connectivity is often referred to as the lifeline of a nation and is often a precondition for economic progress and development. This course explores the business issues in the design and operation of international transportation systems and underlines their strategic importance to firms and the economy. It draws upon the disciplines of operations management, decision analysis and transport economics to present a holistic view of the theories and practices of transportation management. The course also discusses the core concepts and terminologies of road, air, rail, sea and intermodal transportation, as well as the implications for contemporary supply chain management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22399,6 +22781,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["OPIM101"] },
   },
   OPIM318: {
     name: "Sustainable Operations",
@@ -22407,7 +22790,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The objective of this course is to study how companies use their operations to improve environmental (and social) performance and contribute to business success at the same time. Many companies have started doing so by integrating sustainability into their operations. A focus on reducing environmental impact not only allows these companies to comply with increased regulations but also to reduce their costs, to improve the quality of their products, and to enhance the reputation of their brands. In addition, a new brand of companies is going beyond simply reducing negative externalities and actively tries to create a positive impact on the world. In this course, students will learn how citizens, governments, customers, and employees are creating pressures for more sustainable development and how operations managers are responding to these pressures with principles and frameworks such as waste reduction, pollution prevention, and product stewardship. Through the course, students will study specific tools and concepts such as life cycle assessment (LCA), design for environment (DfE), take-back legislation, green manufacturing, green purchasing, remanufacturing, recycling and by-product synergy. Students will also learn how to create a successful strategy for sustainable operations by incorporating sustainability considerations into business strategy, improvement planning, product and process design, supply management and risk management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22430,6 +22813,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM319: {
     name: "Operations Strategy: Principles and Practice",
@@ -22438,7 +22822,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `How did ZARA become one of the fastest growing and most profitable brands in fashion retailing? How did Wal-Mart grow to be the world’s largest retailer? Largely the answer is that ZARA and Wal-Mart view their operational capabilities as an important and integral part of their competitive advantage. As do other successful companies, such as Procter & Gamble, Toyota, and Coca Cola, they invest strategically in physical plants and facilities, in process and information technology, in employees, suppliers, and distributor relationships, and perhaps most importantly, in organizational practices and know-how. The objective of this course is to provide students with a set of qualitative frameworks and quantitative tools to analyze and guide the long-term, strategic decisions for a company’s operations function. This course caters to those interested in management and business consulting, general management, and operations careers. Finance specialists interested in assessing the risks, the opportunities, the competitive advantages, and ultimately the value embedded in a company’s operations will benefit from the course as well.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22461,6 +22845,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM321: {
     name: "Supply Chain Management",
@@ -22469,7 +22854,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Matching supply with demand is a primary challenge for a firm: excess supply is too costly, inadequate supply irritates customers. Matching supply to demand is easiest when a firm has a flexible supply process, but flexibility is generally expensive. In this course we will learn (1) how to assess the appropriate level of supply flexibility for a given industry and (2) explore strategies for economically increasing a firm’s supply flexibility. Lastly we will study coordination and incentives across multiple firms in a supply chain. While tactical models and decisions are part of this course, the emphasis is on the qualitative insights needed by general managers or management consultants. We will demonstrate that companies can use (and have used) the principles from this course to significantly enhance their competitiveness.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22510,6 +22895,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { and: ["OPIM101", "OPIM201"] },
   },
   OPIM324: {
     name: "Global Supply Chains",
@@ -22518,7 +22904,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Global Supply Chain refers to the cross-border organization of the activities required to produce goods or services and bring them to consumers through inputs and various phases of development, production and delivery (International Labour Organization). As global trade is dependent on global supply chain, companies make investment decisions to globalize, setting up production facilities overseas and sales offices beyond their domestic market. The key aspects for companies embarking on global Supply Chain involves cross-border sourcing, overseas production, global planning and international distribution, where the various components for a final product could be sourced from different parts of the world, and manufactured at one or multiple locations and have them distributed to different markets. Managing a global supply chain is also no longer about driving down cost, but it is how companies can maintain their competitiveness and global supply chains has never been more challenging and disruptive in the current environment of pandemic and geo-political tensions. In addition, e-commerce has also changed the design for global supply chain as well. This course provides students with a practical lens and frameworks regarding global supply chain. Students learn the key concepts on global supply chain management, together with special topics on maritime logistics, technology and green supply chain that affects the development of global supply chain. Understanding them would enable the students to better appreciate the complexities when handling global supply chain activities in future. Topics covered include: considerations for global sourcing, selection criteria for global production locations, planning in an uncertainty, volatility, complexity and ambiguity environment, various international methods of entry to overseas market, e-commerce distribution, incoterms and different modes of transportation, terms of payment, customs requirements, and maritime distribution network. Business cases and real-life examples will be used in the course. Industry speakers will be invited as guest lecturers to share the challenges and practical solutions relating to global supply chain. This course is highly relevant for the current business environment and is recommended for those interested in working for global companies managing cross-border business.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22541,6 +22927,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["OPIM201"] },
   },
   OPIM326: {
     name: "Service and Operations Analytics",
@@ -22549,7 +22936,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The increasing availability of data is changing the way organizations are thinking about themselves and the way they interact with the world. Data is helping improve the profits of businesses, the quality of life of individuals, the performance of sports teams, and social interactions. In this course you will learn how to use data and analytics to improve the service and operations of the organisations. The course will expose students to real world examples of how analytics is being used from various domains in managing operations and service delivery, e.g., product quality control, revenue management. Through these examples you will learn how to use tools of analytics such as linear regression, logistic regression, classification and regression trees, random forests, clustering, optimization, and visualization techniques in practice. The statistical software R will be used in the course, and class demo will be presented in R Notebooks. Students are encouraged to create their assignment and project reports using R Notebooks.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22572,6 +22959,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["OPIM101"] },
   },
   OPIM343: {
     name: "Port,Focal Logistics and Maritime Operations",
@@ -22580,7 +22968,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `As much as 90% of world trade is carried via maritime transportation. A wide range of cargoes, each with their own specific handling and storage requirements, pass through the world’s ports and terminals every day. Port operations is a complicated business dealing with a number of disparate activities such as the movement of ships, containers, and other cargo, the loading and unloading of ships and containers, and customs activities. Efficient port operations are important to ensure the smooth transition of cargoes, so that these cargoes reach their destination on time. This course introduces the functions of ports and their roles in contemporary logistics. With the intermodal advancements that lead to expanded but overlapping hinterlands, ports face competitive pressure. This course equips students with knowledge on port operations and how ports can provide value in the modern supply chain. The inter-related relationship among shipping lines, stevedores, port operators and the regulatory environment is discussed.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22611,7 +22999,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `International shipping and ports are fundamental to the achievement of world sustainable development. However, the challenges to shipping and ports in providing safe, secure, energy efficient, environmentally and climate friendly services that, at the same time, promote connectivity and trade and enables economic growth are complex and tremendous. These challenges call for a multi-stakeholder approach involving shipping companies, port authorities/port development companies, regulators, financial institutions, research institutions, and other relevant partners. This course addresses the sustainability imperative for shipping and ports and the various solutions that are available to the different industry stakeholders. Indeed, the shipping and ports industries have started to respond to the growing environmental and social concerns of regulators, customers and the local communities in which they operate, while at the same time increasingly recognizing that sustainability may provide for new business opportunities and profitability.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22647,7 +23035,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The increasing availability of data is changing the way a supply chain is managed. Supply chain analytics is where data analytics meet supply chain management. Given the conflicting objectives of efficiency and customer satisfaction, data-driven analysis can be useful in achieving supply chain excellence. In this course, you will learn the analytics tools and skills to diagnose and optimize a supply chain. In particular, you will learn how statistical tools and data-based optimization can help supply chain stay competitive and attain its leadership.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22670,6 +23058,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    coRequisite: ["OPIM321"],
   },
   POSC003: {
     name: "Introduction to Political and Policy Studies",
@@ -22678,7 +23067,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides an introduction to the major theories, ideas, concepts, and issues in political science and public policy studies. Topics may include but are not restricted to distribution, fairness and justice as they relate to politics and policies. Understanding politics and public policies is crucial for participation in modern society. This course facilitates this understanding by discussing crucial questions such as why states go to war, why some states have become democratic while others have not, how does culture affect politics, and why various countries are ruled in such different ways.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22745,7 +23134,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course introduces students to the conceptual and pragmatic skills necessary for analyzing and devising public policy. On the one hand, the course exposes students to the methods and concepts that make up the tool-box of the contemporary policy analyst. On the other hand, by using these tools to make sense of real-life policy issues and political processes in South-East Asia and elsewhere, the course also introduces students to the more pragmatic “craft” aspects of producing incisive analysis relevant to policy actors in real policy-making environments.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22772,7 +23161,7 @@ export const modules: ModuleBank = {
   POSC103: {
     name: "World Politics",
     moduleCode: "POSC103",
-    description: "DESCRIPTION_NEEDED",
+    description: `The objective of the course is twofold. The course aims to provide students with a broad understanding of the major schools of international relations and to place these theories into the larger historical context. Building on this, also provides a brief survey of the major international state and non-state ‘practices’ (structures, processes, and agents) before moving on to the discussion of some of the most salient international issues of today and the future.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22799,7 +23188,7 @@ export const modules: ModuleBank = {
   POSC108: {
     name: "Mass Media and Public Opinion Research",
     moduleCode: "POSC108",
-    description: "DESCRIPTION_NEEDED",
+    description: `The mass media constitutes an important sphere through which we can understand our complex political and social world. Why does the media focus on certain issues, give voice to particular actors, and frame stories in particular ways? And consequently, how does the media affect public opinion and behavior. Does the media foster understanding, insight, and hold the powerful to account, or does it spread discord, misinformation, and maintain power hierarchies? These are the kinds of questions that students can find answers to in this project-based research design course. During the course students will learn how to write a rigorous empirical research paper and develop the methodological skills to survey public opinion and systematically code media content. After studying how to plan a content analysis and public opinion survey, students will work in groups and write a research proposal on a topic of their choosing. Potential topics are wide ranging. For instance, they could relate to elections, identity politics, migration, protest, conflict, as well as economic, business, environmental, health, or educational issues. Students then choose to design a survey or a content analysis. For the survey, students develop a questionnaire plan to gather public opinions on the media or preform a survey experiment to understand the impact of media. Students doing a content analysis will develop a codebook to code newspapers, TV, film, social media, or the web. After analyzing their unique data, student projects culminate in a presentation and an original research paper of approximately 9,000 words.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22844,7 +23233,7 @@ export const modules: ModuleBank = {
   POSC203: {
     name: "Comparing Political Systems",
     moduleCode: "POSC203",
-    description: "DESCRIPTION_NEEDED",
+    description: `The comparative study provides us with a ready array of conceptual and analytical tools that we can use to address and answer a wider range of questions about the political-economic-social world. This course is intended to acquaint students with some important classic and contemporary works on selected problems and issues in the field of comparative politics, which is one of the main subfields of political research. What can we learn through comparisons that we would be unable to from the study of political systems one by one? Why compare, and how? These questions should be in the forefront of this course. Topics include critical comparative methods, political power, political institutions (executive, legislative, judiciary, and bureaucracy), capitalism, globalization, and federalism in developed and developing countries.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22875,7 +23264,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course analyzes in comparative perspective the relationships between states, governments, markets, international organizations and civil societies in the East and South East Asian regions.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22906,7 +23295,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-21T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course offers a historical overview of the debates over cardinal political categories, such as power, authority, rule, legitimacy, freedom, equality, and justice. We will survey the history of political thinking in Europe, mainly because a global capitalist economy and the dissemination of the modern state form in the postwar period beyond Europe makes the political and social categories articulated in the Western tradition applicable to non-European contexts. Each week, we will concentrate on primary texts by canonical thinkers ranging from Plato to Foucault. In discussing the works of individual political philosophers, our objective is not to study each thinker’s thought for its own sake but to investigate the fundamental concepts and questions they brought to the fore. We will regularly ground the abstract ideas we examine in empirical phenomena, both past and present. This enterprise will involve textual interpretation and critical reflection in order to systematically scrutinize what we mean by “politics,” where we draw the boundaries of the “political,” and how we interrelate different political concepts and schemes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22933,7 +23322,7 @@ export const modules: ModuleBank = {
   POSC222: {
     name: "Chinese Foreign Policy",
     moduleCode: "POSC222",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides a comprehensive introduction to Chinese foreign policy. We analyze important historical periods in Chinese foreign relations, the sources, actors, and processes in Chinese foreign policy making, China’s relations with various countries and regions, Chinese policy toward key functional issues in international affairs, how the rise of China is affecting global power relations, and how other actors are responding. The course pays attention to the application of international relations theories, and also takes an interest in policy issues facing decision-makers in China and other countries who deal with China.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22965,7 +23354,7 @@ export const modules: ModuleBank = {
   POSC304: {
     name: "Social Movements in Asia",
     moduleCode: "POSC304",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course examines contemporary social movements in Asia. Following the surge in political activism in recent years, particularly among young people, students will explore the origins, dynamics, and impacts of social movements across diverse Asian societies. Through contemporary case studies, documentary screenings, and theories of social movements, students will delve into the complexities of collective action and the reciprocal relationship between social movements and their environments. Key questions addressed include the drivers of mobilization, the role of political, social, and cultural factors, and the challenges faced by activists. By engaging with diverse case studies and theoretical frameworks, students will gain analytical tools to understand and engage with activism in Asia. Specifically, the course will cover pro-democracy movements in Hong Kong, Thailand, and Myanmar; farming movements in India; environmental movements in the Philippines and Indonesia; women’s movements in China; and human rights movements across the Southeast Asia region. The course takes an interdisciplinary approach, drawing on works from sociology, anthropology, political science, communications, and Asian studies.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22997,7 +23386,7 @@ export const modules: ModuleBank = {
   POSC308: {
     name: "Gender Politics: Exclusion and Empowerment",
     moduleCode: "POSC308",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the ways in which the social and cultural construction of gender influences the nature and practice of politics. The course revolves around two themes – exclusion and empowerment – and examines the practices, policies and structures that exclude different genders, as well as the strategies and repertoires of different gendered communities to protect their rights and interests. Using case studies in development and specific experiences within countries, as well as lessons from practitioners, the course outlines how gender shapes political life.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23024,7 +23413,7 @@ export const modules: ModuleBank = {
   POSC309: {
     name: "Intervention and Justice in International Relations",
     moduleCode: "POSC309",
-    description: "DESCRIPTION_NEEDED",
+    description: `International intervention, particularly since the end of the Cold War, is often said to expose a conflict between order and justice. This course is concerned with the evolution of intervention in the historical norms and rules of states, with a focus on debates occurring in and around the United Nations. In addition to assessing the changing character of international society, we will consider the moral and political adequacy of existing institutions. When, if ever, is it justified to wage war against another country? To what extent should international organisations promote and encourage respect for human rights? What is a just and equitable global economic and information order? How much force should peacekeepers be allowed to use? Should powerful countries be allowed to interfere in the internal affairs of smaller states?`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23055,7 +23444,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Global economic growth over the past few centuries has brought unprecedented prosperity to more people than ever before. Despite this, many nations remain desperately poor, with more than one billion people unable to support themselves and their families and a reported 18 million poverty-related deaths worldwide each year. This course, applying a variety of perspectives, focuses on the relationship between development and poverty to ask: Why does poverty exist? What is its relationship with economic and political development? What are effective ways to reduce rural and urban poverty?`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23078,11 +23467,12 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["POSC201"],
   },
   PPPM106: {
     name: "Policy Design and Analysis",
     moduleCode: "PPPM106",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course critically analyses public policy designs and how governments pursue the process of designing. With an overarching focus on contemporary environmental sustainability topics, the course allows students to explore questions about how different categories of policy instruments or tools that are part of governments’ public policy ‘toolkits’ are formulated, how they work and how they can be combined in order to address multifaceted problems of the environment. The course allows an examination the craft of policy design from a policy process perspective, namely: how public policy problems get framed and raised on government agendas, how different instruments are analysed, combined and chosen as solutions to these problems, how these instruments mixes are implemented and how their success at addressing policy goals gets evaluated. Students of the course will have the opportunity to analyse contemporary environmental policy cases and learn about the policy design experience from experts of the field who will be invited as guest speakers to the classroom. Some topics that are covered in the course include: policy cycles; policy tool classifications; simple vs. complex tool mixes; policy instrument calibrations; procedural instruments; nudges and nodality tools; regulations and authority-based instruments; organizational tools and tools for co-production and collaborative government.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23109,7 +23499,7 @@ export const modules: ModuleBank = {
   PPPM301: {
     name: "Public Policy Task Force",
     moduleCode: "PPPM301",
-    description: "DESCRIPTION_NEEDED",
+    description: `Public Policy Task Force (PPTF) is a core part of PPPM program. PPTF emphasize the development of problem-solving and analytical skills that constitutes a strong comparative advantage for PPPM students. Students are required to sign up for a specific public policy topic that is suggested by a faculty, discuss, and deliberate core theoretical issues for a few weeks, and then conduct actual field works for solving policy problems. At the end of semester, students are required to come up with a specific policy recommendations and reports. The topics include: subjective well-being, environmental pollution, climate change, international conflicts, immigration policy, urban transportation, poverty, etc.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23140,7 +23530,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Psychology is the scientific study of behavior and mental processes. The goals of this science are to measure and describe behavior, understand and explain it, and predict and modify it. This course will introduce students to the study of behavior as a scientific enterprise and as a formal academic discipline. Topics include the biological bases of behavior, motivation, learning, sensation, perception, memory, thought and knowledge, language, social behavior, intelligence, personality, development, and psychopathology. The overall goal is to provide students with an overview of contemporary Psychology.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23207,7 +23597,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course provides an overview of the psychological research on developmental processes throughout the lifespan. It will include developmental processes in the prenatal period, infancy, childhood, adolescence, and adulthood in the areas of cognition and reasoning ability, morality, emotions, social behavior, and personality.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23248,6 +23638,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { and: ["PSYC001, PSYC110"] },
   },
   PSYC108: {
     name: "Social Psychology",
@@ -23256,7 +23647,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-05-02T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course gives an overview of the field which studies the behavior, thoughts and feelings of individuals in social contexts. The course will cover topics such as social cognition, social perception, social motivation, attitude formation and change, interpersonal dynamics, aggression and altruism, social influence and leadership, conformity, and antisocial behavior.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23287,7 +23678,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Psychology experiments can range from simple to complex, but there are some basic terms and concepts that all students of psychology should understand. This course introduces students to the core methodological concepts and procedures used in empirical research in psychology. Basic issues relating to the formulation of research questions, hypothesis generation and testing, research design, measurement, descriptive and inferential statistics, and ethical principles will be discussed. Applications in various areas of psychology will be used to illustrate these issues.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23310,6 +23701,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["IDIS100"],
   },
   PSYC112: {
     name: "Health Psychology",
@@ -23318,7 +23710,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is designed to provide students with a foundation in the scientific literature and key concepts related to health psychology. In particular the course will examine health-related behaviors and evaluate interventions aimed at modifying or promoting these behaviours. Topics will include health and wellness promotion, stress, coping and resilience and psychological issues with managing chronic and terminal illnesses. This course requires active learning and engagement.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23359,11 +23751,12 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["PSYC001"] },
   },
   PSYC113: {
     name: "Family Dynamics and Processes",
     moduleCode: "PSYC113",
-    description: "DESCRIPTION_NEEDED",
+    description: `The family environment is a critical context for the development of children and for adult adjustment. In this course we will delve into major theories and conceptual models that underpin the intricacies of parenting and family interactions. We will also look at functional and dysfunctional family relationships and behaviours, and effective ways to assess such interactions. The course culminates in an investigation on applications of developmental models to intervention and clinical applications, and emphasize the critical role of parenting interventions in preventing and managing social, emotional, behavioural and health-related challenges.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23386,6 +23779,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["PSYC001"] },
   },
   PSYC202: {
     name: "Cultural Psychology",
@@ -23394,7 +23788,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Human thought and behavior do not exist in a cultural vacuum. This course provides an overview of the psychological research on how culture affects the way humans think and behave. Examples of topics that may be covered include cognition, motivation, personality, self concept, inter-personal processes, and inter-group processes. Methodological and data analysis issues that are particularly important in cultural psychology such as measurement invariance and emic versus etic approaches may also be discussed.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23417,11 +23811,12 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { and: ["PSYC001", "PSYC108", "PSYC110"] },
   },
   PSYC204: {
     name: "Psychology of Reasoning and Thinking",
     moduleCode: "PSYC204",
-    description: "DESCRIPTION_NEEDED",
+    description: `People often have to make choices under situations involving uncertainty and risk. To understand how people make choices or decisions, we need to understand the thinking, reasoning and judgment processes involved. In addition, decision and choice situations often involve making tradeoffs (e.g. price versus quality) or evaluating multiple different options and alternatives. With limited human cognitive capacity and the multiple task demands involved in choice and decision making, it appears that reasoning or decision-making processes are challenging. This course will help you understand these complexities and processes. It will cover topics such as judgments of risk and uncertainty, affect and decision making, self-control, heuristics and biases. In addition, we will connect decision-making theories to other areas of application, such as negotiation, consumer behaviour, and team processes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23444,6 +23839,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { and: ["PSYC001", "PSYC110"] },
   },
   PSYC205: {
     name: "Evolutionary Psychology",
@@ -23452,7 +23848,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to teach students the adaptive explanations of why people think, feel, and behave the way they do. Students will learn about evolved psychological mechanisms that underlie various areas of human behavior.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23475,6 +23871,22 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: [
+        "PSYC001",
+        "PSYC110",
+        {
+          or: [
+            "PSYC103",
+            "PSYC104",
+            "PSYC112",
+            "PSYC105",
+            "PSYC108",
+            "PSYC111",
+          ],
+        },
+      ],
+    },
   },
   PSYC208: {
     name: "Psychology Research Methods II",
@@ -23483,7 +23895,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-25T06:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course builds on the methodological concepts and procedures discussed in PSYC110 Psychology Research Methods I. The course focuses on the knowledge and skills necessary for planning, implementing (i.e., conducting and analyzing data), and presenting a research project. Students will be provided with hands-on experience in empirical studies relating to design, measurement, and analysis issues in psychological research.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23542,11 +23954,27 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: {
+      and: [
+        "PSYC001",
+        "PSYC110",
+        {
+          or: [
+            "PSYC103",
+            "PSYC104",
+            "PSYC112",
+            "PSYC105",
+            "PSYC108",
+            "PSYC111",
+          ],
+        },
+      ],
+    },
   },
   PSYC213: {
     name: "Work, Play, and Life",
     moduleCode: "PSYC213",
-    description: "DESCRIPTION_NEEDED",
+    description: `Modern societies extol busyness and may even regard work as a defining aspect of one's life. Consequently, leisure is often relegated as "time off work" and sometimes leads people to construe work and leisure as opposites. This promotes the pursuit of passive and convenient leisure in contrast to their more goal-directed and effortful work activities. Unfortunately, research shows that passive leisure is not restorative nor provides important ingredients to meaningful living. In this course, we examine people’s motivation to work and its reciprocal relationship with their pursuit of leisure. It aims to help students apply to their daily lives what the psychological literature advocates about quality leisure activities and living a "good" life, which will also help them flourish at work.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23573,7 +24001,7 @@ export const modules: ModuleBank = {
   QF101: {
     name: "Quantitative Finance",
     moduleCode: "QF101",
-    description: "DESCRIPTION_NEEDED",
+    description: `What is Quantitative Finance? Why quantitative? Increasingly, mathematical and statistical methods have been applied to analyse financial markets. Quantitative finance models are derived to extract critical information from the data collected in investment and trading activities. These models are used in pricing assets, managing risks, developing trading strategies, and making investment decisions. Strong quantitative skills have become an essential competence for the modern finance industry. This 101 course introduces you to the fundamentals of quantitative finance models. It covers the foundational mathematical concepts and techniques that are used in quantitative modelling. Attention is given to topics such as rules for functions, solving systems of linear equations, solutions of differential equations, option pricing application, and optimization. This course provides the mathematical tools that can be used to solve problems encountered in financial markets.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23600,11 +24028,14 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-30T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   QF102: {
     name: "Investment Statistics",
     moduleCode: "QF102",
-    description: "DESCRIPTION_NEEDED",
+    description: `Have you ever wondered how do outstanding asset managers consistently outperform the market and generate alpha? How can we predict important financial time series like earning, volatility, volume, and return? The answer lies in clever use of investment statistical techniques. This course teaches you how to extract patterns from historical data, create investment strategies, and test profitability and hypothesis.
+
+    The application of statistical methods to investment and trading is one of the areas experiencing the fastest pace of growth and development in the world of investment banks, hedge funds and asset managers. Mathematical models for trading and investment management are rapidly growing both in terms of sophistication and scope. On the buy side, hedge funds and asset managers make constant use of empirical statistical models to analyse financial time series for optimal investment decision. On the sell side, front office trading teams in investment banks employ risk-neutral probability models to price and risk manage their portfolio to hedge their exposure. Students aspiring to careers in the financial market ought to be proficient in investment statistics to fully comprehend the dynamics behind the financial market.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23631,11 +24062,14 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      or: [{ or: ["COR1202", "COR1201"] }, "COR-STAT1202", "COR-STAT1203"],
+    },
   },
   QF205: {
     name: "Computing Technology For Finance",
     moduleCode: "QF205",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course aims to expose students to the use and usefulness of computing technology in the realm of finance. From the collation of data, analysis of data in order to tease out relevant information, to the presentation and visualization of information, computing technology plays an important role that is increasingly essential as one faces the need to assimilate an astronomical amount of information in today’s world. The course is structured in such a way as to employ topics in finance to motivate the discourse on computing technology. Equipped with the computing skills, in turn, students are motivated to handle more challenging problems in finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23666,7 +24100,7 @@ export const modules: ModuleBank = {
   QF206: {
     name: "Quantitative Trading Strategies",
     moduleCode: "QF206",
-    description: "DESCRIPTION_NEEDED",
+    description: `Like any financial investment, trading in stocks, currencies, commodities, and fixed income instruments may lead to substantial profits but they can also lead to substantial losses. It goes without saying that a suite of trading strategies is needed to keep winning the game of probability while limiting the downside risk. In this course, practicable trading strategies coupled with risk management will be covered in detail. Algorithmic trading, high-frequency trading, and the likes will be demystified along with quantitative trading. Using the MSCI Singapore Free Index futures as a case study, students will get to see concretely what a limit-order book and its dynamics look like throughout the trading session. This practical course also provides students with a rare opportunity to learn and practise trading on a software platform used by professional traders.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23697,7 +24131,7 @@ export const modules: ModuleBank = {
   QF209: {
     name: "Machine Learning in Quantitative Finance",
     moduleCode: "QF209",
-    description: "DESCRIPTION_NEEDED",
+    description: `Machine learning represent different modeling principles and techniques and underpin many successful financial applications. This course covers common machine learning models, including deep neural networks and reinforcement learning, with financial applications such as stock price prediction and portfolio management. This course is designed to combine both theory and practice/implementation of model development, focusing on developing the core data analytics skills of the students and presenting specialized exposure to quantitative finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23724,11 +24158,12 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   QF210: {
     name: "Reinforcement Learning in Portfolio Optimisation",
     moduleCode: "QF210",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course helps students explore the intersection of advanced machine learning techniques and strategic financial management practices. It starts by building a good foundation of both reinforcement learning and portfolio optimisation, followed by an interplay between these two exciting fields. Aimed at navigating and mastering the complexities of investment strategies, the course offers practical applications in Python to construct and adapt dynamic portfolios, driving decision-making in the evolving landscape of finance.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23755,11 +24190,15 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   QF307: {
     name: "Stochastic Finance",
     moduleCode: "QF307",
-    description: "DESCRIPTION_NEEDED",
+    description: `The objective of this course is to introduce students to stochastic modelling of financial assets and the valuation of derivatives.
+    The concept that created the subject and led to the development of the field of financial derivatives is the work of Fisher Black and Myron Scholes (1973). Stochastic models based on the principle of no-arbitrage, dynamic hedging, martingale valuation, and risk-neutrality can be formulated to price derivatives traded in the financial market. The same framework has subsequently been applied to the pricing and hedging of other more exotic financial products.
+    The course is an interesting mix of finance and mathematics. Students will see that fundamental financial concepts like the no-arbitrage principle, coupled with careful mathematical reasoning, lead to a sophisticated framework of valuation and hedging.
+    The mathematical tools employed are calculus, stochastic calculus, probability theory and numerical methods. A good background in calculus and probability is assumed. The other mathematical requisites will be furnished during the course.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23786,11 +24225,12 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   SMT201: {
     name: "Geographic Information Systems for Urban Planning",
     moduleCode: "SMT201",
-    description: "DESCRIPTION_NEEDED",
+    description: `Effective planning and management of smart cities require urban planners to integrate and share data from multiple sources to the urban users so that they can be active participants in the smart city planning process. GIS with its capability to capture, manage, display, and analyse information spatially is emerging as one of the important enabling tool in smart city planning. This course provides students with an introduction to practical applications of GIS in smart city management and planning. Emphasis will be placed on - locating, acquiring and integrating multi-sources of data into GIS, - understanding the principles and methodologies of geocoding and geo referencing, - become familiar with geovisualisation and GIS analysis techniques, and - exploring the technologies and possibilities of GIS-enabled Planning Support Systems for smart city management.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23817,7 +24257,7 @@ export const modules: ModuleBank = {
   SMT203: {
     name: "Computational Social Science: Principles and Applications",
     moduleCode: "SMT203",
-    description: "DESCRIPTION_NEEDED",
+    description: `We use mobile devices any time to access the internet, read the news, watch videos, search for nearby restaurants, chat with friends, and leave posts on social networking sites. These online interactions leave massive digital footprints which enable us to understand, and ultimately influence human behavior and social dynamics: what and why we like, hate, believe, behave, and engage. Computational Social Science is an exciting and emerging field that sits at the intersection of computer science, statistics, and social science. This course provides a hands-on introduction to the ideas and methods of Computational Social Science. We will discuss questions and problems across various domains of social science including politics, economics, and health and will learn how new online data sources and computational methods are being used to tackle those problems. Through exploring computational social science methods and their use in social sciences today, this course helps students to engage with questions on research design. Also, students will have the opportunity to try their hand at analyzing big data from various sources such as #covid-19 Tweets, Data.gov.sg, etc.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23844,11 +24284,18 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: {
+      and: [
+        { or: ["COR-IS1704", "IS111", "SMT111", "CS101"] },
+        { or: ["IS112", "IS105"] },
+        { or: ["IS217", "CS105", "MGMT108"] },
+      ],
+    },
   },
   SOCG001: {
     name: "Understanding Societies",
     moduleCode: "SOCG001",
-    description: "DESCRIPTION_NEEDED",
+    description: `The interdependence between society and the individual is the primary focus of sociology and social anthropology. In order to understand society one needs to develop sociological imagination—a quality of mind that provides an understanding of ourselves within the context of the larger society (C. Wright Mills). This course serves as a foundation for understanding society, culture, individuals and their relationships. The course will familiarise students with various sociological concepts, theories and methodologies to explore social organisations, institutions, and stratifications. The objective of the course is to understand the ways in which societies can be analysed systematically as well as critically observe how individuals, institutions, culture, symbols, and social structure interact to shape society and human behavior.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23911,7 +24358,7 @@ export const modules: ModuleBank = {
   SOCG201: {
     name: "Social Stratification and Inequality",
     moduleCode: "SOCG201",
-    description: "DESCRIPTION_NEEDED",
+    description: `Social stratification concerns the unequal distribution of things that are scarce but widely desired to different positions in society and the process of placing individuals into these positions. Stratification is the core of both societies and sociology. This survey course introduces students to key topics in stratification studies, including different modes of explaining social inequalities, the status attainment process, class analysis, social mobility, and gender and race inequalities.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23943,7 +24390,7 @@ export const modules: ModuleBank = {
   SOCG211: {
     name: "Food, Environment and Sustainability",
     moduleCode: "SOCG211",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the connections between food, environment and sustainability. We use empirical materials from food-related issues—agricultural production, food manufacturing and processing, food distribution and retail, food consumption, and global food trade—to learn about theories in environmental sociology and political ecology, and discuss the possibility of sustainable food systems and agriculture and debate the future environmental sustainability. The first part of the course is devoted to introducing students to key theoretical perspectives in environmental sociology. Environmental sociology examines the changing relationship between social systems and the environment and explores how environmental issues emerge—and can be addressed—as social problems. In the second part, we take these theoretical perspectives to investigate the food system. We explore how society and environment interacts throughout the food system, how the current food system faces challenges in sustainability, and how sustainable alternatives can be developed.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23970,11 +24417,13 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
+    preReq: "SOCG001",
+    mutuallyExclusive: ["SOCG301"],
   },
   SOCG215: {
     name: "Introduction to Sociological Theory",
     moduleCode: "SOCG215",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course examines the major theoretical developments in sociological theory from the classical period of Marx, Weber, and Durkheim to contemporary schools from structural-functionalism, conflict theory, exchange theory, and symbolic interactionism. The purpose of this course is to introduce the students to a variety of theoretical orientations, past and present, with an emphasis on the strengths and weaknesses of each theoretical approaches. Students are expected to develop skills to analyse social issues critically by learning these theories and to be able to use them as analytical tools for sociological research.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24005,7 +24454,7 @@ export const modules: ModuleBank = {
   SOCG223: {
     name: "Sociology of Education",
     moduleCode: "SOCG223",
-    description: "DESCRIPTION_NEEDED",
+    description: `The education system is one of the most important institutions in the contemporary world. It plays a decisive role in socializing younger generations, stratifying them to different socioeconomic statuses, and producing new visions, knowledge, and technologies for society. Given its connections with the economy, politics, family, and other spheres of social life, however, the education system is also penetrated by multiple societal problems and contradictions. In this course, we will examine these problems and contradictions, simultaneously internal and external to the education system, while critically reflecting on our own experiences as stakeholders in the system.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24037,7 +24486,7 @@ export const modules: ModuleBank = {
   SOCG226: {
     name: "Medical Sociology",
     moduleCode: "SOCG226",
-    description: "DESCRIPTION_NEEDED",
+    description: `Medical Sociology (also commonly known as the Sociology of Health and Illness) is one of the most important contributions sociology makes to understanding critical social issues prevalent in our society. In this course, we will focus on the social construction of well-being and illness, and the influence of the social on health policies. We will also look through sociological lens at the dynamics in health-seeking behavior, the doctor-patient relationship, the professionalization of medicine in general as well as the role of alternative healing systems in a society where the western biomedical module predominates.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24068,7 +24517,7 @@ export const modules: ModuleBank = {
   SOCG227: {
     name: "InterAsian Mobilities",
     moduleCode: "SOCG227",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course will explore the migrations and cross-border mobilities that occur from and within Asia. While social science research has seen a broadening interest in how nations are interconnected in today's globalized world, much of the field continues to be focused on movements towards destinations in the West. This course will allow students to critically examine our conventional understanding of global mobility in the context of Asia, where nationhood is "new" and migration is "old." The class will discuss a wide range of case studies: transnational families, unauthorized migration, "new" racisms, and multinational migrations within the region.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24095,7 +24544,7 @@ export const modules: ModuleBank = {
   SOCG229: {
     name: "Life Course and Ageing",
     moduleCode: "SOCG229",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course explores the sociology of aging and the life course, examining how social structures, cultural norms, and individual actions influence the aging process and shape experiences across the life span. Topics include ageism, life transitions, linked lives, cumulative inequalities, retirement, social isolation, and successful aging.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24122,7 +24571,7 @@ export const modules: ModuleBank = {
   SOCG303: {
     name: "Capitalism: Past and Present",
     moduleCode: "SOCG303",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course investigates capitalism as the economic institution that creates our modern world. With a theoretical critic of this institution as the objective of this course, we will look at both the social-historical origin of capitalism and the embedded social contexts that eventually lead to the development of a variety of capitalisms in our contemporary world.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24163,6 +24612,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: "SOCG001",
   },
   STAT201: {
     name: "Probability Theory and Applications",
@@ -24171,7 +24621,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-23T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course is to develop knowledge of the fundamental probability theory for quantitatively assessing the uncertain events. The focus in each teaching topic is on the applications of the probability concepts in everyday life. But practical problems encountered in actuarial science and finance are particularly emphasized. Topics include overview of probability, probability distributions, mathematical expectation, some special discrete distributions, some continuous distributions, functions of random variables, sampling distributions, jointly distributed random variables, Limit theorems and stochastic process.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24194,6 +24644,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["COR-STAT1202", "COR-STAT1203"] },
   },
   STAT203: {
     name: "Financial Mathematics",
@@ -24202,7 +24653,16 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course covers the following topics:
+    1) Introduction to interest rate, present value and future value, present value of cash flows and annuities
+    2) Payment interval and interest-conversion interval, non-level annuities
+    3) Spot rates, forward rates and the term structure
+    4) Rates of return, internal rate of return (yield rate) and other measures of return
+    5) Loans, amortization schedule and sinking fund
+    6) Bonds and bond pricing
+    7) Bond yield and the term structure
+    8) Bond management, duration, convexity and immunization
+    9) Futures, forward contracts, options and swaps`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24243,6 +24703,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["COR1202", "COR1201"] },
   },
   STAT310: {
     name: "Life Contingent Risks",
@@ -24251,7 +24712,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course covers the construction of probability models for life contingencies with special reference to life insurance. The basic concepts and tools in survival-time random variables for one life and two lives will be discussed, as well as the specific statistical models such as uniform, constant force of mortality and hyperbolic. Topics also include analysis of life insurance and annuities, properties of their present-value random variables, computation of premiums using the Equivalence Principle and Percentile Principle, the present value of future loss, expense-loaded liabilities and the recursion method for the calculation of reserves.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24274,6 +24735,7 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { and: ["STAT201", "STAT203"] },
   },
   TRAD201: {
     name: "Shipping Business",
@@ -24282,7 +24744,7 @@ export const modules: ModuleBank = {
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course helps students to understand the elements common to all sectors of Shipping. In particular, students will see the interaction between the various players involved in the shipment process. This course will help students to understand the general process involved in the shipment of goods. Students interested in a career in Trade or Shipping may consider taking this course.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24309,7 +24771,7 @@ export const modules: ModuleBank = {
   WRIT200: {
     name: "Virtual Business Professional",
     moduleCode: "WRIT200",
-    description: "DESCRIPTION_NEEDED",
+    description: `In this course, students will work in virtual global teams, with students from other universities, to develop a proposal for a corporate client. Students will develop essential skills to thrive in the modern workplace – they will explore virtual collaboration tools, hone their interpersonal and intercultural competence, and employ data storytelling principles to craft persuasive narratives for business proposals. In the first half of the course, students work in SMU teams to communicate their recommendations persuasively through corporate documents like executive summaries and Slidedocs. Through whole-class and small-group discussions, students explore theories on virtual communication and working in remote teams, and familiarize themselves with tools for cultural analysis and virtual collaboration. In the culminating capstone project in collaboration with the University of Southern California (USC), students will work in global teams comprising students from universities across Asia, Europe and America to develop a proposal for a corporate client. Past industry partners of the VBP project included companies such as Google, Starbucks, Netflix, Tesla and SpaceX. Over 6 weeks, students collaborate virtually with their global counterparts to craft a report to the client of their choice, recommending strategies to enhance the client’s corporate reputation. In the course of the project, students use social and AI-driven collaboration tools, navigate cross-cultural team processes and learn to collaborate effectively across borders and time zones. The deliverables in this course can be included in students’ portfolio of written and reflective work to showcase their ability to produce industry and discipline-specific communication outcomes. USC will award certificates of achievement to all participants.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24332,11 +24794,12 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: "COR1100",
   },
   WRIT300: {
     name: "Professional Writing",
     moduleCode: "WRIT300",
-    description: "DESCRIPTION_NEEDED",
+    description: `Professional Writing will expand and deepen students’ ability to write effectively in civic and corporate contexts. Such writing skills emerge in leaders who not only know how to analyze and articulate complex problems but also know how to envision and express written solutions that reveal solid decision-making on public policy, and business and societal trends. While the Writing & Reasoning course, taken by most SMU students in their first year, focuses on breadth, here the students will be deepening their skills by exploring and writing about more complex issues in society and business. Students will engage with the need for deeper research, better audience analysis, and more structured writing, with a more nuanced adaptation to the context appropriate to their intended publications. Students will consider and respond to meaningful real-world issues and situations in each of the three written projects. They will explore not only what other people have said about the issues that they confront, but also develop and communicate their own responses. The finished pieces will form the basis of a portfolio of written work to showcase their ability to think critically, conduct appropriate literature research, analyse their findings, argue their case, and produce professional communication outcomes. This portfolio will be a valuable addition to their resumes when they graduate. The final project will be an in-depth feature piece written for either Rice Media (https://www.ricemedia.co/) or the Skeptic Magazine (https://www.skeptic.org.uk/). Rice Media, and Skeptic Magazine editors advise the students during the Week 10 presentations, and students will have the chance to have their work published by the media outlet that they write for after the term finishes.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24359,11 +24822,12 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["COR1100", "LAW106", "WRIT001"] },
   },
   ACM204: {
     name: "Special Topics in Arts Management",
     moduleCode: "ACM204",
-    description: "DESCRIPTION_NEEDED",
+    description: `Today, the arts have to be equipped to deal with the radical socio-economic and environmental changes that we are living through, from evolving audience behaviours and the relentless pressures of inflation. Additionally, arts organisations can no longer rely on pre-pandemic business models to sustain their survival, relevance and influence. Navigating these new challenges with a commitment to creative entrepreneurship and community relevance will be critical moving forward. This special topic on Arts Entrepreneurship and Creative Economies was chosen because the arts today must be equipped to deal with the radical socio-economic and environmental changes that we are living through, from evolving audience behaviours to the relentless pressures of inflation and a boundless array of inequities. Additionally, arts organisations can no longer rely on pre-pandemic business models to sustain their survival, relevance and influence. Navigating these new challenges with a commitment to creative entrepreneurship, community relevance and social justice will be critical moving forward. This topic will focus on enabling students to adopt an entrepreneurial mindset to identify, frame and shape the developments, challenges and opportunities facing the cultural and creative industries today and in the near future. They will acquire conceptual and practical skills to address these challenges using a cultural economics approach and cultural value perspective, particularly within a Singapore context. Upon completion, students will better understand: (1) the dynamic development and competition of the arts as exceptional and creative economies in Singapore, (2) the ambidexterity required to support the creation of conducive conditions to develop works of art, creative goods and services, and (3) how to develop evidence-based insights and value-based strategies from existing empirical case studies and ventures. **This course will require preexisting arts management and Singapore art world knowledge.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24386,11 +24850,18 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    mutuallyExclusive: ["ARTS008"],
   },
   ACM306: {
     name: "Arts, Culture and the Global City",
     moduleCode: "ACM306",
-    description: "DESCRIPTION_NEEDED",
+    description: `Across the globe, the arts and culture have been identified as key instruments for urban rejuvenation and global competitiveness. Asia is no exception – over the last twenty years, there has been a proliferation of large-scale arts and cultural infrastructure, as well as an energetic bubbling of artist-led initiatives in cities such as Singapore, Jakarta, Hong Kong and Seoul.
+
+    This course aims to explore the growing and diversified roles of “arts” and “culture” in contemporary urbanism, and to interrogate how categories such as “arts” and “culture” can transform cities. In particular, this course will focus on the changing spatial conditions and challenges of the arts and culture in Asia, with a focus on the role of Singapore in the region during this time of rapid change, global complexity and increasing austerity.
+
+    Through an analysis of a range of real-world case studies and experiential learning, students will critically consider questions such as: What are the roles of arts and culture in cities today? Can the arts and culture become key drivers of urban growth, enabling cities to forge and maintain global connections? Do they differentiate cities, and generate distinctive place-identities amidst a globalising world? How do art events and exhibitions like biennales influence cultural and city development, and give rise to more diverse, reflective and vibrant societies? Can the arts and culture create, reinforce and enhance sense of place and belonging in global cities, especially for the less privileged? What are some of the particularities and specificities of the arts within cities in the Asia-Pacific region?
+
+    Ultimately, this course aspires to provide students with a reflexive understanding of the unique arts ecologies in Asia, and a heightened appreciation of the significance of the arts to urban processes, practices and everyday life.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -24413,5 +24884,6 @@ export const modules: ModuleBank = {
         ],
       },
     ],
+    preReq: { or: ["ACM214", "ACM301"] },
   },
 };
