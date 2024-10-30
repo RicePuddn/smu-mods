@@ -110,7 +110,7 @@ export default function CourseCatalogue() {
       <h1 className="text-2xl font-bold">Module Catalogue</h1>
       <div className="flex flex-col gap-4 md:flex-row">
         {/* Search Bar */}
-        <div className="flex-1 text-white">
+        <div className="flex-1">
           <Input
             placeholder="Search modules..."
             value={searchQuery}
