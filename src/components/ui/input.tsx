@@ -18,10 +18,8 @@ const inputVariants = cva(
         timetable: "border-input focus-visible:ring-blue-500",
         beyondStudies:
           "text-white placeholder:text-white border border-white focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:shadow-blue-500/50",
-
-          ModulesPage:
+        ModulesPage:
           " border border-black text-black placeholder:text-black  focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:shadow-blue-500/50"
-      
       },
     },
     defaultVariants: {
