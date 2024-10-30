@@ -76,6 +76,8 @@ export const basketCodes = [
   "TRAD",
   "WRIT",
   "COR-XXXX",
+  "COR-MKT",
+  "COR-OBHR"
 ] as const;
 export type BasketCode = (typeof basketCodes)[number];
 

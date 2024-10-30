@@ -8620,12 +8620,23 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [
-        { and: ["CS201", "CS204"] },
-        "CS460",
-        "SMT203",
+      and: [
+        "CS201",
+        "CS204",
         {
-          and: ["IS111", { or: ["IS112", "IS105"] }, "IS210", "IS212", "IS213"],
+          or: [
+            "CS460",
+            "SMT203",
+            {
+              and: [
+                "IS111",
+                "IS112",
+                "IS210",
+                "IS212",
+                "IS213",
+              ],
+            },
+          ],
         },
       ],
     },
@@ -19645,9 +19656,9 @@ This course couples established and emerging theory on how finance can be used t
                   question about what the “purpose” of the corporate form should be. The course then examines
                   several of the most significant topics and policy debates in the burgeoning area of comparative
                   corporate law and governance, with an emphasis on Asia and Singapore. In exceptional circumstances,
-students can be waived from the prerequisite requirement if they get the permission of the instructor. For
-that purpose, they will need to send an email to the instructor explaining why they want to enrol
-in the course`,
+                  students can be waived from the prerequisite requirement if they get the permission of the instructor. For
+                  that purpose, they will need to send an email to the instructor explaining why they want to enrol
+                  in the course`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20806,7 +20817,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "To achieve superior performance in an increasingly dynamic and uncertain global business environment, companies in every industry must create internal capability to harness strategic change for sustainable competitive advantage. However, companies that are able to strategically change their entrenched ways of doing things and then reclaim leading positions are the exception rather than the rule. With the industry 4.0 upon us and fast advancement in digital technologies, firms in many industries would find it even more pressing but challenging to build the managerial capabilities to cope with the digital transformation that will reshape the business landscape tremendously for the future. Against this backdrop, this course discusses how companies can effectively manage the strategic change and digital transformation that will significantly impact the way the business is configured for competitive advantage. Besides the internal managerial challenge, the course also emphasizes that companies must cope with strategic interactions with different industry players to create value collectively and continuously. With respect to digital transformation, the course discusses digital concepts and technologies such as omni-channel, platforms, eco-systems, blockchain, IOT, AI, and cloud computing etc. that impose both challenges and opportunities for strategic change management in the increasingly technology-based, internet-based, and data-based business contexts.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20847,6 +20858,20 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      nOf: [
+        2,
+        [
+          "FNCE103",
+          "ACCT101",
+          "ACCT105",
+          "COR-COMM1304",
+          "OBHR101",
+          "OPIM201",
+          "MGMT102",
+        ],
+      ],
+    }
   },
   MGMT237: {
     name: "Corporate Strategy",
@@ -20874,11 +20899,12 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {or: ["MGMT102"]},
   },
   MGMT242: {
     name: "Corporate Sustainable Product and System Design",
     moduleCode: "MGMT242",
-    description: "DESCRIPTION_NEEDED",
+    description: "This builds on the course 'Strategy'. Corporate strategy is the pattern of decision-making that determines a firm’s goals and objectives, produces principal policies, defines the range of business to pursue, and pertains to the overall plan for a diversified firm. A firm’s corporate strategy acts as both a catalyst for and a constraint on the strategies of its business units. If the business strategies do not support the firm’s corporate strategy, synergy becomes impossible. Therefore, this progression reinforces the inextricable link between business strategy and corporate strategy, with cases of business integration, strategic alliances, corporate diversification, and mergers and acquisitions. Drawing on these factors, the major objective of this course is to help student to understand: 1) conditions under which different types of corporate strategy have the potential to create (economic and social) value, competitive and corporate advantages; and 2) organizational and managerial systems that must be in place in order to realize this potential value creation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20905,7 +20931,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT244: {
     name: "Fraud Protection for Entrepreneurs",
     moduleCode: "MGMT244",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course equips aspiring entrepreneurs, social entrepreneurs, and managers with essential tools for understanding and identifying instances of fraud, with a view to developing a fraud risk management strategy for their new venture. It aims to provide students with a working knowledge of the various types of fraudulent conduct and the legal framework in place to prevent and deter instances of fraud. In addition, to learning from past cases of fraud, the course also explores new forms or methods of fraud that can arise from new technologies.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20929,10 +20955,12 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       },
     ],
   },
+  
   MGMT246: {
     name: "Strategic Risks and Opportunities Management",
     moduleCode: "MGMT246",
-    description: "DESCRIPTION_NEEDED",
+    description: `
+In the current business landscape, companies face a multitude of risks and opportunities, driven by the dynamic and uncertain global environment. Significant challenges faced by firms across industries is the rapid advancement of digital technologies, the emergence of Industry 4.0 and environmental, social, and governance (ESG) issues. To achieve superior performance and sustainable competitive advantage, organizations must proactively recognize and address these factors. Digital transformation of industries not only reshapes the business landscape but also introduces new risks and opportunities, particularly in the realm of cybersecurity. Protecting sensitive data and information from cyber threats becomes paramount in this context. Simultaneously, organizations must develop managerial capabilities to effectively navigate the changing digital landscape and mitigate these risks. While this poses significant challenges that demand attention, it also presents opportunities for companies to capture. The course aims to address these challenges comprehensively. It will explore how companies can effectively manage strategic change to configure their businesses for competitive advantages. Participants will gain insights into digital concepts and technologies such as omni-channels, platforms, eco-systems, blockchain, IoT, AI, and cloud computing, understanding their potential benefits and the associated risks. They will also learn tools and techniques to managing strategic risks and leveraging opportunities. By focusing on the risks and opportunities associated with strategic change, digital transformation, cybersecurity, etc. in the contemporary business environment, this course equips students with the necessary knowledge and skills to navigate these challenges effectively. Through informed decision-making and proactive measures, organizations can harness these factors to achieve sustainable competitive advantage while also fulfilling their responsibilities to stakeholders and the broader society.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20955,11 +20983,13 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {or:["MGMT102"]}
   },
   MGMT310: {
     name: "Leading New Ventures to Growth",
     moduleCode: "MGMT310",
-    description: "DESCRIPTION_NEEDED",
+    description: `In pursuing a business idea, an important issue for the entrepreneur(s) is how to grow the enterprise. This course examines various ways in which a business can develop and expand over time, in geography and products. Drawing from academic studies as well as real-world case studies, this course shows students the range of issues, challenges and outcomes - both projected and real - that can emerge from these decisions. Examples of internal issues including the transition from the founder-entrepreneur to a professionally run firm, as well as strategic change, are examined.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20982,6 +21012,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MGMT310"
   },
   MGMT317: {
     name: "Managing Process Improvement",
@@ -20990,7 +21021,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "All firms have processes, most of which can be improved or optimized. Some of these processes include innovation, development, manufacturing, services, internal and external processes. The ability of managers to define, measure, improve and control processes is a key skill set and, combined with leadership, can enhance the success of a firm. In this course, students will develop a combination of practical tool knowledge and project management skills to effectively change and improve important processes. Students will also gain a strong theoretical and practical understanding of six sigma deployment and will have the opportunity to achieve SMU Six Sigma “Greenbelt” certification. Students will learn the DMAIC methodology (Design, Measure, Analyze, Improve, Control) and apply it in real projects. These projects will be sponsored by SMU, local SME’s and MNC’s. This course will also allow students to further develop and get feedback on the following SMU Graduate Learning Outcomes: disciplinary knowledge, critical thinking and problem solving, collaboration and leadership, communication, self-directed learning, and resilience. (See https://www.smu.edu.sg/programmes/graduate-learning-outcomes)",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21013,11 +21044,14 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    }
   },
   MGMT318: {
     name: "Design Thinking and Innovation",
     moduleCode: "MGMT318",
-    description: "DESCRIPTION_NEEDED",
+    description: `Design Thinking is a human-centric, interdisciplinary approach towards innovation that aims to help companies and startups change and innovate. This course introduces Design Thinking (similar to the IDEO approach – www.ideo.com) and its application to developing new “things” (i.e. products, services, experiences and business models). The course is divided into four main aspects, all interconnected but separately emphasized: (1) design methodologies (e.g. ethnographic research, brainstorming, prototyping), (2) the “thing” to be designed (3) attitudes and behaviors and (4) design contexts. Design contexts refer to the broader emerging context for designs and business, specifically, society (including different cultures and the poor), and the physical environment. Learning will be primarily experiential in nature – through class discussion, group exercises, and a team project. Guest speakers with practical experience in Design Thinking may be invited as well.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21044,7 +21078,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT330: {
     name: "The Design of Business",
     moduleCode: "MGMT330",
-    description: "DESCRIPTION_NEEDED",
+    description: `The Capstone course allows students to apply a cross-disciplinary approach while considering both business model architecture and the formulation of business solutions. It prepares students for the complex business environment of today by emphasising the application of academic knowledge accumulated from a range of prior core courses to solving real world problems. The course develops in students an ability to: strategically position the client and its challenge within an environmental context; appropriately scope the challenge of the client; develop and execute a workplan to address the challenge; and develop solutions by establishing a fact-base through directed primary and secondary research, drawing out relevant insights through analytic review, and engaging in abstract idea generation. The course exposes students to the uncertainties and ambiguity that exists within real-world business landscapes and organisational environments of industry clients, as well as, the challenges with engaging busy business executives and convincing them and their organisation of innovative solutions that have been devised by the students that address the client's real-world challenges.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21319,11 +21353,19 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      and: [
+        "MGMT102",
+        {
+          or: ["MGMT330", "MGMT300"],
+        },
+      ],
+    },
   },
   MGMT332: {
     name: "Approaching Asian Business through Classics",
     moduleCode: "MGMT332",
-    description: "DESCRIPTION_NEEDED",
+    description: `The course focuses on world-changing ideas that have shaped the business world and the thinking of people in East and Southeast Asia. It analyzes the relevance and impact of selected readings in history and philosophy on economic, social and cultural changes in East and Southeast Asia. It will examine issues including state and corporate governance, work and organizations, gender, inequality and religious beliefs, and evaluate the trade-offs Asian societies make between individual liberty, national progress, regional imperatives and global capitalism.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21368,7 +21410,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT342: {
     name: "Organisational Aspects of Sustainable Innovation",
     moduleCode: "MGMT342",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course initiative rests on the assumption that there is a powerful synergy between ‘sustainability’ and ‘innovation’ in business and society. The term ‘sustainable innovation’ refers to the creation of new market space, products and services or processes driven by social, environmental or sustainability concerns. Just like general innovation, sustainable innovation goes way beyond incremental improvements of products, services or processes. The challenge is to proactively embrace risk management and sustainability considerations (environmental, social, financial) aimed at aligning (novel) business strategies with the Sustainable Development Goals (SDGs) to create and capture new value. If managed well by results-oriented, socially aware sustainability leaders, sustainable innovation results not only in greater effectiveness at (intra)organisational levels but also helps to create a cleaner, healthier, fairer (and hopefully more stable) world as envisaged by the circular economy. The urgent need for sustainability has never been greater as evidenced by rapid population growth, pollution, (toxic) waste, plastic accumulating in our oceans, limited natural resources, climate change etc. This course will introduce students to the managerial discipline of innovation management with particular reference to examples of ‘good’ / ‘best’ sustainable innovation practices adopted by both local and international organisations such as City Development Limited (CDL), Banyan Tree, Sustainability Center Freiburg (launched in 2015 by the University of Freiburg in cooperation with five Fraunhofer research institutes), Henkel BeautyCare (whose Social Plastic Ecosystem in partnership with the Plastic Bank social enterprise is aimed at stopping ocean plastic and simultaneously providing opportunities for people in poverty), Procter & Gamble’s Tide Eco-Box (which contains less packaging, 60% less plastic and 30% less water than the current Tide press-tap) and many more.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21395,7 +21437,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT345: {
     name: "Digital Media, Entertainment & E,commerce Ecosystem",
     moduleCode: "MGMT345",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course is designed to help students develop an in-depth understanding and analysis of strategic business challenges and opportunities in the dynamic and complex environment of Digital Media and Entertainment E-Commerce Ecosystem (DMEEE) in Asia. Value co-creation is an integral performance outcome in digital platform ecosystems. In developing their digital strategies, leading companies in these systems increasingly aggregate and analyze data from both e-commerce activities and media content consumption to gain a multifaceted understanding of their customers, and to develop deep knowledge about media, entertainment, and e-commerce. As tech titans like Amazon, Netflix, Alibaba, Tencent, and Bytedance redefine the DMEEE landscape in Singapore and Southeast Asia, other ecosystem players including media firms, entertainment firms, manufacturers and retailers are presented with the challenge of developing their own digital strategies to thrive. This elective will introduce key concepts in strategic management in DMEEE and involve students in real-life strategic business challenges from Corporate Clients. Participants will have the opportunity to engage business leaders in project discussions.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21426,7 +21468,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The course introduces Marketing as both a professional and an academic discipline. As a profession, marketers identify consumer needs, determine which target markets to serve, and develop an optimal product, pricing, promotion, and distribution strategy that best satisfy consumer needs, relative to competition. These decisions—product, price, promotion, and distribution—flow from a rigorous analysis of the constantly evolving market environment and consumer needs (for example, the recent rise of ethical, sustainable, and socially responsible consumption). Marketers serve a vital role in the long-term success of all organizations, profit-oriented as well as not-for-profit, small as well as large. Academically, marketing is a multi-disciplinary field involving the concepts, theories, and methods used to understand exchanges and long-term relationships between buyers and sellers. Through a combination of lectures, discussions, videos, individual and group assignments, and case analyses, the course is designed to cover the fundamental concepts and principles of this challenging field. It is a required course for marketing majors, which complements the theories and skills taught in many of the other majors at SMU.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21741,6 +21783,9 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["ACM212", "MKTG101"],
+    }
   },
   MKTG102: {
     name: "Consumer Behaviour",
@@ -21749,7 +21794,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The study of consumer behavior is an important part of the science underlying the design of marketing programs. Drawing upon academic research in marketing, psychology and economics, the course introduces important theories, methods, and findings of research on attention, comprehension, memory, attitude formation and choice. The course also covers macro influences on consumer behavior at the reference group, sub-cultural, cultural and environmental levels. This course lays the theoretical foundation for other marketing courses and the implications of consumer behavior theories to real-world marketing problems are discussed throughout the course. The course will also heighten your awareness of the ethical issues underlying the effects of marketing programs on consumers.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21808,6 +21853,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101"
   },
   MKTG103: {
     name: "Marketing Research",
@@ -21816,7 +21862,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "This course provides you with the fundamental skills and tools needed to understand, evaluate and conduct marketing research. Marketing research is vital in the assessment of new business opportunities, go/no go decisions for new products, pricing and product design issues, among other business issues. In this course, we will go through the basic marketing research process to understand how to formulate and structure marketing problems, gather and analyze quantitative marketing data, and make effective decisions based on those data. This is a hands-on course and these skills are particularly useful if you plan to go into a consulting or marketing career. The emphasis will be on practical skills and building depth and confidence in the most commonly used marketing research tools.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21875,11 +21921,21 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      and: [
+        "MKTG101",
+        {
+          or: ["COR-STAT1202", "COR-STAT1203"],
+        },
+      ],
+    },
   },
   MKTG204: {
     name: "Services Marketing",
     moduleCode: "MKTG204",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course focuses on problems and strategies specific to the marketing of services. It supplements basic marketing and marketing strategy courses.
+
+As the world of business transforms into a global knowledge-based economy, value creation for customers is primarily shaped through provision of services, rather than goods. In most economies, services account for more than 50% of the economy. This course is designed for undergraduates seeking to develop a deeper understanding of services. Strategies used by successful services marketers to overcome problems unique to service industries like banking, health care, financial services, insurance, hospitality, consulting, telecom, media, and IT services will be discussed. Manufacturing and high tech industries which depend on services to provide added value will also be explored.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21920,11 +21976,15 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG205: {
     name: "Advertising",
     moduleCode: "MKTG205",
-    description: "DESCRIPTION_NEEDED",
+    description: `Advertising has been a powerful marketing tool deployed around the world for decades by companies and organizations of all sizes and types.
+Over the years, consumers and audiences have become more media and advertising savvy. The rise of the “Information Society” and the perspective of media convergence is revolutionising the whole communication environment. And Advertisers are now more aware regarding accountability, cost efficiency and R.O.M.I. (Return On Marketing Investment). The result is a dramatic evolution in Advertising and the industry has to face new and challenging scenarios.
+
+This course aims to prepare students to develop and implement state-of-the-art Advertising strategies that engage, influence and persuade target audiences employing a sustainable balance of creativity, effectiveness and efficiency. The course will be a “hands-on” learning experience where students work as teams doing research, target analysis, media evaluation and creative development.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21947,6 +22007,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG207: {
     name: "Marketing Strategy",
@@ -21955,7 +22016,11 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Marketing strategy is the means by which a company creates a sustainable competitive advantage by providing superior customer value. To do this, a company optimizes the use of scarce resources as it leverages its strengths and takes advantage of market opportunities.
+
+    This course builds upon the foundational principles acquired in MKTG101 by providing a more in-depth understanding of how different marketing concepts fit together. It also aims to develop students’ ability to develop a strategic plan, beginning with an analysis of situation, the selection of the right target segments and the right competitive advantages, to the formulation of a coherent set of marketing actions that contribute to the company’s goals. A problem-solving approach is taken in the course, with the view that an effective solution to a marketing problem requires a thorough understanding of the consumer/market and of the competitive context.
+
+    This course is suitable not just for marketing majors, but anyone who has an understanding of basic marketing concepts and who wishes to have a good understanding of how strategic marketing can contribute to a company’s success.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21996,11 +22061,12 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG215: {
     name: "New Product Development",
     moduleCode: "MKTG215",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course is designed to provide students with the intellectual foundation as well as experience of the new product development process. To develop intellectual foundations, students are expected to read the textbook, prepare for case studies, and participate in the class discussions. In addition, to get a real life experience of the new product development process, the students will work in groups for a semester long project. In the project they will identify a customer problem, propose a solution, test the solution and develop a plan for launching the product. At the end of the semester, the students can expect to have a richer understanding of the new product development process and be equipped with the state of the art tools and techniques that are essential for developing and launching new products.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22023,11 +22089,13 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   MKTG217: {
     name: "Strategic Brand Management",
     moduleCode: "MKTG217",
-    description: "DESCRIPTION_NEEDED",
+    description: "Brand management is a vital component in the development and implementation of marketing strategy. This course helps students to better understand the process and techniques used by brand managers when leveraging their brands as the company’s strategic assets. This course is designed to develop students’ understanding of the importance of brand equity as well as how to build, measure and manage brand equity. Topics will include understanding brands from the customer’s perspective, building brand equity, measuring brand equity, leveraging the brand portfolios and managing brands over time and in different marketing context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22068,11 +22136,12 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG220: {
     name: "Digital Marketing",
     moduleCode: "MKTG220",
-    description: "DESCRIPTION_NEEDED",
+    description: "The development of new digital technologies has fundamentally changed how consumers interact with brands and each other. Marketing is no longer about pushing a sales message to a potential buyer. Businesses have to enable conversations with consumers to engage prospects with relevant content that will lead to positive actions for commercial impact. To be effective, marketers need to employ a rigorous and holistic marketing methodology across both traditional and new-emerging techniques. This course will provide students with the relevant knowledge, perspectives, and practical skills required to develop marketing strategies that leverage the opportunities inherent on digital platforms, including social media and consumer-to-consumer social interactions. The emphasis of this course is on understanding the various digital platforms available, how to build social marketing strategies, and how to track their effectiveness. The course utilizes applicable theory, empirical analysis, and practical examples to develop the key learning points. The class format will include a combination of lectures, case study discussions, and guest speakers with relevant industry experience",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22113,6 +22182,9 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      and: ["MKTG101", "MKTG102"],
+    },
   },
   MKTG221: {
     name: "Global Marketing",
@@ -22121,7 +22193,9 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `
+      This course will present an overview of the unique aspects of marketing in the global business environment and provide the framework and relevant concepts upon which global marketing management can be based. Emphasis will be placed on the role of the global marketing manager in the development of marketing strategies for a variety of markets in diverse cultural, political and economic situations. The application of this course will be on the decision-making process in the areas of foreign market analysis, target identification, market entry strategies, product planning, marketing communications, pricing and channels of distribution. Students are expected to develop problem-solving skills specifically in decisions on adaptation or standardization of the marketing mixes for target host countries.
+      `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22144,11 +22218,13 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG225: {
     name: "Customer Relationship Management",
     moduleCode: "MKTG225",
-    description: "DESCRIPTION_NEEDED",
+    description: `Customer relationship management (CRM) is an important development within the field of marketing. This course is designed to provide students with a good understanding of the concept of CRM. To be successfully implemented, CRM should be viewed holistically. Companies that had not done so had contributed to the high CRM failure rate we see today. The aim of the course is to present a holistic view of CRM, covering its various perspectives including strategic, operational, analytical and collaborative.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22171,11 +22247,14 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   MKTG227: {
     name: "Integrated Marketing Communications: A Brand Perspective",
     moduleCode: "MKTG227",
-    description: "DESCRIPTION_NEEDED",
+    description: `Marketing communications in the context of contemporary marketing has gone beyond the realm of the traditional tools of communications often classified as promotions. While advertising, public relations, sales promotions and personal selling remain the essence of the promotions mix, the intention of this course is to show how these tools are integrated not just within the promotions mix but also beyond the other elements of the marketing mix. The popular mantra applies here: “all elements of the marketing mix have the capacity to communicate.” Major changes primarily impacted by the use of the digital media as well as the global impact of messaging in marketing needs to be strongly factored in today’s study of marketing communications. Ultimately, the end outcome of IMC is its impact on the brand in terms of its ability to elevate brand awareness, brand recognition and ultimately brand preference and loyalty. In all aspects of the topics covered in this course, the focus would be on the connection between marketing communications and branding and how IMC can help organizations build long-term brand equity.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22198,6 +22277,8 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   MKTG228: {
     name: "Marketing Analytics",
@@ -22206,7 +22287,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The field of marketing is becoming increasingly data-oriented with firms building and growing their marketing analytics capabilities. This course provides you with the fundamental skills and tools to understand, process, analyze, and report marketing data and insights, all with the aim to improve marketing decision making. You will learn how to code in a programming language and how to use data visualization software. This is a hands-on course that will prepare you for jobs in marketing analytics, marketing technology, marketing intelligence, and data science.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22247,11 +22328,19 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq:  {
+      and: [
+        "MKTG101",
+        {
+          or: ["COR-STAT1202", "COR-STAT1203"],
+        },
+      ],
+    },
   },
   MKTG234: {
     name: "Sustainable Marketing",
     moduleCode: "MKTG234",
-    description: "DESCRIPTION_NEEDED",
+    description: "Much of marketing in the last half century has been about the single-minded satisfaction of consumer needs and wants. The key to success is thought to lie in thoroughly understanding what these needs and wants are and ensuring the best fit between what is offered as a product and what is desired. This market-led approach, unfortunately, is myopic in its neglect of other stakeholders, such as the environment and the community. This course takes an alternative perspective, premised on climate change, deterioration of the marine ecosystem, and social inequalities as realities. It first examines how current consumption patterns are harming the environment and communities. It then delves into what responsible consumption entails and how consumers can be influenced to make product choices that are sustainable. Theories in psychology will be drawn on to provide that understanding of consumer behaviour. The course will also examine what companies can do to ensure that their marketing activities are aligned with sustainability goals. Case studies of companies with strong sustainability initiatives will be used to illuminate current best practices.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22274,6 +22363,8 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   OBHR101: {
     name: "Management of People at Work",
@@ -22282,7 +22373,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course focuses on managing people in the workplace. Students learn theoretical and conceptual foundations for understanding people, groups, and organizations, and practical tools for accomplishing personal, group, and organizational objectives with a long term view to creating a sustainable and ethical environment for the individual to thrive and flourish. Topics include leadership, work motivation, individual differences, work values, attitudes, emotions, decision making, organizational culture, organizational change, among others.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22619,7 +22710,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The course enables you to discover the challenging and competitive world of Human Capital Management. This learning experience will provide you with a broad understanding of basic Human Resource knowledge, skills and practices. Students will learn the concepts, processes and issues involved in implementation and decision making in the topical areas such as Talent Acquisition (planning, job analysis, recruitment and selection) Rewards (compensation, benefits, performance appraisal) and Development (training and development, career planning).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22660,6 +22751,9 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR202: {
     name: "Compensation",
@@ -22668,7 +22762,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course examines the current practices, beliefs, and principles on how organisations decide on their total rewards strategy. Aside from providing a core base of knowledge, the course will also provide practical perspectives in performance management and compensation. The course looks into fixed compensation and also examines models of variable compensation and their linkages to performance management. The course provides an opportunity for the student to learn how compensation is structured and how the concept of “pay for performance” can work across different industries. The course includes methods of job evaluation for determining pay grades/scales, incentive-based pay approaches (including short- and long-term incentives, sales compensation and executive compensation), and international compensation. It also touches on performance management tools and implementation of performance management challenges in organizations.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22691,11 +22785,14 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR203: {
     name: "Talent Acquisition and Assessment",
     moduleCode: "OBHR203",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course focuses on the attraction, recruitment, selection, and assessment of talent into organizations. This course is designed to provide students with a broad overview of these fields by exposing them to a variety of relevant theories, concepts, findings, unresolved issues, and recent trends. An organizing theme, which cuts across the diverse topic areas covered in this course, is the commitment to empirical evidence that currently characterize the fields of human resource management and organizational behaviour. Students will learn how to use effective talent acquisition and talent assessment approaches to achieve sustained competitive advantage for organizations. They will also learn to critically evaluate recent talent acquisition and talent assessment trends.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22718,11 +22815,14 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR204: {
     name: "Training & Development",
     moduleCode: "OBHR204",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course introduces students to the theories, application and skills development aspects of Training and Development. Students will learn how to assess, design, develop, implement and evaluate a training program. In this regard, basic concepts of training, including total needs assessment, trainees’ learning motivations, learning and transfer theories as well as evaluation methods will be covered. The course also aims to give an understanding of how Training and Development is integrated into the overall organizational strategy. From an application point of view, students will get to design, develop and evaluate their own training programs. Finally, they will develop training skills through conducting a training session.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22745,11 +22845,14 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR212: {
     name: "Cross,Cultural Management & the Management of Diversity",
     moduleCode: "OBHR212",
-    description: "DESCRIPTION_NEEDED",
+    description: "With an increasingly globalized economy, managing employees of different cultural background becomes an imperative in organizations. This module takes the approach of understanding how culture differs and impacts on our interactions at the workplace. The course is broadly structured to enable an understanding of (a) cultures, (b) within culture differences, (c) between culture differences with an emphasis on how these similarities and differences impact workplace interactions. Case studies, role plays and self assessments will be used to provide students with both an academic and practical foundation in this area.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22776,7 +22879,10 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   OBHR215: {
     name: "Organisational Change & Design",
     moduleCode: "OBHR215",
-    description: "DESCRIPTION_NEEDED",
+    description: `
+      This course looks at how different organizational design choices facilitate or impede the achievement of organizational goals in the midst of ongoing market competition. It also highlights the need to initiate and manage ongoing and proactive organizational change programs to transform or sustain the organization.
+      This module is valuable for students interested in pursuing a career in Human Resource Development or Organizational Development as it enables them to learn how to design an effective organization structure and culture as well as carry out planned organizational changes.
+    `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22803,7 +22909,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   OBHR228: {
     name: "The Psychology of Managerial Decision Making",
     moduleCode: "OBHR228",
-    description: "DESCRIPTION_NEEDED",
+    description: "The quality of decision making determines whether a company rides the waves of success or falters. Good decision making is an art and a skill that helps managers to choose and implement the right actions to achieve organizational goals in the face of uncertainty. Good decision making considers not only economic perspectives, but a broad spectrum of objectives to ensure decisions make ethical and business sense. This course focuses on familiarizing you with the foundations of descriptive and prescriptive (and less so, normative) aspects of decision making in individual, group, and organizational settings. Topics include information processing, heuristics and biases, decision frames, managerial risk perceptions, affective influences on decision making, intuition and expertise, ethical decision making, and group decision making.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22826,11 +22932,12 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "OBHR228",
   },
   OBHR235: {
     name: "Human Resources Consulting",
     moduleCode: "OBHR235",
-    description: "DESCRIPTION_NEEDED",
+    description: "The aim of this course is to help students learn about the world of HR consulting with an opportunity to develop skills that can be applied to HR consulting projects. To do this, students will learn the whole consulting process. These include consulting methodologies, building and managing client relationships, assessing consulting outcomes and more. The context of the consulting process will be done with reference to the different HR domains and functions. This will help students to have a comprehensive understanding of the people (HR) challenges that organisations face and for which HR consulting may help resolve. As all consulting projects involve change of some form, the key principles of change management will also be explored. This course assumes some level of HR knowledge and practices. Hence, due to the nature of the content that will be covered, it is highly recommended that students take the Human Capital Management course prior to taking this HR Consulting course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22861,7 +22968,8 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The future of the HR profession lies in analytics. No professional entering the field can expect to succeed in his or her career without a solid understanding and hands-on practice of analytical tools to help in making people decisions. To implement their business strategies effectively, leaders must deal with people issues in a way that allows them to gain competitive advantage through people. The organizations that will win the “war for talent” will be those which are better at identifying and keeping key talent, motivating high performance, developing and promoting staff and predicting future people needs accurately. HR professionals need analytics to address these challenges. For exam-ple, linking pay-for-performance has been a dogma of management, but recent research shows that most incentive plans do not produce the desired behavior, and that pay, in fact, has little correlation to business results. To succeed in the business world, it is imperative that HR provide data-driven answers and insights on how to implement and execute strategy through the people in the organization. The course provides students with practi-cal, hands-on approaches to connect HR policies and practices to business performance. You will review key statis-tics and finance concepts, such as ROI and people productivity; become familiar with available tools such as Workday and Tableau to complement Excel and others; discuss data collection, clean-up and warehousing; prac-tice building descriptive and predictive models; and get hands-on experience in applications for workforce planning, recruitment, compensation, training, career planning and turnover. At the end of the semester, you will be able to put HR analytics skills and tools to good use.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22884,6 +22992,20 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq:  {
+      and: [
+        "OBHR101",
+        {
+          or: ["COR-STAT1202", "COR-STAT1203"],
+        },
+        {
+          nOf: [
+            1,
+            ["OBHR200", "OBHR300"],
+          ],
+        },
+      ],
+    }
   },
   OBHR301: {
     name: "Group Dynamics in Organisations",
@@ -22892,7 +23014,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "Organizations are increasingly relying on teams to generate solutions required for sustained business success. However, it can be extremely challenging for leaders to manage teams effectively in today’s diverse, digital and dynamic times. This course examines the design, management, and leadership of teams in organizational settings and focuses on more than just formal team leadership as all team members can play leadership roles in teams. This is an advanced course which builds on and extends foundational knowledge learnt in OBHR101 with a specific focus on group dynamics. It provides detailed knowledge of how group and intergroup dynamics affect both individual functioning but also organisation-level outcomes. The emphasis is understanding the interpersonal processes and structural characteristics that influence the effectiveness of teams, the dynamics of intra-team relationships, and sharing of knowledge and information in teams. This course is designed to provide you with perspectives and skills that will help you to develop and manage high impact teams. Topics include understanding the foundations of high performing teams, decision-making in teams, managing team conflict; team creativity and innovation; leading diverse and virtual teams, among others.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22915,6 +23037,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "OBHR101",
   },
   OPIM101: {
     name: "Decision Analysis",
@@ -22923,7 +23046,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The objective of this course is to introduce Decision Analysis, which is the application of the scientific method to managerial and personal decision-making. The decision analysis approach of analysing decisions consists of defining a problem, developing a model, acquiring data, developing a solution, testing the solution, analyzing results and implementing results. Decision models can be categorized as Prescriptive, Predictive and Descriptive. This course will discuss some Prescriptive and Descriptive models. To be specific, this course will introduce quantitative modeling tools such as linear and integer programming, decision tree analysis and simulation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
