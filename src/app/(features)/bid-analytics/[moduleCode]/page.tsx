@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 
 import { BidAnalyticChart } from "@/components/BidAnalyticChart";
 import {
@@ -15,8 +14,8 @@ import {
 } from "@/components/ui/select";
 import { PADDING } from "@/config";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { api } from "@/trpc/react";
 import { type ModuleCode } from "@/types/primitives/module";
-import { bitAnalytics } from "@/utils/bid-analytics";
 
 interface BidAnalyticsPageProps {
   params: {
@@ -30,63 +29,51 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
   const [selectedTerm, setSelectedTerm] = useState(0);
   const [selectedSection, setSelectedSection] = useState(0);
 
-  const instructors = useQuery({
-    queryKey: ["instructors"],
-    queryFn: async () => {
-      return await bitAnalytics.getInstructors(params.moduleCode);
-    },
+  const {
+    data: instructors,
+    isLoading,
+    isError,
+    error,
+  } = api.analytics.getInstructors.useQuery({
+    moduleCode: params.moduleCode,
   });
 
-  const termsAvailable = useQuery({
-    queryKey: ["termsAvailable", instructors.data?.at(selectedInstructor)],
-    queryFn: async ({ queryKey }) => {
-      if (!queryKey[1]) {
-        return [];
-      }
-      return await bitAnalytics.getTermsAvailable(
-        params.moduleCode,
-        queryKey[1],
-      );
+  const { data: terms } = api.analytics.getTermsAvailable.useQuery(
+    {
+      moduleCode: params.moduleCode,
+      instructor: instructors?.at(selectedInstructor)!,
     },
-  });
+    {
+      enabled: !!instructors?.at(selectedInstructor),
+    },
+  );
 
-  const sectionsAvailable = useQuery({
-    queryKey: [
-      "sectionsAvailable",
-      instructors.data?.at(selectedInstructor),
-      termsAvailable.data?.at(selectedTerm),
-    ],
-    queryFn: async ({ queryKey }) => {
-      if (!queryKey[1] || !queryKey[2]) {
-        return [];
-      }
-      return await bitAnalytics.getSections(
-        params.moduleCode,
-        queryKey[1],
-        queryKey[2],
-      );
+  const { data: sections } = api.analytics.getSections.useQuery(
+    {
+      moduleCode: params.moduleCode,
+      instructor: instructors?.at(selectedInstructor)!,
+      term: terms?.at(selectedTerm)!,
     },
-  });
+    {
+      enabled:
+        !!instructors?.at(selectedInstructor) && !!terms?.at(selectedTerm),
+    },
+  );
 
-  const chartData = useQuery({
-    queryKey: [
-      "chartData",
-      instructors.data?.at(selectedInstructor),
-      termsAvailable.data?.at(selectedTerm),
-      sectionsAvailable.data?.at(selectedSection),
-    ],
-    queryFn: async ({ queryKey }) => {
-      if (!queryKey[1] || !queryKey[2] || !queryKey[3]) {
-        return [];
-      }
-      return await bitAnalytics.getChartData(
-        params.moduleCode,
-        queryKey[1],
-        queryKey[2],
-        queryKey[3],
-      );
+  const { data: chartData } = api.analytics.getChartData.useQuery(
+    {
+      moduleCode: params.moduleCode,
+      instructor: instructors?.at(selectedInstructor)!,
+      term: terms?.at(selectedTerm)!,
+      section: sections?.at(selectedSection)!,
     },
-  });
+    {
+      enabled:
+        !!instructors?.at(selectedInstructor) &&
+        !!terms?.at(selectedTerm) &&
+        !!sections?.at(selectedSection),
+    },
+  );
 
   if (modules[params.moduleCode as ModuleCode] === undefined) {
     return (
@@ -100,7 +87,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
     );
   }
 
-  if (instructors.isLoading) {
+  if (isLoading) {
     return (
       <div
         style={{
@@ -112,19 +99,18 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
     );
   }
 
-  if (instructors.isError) {
+  if (isError) {
     return (
       <div
         style={{
           padding: PADDING,
         }}
       >
-        Error: {instructors.error.message}
+        Error: {error.message}
       </div>
     );
   }
 
-  console.log(chartData.data);
   return (
     <div
       style={{
@@ -143,7 +129,6 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
             setSelectedInstructor(parseInt(e));
             setSelectedTerm(0);
             setSelectedSection(0);
-            await termsAvailable.refetch();
           }}
         >
           <SelectTrigger className="w-[180px]">
@@ -152,7 +137,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Instructors</SelectLabel>
-              {instructors.data?.map((instructor, index) => (
+              {instructors?.map((instructor, index) => (
                 <SelectItem key={index} value={index.toString()}>
                   {instructor}
                 </SelectItem>
@@ -165,7 +150,6 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
           onValueChange={async (e) => {
             setSelectedTerm(parseInt(e));
             setSelectedSection(0);
-            await sectionsAvailable.refetch();
           }}
         >
           <SelectTrigger className="w-[180px]">
@@ -174,7 +158,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Terms</SelectLabel>
-              {termsAvailable.data?.map((term, index) => (
+              {terms?.map((term, index) => (
                 <SelectItem key={index} value={index.toString()}>
                   {term}
                 </SelectItem>
@@ -194,7 +178,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Sections</SelectLabel>
-              {sectionsAvailable.data?.map((section, index) => (
+              {sections?.map((section, index) => (
                 <SelectItem key={index} value={index.toString()}>
                   {section}
                 </SelectItem>
@@ -203,7 +187,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
           </SelectContent>
         </Select>
       </div>
-      <BidAnalyticChart chartData={chartData.data ?? []} />
+      <BidAnalyticChart chartData={chartData ?? []} />
     </div>
   );
 }

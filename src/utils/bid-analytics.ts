@@ -1,5 +1,4 @@
 import type { ChartData } from "@/components/BidAnalyticChart";
-import { env } from "@/env";
 
 interface BidDataset {
   label: string;
@@ -14,7 +13,7 @@ interface BidChartData {
   datasets: BidDataset[];
 }
 
-interface BidOutputData {
+export interface BidOutputData {
   title: string;
   chartData: BidChartData;
 }
@@ -28,39 +27,11 @@ interface VacancyDataset {
   yAxisID: string;
 }
 
-interface VacancyOutputData {
+export interface VacancyOutputData {
   data: VacancyDataset[];
 }
 
-async function getInstructors(moduleCode: string) {
-  const res = await fetch(
-    `${env.NEXT_PUBLIC_BID_ANALYTICS_API_URL}/instructordata/instructor/${encodeURIComponent(moduleCode)}`,
-  );
-  const data = (await res.json()) as { data: string[] };
-  return data.data;
-}
-
-async function getTermsAvailable(moduleCode: string, instructor: string) {
-  const res = await fetch(
-    `${env.NEXT_PUBLIC_BID_ANALYTICS_API_URL}/instructordata/terms_available/${encodeURIComponent(moduleCode)}/${encodeURIComponent(instructor)}`,
-  );
-  const data = (await res.json()) as { data: string[] };
-  return data.data;
-}
-
-async function getSections(
-  moduleCode: string,
-  instructor: string,
-  term: string,
-) {
-  const res = await fetch(
-    `${env.NEXT_PUBLIC_BID_ANALYTICS_API_URL}/instructordata/sections_available/${encodeURIComponent(moduleCode)}/${encodeURIComponent(instructor)}/${encodeURIComponent(term)}`,
-  );
-  const data = (await res.json()) as { data: string[] };
-  return data.data;
-}
-
-function mergeDatasets(
+export function mergeDatasets(
   dataset1: BidOutputData,
   dataset2: VacancyOutputData,
 ): ChartData[] {
@@ -91,30 +62,3 @@ function mergeDatasets(
 
   return chartData;
 }
-
-async function getChartData(
-  moduleCode: string,
-  instructor: string,
-  term: string,
-  section: string,
-) {
-  const res = await fetch(
-    `${env.NEXT_PUBLIC_BID_ANALYTICS_API_URL}/coursedata/sectionbidpriceacrosswindows/${encodeURIComponent(moduleCode)}/${encodeURIComponent(term)}/${encodeURIComponent(instructor)}/${encodeURIComponent(section)}`,
-  );
-  const data = (await res.json()) as BidOutputData;
-
-  console.log(data);
-  const res2 = await fetch(
-    `${env.NEXT_PUBLIC_BID_ANALYTICS_API_URL}/coursedata/sectionbidpriceacrosswindows/vacancies/${encodeURIComponent(moduleCode)}/${encodeURIComponent(term)}/${encodeURIComponent(instructor)}/${encodeURIComponent(section)}`,
-  );
-  const data2 = (await res2.json()) as VacancyOutputData;
-
-  console.log(data2);
-  return mergeDatasets(data, data2);
-}
-export const bitAnalytics = {
-  getInstructors,
-  getTermsAvailable,
-  getSections,
-  getChartData,
-};
