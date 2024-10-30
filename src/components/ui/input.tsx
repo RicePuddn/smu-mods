@@ -17,7 +17,7 @@ const inputVariants = cva(
         error: "border-red-500 focus-visible:ring-red-500",
         timetable: "border-input focus-visible:ring-blue-500",
         beyondStudies:
-          "border-white text-white placeholder:text-white focus-visible:ring-blue-500",
+          "border-foreground/50 text-foreground placeholder:text-foreground focus-visible:ring-blue-500",
       },
     },
     defaultVariants: {
