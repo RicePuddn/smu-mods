@@ -19,7 +19,7 @@ const inputVariants = cva(
         beyondStudies:
           "border border-white text-white placeholder:text-white focus-visible:shadow-blue-500/50 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
         ModulesPage:
-          "border border-black text-black placeholder:text-black focus-visible:shadow-blue-500/50 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+          "border border-foreground/20 text-foreground placeholder:text-foreground focus-visible:shadow-blue-500/50 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
       },
     },
     defaultVariants: {
