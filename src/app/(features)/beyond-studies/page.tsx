@@ -8,10 +8,10 @@ import CryptoJS from "crypto-js";
 import { format } from "date-fns";
 import { Calendar, ChevronDown, Loader2, Star, StarOff } from "lucide-react";
 
+import type { SchoolEvent } from "@/types/primitives/event";
 import EventTabs from "@/components/acad-clubs/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -29,7 +29,8 @@ export default function BeyondStudies() {
 
   const { mutateAsync: uploadFile } = api.s3.upload.useMutation();
   const { mutateAsync: parseEvent } = api.chatgpt.parseEvent.useMutation();
-  // const [starredEvents, setStarredEvents] = useState<string[]>([]);
+  const [starredEvents, setStarredEvents] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target;
@@ -57,15 +58,15 @@ export default function BeyondStudies() {
     });
   }
 
-  // // Function to toggle the starred state of an event
-  // const toggleStar = (eventId: string) => {
-  //   setStarredEvents(
-  //     (prev) =>
-  //       prev.includes(eventId)
-  //         ? prev.filter((id) => id !== eventId) // Unstar
-  //         : [...prev, eventId], // Star
-  //   );
-  // };
+  // Function to toggle the starred state of an event
+  const toggleStar = (eventId: string) => {
+    setStarredEvents(
+      (prev) =>
+        prev.includes(eventId)
+          ? prev.filter((id) => id !== eventId) // Unstar
+          : [...prev, eventId], // Star
+    );
+  };
 
   // Function to hash the image
   async function hashImage(file: File) {
@@ -76,7 +77,7 @@ export default function BeyondStudies() {
       const hash = CryptoJS.SHA256(base64Image).toString(CryptoJS.enc.Hex);
       return hash;
     } catch (error) {
-      Logger.error("Error hashing image:", error);
+      console.error("Error hashing image:", error);
     }
   }
 
@@ -91,10 +92,10 @@ export default function BeyondStudies() {
       if (response.status === 200) {
         Logger.log("Image uploaded successfully");
       } else {
-        Logger.error("Failed to upload image:", response.statusText);
+        console.error("Failed to upload image:", response.statusText);
       }
     } catch (error) {
-      Logger.error("Error uploading image to S3:", error);
+      console.error("Error uploading image to S3:", error);
     }
   }
 
@@ -120,32 +121,57 @@ export default function BeyondStudies() {
         addEvent(parsed);
       }
     } catch (error) {
-      Logger.error("Error processing the file:", error);
+      console.error("Error processing the file:", error);
     } finally {
       setSelectedFile(null);
       setIsLoading(false);
     }
   };
 
+  const filteredEventsData = (searchQuery: string) => {
+    if (!searchQuery) return eventsData;
+
+    return Object.entries(eventsData).reduce(
+      (acc, [category, events]) => {
+        const filteredEvents = events.filter(
+          (event: SchoolEvent) =>
+            event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            event.title.toLowerCase().includes(searchQuery.toLowerCase()),
+        );
+
+        // Ensure every tab category remains in the result, even if empty
+        acc[category] = filteredEvents;
+        return acc;
+      },
+      {} as Record<string, SchoolEvent[]>,
+    );
+  };
+
   return (
-    <div style={{ padding: PADDING }} className="space-y-4">
+    <div style={{ padding: PADDING }} className="space-y-6">
       <h1 className="text-2xl font-bold">Beyond Studies</h1>
 
-      <div className="w-full items-start gap-2">
-        <Label htmlFor="picture">Upload Image</Label>
+      <div className="flex flex-col overflow-hidden rounded-lg bg-muted shadow-md">
+        <div className="rounded-t-lg bg-gray-400 p-4">
+          <h3 className="text-md font-semibold text-white">
+            Upload Event Posters or Messages
+          </h3>
+        </div>
 
-        <div className="flex gap-2">
-          <div className="w-1/3">
-            <Input
-              id="picture"
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-            />
-          </div>
+        <div className="ml-3 mt-3 text-xs text-muted-foreground dark:text-white">
+          We keep track of your upcoming events.
+        </div>
+        <div className="flex items-center gap-1 rounded-b-lg bg-muted p-4">
+          <Input
+            id="picture"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="hover-effect w-full border border-slate-700 bg-white hover:bg-gray-200 dark:bg-slate-600"
+          />
           <Button
             onClick={handleAddCard}
-            className="mb-4"
+            className="ml-2"
             disabled={isLoading || !selectedFile}
           >
             {isLoading && <Loader2 className="mr-2 animate-spin" />} Add Event
@@ -243,17 +269,27 @@ export default function BeyondStudies() {
           <h2 className="p-3 text-lg font-semibold text-primary-foreground">
             Available Events
           </h2>
+          {/* Search Bar */}
+          <div className="flex-1">
+            <Input
+              placeholder="Search name or title..."
+              variant="beyondStudies"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full text-black dark:text-white"
+            />
+          </div>
           {isMobile && <ChevronDown className="text-primary-foreground" />}
         </div>
 
         <div className="p-4">
           <EventTabs
-            tabsData={eventsData}
+            tabsData={filteredEventsData(searchQuery)}
             eventCardActions={[
               (event, index) => {
-                Logger.log(events, event);
+                // console.log(events, event);
                 const find = events.find((e) => e.id == event.id);
-                Logger.log(find);
+                // console.log(find);
                 return (
                   <Button
                     onClick={() => addEvent(event)}
