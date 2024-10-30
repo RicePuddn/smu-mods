@@ -1,4 +1,4 @@
-import { ChartData } from "@/components/BidAnalyticChart";
+import type { ChartData } from "@/components/BidAnalyticChart";
 import { env } from "@/env";
 
 interface BidDataset {
@@ -69,24 +69,24 @@ function mergeDatasets(
 
   // Extract data from bids datasets
   const medianBidData =
-    bidsDatasets.find((ds) => ds.label === "Median Bid")?.data || [];
+    bidsDatasets.find((ds) => ds.label === "Median Bid")?.data ?? [];
   const minBidData =
-    bidsDatasets.find((ds) => ds.label === "Min Bid")?.data || [];
+    bidsDatasets.find((ds) => ds.label === "Min Bid")?.data ?? [];
 
   // Extract data from vacancies datasets
   const befVacData =
     vacanciesDatasets.find((ds) => ds.label === "Before Process Vacancies")
-      ?.data || [];
+      ?.data ?? [];
   const aftVacData =
     vacanciesDatasets.find((ds) => ds.label === "After Process Vacancies")
-      ?.data || [];
+      ?.data ?? [];
 
   const chartData: ChartData[] = labels.map((window, index) => ({
     window,
-    befVac: befVacData[index] || 0,
-    aftVac: aftVacData[index] || 0,
-    minBid: minBidData[index] || 0,
-    medBid: medianBidData[index] || 0,
+    befVac: befVacData[index] ?? 0,
+    aftVac: aftVacData[index] ?? 0,
+    minBid: minBidData[index] ?? 0,
+    medBid: medianBidData[index] ?? 0,
   }));
 
   return chartData;
