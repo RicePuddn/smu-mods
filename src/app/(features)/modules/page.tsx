@@ -114,7 +114,7 @@ export default function CourseCatalogue() {
           <Input
             placeholder="Search modules..."
             value={searchQuery}
-            variant="beyondStudies"
+            variant="ModulesPage"
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full"
           />
