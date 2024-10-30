@@ -22317,11 +22317,19 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq:  {
+      and: [
+        "MKTG101",
+        {
+          or: ["COR-STAT1202", "COR-STAT1203"],
+        },
+      ],
+    },
   },
   MKTG234: {
     name: "Sustainable Marketing",
     moduleCode: "MKTG234",
-    description: "DESCRIPTION_NEEDED",
+    description: "Much of marketing in the last half century has been about the single-minded satisfaction of consumer needs and wants. The key to success is thought to lie in thoroughly understanding what these needs and wants are and ensuring the best fit between what is offered as a product and what is desired. This market-led approach, unfortunately, is myopic in its neglect of other stakeholders, such as the environment and the community. This course takes an alternative perspective, premised on climate change, deterioration of the marine ecosystem, and social inequalities as realities. It first examines how current consumption patterns are harming the environment and communities. It then delves into what responsible consumption entails and how consumers can be influenced to make product choices that are sustainable. Theories in psychology will be drawn on to provide that understanding of consumer behaviour. The course will also examine what companies can do to ensure that their marketing activities are aligned with sustainability goals. Case studies of companies with strong sustainability initiatives will be used to illuminate current best practices.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22344,6 +22352,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   OBHR101: {
     name: "Management of People at Work",
@@ -22352,7 +22362,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-28T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course focuses on managing people in the workplace. Students learn theoretical and conceptual foundations for understanding people, groups, and organizations, and practical tools for accomplishing personal, group, and organizational objectives with a long term view to creating a sustainable and ethical environment for the individual to thrive and flourish. Topics include leadership, work motivation, individual differences, work values, attitudes, emotions, decision making, organizational culture, organizational change, among others.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22689,7 +22699,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The course enables you to discover the challenging and competitive world of Human Capital Management. This learning experience will provide you with a broad understanding of basic Human Resource knowledge, skills and practices. Students will learn the concepts, processes and issues involved in implementation and decision making in the topical areas such as Talent Acquisition (planning, job analysis, recruitment and selection) Rewards (compensation, benefits, performance appraisal) and Development (training and development, career planning).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22730,6 +22740,9 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR202: {
     name: "Compensation",
@@ -22738,7 +22751,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `This course examines the current practices, beliefs, and principles on how organisations decide on their total rewards strategy. Aside from providing a core base of knowledge, the course will also provide practical perspectives in performance management and compensation. The course looks into fixed compensation and also examines models of variable compensation and their linkages to performance management. The course provides an opportunity for the student to learn how compensation is structured and how the concept of “pay for performance” can work across different industries. The course includes methods of job evaluation for determining pay grades/scales, incentive-based pay approaches (including short- and long-term incentives, sales compensation and executive compensation), and international compensation. It also touches on performance management tools and implementation of performance management challenges in organizations.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22761,11 +22774,14 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR203: {
     name: "Talent Acquisition and Assessment",
     moduleCode: "OBHR203",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course focuses on the attraction, recruitment, selection, and assessment of talent into organizations. This course is designed to provide students with a broad overview of these fields by exposing them to a variety of relevant theories, concepts, findings, unresolved issues, and recent trends. An organizing theme, which cuts across the diverse topic areas covered in this course, is the commitment to empirical evidence that currently characterize the fields of human resource management and organizational behaviour. Students will learn how to use effective talent acquisition and talent assessment approaches to achieve sustained competitive advantage for organizations. They will also learn to critically evaluate recent talent acquisition and talent assessment trends.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22788,11 +22804,14 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR204: {
     name: "Training & Development",
     moduleCode: "OBHR204",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course introduces students to the theories, application and skills development aspects of Training and Development. Students will learn how to assess, design, develop, implement and evaluate a training program. In this regard, basic concepts of training, including total needs assessment, trainees’ learning motivations, learning and transfer theories as well as evaluation methods will be covered. The course also aims to give an understanding of how Training and Development is integrated into the overall organizational strategy. From an application point of view, students will get to design, develop and evaluate their own training programs. Finally, they will develop training skills through conducting a training session.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22815,11 +22834,14 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq: {
+      or: ["OBHR201"],
+    },
   },
   OBHR212: {
     name: "Cross,Cultural Management & the Management of Diversity",
     moduleCode: "OBHR212",
-    description: "DESCRIPTION_NEEDED",
+    description: "With an increasingly globalized economy, managing employees of different cultural background becomes an imperative in organizations. This module takes the approach of understanding how culture differs and impacts on our interactions at the workplace. The course is broadly structured to enable an understanding of (a) cultures, (b) within culture differences, (c) between culture differences with an emphasis on how these similarities and differences impact workplace interactions. Case studies, role plays and self assessments will be used to provide students with both an academic and practical foundation in this area.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22846,7 +22868,10 @@ This course aims to prepare students to develop and implement state-of-the-art A
   OBHR215: {
     name: "Organisational Change & Design",
     moduleCode: "OBHR215",
-    description: "DESCRIPTION_NEEDED",
+    description: `
+      This course looks at how different organizational design choices facilitate or impede the achievement of organizational goals in the midst of ongoing market competition. It also highlights the need to initiate and manage ongoing and proactive organizational change programs to transform or sustain the organization.
+      This module is valuable for students interested in pursuing a career in Human Resource Development or Organizational Development as it enables them to learn how to design an effective organization structure and culture as well as carry out planned organizational changes.
+    `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22873,7 +22898,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
   OBHR228: {
     name: "The Psychology of Managerial Decision Making",
     moduleCode: "OBHR228",
-    description: "DESCRIPTION_NEEDED",
+    description: "The quality of decision making determines whether a company rides the waves of success or falters. Good decision making is an art and a skill that helps managers to choose and implement the right actions to achieve organizational goals in the face of uncertainty. Good decision making considers not only economic perspectives, but a broad spectrum of objectives to ensure decisions make ethical and business sense. This course focuses on familiarizing you with the foundations of descriptive and prescriptive (and less so, normative) aspects of decision making in individual, group, and organizational settings. Topics include information processing, heuristics and biases, decision frames, managerial risk perceptions, affective influences on decision making, intuition and expertise, ethical decision making, and group decision making.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22896,11 +22921,12 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq: "OBHR228",
   },
   OBHR235: {
     name: "Human Resources Consulting",
     moduleCode: "OBHR235",
-    description: "DESCRIPTION_NEEDED",
+    description: "The aim of this course is to help students learn about the world of HR consulting with an opportunity to develop skills that can be applied to HR consulting projects. To do this, students will learn the whole consulting process. These include consulting methodologies, building and managing client relationships, assessing consulting outcomes and more. The context of the consulting process will be done with reference to the different HR domains and functions. This will help students to have a comprehensive understanding of the people (HR) challenges that organisations face and for which HR consulting may help resolve. As all consulting projects involve change of some form, the key principles of change management will also be explored. This course assumes some level of HR knowledge and practices. Hence, due to the nature of the content that will be covered, it is highly recommended that students take the Human Capital Management course prior to taking this HR Consulting course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22931,7 +22957,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-26T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The future of the HR profession lies in analytics. No professional entering the field can expect to succeed in his or her career without a solid understanding and hands-on practice of analytical tools to help in making people decisions. To implement their business strategies effectively, leaders must deal with people issues in a way that allows them to gain competitive advantage through people. The organizations that will win the “war for talent” will be those which are better at identifying and keeping key talent, motivating high performance, developing and promoting staff and predicting future people needs accurately. HR professionals need analytics to address these challenges. For exam-ple, linking pay-for-performance has been a dogma of management, but recent research shows that most incentive plans do not produce the desired behavior, and that pay, in fact, has little correlation to business results. To succeed in the business world, it is imperative that HR provide data-driven answers and insights on how to implement and execute strategy through the people in the organization. The course provides students with practi-cal, hands-on approaches to connect HR policies and practices to business performance. You will review key statis-tics and finance concepts, such as ROI and people productivity; become familiar with available tools such as Workday and Tableau to complement Excel and others; discuss data collection, clean-up and warehousing; prac-tice building descriptive and predictive models; and get hands-on experience in applications for workforce planning, recruitment, compensation, training, career planning and turnover. At the end of the semester, you will be able to put HR analytics skills and tools to good use.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22954,6 +22981,20 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq:  {
+      and: [
+        "OBHR101",
+        {
+          or: ["COR-STAT1202", "COR-STAT1203"],
+        },
+        {
+          nOf: [
+            1,
+            ["OBHR200", "OBHR300"],
+          ],
+        },
+      ],
+    }
   },
   OBHR301: {
     name: "Group Dynamics in Organisations",
@@ -22962,7 +23003,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "Organizations are increasingly relying on teams to generate solutions required for sustained business success. However, it can be extremely challenging for leaders to manage teams effectively in today’s diverse, digital and dynamic times. This course examines the design, management, and leadership of teams in organizational settings and focuses on more than just formal team leadership as all team members can play leadership roles in teams. This is an advanced course which builds on and extends foundational knowledge learnt in OBHR101 with a specific focus on group dynamics. It provides detailed knowledge of how group and intergroup dynamics affect both individual functioning but also organisation-level outcomes. The emphasis is understanding the interpersonal processes and structural characteristics that influence the effectiveness of teams, the dynamics of intra-team relationships, and sharing of knowledge and information in teams. This course is designed to provide you with perspectives and skills that will help you to develop and manage high impact teams. Topics include understanding the foundations of high performing teams, decision-making in teams, managing team conflict; team creativity and innovation; leading diverse and virtual teams, among others.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22985,6 +23026,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
+    preReq: "OBHR101",
   },
   OPIM101: {
     name: "Decision Analysis",
@@ -22993,7 +23035,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The objective of this course is to introduce Decision Analysis, which is the application of the scientific method to managerial and personal decision-making. The decision analysis approach of analysing decisions consists of defining a problem, developing a model, acquiring data, developing a solution, testing the solution, analyzing results and implementing results. Decision models can be categorized as Prescriptive, Predictive and Descriptive. This course will discuss some Prescriptive and Descriptive models. To be specific, this course will introduce quantitative modeling tools such as linear and integer programming, decision tree analysis and simulation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
