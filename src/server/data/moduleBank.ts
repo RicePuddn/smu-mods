@@ -8628,13 +8628,7 @@ export const modules: ModuleBank = {
             "CS460",
             "SMT203",
             {
-              and: [
-                "IS111",
-                "IS112",
-                "IS210",
-                "IS212",
-                "IS213",
-              ],
+              and: ["IS111", "IS112", "IS210", "IS212", "IS213"],
             },
           ],
         },
@@ -20817,7 +20811,8 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "To achieve superior performance in an increasingly dynamic and uncertain global business environment, companies in every industry must create internal capability to harness strategic change for sustainable competitive advantage. However, companies that are able to strategically change their entrenched ways of doing things and then reclaim leading positions are the exception rather than the rule. With the industry 4.0 upon us and fast advancement in digital technologies, firms in many industries would find it even more pressing but challenging to build the managerial capabilities to cope with the digital transformation that will reshape the business landscape tremendously for the future. Against this backdrop, this course discusses how companies can effectively manage the strategic change and digital transformation that will significantly impact the way the business is configured for competitive advantage. Besides the internal managerial challenge, the course also emphasizes that companies must cope with strategic interactions with different industry players to create value collectively and continuously. With respect to digital transformation, the course discusses digital concepts and technologies such as omni-channel, platforms, eco-systems, blockchain, IOT, AI, and cloud computing etc. that impose both challenges and opportunities for strategic change management in the increasingly technology-based, internet-based, and data-based business contexts.",
+    description:
+      "To achieve superior performance in an increasingly dynamic and uncertain global business environment, companies in every industry must create internal capability to harness strategic change for sustainable competitive advantage. However, companies that are able to strategically change their entrenched ways of doing things and then reclaim leading positions are the exception rather than the rule. With the industry 4.0 upon us and fast advancement in digital technologies, firms in many industries would find it even more pressing but challenging to build the managerial capabilities to cope with the digital transformation that will reshape the business landscape tremendously for the future. Against this backdrop, this course discusses how companies can effectively manage the strategic change and digital transformation that will significantly impact the way the business is configured for competitive advantage. Besides the internal managerial challenge, the course also emphasizes that companies must cope with strategic interactions with different industry players to create value collectively and continuously. With respect to digital transformation, the course discusses digital concepts and technologies such as omni-channel, platforms, eco-systems, blockchain, IOT, AI, and cloud computing etc. that impose both challenges and opportunities for strategic change management in the increasingly technology-based, internet-based, and data-based business contexts.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20871,7 +20866,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
           "MGMT102",
         ],
       ],
-    }
+    },
   },
   MGMT237: {
     name: "Corporate Strategy",
@@ -20899,12 +20894,13 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
-    preReq: {or: ["MGMT102"]},
+    preReq: { or: ["MGMT102"] },
   },
   MGMT242: {
     name: "Corporate Sustainable Product and System Design",
     moduleCode: "MGMT242",
-    description: "This builds on the course 'Strategy'. Corporate strategy is the pattern of decision-making that determines a firm’s goals and objectives, produces principal policies, defines the range of business to pursue, and pertains to the overall plan for a diversified firm. A firm’s corporate strategy acts as both a catalyst for and a constraint on the strategies of its business units. If the business strategies do not support the firm’s corporate strategy, synergy becomes impossible. Therefore, this progression reinforces the inextricable link between business strategy and corporate strategy, with cases of business integration, strategic alliances, corporate diversification, and mergers and acquisitions. Drawing on these factors, the major objective of this course is to help student to understand: 1) conditions under which different types of corporate strategy have the potential to create (economic and social) value, competitive and corporate advantages; and 2) organizational and managerial systems that must be in place in order to realize this potential value creation.",
+    description:
+      "This builds on the course 'Strategy'. Corporate strategy is the pattern of decision-making that determines a firm’s goals and objectives, produces principal policies, defines the range of business to pursue, and pertains to the overall plan for a diversified firm. A firm’s corporate strategy acts as both a catalyst for and a constraint on the strategies of its business units. If the business strategies do not support the firm’s corporate strategy, synergy becomes impossible. Therefore, this progression reinforces the inextricable link between business strategy and corporate strategy, with cases of business integration, strategic alliances, corporate diversification, and mergers and acquisitions. Drawing on these factors, the major objective of this course is to help student to understand: 1) conditions under which different types of corporate strategy have the potential to create (economic and social) value, competitive and corporate advantages; and 2) organizational and managerial systems that must be in place in order to realize this potential value creation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20955,7 +20951,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       },
     ],
   },
-  
+
   MGMT246: {
     name: "Strategic Risks and Opportunities Management",
     moduleCode: "MGMT246",
@@ -20983,7 +20979,7 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
-    preReq: {or:["MGMT102"]}
+    preReq: { or: ["MGMT102"] },
   },
   MGMT310: {
     name: "Leading New Ventures to Growth",
@@ -21012,7 +21008,7 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
-    preReq: "MGMT310"
+    preReq: "MGMT310",
   },
   MGMT317: {
     name: "Managing Process Improvement",
@@ -21021,7 +21017,8 @@ In the current business landscape, companies face a multitude of risks and oppor
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "All firms have processes, most of which can be improved or optimized. Some of these processes include innovation, development, manufacturing, services, internal and external processes. The ability of managers to define, measure, improve and control processes is a key skill set and, combined with leadership, can enhance the success of a firm. In this course, students will develop a combination of practical tool knowledge and project management skills to effectively change and improve important processes. Students will also gain a strong theoretical and practical understanding of six sigma deployment and will have the opportunity to achieve SMU Six Sigma “Greenbelt” certification. Students will learn the DMAIC methodology (Design, Measure, Analyze, Improve, Control) and apply it in real projects. These projects will be sponsored by SMU, local SME’s and MNC’s. This course will also allow students to further develop and get feedback on the following SMU Graduate Learning Outcomes: disciplinary knowledge, critical thinking and problem solving, collaboration and leadership, communication, self-directed learning, and resilience. (See https://www.smu.edu.sg/programmes/graduate-learning-outcomes)",
+    description:
+      "All firms have processes, most of which can be improved or optimized. Some of these processes include innovation, development, manufacturing, services, internal and external processes. The ability of managers to define, measure, improve and control processes is a key skill set and, combined with leadership, can enhance the success of a firm. In this course, students will develop a combination of practical tool knowledge and project management skills to effectively change and improve important processes. Students will also gain a strong theoretical and practical understanding of six sigma deployment and will have the opportunity to achieve SMU Six Sigma “Greenbelt” certification. Students will learn the DMAIC methodology (Design, Measure, Analyze, Improve, Control) and apply it in real projects. These projects will be sponsored by SMU, local SME’s and MNC’s. This course will also allow students to further develop and get feedback on the following SMU Graduate Learning Outcomes: disciplinary knowledge, critical thinking and problem solving, collaboration and leadership, communication, self-directed learning, and resilience. (See https://www.smu.edu.sg/programmes/graduate-learning-outcomes)",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21046,7 +21043,7 @@ In the current business landscape, companies face a multitude of risks and oppor
     ],
     preReq: {
       or: ["COR-STAT1202", "COR-STAT1203"],
-    }
+    },
   },
   MGMT318: {
     name: "Design Thinking and Innovation",
@@ -21437,7 +21434,8 @@ In the current business landscape, companies face a multitude of risks and oppor
   MGMT345: {
     name: "Digital Media, Entertainment & E,commerce Ecosystem",
     moduleCode: "MGMT345",
-    description: "This course is designed to help students develop an in-depth understanding and analysis of strategic business challenges and opportunities in the dynamic and complex environment of Digital Media and Entertainment E-Commerce Ecosystem (DMEEE) in Asia. Value co-creation is an integral performance outcome in digital platform ecosystems. In developing their digital strategies, leading companies in these systems increasingly aggregate and analyze data from both e-commerce activities and media content consumption to gain a multifaceted understanding of their customers, and to develop deep knowledge about media, entertainment, and e-commerce. As tech titans like Amazon, Netflix, Alibaba, Tencent, and Bytedance redefine the DMEEE landscape in Singapore and Southeast Asia, other ecosystem players including media firms, entertainment firms, manufacturers and retailers are presented with the challenge of developing their own digital strategies to thrive. This elective will introduce key concepts in strategic management in DMEEE and involve students in real-life strategic business challenges from Corporate Clients. Participants will have the opportunity to engage business leaders in project discussions.",
+    description:
+      "This course is designed to help students develop an in-depth understanding and analysis of strategic business challenges and opportunities in the dynamic and complex environment of Digital Media and Entertainment E-Commerce Ecosystem (DMEEE) in Asia. Value co-creation is an integral performance outcome in digital platform ecosystems. In developing their digital strategies, leading companies in these systems increasingly aggregate and analyze data from both e-commerce activities and media content consumption to gain a multifaceted understanding of their customers, and to develop deep knowledge about media, entertainment, and e-commerce. As tech titans like Amazon, Netflix, Alibaba, Tencent, and Bytedance redefine the DMEEE landscape in Singapore and Southeast Asia, other ecosystem players including media firms, entertainment firms, manufacturers and retailers are presented with the challenge of developing their own digital strategies to thrive. This elective will introduce key concepts in strategic management in DMEEE and involve students in real-life strategic business challenges from Corporate Clients. Participants will have the opportunity to engage business leaders in project discussions.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21468,7 +21466,8 @@ In the current business landscape, companies face a multitude of risks and oppor
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "The course introduces Marketing as both a professional and an academic discipline. As a profession, marketers identify consumer needs, determine which target markets to serve, and develop an optimal product, pricing, promotion, and distribution strategy that best satisfy consumer needs, relative to competition. These decisions—product, price, promotion, and distribution—flow from a rigorous analysis of the constantly evolving market environment and consumer needs (for example, the recent rise of ethical, sustainable, and socially responsible consumption). Marketers serve a vital role in the long-term success of all organizations, profit-oriented as well as not-for-profit, small as well as large. Academically, marketing is a multi-disciplinary field involving the concepts, theories, and methods used to understand exchanges and long-term relationships between buyers and sellers. Through a combination of lectures, discussions, videos, individual and group assignments, and case analyses, the course is designed to cover the fundamental concepts and principles of this challenging field. It is a required course for marketing majors, which complements the theories and skills taught in many of the other majors at SMU.",
+    description:
+      "The course introduces Marketing as both a professional and an academic discipline. As a profession, marketers identify consumer needs, determine which target markets to serve, and develop an optimal product, pricing, promotion, and distribution strategy that best satisfy consumer needs, relative to competition. These decisions—product, price, promotion, and distribution—flow from a rigorous analysis of the constantly evolving market environment and consumer needs (for example, the recent rise of ethical, sustainable, and socially responsible consumption). Marketers serve a vital role in the long-term success of all organizations, profit-oriented as well as not-for-profit, small as well as large. Academically, marketing is a multi-disciplinary field involving the concepts, theories, and methods used to understand exchanges and long-term relationships between buyers and sellers. Through a combination of lectures, discussions, videos, individual and group assignments, and case analyses, the course is designed to cover the fundamental concepts and principles of this challenging field. It is a required course for marketing majors, which complements the theories and skills taught in many of the other majors at SMU.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21785,7 +21784,7 @@ In the current business landscape, companies face a multitude of risks and oppor
     ],
     preReq: {
       or: ["ACM212", "MKTG101"],
-    }
+    },
   },
   MKTG102: {
     name: "Consumer Behaviour",
@@ -21794,7 +21793,8 @@ In the current business landscape, companies face a multitude of risks and oppor
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "The study of consumer behavior is an important part of the science underlying the design of marketing programs. Drawing upon academic research in marketing, psychology and economics, the course introduces important theories, methods, and findings of research on attention, comprehension, memory, attitude formation and choice. The course also covers macro influences on consumer behavior at the reference group, sub-cultural, cultural and environmental levels. This course lays the theoretical foundation for other marketing courses and the implications of consumer behavior theories to real-world marketing problems are discussed throughout the course. The course will also heighten your awareness of the ethical issues underlying the effects of marketing programs on consumers.",
+    description:
+      "The study of consumer behavior is an important part of the science underlying the design of marketing programs. Drawing upon academic research in marketing, psychology and economics, the course introduces important theories, methods, and findings of research on attention, comprehension, memory, attitude formation and choice. The course also covers macro influences on consumer behavior at the reference group, sub-cultural, cultural and environmental levels. This course lays the theoretical foundation for other marketing courses and the implications of consumer behavior theories to real-world marketing problems are discussed throughout the course. The course will also heighten your awareness of the ethical issues underlying the effects of marketing programs on consumers.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21853,7 +21853,7 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
-    preReq: "MKTG101"
+    preReq: "MKTG101",
   },
   MKTG103: {
     name: "Marketing Research",
@@ -21862,7 +21862,8 @@ In the current business landscape, companies face a multitude of risks and oppor
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "This course provides you with the fundamental skills and tools needed to understand, evaluate and conduct marketing research. Marketing research is vital in the assessment of new business opportunities, go/no go decisions for new products, pricing and product design issues, among other business issues. In this course, we will go through the basic marketing research process to understand how to formulate and structure marketing problems, gather and analyze quantitative marketing data, and make effective decisions based on those data. This is a hands-on course and these skills are particularly useful if you plan to go into a consulting or marketing career. The emphasis will be on practical skills and building depth and confidence in the most commonly used marketing research tools.",
+    description:
+      "This course provides you with the fundamental skills and tools needed to understand, evaluate and conduct marketing research. Marketing research is vital in the assessment of new business opportunities, go/no go decisions for new products, pricing and product design issues, among other business issues. In this course, we will go through the basic marketing research process to understand how to formulate and structure marketing problems, gather and analyze quantitative marketing data, and make effective decisions based on those data. This is a hands-on course and these skills are particularly useful if you plan to go into a consulting or marketing career. The emphasis will be on practical skills and building depth and confidence in the most commonly used marketing research tools.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22066,7 +22067,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   MKTG215: {
     name: "New Product Development",
     moduleCode: "MKTG215",
-    description: "This course is designed to provide students with the intellectual foundation as well as experience of the new product development process. To develop intellectual foundations, students are expected to read the textbook, prepare for case studies, and participate in the class discussions. In addition, to get a real life experience of the new product development process, the students will work in groups for a semester long project. In the project they will identify a customer problem, propose a solution, test the solution and develop a plan for launching the product. At the end of the semester, the students can expect to have a richer understanding of the new product development process and be equipped with the state of the art tools and techniques that are essential for developing and launching new products.",
+    description:
+      "This course is designed to provide students with the intellectual foundation as well as experience of the new product development process. To develop intellectual foundations, students are expected to read the textbook, prepare for case studies, and participate in the class discussions. In addition, to get a real life experience of the new product development process, the students will work in groups for a semester long project. In the project they will identify a customer problem, propose a solution, test the solution and develop a plan for launching the product. At the end of the semester, the students can expect to have a richer understanding of the new product development process and be equipped with the state of the art tools and techniques that are essential for developing and launching new products.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22090,12 +22092,12 @@ This course aims to prepare students to develop and implement state-of-the-art A
       },
     ],
     preReq: "MKTG101",
-
   },
   MKTG217: {
     name: "Strategic Brand Management",
     moduleCode: "MKTG217",
-    description: "Brand management is a vital component in the development and implementation of marketing strategy. This course helps students to better understand the process and techniques used by brand managers when leveraging their brands as the company’s strategic assets. This course is designed to develop students’ understanding of the importance of brand equity as well as how to build, measure and manage brand equity. Topics will include understanding brands from the customer’s perspective, building brand equity, measuring brand equity, leveraging the brand portfolios and managing brands over time and in different marketing context.",
+    description:
+      "Brand management is a vital component in the development and implementation of marketing strategy. This course helps students to better understand the process and techniques used by brand managers when leveraging their brands as the company’s strategic assets. This course is designed to develop students’ understanding of the importance of brand equity as well as how to build, measure and manage brand equity. Topics will include understanding brands from the customer’s perspective, building brand equity, measuring brand equity, leveraging the brand portfolios and managing brands over time and in different marketing context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22141,7 +22143,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   MKTG220: {
     name: "Digital Marketing",
     moduleCode: "MKTG220",
-    description: "The development of new digital technologies has fundamentally changed how consumers interact with brands and each other. Marketing is no longer about pushing a sales message to a potential buyer. Businesses have to enable conversations with consumers to engage prospects with relevant content that will lead to positive actions for commercial impact. To be effective, marketers need to employ a rigorous and holistic marketing methodology across both traditional and new-emerging techniques. This course will provide students with the relevant knowledge, perspectives, and practical skills required to develop marketing strategies that leverage the opportunities inherent on digital platforms, including social media and consumer-to-consumer social interactions. The emphasis of this course is on understanding the various digital platforms available, how to build social marketing strategies, and how to track their effectiveness. The course utilizes applicable theory, empirical analysis, and practical examples to develop the key learning points. The class format will include a combination of lectures, case study discussions, and guest speakers with relevant industry experience",
+    description:
+      "The development of new digital technologies has fundamentally changed how consumers interact with brands and each other. Marketing is no longer about pushing a sales message to a potential buyer. Businesses have to enable conversations with consumers to engage prospects with relevant content that will lead to positive actions for commercial impact. To be effective, marketers need to employ a rigorous and holistic marketing methodology across both traditional and new-emerging techniques. This course will provide students with the relevant knowledge, perspectives, and practical skills required to develop marketing strategies that leverage the opportunities inherent on digital platforms, including social media and consumer-to-consumer social interactions. The emphasis of this course is on understanding the various digital platforms available, how to build social marketing strategies, and how to track their effectiveness. The course utilizes applicable theory, empirical analysis, and practical examples to develop the key learning points. The class format will include a combination of lectures, case study discussions, and guest speakers with relevant industry experience",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22248,7 +22251,6 @@ This course aims to prepare students to develop and implement state-of-the-art A
       },
     ],
     preReq: "MKTG101",
-
   },
   MKTG227: {
     name: "Integrated Marketing Communications: A Brand Perspective",
@@ -22278,7 +22280,6 @@ This course aims to prepare students to develop and implement state-of-the-art A
       },
     ],
     preReq: "MKTG101",
-
   },
   MKTG228: {
     name: "Marketing Analytics",
@@ -22328,7 +22329,7 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
-    preReq:  {
+    preReq: {
       and: [
         "MKTG101",
         {
@@ -22340,7 +22341,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   MKTG234: {
     name: "Sustainable Marketing",
     moduleCode: "MKTG234",
-    description: "Much of marketing in the last half century has been about the single-minded satisfaction of consumer needs and wants. The key to success is thought to lie in thoroughly understanding what these needs and wants are and ensuring the best fit between what is offered as a product and what is desired. This market-led approach, unfortunately, is myopic in its neglect of other stakeholders, such as the environment and the community. This course takes an alternative perspective, premised on climate change, deterioration of the marine ecosystem, and social inequalities as realities. It first examines how current consumption patterns are harming the environment and communities. It then delves into what responsible consumption entails and how consumers can be influenced to make product choices that are sustainable. Theories in psychology will be drawn on to provide that understanding of consumer behaviour. The course will also examine what companies can do to ensure that their marketing activities are aligned with sustainability goals. Case studies of companies with strong sustainability initiatives will be used to illuminate current best practices.",
+    description:
+      "Much of marketing in the last half century has been about the single-minded satisfaction of consumer needs and wants. The key to success is thought to lie in thoroughly understanding what these needs and wants are and ensuring the best fit between what is offered as a product and what is desired. This market-led approach, unfortunately, is myopic in its neglect of other stakeholders, such as the environment and the community. This course takes an alternative perspective, premised on climate change, deterioration of the marine ecosystem, and social inequalities as realities. It first examines how current consumption patterns are harming the environment and communities. It then delves into what responsible consumption entails and how consumers can be influenced to make product choices that are sustainable. Theories in psychology will be drawn on to provide that understanding of consumer behaviour. The course will also examine what companies can do to ensure that their marketing activities are aligned with sustainability goals. Case studies of companies with strong sustainability initiatives will be used to illuminate current best practices.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22364,7 +22366,6 @@ This course aims to prepare students to develop and implement state-of-the-art A
       },
     ],
     preReq: "MKTG101",
-
   },
   OBHR101: {
     name: "Management of People at Work",
@@ -22710,7 +22711,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "The course enables you to discover the challenging and competitive world of Human Capital Management. This learning experience will provide you with a broad understanding of basic Human Resource knowledge, skills and practices. Students will learn the concepts, processes and issues involved in implementation and decision making in the topical areas such as Talent Acquisition (planning, job analysis, recruitment and selection) Rewards (compensation, benefits, performance appraisal) and Development (training and development, career planning).",
+    description:
+      "The course enables you to discover the challenging and competitive world of Human Capital Management. This learning experience will provide you with a broad understanding of basic Human Resource knowledge, skills and practices. Students will learn the concepts, processes and issues involved in implementation and decision making in the topical areas such as Talent Acquisition (planning, job analysis, recruitment and selection) Rewards (compensation, benefits, performance appraisal) and Development (training and development, career planning).",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22792,7 +22794,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   OBHR203: {
     name: "Talent Acquisition and Assessment",
     moduleCode: "OBHR203",
-    description: "This course focuses on the attraction, recruitment, selection, and assessment of talent into organizations. This course is designed to provide students with a broad overview of these fields by exposing them to a variety of relevant theories, concepts, findings, unresolved issues, and recent trends. An organizing theme, which cuts across the diverse topic areas covered in this course, is the commitment to empirical evidence that currently characterize the fields of human resource management and organizational behaviour. Students will learn how to use effective talent acquisition and talent assessment approaches to achieve sustained competitive advantage for organizations. They will also learn to critically evaluate recent talent acquisition and talent assessment trends.",
+    description:
+      "This course focuses on the attraction, recruitment, selection, and assessment of talent into organizations. This course is designed to provide students with a broad overview of these fields by exposing them to a variety of relevant theories, concepts, findings, unresolved issues, and recent trends. An organizing theme, which cuts across the diverse topic areas covered in this course, is the commitment to empirical evidence that currently characterize the fields of human resource management and organizational behaviour. Students will learn how to use effective talent acquisition and talent assessment approaches to achieve sustained competitive advantage for organizations. They will also learn to critically evaluate recent talent acquisition and talent assessment trends.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22822,7 +22825,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   OBHR204: {
     name: "Training & Development",
     moduleCode: "OBHR204",
-    description: "This course introduces students to the theories, application and skills development aspects of Training and Development. Students will learn how to assess, design, develop, implement and evaluate a training program. In this regard, basic concepts of training, including total needs assessment, trainees’ learning motivations, learning and transfer theories as well as evaluation methods will be covered. The course also aims to give an understanding of how Training and Development is integrated into the overall organizational strategy. From an application point of view, students will get to design, develop and evaluate their own training programs. Finally, they will develop training skills through conducting a training session.",
+    description:
+      "This course introduces students to the theories, application and skills development aspects of Training and Development. Students will learn how to assess, design, develop, implement and evaluate a training program. In this regard, basic concepts of training, including total needs assessment, trainees’ learning motivations, learning and transfer theories as well as evaluation methods will be covered. The course also aims to give an understanding of how Training and Development is integrated into the overall organizational strategy. From an application point of view, students will get to design, develop and evaluate their own training programs. Finally, they will develop training skills through conducting a training session.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22852,7 +22856,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   OBHR212: {
     name: "Cross,Cultural Management & the Management of Diversity",
     moduleCode: "OBHR212",
-    description: "With an increasingly globalized economy, managing employees of different cultural background becomes an imperative in organizations. This module takes the approach of understanding how culture differs and impacts on our interactions at the workplace. The course is broadly structured to enable an understanding of (a) cultures, (b) within culture differences, (c) between culture differences with an emphasis on how these similarities and differences impact workplace interactions. Case studies, role plays and self assessments will be used to provide students with both an academic and practical foundation in this area.",
+    description:
+      "With an increasingly globalized economy, managing employees of different cultural background becomes an imperative in organizations. This module takes the approach of understanding how culture differs and impacts on our interactions at the workplace. The course is broadly structured to enable an understanding of (a) cultures, (b) within culture differences, (c) between culture differences with an emphasis on how these similarities and differences impact workplace interactions. Case studies, role plays and self assessments will be used to provide students with both an academic and practical foundation in this area.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22909,7 +22914,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   OBHR228: {
     name: "The Psychology of Managerial Decision Making",
     moduleCode: "OBHR228",
-    description: "The quality of decision making determines whether a company rides the waves of success or falters. Good decision making is an art and a skill that helps managers to choose and implement the right actions to achieve organizational goals in the face of uncertainty. Good decision making considers not only economic perspectives, but a broad spectrum of objectives to ensure decisions make ethical and business sense. This course focuses on familiarizing you with the foundations of descriptive and prescriptive (and less so, normative) aspects of decision making in individual, group, and organizational settings. Topics include information processing, heuristics and biases, decision frames, managerial risk perceptions, affective influences on decision making, intuition and expertise, ethical decision making, and group decision making.",
+    description:
+      "The quality of decision making determines whether a company rides the waves of success or falters. Good decision making is an art and a skill that helps managers to choose and implement the right actions to achieve organizational goals in the face of uncertainty. Good decision making considers not only economic perspectives, but a broad spectrum of objectives to ensure decisions make ethical and business sense. This course focuses on familiarizing you with the foundations of descriptive and prescriptive (and less so, normative) aspects of decision making in individual, group, and organizational settings. Topics include information processing, heuristics and biases, decision frames, managerial risk perceptions, affective influences on decision making, intuition and expertise, ethical decision making, and group decision making.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22937,7 +22943,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
   OBHR235: {
     name: "Human Resources Consulting",
     moduleCode: "OBHR235",
-    description: "The aim of this course is to help students learn about the world of HR consulting with an opportunity to develop skills that can be applied to HR consulting projects. To do this, students will learn the whole consulting process. These include consulting methodologies, building and managing client relationships, assessing consulting outcomes and more. The context of the consulting process will be done with reference to the different HR domains and functions. This will help students to have a comprehensive understanding of the people (HR) challenges that organisations face and for which HR consulting may help resolve. As all consulting projects involve change of some form, the key principles of change management will also be explored. This course assumes some level of HR knowledge and practices. Hence, due to the nature of the content that will be covered, it is highly recommended that students take the Human Capital Management course prior to taking this HR Consulting course.",
+    description:
+      "The aim of this course is to help students learn about the world of HR consulting with an opportunity to develop skills that can be applied to HR consulting projects. To do this, students will learn the whole consulting process. These include consulting methodologies, building and managing client relationships, assessing consulting outcomes and more. The context of the consulting process will be done with reference to the different HR domains and functions. This will help students to have a comprehensive understanding of the people (HR) challenges that organisations face and for which HR consulting may help resolve. As all consulting projects involve change of some form, the key principles of change management will also be explored. This course assumes some level of HR knowledge and practices. Hence, due to the nature of the content that will be covered, it is highly recommended that students take the Human Capital Management course prior to taking this HR Consulting course.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22992,20 +22999,17 @@ This course aims to prepare students to develop and implement state-of-the-art A
         ],
       },
     ],
-    preReq:  {
+    preReq: {
       and: [
         "OBHR101",
         {
           or: ["COR-STAT1202", "COR-STAT1203"],
         },
         {
-          nOf: [
-            1,
-            ["OBHR200", "OBHR300"],
-          ],
+          nOf: [1, ["OBHR200", "OBHR300"]],
         },
       ],
-    }
+    },
   },
   OBHR301: {
     name: "Group Dynamics in Organisations",
@@ -23014,7 +23018,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-22T05:00:00.000Z"),
       durationInHour: 2,
     },
-    description: "Organizations are increasingly relying on teams to generate solutions required for sustained business success. However, it can be extremely challenging for leaders to manage teams effectively in today’s diverse, digital and dynamic times. This course examines the design, management, and leadership of teams in organizational settings and focuses on more than just formal team leadership as all team members can play leadership roles in teams. This is an advanced course which builds on and extends foundational knowledge learnt in OBHR101 with a specific focus on group dynamics. It provides detailed knowledge of how group and intergroup dynamics affect both individual functioning but also organisation-level outcomes. The emphasis is understanding the interpersonal processes and structural characteristics that influence the effectiveness of teams, the dynamics of intra-team relationships, and sharing of knowledge and information in teams. This course is designed to provide you with perspectives and skills that will help you to develop and manage high impact teams. Topics include understanding the foundations of high performing teams, decision-making in teams, managing team conflict; team creativity and innovation; leading diverse and virtual teams, among others.",
+    description:
+      "Organizations are increasingly relying on teams to generate solutions required for sustained business success. However, it can be extremely challenging for leaders to manage teams effectively in today’s diverse, digital and dynamic times. This course examines the design, management, and leadership of teams in organizational settings and focuses on more than just formal team leadership as all team members can play leadership roles in teams. This is an advanced course which builds on and extends foundational knowledge learnt in OBHR101 with a specific focus on group dynamics. It provides detailed knowledge of how group and intergroup dynamics affect both individual functioning but also organisation-level outcomes. The emphasis is understanding the interpersonal processes and structural characteristics that influence the effectiveness of teams, the dynamics of intra-team relationships, and sharing of knowledge and information in teams. This course is designed to provide you with perspectives and skills that will help you to develop and manage high impact teams. Topics include understanding the foundations of high performing teams, decision-making in teams, managing team conflict; team creativity and innovation; leading diverse and virtual teams, among others.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -23046,7 +23051,8 @@ This course aims to prepare students to develop and implement state-of-the-art A
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "The objective of this course is to introduce Decision Analysis, which is the application of the scientific method to managerial and personal decision-making. The decision analysis approach of analysing decisions consists of defining a problem, developing a model, acquiring data, developing a solution, testing the solution, analyzing results and implementing results. Decision models can be categorized as Prescriptive, Predictive and Descriptive. This course will discuss some Prescriptive and Descriptive models. To be specific, this course will introduce quantitative modeling tools such as linear and integer programming, decision tree analysis and simulation.",
+    description:
+      "The objective of this course is to introduce Decision Analysis, which is the application of the scientific method to managerial and personal decision-making. The decision analysis approach of analysing decisions consists of defining a problem, developing a model, acquiring data, developing a solution, testing the solution, analyzing results and implementing results. Decision models can be categorized as Prescriptive, Predictive and Descriptive. This course will discuss some Prescriptive and Descriptive models. To be specific, this course will introduce quantitative modeling tools such as linear and integer programming, decision tree analysis and simulation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [

@@ -17,9 +17,9 @@ const inputVariants = cva(
         error: "border-red-500 focus-visible:ring-red-500",
         timetable: "border-input focus-visible:ring-blue-500",
         beyondStudies:
-          "text-white placeholder:text-white border border-white focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:shadow-blue-500/50",
+          "border border-white text-white placeholder:text-white focus-visible:shadow-blue-500/50 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
         ModulesPage:
-          " border border-black text-black placeholder:text-black  focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent focus-visible:shadow-blue-500/50"
+          "border border-black text-black placeholder:text-black focus-visible:shadow-blue-500/50 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
       },
     },
     defaultVariants: {

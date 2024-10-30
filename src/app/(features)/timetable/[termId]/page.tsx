@@ -507,19 +507,21 @@ export default function TimeTablePage({
                       const rowIndex = parseInt(rowIndexStr, 10);
                       const slotId = `${day}Slot${rowIndex}`;
                       let minHeight = 60;
-                      const row = document.getElementById(slotId);
-                      for (
-                        let index = 0;
-                        index < (row?.children.length ?? 0);
-                        index++
-                      ) {
-                        const element = row?.children.item(index);
-                        if (
-                          element?.scrollHeight &&
-                          minHeight < element?.scrollHeight
+                      if (typeof document !== "undefined") {
+                        const row = document.getElementById(slotId);
+                        for (
+                          let index = 0;
+                          index < (row?.children.length ?? 0);
+                          index++
                         ) {
-                          minHeight = element.scrollHeight;
-                          Logger.log(minHeight, slotId);
+                          const element = row?.children.item(index);
+                          if (
+                            element?.scrollHeight &&
+                            minHeight < element?.scrollHeight
+                          ) {
+                            minHeight = element.scrollHeight;
+                            Logger.log(minHeight, slotId);
+                          }
                         }
                       }
                       return (
