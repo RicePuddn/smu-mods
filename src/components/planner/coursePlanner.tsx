@@ -379,7 +379,6 @@ const CoursePlanner: React.FC = () => {
                                     Object.entries(conflicts).map(
                                       ([_, conflict]) => {
                                         "checkpoint";
-                                        Logger.log(conflicts);
                                         if (
                                           conflict.type === "prereq" &&
                                           (conflict.statusNode?.children
