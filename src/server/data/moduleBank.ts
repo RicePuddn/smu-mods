@@ -13450,7 +13450,8 @@ With the help of case studies and resource persons such as industry leaders, inn
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description:
+      "This course aims to impart knowledge and understanding in the Singapore social and fiscal policies, workings and basic principles of income tax, stamp duty, social security system and GST.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
