@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import { PADDING } from "@/config";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { ModuleCode } from "@/types/primitives/module";
+import { type ModuleCode } from "@/types/primitives/module";
 import { bitAnalytics } from "@/utils/bid-analytics";
 
 interface BidAnalyticsPageProps {
@@ -45,7 +45,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
       }
       return await bitAnalytics.getTermsAvailable(
         params.moduleCode,
-        queryKey[1] as string,
+        queryKey[1],
       );
     },
   });
@@ -62,8 +62,8 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
       }
       return await bitAnalytics.getSections(
         params.moduleCode,
-        queryKey[1] as string,
-        queryKey[2] as string,
+        queryKey[1],
+        queryKey[2],
       );
     },
   });
@@ -81,9 +81,9 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
       }
       return await bitAnalytics.getChartData(
         params.moduleCode,
-        queryKey[1] as string,
-        queryKey[2] as string,
-        queryKey[3] as string,
+        queryKey[1],
+        queryKey[2],
+        queryKey[3],
       );
     },
   });

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { SearchModule } from "@/components/SearchModule";
 import { PADDING } from "@/config";
 
-export default async function BidAnalyticsPage() {
+export default function BidAnalyticsPage() {
   const router = useRouter();
   return (
     <div
