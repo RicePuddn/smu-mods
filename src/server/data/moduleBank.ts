@@ -20795,7 +20795,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-25T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "To achieve superior performance in an increasingly dynamic and uncertain global business environment, companies in every industry must create internal capability to harness strategic change for sustainable competitive advantage. However, companies that are able to strategically change their entrenched ways of doing things and then reclaim leading positions are the exception rather than the rule. With the industry 4.0 upon us and fast advancement in digital technologies, firms in many industries would find it even more pressing but challenging to build the managerial capabilities to cope with the digital transformation that will reshape the business landscape tremendously for the future. Against this backdrop, this course discusses how companies can effectively manage the strategic change and digital transformation that will significantly impact the way the business is configured for competitive advantage. Besides the internal managerial challenge, the course also emphasizes that companies must cope with strategic interactions with different industry players to create value collectively and continuously. With respect to digital transformation, the course discusses digital concepts and technologies such as omni-channel, platforms, eco-systems, blockchain, IOT, AI, and cloud computing etc. that impose both challenges and opportunities for strategic change management in the increasingly technology-based, internet-based, and data-based business contexts.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20836,6 +20836,20 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      nOf: [
+        2,
+        [
+          "FNCE103",
+          "ACCT101",
+          "ACCT105",
+          "COR-COMM1304",
+          "OBHR101",
+          "OPIM201",
+          "MGMT102",
+        ],
+      ],
+    }
   },
   MGMT237: {
     name: "Corporate Strategy",
@@ -20863,11 +20877,12 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MGMT102"
   },
   MGMT242: {
     name: "Corporate Sustainable Product and System Design",
     moduleCode: "MGMT242",
-    description: "DESCRIPTION_NEEDED",
+    description: "This builds on the course 'Strategy'. Corporate strategy is the pattern of decision-making that determines a firm’s goals and objectives, produces principal policies, defines the range of business to pursue, and pertains to the overall plan for a diversified firm. A firm’s corporate strategy acts as both a catalyst for and a constraint on the strategies of its business units. If the business strategies do not support the firm’s corporate strategy, synergy becomes impossible. Therefore, this progression reinforces the inextricable link between business strategy and corporate strategy, with cases of business integration, strategic alliances, corporate diversification, and mergers and acquisitions. Drawing on these factors, the major objective of this course is to help student to understand: 1) conditions under which different types of corporate strategy have the potential to create (economic and social) value, competitive and corporate advantages; and 2) organizational and managerial systems that must be in place in order to realize this potential value creation.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20894,7 +20909,8 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT244: {
     name: "Fraud Protection for Entrepreneurs",
     moduleCode: "MGMT244",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course equips aspiring entrepreneurs, social entrepreneurs, and managers with essential tools for understanding and identifying instances of fraud, with a view to developing a fraud risk management strategy for their new venture. It aims to provide students with a working knowledge of the various types of fraudulent conduct and the legal framework in place to prevent and deter instances of fraud. In addition, to learning from past cases of fraud, the course also explores new forms or methods of fraud that can arise from new technologies.
+",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20918,10 +20934,12 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       },
     ],
   },
+  
   MGMT246: {
     name: "Strategic Risks and Opportunities Management",
     moduleCode: "MGMT246",
-    description: "DESCRIPTION_NEEDED",
+    description: `
+In the current business landscape, companies face a multitude of risks and opportunities, driven by the dynamic and uncertain global environment. Significant challenges faced by firms across industries is the rapid advancement of digital technologies, the emergence of Industry 4.0 and environmental, social, and governance (ESG) issues. To achieve superior performance and sustainable competitive advantage, organizations must proactively recognize and address these factors. Digital transformation of industries not only reshapes the business landscape but also introduces new risks and opportunities, particularly in the realm of cybersecurity. Protecting sensitive data and information from cyber threats becomes paramount in this context. Simultaneously, organizations must develop managerial capabilities to effectively navigate the changing digital landscape and mitigate these risks. While this poses significant challenges that demand attention, it also presents opportunities for companies to capture. The course aims to address these challenges comprehensively. It will explore how companies can effectively manage strategic change to configure their businesses for competitive advantages. Participants will gain insights into digital concepts and technologies such as omni-channels, platforms, eco-systems, blockchain, IoT, AI, and cloud computing, understanding their potential benefits and the associated risks. They will also learn tools and techniques to managing strategic risks and leveraging opportunities. By focusing on the risks and opportunities associated with strategic change, digital transformation, cybersecurity, etc. in the contemporary business environment, this course equips students with the necessary knowledge and skills to navigate these challenges effectively. Through informed decision-making and proactive measures, organizations can harness these factors to achieve sustainable competitive advantage while also fulfilling their responsibilities to stakeholders and the broader society.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20944,11 +20962,13 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MGMT102";
   },
   MGMT310: {
     name: "Leading New Ventures to Growth",
     moduleCode: "MGMT310",
-    description: "DESCRIPTION_NEEDED",
+    description: `In pursuing a business idea, an important issue for the entrepreneur(s) is how to grow the enterprise. This course examines various ways in which a business can develop and expand over time, in geography and products. Drawing from academic studies as well as real-world case studies, this course shows students the range of issues, challenges and outcomes - both projected and real - that can emerge from these decisions. Examples of internal issues including the transition from the founder-entrepreneur to a professionally run firm, as well as strategic change, are examined.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20971,6 +20991,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MGMT310"
   },
   MGMT317: {
     name: "Managing Process Improvement",
@@ -20979,7 +21000,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "All firms have processes, most of which can be improved or optimized. Some of these processes include innovation, development, manufacturing, services, internal and external processes. The ability of managers to define, measure, improve and control processes is a key skill set and, combined with leadership, can enhance the success of a firm. In this course, students will develop a combination of practical tool knowledge and project management skills to effectively change and improve important processes. Students will also gain a strong theoretical and practical understanding of six sigma deployment and will have the opportunity to achieve SMU Six Sigma “Greenbelt” certification. Students will learn the DMAIC methodology (Design, Measure, Analyze, Improve, Control) and apply it in real projects. These projects will be sponsored by SMU, local SME’s and MNC’s. This course will also allow students to further develop and get feedback on the following SMU Graduate Learning Outcomes: disciplinary knowledge, critical thinking and problem solving, collaboration and leadership, communication, self-directed learning, and resilience. (See https://www.smu.edu.sg/programmes/graduate-learning-outcomes)",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21002,11 +21023,14 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["COR-STAT1202", "COR-STAT1203"],
+    }
   },
   MGMT318: {
     name: "Design Thinking and Innovation",
     moduleCode: "MGMT318",
-    description: "DESCRIPTION_NEEDED",
+    description: `Design Thinking is a human-centric, interdisciplinary approach towards innovation that aims to help companies and startups change and innovate. This course introduces Design Thinking (similar to the IDEO approach – www.ideo.com) and its application to developing new “things” (i.e. products, services, experiences and business models). The course is divided into four main aspects, all interconnected but separately emphasized: (1) design methodologies (e.g. ethnographic research, brainstorming, prototyping), (2) the “thing” to be designed (3) attitudes and behaviors and (4) design contexts. Design contexts refer to the broader emerging context for designs and business, specifically, society (including different cultures and the poor), and the physical environment. Learning will be primarily experiential in nature – through class discussion, group exercises, and a team project. Guest speakers with practical experience in Design Thinking may be invited as well.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21033,7 +21057,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT330: {
     name: "The Design of Business",
     moduleCode: "MGMT330",
-    description: "DESCRIPTION_NEEDED",
+    description: `The Capstone course allows students to apply a cross-disciplinary approach while considering both business model architecture and the formulation of business solutions. It prepares students for the complex business environment of today by emphasising the application of academic knowledge accumulated from a range of prior core courses to solving real world problems. The course develops in students an ability to: strategically position the client and its challenge within an environmental context; appropriately scope the challenge of the client; develop and execute a workplan to address the challenge; and develop solutions by establishing a fact-base through directed primary and secondary research, drawing out relevant insights through analytic review, and engaging in abstract idea generation. The course exposes students to the uncertainties and ambiguity that exists within real-world business landscapes and organisational environments of industry clients, as well as, the challenges with engaging busy business executives and convincing them and their organisation of innovative solutions that have been devised by the students that address the client’s real-world challenges.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21308,11 +21332,19 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      and: [
+        "MGMT102",
+        {
+          or: ["MGMT330", "MGMT300"],
+        },
+      ],
+    }
   },
   MGMT332: {
     name: "Approaching Asian Business through Classics",
     moduleCode: "MGMT332",
-    description: "DESCRIPTION_NEEDED",
+    description: `The course focuses on world-changing ideas that have shaped the business world and the thinking of people in East and Southeast Asia. It analyzes the relevance and impact of selected readings in history and philosophy on economic, social and cultural changes in East and Southeast Asia. It will examine issues including state and corporate governance, work and organizations, gender, inequality and religious beliefs, and evaluate the trade-offs Asian societies make between individual liberty, national progress, regional imperatives and global capitalism.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21357,7 +21389,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT342: {
     name: "Organisational Aspects of Sustainable Innovation",
     moduleCode: "MGMT342",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course initiative rests on the assumption that there is a powerful synergy between ‘sustainability’ and ‘innovation’ in business and society. The term ‘sustainable innovation’ refers to the creation of new market space, products and services or processes driven by social, environmental or sustainability concerns. Just like general innovation, sustainable innovation goes way beyond incremental improvements of products, services or processes. The challenge is to proactively embrace risk management and sustainability considerations (environmental, social, financial) aimed at aligning (novel) business strategies with the Sustainable Development Goals (SDGs) to create and capture new value. If managed well by results-oriented, socially aware sustainability leaders, sustainable innovation results not only in greater effectiveness at (intra)organisational levels but also helps to create a cleaner, healthier, fairer (and hopefully more stable) world as envisaged by the circular economy. The urgent need for sustainability has never been greater as evidenced by rapid population growth, pollution, (toxic) waste, plastic accumulating in our oceans, limited natural resources, climate change etc. This course will introduce students to the managerial discipline of innovation management with particular reference to examples of ‘good’ / ‘best’ sustainable innovation practices adopted by both local and international organisations such as City Development Limited (CDL), Banyan Tree, Sustainability Center Freiburg (launched in 2015 by the University of Freiburg in cooperation with five Fraunhofer research institutes), Henkel BeautyCare (whose Social Plastic Ecosystem in partnership with the Plastic Bank social enterprise is aimed at stopping ocean plastic and simultaneously providing opportunities for people in poverty), Procter & Gamble’s Tide Eco-Box (which contains less packaging, 60% less plastic and 30% less water than the current Tide press-tap) and many more.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21384,7 +21416,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT345: {
     name: "Digital Media, Entertainment & E,commerce Ecosystem",
     moduleCode: "MGMT345",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course is designed to help students develop an in-depth understanding and analysis of strategic business challenges and opportunities in the dynamic and complex environment of Digital Media and Entertainment E-Commerce Ecosystem (DMEEE) in Asia. Value co-creation is an integral performance outcome in digital platform ecosystems. In developing their digital strategies, leading companies in these systems increasingly aggregate and analyze data from both e-commerce activities and media content consumption to gain a multifaceted understanding of their customers, and to develop deep knowledge about media, entertainment, and e-commerce. As tech titans like Amazon, Netflix, Alibaba, Tencent, and Bytedance redefine the DMEEE landscape in Singapore and Southeast Asia, other ecosystem players including media firms, entertainment firms, manufacturers and retailers are presented with the challenge of developing their own digital strategies to thrive. This elective will introduce key concepts in strategic management in DMEEE and involve students in real-life strategic business challenges from Corporate Clients. Participants will have the opportunity to engage business leaders in project discussions.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21415,7 +21447,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-22T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The course introduces Marketing as both a professional and an academic discipline. As a profession, marketers identify consumer needs, determine which target markets to serve, and develop an optimal product, pricing, promotion, and distribution strategy that best satisfy consumer needs, relative to competition. These decisions—product, price, promotion, and distribution—flow from a rigorous analysis of the constantly evolving market environment and consumer needs (for example, the recent rise of ethical, sustainable, and socially responsible consumption). Marketers serve a vital role in the long-term success of all organizations, profit-oriented as well as not-for-profit, small as well as large. Academically, marketing is a multi-disciplinary field involving the concepts, theories, and methods used to understand exchanges and long-term relationships between buyers and sellers. Through a combination of lectures, discussions, videos, individual and group assignments, and case analyses, the course is designed to cover the fundamental concepts and principles of this challenging field. It is a required course for marketing majors, which complements the theories and skills taught in many of the other majors at SMU.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21730,6 +21762,9 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      or: ["ACM212", "MKTG101"],
+    }
   },
   MKTG102: {
     name: "Consumer Behaviour",
@@ -21738,7 +21773,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-28T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "The study of consumer behavior is an important part of the science underlying the design of marketing programs. Drawing upon academic research in marketing, psychology and economics, the course introduces important theories, methods, and findings of research on attention, comprehension, memory, attitude formation and choice. The course also covers macro influences on consumer behavior at the reference group, sub-cultural, cultural and environmental levels. This course lays the theoretical foundation for other marketing courses and the implications of consumer behavior theories to real-world marketing problems are discussed throughout the course. The course will also heighten your awareness of the ethical issues underlying the effects of marketing programs on consumers.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21797,6 +21832,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: "MKTG101"
   },
   MKTG103: {
     name: "Marketing Research",
@@ -21805,7 +21841,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
       dateTime: new Date("2025-04-29T05:00:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: "This course provides you with the fundamental skills and tools needed to understand, evaluate and conduct marketing research. Marketing research is vital in the assessment of new business opportunities, go/no go decisions for new products, pricing and product design issues, among other business issues. In this course, we will go through the basic marketing research process to understand how to formulate and structure marketing problems, gather and analyze quantitative marketing data, and make effective decisions based on those data. This is a hands-on course and these skills are particularly useful if you plan to go into a consulting or marketing career. The emphasis will be on practical skills and building depth and confidence in the most commonly used marketing research tools.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21864,6 +21900,14 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
+    preReq: {
+      and: [
+        "MKTG101",
+        {
+          or: ["COR-STAT1202", "COR-STAT1203"],
+        },
+      ],
+    }
   },
   MKTG204: {
     name: "Services Marketing",
