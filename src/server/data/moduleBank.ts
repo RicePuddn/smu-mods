@@ -18230,8 +18230,8 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    mutuallyExclusive: ["LGST201", ],
-    preReq: {or: ["LGST101", "LAW101"]}
+    mutuallyExclusive: ["LGST201"],
+    preReq: { or: ["LGST101", "LAW101"] },
   },
   LAW204_624: {
     name: "Constitutional & Administrative Law",
@@ -18464,7 +18464,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {or:["LGST101", "LGST201", "LAW101" ]}
+    preReq: { or: ["LGST101", "LGST201", "LAW101"] },
   },
   LAW303_633: {
     name: "Law of Equity & Trusts",
@@ -18575,7 +18575,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {and:["LAW101", "LAW202", "LAW105" ]}
+    preReq: { and: ["LAW101", "LAW202", "LAW105"] },
   },
   LAW401: {
     name: "Intellectual Property Law",
@@ -18686,7 +18686,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {and: ["LAW101", "LAW102", "LAW105","LAW202", "LGST201"]}
+    preReq: { and: ["LAW101", "LAW102", "LAW105", "LAW202", "LGST201"] },
   },
   LAW4018: {
     name: "Dispute Resolution Advocacy",
@@ -18848,7 +18848,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    mutuallyExclusive: ["LAW4020"]
+    mutuallyExclusive: ["LAW4020"],
   },
   LAW4045: {
     name: "FinTech: Law and Policy",
@@ -18974,7 +18974,12 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {or: [{and: ["LAW201", "LAW101", "LAW102"]}, {and: ["LGST101", "LGST102"]}]},
+    preReq: {
+      or: [
+        { and: ["LAW201", "LAW101", "LAW102"] },
+        { and: ["LGST101", "LGST102"] },
+      ],
+    },
     mutuallyExclusive: ["LAW4050", "LAW4058"],
   },
   LAW4055: {
@@ -19107,7 +19112,12 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {or: [{and:["LAW101", "LAW102", "LAW201_621"]}, {and:["LGST101", "LGST201"]}]}
+    preReq: {
+      or: [
+        { and: ["LAW101", "LAW102", "LAW201_621"] },
+        { and: ["LGST101", "LGST201"] },
+      ],
+    },
   },
   LAW4076: {
     name: "The Death of Law",
@@ -19249,7 +19259,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {and:["LAW101", "LAW205"]},
+    preReq: { and: ["LAW101", "LAW205"] },
     mutuallyExclusive: ["LAW4058", "LAW610"],
   },
   LAW423: {
@@ -19306,7 +19316,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {and:["LAW101", "LAW102", "LAW105"]}
+    preReq: { and: ["LAW101", "LAW102", "LAW105"] },
   },
   LAW428: {
     name: "Family Law",
@@ -19344,7 +19354,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {or:["LGST101", "LGST201", "LAW101_601"]}
+    preReq: { or: ["LGST101", "LGST201", "LAW101_601"] },
   },
   LAW429: {
     name: "Corporate Insolvency Law",
@@ -19371,7 +19381,7 @@ This course couples established and emerging theory on how finance can be used t
                   insolvencies. Note: Although not pre-requisites, it is recommended that students have either completed
                   or least be enrolled in Law of Property and Law of Equity and Trusts when taking this
                   course. Non-Law students require LGST201 Company Law with min Grade 'A' as prerequisite`,
-      credit: 1,
+    credit: 1,
     terms: ["Term 2"],
     sections: [
       {
@@ -19393,7 +19403,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {or:["LAW201_621", "LAW205", "LGST201"]}
+    preReq: { or: ["LAW201_621", "LAW205", "LGST201"] },
   },
   LAW443: {
     name: "Law of International Trade",
@@ -19432,7 +19442,7 @@ This course couples established and emerging theory on how finance can be used t
         ],
       },
     ],
-    preReq: {and: ["LAW101_601", "LAW102_602", "LAW105_605"]}
+    preReq: { and: ["LAW101_601", "LAW102_602", "LAW105_605"] },
   },
   LAW463: {
     name: "Intellectual Assets and the Law in Asian Economies",
@@ -19659,7 +19669,7 @@ in the course`,
         ],
       },
     ],
-    preReq: {or: ["LAW205", "LAW201", "LGST101", "LGST201"]}
+    preReq: { or: ["LAW205", "LAW201", "LGST101", "LGST201"] },
   },
   LGST101: {
     name: "Business Law",
@@ -20008,7 +20018,7 @@ in the course`,
         ],
       },
     ],
-    preReq: {or: ["LGST101", {and: ["LAW101", "LAW102"]}]}
+    preReq: { or: ["LGST101", { and: ["LAW101", "LAW102"] }] },
   },
   LGST210: {
     name: "Risk and Regulations in Real Estate",
@@ -20137,7 +20147,7 @@ in the course`,
         ],
       },
     ],
-    preReq: {or:["LGST101"]},
+    preReq: { or: ["LGST101"] },
     mutuallyExclusive: ["LAW411", "LAW487"],
   },
   MGMT102: {
