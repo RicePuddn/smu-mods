@@ -29,7 +29,7 @@ export default function BeyondStudies() {
 
   const { mutateAsync: uploadFile } = api.s3.upload.useMutation();
   const { mutateAsync: parseEvent } = api.chatgpt.parseEvent.useMutation();
-  const [starredEvents, setStarredEvents] = useState<string[]>([]);
+  // const [starredEvents, setStarredEvents] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -59,14 +59,14 @@ export default function BeyondStudies() {
   }
 
   // Function to toggle the starred state of an event
-  const toggleStar = (eventId: string) => {
-    setStarredEvents(
-      (prev) =>
-        prev.includes(eventId)
-          ? prev.filter((id) => id !== eventId) // Unstar
-          : [...prev, eventId], // Star
-    );
-  };
+  // const toggleStar = (eventId: string) => {
+  //   setStarredEvents(
+  //     (prev) =>
+  //       prev.includes(eventId)
+  //         ? prev.filter((id) => id !== eventId) // Unstar
+  //         : [...prev, eventId], // Star
+  //   );
+  // };
 
   // Function to hash the image
   async function hashImage(file: File) {

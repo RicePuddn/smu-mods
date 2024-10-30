@@ -19,7 +19,7 @@ import {
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
-import { StatusNode } from "@/utils/checkPrerequisites";
+import { type StatusNode } from "@/utils/checkPrerequisites";
 import { getUserYear } from "@/utils/getUserYear";
 import { Logger } from "@/utils/Logger";
 
