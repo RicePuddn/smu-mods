@@ -8620,12 +8620,23 @@ export const modules: ModuleBank = {
     credit: 1,
     terms: ["Term 1", "Term 2"],
     preReq: {
-      or: [
-        { and: ["CS201", "CS204"] },
-        "CS460",
-        "SMT203",
+      and: [
+        "CS201",
+        "CS204",
         {
-          and: ["IS111", { or: ["IS112", "IS105"] }, "IS210", "IS212", "IS213"],
+          or: [
+            "CS460",
+            "SMT203",
+            {
+              and: [
+                "IS111",
+                "IS112",
+                "IS210",
+                "IS212",
+                "IS213",
+              ],
+            },
+          ],
         },
       ],
     },
@@ -20877,7 +20888,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
         ],
       },
     ],
-    preReq: "MGMT102"
+    preReq: {or: ["MGMT102"]},
   },
   MGMT242: {
     name: "Corporate Sustainable Product and System Design",
@@ -20909,8 +20920,7 @@ ecosystems or industrial symbiosis, i.e., industries that incorporate recycling 
   MGMT244: {
     name: "Fraud Protection for Entrepreneurs",
     moduleCode: "MGMT244",
-    description: "This course equips aspiring entrepreneurs, social entrepreneurs, and managers with essential tools for understanding and identifying instances of fraud, with a view to developing a fraud risk management strategy for their new venture. It aims to provide students with a working knowledge of the various types of fraudulent conduct and the legal framework in place to prevent and deter instances of fraud. In addition, to learning from past cases of fraud, the course also explores new forms or methods of fraud that can arise from new technologies.
-",
+    description: `This course equips aspiring entrepreneurs, social entrepreneurs, and managers with essential tools for understanding and identifying instances of fraud, with a view to developing a fraud risk management strategy for their new venture. It aims to provide students with a working knowledge of the various types of fraudulent conduct and the legal framework in place to prevent and deter instances of fraud. In addition, to learning from past cases of fraud, the course also explores new forms or methods of fraud that can arise from new technologies.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -20962,7 +20972,7 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
-    preReq: "MGMT102";
+    preReq: {or:["MGMT102"]}
   },
   MGMT310: {
     name: "Leading New Ventures to Growth",
@@ -21057,7 +21067,7 @@ In the current business landscape, companies face a multitude of risks and oppor
   MGMT330: {
     name: "The Design of Business",
     moduleCode: "MGMT330",
-    description: `The Capstone course allows students to apply a cross-disciplinary approach while considering both business model architecture and the formulation of business solutions. It prepares students for the complex business environment of today by emphasising the application of academic knowledge accumulated from a range of prior core courses to solving real world problems. The course develops in students an ability to: strategically position the client and its challenge within an environmental context; appropriately scope the challenge of the client; develop and execute a workplan to address the challenge; and develop solutions by establishing a fact-base through directed primary and secondary research, drawing out relevant insights through analytic review, and engaging in abstract idea generation. The course exposes students to the uncertainties and ambiguity that exists within real-world business landscapes and organisational environments of industry clients, as well as, the challenges with engaging busy business executives and convincing them and their organisation of innovative solutions that have been devised by the students that address the client’s real-world challenges.`,
+    description: `The Capstone course allows students to apply a cross-disciplinary approach while considering both business model architecture and the formulation of business solutions. It prepares students for the complex business environment of today by emphasising the application of academic knowledge accumulated from a range of prior core courses to solving real world problems. The course develops in students an ability to: strategically position the client and its challenge within an environmental context; appropriately scope the challenge of the client; develop and execute a workplan to address the challenge; and develop solutions by establishing a fact-base through directed primary and secondary research, drawing out relevant insights through analytic review, and engaging in abstract idea generation. The course exposes students to the uncertainties and ambiguity that exists within real-world business landscapes and organisational environments of industry clients, as well as, the challenges with engaging busy business executives and convincing them and their organisation of innovative solutions that have been devised by the students that address the client's real-world challenges.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
