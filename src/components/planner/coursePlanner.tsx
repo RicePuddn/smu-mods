@@ -19,6 +19,7 @@ import {
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
+import { StatusNode } from "@/utils/checkPrerequisites";
 import { getUserYear } from "@/utils/getUserYear";
 import { Logger } from "@/utils/Logger";
 
@@ -388,11 +389,46 @@ const CoursePlanner: React.FC = () => {
                                           const sliceAmt = reqGate.length + 2;
                                           let msg =
                                             "These modules may need to be taken first: ";
+
+                                          // Extracted Append Message to handle potential nested pre-req
+                                          function appendMsg(
+                                            preReqMod: StatusNode,
+                                            innerReqGate: string,
+                                          ) {
+                                            // if it's not nested pre-req :)
+                                            if (
+                                              !preReqMod.fulfilled &&
+                                              (!preReqMod.children ||
+                                                preReqMod.children.length === 0)
+                                            ) {
+                                              return `${preReqMod.module} ${innerReqGate} `;
+                                            }
+
+                                            // Else process nested pre-req recursively
+                                            let innerMsg = `[`;
+                                            for (const child of preReqMod.children ??
+                                              []) {
+                                              innerMsg += appendMsg(
+                                                child,
+                                                preReqMod.type,
+                                              );
+                                            }
+
+                                            innerMsg = innerMsg.slice(
+                                              0,
+                                              -(preReqMod.type.length + 2),
+                                            );
+                                            innerMsg += `] ${innerReqGate} `;
+
+                                            return innerMsg;
+                                          }
+
                                           for (const preReqMod of conflict
                                             ?.statusNode?.children ?? []) {
-                                            if (!preReqMod.fulfilled) {
-                                              msg += `${preReqMod.module} ${reqGate} `;
-                                            }
+                                            msg += appendMsg(
+                                              preReqMod,
+                                              reqGate,
+                                            );
                                           }
                                           conflictList.push(
                                             msg.slice(0, -sliceAmt),
