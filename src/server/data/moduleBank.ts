@@ -19645,9 +19645,9 @@ This course couples established and emerging theory on how finance can be used t
                   question about what the “purpose” of the corporate form should be. The course then examines
                   several of the most significant topics and policy debates in the burgeoning area of comparative
                   corporate law and governance, with an emphasis on Asia and Singapore. In exceptional circumstances,
-students can be waived from the prerequisite requirement if they get the permission of the instructor. For
-that purpose, they will need to send an email to the instructor explaining why they want to enrol
-in the course`,
+                  students can be waived from the prerequisite requirement if they get the permission of the instructor. For
+                  that purpose, they will need to send an email to the instructor explaining why they want to enrol
+                  in the course`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21349,7 +21349,7 @@ In the current business landscape, companies face a multitude of risks and oppor
           or: ["MGMT330", "MGMT300"],
         },
       ],
-    }
+    },
   },
   MGMT332: {
     name: "Approaching Asian Business through Classics",
@@ -21917,12 +21917,14 @@ In the current business landscape, companies face a multitude of risks and oppor
           or: ["COR-STAT1202", "COR-STAT1203"],
         },
       ],
-    }
+    },
   },
   MKTG204: {
     name: "Services Marketing",
     moduleCode: "MKTG204",
-    description: "DESCRIPTION_NEEDED",
+    description: `This course focuses on problems and strategies specific to the marketing of services. It supplements basic marketing and marketing strategy courses.
+
+As the world of business transforms into a global knowledge-based economy, value creation for customers is primarily shaped through provision of services, rather than goods. In most economies, services account for more than 50% of the economy. This course is designed for undergraduates seeking to develop a deeper understanding of services. Strategies used by successful services marketers to overcome problems unique to service industries like banking, health care, financial services, insurance, hospitality, consulting, telecom, media, and IT services will be discussed. Manufacturing and high tech industries which depend on services to provide added value will also be explored.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21963,11 +21965,15 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG205: {
     name: "Advertising",
     moduleCode: "MKTG205",
-    description: "DESCRIPTION_NEEDED",
+    description: `Advertising has been a powerful marketing tool deployed around the world for decades by companies and organizations of all sizes and types.
+Over the years, consumers and audiences have become more media and advertising savvy. The rise of the “Information Society” and the perspective of media convergence is revolutionising the whole communication environment. And Advertisers are now more aware regarding accountability, cost efficiency and R.O.M.I. (Return On Marketing Investment). The result is a dramatic evolution in Advertising and the industry has to face new and challenging scenarios.
+
+This course aims to prepare students to develop and implement state-of-the-art Advertising strategies that engage, influence and persuade target audiences employing a sustainable balance of creativity, effectiveness and efficiency. The course will be a “hands-on” learning experience where students work as teams doing research, target analysis, media evaluation and creative development.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -21990,6 +21996,7 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG207: {
     name: "Marketing Strategy",
@@ -21998,7 +22005,11 @@ In the current business landscape, companies face a multitude of risks and oppor
       dateTime: new Date("2025-04-30T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `Marketing strategy is the means by which a company creates a sustainable competitive advantage by providing superior customer value. To do this, a company optimizes the use of scarce resources as it leverages its strengths and takes advantage of market opportunities.
+
+    This course builds upon the foundational principles acquired in MKTG101 by providing a more in-depth understanding of how different marketing concepts fit together. It also aims to develop students’ ability to develop a strategic plan, beginning with an analysis of situation, the selection of the right target segments and the right competitive advantages, to the formulation of a coherent set of marketing actions that contribute to the company’s goals. A problem-solving approach is taken in the course, with the view that an effective solution to a marketing problem requires a thorough understanding of the consumer/market and of the competitive context.
+
+    This course is suitable not just for marketing majors, but anyone who has an understanding of basic marketing concepts and who wishes to have a good understanding of how strategic marketing can contribute to a company’s success.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22039,11 +22050,12 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG215: {
     name: "New Product Development",
     moduleCode: "MKTG215",
-    description: "DESCRIPTION_NEEDED",
+    description: "This course is designed to provide students with the intellectual foundation as well as experience of the new product development process. To develop intellectual foundations, students are expected to read the textbook, prepare for case studies, and participate in the class discussions. In addition, to get a real life experience of the new product development process, the students will work in groups for a semester long project. In the project they will identify a customer problem, propose a solution, test the solution and develop a plan for launching the product. At the end of the semester, the students can expect to have a richer understanding of the new product development process and be equipped with the state of the art tools and techniques that are essential for developing and launching new products.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22066,11 +22078,13 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   MKTG217: {
     name: "Strategic Brand Management",
     moduleCode: "MKTG217",
-    description: "DESCRIPTION_NEEDED",
+    description: "Brand management is a vital component in the development and implementation of marketing strategy. This course helps students to better understand the process and techniques used by brand managers when leveraging their brands as the company’s strategic assets. This course is designed to develop students’ understanding of the importance of brand equity as well as how to build, measure and manage brand equity. Topics will include understanding brands from the customer’s perspective, building brand equity, measuring brand equity, leveraging the brand portfolios and managing brands over time and in different marketing context.",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22111,11 +22125,12 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG220: {
     name: "Digital Marketing",
     moduleCode: "MKTG220",
-    description: "DESCRIPTION_NEEDED",
+    description: "The development of new digital technologies has fundamentally changed how consumers interact with brands and each other. Marketing is no longer about pushing a sales message to a potential buyer. Businesses have to enable conversations with consumers to engage prospects with relevant content that will lead to positive actions for commercial impact. To be effective, marketers need to employ a rigorous and holistic marketing methodology across both traditional and new-emerging techniques. This course will provide students with the relevant knowledge, perspectives, and practical skills required to develop marketing strategies that leverage the opportunities inherent on digital platforms, including social media and consumer-to-consumer social interactions. The emphasis of this course is on understanding the various digital platforms available, how to build social marketing strategies, and how to track their effectiveness. The course utilizes applicable theory, empirical analysis, and practical examples to develop the key learning points. The class format will include a combination of lectures, case study discussions, and guest speakers with relevant industry experience",
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22156,6 +22171,9 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: {
+      and: ["MKTG101", "MKTG102"],
+    },
   },
   MKTG221: {
     name: "Global Marketing",
@@ -22164,7 +22182,9 @@ In the current business landscape, companies face a multitude of risks and oppor
       dateTime: new Date("2025-04-24T00:30:00.000Z"),
       durationInHour: 2,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `
+      This course will present an overview of the unique aspects of marketing in the global business environment and provide the framework and relevant concepts upon which global marketing management can be based. Emphasis will be placed on the role of the global marketing manager in the development of marketing strategies for a variety of markets in diverse cultural, political and economic situations. The application of this course will be on the decision-making process in the areas of foreign market analysis, target identification, market entry strategies, product planning, marketing communications, pricing and channels of distribution. Students are expected to develop problem-solving skills specifically in decisions on adaptation or standardization of the marketing mixes for target host countries.
+      `,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22187,11 +22207,13 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
   },
   MKTG225: {
     name: "Customer Relationship Management",
     moduleCode: "MKTG225",
-    description: "DESCRIPTION_NEEDED",
+    description: `Customer relationship management (CRM) is an important development within the field of marketing. This course is designed to provide students with a good understanding of the concept of CRM. To be successfully implemented, CRM should be viewed holistically. Companies that had not done so had contributed to the high CRM failure rate we see today. The aim of the course is to present a holistic view of CRM, covering its various perspectives including strategic, operational, analytical and collaborative.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22214,11 +22236,14 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   MKTG227: {
     name: "Integrated Marketing Communications: A Brand Perspective",
     moduleCode: "MKTG227",
-    description: "DESCRIPTION_NEEDED",
+    description: `Marketing communications in the context of contemporary marketing has gone beyond the realm of the traditional tools of communications often classified as promotions. While advertising, public relations, sales promotions and personal selling remain the essence of the promotions mix, the intention of this course is to show how these tools are integrated not just within the promotions mix but also beyond the other elements of the marketing mix. The popular mantra applies here: “all elements of the marketing mix have the capacity to communicate.” Major changes primarily impacted by the use of the digital media as well as the global impact of messaging in marketing needs to be strongly factored in today’s study of marketing communications. Ultimately, the end outcome of IMC is its impact on the brand in terms of its ability to elevate brand awareness, brand recognition and ultimately brand preference and loyalty. In all aspects of the topics covered in this course, the focus would be on the connection between marketing communications and branding and how IMC can help organizations build long-term brand equity.
+`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
@@ -22241,6 +22266,8 @@ In the current business landscape, companies face a multitude of risks and oppor
         ],
       },
     ],
+    preReq: "MKTG101",
+
   },
   MKTG228: {
     name: "Marketing Analytics",
@@ -22249,7 +22276,7 @@ In the current business landscape, companies face a multitude of risks and oppor
       dateTime: new Date("2025-04-23T00:30:00.000Z"),
       durationInHour: 3,
     },
-    description: "DESCRIPTION_NEEDED",
+    description: `The field of marketing is becoming increasingly data-oriented with firms building and growing their marketing analytics capabilities. This course provides you with the fundamental skills and tools to understand, process, analyze, and report marketing data and insights, all with the aim to improve marketing decision making. You will learn how to code in a programming language and how to use data visualization software. This is a hands-on course that will prepare you for jobs in marketing analytics, marketing technology, marketing intelligence, and data science.`,
     credit: 1,
     terms: ["Term 2"],
     sections: [
