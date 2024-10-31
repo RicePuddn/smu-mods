@@ -34,11 +34,11 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
     isLoading,
     isError,
     error,
-  } = api.analytics.getInstructors.useQuery({
+  } = api.bidAnalytics.getInstructors.useQuery({
     moduleCode: params.moduleCode,
   });
 
-  const { data: terms } = api.analytics.getTermsAvailable.useQuery(
+  const { data: terms } = api.bidAnalytics.getTermsAvailable.useQuery(
     {
       moduleCode: params.moduleCode,
       instructor: instructors?.at(selectedInstructor)!,
@@ -48,7 +48,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
     },
   );
 
-  const { data: sections } = api.analytics.getSections.useQuery(
+  const { data: sections } = api.bidAnalytics.getSections.useQuery(
     {
       moduleCode: params.moduleCode,
       instructor: instructors?.at(selectedInstructor)!,
@@ -60,7 +60,7 @@ export default function BidAnalyticsPage({ params }: BidAnalyticsPageProps) {
     },
   );
 
-  const { data: chartData } = api.analytics.getChartData.useQuery(
+  const { data: chartData } = api.bidAnalytics.getChartData.useQuery(
     {
       moduleCode: params.moduleCode,
       instructor: instructors?.at(selectedInstructor)!,
