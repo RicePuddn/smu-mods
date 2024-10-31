@@ -49,10 +49,10 @@ const chartConfig = {
 
 export function BidAnalyticChart({ chartData }: { chartData: ChartData[] }) {
   return (
-    <div className="rounded-lg border p-4 shadow">
+    <div className="rounded-lg border p-2 shadow">
       <ChartContainer
         config={chartConfig}
-        className="aspect-[2/3] w-full px-2 md:aspect-[4/3] lg:aspect-[3/1]"
+        className="aspect-[2/3] w-full md:aspect-[4/3] lg:aspect-[3/1]"
       >
         <ComposedChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={true} />
