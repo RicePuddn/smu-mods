@@ -121,9 +121,6 @@ export const createPlannerBank = (
           Logger.log(year);
           const state = get();
           const original = state.plannerState;
-          const module = original.modules[moduleCode];
-
-          if (!module) return state;
 
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           const { [moduleCode]: _, ...remainingModules } = original.modules;
@@ -137,7 +134,11 @@ export const createPlannerBank = (
             isSpecialHidden: state.isSpecialHidden,
           };
           delete temp.planner[year][term][moduleCode];
-          set(temp);
+          // set(temp);
+          set({
+            plannerState: temp.plannerState,
+            planner: getPlanner(temp.plannerState.modules, moduleBank),
+          });
         },
         hideSpecial: (year: Year) => {
           set((state) => {
