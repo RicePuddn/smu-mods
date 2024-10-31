@@ -14,11 +14,11 @@
     "start": "next start",
     "ui-add": "pnpm dlx shadcn@latest add",
     "format": "prettier --check . --ignore-path .gitignore",
-    "batchParse:modules": "pnpm dlx tsx data/modules/batchProcessor.ts",
-    "parse:modules": "pnpm dlx tsx data/modules/processor.ts",
-    "process:modules": "pnpm batchParse && pnpm format --write",
-    "batchParse:bid": "pnpm dlx tsx data/bidAnalytics/batchProcessor.ts",
-    "scrape:modules": "pnpm dlx tsx data/scrape/modules.ts"
+    "batchParse:modules": "SKIP_ENV_VALIDATION=true pnpm dlx tsx data/modules/batchProcessor.ts",
+    "parse:modules": "SKIP_ENV_VALIDATION=true pnpm dlx tsx data/modules/processor.ts",
+    "process:modules": "SKIP_ENV_VALIDATION=true pnpm batchParse && pnpm format --write",
+    "batchParse:bid": "SKIP_ENV_VALIDATION=true pnpm dlx tsx data/bidAnalytics/batchProcessor.ts",
+    "scrape:modules": "SKIP_ENV_VALIDATION=true pnpm dlx tsx data/scrape/modules.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.68",
