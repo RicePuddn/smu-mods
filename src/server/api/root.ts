@@ -2,6 +2,7 @@ import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
 
 import { analyticsRouter } from "./routers/analytics";
 import { basketRouter } from "./routers/basket";
+import { bidAnalyticsRouter } from "./routers/bidAnalytics";
 import { iSyncRouter } from "./routers/iSync";
 import { moduleRouter } from "./routers/module";
 import { openaiRouter } from "./routers/openai";
@@ -19,6 +20,7 @@ export const appRouter = createTRPCRouter({
   s3: s3Router,
   chatgpt: openaiRouter,
   analytics: analyticsRouter,
+  bidAnalytics: bidAnalyticsRouter,
 });
 
 // export type definition of API

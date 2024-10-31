@@ -29,6 +29,12 @@ export async function processXLS(
 
       jsonData.forEach((row: any) => {
         // Convert the row to a BidRecord
+        const instructorSet = new Set<string>(
+          (row["Instructor"] ?? "")
+            .split(",")
+            .map((instructor: string) => instructor.trim()),
+        );
+        const instructorArray = Array.from(instructorSet);
         const bidRecord: BidRecord = {
           term: row["Term"] ?? "",
           session: row["Session"] ?? "",
@@ -44,9 +50,7 @@ export async function processXLS(
           enrolledStudents: row["Enrolled Students"] ?? 0,
           medianBid: row["Median Bid"] ?? 0,
           minBid: row["Min Bid"] ?? 0,
-          instructor: (row["Instructor"] ?? "")
-            .split(",")
-            .map((instructor: string) => instructor.trim()),
+          instructor: instructorArray,
           school: row["School/Department"],
         };
         rows.push(bidRecord);
