@@ -46,6 +46,8 @@ const config = {
     "@typescript-eslint/prefer-for-of": "off",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+    "@typescript-eslint/consistent-indexed-object-style": "off",
   },
 };
 module.exports = config;

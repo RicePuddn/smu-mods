@@ -13,14 +13,14 @@ interface SearchModuleProps {
   handleModSelect: (mod: Module) => void;
   showResults?: boolean;
   callback?: (modules: Module[]) => void;
-  takenModule: ModuleCode[];
+  takenModule?: ModuleCode[];
 }
 
 export function SearchModule({
   handleModSelect,
   callback,
   showResults = true,
-  takenModule,
+  takenModule = [],
 }: SearchModuleProps) {
   const { modules } = useModuleBankStore((state) => state);
   const [inputValue, setInputValue] = useState<string>("");
