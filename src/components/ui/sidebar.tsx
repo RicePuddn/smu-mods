@@ -55,7 +55,7 @@ const SidebarLayout = React.forwardRef<
         data-sidebar={state}
         style={
           {
-            "--sidebar-width": "12rem",
+            "--sidebar-width": "13rem",
           } as React.CSSProperties
         }
         className={cn(

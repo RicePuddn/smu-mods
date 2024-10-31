@@ -3,6 +3,7 @@
 import {
   BookA,
   Calendar,
+  ChartArea,
   HandHeartIcon,
   HomeIcon,
   LifeBuoy,
@@ -55,6 +56,12 @@ const data: SidebarData = {
       title: "Timetable",
       url: `/timetable/${APP_CONFIG.currentTerm}`,
       icon: Calendar,
+      isCollapsible: false,
+    },
+    {
+      title: "Bid Price Analytics",
+      url: "/bid-analytics",
+      icon: ChartArea,
       isCollapsible: false,
     },
     {
