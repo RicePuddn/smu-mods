@@ -111,7 +111,7 @@ export function BidAnalyticChart({ chartData }: { chartData: ChartData[] }) {
             type="linear"
             stroke="var(--color-medBid)"
             yAxisId={"bid"}
-            name="Medium Bid"
+            name="Median Bid"
             strokeWidth={2}
           />
           <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
