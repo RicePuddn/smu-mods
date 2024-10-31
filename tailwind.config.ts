@@ -55,6 +55,9 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        "smu-blue": "hsl(var(--smu-blue))",
+        "smu-gold": "hsl(var(--smu-gold))",
+        "arrow-disabled": "hsl(var(--arrow-disabled))",
       },
       keyframes: {
         "accordion-down": {
@@ -65,10 +68,20 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        pop: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.05)" },
+        },
+        scroll: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        pop: "pop 0.3s ease-in-out infinite",
+        scroll: "scroll linear infinite",
       },
     },
   },

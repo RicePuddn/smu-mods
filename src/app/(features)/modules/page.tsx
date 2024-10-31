@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Star, StarOff } from "lucide-react";
+import { ChevronDown, NotebookPen, Star, StarOff } from "lucide-react";
+import { toast } from "sonner";
 
+import type { Term, Year } from "@/types/planner";
+import type { Module } from "@/types/primitives/module";
 // import ui components
 import ModuleDetails from "@/components/ModuleDetails";
 import { Button } from "@/components/ui/button";
@@ -15,20 +18,26 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// Importing module data and basket categories
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { PADDING } from "@/config";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { type Module } from "@/types/primitives/module";
+import { usePlannerStore } from "@/stores/planner/provider";
+import { MODSTOTAKE_TERM, MODSTOTAKE_YEAR } from "@/types/planner";
+import { type ModuleCode } from "@/types/primitives/module";
 
 export default function CourseCatalogue() {
   // Extract categories from baskets
   const { modules, toggleFavourites, favouriteModules, baskets } =
     useModuleBankStore((state) => state);
-  const categories = baskets.map((basket) => basket.name);
+  const { banners } = useConfigStore((state) => state);
+  const activeBanners = banners.filter((banner) => !banner.dismissed);
 
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, _setSelectedCategories] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortBy, setSortBy] = useState<"name" | "credit">("name");
+  const [sortBy, setSortBy] = useState<"name" | "code">("name");
   const [filterByFavorites, setFilterByFavorites] = useState(false); // Toggle to filter by favorites
 
   // Function to get all modules in a selected category
@@ -66,24 +75,46 @@ export default function CourseCatalogue() {
       if (sortBy === "name") {
         return a.name.localeCompare(b.name);
       } else {
-        return a.credit - b.credit;
+        return a.moduleCode.localeCompare(b.moduleCode);
       }
     });
 
+  // Add Module to Planner
+  const { addModule: addModuleToPlanner, plannerState } = usePlannerStore(
+    (state) => state,
+  );
+  const takenModule = Object.keys(plannerState.modules) as ModuleCode[];
+  const isMobile = useIsMobile();
+
+  const HandleAddMod = (module: Module) => {
+    addModuleToPlanner(
+      module.moduleCode,
+      {
+        year: MODSTOTAKE_YEAR as Year,
+        term: MODSTOTAKE_TERM as Term,
+        id: module.moduleCode,
+      },
+      { ...modules, [module.moduleCode]: module },
+    );
+  };
+
   return (
     <div
-      className="w-full"
+      className="relative w-full space-y-4"
       style={{
-        padding: PADDING,
+        paddingTop: PADDING,
+        paddingLeft: PADDING,
+        paddingRight: PADDING,
       }}
     >
-      <h1 className="mb-4 text-2xl font-bold">Module Catalogue</h1>
-      <div className="mb-4 flex flex-col gap-4 md:flex-row">
+      <h1 className="text-2xl font-bold">Module Catalogue</h1>
+      <div className="flex flex-col gap-4 md:flex-row">
         {/* Search Bar */}
         <div className="flex-1">
           <Input
             placeholder="Search modules..."
             value={searchQuery}
+            variant="ModulesPage"
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full"
           />
@@ -92,7 +123,7 @@ export default function CourseCatalogue() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="w-full md:w-auto">
-              Sort by {sortBy === "name" ? "Name" : "Credit"}
+              Sort by {sortBy === "name" ? "Name" : "Module Code"}
               <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -104,60 +135,72 @@ export default function CourseCatalogue() {
               Name
             </DropdownMenuCheckboxItem>
             <DropdownMenuCheckboxItem
-              checked={sortBy === "credit"}
-              onCheckedChange={() => setSortBy("credit")}
+              checked={sortBy === "code"}
+              onCheckedChange={() => setSortBy("code")}
             >
-              Credit
+              Module Code
             </DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
 
       {/* Toggle Filter by Favorites */}
-      <div className="mb-4 flex items-center">
+      <div className="flex items-center">
         <Checkbox
           checked={filterByFavorites}
           onCheckedChange={(checked) => setFilterByFavorites(Boolean(checked))}
+          className="hover:bg-primary/50"
         />
         <Label className="ml-2">Show Favorites Only</Label>
       </div>
-
-      <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-4">
+      <div className="flex gap-4">
         {/* Filter by Categories */}
-        <div className="space-y-2">
+        {/* <div className="w-fit max-w-24 space-y-2 md:max-w-none">
           <h2 className="font-semibold">Basket</h2>
-          {categories.map((category, index) => (
-            <div key={index} className="flex items-center space-x-2">
-              <Checkbox
-                id={`category-${category}`}
-                checked={selectedCategories.includes(category)}
-                onCheckedChange={(checked) => {
-                  setSelectedCategories(
-                    checked
-                      ? [...selectedCategories, category]
-                      : selectedCategories.filter((c) => c !== category),
-                  );
-                }}
-              />
-              <Label htmlFor={`category-${category}`}>{category}</Label>
-            </div>
-          ))}
-        </div>
+          <ScrollArea className="h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]">
+            {baskets
+              .map((basket) => basket.name)
+              .map((category, index) => (
+                <div key={index} className="mb-2 flex items-center space-x-2">
+                  <Checkbox
+                    id={`category-${category}`}
+                    checked={selectedCategories.includes(category)}
+                    onCheckedChange={(checked) => {
+                      _setSelectedCategories(
+                        checked
+                          ? [...selectedCategories, category]
+                          : selectedCategories.filter((c) => c !== category),
+                      );
+                    }}
+                    className="hover:bg-primary/50"
+                  />
+                  <Label htmlFor={`category-${category}`}>{category}</Label>
+                </div>
+              ))}
+          </ScrollArea>
+        </div> */}
 
         {/* Display Modules */}
-        <div className="md:col-span-3">
+        <div className="flex-grow">
           <h2 className="mb-2 font-semibold">
             Modules ({filteredModules.length})
           </h2>
-          <div className="grid gap-4">
+          <ScrollArea
+            className={cn(
+              "h-[calc(100dvh-20.5rem)] w-full md:h-[calc(100dvh-17.5rem)]",
+              activeBanners.length > 0 &&
+                "h-[calc(100dvh-24rem)] md:h-[calc(100dvh-21rem)]",
+            )}
+          >
             {filteredModules.map((module) => (
               // Wrap the module card with ModuleDetails to open the dialog when clicked
               <ModuleDetails
                 moduleCode={module.moduleCode}
                 key={module.moduleCode}
               >
-                <div className="flex cursor-pointer items-center justify-between rounded-lg border p-4">
-                  <div>
+                {/* <div className="mb-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 shadow-md shadow-transparent transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-primary"> */}
+                <div className="hover:border-1 m-4 flex transform cursor-pointer items-center justify-between rounded-lg border p-4 transition-all duration-200 hover:-translate-y-1 hover:border-sky-950 hover:shadow-[0_4px_15px_0_rgba(8,47,73,0.3)] dark:border-slate-500 dark:hover:border-white dark:hover:shadow-[0_4px_15px_0_rgba(255,255,255,0.6)]">
+                  <div className="flex-grow">
                     <h3 className="font-semibold">{module.name}</h3>
                     <p className="text-sm text-foreground/70">
                       {module.moduleCode} | {module.credit} CU | Exam Date:{" "}
@@ -168,23 +211,57 @@ export default function CourseCatalogue() {
                   </div>
 
                   {/* Favorite Icon */}
-                  <button
-                    className="text-yellow-500"
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevents triggering the dialog when clicking the star
-                      toggleFavourites(module.moduleCode);
-                    }}
-                  >
-                    {favouriteModules.includes(module.moduleCode) ? (
-                      <Star className="h-6 w-6 fill-current" />
-                    ) : (
-                      <StarOff className="h-6 w-6" />
+                  <div
+                    className={cn(
+                      "flex w-fit items-center",
+                      isMobile ? "flex-col" : "flex-row",
                     )}
-                  </button>
+                  >
+                    <button
+                      className={cn(
+                        "right-0 mx-4 align-middle text-yellow-500",
+                        isMobile && "mb-4",
+                      )}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevents triggering the dialog when clicking the star
+                        toggleFavourites(module.moduleCode);
+                      }}
+                    >
+                      <Star
+                        className={cn(
+                          "h-6 w-6 fill-current",
+                          favouriteModules.includes(module.moduleCode)
+                            ? "block"
+                            : "hidden",
+                        )}
+                      />
+                      <StarOff
+                        className={cn(
+                          "h-6 w-6",
+                          favouriteModules.includes(module.moduleCode)
+                            ? "hidden"
+                            : "block",
+                        )}
+                      />
+                    </button>
+
+                    <Button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        HandleAddMod(module);
+                        toast.success(`${module.moduleCode} added to planner`);
+                      }}
+                      variant={"outline"}
+                      size={"icon"}
+                      disabled={takenModule.includes(module.moduleCode)}
+                    >
+                      <NotebookPen />
+                    </Button>
+                  </div>
                 </div>
               </ModuleDetails>
             ))}
-          </div>
+          </ScrollArea>
         </div>
       </div>
     </div>

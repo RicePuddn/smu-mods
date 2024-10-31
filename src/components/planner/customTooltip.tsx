@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import React, { useState } from "react";
+import { TooltipPortal } from "@radix-ui/react-tooltip";
 
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
@@ -20,20 +20,22 @@ export const InteractiveTooltip: React.FC<InteractiveTooltipProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <TooltipProvider>
-      <Tooltip open={isOpen}>
-        <TooltipTrigger asChild>
-          <div
-            onClick={() => setIsOpen(true)}
-            onMouseEnter={() => setIsOpen(true)}
-            onMouseLeave={() => setIsOpen(false)}
-            style={{ cursor: "pointer", display: "inline-block" }}
-          >
-            {children}
-          </div>
-        </TooltipTrigger>
-        <TooltipContent className="shadow-md">{content}</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Tooltip open={isOpen}>
+      <TooltipTrigger asChild>
+        <div
+          onClick={() => setIsOpen(true)}
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+          style={{ cursor: "pointer", display: "inline-block" }}
+        >
+          {children}
+        </div>
+      </TooltipTrigger>
+      <TooltipPortal>
+        <TooltipContent className="border border-orange-300 bg-muted text-foreground shadow-md">
+          {content}{" "}
+        </TooltipContent>
+      </TooltipPortal>
+    </Tooltip>
   );
 };

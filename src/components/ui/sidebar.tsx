@@ -55,7 +55,7 @@ const SidebarLayout = React.forwardRef<
         data-sidebar={state}
         style={
           {
-            "--sidebar-width": "12rem",
+            "--sidebar-width": "13rem",
           } as React.CSSProperties
         }
         className={cn(
@@ -109,7 +109,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
       return (
         <Sheet open={open} onOpenChange={onOpenChange}>
           <SheetContent
-            className="w-[260px] p-0 md:w-[--sidebar-width] [&>button]:hidden"
+            className="w-[--sidebar-width] p-0 [&>button]:hidden"
             side="left"
           >
             <SheetTitle className="sr-only" aria-describedby="sidebar-title">
@@ -125,9 +125,11 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
     }
 
     return (
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-[--sidebar-width] transition-all duration-300 ease-in-out md:block [[data-sidebar=closed]_&]:left-[calc(var(--sidebar-width)*-1)]">
-        {sidebar}
-      </aside>
+      <Sheet open={open} onOpenChange={onOpenChange}>
+        <aside className="fixed inset-y-0 left-0 z-10 hidden w-[--sidebar-width] transition-all duration-300 ease-in-out md:block [[data-sidebar=closed]_&]:left-[calc(var(--sidebar-width)*-1)]">
+          {sidebar}
+        </aside>
+      </Sheet>
     );
   },
 );

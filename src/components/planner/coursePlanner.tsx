@@ -3,18 +3,11 @@
 import type { DropResult } from "@hello-pangea/dnd";
 import React from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import {
-  CalendarArrowUp,
-  ChevronDown,
-  ChevronUp,
-  CircleAlert,
-  X,
-} from "lucide-react";
-
+import { CalendarArrowUp, ChevronDown, ChevronUp } from "lucide-react";
 
 import type { Term, Year } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
-import { PADDING } from "@/config";
+import { APP_CONFIG, PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
@@ -26,11 +19,13 @@ import {
   MODSTOTAKE_TERM,
   MODSTOTAKE_YEAR,
 } from "@/types/planner";
+import { type StatusNode } from "@/utils/checkPrerequisites";
+import { getUserYear } from "@/utils/getUserYear";
+import { Logger } from "@/utils/Logger";
 
-import ModuleDetails from "../ModuleDetails";
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
-import { InteractiveTooltip } from "./customTooltip";
+import ModuleCard from "./moduleCard";
 
 import "./scrollBar.css";
 
@@ -42,16 +37,21 @@ const CoursePlanner: React.FC = () => {
     addModule: addModuleToPlanner,
     changeTerm,
     planner,
+    plannerState,
     removeModule,
     hideSpecial,
   } = usePlannerStore((state) => state);
   const { modules, addModule: addModuleToBank } = useModuleBankStore(
     (state) => state,
   );
+
   const { AddModuleToTimetable: addModuleTimetable } = useTimetableStore(
     (state) => state,
   );
-  const { timetableTheme } = useConfigStore((state) => state);
+  const { timetableTheme, matriculationYear } = useConfigStore(
+    (state) => state,
+  );
+  const studentYear = getUserYear(matriculationYear, APP_CONFIG.academicYear);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
 
   const onDragEnd = (result: DropResult) => {
@@ -74,7 +74,7 @@ const CoursePlanner: React.FC = () => {
 
   const HandleSyncTimetable = (year: Year) => {
     for (const termNo in planner[year]) {
-      console.log(planner);
+      Logger.log(planner);
       const moduleCodes = Object.keys(
         planner[year][termNo as Term],
       ) as ModuleCode[];
@@ -98,6 +98,7 @@ const CoursePlanner: React.FC = () => {
       },
       { ...modules, [module.moduleCode]: module },
     );
+    toggleYear(MODSTOTAKE_YEAR, true);
   };
 
   const handleRemoveModuleFromPlanner = (
@@ -108,8 +109,11 @@ const CoursePlanner: React.FC = () => {
     removeModule(moduleCode, year, term, modules);
   };
 
-  const toggleYear = (year: string) => {
+  const toggleYear = (year: string, forceOpen = false) => {
     setIsOpen((prevExpandedYears) => {
+      if (forceOpen) {
+        return new Set([...prevExpandedYears, year]);
+      }
       const newOpenYears = new Set(prevExpandedYears);
       if (newOpenYears.has(year)) {
         newOpenYears.delete(year);
@@ -133,7 +137,120 @@ const CoursePlanner: React.FC = () => {
         paddingBottom: PADDING,
       }}
     >
+      <h1 className="mb-3 text-2xl font-bold">Your Modules Planner</h1>
+
+      <div
+        className="mb-6 flex flex-col"
+        style={{
+          paddingRight: PADDING,
+        }}
+      >
+        <div className="flex">
+          <div className="w-full">
+            <SearchModule
+              handleModSelect={HandleAddMod}
+              takenModule={Object.keys(plannerState.modules) as ModuleCode[]}
+            />
+          </div>
+        </div>
+      </div>
+
       <DragDropContext onDragEnd={onDragEnd}>
+        <div
+          className={cn(
+            "mb-6",
+            isMobile
+              ? "sticky top-12 z-20 grid grid-cols-1 gap-6"
+              : "flex flex-wrap px-1",
+          )}
+          style={{
+            paddingRight: PADDING,
+          }}
+        >
+          <div
+            key={MODSTOTAKE_YEAR}
+            className={cn(
+              "flex flex-col overflow-hidden rounded-lg bg-muted shadow-md",
+              !isMobile && "mb-6 mr-6 w-full flex-shrink-0",
+            )}
+          >
+            <div
+              className={cn(
+                "flex h-14 items-center justify-between bg-smu-blue p-3",
+                isMobile && "cursor-pointer",
+              )}
+              onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
+            >
+              <h2 className="text-lg font-semibold text-primary-foreground">
+                Plan to Take
+              </h2>
+
+              {isMobile &&
+                (!isMobile || isOpen.has(MODSTOTAKE_YEAR) ? (
+                  <ChevronUp className="text-primary-foreground" />
+                ) : (
+                  <ChevronDown className="text-primary-foreground" />
+                ))}
+            </div>
+
+            <div>
+              {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) &&
+                Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(
+                  ([term, termModules]) => (
+                    <Droppable
+                      droppableId={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
+                      key={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
+                      direction="horizontal"
+                    >
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                          className={cn(
+                            "grid min-h-12 grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4",
+                            snapshot.isDraggingOver
+                              ? "bg-blue-100/10"
+                              : "bg-muted",
+                            !isMobile && "flex-grow",
+                          )}
+                        >
+                          {Object.entries(termModules).map(
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            ([moduleCode, { conflicts }], index) => (
+                              <Draggable
+                                key={moduleCode}
+                                draggableId={moduleCode}
+                                index={index}
+                              >
+                                {(provided, snapshot) => (
+                                  <ModuleCard
+                                    moduleCode={moduleCode}
+                                    moduleName={
+                                      modules[moduleCode as ModuleCode]?.name ??
+                                      ""
+                                    }
+                                    year={MODSTOTAKE_YEAR as Year}
+                                    term={MODSTOTAKE_TERM as Term}
+                                    provided={provided}
+                                    snapshot={snapshot}
+                                    removeModule={handleRemoveModuleFromPlanner}
+                                  />
+                                )}
+                              </Draggable>
+                            ),
+                          )}
+                          {provided.placeholder}
+                        </div>
+                      )}
+                    </Droppable>
+                  ),
+                )}
+            </div>
+            <div className="my-3 ml-3 text-xs text-muted-foreground">
+              Add modules. Hold and drag them to their respective terms.
+            </div>
+          </div>
+        </div>
         <div
           className={cn(
             "mb-6",
@@ -161,7 +278,7 @@ const CoursePlanner: React.FC = () => {
                 >
                   <div
                     className={cn(
-                      "flex h-14 items-center justify-between bg-primary p-3",
+                      "flex h-14 items-center justify-between bg-smu-gold p-3",
                       isMobile && "cursor-pointer",
                     )}
                     onClick={() => isMobile && toggleYear(year)}
@@ -174,10 +291,10 @@ const CoursePlanner: React.FC = () => {
                           : `Year ${year}`}
                     </h2>
 
-                    {year !== EXEMPTION_YEAR
+                    {year === studentYear
                       ? !isMobile && (
                           <Button
-                            onClick={() => HandleSyncTimetable(year as Year)}
+                            onClick={() => HandleSyncTimetable(year)}
                             size={"icon"}
                             variant={"secondary"}
                           >
@@ -199,24 +316,26 @@ const CoursePlanner: React.FC = () => {
                         <div className="flex-cols flex">
                           <Button
                             onClick={() => handleHideSpecial(year as Year)}
-                            className="mx-2 mt-2 w-full"
-                            variant={"outline"}
+                            className="show-special-terms-btn"
+                            variant={"ghost"}
                           >
                             {isHidden
                               ? "Show Special Terms"
                               : "Hide Special Terms"}
                           </Button>
 
-                          {isMobile && (
-                            <Button
-                              onClick={() => HandleSyncTimetable(year as Year)}
-                              size={"icon"}
-                              className="me-2 mt-2"
-                              variant={"outline"}
-                            >
-                              <CalendarArrowUp className="size-4" />
-                            </Button>
-                          )}
+                          {year === studentYear
+                            ? isMobile && (
+                                <Button
+                                  onClick={() => HandleSyncTimetable(year)}
+                                  size={"icon"}
+                                  className="me-2 mt-2"
+                                  variant={"outline"}
+                                >
+                                  <CalendarArrowUp className="size-4" />
+                                </Button>
+                              )
+                            : ""}
                         </div>
                       )}
                       {Object.entries(terms).map(([term, termModules]) => (
@@ -259,7 +378,7 @@ const CoursePlanner: React.FC = () => {
                                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                                     Object.entries(conflicts).map(
                                       ([_, conflict]) => {
-                                        "checkpoint"
+                                        "checkpoint";
                                         if (
                                           conflict.type === "prereq" &&
                                           (conflict.statusNode?.children
@@ -270,11 +389,46 @@ const CoursePlanner: React.FC = () => {
                                           const sliceAmt = reqGate.length + 2;
                                           let msg =
                                             "These modules may need to be taken first: ";
+
+                                          // Extracted Append Message to handle potential nested pre-req
+                                          function appendMsg(
+                                            preReqMod: StatusNode,
+                                            innerReqGate: string,
+                                          ) {
+                                            // if it's not nested pre-req :)
+                                            if (
+                                              !preReqMod.fulfilled &&
+                                              (!preReqMod.children ||
+                                                preReqMod.children.length === 0)
+                                            ) {
+                                              return `${preReqMod.module} ${innerReqGate} `;
+                                            }
+
+                                            // Else process nested pre-req recursively
+                                            let innerMsg = `[`;
+                                            for (const child of preReqMod.children ??
+                                              []) {
+                                              innerMsg += appendMsg(
+                                                child,
+                                                preReqMod.type,
+                                              );
+                                            }
+
+                                            innerMsg = innerMsg.slice(
+                                              0,
+                                              -(preReqMod.type.length + 2),
+                                            );
+                                            innerMsg += `] ${innerReqGate} `;
+
+                                            return innerMsg;
+                                          }
+
                                           for (const preReqMod of conflict
                                             ?.statusNode?.children ?? []) {
-                                            if (!preReqMod.fulfilled) {
-                                              msg += `${preReqMod.module} ${reqGate} `;
-                                            }
+                                            msg += appendMsg(
+                                              preReqMod,
+                                              reqGate,
+                                            );
                                           }
                                           conflictList.push(
                                             msg.slice(0, -sliceAmt),
@@ -314,69 +468,22 @@ const CoursePlanner: React.FC = () => {
                                       draggableId={moduleCode}
                                       index={index}
                                     >
-                                      {(provided, snapshot) => ( 
-                                        <div
-                                          ref={provided.innerRef}
-                                          {...provided.draggableProps}
-                                          {...provided.dragHandleProps}
-                                          className={cn(
-                                            "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
-                                            snapshot.isDragging
-                                              ? "h-fit w-fit bg-accent shadow-lg"
-                                              : "border bg-background hover:border-foreground",
-                                          )}
-                                        >
-                                          {conflictList &&
-                                            conflictList.length > 0 && (
-                                              <InteractiveTooltip
-                                                content={
-                                                  <div>
-                                                    {conflictList.map(
-                                                      (conflictMsg, idx) => {
-                                                        return (
-                                                          <li key={idx}>
-                                                            {conflictMsg}
-                                                          </li>
-                                                        );
-                                                      },
-                                                    )}
-                                                    <p>Click on Module for more information</p>
-                                                  </div>
-                                                }
-                                              >
-                                                <CircleAlert
-                                                  color="orange"
-                                                  size={18}
-                                                />
-                                              </InteractiveTooltip>
-                                            )}
-                                            
-                                          <ModuleDetails moduleCode={moduleCode as ModuleCode}>
-                                            <div className="flex-grow">
-                                              {moduleCode}
-                                            </div>
-                                          </ModuleDetails>
-                                          
-                                          <Button
-                                            onClick={() =>
-                                              handleRemoveModuleFromPlanner(
-                                                moduleCode as ModuleCode,
-                                                year as Year,
-                                                term as Term,
-                                              )
-                                            }
-                                            variant={"destructive"}
-                                            size={"icon"}
-                                            className={cn(
-                                              "mb-2 flex items-center justify-between gap-2 rounded border p-2 transition-all duration-200",
-                                              snapshot.isDragging
-                                                ? "h-fit w-fit bg-accent shadow-lg"
-                                                : "border bg-background hover:border-foreground",
-                                            )}
-                                          >
-                                            <X className="size-5" />
-                                          </Button>
-                                        </div>                                    
+                                      {(provided, snapshot) => (
+                                        <ModuleCard
+                                          moduleCode={moduleCode}
+                                          moduleName={
+                                            modules[moduleCode as ModuleCode]
+                                              ?.name ?? ""
+                                          }
+                                          year={year as Year}
+                                          term={term as Term}
+                                          provided={provided}
+                                          snapshot={snapshot}
+                                          conflictList={conflictList}
+                                          removeModule={
+                                            handleRemoveModuleFromPlanner
+                                          }
+                                        />
                                       )}
                                     </Draggable>
                                   );
@@ -393,128 +500,7 @@ const CoursePlanner: React.FC = () => {
               );
             })}
         </div>
-
-        <div
-          className={cn(
-            "mb-6",
-            isMobile
-              ? "sticky top-12 z-10 grid grid-cols-1 gap-6"
-              : "flex flex-wrap px-1",
-          )}
-          style={{
-            paddingRight: PADDING,
-          }}
-        >
-          <div
-            key={MODSTOTAKE_YEAR}
-            className={cn(
-              "flex flex-col overflow-hidden rounded-lg bg-gray-50 shadow-md",
-              !isMobile && "mb-6 mr-6 w-full flex-shrink-0",
-            )}
-          >
-            <div
-              className={cn(
-                "flex h-14 items-center justify-between bg-primary p-3",
-                isMobile && "cursor-pointer",
-              )}
-              onClick={() => isMobile && toggleYear(MODSTOTAKE_YEAR)}
-            >
-              <h2 className="text-lg font-semibold text-primary-foreground">
-                Plan to Take
-              </h2>
-
-              {isMobile &&
-                (!isMobile || isOpen.has(MODSTOTAKE_YEAR) ? (
-                  <ChevronUp className="text-white" />
-                ) : (
-                  <ChevronDown className="text-white" />
-                ))}
-            </div>
-            <div>
-              {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) &&
-                Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(
-                  ([term, termModules]) => (
-                    <Droppable
-                      droppableId={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
-                      key={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
-                      direction="horizontal"
-                    >
-                      {(provided, snapshot) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.droppableProps}
-                          className={cn(
-                            "grid min-h-12 grid-cols-2 gap-4 p-3 transition-colors duration-200 md:grid-cols-3 lg:grid-cols-4",
-                            snapshot.isDraggingOver
-                              ? "bg-blue-100/10"
-                              : "bg-muted",
-                            !isMobile && "flex-grow",
-                          )}
-                        >
-                          {Object.entries(termModules).map(
-                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                            ([moduleCode, { conflicts }], index) => (
-                              <Draggable
-                                key={moduleCode}
-                                draggableId={moduleCode}
-                                index={index}
-                              >
-                                {(provided, snapshot) => (
-                                  <div
-                                    ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    {...provided.dragHandleProps}
-                                    className={cn(
-                                      "flex items-center justify-between gap-2 rounded p-2 transition-all duration-200",
-                                      snapshot.isDragging
-                                        ? "h-fit w-fit bg-accent shadow-lg"
-                                        : "border bg-background hover:border-foreground",
-                                    )}
-                                  >
-                                    <div className="flex-grow">
-                                      {moduleCode}
-                                    </div>
-                                    <Button
-                                      onClick={() =>
-                                        handleRemoveModuleFromPlanner(
-                                          moduleCode as ModuleCode,
-                                          MODSTOTAKE_YEAR as Year,
-                                          MODSTOTAKE_TERM as Term,
-                                        )
-                                      }
-                                      variant={"destructive"}
-                                      size={"icon"}
-                                      className="size-6 rounded-full"
-                                    >
-                                      <X className="size-5" />
-                                    </Button>
-                                  </div>
-                                )}
-                              </Draggable>
-                            ),
-                          )}
-                          {provided.placeholder}
-                        </div>
-                      )}
-                    </Droppable>
-                  ),
-                )}
-            </div>
-          </div>
-        </div>
       </DragDropContext>
-      <div
-        className="flex flex-col"
-        style={{
-          paddingRight: PADDING,
-        }}
-      >
-        <div className="flex">
-          <div className="w-full">
-            <SearchModule handleModSelect={HandleAddMod} />
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

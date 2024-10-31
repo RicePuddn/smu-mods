@@ -1,3 +1,4 @@
+import { TooltipProvider } from "@/components/ui/tooltip";
 import StoreProviders from "@/stores/StoreProviders";
 import { TRPCReactProvider } from "@/trpc/react";
 import { HydrateClient } from "@/trpc/server";
@@ -19,7 +20,7 @@ export default function MainProviders({
             themes={["light", "dark", "system"]}
             disableTransitionOnChange
           >
-            {children}
+            <TooltipProvider>{children}</TooltipProvider>
           </ThemeProvider>
         </StoreProviders>
       </HydrateClient>

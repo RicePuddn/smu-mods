@@ -44,3 +44,8 @@ yarn-error.log*
 
 # idea files
 .idea
+
+# data
+data/parsed/
+data/html/
+data/xls/
