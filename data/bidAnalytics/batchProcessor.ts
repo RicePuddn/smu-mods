@@ -22,11 +22,13 @@ try {
   Logger.error("Unable to scan directory:", err);
 }
 
+console.log("Processing files:", xlsFiles);
+
 for (const xlsFile of xlsFiles) {
   try {
     await processXLS(
       path.join(directoryPath, "xls", xlsFile),
-      path.join(directoryPath, "parsed"),
+      path.join(directoryPath, "parsed", "bidAnalytics"),
       projectBaseDir,
     );
   } catch (error) {
