@@ -4,9 +4,9 @@ Command: npx gltfjsx@6.5.2 arin_room.glb -T -t
 Files: arin_room.glb [26.93MB] > C:\Users\ernes\Desktop\School\WAD2\study-room\source\arin_room-transformed.glb [819.05KB] (97%)
 */
 
+import type * as THREE from "three";
 import type { GLTF } from "three-stdlib";
 import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
 
 type GLTFResult = GLTF & {
   nodes: {

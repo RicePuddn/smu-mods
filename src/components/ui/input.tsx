@@ -16,6 +16,10 @@ const inputVariants = cva(
         default: "border-input focus-visible:ring-ring",
         error: "border-red-500 focus-visible:ring-red-500",
         timetable: "border-input focus-visible:ring-blue-500",
+        beyondStudies:
+          "border border-white text-white placeholder:text-white focus-visible:shadow-blue-500/50 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+        ModulesPage:
+          "border border-foreground/20 text-foreground placeholder:text-foreground focus-visible:shadow-blue-500/50 focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
       },
     },
     defaultVariants: {

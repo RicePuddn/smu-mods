@@ -136,14 +136,14 @@ const Tree: React.FC<TreeDisplay> = (props) => {
 
 export const ModuleTreeComponent: React.FC<Props> = (props) => {
   const { fulfillRequirements, prereqTree, moduleCode } = props;
-  if (!prereqTree) {
+  if (!prereqTree || Object.keys(prereqTree).length === 0) {
     return <></>;
   }
 
   return (
     <>
       <h3 className="font-semibold">Prerequisites</h3>
-      <div className={"flex items-center overflow-y-auto p-12"}>
+      <div className={"flex items-center overflow-y-auto p-4"}>
         {fulfillRequirements && fulfillRequirements.length > 0 && (
           <>
             <ul className={styles.prereqTree}>

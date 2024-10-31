@@ -2,23 +2,25 @@
 
 import { useEffect, useState } from "react";
 
-import type { Module } from "@/types/primitives/module";
-import { searchModule } from "@/server/data/modules";
+import type { Module, ModuleCode } from "@/types/primitives/module";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { searchModule } from "@/utils/moduleBank";
 
+import { Badge } from "./ui/badge";
 import { Input } from "./ui/input";
-import { Label } from "./ui/label";
 
 interface SearchModuleProps {
   handleModSelect: (mod: Module) => void;
   showResults?: boolean;
   callback?: (modules: Module[]) => void;
+  takenModule?: ModuleCode[];
 }
 
 export function SearchModule({
   handleModSelect,
   callback,
   showResults = true,
+  takenModule = [],
 }: SearchModuleProps) {
   const { modules } = useModuleBankStore((state) => state);
   const [inputValue, setInputValue] = useState<string>("");
@@ -37,11 +39,11 @@ export function SearchModule({
     <div className="flex justify-center gap-24">
       <div className="relative w-full space-y-2">
         <div>
-          <Label htmlFor="searchModule">Search for a module</Label>
+          {/* <Label htmlFor="searchModule">Search for a module</Label> */}
           <Input
             variant="timetable"
             autoComplete="off"
-            placeholder="Enter a module code or module name"
+            placeholder="Search by module name or code"
             value={inputValue}
             id="searchModule"
             onChange={(e) => setInputValue(e.target.value)}
@@ -53,6 +55,16 @@ export function SearchModule({
                 setFocused(false);
               }
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                setInputValue("");
+              } else if (e.key === "Enter") {
+                if (searchResults[0]) {
+                  handleModSelect(searchResults[0]);
+                  setInputValue("");
+                }
+              }
+            }}
           />
         </div>
         {!showResults ? (
@@ -61,7 +73,7 @@ export function SearchModule({
           inputValue != "" &&
           focused && (
             <ul
-              className="md absolute left-0 right-0 z-10 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg"
+              className="md absolute left-0 right-0 z-30 max-h-40 overflow-auto rounded border bg-background text-sm shadow-lg"
               onMouseEnter={() => setHovering(true)}
               onMouseLeave={() => setHovering(false)}
             >
@@ -79,6 +91,11 @@ export function SearchModule({
                     }}
                   >
                     {mod.moduleCode} - {mod.name}
+                    {takenModule.includes(mod.moduleCode) && (
+                      <Badge variant={"secondary"} className="ms-2">
+                        Added
+                      </Badge>
+                    )}
                   </li>
                 ))
               )}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import type { Module, ModuleCode } from "@/types/primitives/module";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
+import { Logger } from "@/utils/Logger";
 
 import { ModuleTreeComponent } from "./ModuleTree";
 import {
@@ -30,7 +31,7 @@ export default function ModuleDetails({
   useEffect(() => {
     setLoading(true);
     getModule(moduleCode)
-      .catch((e) => console.log(e))
+      .catch((e) => Logger.log(e))
       .then((mod) => {
         if (!mod) return;
         setModule(mod);
@@ -41,7 +42,7 @@ export default function ModuleDetails({
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="min-w-[300px] p-10 md:min-w-[80vw]">
+      <DialogContent className="dialog-content min-w-[300px] p-10 md:min-w-[80vw]">
         {!loading ? (
           !!module ? (
             <div className="max-h-[80dvh] overflow-y-scroll">
