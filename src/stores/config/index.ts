@@ -18,7 +18,7 @@ export type ISyncRecord = {
 export type ConfigAction = {
   changeISyncLatestRecord: (newRecord: ISyncRecord | null) => void;
   changeTimetableTheme: (newTheme: TimetableThemeName) => void;
-  changeRoomTheme: (newTheme: RoomKey) => void;
+  changeRoomTheme: (newTheme: RoomKey | null) => void;
   changeMatriculationYear: (matriculationYear: AcademicYear) => void;
   iSync: (
     timetableTheme: TimetableThemeName,
@@ -37,7 +37,7 @@ export type BannerState = Banner & { dismissed: boolean };
 export type ConfigStore = {
   iSyncLatestRecord: ISyncRecord | null;
   timetableTheme: TimetableThemeName;
-  roomTheme: RoomKey;
+  roomTheme: RoomKey | null;
   matriculationYear: AcademicYear;
   banners: BannerState[];
   warningDismissedTime: number;
