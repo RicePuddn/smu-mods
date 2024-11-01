@@ -56,7 +56,7 @@ export function BidAnalyticChart({ chartData }: { chartData: ChartData[] }) {
       >
         <ComposedChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={true} />
-          <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+          <ChartTooltip content={<ChartTooltipContent />} />
           <ChartLegend content={<ChartLegendContent />} />
           <Bar
             dataKey="befVac"
@@ -114,7 +114,6 @@ export function BidAnalyticChart({ chartData }: { chartData: ChartData[] }) {
             name="Median Bid"
             strokeWidth={2}
           />
-          <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         </ComposedChart>
       </ChartContainer>
     </div>
