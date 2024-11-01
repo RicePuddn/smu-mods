@@ -338,3 +338,23 @@ export function getRecurringEvents(timetable: Timetable): ICalEventData[] {
   });
   return result;
 }
+
+export function getSectionFromTimetable(
+  timetable: Timetable,
+  moduleCode: ModuleCode,
+  module: Module,
+): Section | undefined {
+  let sectionCode: string | undefined;
+  for (const day of days) {
+    for (const classItem of timetable[day]) {
+      if (classItem.moduleCode === moduleCode) {
+        sectionCode = classItem.section;
+        break;
+      }
+    }
+  }
+  if (!sectionCode) {
+    return undefined;
+  }
+  return module?.sections.find((section) => section.code === sectionCode);
+}

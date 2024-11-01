@@ -21,6 +21,7 @@ import { toast } from "sonner";
 import type { Term, TermSlug, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
+import BidAnalyticsPopover from "@/components/BidAnalytics/Popover";
 import ModuleDetails from "@/components/ModuleDetails";
 import { SearchModule } from "@/components/SearchModule";
 import { Button } from "@/components/ui/button";
@@ -45,7 +46,10 @@ import { termMap, termSlug } from "@/types/planner";
 import { days, timeSlots } from "@/types/primitives/timetable";
 import { Logger } from "@/utils/Logger";
 import { TIMETABLE_THEMES } from "@/utils/timetable/colours";
-import { getRecurringEvents } from "@/utils/timetable/timetable";
+import {
+  getRecurringEvents,
+  getSectionFromTimetable,
+} from "@/utils/timetable/timetable";
 
 type ClassWithWidth = ModifiableClass & {
   width: number;
@@ -766,20 +770,39 @@ export default function TimeTablePage({
                   </PopoverContent>
                 </Popover>
               </div>
-              <ModuleDetails moduleCode={mod.moduleCode}>
-                <div className="flex-grow">
-                  <p className="text-sm font-bold">
+              <div className="flex-grow">
+                <ModuleDetails moduleCode={mod.moduleCode}>
+                  <p className="cursor-pointer text-sm font-bold hover:underline">
                     {mod.moduleCode} - {mod.name}
                   </p>
-                  <p className="text-sm">
-                    Exam:{" "}
-                    {mod.exam?.dateTime
-                      ? format(new Date(mod.exam.dateTime), "M/dd/yyyy")
-                      : "No exam scheduled"}
-                  </p>
-                </div>
-              </ModuleDetails>
-
+                </ModuleDetails>
+                {(() => {
+                  const section = getSectionFromTimetable(
+                    timetable,
+                    mod.moduleCode,
+                    mod,
+                  );
+                  if (section) {
+                    return (
+                      <BidAnalyticsPopover
+                        moduleCode={mod.moduleCode}
+                        instructor={section.professor.name}
+                      >
+                        <p className="cursor-pointer text-sm hover:underline">
+                          {section.professor.name} - {section.code}
+                        </p>
+                      </BidAnalyticsPopover>
+                    );
+                  }
+                  return null;
+                })()}
+                <p className="text-sm">
+                  Exam:{" "}
+                  {mod.exam?.dateTime
+                    ? format(new Date(mod.exam.dateTime), "M/dd/yyyy h:mm a")
+                    : "No exam scheduled"}
+                </p>
+              </div>
               <div className="w-fit content-center">
                 <div className="flex flex-row">
                   <Button
