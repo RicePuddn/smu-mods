@@ -1,4 +1,4 @@
-import type { ChartData } from "@/components/BidAnalyticChart";
+import type { ChartData } from "@/components/BidAnalytics/Chart";
 
 interface BidDataset {
   label: string;

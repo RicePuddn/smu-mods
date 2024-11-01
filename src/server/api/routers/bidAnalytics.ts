@@ -1,7 +1,7 @@
 import type { BidRecord } from "@prisma/client";
 import { z } from "zod";
 
-import type { ChartData } from "@/components/BidAnalyticChart";
+import type { ChartData } from "@/components/BidAnalytics/Chart";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
