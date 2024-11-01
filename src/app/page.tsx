@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useTheme } from "next-themes";
@@ -14,6 +15,7 @@ import { Calendar } from "@/components/threed/Calendar";
 import { Monitor } from "@/components/threed/Monitor";
 import { NoticeBoard } from "@/components/threed/NoticeBoard";
 import { Rooms } from "@/components/threed/rooms";
+import { APP_CONFIG } from "@/config";
 import { useConfigStore } from "@/stores/config/provider";
 
 function Lighting({ theme }: { theme: string }) {
@@ -45,6 +47,7 @@ function Scene() {
   const { roomTheme } = useConfigStore((state) => state);
   const cameraRef = useRef<THREE.PerspectiveCamera>(null!);
   const { camera } = useThree();
+  const router = useRouter();
 
   const lookAtPoint = new THREE.Vector3(-0.8, 2.5, 0);
   const currentPosition = useRef(new THREE.Vector3(0, 2.8, 1.5));
@@ -89,6 +92,11 @@ function Scene() {
     }
   });
 
+  if (!roomTheme || !Rooms[roomTheme]) {
+    router.push(`/timetable/${APP_CONFIG.currentTerm}`);
+    return null;
+  }
+
   return (
     <>
       <PerspectiveCamera
@@ -113,7 +121,7 @@ function Scene() {
       <Bookshelf />
       <Calendar />
       <NoticeBoard />
-      {Rooms[roomTheme]?.room}
+      {Rooms[roomTheme].room}
     </>
   );
 }

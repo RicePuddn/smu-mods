@@ -139,36 +139,6 @@ export default function SettingsPage() {
           </ToggleGroupItem>
         </ToggleGroup>
       </section>
-      <section className="max-w-full space-y-3 overflow-hidden rounded-lg border p-4 shadow">
-        <h2 className="text-lg font-semibold">Rooms</h2>
-        <ToggleGroup
-          type="single"
-          className="flex w-full flex-col gap-2"
-          onValueChange={(value) => {
-            changeRoomTheme(value as RoomKey);
-          }}
-          value={roomTheme}
-        >
-          {Object.keys(Rooms).map((roomkey, index) => (
-            <ToggleGroupItem
-              value={roomkey}
-              variant={"primary"}
-              key={index}
-              className="h-fit w-full p-4 text-left"
-            >
-              <div className="space-y-1">
-                <div className="text-center text-sm font-semibold md:text-base">
-                  {Rooms[roomkey as RoomKey].name}
-                </div>
-                <div className="text-center text-xs opacity-60">
-                  {Rooms[roomkey as RoomKey].description}
-                </div>
-              </div>
-            </ToggleGroupItem>
-          ))}
-        </ToggleGroup>
-      </section>
-
       <section className="space-y-3 rounded-lg border p-4 shadow">
         <h2 className="text-lg font-semibold">Timetable Theme</h2>
         <div className="flex flex-wrap justify-center gap-2">
@@ -206,6 +176,45 @@ export default function SettingsPage() {
             </div>
           ))}
         </div>
+      </section>
+      <section className="max-w-full space-y-3 overflow-hidden rounded-lg border p-4 shadow">
+        <h2 className="text-lg font-semibold">Rooms</h2>
+        <ToggleGroup
+          type="single"
+          className="flex w-full flex-col gap-2"
+          onValueChange={(value) => {
+            changeRoomTheme(value as RoomKey);
+            if (value.length < 1) {
+              changeRoomTheme(null);
+            }
+          }}
+          value={roomTheme ?? ""}
+        >
+          <ToggleGroupItem
+            value={""}
+            variant={"primary"}
+            className="h-fit w-full p-4 text-left"
+          >
+            No Room Theme
+          </ToggleGroupItem>
+          {Object.keys(Rooms).map((roomkey, index) => (
+            <ToggleGroupItem
+              value={roomkey}
+              variant={"primary"}
+              key={index}
+              className="h-fit w-full p-4 text-left"
+            >
+              <div className="space-y-1">
+                <div className="text-center text-sm font-semibold md:text-base">
+                  {Rooms[roomkey as RoomKey].name}
+                </div>
+                <div className="text-center text-xs opacity-60">
+                  {Rooms[roomkey as RoomKey].description}
+                </div>
+              </div>
+            </ToggleGroupItem>
+          ))}
+        </ToggleGroup>
       </section>
       <section className="space-y-3 rounded-lg border p-4 shadow">
         <h3 className="text-lg font-semibold">Reset Application</h3>
