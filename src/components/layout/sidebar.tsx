@@ -21,6 +21,7 @@ import {
   SidebarLabel,
 } from "@/components/ui/sidebar";
 import { APP_CONFIG } from "@/config";
+import { useConfigStore } from "@/stores/config/provider";
 
 import type { Links, MainLink } from "./nav-main";
 import { Button } from "../ui/button";
@@ -44,10 +45,12 @@ export type SidebarData = {
 // planner
 // courses
 // stress relief
+
+const ROOM_TITLE = "Room";
 const data: SidebarData = {
   navMain: [
     {
-      title: "Home",
+      title: ROOM_TITLE,
       url: "/",
       icon: HomeIcon,
       isCollapsible: false,
@@ -101,13 +104,20 @@ const data: SidebarData = {
 
 export function AppSidebar() {
   const { resolvedTheme, setTheme } = useTheme();
+  const { roomTheme } = useConfigStore((state) => state);
 
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarItem>
           <SidebarLabel>SMUMODS</SidebarLabel>
-          <NavMain items={data.navMain} />
+          <NavMain
+            items={
+              !roomTheme
+                ? data.navMain.filter((e) => e.title != ROOM_TITLE)
+                : data.navMain
+            }
+          />
         </SidebarItem>
         <SidebarItem className="mt-auto">
           <Button

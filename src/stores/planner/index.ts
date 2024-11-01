@@ -137,7 +137,11 @@ export const createPlannerBank = (
             isSpecialHidden: state.isSpecialHidden,
           };
           delete temp.planner[year][term][moduleCode];
-          set(temp);
+
+          set({
+            plannerState: temp.plannerState,
+            planner: getPlanner(temp.plannerState.modules, moduleBank),
+          });
         },
         hideSpecial: (year: Year) => {
           set((state) => {
