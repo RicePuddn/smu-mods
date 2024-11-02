@@ -6,7 +6,7 @@ import { Loader2, QrCode } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
 
 import { useConfigStore } from "@/stores/config/provider";
-import { usePlannerStore } from "@/stores/planner/provider";
+import { useMultiplePlannerStore } from "@/stores/multiplePlanners/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";
 import { getBaseUrl } from "@/utils/getBaseUrl";
@@ -16,7 +16,7 @@ import { Button } from "../ui/button";
 export function GenerateQRCode() {
   const { mutateAsync: getToken, isPending } = api.iSync.getToken.useMutation();
   const { timetableMap } = useTimetableStore((state) => state);
-  const { planner, plannerState } = usePlannerStore((state) => state);
+  const { planners } = useMultiplePlannerStore((state) => state);
   const {
     iSyncLatestRecord: latestRecord,
     timetableTheme,
@@ -35,8 +35,7 @@ export function GenerateQRCode() {
   const handleGenerateQRCode = async () => {
     const content = JSON.stringify({
       timetable: timetableMap,
-      planner: planner,
-      plannerState: plannerState,
+      planners,
       timetableTheme,
       roomTheme,
       matriculationYear,

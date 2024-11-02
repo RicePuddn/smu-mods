@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { APP_CONFIG } from "@/config";
 import { useConfigStore } from "@/stores/config/provider";
-import { usePlannerStore } from "@/stores/planner/provider";
+import { useMultiplePlannerStore } from "@/stores/multiplePlanners/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { api } from "@/trpc/react";
 import { Logger } from "@/utils/Logger";
@@ -14,7 +14,7 @@ export default function Page({ params }: { params: { token: string } }) {
   const { mutateAsync: getToken } = api.iSync.getContent.useMutation();
   const { mutateAsync: deleteToken } = api.iSync.deleteToken.useMutation();
   const { iSync: iSyncTimeTable } = useTimetableStore((state) => state);
-  const { iSync: iSyncPlanner } = usePlannerStore((state) => state);
+  const { iSync: iSyncPlanners } = useMultiplePlannerStore((state) => state);
   const { iSync: iSyncConfig } = useConfigStore((state) => state);
   const router = useRouter();
 
@@ -24,7 +24,7 @@ export default function Page({ params }: { params: { token: string } }) {
       const data = JSON.parse(content);
       try {
         iSyncTimeTable(data.timetable);
-        iSyncPlanner(data.plannerState, data.planner);
+        iSyncPlanners(data.planners);
         iSyncConfig(
           data.timetableTheme,
           data.roomTheme,
