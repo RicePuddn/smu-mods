@@ -29,7 +29,6 @@ for (const xlsFile of xlsFiles) {
     await processXLS(
       path.join(directoryPath, "xls", xlsFile),
       path.join(directoryPath, "parsed", "bidAnalytics"),
-      projectBaseDir,
     );
   } catch (error) {
     Logger.error(`Error processing file ${xlsFile}:`, error);
