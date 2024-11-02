@@ -115,7 +115,7 @@ export function NoticeBoard(props: JSX.IntrinsicElements["group"]) {
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     setClicked(true);
-    router.push("/beyond-studies");
+    router.push("/bid-analytics");
   };
 
   return (
@@ -142,7 +142,7 @@ export function NoticeBoard(props: JSX.IntrinsicElements["group"]) {
               textAlign: "center",
             }}
           >
-            View Events Here!
+            View Bid Analysis Here!
           </div>
         </Html>
       )}
