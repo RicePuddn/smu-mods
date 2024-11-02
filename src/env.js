@@ -28,7 +28,6 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: z.string().default("development"),
-    NEXT_PUBLIC_BID_ANALYTICS_API_URL: z.string().url(),
   },
 
   /**
@@ -46,8 +45,6 @@ export const env = createEnv({
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA:
       process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA,
-    NEXT_PUBLIC_BID_ANALYTICS_API_URL:
-      process.env.NEXT_PUBLIC_BID_ANALYTICS_API_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

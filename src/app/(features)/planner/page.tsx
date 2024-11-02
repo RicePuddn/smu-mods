@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 
@@ -29,14 +29,16 @@ export default function Planner() {
     (state) => state,
   );
 
-  if (!!planner && !!plannerState && !!isSpecialHidden) {
-    addPlanner("Default", {
-      planner,
-      plannerState,
-      isSpecialHidden,
-    });
-    localStorage.removeItem("planner");
-  }
+  useEffect(() => {
+    if (!!planner && !!plannerState && !!isSpecialHidden) {
+      addPlanner("Default", {
+        planner,
+        plannerState,
+        isSpecialHidden,
+      });
+      localStorage.removeItem("planner");
+    }
+  }, [planner, plannerState, isSpecialHidden]);
 
   return (
     <div
