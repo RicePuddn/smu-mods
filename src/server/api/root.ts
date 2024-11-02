@@ -1,6 +1,5 @@
 import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
 
-import { analyticsRouter } from "./routers/analytics";
 import { basketRouter } from "./routers/basket";
 import { bidAnalyticsRouter } from "./routers/bidAnalytics";
 import { iSyncRouter } from "./routers/iSync";
@@ -19,7 +18,6 @@ export const appRouter = createTRPCRouter({
   basket: basketRouter,
   s3: s3Router,
   chatgpt: openaiRouter,
-  analytics: analyticsRouter,
   bidAnalytics: bidAnalyticsRouter,
 });
 

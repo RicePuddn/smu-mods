@@ -4500,7 +4500,7 @@ export const modules: ModuleBank = {
       },
     ],
     credit: 1,
-    terms: ["Term 2"],
+    terms: ["Term 2", "Term 1"],
   },
   COR2100: {
     name: "Economics and Society",

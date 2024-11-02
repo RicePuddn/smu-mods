@@ -1,18 +1,28 @@
 "use client";
 
 import type { DropResult } from "@hello-pangea/dnd";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import { CalendarArrowUp, ChevronDown, ChevronUp } from "lucide-react";
+import { CalendarArrowUp, ChevronDown, ChevronUp, Edit } from "lucide-react";
 
 import type { Term, Year } from "@/types/planner";
 import type { Module, ModuleCode } from "@/types/primitives/module";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { APP_CONFIG, PADDING } from "@/config";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { usePlannerStore } from "@/stores/planner/provider";
+import { useMultiplePlannerStore } from "@/stores/multiplePlanners/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import {
   EXEMPTION_YEAR,
@@ -25,22 +35,23 @@ import { Logger } from "@/utils/Logger";
 
 import { SearchModule } from "../SearchModule";
 import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import ModuleCard from "./moduleCard";
 
 import "./scrollBar.css";
 
 const DELIMITER = "/$/";
 
-const CoursePlanner: React.FC = () => {
+const CoursePlanner = ({ plannerId }: { plannerId: string }) => {
   const isMobile = useIsMobile();
   const {
     addModule: addModuleToPlanner,
     changeTerm,
-    planner,
-    plannerState,
+    planners,
     removeModule,
     hideSpecial,
-  } = usePlannerStore((state) => state);
+    changePlannerName,
+  } = useMultiplePlannerStore((state) => state);
   const { modules, addModule: addModuleToBank } = useModuleBankStore(
     (state) => state,
   );
@@ -51,8 +62,22 @@ const CoursePlanner: React.FC = () => {
   const { timetableTheme, matriculationYear } = useConfigStore(
     (state) => state,
   );
+
+  const planner = planners[plannerId];
+  const [newPlannerName, setNewPlannerName] = useState(planner?.name ?? "");
+
+  useEffect(() => {
+    if (!!planner) {
+      setNewPlannerName(planner.name);
+    }
+  }, [planner]);
+
   const studentYear = getUserYear(matriculationYear, APP_CONFIG.academicYear);
   const [isOpen, setIsOpen] = React.useState<Set<string>>(new Set());
+
+  if (!planner) {
+    return <div>Planner not found</div>;
+  }
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
@@ -69,14 +94,15 @@ const CoursePlanner: React.FC = () => {
       dest[1] as Term,
       result.draggableId as ModuleCode,
       modules,
+      plannerId,
     );
   };
 
   const HandleSyncTimetable = (year: Year) => {
-    for (const termNo in planner[year]) {
+    for (const termNo in planner.planner[year]) {
       Logger.log(planner);
       const moduleCodes = Object.keys(
-        planner[year][termNo as Term],
+        planner.planner[year][termNo as Term],
       ) as ModuleCode[];
       moduleCodes.forEach((moduleCode) => {
         const module = modules[moduleCode];
@@ -97,6 +123,7 @@ const CoursePlanner: React.FC = () => {
         id: module.moduleCode,
       },
       { ...modules, [module.moduleCode]: module },
+      plannerId,
     );
     toggleYear(MODSTOTAKE_YEAR, true);
   };
@@ -106,7 +133,7 @@ const CoursePlanner: React.FC = () => {
     year: Year,
     term: Term,
   ) => {
-    removeModule(moduleCode, year, term, modules);
+    removeModule(moduleCode, year, term, modules, plannerId);
   };
 
   const toggleYear = (year: string, forceOpen = false) => {
@@ -124,20 +151,52 @@ const CoursePlanner: React.FC = () => {
     });
   };
 
-  const isSpecialHidden = usePlannerStore((state) => state.isSpecialHidden);
   const handleHideSpecial = (year: Year) => {
-    hideSpecial(year);
+    hideSpecial(year, plannerId);
   };
 
   return (
     <div
       style={{
-        paddingTop: PADDING,
         paddingLeft: PADDING,
         paddingBottom: PADDING,
       }}
     >
-      <h1 className="mb-3 text-2xl font-bold">Your Modules Planner</h1>
+      <div className="mb-3 flex items-center justify-start gap-4">
+        <h1 className="text-2xl font-bold">{planner.name}</h1>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="size-8 rounded-full" size={"icon"}>
+              <Edit className="size-5" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Edit Planner Name</DialogTitle>
+              <DialogDescription className="sr-only">
+                Edit the name of your planner
+              </DialogDescription>
+            </DialogHeader>
+            <Input
+              value={newPlannerName}
+              onChange={(e) => setNewPlannerName(e.target.value)}
+              placeholder="Planner Name"
+            />
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button variant={"destructive"}>Cancel</Button>
+              </DialogClose>
+              <DialogClose asChild>
+                <Button
+                  onClick={() => changePlannerName(plannerId, newPlannerName)}
+                >
+                  Save
+                </Button>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
 
       <div
         className="mb-6 flex flex-col"
@@ -149,7 +208,9 @@ const CoursePlanner: React.FC = () => {
           <div className="w-full">
             <SearchModule
               handleModSelect={HandleAddMod}
-              takenModule={Object.keys(plannerState.modules) as ModuleCode[]}
+              takenModule={
+                Object.keys(planner.plannerState.modules) as ModuleCode[]
+              }
             />
           </div>
         </div>
@@ -195,7 +256,7 @@ const CoursePlanner: React.FC = () => {
 
             <div>
               {(!isMobile || isOpen.has(MODSTOTAKE_YEAR)) &&
-                Object.entries(planner[MODSTOTAKE_YEAR as Year]).map(
+                Object.entries(planner.planner[MODSTOTAKE_YEAR as Year]).map(
                   ([term, termModules]) => (
                     <Droppable
                       droppableId={`${MODSTOTAKE_YEAR}${DELIMITER}${term}`}
@@ -262,12 +323,12 @@ const CoursePlanner: React.FC = () => {
             paddingRight: !!isMobile ? PADDING : "0rem",
           }}
         >
-          {Object.keys(planner)
+          {Object.keys(planner.planner)
             .filter((year) => year !== MODSTOTAKE_YEAR)
             .sort((a, b) => parseInt(a) - parseInt(b))
             .map((year) => {
-              const terms = planner[year as Year];
-              const isHidden = isSpecialHidden[year as Year];
+              const terms = planner.planner[year as Year];
+              const isHidden = planner.isSpecialHidden[year as Year];
               return (
                 <div
                   key={year}
