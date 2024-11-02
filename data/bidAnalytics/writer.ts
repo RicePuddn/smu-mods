@@ -18,6 +18,25 @@ export async function processXLS(
     const fileBuffer = fs.readFileSync(inputFilePath);
     const workbook = XLSX.read(fileBuffer, { type: "buffer" });
 
+    const columnMapping: ColumnMapping = {
+      term: "Term",
+      session: "Session",
+      biddingWindow: "Bidding Window",
+      moduleCode: "Course",
+      description: "Description",
+      section: "Sect",
+      medianBid: "Median",
+      minBid: "Min",
+      vacancy: "Vacancy",
+      openingVacancy: "Open",
+      beforeProcessVacancy: "Bef Proc",
+      afterProcessVacancy: "Aft Proc",
+      dice: "DICE",
+      enrolledStudents: "Enrolled",
+      instructor: "Instructor",
+      school: "School",
+    };
+
     // Iterate over each sheet in the workbook
     workbook.SheetNames.forEach((sheetName) => {
       const worksheet = workbook.Sheets[sheetName];
@@ -28,31 +47,7 @@ export async function processXLS(
       const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
       jsonData.forEach((row: any) => {
-        // Convert the row to a BidRecord
-        const instructorSet = new Set<string>(
-          (row["Instructor"] ?? "")
-            .split(",")
-            .map((instructor: string) => instructor.trim()),
-        );
-        const instructorArray = Array.from(instructorSet);
-        const bidRecord: BidRecord = {
-          term: row["Term"] ?? "",
-          session: row["Session"] ?? "",
-          biddingWindow: row["Bidding Window"] ?? "",
-          moduleCode: row["Course Code"] ?? "",
-          section: row["Section"] ?? "",
-          description: row["Description"] ?? "",
-          vacancy: row["Vacancy"] ?? 0,
-          openingVacancy: row["Opening Vacancy"] ?? 0,
-          beforeProcessVacancy: row["Before Process Vacancy"] ?? 0,
-          afterProcessVacancy: row["After Process Vacancy"] ?? 0,
-          dice: row["DICE"] ?? 0,
-          enrolledStudents: row["Enrolled Students"] ?? 0,
-          medianBid: row["Median Bid"] ?? 0,
-          minBid: row["Min Bid"] ?? 0,
-          instructor: instructorArray,
-          school: row["School/Department"],
-        };
+        const bidRecord: BidRecord = cleanUpRowData(row, columnMapping);
         rows.push(bidRecord);
       });
     });
@@ -85,4 +80,45 @@ export async function processXLS(
       Logger.error("Error writing file:", err);
     });
   }
+}
+
+type ColumnMapping = Record<keyof BidRecord, string>;
+
+function cleanUpRowData(row: any, columnMapping: ColumnMapping): BidRecord {
+  const parseNumber = (value: any, defaultValue: number = 0) =>
+    typeof value === "number" ? value : parseFloat(value) || defaultValue;
+
+  const parseString = (value: any, defaultValue: string = "") =>
+    typeof value === "string" ? value : defaultValue;
+
+  const instructorSet = new Set<string>(
+    parseString(row[columnMapping["instructor"]])
+      .split(",")
+      .map((instructor: string) => instructor.trim())
+      .filter(Boolean),
+  );
+  const instructorArray = Array.from(instructorSet);
+
+  const bidRecord: BidRecord = {
+    term: parseString(row[columnMapping["term"]]),
+    session: parseString(row[columnMapping["session"]]),
+    biddingWindow: parseString(row[columnMapping["biddingWindow"]]),
+    moduleCode: parseString(row[columnMapping["moduleCode"]]),
+    section: parseString(row[columnMapping["section"]]),
+    description: parseString(row[columnMapping["description"]]),
+    vacancy: parseNumber(row[columnMapping["vacancy"]]),
+    openingVacancy: parseNumber(row[columnMapping["openingVacancy"]]),
+    beforeProcessVacancy: parseNumber(
+      row[columnMapping["beforeProcessVacancy"]],
+    ),
+    afterProcessVacancy: parseNumber(row[columnMapping["afterProcessVacancy"]]),
+    dice: parseNumber(row[columnMapping["dice"]]),
+    enrolledStudents: parseNumber(row[columnMapping["enrolledStudents"]]),
+    medianBid: parseNumber(row[columnMapping["medianBid"]]),
+    minBid: parseNumber(row[columnMapping["minBid"]]),
+    instructor: instructorArray,
+    school: parseString(row[columnMapping["school"]]),
+  };
+
+  return bidRecord;
 }

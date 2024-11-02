@@ -49,3 +49,6 @@ yarn-error.log*
 data/parsed/
 data/html/
 data/xls/
+
+# archives
+.archive/
