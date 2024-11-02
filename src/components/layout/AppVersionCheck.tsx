@@ -24,7 +24,6 @@ export const AppVersionCheck = () => {
       if (appVersion != "development") {
         refreshAll();
       }
-      changeRoomTheme(null);
       refreshBanners();
       changeAppVersion(APP_VERSION);
     }

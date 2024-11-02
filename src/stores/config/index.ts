@@ -4,6 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import type { RoomKey } from "@/components/threed/rooms";
 import type { AcademicYear, Banner } from "@/config";
 import type { TimetableThemeName } from "@/utils/timetable/colours";
+import { roomKeys } from "@/components/threed/rooms";
 import { APP_CONFIG } from "@/config";
 import { env } from "@/env";
 import { Logger } from "@/utils/Logger";
@@ -48,7 +49,7 @@ export const createConfigBank = (
   defaultLastRecord: ISyncRecord | null = null,
   defaultTimetableTheme: TimetableThemeName = "default",
   defaultAcademicYear: AcademicYear = APP_CONFIG.academicYear,
-  defaultRoomTheme: RoomKey | null = null,
+  defaultRoomTheme: RoomKey | null = roomKeys[0],
   defaultBanners: BannerState[] = APP_CONFIG.banners.map((banner) => ({
     ...banner,
     dismissed: false,
