@@ -79,11 +79,15 @@ export default function Planner() {
           </DialogContent>
         </Dialog>
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {Object.entries(planners).map(([id, planner]) => (
-          <PlannerCard key={id} planner={planner} id={id} />
-        ))}
-      </div>
+      {Object.keys(planners).length > 0 ? (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          {Object.entries(planners).map(([id, planner]) => (
+            <PlannerCard key={id} planner={planner} id={id} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-lg">No planners yet</p>
+      )}
     </div>
   );
 }
