@@ -30,19 +30,19 @@ export type ChartData = {
 
 const chartConfig = {
   befVac: {
-    label: "befVac",
+    label: "Before Process Vacancy",
     color: "hsl(var(--chart-1))",
   },
   aftVac: {
-    label: "aftVac",
+    label: "After Process Vacancy",
     color: "hsl(var(--chart-5))",
   },
   minBid: {
-    label: "minBid",
+    label: "Minimum Bid",
     color: "hsl(var(--chart-2))",
   },
   medBid: {
-    label: "medBid",
+    label: "Median Bid",
     color: "hsl(var(--chart-3))",
   },
 } satisfies ChartConfig;
@@ -56,7 +56,7 @@ export function BidAnalyticChart({ chartData }: { chartData: ChartData[] }) {
       >
         <ComposedChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={true} />
-          <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+          <ChartTooltip content={<ChartTooltipContent />} />
           <ChartLegend content={<ChartLegendContent />} />
           <Bar
             dataKey="befVac"
@@ -114,7 +114,6 @@ export function BidAnalyticChart({ chartData }: { chartData: ChartData[] }) {
             name="Median Bid"
             strokeWidth={2}
           />
-          <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         </ComposedChart>
       </ChartContainer>
     </div>

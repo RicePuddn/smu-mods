@@ -35,7 +35,7 @@ model BidRecord {
   minBid               Float
 
   instructor String[]
-  school     String
+  school     String?
 
   @@unique([term, session, biddingWindow, moduleCode, section])
 }
