@@ -34,6 +34,26 @@ const columnMapping: ColumnMapping = {
   school: "School",
 };
 
+const existingRecords = await db.bidRecord.findMany({
+  where: {
+    term: "2024-25 Term 2",
+  },
+  select: {
+    term: true,
+    session: true,
+    biddingWindow: true,
+    moduleCode: true,
+    section: true,
+  },
+});
+
+const existingKeys = new Set(
+  existingRecords.map(
+    (record) =>
+      `${record.term}-${record.session}-${record.biddingWindow}-${record.moduleCode}-${record.section}`,
+  ),
+);
+
 async function scrapeTable(driver: ThenableWebDriver) {
   const tableData = [];
 
@@ -76,7 +96,11 @@ async function scrapeTable(driver: ThenableWebDriver) {
 
       const bidRecord: BidRecord = cleanUpRowData(rowData, columnMapping);
       // Add row data to the array
-      tableData.push(bidRecord);
+      const identifier = `${bidRecord.term}-${bidRecord.session}-${bidRecord.biddingWindow}-${bidRecord.moduleCode}-${bidRecord.section}`;
+      if (!existingKeys.has(identifier)) {
+        tableData.push(bidRecord);
+        existingKeys.add(identifier);
+      }
     }
 
     // Try to find the 'Next' button and check if it's disabled
@@ -116,35 +140,5 @@ if (!tableData[0]) {
   process.exit(0);
 }
 
-const existingRecords = await db.bidRecord.findMany({
-  where: { term: tableData[0].term },
-  select: {
-    term: true,
-    session: true,
-    biddingWindow: true,
-    moduleCode: true,
-    section: true,
-  },
-});
-
-// Step 2: Create a Set of unique identifiers based on the composite key
-const existingKeys = new Set(
-  existingRecords.map(
-    (record) =>
-      `${record.term}-${record.session}-${record.biddingWindow}-${record.moduleCode}-${record.section}`,
-  ),
-);
-
-// Step 3: Filter rows that are not already in the database
-const newRows = tableData.filter(
-  (row) =>
-    !existingKeys.has(
-      `${row.term}-${row.session}-${row.biddingWindow}-${row.moduleCode}-${row.section}`,
-    ),
-);
-
-// Step 4: Insert only the new rows
-if (newRows.length > 0) {
-  const affectedRows = await db.bidRecord.createMany({ data: newRows });
-  console.log(`Inserted ${affectedRows.count} new rows.`);
-}
+const affectedRows = await db.bidRecord.createMany({ data: tableData });
+console.log(`Inserted ${affectedRows.count} new rows.`);
