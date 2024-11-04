@@ -79,15 +79,16 @@ export const createMultiplePlannerBank = (
             },
           };
 
-          set({
+          set((state) => ({
             planners: {
+              ...state.planners,
               [plannerId]: {
                 ...original,
                 plannerState: newPlannerState,
                 planner: getPlanner(newPlannerState.modules, moduleBank),
               },
             },
-          });
+          }));
         },
         changeTerm: (
           srcYear,
@@ -132,7 +133,7 @@ export const createMultiplePlannerBank = (
 
             delete stateTemp.planner[srcYear][srcTerm][moduleCode];
 
-            return { planners: { [plannerId]: stateTemp } };
+            return { planners: { ...state.planners, [plannerId]: stateTemp } };
           });
         },
         removeModule: (moduleCode, year, term, moduleBank, plannerId) => {
@@ -157,15 +158,16 @@ export const createMultiplePlannerBank = (
           };
           delete temp.planner[year][term][moduleCode];
 
-          set({
+          set((state) => ({
             planners: {
+              ...state.planners,
               [plannerId]: {
                 ...temp,
                 plannerState: temp.plannerState,
                 planner: getPlanner(temp.plannerState.modules, moduleBank),
               },
             },
-          });
+          }));
         },
         hideSpecial: (year: Year, plannerId) => {
           set((state) => {
@@ -176,6 +178,7 @@ export const createMultiplePlannerBank = (
             const currentHiddenState = planner.isSpecialHidden[year];
             return {
               planners: {
+                ...state.planners,
                 [plannerId]: {
                   ...planner,
                   isSpecialHidden: {
@@ -195,6 +198,7 @@ export const createMultiplePlannerBank = (
             }
             return {
               planners: {
+                ...state.planners,
                 [plannerId]: {
                   ...planner,
                   name,
