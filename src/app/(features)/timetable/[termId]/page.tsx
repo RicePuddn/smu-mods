@@ -13,12 +13,11 @@ import {
   EyeOff,
   File,
   Image,
-  RefreshCw,
   Trash2,
 } from "lucide-react";
 import { toast } from "sonner";
 
-import type { Term, TermSlug, Year } from "@/types/planner";
+import type { TermSlug } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
 import type { Day, ModifiableClass } from "@/types/primitives/timetable";
 import BidAnalyticsPopover from "@/components/BidAnalytics/Popover";
@@ -40,7 +39,6 @@ import { APP_CONFIG, PADDING } from "@/config";
 import { cn } from "@/lib/utils";
 import { useConfigStore } from "@/stores/config/provider";
 import { useModuleBankStore } from "@/stores/moduleBank/provider";
-import { usePlannerStore } from "@/stores/planner/provider";
 import { useTimetableStore } from "@/stores/timetable/provider";
 import { termMap, termSlug } from "@/types/planner";
 import { days, timeSlots } from "@/types/primitives/timetable";
@@ -78,8 +76,6 @@ export default function TimeTablePage({
     changeColorOfModule,
   } = useTimetableStore((state) => state);
   const { timetableTheme } = useConfigStore((state) => state);
-
-  const { planner } = usePlannerStore((state) => state);
 
   const { modules } = useModuleBankStore((state) => state);
 
@@ -322,28 +318,6 @@ export default function TimeTablePage({
     }
   };
 
-  // Logger.log(TIMETABLE_COLORS);
-
-  const handlePullFromPlanner = (year: Year) => {
-    for (const termNo in planner[year]) {
-      Logger.log(termNo);
-      Logger.log(planner[year]);
-      const moduleCodes = Object.keys(
-        planner[year][termNo as Term],
-      ) as ModuleCode[];
-      moduleCodes.forEach((moduleCode) => {
-        const module = modules[moduleCode];
-        if (!!module) {
-          AddModuleToTimetable(
-            module,
-            termMap[params.termId as TermSlug],
-            timetableTheme,
-          );
-        }
-      });
-    }
-  };
-
   const elementRef = useRef<HTMLDivElement>(null);
 
   const exportAsPdfOrImage = async (type: "png" | "pdf") => {
@@ -425,14 +399,6 @@ export default function TimeTablePage({
           &gt;
         </button>
       </div>
-
-      <div>
-        <Button variant={"default"} onClick={() => handlePullFromPlanner("2")}>
-          <RefreshCw />
-          <span className="ml-2">Synchronize with Planner</span>
-        </Button>
-      </div>
-
       <div className="my-4 max-w-full overflow-x-auto">
         <div
           className="w-full min-w-[800px] overflow-hidden rounded-lg border border-foreground/20 bg-background lg:min-w-[1200px]"
