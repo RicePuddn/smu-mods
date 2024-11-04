@@ -1,29 +1,41 @@
-# Create T3 App
+# SMUMODs
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A web application designed to help SMU students plan their modules effectively. It provides features for module search, timetable planning, and easy access to module information.
 
-## What's next? How do I make an app with this?
+## Setup Instructions
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+1. Clone the repository
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+```bash
+git clone https://github.com/darkliyznyanlin910/smu-mods.git
+cd SMUMODs
+```
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+2. Install dependencies
+   This project is configured to work with `pnpm` so install pnpm first.
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+3. Set up environment variables
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- Copy `.env.example` to `.env`
+- Fill up required environment variables
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+4. Run the application
 
-## How do I deploy this?
+- Running in development mode
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+```bash
+pnpm run dev
+```
+
+- Running in production mode
+
+```bash
+pnpm run build
+pnpm run start
+```
+
+The application will be available at `http://localhost:3000`
