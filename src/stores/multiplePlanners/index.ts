@@ -221,8 +221,10 @@ export const createMultiplePlannerBank = (
           });
         },
         addPlanner: (name, plannerFull) => {
-          set((state) => {
-            const newPlannerId = `planner${Object.keys(state.planners).length + 1}`;
+          const state = get();
+          console.log(state);
+          set(() => {
+            const newPlannerId = `planner${Object.keys(state.planners).length}`;
             if (plannerFull) {
               return {
                 planners: {
