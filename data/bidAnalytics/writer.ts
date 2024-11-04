@@ -9,7 +9,6 @@ import { Logger } from "@/utils/Logger";
 export async function processXLS(
   inputFilePath: string,
   jsonOutDir: string,
-  projectBaseDir: string,
   jsonOutputEnabled: boolean = false,
 ): Promise<void> {
   const rows: BidRecord[] = [];
@@ -58,7 +57,37 @@ export async function processXLS(
     return;
   }
   if (!jsonOutputEnabled) {
-    await db.bidRecord.createMany({ data: rows });
+    const existingRecords = await db.bidRecord.findMany({
+      where: { term: rows[0].term },
+      select: {
+        term: true,
+        session: true,
+        biddingWindow: true,
+        moduleCode: true,
+        section: true,
+      },
+    });
+
+    // Step 2: Create a Set of unique identifiers based on the composite key
+    const existingKeys = new Set(
+      existingRecords.map(
+        (record) =>
+          `${record.term}-${record.session}-${record.biddingWindow}-${record.moduleCode}-${record.section}`,
+      ),
+    );
+
+    // Step 3: Filter rows that are not already in the database
+    const newRows = rows.filter(
+      (row) =>
+        !existingKeys.has(
+          `${row.term}-${row.session}-${row.biddingWindow}-${row.moduleCode}-${row.section}`,
+        ),
+    );
+
+    // Step 4: Insert only the new rows
+    if (newRows.length > 0) {
+      await db.bidRecord.createMany({ data: newRows });
+    }
   } else {
     const writeStream = createWriteStream(
       path.join(
@@ -82,9 +111,12 @@ export async function processXLS(
   }
 }
 
-type ColumnMapping = Record<keyof BidRecord, string>;
+export type ColumnMapping = Record<keyof BidRecord, string>;
 
-function cleanUpRowData(row: any, columnMapping: ColumnMapping): BidRecord {
+export function cleanUpRowData(
+  row: any,
+  columnMapping: ColumnMapping,
+): BidRecord {
   const parseNumber = (value: any, defaultValue: number = 0) =>
     typeof value === "number" ? value : parseFloat(value) || defaultValue;
 

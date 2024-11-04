@@ -4,7 +4,6 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import type { ModuleBank } from "@/types/banks/moduleBank";
 import type { Planner, PlannerState, Term, Year } from "@/types/planner";
 import type { ModuleCode } from "@/types/primitives/module";
-import { defaultPlanner, defaultPlannerState } from "@/types/planner";
 import { Logger } from "@/utils/Logger";
 import { getPlanner } from "@/utils/planner";
 
@@ -39,28 +38,18 @@ export type PlannerActions = {
 };
 
 export type PlannerStore = {
-  plannerState: PlannerState;
-  planner: Planner;
-  isSpecialHidden: Record<Year, boolean>;
+  plannerState?: PlannerState;
+  planner?: Planner;
+  isSpecialHidden?: Record<Year, boolean>;
 } & PlannerActions;
 
-export const createPlannerBank = (
-  initPlannerState: PlannerState = defaultPlannerState,
-  initPlanner: Planner = defaultPlanner,
-) => {
+export const createPlannerBank = () => {
   return create<PlannerStore>()(
     persist(
       (set, get) => ({
-        plannerState: initPlannerState,
-        planner: initPlanner,
-        isSpecialHidden: {
-          1: true,
-          2: true,
-          3: true,
-          4: true,
-        },
         addModule: (moduleCode, attributes, moduleBank) => {
           const original = get();
+          if (!original.plannerState) return;
           if (original.plannerState.modules[moduleCode]) return;
           const newPlannerState: PlannerState = {
             ...original.plannerState,
@@ -88,6 +77,7 @@ export const createPlannerBank = (
           moduleBank,
         ) => {
           const original = get();
+          if (!original.plannerState) return;
           const module = original.plannerState.modules[moduleCode];
           if (!module) return;
 
@@ -97,6 +87,7 @@ export const createPlannerBank = (
               year: destYear,
               term: destTerm,
             };
+            if (!state.plannerState) return state;
 
             const newPlannerState: PlannerState = {
               ...state.plannerState,
@@ -121,6 +112,7 @@ export const createPlannerBank = (
           Logger.log(year);
           const state = get();
           const original = state.plannerState;
+          if (!original) return;
           const module = original.modules[moduleCode];
 
           if (!module) return state;
@@ -133,7 +125,7 @@ export const createPlannerBank = (
               ...original,
               modules: remainingModules,
             },
-            planner: getPlanner(state.plannerState.modules, moduleBank),
+            planner: getPlanner(original.modules, moduleBank),
             isSpecialHidden: state.isSpecialHidden,
           };
           delete temp.planner[year][term][moduleCode];
@@ -145,6 +137,7 @@ export const createPlannerBank = (
         },
         hideSpecial: (year: Year) => {
           set((state) => {
+            if (!state.isSpecialHidden) return state;
             const currentHiddenState = state.isSpecialHidden[year];
             return {
               ...state,

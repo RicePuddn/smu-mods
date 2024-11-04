@@ -8,6 +8,7 @@ import { searchModule } from "@/utils/moduleBank";
 
 import { Badge } from "./ui/badge";
 import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 interface SearchModuleProps {
   handleModSelect: (mod: Module) => void;
@@ -39,7 +40,7 @@ export function SearchModule({
     <div className="flex justify-center gap-24">
       <div className="relative w-full space-y-2">
         <div>
-          {/* <Label htmlFor="searchModule">Search for a module</Label> */}
+          <Label htmlFor="searchModule">Search for a module</Label>
           <Input
             variant="timetable"
             autoComplete="off"

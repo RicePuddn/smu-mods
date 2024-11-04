@@ -11,8 +11,9 @@ const APP_VERSION = env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
 const TURN_ON_REFRESH = false;
 
 export const AppVersionCheck = () => {
-  const { refreshBanners, appVersion, changeAppVersion, changeRoomTheme } =
-    useConfigStore((state) => state);
+  const { refreshBanners, appVersion, changeAppVersion } = useConfigStore(
+    (state) => state,
+  );
   const { refreshAll } = useModuleBankStore((state) => state);
   useEffect(() => {
     if (
@@ -24,7 +25,6 @@ export const AppVersionCheck = () => {
       if (appVersion != "development") {
         refreshAll();
       }
-      changeRoomTheme(null);
       refreshBanners();
       changeAppVersion(APP_VERSION);
     }
