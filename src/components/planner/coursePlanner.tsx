@@ -162,40 +162,47 @@ const CoursePlanner = ({ plannerId }: { plannerId: string }) => {
         paddingBottom: PADDING,
       }}
     >
-      <div className="mb-3 flex items-center justify-start gap-4">
-        <h1 className="text-2xl font-bold">{planner.name}</h1>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button className="size-8 rounded-full" size={"icon"}>
-              <Edit className="size-5" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Edit Planner Name</DialogTitle>
-              <DialogDescription className="sr-only">
-                Edit the name of your planner
-              </DialogDescription>
-            </DialogHeader>
-            <Input
-              value={newPlannerName}
-              onChange={(e) => setNewPlannerName(e.target.value)}
-              placeholder="Planner Name"
-            />
-            <DialogFooter>
-              <DialogClose asChild>
-                <Button variant={"destructive"}>Cancel</Button>
-              </DialogClose>
-              <DialogClose asChild>
-                <Button
-                  onClick={() => changePlannerName(plannerId, newPlannerName)}
-                >
-                  Save
-                </Button>
-              </DialogClose>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+      <div
+        className="mb-3 flex max-w-full items-start justify-start gap-4"
+        style={{ paddingRight: PADDING }}
+      >
+        <div className="w-fit">
+          <h1 className="break-words text-2xl font-bold">{planner.name}</h1>
+        </div>
+        <div className="w-fit">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="size-8 rounded-full" size={"icon"}>
+                <Edit className="size-5" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Edit Planner Name</DialogTitle>
+                <DialogDescription className="sr-only">
+                  Edit the name of your planner
+                </DialogDescription>
+              </DialogHeader>
+              <Input
+                value={newPlannerName}
+                onChange={(e) => setNewPlannerName(e.target.value)}
+                placeholder="Planner Name"
+              />
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button variant={"destructive"}>Cancel</Button>
+                </DialogClose>
+                <DialogClose asChild>
+                  <Button
+                    onClick={() => changePlannerName(plannerId, newPlannerName)}
+                  >
+                    Save
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       <div
