@@ -29,11 +29,9 @@ interface BidAnalyticsProps {
 
 export function BidAnalytics({ params }: BidAnalyticsProps) {
   const { modules } = useModuleBankStore((state) => state);
-  const [selectedInstructor, setSelectedInstructor] = useState<
-    string | undefined
-  >(params.instructor);
-  const [selectedTerm, setSelectedTerm] = useState<string | undefined>();
-  const [selectedSection, setSelectedSection] = useState<string | undefined>();
+  const [selectedInstructor, setSelectedInstructor] = useState<number>(0);
+  const [selectedTerm, setSelectedTerm] = useState<number>(0);
+  const [selectedSection, setSelectedSection] = useState<number>(0);
 
   const {
     data: instructors,
@@ -47,33 +45,37 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
   const { data: terms } = api.bidAnalytics.getTermsAvailable.useQuery(
     {
       moduleCode: params.moduleCode,
-      instructor: selectedInstructor!,
+      instructor: instructors?.at(selectedInstructor)!,
     },
     {
-      enabled: !!selectedInstructor,
+      enabled: !!instructors?.at(selectedInstructor),
     },
   );
 
   const { data: sections } = api.bidAnalytics.getSections.useQuery(
     {
       moduleCode: params.moduleCode,
-      instructor: selectedInstructor!,
-      term: selectedTerm!,
+      instructor: instructors?.at(selectedInstructor)!,
+      term: terms?.at(selectedTerm)!,
     },
     {
-      enabled: !!selectedInstructor && !!selectedTerm,
+      enabled:
+        !!instructors?.at(selectedInstructor) && !!terms?.at(selectedTerm),
     },
   );
 
   const { data: chartData } = api.bidAnalytics.getChartData.useQuery(
     {
       moduleCode: params.moduleCode,
-      instructor: selectedInstructor!,
-      term: selectedTerm!,
-      section: selectedSection!,
+      instructor: instructors?.at(selectedInstructor)!,
+      term: terms?.at(selectedTerm)!,
+      section: sections?.at(selectedSection)!,
     },
     {
-      enabled: !!selectedInstructor && !!selectedTerm && !!selectedSection,
+      enabled:
+        !!instructors?.at(selectedInstructor) &&
+        !!terms?.at(selectedTerm) &&
+        !!sections?.at(selectedSection),
     },
   );
 
@@ -103,7 +105,8 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
           disabled={!selectedInstructor}
         >
           <Link
-            href={`https://www.afterclass.io/professor/smu-${selectedInstructor
+            href={`https://www.afterclass.io/professor/smu-${instructors
+              ?.at(selectedInstructor)
               ?.split(" ")
               .map((e) => e.toLowerCase())
               .join("-")}`}
@@ -118,11 +121,11 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
           </Link>
         </Button>
         <Select
-          value={selectedInstructor}
+          value={selectedInstructor.toString()}
           onValueChange={async (e) => {
-            setSelectedInstructor(e);
-            setSelectedTerm(undefined);
-            setSelectedSection(undefined);
+            setSelectedInstructor(parseInt(e));
+            setSelectedTerm(0);
+            setSelectedSection(0);
           }}
         >
           <SelectTrigger className="w-[180px]">
@@ -134,7 +137,7 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
               {instructors
                 ?.filter((e) => e.length > 0)
                 .map((instructor, index) => (
-                  <SelectItem key={index} value={instructor}>
+                  <SelectItem key={index} value={index.toString()}>
                     {instructor}
                   </SelectItem>
                 ))}
@@ -142,10 +145,10 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
           </SelectContent>
         </Select>
         <Select
-          value={selectedTerm}
+          value={selectedTerm.toString()}
           onValueChange={async (e) => {
-            setSelectedTerm(e);
-            setSelectedSection(undefined);
+            setSelectedTerm(parseInt(e));
+            setSelectedSection(0);
           }}
         >
           <SelectTrigger className="w-[180px]">
@@ -157,7 +160,7 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
               {terms
                 ?.filter((e) => e.length > 0)
                 .map((term, index) => (
-                  <SelectItem key={index} value={term}>
+                  <SelectItem key={index} value={index.toString()}>
                     {term}
                   </SelectItem>
                 ))}
@@ -165,9 +168,9 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
           </SelectContent>
         </Select>
         <Select
-          value={selectedSection}
+          value={selectedSection.toString()}
           onValueChange={(e) => {
-            setSelectedSection(e);
+            setSelectedSection(parseInt(e));
           }}
         >
           <SelectTrigger className="w-[180px]">
@@ -179,7 +182,7 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
               {sections
                 ?.filter((e) => e.length > 0)
                 .map((section, index) => (
-                  <SelectItem key={index} value={section}>
+                  <SelectItem key={index} value={index.toString()}>
                     {section}
                   </SelectItem>
                 ))}
