@@ -1,8 +1,6 @@
 import CryptoJS from "crypto-js";
 
-import { env } from "@/env";
-
-const secretKey = env.NEXT_PUBLIC_COOKIE_SECRET;
+const secretKey = "secretKey";
 
 export function readFromLS(key: string): string | null {
   if (typeof window !== "undefined" && window.localStorage) {

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Plus } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -93,14 +93,52 @@ export default function Planner() {
 }
 
 function PlannerCard({ planner, id }: { planner: PlannerFull; id: string }) {
+  const { removePlanner } = useMultiplePlannerStore((state) => state);
+
   return (
-    <Link href={`/planner/${id}`}>
-      <div className="rounded-md border-2 p-4 hover:border-primary/50">
-        <h3 className="text-lg font-semibold">{planner.name}</h3>
-        <p className="text-sm text-primary">
-          {Object.keys(planner.plannerState.modules).length} modules
-        </p>
+    <div className="flex max-w-full rounded-md border-2 p-4 hover:border-primary/50">
+      <div className="h-full w-5/6">
+        <Link
+          href={`/planner/${id}`}
+          className="flex h-full flex-col justify-between"
+        >
+          <div>
+            <h3 className="break-words text-lg font-semibold">
+              {planner.name}
+            </h3>
+          </div>
+          <div>
+            <p className="text-wrap align-bottom text-sm">
+              {Object.keys(planner.plannerState.modules).length} modules
+            </p>
+          </div>
+        </Link>
       </div>
-    </Link>
+      <div className="mt-0 w-1/6 text-end">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button size={"icon"} variant={"destructiveOutline"}>
+              <Trash2></Trash2>
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Delete Planner</DialogTitle>
+              <DialogDescription>
+                {`Are you sure you want to delete planner ${planner.name}?`}
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button variant={"destructive"}>Cancel</Button>
+              </DialogClose>
+              <DialogClose asChild>
+                <Button onClick={() => removePlanner(id)}>Delete</Button>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </div>
   );
 }
