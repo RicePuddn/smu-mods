@@ -42,42 +42,45 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
     moduleCode: params.moduleCode,
   });
 
-  const { data: terms } = api.bidAnalytics.getTermsAvailable.useQuery(
-    {
-      moduleCode: params.moduleCode,
-      instructor: instructors?.at(selectedInstructor)!,
-    },
-    {
-      enabled: !!instructors?.at(selectedInstructor),
-    },
-  );
+  const { data: terms, refetch: refetchTerms } =
+    api.bidAnalytics.getTermsAvailable.useQuery(
+      {
+        moduleCode: params.moduleCode,
+        instructor: instructors?.at(selectedInstructor)!,
+      },
+      {
+        enabled: !!instructors?.at(selectedInstructor),
+      },
+    );
 
-  const { data: sections } = api.bidAnalytics.getSections.useQuery(
-    {
-      moduleCode: params.moduleCode,
-      instructor: instructors?.at(selectedInstructor)!,
-      term: terms?.at(selectedTerm)!,
-    },
-    {
-      enabled:
-        !!instructors?.at(selectedInstructor) && !!terms?.at(selectedTerm),
-    },
-  );
+  const { data: sections, refetch: refetchSections } =
+    api.bidAnalytics.getSections.useQuery(
+      {
+        moduleCode: params.moduleCode,
+        instructor: instructors?.at(selectedInstructor)!,
+        term: terms?.at(selectedTerm)!,
+      },
+      {
+        enabled:
+          !!instructors?.at(selectedInstructor) && !!terms?.at(selectedTerm),
+      },
+    );
 
-  const { data: chartData } = api.bidAnalytics.getChartData.useQuery(
-    {
-      moduleCode: params.moduleCode,
-      instructor: instructors?.at(selectedInstructor)!,
-      term: terms?.at(selectedTerm)!,
-      section: sections?.at(selectedSection)!,
-    },
-    {
-      enabled:
-        !!instructors?.at(selectedInstructor) &&
-        !!terms?.at(selectedTerm) &&
-        !!sections?.at(selectedSection),
-    },
-  );
+  const { data: chartData, refetch: refetchChart } =
+    api.bidAnalytics.getChartData.useQuery(
+      {
+        moduleCode: params.moduleCode,
+        instructor: instructors?.at(selectedInstructor)!,
+        term: terms?.at(selectedTerm)!,
+        section: sections?.at(selectedSection)!,
+      },
+      {
+        enabled:
+          !!instructors?.at(selectedInstructor) &&
+          !!terms?.at(selectedTerm) &&
+          !!sections?.at(selectedSection),
+      },
+    );
 
   if (modules[params.moduleCode as ModuleCode] === undefined) {
     return <div>Module not found</div>;
@@ -124,7 +127,9 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
           value={selectedInstructor.toString()}
           onValueChange={async (e) => {
             setSelectedInstructor(parseInt(e));
+            await refetchTerms();
             setSelectedTerm(0);
+            await refetchSections();
             setSelectedSection(0);
           }}
         >
@@ -148,6 +153,7 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
           value={selectedTerm.toString()}
           onValueChange={async (e) => {
             setSelectedTerm(parseInt(e));
+            await refetchSections();
             setSelectedSection(0);
           }}
         >
@@ -169,8 +175,9 @@ export function BidAnalytics({ params }: BidAnalyticsProps) {
         </Select>
         <Select
           value={selectedSection.toString()}
-          onValueChange={(e) => {
+          onValueChange={async (e) => {
             setSelectedSection(parseInt(e));
+            await refetchChart();
           }}
         >
           <SelectTrigger className="w-[180px]">
