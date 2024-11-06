@@ -136,7 +136,7 @@ export function NoticeBoard(props: JSX.IntrinsicElements["group"]) {
               padding: "5px",
               borderRadius: "5px",
               pointerEvents: "none",
-              height: "40px",
+              height: "70px",
               width: "200px",
               fontSize: "20px",
               textAlign: "center",
