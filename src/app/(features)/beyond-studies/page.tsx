@@ -167,7 +167,7 @@ export default function BeyondStudies() {
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="hover-effect w-full border border-slate-700 bg-white hover:bg-gray-200 dark:bg-slate-600"
+            className="hover-effect w-full cursor-pointer border border-slate-700 bg-white hover:bg-gray-200 dark:bg-slate-600"
           />
           <Button
             onClick={handleAddCard}
