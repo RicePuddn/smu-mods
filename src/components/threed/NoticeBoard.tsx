@@ -115,7 +115,7 @@ export function NoticeBoard(props: JSX.IntrinsicElements["group"]) {
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     setClicked(true);
-    router.push("/bid-analytics");
+    router.push("/beyond-studies");
   };
 
   return (
