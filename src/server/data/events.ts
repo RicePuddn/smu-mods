@@ -61,6 +61,39 @@ export const eventsData: Record<string, ExtendedSchoolEvent[]> = {
       deadline: new Date("2024-10-19T23:59:59+08:00"),
       venue: "SOL SR 2-4",
     },
+    {
+      id: "Intertidal Walk @ Chek Jawa",
+      name: "SMUX Diving",
+      title: "Intertidal Walk @ Chek Jawa",
+      description: "Join us for an intertidal walk at Chek Jawa, including a boat ride and an NParks tour to explore marine life.",
+      date: new Date("2024-12-15T15:00:00+08:00"),
+      startTime: new Date("2024-12-15T15:00:00+08:00"),
+      endTime: new Date("2024-12-15T18:45:00+08:00"),
+      deadline: new Date("2024-12-15T15:00:00+08:00"),
+      venue: "Changi Point Ferry Terminal"
+    },
+    {
+      id: "Traditional Chinese Perspective on Sustainability",
+      name: "SMU SOSS& CIS",
+      title: "A Traditional Chinese Perspective",
+      description: "Daoists have a deep admiration and close connection to nature. Among the various modern schools of ecology, they resonate most with Deep Ecology: developed by the Norwegian thinker Arne Naess, it focuses on the system of environmental cooperation as a whole and can be described as a form of biospherical egalitarianism or organic holism. Daoists accordingly integrate all natural features, plants and animals, in a comprehensive existentialism. They see everything as interconnected in a natural pattern of complementarity, described in terms of yin and yang. In contrast to the prevailing view of nature in the Western world, determined by the Biblical injunction in Genesis that 'man have dominion over every creeping thing' on earth, Daoists propose to merge with the flow of Dao, that is, return to organic harmony, a stable, homeostatic order.",
+      date: new Date("2024-11-29T15:45:00+08:00"),
+      startTime: new Date("2024-11-29T15:45:00+08:00"),
+      endTime: new Date("2024-11-29T17:15:00+08:00"),
+      deadline: new Date("2024-11-29T15:45:00+08:00"),
+      venue: "SMU SOSS & CIS, Meeting Room 4-1 & 4-2"
+    },
+    {
+      id: "Bi-Annual Finals Welfare Drive",
+      name: "Ellipsis",
+      title: "Ellipsis Welfare Drive",
+      description: "Ellipsis is back with our Bi-Annual Finals Welfare Drive! Finals can be tough, so we're here to make it a little easier! Swing by to grab your goodies and snap a photo with your friends before you start studying.",
+      date: new Date("2024-11-05T12:00:00+08:00"),
+      startTime: new Date("2024-11-05T12:00:00+08:00"),
+      endTime: new Date("2024-11-05T17:00:00+08:00"),
+      deadline: new Date("2024-10-31T17:00:00+08:00"),
+      venue: "The Alcove (B1 near IS lounge)"
+    },
   ],
   csp: [
     {
@@ -84,6 +117,17 @@ export const eventsData: Record<string, ExtendedSchoolEvent[]> = {
       endTime: new Date("2024-10-20T16:00:00+08:00"),
       deadline: new Date("2024-10-19T23:59:59+08:00"),
       venue: "SOL SR 2-4",
+    },
+    {
+      id: "Volunteer Recruitment",
+      name: "Punggol Primary School Chillies Club",
+      title: "Volunteers Needed",
+      description: "Punggol Primary School Chillies Club is an afterschool programme for students who require additional social and emotional support.",
+      date: new Date("2025-01-12T14:00:00+08:00"),
+      startTime: new Date("2025-01-12T14:00:00+08:00"),
+      endTime: new Date("2025-11-21T16:00:00+08:00"),
+      deadline: new Date("2024-11-08T23:59:59+08:00"),
+      venue: "Punggol Primary School"
     },
   ],
   others: [
