@@ -136,13 +136,13 @@ export function NoticeBoard(props: JSX.IntrinsicElements["group"]) {
               padding: "5px",
               borderRadius: "5px",
               pointerEvents: "none",
-              height: "70px",
+              height: "40px",
               width: "200px",
               fontSize: "20px",
               textAlign: "center",
             }}
           >
-            View Bid Analysis Here!
+            View Events Here!
           </div>
         </Html>
       )}

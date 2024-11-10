@@ -32,7 +32,7 @@ export const InteractiveTooltip: React.FC<InteractiveTooltipProps> = ({
         </div>
       </TooltipTrigger>
       <TooltipPortal>
-        <TooltipContent className="border border-orange-300 bg-muted text-foreground shadow-md">
+        <TooltipContent className="max-w-[100dvh] border border-orange-300 bg-muted text-foreground shadow-md">
           {content}{" "}
         </TooltipContent>
       </TooltipPortal>
