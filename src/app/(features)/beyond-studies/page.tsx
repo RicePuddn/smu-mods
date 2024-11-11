@@ -276,7 +276,7 @@ export default function BeyondStudies() {
               variant="beyondStudies"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full text-black dark:text-white"
+              className="w-full text-white dark:text-white"
             />
           </div>
           {isMobile && <ChevronDown className="text-primary-foreground" />}
