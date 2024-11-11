@@ -7,7 +7,7 @@ A web application designed to help SMU students plan their modules effectively. 
 1. Clone the repository
 
 ```bash
-git clone https://github.com/darkliyznyanlin910/smu-mods.git
+git clone https://github.com/RicePuddn/smu-mods.git
 cd smu-mods
 ```
 
