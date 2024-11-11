@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import SHA256 from "crypto-js/sha256";
-import { Loader2, QrCode } from "lucide-react";
+import { Copy, Loader2, QrCode } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
+import { toast } from "sonner";
 
 import { useConfigStore } from "@/stores/config/provider";
 import { useMultiplePlannerStore } from "@/stores/multiplePlanners/provider";
@@ -73,17 +74,30 @@ export function GenerateQRCode() {
     setData(id);
   };
 
+  const url = `${getBaseUrl(true)}/iSync/${data}`;
+
   return (
     <div className="flex justify-center">
       {data ? (
         <div className="flex w-full flex-col items-center justify-center gap-2">
-          <QRCodeCanvas
-            value={`${getBaseUrl(true)}/iSync/${data}`}
-            className="w-3/4"
-            size={200}
-          />
-          <p className="text-destructive">
-            This QR Code is valid for next 10 minutes.
+          <QRCodeCanvas value={url} className="w-3/4 bg-white p-1" size={200} />
+          <div className="flex w-full items-center justify-center gap-1">
+            <pre className="flex-grow overflow-x-scroll rounded-sm bg-accent p-1 text-center text-sm">
+              {url}
+            </pre>
+            <Button
+              onClick={() => {
+                navigator.clipboard.writeText(url);
+                toast("Copied to clipboard");
+              }}
+              size={"icon"}
+              className="size-6 min-w-6"
+            >
+              <Copy className="size-4" />
+            </Button>
+          </div>
+          <p className="rounded-md bg-destructive text-center text-destructive-foreground">
+            This QR Code and Link are valid for next 10 minutes.
           </p>
         </div>
       ) : (
